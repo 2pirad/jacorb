@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.60 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: Delegate.java,v 1.61 2002-10-15 11:40:36 steve.osselton Exp $
  *
  */
 
@@ -728,7 +728,7 @@ public final class Delegate
             ParsedIOR pior = getParsedIOR();
 
             if ( piorOriginal != null )
-                info.target = orb._getObject( pior );
+                info.target = orb._getObject( piorOriginal );
             else
                 info.target = self;
 
