@@ -60,7 +60,7 @@ import org.omg.PortableInterceptor.IORInterceptor;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.14 2003-12-19 16:01:56 david.robison Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.15 2004-01-07 09:11:12 nick.cross Exp $
  */
 
 public class SASComponentInterceptor
@@ -164,7 +164,7 @@ public class SASComponentInterceptor
                 } else {
                 	targetName = Environment.getProperty( "jacorb.security.sas.tss.target_name").getBytes();
                 }
-                
+
                 short asTargetSupports = targetSupports;
                 short asTargetRequires = targetRequires;
 
@@ -215,7 +215,7 @@ public class SASComponentInterceptor
                 CompoundSecMechListHelper.write( sasDataStream , compoundSecMechList );
                 tc = new TaggedComponent( TAG_CSI_SEC_MECH_LIST.value, sasDataStream.getBufferCopy() );
 
-                sasDataStream.release ();
+                sasDataStream.close ();
                 sasDataStream = null;
             }
 
