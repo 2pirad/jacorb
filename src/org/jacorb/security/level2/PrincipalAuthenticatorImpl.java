@@ -20,7 +20,7 @@ import org.jacorb.security.util.*;
  * from a Java key store
  *
  * @author Gerald Brose
- * $Id: PrincipalAuthenticatorImpl.java,v 1.6 2001-06-25 13:25:20 noffke Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.7 2001-07-29 17:22:56 jacorb Exp $
  */
 
 public class PrincipalAuthenticatorImpl
@@ -58,7 +58,7 @@ public class PrincipalAuthenticatorImpl
                                              OpaqueHolder auth_specific_data
                                              )
     {
-	org.jacorb.util.Debug.output(3,"starting authentication");
+	org.jacorb.util.Debug.output( 3,"starting authentication" );
 	try 
 	{	
 	    registerProvider();
