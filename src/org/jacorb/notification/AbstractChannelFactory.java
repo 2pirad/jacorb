@@ -71,7 +71,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.2 2004-06-24 07:47:53 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.3 2004-06-24 08:15:46 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory
@@ -766,7 +766,7 @@ public abstract class AbstractChannelFactory
         throws Exception
     {
         if ( nameId == null ) {
-            throw new ConfigurationException(Attributes.REGISTER_NAME_ID + "is null. This attributes needs to be non null if a reference should be registered in the NameService.");
+            return;
         }
 
         namingContext_ =
