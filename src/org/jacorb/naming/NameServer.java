@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  *	The name server application
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: NameServer.java,v 1.12 2002-05-29 07:53:30 gerald Exp $
+ *	@version $Id: NameServer.java,v 1.13 2002-07-05 07:05:51 steve.osselton Exp $
  */
 
 
@@ -225,9 +225,28 @@ public class NameServer
              */
             props.put( "jacorb.connection.server_timeout", "10000" );
 
-            if( port !=null )
-                props.put( "OAPort", port );
+            // If port not set on command line see if configured
 
+            if (port == null)
+            {
+                port = Environment.getProperty ("jacorb.naming.port");
+                if (port != null)
+                {
+                    try
+                    {
+                        Integer.parseInt (port);
+                    }
+                    catch (NumberFormatException ex)
+                    {
+                        port = null;
+                    }
+                }
+            }
+
+            if (port != null)
+            {
+                props.put ("OAPort", port);
+            }
 
 	    /* which directory to store/load in? */
 
