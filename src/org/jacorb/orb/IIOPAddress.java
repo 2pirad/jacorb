@@ -2,9 +2,11 @@ package org.jacorb.orb;
 
 import java.net.*;
 
+import org.jacorb.orb.dns.DNSLookup;
+
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.5 2003-06-20 15:05:56 andre.spiegel Exp $
+ * @version $Id: IIOPAddress.java,v 1.6 2003-07-04 14:13:36 andre.spiegel Exp $
  */
 public class IIOPAddress 
 {
@@ -106,15 +108,8 @@ public class IIOPAddress
     {
         if (hostname == null)
         {
-            try
-            {
-                 hostname = InetAddress.getByName(ip).getHostName();
-            }
-            catch (UnknownHostException ex)
-            {
-                throw new RuntimeException ("could not resolve ip address: "
-                                            + ip);
-            }
+            hostname = DNSLookup.inverseLookup (ip);
+            if (hostname == null) hostname = ip;
         }
         return hostname;      
     }
