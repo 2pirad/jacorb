@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.99 2003-10-28 05:19:19 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.100 2003-10-28 13:12:52 nick.cross Exp $
  */
 
 public final class ORB
@@ -357,9 +357,13 @@ public final class ORB
     }
 
 
-    synchronized void _release( org.jacorb.orb.Delegate delegate )
+    /**
+     * Take a string rather then a Delegate object to prevent data race
+     * warning.
+     */
+    synchronized void _release( String iorString )
     {
-        knownReferences.remove( delegate.getParsedIOR().getIORString() );
+        knownReferences.remove( iorString );
     }
 
 
@@ -1242,6 +1246,10 @@ public final class ORB
                     //find the equals char that separates prop name from
                     //prop value
                     int equals_pos = prop.indexOf( '=' );
+                    if ( equals_pos == -1 )
+                    {
+                        throw new org.omg.CORBA.BAD_PARAM( "InitRef format invalid for " + prop );
+                    }
 
                     //add the property to environment
                     Environment.setProperty( prop.substring( 0, equals_pos ),
@@ -1263,6 +1271,10 @@ public final class ORB
                     //find the equals char that separates prop name from
                     //prop value
                     int equals_pos = prop.indexOf( '=' );
+                    if ( equals_pos == -1 )
+                    {
+                        throw new org.omg.CORBA.BAD_PARAM( "InitRef format invalid for " + prop );
+                    }
 
                     //add the property to environment
                     Environment.setProperty( "ORBInitRef." +
