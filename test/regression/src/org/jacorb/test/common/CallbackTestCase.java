@@ -6,7 +6,7 @@ import junit.framework.*;
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: CallbackTestCase.java,v 1.2 2002-11-09 14:27:19 andre.spiegel Exp $
+ * @version $Id: CallbackTestCase.java,v 1.3 2002-11-09 15:59:11 andre.spiegel Exp $
  */
 public class CallbackTestCase extends ClientServerTestCase
 {
@@ -35,8 +35,8 @@ public class CallbackTestCase extends ClientServerTestCase
                             ( "no reply within timeout (" 
                               + timeout + "ms)" );
                 }
-                System.out.println( "waiting time: " +
-                                    ( System.currentTimeMillis() - start ) );
+                //System.out.println( "waiting time: " +
+                //                    ( System.currentTimeMillis() - start ) );
                 if ( testFailed )
                     junit.framework.Assert.fail( failureMessage );
                 else
@@ -80,6 +80,19 @@ public class CallbackTestCase extends ClientServerTestCase
                 fail( "unexpected exception: " 
                       + methodName + ", " + e );
             }   
+        }
+
+        public Exception getException( ExceptionHolder excep_holder )
+        {
+            try
+            {
+                excep_holder.raise_exception();
+                return null;
+            }
+            catch( Exception e )
+            {
+                return e;
+            }
         }
 
         public synchronized void pass()
