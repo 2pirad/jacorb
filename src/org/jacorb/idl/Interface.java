@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.13 2001-04-10 09:32:48 jacorb Exp $
+ * @version $Id: Interface.java,v 1.14 2001-06-11 08:39:55 jacorb Exp $
  */
 
 import java.util.*;
@@ -179,8 +179,13 @@ class Interface
                 NameTable.define( full_name(), "pseudo interface" );
             else
                 NameTable.define( full_name(), "interface" );
+
             TypeMap.typedef( full_name(), ctspec );
         } 
+        catch ( IllegalRedefinition ill )
+        {
+            parser.fatal_error("Illegal Redefinition of scope " + ill.oldDef + " with " + ill.newDef, token);
+        }
         catch ( NameAlreadyDefined nad )
         {
             // if we get here, there is already a type spec for this interface 
@@ -189,7 +194,9 @@ class Interface
             // if this is not yet another forwad declaration
 
             if( body != null )
+            {
                 justAnotherOne = true;
+            }
 
             if( !full_name().equals("org.omg.CORBA.TypeCode") && body != null)
             {

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.6 2001-05-29 11:40:08 jacorb Exp $
+ * @version $Id: TypeMap.java,v 1.7 2001-06-11 08:39:56 jacorb Exp $
  */
 
 import java.util.*;
@@ -33,14 +33,15 @@ class TypeMap
 {
     static java.util.Hashtable typemap = new java.util.Hashtable(5000);
 
-    static
+
+    public static void init()
     {
+        typemap.clear();
 	typemap.put( "org.omg.CORBA.Object", new ObjectTypeSpec( IdlSymbol.new_num()) );
 	typemap.put( "org.omg.CORBA.TypeCode", new TypeCodeTypeSpec( IdlSymbol.new_num()) );
 	typemap.put( "CORBA.Object", new ObjectTypeSpec( IdlSymbol.new_num()) );
 	typemap.put( "CORBA.TypeCode", new TypeCodeTypeSpec( IdlSymbol.new_num()) );
     }
-
 
     // return the type spec associated with a name, if any
 

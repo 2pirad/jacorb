@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.8 2001-05-29 11:40:07 jacorb Exp $
+ * @version $Id: StructType.java,v 1.9 2001-06-11 08:39:56 jacorb Exp $
  */
 
 class StructType 
@@ -161,7 +161,7 @@ class StructType
 	    ConstrTypeSpec ctspec = new ConstrTypeSpec( new_num() );
 	    ctspec.c_type_spec = this;
 
-	    NameTable.define( full_name(), "type" );
+	    NameTable.define( full_name(), "type-struct" );
 	    TypeMap.typedef( full_name(), ctspec );
 	} 
 	catch ( NameAlreadyDefined nad )

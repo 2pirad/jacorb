@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.4 2001-03-27 12:01:21 noffke Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.5 2001-06-11 08:39:55 jacorb Exp $
  */
 
 import java.util.Vector;
@@ -60,7 +60,7 @@ class SimpleDeclarator
     {        
 	try
 	{
-	    NameTable.define( full_name(), "attr/param name");
+	    NameTable.define( full_name(), "declarator");
 	} 
 	catch (NameAlreadyDefined p )
 	{

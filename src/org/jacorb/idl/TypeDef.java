@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDef.java,v 1.4 2001-03-27 12:01:21 noffke Exp $
+ * @version $Id: TypeDef.java,v 1.5 2001-06-11 08:39:56 jacorb Exp $
  */
 
 import java.util.Vector;
@@ -114,8 +114,8 @@ class TypeDef
             } 
             catch ( NameAlreadyDefined n )
             {
-                parser.error( "Name " + d.name() + 
-                              " already defined in typedef. ", d.token);
+                parser.error( "TypeDef'd name " + d.name() + 
+                              " already defined. ", d.token);
             }
         }
     }
@@ -134,17 +134,6 @@ class TypeDef
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

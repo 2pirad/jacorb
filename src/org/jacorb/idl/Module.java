@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.4 2001-03-27 12:01:19 noffke Exp $
+ * @version $Id: Module.java,v 1.5 2001-06-11 08:39:55 jacorb Exp $
  */
 
 import java.util.*;
@@ -104,6 +104,15 @@ class Module
 
     public void parse() 
     {
+	try
+	{
+            NameTable.define( full_name(), "module" );
+	} 
+	catch ( NameAlreadyDefined nad )
+	{
+            Environment.output( 4, nad );
+	    parser.error("Module name " + full_name() + " already defined", token);
+	}
         spec.parse();
     }
         
@@ -154,20 +163,7 @@ class Module
         return unreplacedName;
     }
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
