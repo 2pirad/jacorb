@@ -39,7 +39,7 @@ import java.util.*;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.24 2003-12-17 13:38:52 nick.cross Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.25 2003-12-30 14:41:54 andre.spiegel Exp $
  */
 public final class RequestController
     extends Thread
@@ -63,7 +63,7 @@ public final class RequestController
     private Hashtable 			activeRequestTable;
     // RequestProcessor -> oid
     // for synchronisation with the object deactiviation process
-    private Vector 			deactivationList = new Vector();
+    private List			deactivationList = new ArrayList();
     // oid's
 
     // other synchronisation stuff
@@ -171,7 +171,7 @@ public final class RequestController
 
     synchronized void freeObject( byte[] oid )
     {
-        deactivationList.removeElement( new ByteArrayKey( oid ) );
+        deactivationList.remove( new ByteArrayKey( oid ) );
     }
 
     AOM getAOM()
@@ -576,7 +576,7 @@ public final class RequestController
 
         }
 
-        deactivationList.addElement( oidbak );
+        deactivationList.add( oidbak );
     }
 
     /**
