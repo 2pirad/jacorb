@@ -21,15 +21,17 @@ package org.jacorb.notification;
  *
  */
 
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
 import org.jacorb.notification.engine.TaskProcessor;
+import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.ProxyCreationRequestEventListener;
 import org.jacorb.notification.interfaces.ProxyEventListener;
+
 import org.omg.CosNotifyChannelAdmin.EventChannel;
 import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
 import org.omg.CosNotifyFilter.FilterFactory;
-import org.jacorb.notification.interfaces.Message;
+
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
 
 /**
  * ChannelContext.java
@@ -38,12 +40,13 @@ import org.jacorb.notification.interfaces.Message;
  * Created: Sat Nov 30 16:02:18 2002
  *
  * @author Alphonse Bendt
- * @version $Id: ChannelContext.java,v 1.8 2003-08-25 21:00:47 alphonse.bendt Exp $
+ * @version $Id: ChannelContext.java,v 1.9 2003-09-12 09:25:03 alphonse.bendt Exp $
  */
 
 public class ChannelContext {
 
-    private Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    private Logger logger_ =
+        Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
 
     private EventChannel eventChannel;
     private EventChannelImpl eventChannelServant;
@@ -52,7 +55,6 @@ public class ChannelContext {
     private FilterFactory defaultFilterFactory;
     private TaskProcessor taskProcessor_;
 
-    private ProxyCreationRequestEventListener proxyCreationEventListener_;
     private ProxyEventListener proxySupplierDisposedListener_;
     private ProxyEventListener proxyConsumerDisposedListener_;
 
@@ -100,7 +102,8 @@ public class ChannelContext {
     /**
      * Sets the value of eventChannelFactoryServant
      *
-     * @param argEventChannelFactoryServant Value to assign to this.eventChannelFactoryServant
+     * @param argEventChannelFactoryServant Value to assign to
+     * this.eventChannelFactoryServant
      */
     public void setEventChannelFactoryServant(EventChannelFactoryImpl argEventChannelFactoryServant) {
         eventChannelFactoryServant = argEventChannelFactoryServant;
@@ -191,5 +194,4 @@ public class ChannelContext {
     public void dispatchEvent(Message event) {
         getTaskProcessor().processEvent( event );
     }
-
 }
