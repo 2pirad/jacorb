@@ -32,7 +32,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.1 2003-05-07 16:03:19 andre.spiegel Exp $
+ * @version $Id: IIOPConnection.java,v 1.2 2003-05-24 09:55:41 andre.spiegel Exp $
  */
 
 public abstract class IIOPConnection extends org.omg.ETF._ConnectionLocalBase
@@ -138,9 +138,6 @@ public abstract class IIOPConnection extends org.omg.ETF._ConnectionLocalBase
             read += n;
         }
     }
-
-    // implementation of org.jacorb.orb.connection.Transport interface
-
 
     public void write (boolean is_first,
                        boolean is_last, 
