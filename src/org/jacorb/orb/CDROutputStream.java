@@ -31,7 +31,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.3 2001-03-19 11:08:24 brose Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.4 2001-03-22 08:55:18 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -1087,10 +1087,10 @@ public class CDROutputStream
         case TCKind._tk_octet:
             write_octet( in.read_octet());
             break;          
-        case TCKind._tk_short:
+        case TCKind._tk_ushort:
             write_ushort( in.read_ushort());
             break;
-        case TCKind._tk_ushort:
+        case TCKind._tk_short:
             write_short(in.read_short());
             break;
         case TCKind._tk_long:
