@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
  * Created: Sat Nov 09 16:34:05 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterImplTest.java,v 1.5 2004-01-16 17:37:30 alphonse.bendt Exp $
+ * @version $Id: FilterImplTest.java,v 1.6 2004-01-17 01:38:27 alphonse.bendt Exp $
  */
 
 public class FilterImplTest extends TestCase {
@@ -100,7 +100,7 @@ public class FilterImplTest extends TestCase {
         while (_i.hasNext()) {
             _count++;
             ConstraintEntry _e = (ConstraintEntry)_i.next();
-            assertEquals("1", _e.getConstraintEvaluator().getConstraint());
+            assertEquals("1", _e.getFilterConstraint().getConstraint());
         }
         assertTrue(_count == 2);
 
@@ -119,8 +119,8 @@ public class FilterImplTest extends TestCase {
         while (_i.hasNext()) {
             _count++;
             ConstraintEntry _e = (ConstraintEntry)_i.next();
-            assertTrue(_e.getConstraintEvaluator().getConstraint().equals("1") ||
-                       _e.getConstraintEvaluator().getConstraint().equals("2"));
+            assertTrue(_e.getFilterConstraint().getConstraint().equals("1") ||
+                       _e.getFilterConstraint().getConstraint().equals("2"));
         }
         assertTrue(_count == 4);
     }
@@ -153,8 +153,8 @@ public class FilterImplTest extends TestCase {
         while (_i.hasNext()) {
             _count++;
             ConstraintEntry _e = (ConstraintEntry)_i.next();
-            assertTrue(_e.getConstraintEvaluator().getConstraint().equals("1") ||
-                       _e.getConstraintEvaluator().getConstraint().equals("2"));
+            assertTrue(_e.getFilterConstraint().getConstraint().equals("1") ||
+                       _e.getFilterConstraint().getConstraint().equals("2"));
         }
         assertTrue(_count == 4);
 
@@ -169,7 +169,7 @@ public class FilterImplTest extends TestCase {
         while (_i.hasNext()) {
             _count++;
             ConstraintEntry _e = (ConstraintEntry)_i.next();
-            assertTrue(_e.getConstraintEvaluator().getConstraint().equals("1"));
+            assertTrue(_e.getFilterConstraint().getConstraint().equals("1"));
         }
         assertTrue(_count == 2);
     }
