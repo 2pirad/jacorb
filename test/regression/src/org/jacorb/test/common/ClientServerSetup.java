@@ -73,7 +73,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.15 2004-05-07 13:49:37 brose Exp $
+ * @version $Id: ClientServerSetup.java,v 1.16 2004-05-09 14:51:10 francisco Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -141,7 +141,7 @@ public class ClientServerSetup extends TestSetup {
         serverexec.append( ' ' );
         serverexec.append( getTestServerMain() );
         serverexec.append( ' ' );
-        serverexec.append( servantName + "\"");
+        serverexec.append( servantName );
 
         System.out.println( "Execing: " + serverexec.toString() );
 
