@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.15 2001-12-13 15:44:59 gerald Exp $
+ * @version $Id: UnionType.java,v 1.16 2002-02-04 08:36:39 steve.osselton Exp $
  *
  */
 
@@ -770,7 +770,7 @@ class UnionType
 	}
 	if( !explicit_default_case && ! switch_is_bool && !allCasesCovered )
 	{
-	    defaultWriter.println("\t\t\tdefault: result.__default();");		    
+	    defaultWriter.println("\t\t\tdefault: result.__default (disc);");		    
 	}
 	defaultWriter.close();
 
