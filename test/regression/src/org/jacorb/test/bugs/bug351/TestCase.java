@@ -26,7 +26,7 @@ import org.jacorb.test.common.*;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: TestCase.java,v 1.1 2003-08-13 16:27:28 andre.spiegel Exp $
+ * @version $Id: TestCase.java,v 1.2 2003-08-31 13:15:46 andre.spiegel Exp $
  */
 public class TestCase extends ClientServerTestCase
 {
@@ -44,7 +44,7 @@ public class TestCase extends ClientServerTestCase
     
     public static Test suite()
     {
-        TestSuite suite = new TestSuite( "Bug 351 complex valuetype" );
+        TestSuite suite = new TestSuite( "bug 351 complex valuetype" );
         ClientServerSetup setup =
             new ClientServerSetup( suite,
                                    "org.jacorb.test.bugs.bug351.ValueServerImpl" );
