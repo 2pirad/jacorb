@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.38 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.39 2003-09-09 15:21:54 brose Exp $
  */
 
 public class AliasTypeSpec
@@ -238,7 +238,19 @@ public class AliasTypeSpec
 
         try
         {
-            if( !( originalType.typeSpec() instanceof TemplateTypeSpec ) )
+
+            if( logger.isDebugEnabled())
+            {
+                logger.debug("AliasTypeSpec.print: alias " + className() + 
+                             " with original type " + 
+                             originalType.getClass().getName() + 
+                             " original type.typeSpec() " + 
+                             originalType.typeSpec().getClass().getName() );
+            }
+
+            if( !( originalType.typeSpec() instanceof StringType ) && 
+                !( originalType.typeSpec() instanceof SequenceType )
+                )
                 originalType.print( ps );
 
             String className = className();
