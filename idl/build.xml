@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB idl build file                     -->
-  <!-- $Id: build.xml,v 1.17 2002-03-05 10:59:47 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.18 2002-03-05 14:25:15 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -93,6 +93,7 @@
 		       <include name="**/*.java"/>
          </fileset>
       </copy>
+
       <delete file="${src}/generated/org/omg/CORBA/ORB.java"/>
 
 <!-- 	<delete file="${src}/generated/org/omg/CORBA/BadKind.java"/> -->
@@ -129,7 +130,7 @@
 		   includes="**/omg/SystemException.idl"
 		   destdir="${src}/generated/temp"/>
 
-      <copy todir="${src}/generated">
+      <copy todir="${src}/generated" overwrite="yes">
          <fileset dir="${src}/generated/temp">
             <include name="**/CompletionStatus*.java"/>
 		      <include name="**/*Helper.java"/>
@@ -137,6 +138,10 @@
       </copy>      
 
       <delete dir="${src}/generated/temp"/>
+
+	   <copy file="${src}/java_mapping/CORBA/SystemExceptionHelper.java"
+         todir="${src}/generated/org/omg/CORBA"
+	   />
    </target>
 
 
