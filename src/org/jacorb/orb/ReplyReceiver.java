@@ -53,7 +53,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.24 2005-02-04 13:44:52 andre.spiegel Exp $
+ * @version $Id: ReplyReceiver.java,v 1.25 2005-03-02 22:01:47 andre.spiegel Exp $
  */
 
 public class ReplyReceiver 
@@ -122,6 +122,11 @@ public class ReplyReceiver
         if (timer != null)
             timer.wakeup();
 
+        Set pending_replies = delegate.get_pending_replies();
+        // grab pending_replies lock BEFORE my own,
+        // then I will already have it in the replyDone call below.
+        synchronized ( pending_replies ) 
+        {
         // This internal synchronization prevents a deadlock
         // when a timeout and a reply coincide, suggested
         // by Jimmy Wilson, 2005-01.  It is only a temporary
@@ -146,6 +151,7 @@ public class ReplyReceiver
                 ready = true;
                 notifyAll();
             }
+        }
         }
     }
 
