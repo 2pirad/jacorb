@@ -2,7 +2,7 @@ package demo.ssl;
 
 import java.io.*;
 
-import iaik.x509.X509Certificate;
+import java.security.cert.X509Certificate;
 
 import org.omg.PortableServer.POA;
 import org.omg.SecurityLevel2.*;
@@ -18,7 +18,7 @@ import org.jacorb.security.level2.*;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: Server.java,v 1.2 2001-07-30 17:11:52 jacorb Exp $
+ * @version $Id: Server.java,v 1.3 2002-01-22 10:56:39 nicolas Exp $
  */
 
 public class Server 
