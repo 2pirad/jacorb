@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.96 2003-08-15 11:17:38 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.97 2003-08-18 10:48:00 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -483,7 +483,7 @@ public final class ORB
 
         TaggedComponentList multipleComponents = new TaggedComponentList();
         componentMap.put (new Integer (TAG_MULTIPLE_COMPONENTS.value),
-                          new TaggedComponentList());
+                          multipleComponents);
 
         // invoke IOR interceptors
         if ((interceptor_manager != null) &&
