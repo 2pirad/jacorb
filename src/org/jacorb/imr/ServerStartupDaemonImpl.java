@@ -6,7 +6,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerStartupDaemonImpl.java,v 1.3 2001-03-19 11:07:59 brose Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.4 2001-03-21 09:00:30 noffke Exp $
  *
  */
 
@@ -106,7 +106,7 @@ public class ServerStartupDaemonImpl
         catch (Exception _e)
         {
 	    Debug.output(Debug.IMR | Debug.INFORMATION, _e);
-	    throw new ServerStartupFailed();
+	    throw new ServerStartupFailed( _e.toString() );
 	}
     }
 
