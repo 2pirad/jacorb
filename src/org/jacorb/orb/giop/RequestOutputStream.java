@@ -32,7 +32,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.23 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: RequestOutputStream.java,v 1.24 2003-09-12 15:13:02 nicolas Exp $
  *
  */
 
@@ -165,9 +165,6 @@ public class RequestOutputStream
                 			throw new org.omg.CORBA.MARSHAL ("Invalid SYNC_SCOPE: " + syncScope);
                 	}
                 }
-                if( reserved.length < 3)
-                    throw new org.omg.CORBA.MARSHAL("Incorrect array size "+
-                                                     reserved.length + ", expecting 3");
 
 		write_octet_array( reserved,0,3 );
 		org.omg.GIOP.TargetAddressHelper.write( this, addr );
