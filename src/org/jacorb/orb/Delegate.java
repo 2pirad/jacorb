@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.52 2002-06-13 13:26:43 gerald Exp $
+ * @version $Id: Delegate.java,v 1.53 2002-06-17 08:41:57 steve.osselton Exp $
  *
  */
 
@@ -1455,7 +1455,7 @@ public final class Delegate
                 }
                 else
                 {
-                    System.err.println("Internal error: we should have gotten to this piece of code!")
+                    System.err.println ("Internal error: we should have gotten to this piece of code!");
                 }
                 
                 if ( !expectedType.isInstance( so.servant ) )
