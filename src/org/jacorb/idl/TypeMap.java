@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.3 2001-03-19 11:07:54 brose Exp $
+ * @version $Id: TypeMap.java,v 1.4 2001-03-20 18:06:52 jacorb Exp $
  */
 
 import java.util.*;
@@ -57,7 +57,8 @@ class TypeMap
 	throws NameAlreadyDefined
     {
 	Environment.output(3,"Typedef'ing " + name + " for " + 
-                           type.typeName() + " , hash: " + type.hashCode() );
+                           type.typeName() + 
+                           " , hash: " + type.hashCode() );
 
 	if( typemap.containsKey( name ))
 	{
@@ -84,7 +85,8 @@ class TypeMap
 	}
     }
 
-    public static void replaceForwardDeclaration( String name, TypeSpec type ) 
+    public static void replaceForwardDeclaration( String name, 
+                                                  TypeSpec type ) 
     {
 	if( typemap.containsKey( name ))
 	{
@@ -106,23 +108,6 @@ class TypeMap
     }
 
 }	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

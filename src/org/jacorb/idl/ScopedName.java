@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  * 
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.3 2001-03-19 11:07:49 brose Exp $
+ * @version $Id: ScopedName.java,v 1.4 2001-03-20 18:06:52 jacorb Exp $
  *
  */
 
@@ -379,9 +379,11 @@ class ScopedName
 
 	    if( m > 1 )
 	    {
-		for( i = 1; i < m; i++ )
-		    if(!( s_scopes[i].equals( p_scopes[i] )))
+		for( i = 1; i < m -1 ; i++ )
+                {
+		    if( ! ( s_scopes[i].equals( p_scopes[i] )))
 			break;
+                }
 		t.append( s_scopes[i] );
 
 		for( int k = i+1; k < s_scopes.length; k++ )
@@ -639,13 +641,6 @@ class ScopedName
 
 
 }
-
-
-
-
-
-
-
 
 
 

@@ -42,7 +42,7 @@ package org.jacorb.idl;
  *  
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.3 2001-03-19 11:07:56 brose Exp $
+ * @version $Id: lexer.java,v 1.4 2001-03-20 18:06:52 jacorb Exp $
  * @author Gerald Brose
  *
  */
@@ -937,8 +937,7 @@ public class lexer
 
     public static String checkIdentifier( String str )
     {
-        Environment.output(4, "checking identifier " + str );
-
+        //Environment.output(4, "checking identifier " + str );
 
         /* if it is not an escaped identifier, look it up as a keyword */
         if( str.charAt(0) ==  '_' )
@@ -955,11 +954,11 @@ public class lexer
 
         if( needsJavaEscape( str ))
         {
-            Environment.output(4, "checking identifier " + str + " : needs _ ");
+            // Environment.output(4, "checking identifier " + str + " : needs _ ");
             return "_" + str;
         }
 
-        Environment.output(4, "checking identifier " + str + " : needs no _ ");       
+        // Environment.output(4, "checking identifier " + str + " : needs no _ ");       
         return str;
     }
 

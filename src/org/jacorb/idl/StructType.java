@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.3 2001-03-19 11:07:51 brose Exp $
+ * @version $Id: StructType.java,v 1.4 2001-03-20 18:06:52 jacorb Exp $
  */
 
 
@@ -165,6 +165,7 @@ class StructType
 	} 
 	catch ( NameAlreadyDefined nad )
 	{
+            Environment.output( 4, nad );
 	    parser.error("Struct " + typeName() + " already defined", token);
 	}
 	if( memberlist != null )
@@ -504,23 +505,6 @@ class StructType
 	}
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
