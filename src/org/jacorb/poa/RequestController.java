@@ -37,10 +37,9 @@ import java.util.*;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.19 2003-04-01 12:51:52 nick.cross Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.20 2003-10-28 12:17:06 nick.cross Exp $
  */
-public class RequestController
-    extends Thread
+public final class RequestController extends Thread
 {
     private POA 			poa;
     private org.jacorb.orb.ORB		orb;
@@ -550,7 +549,7 @@ public class RequestController
                 {
                 	if (logTrace.test(6))
                         logTrace.printLog("the RequestController goes to sleep");
-                    queueLog.wait();
+                  queueLog.wait();
                 }
                 catch (java.lang.InterruptedException e) {
                 }
