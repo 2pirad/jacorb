@@ -14,7 +14,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  * 
- * $Id: parser.cup,v 1.40 2002-04-11 06:42:50 gerald Exp $
+ * $Id: parser.cup,v 1.41 2002-04-11 16:01:39 gerald Exp $
  *
  */
 
@@ -1062,8 +1062,8 @@ value_dcl ::=
 
 value_inheritance_spec ::= 
           COLON truncatable:t scopename_list:vn 
-                {:
-                        RESULT.truncatable = true;      
+                {:                        
+                        RESULT.truncatable = ( t.int_val == 1 );      
                         RESULT.v = (Vector)vn.v.clone(); 
                 :}
         | SUPPORTS scopename_list:interface_names
@@ -1072,7 +1072,7 @@ value_inheritance_spec ::=
                 :}
         | COLON truncatable:t scopename_list:vn SUPPORTS scopename_list:interface_names
                 {:      
-                        RESULT.truncatable = true;              
+                        RESULT.truncatable = ( t.int_val == 1 );      
                         RESULT.v = (Vector)vn.v.clone(); 
                         RESULT.supports = (Vector)interface_names.v.clone(); 
                 :}

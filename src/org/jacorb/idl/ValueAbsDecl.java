@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.4 2002-04-11 06:42:49 gerald Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.5 2002-04-11 16:01:38 gerald Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
@@ -262,7 +262,7 @@ class ValueAbsDecl
                 // do we inherit from a class in the unnamed package?
                 // if so, we have to import this class explicitly 
                 
-                if( inheritanceSpec.v.size() > 0 )
+                if( inheritanceSpec != null && inheritanceSpec.v.size() > 0 )
                 {
                     Enumeration e = inheritanceSpec.v.elements();
                     for(; e.hasMoreElements();)
@@ -277,21 +277,17 @@ class ValueAbsDecl
                 printImport(ps);
 
                 ps.println("public interface " + name );
-                    ps.print("\textends org.omg.CORBA.portable.ValueBase");
+                ps.print("\textends org.omg.CORBA.portable.ValueBase ");
 
-                if( inheritanceSpec.v.size() > 0 )
+                if( inheritanceSpec != null && inheritanceSpec.v.size() > 0 )
                 {
-                    ps.print("\timplements ");
-                    Enumeration e = inheritanceSpec.v.elements();
-                    ps.print( (ScopedName)e.nextElement() );
-                    for(; e.hasMoreElements();)
+                    for(Enumeration e = inheritanceSpec.v.elements(); e.hasMoreElements();)
                     {
                         ps.print(", " +  (ScopedName)e.nextElement());
                     }
-                    ps.print("\n");
                 }
-                
-                ps.println("{");
+
+                ps.println("\n{");
                 if( body != null )
                 { 
                     // forward declaration

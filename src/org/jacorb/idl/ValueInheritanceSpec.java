@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueInheritanceSpec.java,v 1.2 2002-04-11 06:42:50 gerald Exp $
+ * @version $Id: ValueInheritanceSpec.java,v 1.3 2002-04-11 16:01:39 gerald Exp $
  */
 
 class  ValueInheritanceSpec  
@@ -34,7 +34,7 @@ class  ValueInheritanceSpec
     public Vector v;
     public Vector supports;
 
-    public boolean truncatable;
+    public boolean truncatable = false;
 
     public ValueInheritanceSpec(int num)
     {
@@ -88,7 +88,7 @@ class  ValueInheritanceSpec
     public String toString()
     {
         StringBuffer sb = new StringBuffer();
-                Enumeration e = v.elements();
+        Enumeration e = v.elements();
 
         if(e.hasMoreElements())
             sb.append( (IdlSymbol)e.nextElement() );
