@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.24 2002-03-19 09:25:20 nicolas Exp $
+ * @version $Id: ORBSingleton.java,v 1.25 2002-03-28 16:05:03 jason.courage Exp $
  */
 
 public class ORBSingleton
@@ -253,6 +253,11 @@ public class ORBSingleton
     public org.omg.CORBA.TypeCode create_fixed_tc( short digits, 
                                                    short scale)
     {
+        if (digits <= 0 || scale < 0 || scale > digits)
+        {
+            throw new org.omg.CORBA.BAD_PARAM
+               ("Invalid combination of digits and scale factor");
+        }
         return new org.jacorb.orb.TypeCode(digits, scale);
     }
 
