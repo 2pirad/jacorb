@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.13 2001-04-03 16:02:30 jacorb Exp $
+ * @version $Id: ORB.java,v 1.14 2001-04-04 09:19:46 noffke Exp $
  */
 
 public final class ORB
@@ -269,8 +269,47 @@ public final class ORB
         
         // up to two profiles will be written
         TaggedProfile[] tps = null;
-        String address = basicAdapter.getAddress();
-        int port = basicAdapter.getPort();
+        
+        String address = Environment.getProperty( "jacorb.ior_proxy_host" );
+        if( address == null )
+        {
+            //property not set
+            address = basicAdapter.getAddress();
+        }
+        else
+        {
+            Debug.output( Debug.INFORMATION | Debug.ORB_MISC, 
+                          "Using proxy host " + address +
+                          " in IOR" );
+        }
+
+        String port_str = Environment.getProperty( "jacorb.ior_proxy_port" );
+        int port = -1;
+        
+        if( port_str != null )
+        {
+            try
+            {
+                port = Integer.parseInt( port_str );
+            }
+            catch( NumberFormatException nfe )
+            {
+                throw new Error( "Unable to create int from string >>" +
+                                 port_str + "<<. " +
+                                 "(check property \"jacorb.ior_proxy_port\")" );
+            }
+
+            if( port < 0 )
+            {
+                throw new Error( "Negative port numbers are not allowed! " +
+                                 "(check property \"jacorb.ior_proxy_port\")" );
+            }
+        }
+        else
+        {
+            //property not set
+            port = basicAdapter.getPort();
+        }
 
         if( !_transient && Environment.useImR() )
         {
