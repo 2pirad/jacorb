@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.5 2002-03-19 09:24:58 nicolas Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.6 2002-04-08 10:28:47 steve.osselton Exp $
  */
 
 import java.util.Vector;
@@ -54,7 +54,6 @@ class ArrayDeclarator
         if( ! name.startsWith("_") &&
             lexer.strictJavaEscapeCheck( name ))
         {
-            escapedName = true;
             name = "_" + name;
         }
     }

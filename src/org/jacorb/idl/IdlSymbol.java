@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.15 2002-03-25 17:48:56 gerald Exp $
+ * @version $Id: IdlSymbol.java,v 1.16 2002-04-08 10:28:47 steve.osselton Exp $
  */
 
 class IdlSymbol 
@@ -40,7 +40,6 @@ class IdlSymbol
     String name = "";
     protected boolean is_pseudo = false; // is this a PIDL spec.?
     protected boolean included = false;
-    protected boolean escapedName = false;
     protected boolean inhibitionFlag = false;
     str_token token;
     protected String _id;
@@ -114,14 +113,25 @@ class IdlSymbol
         if( ! name.startsWith("_") &&
             lexer.strictJavaEscapeCheck( name ))
         {
-            escapedName = true;
             name = "_" + name;
         }
     }
 
     public boolean isEscaped()
     {
-        return escapedName;
+        return (name().startsWith ("_"));
+    }
+
+    public String deEscapeName ()
+    {
+       String tmp = name ();
+
+       if (tmp.startsWith ("_"))
+       {
+          tmp = tmp.substring (1);
+       }
+
+       return tmp;
     }
 	
     public void setPackage( String s )

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  * 
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.10 2002-03-19 09:25:05 nicolas Exp $
+ * @version $Id: ScopedName.java,v 1.11 2002-04-08 10:28:48 steve.osselton Exp $
  *
  */
 
@@ -214,8 +214,6 @@ class ScopedName
         if( ! name.startsWith("_") &&
             lexer.strictJavaEscapeCheck( typeName ))
         {
-            escapedName = true;
-
             // if the type name is not a simple name, then insert the escape
             // char after the last dot
             if( typeName.indexOf('.') > 0 )
