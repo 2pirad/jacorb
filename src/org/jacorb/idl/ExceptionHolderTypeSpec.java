@@ -21,8 +21,8 @@
 package org.jacorb.idl;
 
 /**
- * @author Andre Spiegel
- * $Id: ExceptionHolderTypeSpec.java,v 1.1.2.2 2002-10-27 19:22:19 andre.spiegel Exp $
+ * @author Andre Spiegel <spiegel@gnu.org>
+ * @version $Id: ExceptionHolderTypeSpec.java,v 1.1.2.3 2002-11-04 16:56:14 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;

@@ -1,3 +1,5 @@
+package org.jacorb.orb;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -17,8 +19,6 @@
  *   License along with this library; if not, write to the Free
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-
-package org.jacorb.orb;
 
 import org.jacorb.orb.connection.MessageInputStream;
 import org.jacorb.orb.connection.ReplyInputStream;
@@ -46,8 +46,8 @@ import java.util.*;
  * ReplyReceiver is created; then the reply is delivered to that 
  * ReplyHandler. 
  *
- * @author Andre Spiegel
- * @version $Id: ReplyReceiver.java,v 1.1.2.4 2002-10-31 09:33:25 andre.spiegel Exp $
+ * @author Andre Spiegel <spiegel@gnu.org>
+ * @version $Id: ReplyReceiver.java,v 1.1.2.5 2002-11-04 16:57:21 andre.spiegel Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
