@@ -24,12 +24,13 @@ import org.jacorb.orb.SystemExceptionHelper;
 import org.jacorb.util.*;
 
 import org.omg.GIOP.*;
+import org.omg.CORBA.MARSHAL;
 import org.omg.CORBA.portable.ApplicationException;
 import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.18 2003-12-17 16:44:10 nick.cross Exp $
+ * @version $Id: ReplyInputStream.java,v 1.19 2004-01-02 12:13:25 nick.cross Exp $
  *
  */
 
@@ -46,7 +47,7 @@ public class ReplyInputStream
         //check message type
         if( Messages.getMsgType( buffer ) != MsgType_1_1._Reply )
         {
-            throw new Error( "Error: not a reply!" );
+            throw new MARSHAL("Not a reply!");
         }
 
         switch( giop_minor )
@@ -81,7 +82,7 @@ public class ReplyInputStream
                 break;
             }
             default : {
-                throw new Error( "Unknown GIOP minor version: " + giop_minor );
+                throw new MARSHAL("Unknown GIOP minor version: " + giop_minor);
             }
         }
     }
@@ -149,7 +150,7 @@ public class ReplyInputStream
         return body;
     }
 
-    public void finalize()
+    protected void finalize() throws Throwable
     {
         try
         {
@@ -158,6 +159,10 @@ public class ReplyInputStream
         catch( java.io.IOException iox )
         {
             //ignore
+        }
+        finally
+        {
+            super.finalize();
         }
     }
 }
