@@ -28,16 +28,20 @@ package org.jacorb.notification.node;
  * Created: Fri Jul 05 21:55:02 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StaticTypeException.java,v 1.4 2003-07-17 18:08:52 alphonse.bendt Exp $
+ * @version $Id: StaticTypeException.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class StaticTypeException extends VisitorException {
-    public StaticTypeException(String msg) {
-	super(msg);
+public class StaticTypeException extends VisitorException
+{
+
+    public StaticTypeException( String msg )
+    {
+        super( msg );
     }
 
-    public StaticTypeException() {
-	super();
+    public StaticTypeException()
+    {
+        super();
     }
 
-}// StaticTypeException
+} // StaticTypeException

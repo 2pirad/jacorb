@@ -32,11 +32,13 @@ import org.omg.CosNotifyChannelAdmin.SequenceProxyPullConsumerPOATie;
 import org.omg.CosNotifyComm.SequencePullSupplier;
 import org.omg.PortableServer.Servant;
 
+import org.jacorb.notification.interfaces.Message;
+
 /**
  * SequenceProxyPullConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.4 2003-08-02 10:02:03 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl
@@ -70,7 +72,7 @@ public class SequenceProxyPullConsumerImpl
     }
 
     public void connect_sequence_pull_supplier( SequencePullSupplier sequencePullSupplier )
-	throws AlreadyConnected
+        throws AlreadyConnected
     {
 
         if ( connected_ )
@@ -122,7 +124,7 @@ public class SequenceProxyPullConsumerImpl
                 {
                     for ( int x = 0; x < _events.length; ++x )
                     {
-                        NotificationEvent _notifyEvent =
+                        Message _notifyEvent =
                             notificationEventFactory_.newEvent( _events[ x ], this );
 
                         channelContext_.dispatchEvent( _notifyEvent );

@@ -21,44 +21,50 @@ package org.jacorb.test.notification;
  *
  */
 
-import junit.framework.TestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.swingui.TestRunner;
-import org.apache.log.Priority;
 import org.jacorb.notification.util.LogConfiguration;
 
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import junit.swingui.TestRunner;
 
 /**
  * AllTest.java
  *
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.4 2003-08-02 11:35:26 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class AllTest extends TestCase {
+public class AllTest extends TestCase
+{
 
-    static {
-	LogConfiguration.getInstance().configure();
+    static
+    {
+        LogConfiguration.getInstance().configure();
     }
 
-    public AllTest(String name) {
-	super(name);
-    }
-    
-    public static Test suite() throws Exception {
-	TestSuite _suite = 
-	    new TestSuite("All Notification Service Tests");
-
-	_suite.addTest(org.jacorb.test.notification.PackageTest.suite());
-	_suite.addTest(org.jacorb.test.notification.node.PackageTest.suite());
-	_suite.addTest(org.jacorb.test.notification.util.PackageTest.suite());
- 	_suite.addTest(org.jacorb.test.notification.evaluate.PackageTest.suite());
-
-	return _suite;
+    public AllTest( String name )
+    {
+        super( name );
     }
 
-    public static void main(String[] args) throws Exception {
-	junit.textui.TestRunner.run(suite());
+    public static Test suite() throws Exception
+    {
+        TestSuite _suite =
+            new TestSuite( "All Notification Service Tests" );
+
+        _suite.addTest( org.jacorb.test.notification.PackageTest.suite() );
+        _suite.addTest( org.jacorb.test.notification.node.PackageTest.suite() );
+        _suite.addTest( org.jacorb.test.notification.util.PackageTest.suite() );
+        _suite.addTest( org.jacorb.test.notification.queue.PackageTest.suite() );
+        _suite.addTest( org.jacorb.test.notification.evaluate.PackageTest.suite() );
+        _suite.addTest( org.jacorb.test.notification.engine.PackageTest.suite() );
+
+        return _suite;
     }
-} 
+
+    public static void main( String[] args ) throws Exception
+    {
+        junit.textui.TestRunner.run( suite() );
+    }
+}

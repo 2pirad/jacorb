@@ -21,7 +21,7 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.interfaces.FrameworkEvent;
+import org.jacorb.notification.interfaces.ApplicationEvent;
 import org.jacorb.notification.EventChannelImpl;
 
 /**
@@ -29,13 +29,13 @@ import org.jacorb.notification.EventChannelImpl;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelEvent.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: EventChannelEvent.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class EventChannelEvent extends FrameworkEvent 
+public class EventChannelEvent extends ApplicationEvent
 {
     public EventChannelEvent(EventChannelImpl servant)
     {
-	super(servant);
-    }   
+        super(servant);
+    }
 }

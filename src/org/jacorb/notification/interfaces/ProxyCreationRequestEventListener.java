@@ -29,16 +29,17 @@ import org.omg.CosNotifyChannelAdmin.AdminLimitExceeded;
  * Created: Wed Feb 12 18:20:58 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ProxyCreationRequestEventListener.java,v 1.2 2003-07-17 18:11:50 alphonse.bendt Exp $
+ * @version $Id: ProxyCreationRequestEventListener.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public interface ProxyCreationRequestEventListener {
+public interface ProxyCreationRequestEventListener
+{
 
     /**
      * This event is fired if a Admin wants to create a new Proxy. A
      * Listener can throw AdminLimitExceeded if no more Proxies may be created.
      */
-    void actionProxyCreationRequest(ProxyCreationRequestEvent e) 
-	throws AdminLimitExceeded;
-    
-}// ProxyCreationEventListener
+    void actionProxyCreationRequest( ProxyCreationRequestEvent e )
+        throws AdminLimitExceeded;
+
+}

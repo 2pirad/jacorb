@@ -24,9 +24,6 @@ package org.jacorb.notification.node;
 import org.jacorb.notification.EvaluationContext;
 import org.jacorb.notification.evaluate.EvaluationException;
 import org.omg.CORBA.ORB;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 import antlr.Token;
 
@@ -35,85 +32,76 @@ import antlr.Token;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: RuntimeVariableNode.java,v 1.2 2003-07-17 18:08:52 alphonse.bendt Exp $
+ * @version $Id: RuntimeVariableNode.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class RuntimeVariableNode extends TCLNode
+public class RuntimeVariableNode extends AbstractTCLNode
 {
-    static ORB sOrb_;
-
-    static {
-	sOrb_ = ORB.init(new String[] {}, null);
-    }
-
-    String value_;    
-
-    TCLNode strategy_;
+    private String value_;
+    private AbstractTCLNode strategy_;
 
     public RuntimeVariableNode( Token token )
     {
-	super(token);
+        super(token);
 
-	value_ = token.getText();
+        value_ = token.getText();
 
-	strategy_ = newStrategy(value_);
+        strategy_ = newStrategy(value_);
     }
 
-    public EvaluationResult evaluate(EvaluationContext context) throws InconsistentTypeCode,
-								       TypeMismatch,
-								       EvaluationException,
-								       InvalidValue,
-								       DynamicTypeException {
+    public EvaluationResult evaluate(EvaluationContext context)
+        throws EvaluationException,
+               DynamicTypeException {
 
-	return strategy_.evaluate(context);
+        return strategy_.evaluate(context);
     }
 
-    private TCLNode newStrategy(String variable) {
-	if (DomainNameShorthandNode.SHORT_NAME.equals(variable)) {
-	    return new DomainNameShorthandNode();
-	} else if (TypeNameShorthandNode.SHORT_NAME.equals(variable)) {
-	    return new TypeNameShorthandNode();
-	} else if (EventNameShorthandNode.SHORT_NAME.equals(variable)) {
-	    return new EventNameShorthandNode();
-	} else if (CurrentTimeNode.SHORT_NAME.equals(variable)) {
-	    return new CurrentTimeNode(sOrb_);
-	} else {
-	    return new PropertyShorthandNode(variable);
-	}
+    private AbstractTCLNode newStrategy(String variable) {
+        if (DomainNameShorthandNode.SHORT_NAME.equals(variable)) {
+            return new DomainNameShorthandNode();
+        } else if (TypeNameShorthandNode.SHORT_NAME.equals(variable)) {
+            return new TypeNameShorthandNode();
+        } else if (EventNameShorthandNode.SHORT_NAME.equals(variable)) {
+            return new EventNameShorthandNode();
+        } else if (CurrentTimeNode.SHORT_NAME.equals(variable)) {
+            return new CurrentTimeNode();
+        } else {
+            return new PropertyShorthandNode(variable);
+        }
     }
 
-    public void acceptPostOrder( TCLVisitor visitor ) throws VisitorException
+    public void acceptPostOrder( AbstractTCLVisitor visitor ) throws VisitorException
     {
-	if (getFirstChild() != null) {
-	    ( ( TCLNode ) getFirstChild() ).acceptPostOrder( visitor );
-	}
-	visitor.visitRuntimeVariable( this );
+        if (getFirstChild() != null) {
+            ( ( AbstractTCLNode ) getFirstChild() ).acceptPostOrder( visitor );
+        }
+        visitor.visitRuntimeVariable( this );
     }
 
-    public void acceptPreOrder( TCLVisitor visitor ) throws VisitorException
+    public void acceptPreOrder( AbstractTCLVisitor visitor ) throws VisitorException
     {
-	visitor.visitRuntimeVariable( this );
+        visitor.visitRuntimeVariable( this );
 
-	if (getFirstChild() != null) {
-	    ( ( TCLNode ) getFirstChild() ).acceptPreOrder( visitor );
-	}
+        if (getFirstChild() != null) {
+            ( ( AbstractTCLNode ) getFirstChild() ).acceptPreOrder( visitor );
+        }
     }
 
-    public void acceptInOrder( TCLVisitor visitor ) throws VisitorException
+    public void acceptInOrder( AbstractTCLVisitor visitor ) throws VisitorException
     {
-	if (getFirstChild() != null) {
-	    ( ( TCLNode ) getFirstChild() ).acceptInOrder( visitor );
-	}
+        if (getFirstChild() != null) {
+            ( ( AbstractTCLNode ) getFirstChild() ).acceptInOrder( visitor );
+        }
 
-	visitor.visitRuntimeVariable(this);
+        visitor.visitRuntimeVariable(this);
     }
-    
+
     public String toString() {
-	return value_;
+        return value_;
     }
-    
+
     public String getIdentifier() {
-	return value_;
+        return value_;
     }
 
 }

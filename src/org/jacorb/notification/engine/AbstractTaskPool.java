@@ -1,3 +1,5 @@
+package org.jacorb.notification.engine;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -19,23 +21,25 @@
  *
  */
 
-package org.jacorb.notification;
+import org.jacorb.notification.interfaces.AbstractPoolable;
+import org.jacorb.notification.util.AbstractObjectPool;
 
 /**
- * Properties.java
- *
  * @author Alphonse Bendt
- * @version $Id: Properties.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: AbstractTaskPool.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public interface Properties 
+abstract class AbstractTaskPool extends AbstractObjectPool
 {
 
-    public static final String FILTER_POOL_WORKERS = "jacorb.notification.filter_pool_workers";
+    public void passivateObject( Object o )
+    {
+        ( ( AbstractPoolable ) o ).reset();
+    }
 
-    public static final String DELIVER_POOL_WORKERS = "jacorb.notification.deliver_pool_workers";
-
-    public static final String PULL_CONSUMER_POLLINTERVALL = 
-	"jacorb.notification.pull_consumer_pollintervall";
+    public void activateObject( Object o )
+    {
+        ( ( AbstractPoolable ) o ).setObjectPool( this );
+    }
 
 }

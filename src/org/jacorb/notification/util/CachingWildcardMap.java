@@ -31,12 +31,11 @@ package org.jacorb.notification.util;
  * or remove Operation occurs the Cache is invalidated.
  *
  * @author Alphonse Bendt
- * @version $Id: CachingWildcardMap.java,v 1.2 2003-06-05 13:04:08 alphonse.bendt Exp $
+ * @version $Id: CachingWildcardMap.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class CachingWildcardMap extends WildcardMap
 {
-
     private Object[] cachedKeys_;
     private Object[] cachedValues_;
     private int cacheSize_;

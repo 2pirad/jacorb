@@ -21,7 +21,7 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.ProxyBase;
+import org.jacorb.notification.AbstractProxy;
 
 /**
  * ProxyDisposedEvent.java
@@ -30,13 +30,13 @@ import org.jacorb.notification.ProxyBase;
  * Created: Wed Feb 12 15:12:52 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ProxyDisposedEvent.java,v 1.2 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: ProxyDisposedEvent.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class ProxyDisposedEvent extends FrameworkEvent {
+public class ProxyDisposedEvent extends ApplicationEvent {
 
-    public ProxyDisposedEvent(ProxyBase proxy) {
-	super(proxy);
+    public ProxyDisposedEvent(AbstractProxy proxy) {
+        super(proxy);
     }
-    
+
 }

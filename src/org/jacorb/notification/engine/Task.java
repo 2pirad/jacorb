@@ -25,10 +25,11 @@ package org.jacorb.notification.engine;
  * Task.java
  *
  * @author Alphonse Bendt
- * @version $Id: Task.java,v 1.6 2003-08-02 10:28:32 alphonse.bendt Exp $
+ * @version $Id: Task.java,v 1.7 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public interface Task extends Runnable {    
+public interface Task extends Runnable
+{
 
     public static int NEW = 0;
     public static int ERROR = 1;
@@ -38,7 +39,7 @@ public interface Task extends Runnable {
 
     /**
      * return the status of this Task.
-     */ 
+     */
     int getStatus();
 
 }

@@ -42,7 +42,7 @@ import java.lang.Process;
  *  Unit Test for class NotificationTestCase.java
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCase.java,v 1.4 2003-08-02 10:33:33 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCase.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class NotificationTestCase extends TestCase {
@@ -52,48 +52,48 @@ public class NotificationTestCase extends TestCase {
     private EventChannelFactoryImpl factoryServant_;
 
     public void tearDown() {
-	if (factoryServant_ != null) {
-	    factoryServant_.dispose();
-	}
+        if (factoryServant_ != null) {
+            factoryServant_.dispose();
+        }
     }
 
     public ORB getORB() {
 
-	return setup_.getClientOrb();
+        return setup_.getClientOrb();
 
     }
 
     public POA getPOA() {
 
-	return setup_.poa_;
+        return setup_.poa_;
 
     }
 
-    public TestUtils getTestUtils() {
-	return setup_.getTestUtils();
+    public NotificationTestUtils getTestUtils() {
+        return setup_.getTestUtils();
     }
 
     public EventChannelFactory getEventChannelFactory() {
-	return setup_.getServant().getEventChannelFactory();
+        return setup_.getServant().getEventChannelFactory();
     }
 
     public EventChannelFactory getLocalEventChannelFactory() throws Exception {
-	factoryServant_ = new EventChannelFactoryImpl();
+        factoryServant_ = new EventChannelFactoryImpl();
 
-	return EventChannelFactoryHelper.narrow(factoryServant_._this(getORB()));
+        return EventChannelFactoryHelper.narrow(factoryServant_._this(getORB()));
     }
 
     public NotificationTestCaseSetup getSetup() {
-	return setup_;
+        return setup_;
     }
 
-    /** 
+    /**
      * Creates a new <code>NotificationTestCase</code> instance.
      *
      * @param name test name
      */
     public NotificationTestCase(String name, NotificationTestCaseSetup setup) {
-	super(name);
-	setup_ = setup;
+        super(name);
+        setup_ = setup;
     }
 }

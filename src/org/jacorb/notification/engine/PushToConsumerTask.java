@@ -22,14 +22,15 @@ package org.jacorb.notification.engine;
  */
 
 import org.jacorb.notification.interfaces.EventConsumer;
+import org.jacorb.notification.interfaces.Message;
 
 /**
  *
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTask.java,v 1.1 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTask.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class PushToConsumerTask extends TaskBase
+public class PushToConsumerTask extends AbstractTask
 {
 
     private EventConsumer target_;
@@ -40,12 +41,12 @@ public class PushToConsumerTask extends TaskBase
         super.reset();
     }
 
-    EventConsumer getEventConsumer()
+    public EventConsumer getEventConsumer()
     {
         return target_;
     }
 
-    void setEventConsumer( EventConsumer dest )
+    public void setEventConsumer( EventConsumer dest )
     {
         target_ = dest;
     }
@@ -54,7 +55,7 @@ public class PushToConsumerTask extends TaskBase
     {
         if ( logger_.isDebugEnabled() )
         {
-            logger_.debug( "push to " + target_ );
+            logger_.debug( "push " + event_ + " to " + target_ );
         }
 
         target_.deliverEvent( event_ );

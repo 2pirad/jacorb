@@ -24,6 +24,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.jacorb.notification.interfaces.EventConsumer;
+import org.jacorb.notification.interfaces.Message;
+
 import org.omg.CORBA.Any;
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
@@ -36,11 +38,11 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.8 2003-08-02 10:02:03 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.9 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
-            extends ProxyBase
+            extends AbstractProxy
             implements ProxyPushConsumerOperations,
             org.omg.CosEventChannelAdmin.ProxyPushConsumerOperations
 {
@@ -115,21 +117,21 @@ public class ProxyPushConsumerImpl
      */
     public void push( Any event ) throws Disconnected
     {
-	//	logger_.debug("push(Any)");
+        //      logger_.debug("push(Any)");
 
         if ( !connected )
         {
             throw new Disconnected();
         }
 
-        NotificationEvent _notifyEvent =
+        Message _notifyEvent =
             notificationEventFactory_.newEvent( event, this );
 
-	//logger_.debug("createdEvent");
+        //logger_.debug("createdEvent");
 
         channelContext_.dispatchEvent( _notifyEvent );
 
-	//logger_.debug("dispatchedEvent");
+        //logger_.debug("dispatchedEvent");
     }
 
     public void connect_push_supplier( org.omg.CosEventComm.PushSupplier pushSupplier )
@@ -165,7 +167,7 @@ public class ProxyPushConsumerImpl
 
     public EventConsumer getEventConsumer()
     {
-	throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
     }
 
     public boolean hasEventConsumer()

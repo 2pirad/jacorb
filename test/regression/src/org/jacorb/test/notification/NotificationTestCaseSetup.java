@@ -34,7 +34,7 @@ import junit.extensions.TestSetup;
  * NotificationTestCaseSetup.java
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCaseSetup.java,v 1.4 2003-07-20 12:22:25 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCaseSetup.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class NotificationTestCaseSetup extends TestSetup {
@@ -42,58 +42,58 @@ public class NotificationTestCaseSetup extends TestSetup {
     Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
     ORB orb_;
     POA poa_;
-    TestUtils testUtils_;
+    NotificationTestUtils testUtils_;
     private EventChannelFactoryImpl eventChannelServant_;
 
-    public TestUtils getTestUtils() {
-	return(testUtils_);
+    public NotificationTestUtils getTestUtils() {
+        return(testUtils_);
     }
 
     public NotificationTestCaseSetup(Test suite) throws Exception {
-	super(suite);
+        super(suite);
     }
 
     public void setUp() throws Exception {
-	logger_.debug("setUp");
+        logger_.debug("setUp");
 
-	super.setUp();
-	orb_ = ORB.init(new String[0], null);
-	poa_ = POAHelper.narrow(orb_.resolve_initial_references("RootPOA"));
-	testUtils_ = new TestUtils(orb_);
-	eventChannelServant_ = EventChannelFactoryImpl.newFactory();
+        super.setUp();
+        orb_ = ORB.init(new String[0], null);
+        poa_ = POAHelper.narrow(orb_.resolve_initial_references("RootPOA"));
+        testUtils_ = new NotificationTestUtils(orb_);
+        eventChannelServant_ = EventChannelFactoryImpl.newFactory();
 
-	poa_.the_POAManager().activate();
+        poa_.the_POAManager().activate();
 
-	Thread thread = new Thread(
-		   new Runnable() {
-		       public void run() {
-			   orb_.run();
-		       }
-		   });
-	thread.setDaemon(true);
-	thread.start();
+        Thread thread = new Thread(
+                   new Runnable() {
+                       public void run() {
+                           orb_.run();
+                       }
+                   });
+        thread.setDaemon(true);
+        thread.start();
 
-	eventChannelServant_ = EventChannelFactoryImpl.newFactory();
+        eventChannelServant_ = EventChannelFactoryImpl.newFactory();
     }
 
     public void tearDown() throws Exception {
-	logger_.debug("tearDown");
-	eventChannelServant_.dispose();
-	orb_.shutdown(true);
-	super.tearDown();
-	logger_.debug("tearDown - done");
+        logger_.debug("tearDown");
+        eventChannelServant_.dispose();
+        orb_.shutdown(true);
+        super.tearDown();
+        logger_.debug("tearDown - done");
     }
-    
+
     public EventChannelFactoryImpl getServant() {
-	logger_.debug("getServant: " + eventChannelServant_);
-	return eventChannelServant_;
+        logger_.debug("getServant: " + eventChannelServant_);
+        return eventChannelServant_;
     }
 
     public ORB getClientOrb() {
-	return orb_;
+        return orb_;
     }
 
     public POA getClientRootPOA() {
-	return poa_;
+        return poa_;
     }
 }

@@ -21,7 +21,7 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.util.ObjectPoolBase;
+import org.jacorb.notification.util.AbstractObjectPool;
 
 /**
  * Interface to indicate that a Object can be pooled. Objects can be
@@ -30,12 +30,12 @@ import org.jacorb.notification.util.ObjectPoolBase;
  * Created: Sat Jan 04 17:01:16 2003
  *
  * @author Alphonse Bendt
- * @version $Id: Poolable.java,v 1.2 2003-07-17 18:11:26 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolable.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public abstract class Poolable {
-
-    private ObjectPoolBase objectPool_;
+public abstract class AbstractPoolable
+{
+    private AbstractObjectPool objectPool_;
 
     /**
      * The call to this Method indicates that this Object is not
@@ -44,17 +44,20 @@ public abstract class Poolable {
      * ObjectPool. It's forbidden to use the Object
      * after release has been called as this may cause unexpected behaviour.
      */
-    public void release() {
-	if (objectPool_ != null) {
-	    objectPool_.returnObject(this);
-	}
+    public void release()
+    {
+        if ( objectPool_ != null )
+        {
+            objectPool_.returnObject( this );
+        }
     }
 
     /**
      * Set the ObjectPool that administers this instance.
      */
-    public void setObjectPool(ObjectPoolBase pool) {
-	objectPool_ = pool;
+    public void setObjectPool( AbstractObjectPool pool )
+    {
+        objectPool_ = pool;
     }
 
     /**

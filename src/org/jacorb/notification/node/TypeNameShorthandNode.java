@@ -22,7 +22,7 @@ package org.jacorb.notification.node;
  */
 
 import org.jacorb.notification.EvaluationContext;
-import org.jacorb.notification.NotificationEvent;
+import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.evaluate.EvaluationException;
 import org.jacorb.notification.parser.TCLParser;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
@@ -35,13 +35,13 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * Created: Thu Apr 10 12:08:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: TypeNameShorthandNode.java,v 1.3 2003-07-17 18:08:52 alphonse.bendt Exp $
+ * @version $Id: TypeNameShorthandNode.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class TypeNameShorthandNode extends ComponentName
 {
 
-    static TCLNode expandedPath_;
+    static AbstractTCLNode expandedPath_;
     static final String COMP_NAME = "$.header.fixed_header.event_type.type_name";
     public static final String SHORT_NAME = "type_name";
 
@@ -66,41 +66,38 @@ public class TypeNameShorthandNode extends ComponentName
         return COMP_NAME;
     }
 
-    public void acceptInOrder( TCLVisitor v )
+    public void acceptInOrder( AbstractTCLVisitor v )
     {
     }
 
-    public void acceptPostOrder( TCLVisitor v )
+    public void acceptPostOrder( AbstractTCLVisitor v )
     {
     }
 
-    public void acceptPreOrder( TCLVisitor v )
+    public void acceptPreOrder( AbstractTCLVisitor v )
     {
     }
 
     public EvaluationResult evaluate( EvaluationContext context )
 
-	throws DynamicTypeException,
-	       TypeMismatch,
-	       InvalidValue,
-	       InconsistentTypeCode,
-	       EvaluationException
+        throws DynamicTypeException,
+               EvaluationException
     {
-        NotificationEvent _event = context.getNotificationEvent();
+        Message _event = context.getNotificationEvent();
         EvaluationResult _result;
 
         switch ( _event.getType() )
         {
 
-        case NotificationEvent.TYPE_ANY:
+        case Message.TYPE_ANY:
             _result = expandedPath_.evaluate( context );
             break;
 
-        case NotificationEvent.TYPE_STRUCTURED:
-            String _domainName = 
-		_event.toStructuredEvent().header.fixed_header.event_type.type_name;
+        case Message.TYPE_STRUCTURED:
+            String _domainName =
+                _event.toStructuredEvent().header.fixed_header.event_type.type_name;
 
-	    _result = new EvaluationResult();
+            _result = new EvaluationResult();
             _result.setString( _domainName );
             break;
 

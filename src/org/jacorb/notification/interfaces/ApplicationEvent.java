@@ -21,26 +21,19 @@ package org.jacorb.notification.interfaces;
  *
  */
 
+import java.util.EventObject;
+
 /**
  * Baseclass for Framework Events.
  *
- *
- * Created: Wed Feb 12 15:11:59 2003
- *
  * @author Alphonse Bendt
- * @version $Id: FrameworkEvent.java,v 1.2 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: ApplicationEvent.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class FrameworkEvent {
-    
-    private Object source_;
+public class ApplicationEvent extends EventObject {
 
-    public FrameworkEvent(Object source) {
-	source_ = source;
+    public ApplicationEvent(Object source) {
+        super(source);
     }
 
-    public Object getSource() {
-	return source_;
-    }
-    
 }

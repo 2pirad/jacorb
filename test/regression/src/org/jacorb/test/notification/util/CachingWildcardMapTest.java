@@ -21,9 +21,8 @@ package org.jacorb.test.notification.util;
  *
  */
 
-import org.apache.log.Priority;
-import org.jacorb.test.notification.NotificationTestCase;
 import org.jacorb.notification.util.CachingWildcardMap;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -34,25 +33,25 @@ import junit.framework.TestSuite;
  * Created: Sat Apr 12 14:08:13 2003
  *
  * @author Alphonse Bendt
- * @version $Id: CachingWildcardMapTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
+ * @version $Id: CachingWildcardMapTest.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class CachingWildcardMapTest extends WildcardMapTest {
 
     public void setUp() throws Exception {
-	map_ = new CachingWildcardMap(4);
+        map_ = new CachingWildcardMap(4);
     }
 
     public CachingWildcardMapTest(String name) {
-	super(name);
+        super(name);
     }
 
     public static Test suite() {
-	return new TestSuite(CachingWildcardMapTest.class);
+        return new TestSuite(CachingWildcardMapTest.class);
     }
 
     public static void main(String[] args) {
-	junit.textui.TestRunner.run(suite());
+        junit.textui.TestRunner.run(suite());
     }
-    
+
 } // CachingWildcardMapTest

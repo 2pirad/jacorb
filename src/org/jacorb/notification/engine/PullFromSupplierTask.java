@@ -28,24 +28,28 @@ import org.omg.CosEventComm.Disconnected;
  * PullFromSupplierTask.java
  *
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.2 2003-08-02 10:28:32 alphonse.bendt Exp $
+ * @version $Id: PullFromSupplierTask.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class PullFromSupplierTask extends TaskBase {
+public class PullFromSupplierTask extends AbstractTask
+{
 
     private TimerEventSupplier target_;
 
-    public void setTarget(TimerEventSupplier target) {
-	target_ = target;
+    public void setTarget( TimerEventSupplier target )
+    {
+        target_ = target;
     }
 
-    public void doWork() throws Disconnected {
-	target_.runPullEvent();
-	setStatus(DONE);
+    public void doWork() throws Disconnected
+    {
+        target_.runPullEvent();
+        setStatus( DONE );
     }
 
-    public void reset() {
-	super.reset();
-	target_ = null;
+    public void reset()
+    {
+        super.reset();
+        target_ = null;
     }
 }

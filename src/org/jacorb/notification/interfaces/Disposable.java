@@ -27,7 +27,7 @@ package org.jacorb.notification.interfaces;
  * Created: Sat Nov 30 19:05:03 2002
  *
  * @author Alphonse Bendt
- * @version $Id: Disposable.java,v 1.2 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: Disposable.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public interface Disposable {
@@ -35,7 +35,7 @@ public interface Disposable {
     /**
      * Dispose this Object. Free all associated Ressources allocated
      * by this Object. The Object may not be used after a call to
-     * dispose unless it has been recylced in a proper way.
+     * dispose.
      */
     void dispose();
 

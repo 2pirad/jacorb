@@ -28,17 +28,20 @@ package org.jacorb.notification.node;
  * Created: Sat Jul 06 02:13:01 2002
  *
  * @author Alphonse Bendt
- * @version $Id: DynamicTypeException.java,v 1.4 2003-07-17 18:08:52 alphonse.bendt Exp $
+ * @version $Id: DynamicTypeException.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class DynamicTypeException extends Exception {
+public class DynamicTypeException extends Exception
+{
 
-    public DynamicTypeException() {
-	super();
+    public DynamicTypeException()
+    {
+        super();
     }
 
-    public DynamicTypeException(String msg) {
-	super(msg);
+    public DynamicTypeException( String msg )
+    {
+        super( msg );
     }
 
 }

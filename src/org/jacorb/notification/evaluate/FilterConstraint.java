@@ -24,13 +24,13 @@ package org.jacorb.notification.evaluate;
 import org.apache.log.Hierarchy;
 import org.apache.log.Logger;
 import org.jacorb.notification.EvaluationContext;
-import org.jacorb.notification.NotificationEvent;
+import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.node.DynamicTypeException;
 import org.jacorb.notification.node.EvaluationResult;
 import org.jacorb.notification.node.StaticTypeChecker;
 import org.jacorb.notification.node.StaticTypeException;
 import org.jacorb.notification.node.TCLCleanUp;
-import org.jacorb.notification.node.TCLNode;
+import org.jacorb.notification.node.AbstractTCLNode;
 import org.jacorb.notification.parser.TCLParser;
 import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.CosNotifyFilter.InvalidConstraint;
@@ -42,13 +42,13 @@ import antlr.RecognitionException;
 import antlr.TokenStreamException;
 
 /**
- * Representation of a Constraint. 
+ * Representation of a Constraint.
  * A {@link org.jacorb.notification.FilterImpl FilterImpl} encapsulates
  * several Constraints. Each Constraint is represented by an instance
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.2 2003-07-17 18:10:23 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class FilterConstraint
@@ -64,18 +64,18 @@ public class FilterConstraint
     /**
      * AST for the Constraint
      */
-    private TCLNode rootNode_;    
+    private AbstractTCLNode rootNode_;
 
 
     ////////////////////////////////////////
 
-    public FilterConstraint( TCLNode root )
+    public FilterConstraint( AbstractTCLNode root )
     {
         rootNode_ = root;
     }
 
     public FilterConstraint( ConstraintExp constraintExp )
-	throws InvalidConstraint
+        throws InvalidConstraint
     {
         try
         {
@@ -103,41 +103,34 @@ public class FilterConstraint
 
     ////////////////////////////////////////
 
-    public String getConstraint() 
+    public String getConstraint()
     {
-	return constraint_;
+        return constraint_;
     }
 
-    public EvaluationResult evaluate( EvaluationContext evaluationContext, 
-				      NotificationEvent event )
-	throws EvaluationException, 
-	       DynamicTypeException
+    public EvaluationResult evaluate( EvaluationContext evaluationContext,
+                                      Message event )
+        throws EvaluationException,
+               DynamicTypeException
     {
-	logger_.debug("evaluate()" + rootNode_.toStringTree());
+        logger_.debug("evaluate()" + rootNode_.toStringTree());
 
-	try {	    
-	    evaluationContext.setEvent( event );
 
-	    EvaluationResult _res = rootNode_.evaluate( evaluationContext );
+        evaluationContext.setEvent( event );
 
-	    return _res;
-	} catch (InconsistentTypeCode e) {
-	    e.printStackTrace();
-	} catch (InvalidValue e) {
-	    e.printStackTrace();
-	} catch (TypeMismatch e) {
-	    e.printStackTrace();
-	}
-	throw new EvaluationException();
+        EvaluationResult _res = rootNode_.evaluate( evaluationContext );
+
+        return _res;
+
     }
 
     public String toString()
     {
-	StringBuffer _b = new StringBuffer("<FilterConstraint: ");
-	rootNode_.printToStringBuffer(_b);
-	_b.append(" >");
+        StringBuffer _b = new StringBuffer("<FilterConstraint: ");
+        rootNode_.printToStringBuffer(_b);
+        _b.append(" >");
 
-	return _b.toString();
+        return _b.toString();
     }
 
 }

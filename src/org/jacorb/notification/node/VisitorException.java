@@ -28,17 +28,20 @@ package org.jacorb.notification.node;
  * Created: Sat Jul 06 18:59:07 2002
  *
  * @author Alphonse Bendt
- * @version $Id: VisitorException.java,v 1.4 2003-07-17 18:08:52 alphonse.bendt Exp $
+ * @version $Id: VisitorException.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class VisitorException extends Exception {
+public class VisitorException extends Exception
+{
 
-    public VisitorException() {
-	super();
+    public VisitorException()
+    {
+        super();
     }
 
-    public VisitorException(String msg) {
-	super(msg);
+    public VisitorException( String msg )
+    {
+        super( msg );
     }
 
 }

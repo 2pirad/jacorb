@@ -21,22 +21,21 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.interfaces.FrameworkEvent;
-import org.jacorb.notification.AdminBase;
+import org.jacorb.notification.AbstractAdmin;
 
 /**
  * AdminEvent.java
  *
  *
  * @author Alphonse Bendt
- * @version $Id: AdminEvent.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: AdminEvent.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-public class AdminEvent extends FrameworkEvent 
+public class AdminEvent extends ApplicationEvent
 {
-    public AdminEvent(AdminBase source)
+    public AdminEvent( AbstractAdmin source )
     {
-	super(source);
+        super( source );
     }
-    
+
 }

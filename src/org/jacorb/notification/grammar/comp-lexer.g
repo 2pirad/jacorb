@@ -1,4 +1,4 @@
-// $Id: comp-lexer.g,v 1.1 2003-04-12 21:04:53 alphonse.bendt Exp $
+// $Id: comp-lexer.g,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
 
 header {
     package org.jacorb.notification.parser;
@@ -128,7 +128,7 @@ protected FOLLOW
 NUMBER
     : '0'                  // special case for just '0'
     | ('1'..'9') (DIGIT)*
-	;
+    ;
 
 // protected TEXTCHARS
 //     : // empty

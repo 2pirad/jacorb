@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 /**
- * @version $Id: JDK14PatternWrapper.java,v 1.3 2003-07-30 18:34:00 alphonse.bendt Exp $
+ * @version $Id: JDK14PatternWrapper.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 class JDK14PatternWrapper extends PatternWrapper
@@ -54,6 +54,6 @@ class JDK14PatternWrapper extends PatternWrapper
 
     public String toString()
     {
-        return pattern_.toString();
+        return pattern_.pattern();
     }
 }

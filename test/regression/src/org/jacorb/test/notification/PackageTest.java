@@ -32,40 +32,41 @@ import junit.framework.TestSuite;
  * Created: Mon Apr  7 15:20:03 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.4 2003-08-02 10:33:33 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
 
     public PackageTest(String name) {
-	super(name);
+        super(name);
     }
- 
+
     public static Test suite() throws Exception {
-	TestSuite _suite = 
-	    new TestSuite("Tests in Package org.jacorb.test.notification");
+        TestSuite _suite =
+            new TestSuite("Tests in Package org.jacorb.test.notification");
 
-	_suite.addTest(EventChannelFactoryTest.suite());
-	_suite.addTest(TimeoutTest.suite());
-	_suite.addTest(EventChannelTest.suite());
-	_suite.addTest(CosEventChannelTest.suite());
-	_suite.addTest(StructuredEventChannelTest.suite());
-	_suite.addTest(SequenceEventChannelTest.suite());
-	_suite.addTest(InterFilterGroupOperatorTest.suite());
-	_suite.addTest(AdminLimitTest.suite());
-	_suite.addTest(FilterImplTest.suite());
-	_suite.addTest(FilterTest.suite());
-	_suite.addTest(NotificationEventFactoryTest.suite());
-	_suite.addTest(NotificationEventUtilsTest.suite());
-	_suite.addTest(NotificationEventTest.suite());
-	_suite.addTest(StartTimeTest.suite());
-	_suite.addTest(StopTimeTest.suite());
-	_suite.addTest(CollectionsWrapperTest.suite());
+        _suite.addTest(EventChannelFactoryTest.suite());
+        _suite.addTest(StopTimeTest.suite());
+        _suite.addTest(TimeoutTest.suite());
+        _suite.addTest(StartTimeTest.suite());
+        _suite.addTest(EventChannelTest.suite());
+        _suite.addTest(CosEventChannelTest.suite());
+        _suite.addTest(StructuredEventChannelTest.suite());
+        _suite.addTest(SequenceEventChannelTest.suite());
+        _suite.addTest(InterFilterGroupOperatorTest.suite());
+        _suite.addTest(AdminLimitTest.suite());
+        _suite.addTest(FilterImplTest.suite());
+        _suite.addTest(FilterTest.suite());
+        _suite.addTest(NotificationEventFactoryTest.suite());
+        _suite.addTest(MessageUtilsTest.suite());
+        _suite.addTest(NotificationEventTest.suite());
 
-	return _suite;
+        _suite.addTest(CollectionsWrapperTest.suite());
+
+        return _suite;
     }
-  
+
     public static void main(String[] args) throws Exception {
-	junit.textui.TestRunner.run(suite());
+        junit.textui.TestRunner.run(suite());
     }
-} 
+}

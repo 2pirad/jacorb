@@ -21,20 +21,20 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.NotificationEvent;
+import org.jacorb.notification.interfaces.Message;
 
 /**
  * Abstraction of an ProxySupplier.
  *
  * @author Alphonse Bendt
- * @version $Id: EventConsumer.java,v 1.1 2003-04-12 21:17:41 alphonse.bendt Exp $
+ * @version $Id: EventConsumer.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public interface EventConsumer extends Disposable, TimerEventConsumer {
 
     /**
      * Activate Deliveries to Consumer via ProxySupplier.
-     * 
+     *
      */
     void enableDelivery();
 
@@ -53,6 +53,6 @@ public interface EventConsumer extends Disposable, TimerEventConsumer {
      * Delivery is disabled the Object must queue the Events and not
      * try to deliver them.
      */
-    void deliverEvent(NotificationEvent event);
+    void deliverEvent(Message event);
 
 }// EventDispatcher

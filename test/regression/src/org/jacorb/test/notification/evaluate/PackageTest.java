@@ -31,20 +31,20 @@ import junit.framework.TestSuite;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
 
     public PackageTest(String name) {
-	super(name);
-    } 
- 
-    public static Test suite() throws Exception {
-	TestSuite _suite = new TestSuite("Tests in Package org.jacorb.test.notification.evaluate");
-
-	_suite.addTest(TestDynamicEvaluator.suite());
-
-	return _suite;
+        super(name);
     }
-} 
+
+    public static Test suite() throws Exception {
+        TestSuite _suite = new TestSuite("Tests in Package org.jacorb.test.notification.evaluate");
+
+        _suite.addTest(DynamicEvaluatorTest.suite());
+
+        return _suite;
+    }
+}

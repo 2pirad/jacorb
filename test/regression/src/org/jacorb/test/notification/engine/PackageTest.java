@@ -1,4 +1,4 @@
-package org.jacorb.notification.engine;
+package org.jacorb.test.notification.engine;
 
 /*
  *        JacORB - a free Java ORB
@@ -21,27 +21,37 @@ package org.jacorb.notification.engine;
  *
  */
 
-import org.jacorb.notification.interfaces.Poolable;
-import org.jacorb.notification.util.ObjectPoolBase;
+import junit.framework.TestCase;
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
- * TaskPoolBase.java
+ * PackageTest.java
  *
+ *
+ * Created: Mon Apr  7 15:20:03 2003
  *
  * @author Alphonse Bendt
- * @version $Id: TaskPoolBase.java,v 1.1 2003-08-02 10:28:32 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
  */
 
-abstract class TaskPoolBase extends ObjectPoolBase {
-    
-    public void passivateObject( Object o )
-    {
-	( ( Poolable ) o ).reset();
-    }
-    
-    public void activateObject( Object o )
-    {
-	( ( Poolable ) o ).setObjectPool( this );
+public class PackageTest extends TestCase {
+
+    public PackageTest(String name) {
+        super(name);
     }
 
+    public static Test suite() throws Exception {
+        TestSuite _suite =
+            new TestSuite("Tests in Package org.jacorb.test.notification.engine");
+
+        _suite.addTest(ReleaseTasksTest.suite());
+        _suite.addTest(PushToConsumerTest.suite());
+
+        return _suite;
+    }
+
+    public static void main(String[] args) throws Exception {
+        junit.textui.TestRunner.run(suite());
+    }
 }
