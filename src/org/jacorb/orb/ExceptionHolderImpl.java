@@ -26,6 +26,7 @@ import java.lang.reflect.*;
 import org.omg.GIOP.*;
 import org.omg.Messaging.ExceptionHolder;
 import org.omg.CORBA.ExceptionList;
+import org.omg.CORBA.SystemException;
 import org.omg.CORBA.UnknownUserException;
 import org.omg.CORBA.UserException;
 
@@ -39,7 +40,7 @@ import org.jacorb.orb.connection.*;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.4 2002-11-15 10:26:07 andre.spiegel Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.5 2002-11-21 11:08:07 andre.spiegel Exp $
  */
 public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
 {
@@ -67,6 +68,16 @@ public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
         }
         byte_order          = is.littleEndian;
         marshaled_exception = is.getBody();
+    }
+
+    public ExceptionHolderImpl (org.omg.CORBA.SystemException ex)
+    {
+        is_system_exception = true;
+        byte_order          = false;
+        
+        CDROutputStream output = new CDROutputStream();
+        SystemExceptionHelper.write (output, ex);
+        marshaled_exception = output.getBufferCopy();
     }
 
     /**
