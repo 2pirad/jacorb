@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.13 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: ServantDelegate.java,v 1.14 2003-03-11 12:13:30 steve.osselton Exp $
  */
 
 public class ServantDelegate
@@ -58,11 +58,11 @@ public class ServantDelegate
     {
 	if (orb == null) 
 	{       
-	    throw new org.omg.CORBA.BAD_INV_ORDER("The Servant has not been associated with an ORB instance");  
+	    throw new org.omg.CORBA.BAD_INV_ORDER ("The Servant has not been associated with an ORB instance");  
 	}     
     }
 
-    final public org.omg.CORBA.Object this_object(org.omg.PortableServer.Servant self) 
+    final public org.omg.CORBA.Object this_object (org.omg.PortableServer.Servant self) 
     {     
 	check();
 	try 
