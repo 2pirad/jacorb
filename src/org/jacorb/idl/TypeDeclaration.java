@@ -22,11 +22,10 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.4 2001-03-27 12:01:21 noffke Exp $
+ * @version $Id: TypeDeclaration.java,v 1.5 2001-11-16 10:51:48 spiegel Exp $
  */
 
-import java.util.Vector;
-import java.util.Enumeration;
+import java.util.*;
 import java.io.*;
 
 class TypeDeclaration 
@@ -73,11 +72,32 @@ class TypeDeclaration
 	type_decl.markTypeDefd(alias);
     }
 
+    public String getRecursiveTypeCodeExpression()
+    {
+        if (type_decl == null)
+            return "org.omg.CORBA.ORB.init().create_recursive_tc "
+                 + "(\"" + id() + "\")";
+        else
+            return type_decl.getRecursiveTypeCodeExpression();
+    }
+
+    /**
+     * Returns a type code expression (for use in generated code) for
+     * this type.  If `knownTypes' contains this type, 
+     * then a recursive type code is returned.
+     */
+    public String getTypeCodeExpression (Set knownTypes)
+    {
+        if (type_decl instanceof ValueDecl)
+            return type_decl.getTypeCodeExpression (knownTypes);
+        else
+            return type_decl.getTypeCodeExpression();
+    }
+
     /**
      * @returns a string for an expression of type TypeCode 
      * 			that describes this type
      */
-
     public String getTypeCodeExpression()
     {
 	return type_decl.getTypeCodeExpression();
