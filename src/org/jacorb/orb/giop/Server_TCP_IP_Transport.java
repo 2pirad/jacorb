@@ -24,6 +24,7 @@ import java.io.*;
 import java.net.*;
 
 import org.jacorb.util.Debug;
+import org.jacorb.orb.*;
 
 /**
  * Server_TCP_IP_Transport.java
@@ -32,13 +33,14 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.16 2003-01-13 09:03:56 nicolas Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.17 2003-04-22 09:57:58 andre.spiegel Exp $
  */
 
 public class Server_TCP_IP_Transport
     extends TCP_IP_Transport
 {
     private boolean is_ssl;
+    private InternetIOPProfile profile;
 
     public Server_TCP_IP_Transport( Socket socket,
                                     boolean is_ssl,
@@ -55,8 +57,14 @@ public class Server_TCP_IP_Transport
         in_stream = socket.getInputStream();
         out_stream = new BufferedOutputStream(socket.getOutputStream());
 
-        connection_info = socket.getInetAddress().getHostName() +
-            ':' + socket.getPort();
+        IIOPAddress address = new IIOPAddress
+        (
+            socket.getInetAddress().getHostAddress(),
+            socket.getPort()
+        );
+        
+        profile = new InternetIOPProfile (address, null);
+        connection_info = address.toString(); 
 
         Debug.output( 2, "Opened new server-side TCP/IP transport to " +
                       connection_info );
@@ -115,5 +123,10 @@ public class Server_TCP_IP_Transport
     public boolean isSSL()
     {
         return is_ssl;
+    }
+
+    public org.omg.ETF.Profile get_server_profile()
+    {
+        return profile;
     }
 }// Server_TCP_IP_Transport
