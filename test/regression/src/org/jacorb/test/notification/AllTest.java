@@ -33,10 +33,14 @@ import org.jacorb.notification.util.LogConfiguration;
  * AllTest.java
  *
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.3 2003-08-02 10:33:33 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.4 2003-08-02 11:35:26 alphonse.bendt Exp $
  */
 
 public class AllTest extends TestCase {
+
+    static {
+	LogConfiguration.getInstance().configure();
+    }
 
     public AllTest(String name) {
 	super(name);
@@ -55,8 +59,6 @@ public class AllTest extends TestCase {
     }
 
     public static void main(String[] args) throws Exception {
-	LogConfiguration.getInstance().configure();
-
 	junit.textui.TestRunner.run(suite());
     }
 } 
