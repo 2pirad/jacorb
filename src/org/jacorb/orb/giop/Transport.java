@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.12 2003-04-23 09:36:44 andre.spiegel Exp $
+ * @version $Id: Transport.java,v 1.13 2003-04-23 15:07:50 andre.spiegel Exp $
  */
 
 public interface Transport 
@@ -68,11 +68,6 @@ public interface Transport
     public void closeAllowReopen()
         throws IOException;
     
-    /**
-     * Test, if the transport is using SSL.
-     */
-    public boolean isSSL();
-
     /**
      * Get the statistics provider for transport usage statistics.
      */
