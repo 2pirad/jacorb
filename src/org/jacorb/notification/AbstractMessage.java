@@ -42,10 +42,13 @@ import org.omg.CosNotifyFilter.MappingFilter;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 import org.apache.avalon.framework.logger.Logger;
+import java.util.List;
+import org.omg.CosNotifyFilter.Filter;
+import java.util.Iterator;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.12 2004-01-29 14:09:29 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.13 2004-02-08 14:22:11 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage
@@ -598,7 +601,40 @@ public abstract class AbstractMessage
     public abstract int getPriority();
 
 
-    public abstract boolean match(FilterStage filterStage);
+    public abstract boolean match(Filter filter) throws UnsupportedFilterableData;
+
+
+    public boolean match(FilterStage filterStage) {
+        List _filterList = filterStage.getFilters();
+
+        if ( _filterList.isEmpty() )
+        {
+            return true;
+        }
+
+        Iterator _filterIterator = _filterList.iterator();
+
+        while ( _filterIterator.hasNext() )
+        {
+            try
+            {
+                Filter _filter = ( Filter ) _filterIterator.next();
+
+                if ( match(_filter) )
+                {
+                    return true;
+                }
+            }
+            catch ( UnsupportedFilterableData e )
+            {
+                // no problem
+                // error means false
+                logger_.info("unsupported filterable data. match result defaults to false.", e);
+            }
+        }
+
+        return false;
+    }
 
 
     public abstract boolean match(MappingFilter filter,

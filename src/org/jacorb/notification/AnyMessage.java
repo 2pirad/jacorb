@@ -46,7 +46,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.5 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.6 2004-02-08 14:22:11 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
@@ -155,38 +155,9 @@ public class AnyMessage extends AbstractMessage
     }
 
 
-    public boolean match( FilterStage destination )
+    public boolean match( Filter filter ) throws UnsupportedFilterableData
     {
-        List _filterList = destination.getFilters();
-
-        if ( _filterList.isEmpty() )
-        {
-            return true;
-        }
-
-        Iterator _allFilters = _filterList.iterator();
-
-        while ( _allFilters.hasNext() )
-        {
-            try
-            {
-
-                Filter _filter = ( Filter )
-                                 ( ( KeyedListEntry ) _allFilters.next() ).getValue();
-
-                if ( _filter.match( toAny() ) )
-                {
-                    return true;
-                }
-            }
-            catch ( UnsupportedFilterableData e )
-                {
-                    logger_.debug("Evaluation of a Filter failed", e);
-                    // error means false
-                }
-        }
-
-        return false;
+        return filter.match( toAny() );
     }
 
 
