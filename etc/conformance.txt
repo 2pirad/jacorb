@@ -1,7 +1,7 @@
 List of JacORB modules and the Specification versions that they are
 aimed at. Please edit!
 
-$Id: conformance.txt,v 1.1 2004-01-30 09:12:49 gerald Exp $
+$Id: conformance.txt,v 1.2 2004-01-30 10:19:10 alphonse.bendt Exp $
 -------------------------------------------------------------------
 
 
@@ -16,5 +16,5 @@ Security                :    Security Service 1.4? (partial)
 ...
 
 INaming Service         :    1.1?
-Notification Svc        :    1.0.1?
+Notification Svc        :    1.0
 ...
