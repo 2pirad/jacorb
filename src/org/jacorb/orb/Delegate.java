@@ -47,7 +47,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.74 2003-04-01 12:32:50 nick.cross Exp $
+ * @version $Id: Delegate.java,v 1.75 2003-04-04 14:27:26 andre.spiegel Exp $
  *
  */
 
@@ -228,9 +228,10 @@ public final class Delegate
                 try
                 {
                     LocateRequestOutputStream lros =
-                        new LocateRequestOutputStream( _pior.get_object_key(),
-                                                       connection.getId(),
-                                                       ( int ) _pior.getProfileBody().iiop_version.minor );
+                        new LocateRequestOutputStream
+                            ( _pior.get_object_key(),
+                              connection.getId(),
+                              ( int ) _pior.getEffectiveProfile().version().minor );
 
                     LocateReplyReceiver receiver =
                         new LocateReplyReceiver();
@@ -1276,7 +1277,7 @@ public final class Delegate
                                          requestEndTime,
                                          replyEndTime,
                                          p.get_object_key(),
-                                         ( int ) p.getProfileBody().iiop_version.minor );
+                                         ( int ) p.getEffectiveProfile().version().minor );
 
             //Problem: What about the case where different objects
             //that are accessed by the same connection have different
