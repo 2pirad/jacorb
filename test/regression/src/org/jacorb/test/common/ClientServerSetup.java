@@ -73,7 +73,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.16 2004-05-09 14:51:10 francisco Exp $
+ * @version $Id: ClientServerSetup.java,v 1.17 2004-07-29 09:26:40 simon.mcqueen Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -128,17 +128,32 @@ public class ClientServerSetup extends TestSetup {
         clientRootPOA = POAHelper.narrow
                           ( clientOrb.resolve_initial_references( "RootPOA" ) );
         clientRootPOA.the_POAManager().activate();
-
-//      StringBuffer serverexec = new StringBuffer( "java -Djacorb.implname=" );
-        StringBuffer serverexec = new StringBuffer( "jaco -Djacorb.implname=");
-        serverexec.append( servantName );
-//      serverexec.append(" -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB ");
-//      serverexec.append("-Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton ");
-        serverexec.append( ' ' );
-        serverexec.append( propsToCommandLineArgs( serverOrbProperties ) );
-        serverexec.append( " -classpath " );
+        
+        // Execing 'jaco' rather than 'jaco.bat' got file not found on win32.
+        // Running tests on win32 using the jaco.bat script orphans dozens 
+        // of java processes that don't get torn down when the test run completes.
+        StringBuffer serverexec;
+        if (System.getProperty("os.name").toLowerCase().indexOf("windows") == -1)
+        {
+            // Not windows. Continue to use jaco I guess.
+            serverexec = new StringBuffer( "jaco -Djacorb.implname=");
+            serverexec.append( servantName );
+            serverexec.append( " -classpath " );            
+        }
+        else
+        {
+            // Windows - use java.exe
+            serverexec = new StringBuffer( "java -Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton "); 
+            serverexec.append("-Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB ");
+            serverexec.append("-Djacorb.home=" + System.getProperty("jacorb.home") + " ");
+            serverexec.append("-Djacorb.implname=");
+            serverexec.append( servantName );
+            serverexec.append( " -Xbootclasspath:" );          
+        }
         serverexec.append( System.getProperty ("java.class.path") );
         serverexec.append( ' ' );
+        serverexec.append( propsToCommandLineArgs( serverOrbProperties ) );
+        serverexec.append( ' ' );    
         serverexec.append( getTestServerMain() );
         serverexec.append( ' ' );
         serverexec.append( servantName );
