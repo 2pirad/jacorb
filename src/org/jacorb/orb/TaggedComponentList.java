@@ -11,7 +11,7 @@ import org.omg.IOP.*;
  * generic methods to find and access individual components.
  * <p>
  * @author Andre Spiegel
- * @version $Id: TaggedComponentList.java,v 1.2 2003-04-05 09:53:55 andre.spiegel Exp $
+ * @version $Id: TaggedComponentList.java,v 1.3 2003-04-14 15:33:07 andre.spiegel Exp $
  */
 public class TaggedComponentList
 {
@@ -102,7 +102,8 @@ public class TaggedComponentList
 	/**
 	 * Returns a List of all components with the given tag from this
 	 * TaggedComponentList.  Each individual component is read with
-	 * the given helper class.
+	 * the given helper class.  If no components with the given tag
+     * can be found, an empty list is returned.
 	 */
 	public List getComponents (int tag, Class helper)
 	{
