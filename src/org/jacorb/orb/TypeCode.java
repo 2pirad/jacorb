@@ -25,7 +25,7 @@ import java.util.Hashtable;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.3 2001-03-19 11:08:28 brose Exp $    
+ * @version $Id: TypeCode.java,v 1.4 2001-03-29 15:25:26 jacorb Exp $    
  */
  
 public class TypeCode 
@@ -453,6 +453,7 @@ public class TypeCode
         switch( kind )
         {
         case   TCKind._tk_string:
+        case   TCKind._tk_wstring:
         case   TCKind._tk_sequence:
         case   TCKind._tk_array : return length;
         default: throw new org.omg.CORBA.TypeCodePackage.BadKind();
