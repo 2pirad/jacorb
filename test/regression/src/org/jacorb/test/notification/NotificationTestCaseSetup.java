@@ -34,19 +34,21 @@ import org.jacorb.util.Debug;
 import java.util.Properties;
 
 /**
- * NotificationTestCaseSetup.java
- *
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCaseSetup.java,v 1.8 2004-01-23 19:44:03 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCaseSetup.java,v 1.9 2004-01-29 14:23:26 alphonse.bendt Exp $
  */
 
 public class NotificationTestCaseSetup extends TestSetup {
 
     Logger logger_ = Debug.getNamedLogger(getClass().getName());
-    ORB orb_;
-    POA poa_;
-    NotificationTestUtils testUtils_;
-    EventChannelFactoryImpl eventChannelServant_;
+
+    private ORB orb_;
+    private POA poa_;
+    private Thread orbThread_;
+    private NotificationTestUtils testUtils_;
+    private EventChannelFactoryImpl eventChannelFactory_;
+
+    ////////////////////////////////////////
 
     public NotificationTestUtils getTestUtils() {
         return(testUtils_);
@@ -55,6 +57,8 @@ public class NotificationTestCaseSetup extends TestSetup {
     public NotificationTestCaseSetup(Test suite) throws Exception {
         super(suite);
     }
+
+    ////////////////////////////////////////
 
     public void setUp() throws Exception {
         super.setUp();
@@ -69,36 +73,36 @@ public class NotificationTestCaseSetup extends TestSetup {
 
         poa_.the_POAManager().activate();
 
-        Thread thread = new Thread(
+        orbThread_ = new Thread(
                    new Runnable() {
                        public void run() {
                            orb_.run();
                        }
                    });
-        thread.setDaemon(true);
-        thread.start();
 
-        eventChannelServant_ = EventChannelFactoryImpl.newFactory();
+        orbThread_.setDaemon(true);
+        orbThread_.start();
+
+        eventChannelFactory_ = EventChannelFactoryImpl.newFactory();
     }
 
     public void tearDown() throws Exception {
         super.tearDown();
 
-        eventChannelServant_.dispose();
+        eventChannelFactory_.dispose();
 
         orb_.shutdown(true);
     }
 
-    public EventChannelFactoryImpl getServant() {
-        logger_.debug("getServant: " + eventChannelServant_);
-        return eventChannelServant_;
+    public EventChannelFactoryImpl getFactoryServant() {
+        return eventChannelFactory_;
     }
 
-    public ORB getClientOrb() {
+    public ORB getORB() {
         return orb_;
     }
 
-    public POA getClientRootPOA() {
+    public POA getPOA() {
         return poa_;
     }
 }

@@ -31,7 +31,7 @@ import org.omg.CosNotifyChannelAdmin.AdminNotFound;
  * Created: Sun Dec 08 15:13:41 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredPullSender.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: StructuredPullSender.java,v 1.3 2004-01-29 14:23:26 alphonse.bendt Exp $
  */
 
 public class StructuredPullSender
@@ -133,7 +133,7 @@ public class StructuredPullSender
 
     public void connect(NotificationTestCaseSetup setup,EventChannel channel,boolean useOrSemantic) throws AdminLimitExceeded, AlreadyConnected, TypeError, AdminNotFound {
 
-        orb_ = setup.getClientOrb();
+        orb_ = setup.getORB();
 
         StructuredPullSupplierPOATie _senderTie = new StructuredPullSupplierPOATie(this);
         SupplierAdmin _supplierAdmin = channel.default_supplier_admin();
@@ -146,7 +146,7 @@ public class StructuredPullSender
         testCase_.assertEquals(pullConsumer_.MyType(), ProxyType.PULL_STRUCTURED);
 
 
-        pullConsumer_.connect_structured_pull_supplier(StructuredPullSupplierHelper.narrow(_senderTie._this(setup.getClientOrb())));
+        pullConsumer_.connect_structured_pull_supplier(StructuredPullSupplierHelper.narrow(_senderTie._this(setup.getORB())));
         connected_ = true;
     }
 

@@ -44,6 +44,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.util.Debug;
+import org.omg.CosNotifyChannelAdmin.EventChannelHelper;
 
 
 /**
@@ -53,7 +54,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 17 11:48:32 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ReleaseTasksTest.java,v 1.5 2004-01-23 19:45:06 alphonse.bendt Exp $
+ * @version $Id: ReleaseTasksTest.java,v 1.6 2004-01-29 14:23:26 alphonse.bendt Exp $
  */
 
 public class ReleaseTasksTest extends NotificationTestCase
@@ -74,7 +75,7 @@ public class ReleaseTasksTest extends NotificationTestCase
         Property[] p2 = new Property[0];
 
         eventChannelServant_ = factory_.create_channel_servant(0, p1, p2);
-        eventChannel_ = eventChannelServant_.getEventChannel();
+        eventChannel_ = EventChannelHelper.narrow(eventChannelServant_.activate());
     }
 
     public void tearDown() {
@@ -179,7 +180,7 @@ class MockFilterStage implements FilterStage {
         return false;
     }
 
-    public boolean hasOrSemantic() {
+    public boolean hasInterFilterGroupOperatorOR() {
         return false;
     }
 

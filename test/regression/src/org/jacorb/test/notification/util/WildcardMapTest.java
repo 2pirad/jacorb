@@ -17,7 +17,7 @@ import org.jacorb.util.Debug;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: WildcardMapTest.java,v 1.5 2003-11-03 10:32:42 alphonse.bendt Exp $
+ * @version $Id: WildcardMapTest.java,v 1.6 2004-01-29 14:23:26 alphonse.bendt Exp $
  */
 
 public class WildcardMapTest extends TestCase {
@@ -281,8 +281,8 @@ public class WildcardMapTest extends TestCase {
 
         // these are no real tests
         // used for performance monitoring
-        //      suite.addTest(new WildcardMapTest("performancePut"));
-        //      suite.addTest(new WildcardMapTest("performanceGet"));
+        //        suite.addTest(new WildcardMapTest("performancePut"));
+        //        suite.addTest(new WildcardMapTest("performanceGet"));
 
         return suite;
     }

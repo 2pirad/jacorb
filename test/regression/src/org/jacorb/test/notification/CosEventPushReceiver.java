@@ -23,7 +23,7 @@ import org.jacorb.util.Debug;
  * Created: Fri Nov 22 18:21:29 2002
  *
  * @author Alphonse Bendt
- * @version $Id: CosEventPushReceiver.java,v 1.2 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: CosEventPushReceiver.java,v 1.3 2004-01-29 14:23:26 alphonse.bendt Exp $
  */
 
 public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, TestClientOperations {
@@ -96,7 +96,7 @@ public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, T
         mySupplier_ = _admin.obtain_push_supplier();
         currentTest_.assertNotNull(mySupplier_);
 
-        mySupplier_.connect_push_consumer(_this(setup.getClientOrb()));
+        mySupplier_.connect_push_consumer(_this(setup.getORB()));
         connected_ = true;
     }
 
