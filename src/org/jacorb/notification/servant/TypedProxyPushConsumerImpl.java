@@ -52,7 +52,7 @@ import java.util.Map;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImpl.java,v 1.3 2004-05-11 12:14:55 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImpl.java,v 1.4 2004-06-18 23:05:33 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImpl
     extends AbstractProxyConsumer
@@ -181,7 +181,7 @@ public class TypedProxyPushConsumerImpl
 
             interfaceDef_ =
                 InterfaceDefHelper.narrow(_repository.lookup_id(supportedInterface_));
-        } catch (InvalidName n) {
+        } catch (InvalidName e) {
             throw new InterfaceNotSupported("could not access InterfaceRepository");
         }
 
