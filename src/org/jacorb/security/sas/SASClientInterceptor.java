@@ -67,7 +67,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.23 2004-05-07 13:08:29 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.24 2005-03-04 20:40:43 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -352,6 +352,9 @@ public class SASClientInterceptor
             // if stateful, remove from connection
             if (reply.client_context_id > 0) 
                 connection.purgeSASContext(reply.client_context_id);
+            
+            // if context not found, resend with empty context cache
+            if (reply.major_status == 2) throw new org.omg.PortableInterceptor.ForwardRequest(ri.target());
         }
     }
 
