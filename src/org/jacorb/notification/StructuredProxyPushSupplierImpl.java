@@ -46,7 +46,7 @@ import org.omg.CosNotifyChannelAdmin.StructuredProxyPushSupplierPOATie;
  * Created: Sun Nov 03 22:41:38 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.8 2003-07-23 15:13:31 david.robison Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.9 2003-07-27 15:41:18 david.robison Exp $
  */
 
 public class StructuredProxyPushSupplierImpl
@@ -81,7 +81,7 @@ public class StructuredProxyPushSupplierImpl
 
     public void deliverEvent( NotificationEvent event )
     {
-        logger_.debug( "deliverEvent" );
+        logger_.debug( "deliverEvent connected="+connected_+" active="+active_+" enabled="+enabled_ );
 
         if ( connected_ )
         {
