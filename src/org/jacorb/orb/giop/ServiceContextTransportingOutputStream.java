@@ -37,7 +37,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.5 2002-03-19 09:25:27 nicolas Exp $ 
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.6 2002-04-02 09:00:08 gerald Exp $ 
  */
 
 public class ServiceContextTransportingOutputStream 
@@ -68,7 +68,7 @@ public class ServiceContextTransportingOutputStream
     //If ServiceContexts are actually added, this will be the last
     //contexts, and the context_data is used to fill up to the next 8
     //byte boundary.
-    private static ServiceContext padding_ctx = new ServiceContext( 0x4A4143FF,
+    private static ServiceContext padding_ctx = new ServiceContext( 0x4A414301,
                                                                     new byte[0] );
 
     private Vector contexts = null;
