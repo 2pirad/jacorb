@@ -38,7 +38,7 @@ import org.apache.avalon.framework.configuration.*;
  * delegates everything to the standard IIOP classes.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: WIOPFactories.java,v 1.4 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: WIOPFactories.java,v 1.5 2004-07-29 09:30:20 simon.mcqueen Exp $
  */
 public class WIOPFactories 
     extends _FactoriesLocalBase
@@ -58,7 +58,17 @@ public class WIOPFactories
 
     public Connection create_connection (ProtocolProperties props)
     {
-        return new WIOPConnection (new ClientIIOPConnection(),
+        ClientIIOPConnection delegate = new ClientIIOPConnection();
+        try
+        {
+            delegate.configure(configuration);
+        }
+        catch( ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
+
+        return new WIOPConnection (delegate,
                                    tag);
     }
 
@@ -73,7 +83,7 @@ public class WIOPFactories
                 throws IOException
             {
                 return new WIOPConnection
-                    (new ServerIIOPConnection (socket, is_ssl), tag);
+                    (super.createServerConnection(socket, is_ssl), tag);
             }
         };
         try
