@@ -48,7 +48,7 @@ import org.apache.log.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.2 2003-08-27 20:15:17 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.3 2003-09-12 09:17:32 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
@@ -151,9 +151,10 @@ public abstract class AbstractMessage extends AbstractPoolable
                                                        String s ) throws EvaluationException {
 
             return AbstractMessage.this.extractVariableHeader(context,
-                                                                    componentName,
-                                                                    s);
+                                                               componentName,
+                                                               s);
         }
+
 
         public boolean hasStartTime() {
             return AbstractMessage.this.hasStartTime();
@@ -256,10 +257,10 @@ public abstract class AbstractMessage extends AbstractPoolable
 
     ////////////////////////////////////////
 
-    static protected Logger logger_ =
-        Hierarchy.getDefaultHierarchy().getLoggerFor(Message.class.getName());
+    protected Logger logger_ =
+        Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
 
-    protected static ORB sOrb = ORB.init();
+    final static ORB sOrb = ORB.init();
 
     protected boolean proxyConsumerFiltered_;
     protected boolean supplierAdminFiltered_;
@@ -464,4 +465,3 @@ public abstract class AbstractMessage extends AbstractPoolable
     public abstract boolean match(MappingFilter filter,
                                   AnyHolder value) throws UnsupportedFilterableData;
 }
-

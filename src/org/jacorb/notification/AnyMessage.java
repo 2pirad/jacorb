@@ -47,7 +47,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.2 2003-08-27 20:16:22 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.3 2003-09-12 09:18:33 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
@@ -140,7 +140,8 @@ public class AnyMessage extends AbstractMessage
 
     public EvaluationResult extractFilterableData( EvaluationContext context,
                                                    ComponentName root,
-                                                   String v ) throws EvaluationException
+                                                   String v )
+        throws EvaluationException
     {
 
         return extractValue( context, root );
@@ -194,7 +195,8 @@ public class AnyMessage extends AbstractMessage
         return DEFAULT_PRIORITY;
     }
 
-    public boolean match( MappingFilter filter, AnyHolder value ) throws UnsupportedFilterableData
+    public boolean match( MappingFilter filter,
+                          AnyHolder value ) throws UnsupportedFilterableData
     {
         return filter.match( toAny(), value );
     }

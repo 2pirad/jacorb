@@ -48,7 +48,7 @@ import org.apache.log.Logger;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: MappingFilterImpl.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: MappingFilterImpl.java,v 1.3 2003-09-12 09:24:33 alphonse.bendt Exp $
  */
 
 public class MappingFilterImpl extends MappingFilterPOA
@@ -146,10 +146,12 @@ public class MappingFilterImpl extends MappingFilterPOA
 
         for ( int x = 0; x < mappingConstraintPairArray.length; ++x )
         {
-            _constraintExpArray[ x ] = mappingConstraintPairArray[ x ].constraint_expression;
+            _constraintExpArray[ x ] =
+                mappingConstraintPairArray[ x ].constraint_expression;
         }
 
-        ConstraintInfo[] _constraintInfo = filterImpl_.add_constraints( _constraintExpArray );
+        ConstraintInfo[] _constraintInfo =
+            filterImpl_.add_constraints( _constraintExpArray );
 
         MappingConstraintInfo[] _mappingConstraintInfo =
             new MappingConstraintInfo[ _constraintInfo.length ];

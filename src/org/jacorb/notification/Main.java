@@ -29,7 +29,7 @@ import org.tanukisoftware.wrapper.WrapperManager;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: Main.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: Main.java,v 1.5 2003-09-12 09:20:42 alphonse.bendt Exp $
  */
 
 public class Main implements WrapperListener
@@ -92,8 +92,8 @@ public class Main implements WrapperListener
             //  handle the event ourselves.
 
             if ( ( event == WrapperManager.WRAPPER_CTRL_C_EVENT ) ||
-                    ( event == WrapperManager.WRAPPER_CTRL_CLOSE_EVENT ) ||
-                    ( event == WrapperManager.WRAPPER_CTRL_SHUTDOWN_EVENT ) )
+                 ( event == WrapperManager.WRAPPER_CTRL_CLOSE_EVENT ) ||
+                 ( event == WrapperManager.WRAPPER_CTRL_SHUTDOWN_EVENT ) )
             {
                 WrapperManager.stop( 0 );
             }
