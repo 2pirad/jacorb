@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.9 2001-11-26 15:39:03 gerald Exp $
+ * @version $Id: InterfaceBody.java,v 1.10 2002-03-12 17:44:32 steve.osselton Exp $
  */
 
 class InterfaceBody 
@@ -362,13 +362,13 @@ class InterfaceBody
 
     public void printStubMethods(PrintWriter ps, 
                                  String classname,
-                                 boolean locality_constraint)
+                                 boolean is_local)
     {
 	Operation [] ops = getMethods();
 	if( ops.length > 0 )
 	{
 	    for( int i= 0; i < ops.length; i++)
-		ops[i].printMethod(ps, classname, locality_constraint);
+		ops[i].printMethod(ps, classname, is_local);
 	}
     }
 

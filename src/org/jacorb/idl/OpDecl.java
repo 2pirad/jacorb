@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.15 2002-02-14 10:17:51 steve.osselton Exp $
+ * @version $Id: OpDecl.java,v 1.16 2002-03-12 17:44:32 steve.osselton Exp $
  */
 
 class OpDecl 
@@ -171,7 +171,7 @@ class OpDecl
 
     public void printMethod( PrintWriter ps, 
                              String classname, 
-                             boolean locality_constraint)
+                             boolean is_local)
     {
 	/* in some cases generated name have an underscore prepended for the
 	   mapped java name. On the wire, we must use the original name */
@@ -197,7 +197,7 @@ class OpDecl
 	ps.println("\t\t{");
 	// remote part, not for locality constrained objects
 	// 
-	if( ! locality_constraint )
+	if( ! is_local )
 	{
 	    ps.println("\t\tif(! this._is_local())");
 	    ps.println("\t\t{");
@@ -333,7 +333,7 @@ class OpDecl
 	    ps.println("\t\t\treturn;");
 
 
-	if( ! locality_constraint )	ps.println("\t\t}\n");
+	if( ! is_local )	ps.println("\t\t}\n");
 
 	ps.println("\t\t}\n"); // end while
 	ps.println("\t}\n"); // end method

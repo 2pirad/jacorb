@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Operation.java,v 1.4 2001-11-12 09:55:29 spiegel Exp $
+ * @version $Id: Operation.java,v 1.5 2002-03-12 17:44:32 steve.osselton Exp $
  */
 
 import java.io.*;
@@ -49,7 +49,7 @@ interface Operation
 
     /** method code for stubs */
 
-    public void printMethod(PrintWriter ps, String classname, boolean locality_constraint);
+    public void printMethod(PrintWriter ps, String classname, boolean is_local);
 
     /** method code for skeletons */
 
