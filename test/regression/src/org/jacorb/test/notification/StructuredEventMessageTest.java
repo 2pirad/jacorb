@@ -29,30 +29,29 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessageTest.java,v 1.3 2004-08-01 17:55:27 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessageTest.java,v 1.4 2005-02-14 00:15:46 alphonse.bendt Exp $
  */
-public class StructuredEventMessageTest extends NotificationTestCase {
-
+public class StructuredEventMessageTest extends NotificationTestCase
+{
     private StructuredEventMessage objectUnderTest_;
 
     private StructuredEvent structuredEvent_;
 
-    public StructuredEventMessageTest(String name, NotificationTestCaseSetup setup) {
+    public StructuredEventMessageTest(String name, NotificationTestCaseSetup setup)
+    {
         super(name, setup);
     }
 
-    public void setUp() throws Exception {
+    public void setUpTest() throws Exception
+    {
         objectUnderTest_ = new StructuredEventMessage();
         structuredEvent_ = getTestUtils().getEmptyStructuredEvent();
     }
 
-
-    public void testToTypedEvent() throws Exception {
-        Property[] _props1 = new Property[] {
-            new Property("operation", toAny("operationName")),
-            new Property("p1", toAny("param1")),
-            new Property("p2", toAny(20))
-        };
+    public void testToTypedEvent() throws Exception
+    {
+        Property[] _props1 = new Property[] { new Property("operation", toAny("operationName")),
+                new Property("p1", toAny("param1")), new Property("p2", toAny(20)) };
 
         structuredEvent_.filterable_data = _props1;
 
@@ -64,25 +63,27 @@ public class StructuredEventMessageTest extends NotificationTestCase {
         assertEquals("operationName", _props2[0].value.extract_string());
     }
 
-
-    public void testToTypedEvent_FailedConversion() {
-        Property[] _props = new Property[] {
-            new Property("p1", toAny("param1")),
-            new Property("p2", toAny(20))
-        };
+    public void testToTypedEvent_FailedConversion()
+    {
+        Property[] _props = new Property[] { new Property("p1", toAny("param1")),
+                new Property("p2", toAny(20)) };
 
         structuredEvent_.filterable_data = _props;
 
         objectUnderTest_.setStructuredEvent(structuredEvent_, false, false);
 
-        try {
+        try
+        {
             objectUnderTest_.toTypedEvent();
             fail();
-        } catch (NoTranslationException e) {}
+        } catch (NoTranslationException e)
+        {
+            // expected
+        }
     }
 
-
-    public static Test suite() throws Exception {
+    public static Test suite() throws Exception
+    {
         return NotificationTestCase.suite(StructuredEventMessageTest.class);
     }
 }

@@ -33,7 +33,7 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventMessageTest.java,v 1.4 2004-08-01 17:55:27 alphonse.bendt Exp $
+ * @version $Id: TypedEventMessageTest.java,v 1.5 2005-02-14 00:15:46 alphonse.bendt Exp $
  */
 public class TypedEventMessageTest extends NotificationTestCase {
 
@@ -44,7 +44,8 @@ public class TypedEventMessageTest extends NotificationTestCase {
     private static String DRINKING_COFFEE_ID =
         "::org::jacorb::test::notification::typed::Coffee::drinking_coffee";
 
-    public void setUp() throws Exception {
+    public void setUpTest() throws Exception {
+      
         objectUnderTest_ = new TypedEventMessage();
     }
 

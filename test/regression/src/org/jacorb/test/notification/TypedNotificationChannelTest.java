@@ -27,20 +27,22 @@ import junit.framework.Test;
 import org.jacorb.notification.AbstractChannelFactory;
 import org.jacorb.notification.conf.Attributes;
 import org.omg.CORBA.ORB;
-import org.omg.CosTypedNotifyChannelAdmin.TypedEventChannelFactory;
 import org.omg.CosTypedNotifyChannelAdmin.TypedEventChannelFactoryHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedNotificationChannelTest.java,v 1.2 2004-08-01 17:55:27 alphonse.bendt Exp $
+ * @version $Id: TypedNotificationChannelTest.java,v 1.3 2005-02-14 00:15:46 alphonse.bendt Exp $
  */
-public class TypedNotificationChannelTest extends NotificationTestCase {
+public class TypedNotificationChannelTest extends NotificationTestCase
+{
 
-    public TypedNotificationChannelTest(String name, NotificationTestCaseSetup setup) {
+    public TypedNotificationChannelTest(String name, NotificationTestCaseSetup setup)
+    {
         super(name, setup);
     }
 
-    public void testCreateTypedChannelFactory() throws Exception {
+    public void testCreateTypedChannelFactory() throws Exception
+    {
         ORB _orb = getORB();
 
         Properties _props = new Properties();
@@ -51,10 +53,11 @@ public class TypedNotificationChannelTest extends NotificationTestCase {
 
         org.omg.CORBA.Object _obj = _servant.activate();
 
-        TypedEventChannelFactory _factory = TypedEventChannelFactoryHelper.narrow(_obj);
+        assertNotNull(TypedEventChannelFactoryHelper.narrow(_obj));
     }
 
-    public static Test suite() throws Exception {
+    public static Test suite() throws Exception
+    {
         return NotificationTestCase.suite(TypedNotificationChannelTest.class);
     }
 }
