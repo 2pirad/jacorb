@@ -27,11 +27,11 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.6 2001-10-02 09:20:47 spiegel Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.6.2.1 2001-10-25 14:07:40 spiegel Exp $
  */
 
 class ValueBoxDecl 
-    extends ValueDeclaration 
+    extends Value
 {
     private boolean written = false;
     private boolean parsed = false;
