@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.9 2002-05-09 12:17:42 gerald Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.10 2002-07-05 06:47:33 steve.osselton Exp $
  *
  */
 
@@ -288,8 +288,15 @@ public class NamingContextImpl
      *  non-existent objects
      */
 
-    private void cleanup()
+    private void cleanup ()
     {
+        // Check if object purging enabled
+
+        if (! Environment.isPropertyOn ("jacorb.naming.purge"))
+        {
+           return;
+        }
+
         Vector deletionVector = new Vector();
 
         for( Enumeration n = names.keys(); n.hasMoreElements(); )
@@ -329,7 +336,6 @@ public class NamingContextImpl
             deletionVector.removeAllElements();
         }
     }
-
 
     public void destroy()
         throws NotEmpty
