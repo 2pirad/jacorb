@@ -48,7 +48,7 @@ import java.util.*;
  * ReplyHandler. 
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.7 2003-01-05 14:51:53 andre.spiegel Exp $
+ * @version $Id: ReplyReceiver.java,v 1.8 2003-01-07 10:01:47 andre.spiegel Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -347,7 +347,7 @@ public class ReplyReceiver extends ReplyPlaceholder
         public org.omg.CORBA.portable.OutputStream createReply() 
         {
             // the latest possible time at which we can do this
-            delegate.ensureReplyStartTime();
+            Time.waitFor (delegate.getReplyStartTime());
             return null;
         }
         
