@@ -26,7 +26,7 @@ package org.jacorb.poa.util;
  * in hashtables.
  *
  * @author Steve Osselton
- * @version $Id: ByteArrayKey.java,v 1.2 2002-03-19 09:25:38 nicolas Exp $
+ * @version $Id: ByteArrayKey.java,v 1.3 2002-04-19 10:23:27 reimo Exp $
  */
 
 public class ByteArrayKey
@@ -102,5 +102,9 @@ public class ByteArrayKey
         }
 
         return result;
+    }
+    
+    public String toString() {
+    	return new String(bytes);    	
     }
 }

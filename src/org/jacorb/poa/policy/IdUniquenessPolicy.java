@@ -3,7 +3,7 @@ package org.jacorb.poa.policy;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ package org.jacorb.poa.policy;
  * This class implements the id uniqueness policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: IdUniquenessPolicy.java,v 1.5 2002-03-19 09:25:38 nicolas Exp $
+ * @version $Id: IdUniquenessPolicy.java,v 1.6 2002-04-19 10:23:26 reimo Exp $
  */
 
 public class IdUniquenessPolicy 

@@ -32,7 +32,7 @@ import java.util.Vector;
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: Current.java,v 1.10 2002-03-19 09:25:35 nicolas Exp $
+ * @version $Id: Current.java,v 1.11 2002-04-19 10:23:20 reimo Exp $
  */
 
 public class Current 
