@@ -25,6 +25,8 @@ import java.net.*;
 import java.util.*;
 import java.lang.reflect.Constructor;
 
+import org.omg.ETF.*;
+
 import org.jacorb.orb.*;
 import org.jacorb.orb.factory.*;
 import org.jacorb.orb.iiop.*;
@@ -35,7 +37,7 @@ import org.jacorb.util.*;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.11 2003-05-07 16:13:55 andre.spiegel Exp $
+ * @version $Id: TransportManager.java,v 1.12 2003-05-24 09:57:20 andre.spiegel Exp $
  * */
 
 public class TransportManager
@@ -44,6 +46,8 @@ public class TransportManager
 
     public static SocketFactory socket_factory = null;
     public static SocketFactory ssl_socket_factory = null;
+
+    private org.omg.ETF.Factories factories = null;
 
     public TransportManager( ORB orb )
     {
@@ -75,22 +79,39 @@ public class TransportManager
                 throw new RuntimeException( "SSL support is on, but the ssl socket factory can't be instanciated (see trace)!" );
             }
         }
-
-
     }
 
-    public org.omg.ETF.Connection createClientTransport()
+    /**
+     * Returns the Factories object for the current transport.
+     */
+    public org.omg.ETF.Factories getFactories()
     {
-        return new ClientIIOPConnection();
+        if (factories == null)
+        {
+            String className = 
+                Environment.getProperty ("jacorb.transport.factories");
+            if (className == null)
+            {
+                factories = new IIOPFactories();
+            }
+            else
+            {
+                try
+                {
+                    Class c = Class.forName (className);
+                    factories = (org.omg.ETF.Factories)c.newInstance();
+                }
+                catch (Exception e)
+                {
+                    throw new RuntimeException 
+                        ("could not instantiate Factories class: "
+                         + className + ", exception: " + e);
+                }
+            }
+        }
+        return factories;
     }
 
-    public org.omg.ETF.Connection createServerTransport( Socket socket,
-                                                         boolean is_ssl )
-        throws IOException
-    {
-        return new ServerIIOPConnection( socket, 
-                                         is_ssl );
-    }
 }
 
 
