@@ -42,7 +42,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.35 2001-11-09 16:04:39 jacorb Exp $
+ * @version $Id: ORB.java,v 1.36 2001-11-15 16:42:31 jacorb Exp $
  */
 
 public final class ORB
@@ -1225,15 +1225,15 @@ public final class ORB
                                dateString );
         }
 
-        Hashtable initrefs = Environment.getProperties("ORBInitRef");
+//          Hashtable initrefs = Environment.getProperties("ORBInitRef");
 
-        for( Enumeration e = initrefs.keys(); e.hasMoreElements(); )
-        {
-            String key = (String)e.nextElement();
-            Object obj = string_to_object( (String)initrefs.get( key ));
-            if( obj != null )
-                initial_references.put( key.substring( key.indexOf('.')+1), obj);
-        }
+//          for( Enumeration e = initrefs.keys(); e.hasMoreElements(); )
+//          {
+//              String key = (String)e.nextElement();
+//              Object obj = string_to_object( (String)initrefs.get( key ));
+//              if( obj != null )
+//                  initial_references.put( key.substring( key.indexOf('.')+1), obj);
+//          }
 
         always_add_1_0_Profile = 
             Environment.isPropertyOn( "jacorb.giop.add_1_0_profiles" );
