@@ -12,7 +12,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  * 
- * $Id: parser.cup,v 1.4 2001-03-27 15:36:39 jacorb Exp $
+ * $Id: parser.cup,v 1.5 2001-03-27 15:38:46 jacorb Exp $
  *
  */
 
@@ -659,8 +659,9 @@ specification ::=
                         } 
                         else 
                         {
-                                parser.fatal_error("Undefined interface: " + 
-                        (String)(parser.pending_interfaces.keys().nextElement()), null );
+                                if( !sloppy )
+                                     parser.fatal_error("Undefined interface: " + 
+                                     (String)(parser.pending_interfaces.keys().nextElement()), null );
                         }
                 }
 
