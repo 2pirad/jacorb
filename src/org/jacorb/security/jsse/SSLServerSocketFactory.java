@@ -3,7 +3,7 @@ package org.jacorb.security.jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.5 2001-07-20 18:17:01 jacorb Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.6 2001-07-30 17:11:17 jacorb Exp $
  */
 import org.jacorb.util.*;
 import org.jacorb.security.util.*;
@@ -33,9 +33,9 @@ public class SSLServerSocketFactory
 	    Debug.output( 1, "ERROR: Unable to create ServerSocketFactory!" );
 	}
 
-	if( (Environment.requiredBySSL() & 0x20) != 0 )
+	if( (Environment.requiredBySSL() & 0x40) != 0 )
 	{
-	    //required: establish trust in target
+	    //required: establish trust in client
 	    //--> force other side to authenticate
 	    mutual_auth = true;
 	}
@@ -94,10 +94,6 @@ public class SSLServerSocketFactory
     {
 	try 
 	{
-	    // set up key manager to do server authentication
-	    KeyManagerFactory kmf = KeyManagerFactory.getInstance( "SunX509" );
-	    KeyStore key_store = KeyStore.getInstance( "JKS" );
-
             String keystore_location = Environment.keyStore();
             if( keystore_location == null ) 
             {
@@ -115,18 +111,38 @@ public class SSLServerSocketFactory
                     (new BufferedReader(new InputStreamReader(System.in))).readLine();
             }
 
+	    KeyStore key_store = 
+		KeyStoreUtil.getKeyStore( keystore_location,
+					  keystore_passphrase.toCharArray() );
+
             key_store.load( new FileInputStream( keystore_location ),
                             keystore_passphrase.toCharArray() );
 
+	    KeyManagerFactory kmf = KeyManagerFactory.getInstance( "SunX509" );
             kmf.init( key_store, keystore_passphrase.toCharArray() );
 
-            TrustManagerFactory tmf = 
-		TrustManagerFactory.getInstance( "SunX509" );
-	    tmf.init( key_store );
-
+            TrustManagerFactory tmf = null;
+	    
+	    //only add trusted certs, if establish trust in client
+            //is required
+            if(( (byte) Environment.requiredBySSL() & 0x40) != 0 ) 
+            {     
+		tmf = TrustManagerFactory.getInstance( "SunX509" );
+	    
+		if( "on".equals( Environment.getProperty( "jacorb.security.jsse.trustees_from_ks",
+							  "off" )))
+		{
+		    tmf.init( key_store );
+		}
+		else
+		{
+		    tmf.init( null );
+		}
+	    }
+		
             SSLContext ctx = SSLContext.getInstance( "TLS" );
             ctx.init( kmf.getKeyManagers(), 
-		      tmf.getTrustManagers(), 
+		      (tmf == null)? null : tmf.getTrustManagers(), 
 		      null );
 
             return ctx.getServerSocketFactory();
