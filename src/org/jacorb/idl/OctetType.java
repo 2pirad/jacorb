@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: OctetType.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: OctetType.java,v 1.9.2.1 2003-08-28 12:04:01 brose Exp $
  */
 
 
@@ -43,6 +43,25 @@ class OctetType
     public String typeName()
     {
         return "byte";
+    }
+
+    /**
+     * get this types's mapped Java name
+     */
+
+    public String getJavaTypeName()
+    {
+        return "byte";
+    }
+
+
+    /**
+     * get this symbol's IDL type name
+     */
+
+    public String getIDLTypeName()
+    {
+        return "octet";
     }
 
     public TypeSpec typeSpec()

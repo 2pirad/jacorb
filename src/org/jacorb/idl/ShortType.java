@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ShortType.java,v 1.10.2.1 2003-08-27 13:34:01 brose Exp $
+ * @version $Id: ShortType.java,v 1.10.2.2 2003-08-28 12:04:01 brose Exp $
  */
 
 class ShortType
@@ -37,6 +37,28 @@ class ShortType
     public String typeName()
     {
         return "short";
+    }
+
+    /**
+     * get this types's mapped Java name
+     */
+
+    public String getJavaTypeName()
+    {
+        return "short";
+    }
+
+
+    /**
+     * get this symbol's IDL type name
+     */
+
+    public String getIDLTypeName()
+    {
+        if( unsigned )
+            return "ushort";
+        else
+            return "short";
     }
 
     public TypeSpec typeSpec()

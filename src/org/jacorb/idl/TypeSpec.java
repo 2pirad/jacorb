@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.16.2.1 2003-08-27 13:34:01 brose Exp $
+ * @version $Id: TypeSpec.java,v 1.16.2.2 2003-08-28 12:04:01 brose Exp $
  */
 
 
@@ -47,10 +47,34 @@ public class TypeSpec
         return ts;
     }
 
+    /**
+     * @deprecated, use either getJavaTypeName() or getIDLTypeName()
+     */
+
+
     public String typeName()
     {
         return type_spec.typeName();
     }
+
+    /**
+     * get this types's mapped Java name
+     */
+
+    public String getJavaTypeName()
+    {
+        return typeName();
+    }
+
+    /**
+     * get this symbol's IDL type name
+     */
+
+    public String getIDLTypeName()
+    {
+        return typeName();
+    }
+
 
     public TypeSpec typeSpec()
     {

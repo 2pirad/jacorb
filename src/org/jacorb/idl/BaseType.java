@@ -21,8 +21,10 @@
 package org.jacorb.idl;
 
 /**
+ * Represents IDL base types
+ *
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.15 2003-04-01 14:03:13 nick.cross Exp $
+ * @version $Id: BaseType.java,v 1.15.2.1 2003-08-28 12:04:01 brose Exp $
  */
 
 
@@ -31,13 +33,16 @@ import java.io.PrintWriter;
 class BaseType
     extends SimpleTypeSpec
 {
-
     public BaseType( int num )
     {
         super( num );
     }
 
-    /** ignore, these types don't need to know their package */
+    /** 
+     * ignore, these types don't need to know their package 
+     * @overrides setPackage in 
+     */
+
     public void setPackage( String s )
     {
         s = parser.pack_replace( s );
@@ -55,12 +60,15 @@ class BaseType
 
     public boolean isSwitchType()
     {
-        return
-                (
+        return (
                 type_spec instanceof SwitchTypeSpec &&
                 ( (SwitchTypeSpec)type_spec ).isSwitchable()
                 );
     }
+
+    /**
+     * does nothing, will be overwritten in subclasses
+     */
 
     public void parse()
     {
@@ -125,10 +133,16 @@ class BaseType
         return type_spec.typeName();
     }
 
+
+
     public String id()
     {
         return "IDL:*primitive*:1.0";
     }
+
+    /**
+     * does nothing, will be overwritten in subclasses
+     */
 
     public void print( PrintWriter ps )
     {

@@ -21,14 +21,15 @@
 package org.jacorb.idl;
 
 /**
+ * 
+ *
  * @author Gerald Brose
- * @version $Id: SimpleTypeSpec.java,v 1.9.2.1 2003-08-27 13:34:01 brose Exp $
+ * @version $Id: SimpleTypeSpec.java,v 1.9.2.2 2003-08-28 12:04:01 brose Exp $
  */
 
 class SimpleTypeSpec
     extends TypeSpec
 {
-
     public SimpleTypeSpec( int num )
     {
         super( num );

@@ -22,11 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.11 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: LongType.java,v 1.11.2.1 2003-08-28 12:04:01 brose Exp $
  */
 
 class LongType
-        extends IntType
+    extends IntType
 {
 
     public LongType( int num )
@@ -48,6 +48,29 @@ class LongType
     {
         return "int";
     }
+
+   /**
+     * get this types's mapped Java name
+     */
+
+    public String getJavaTypeName()
+    {
+        return "int";
+    }
+
+
+    /**
+     * get this symbol's IDL type name
+     */
+
+    public String getIDLTypeName()
+    {
+        if( unsigned )
+            return "ulong";
+        else
+            return "long";
+    }
+
 
     public boolean basic()
     {
