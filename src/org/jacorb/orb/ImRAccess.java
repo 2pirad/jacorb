@@ -27,24 +27,17 @@ package org.jacorb.orb;
  * Created: Thu Jan 31 20:55:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ImRAccess.java,v 1.3 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ImRAccess.java,v 1.4 2003-04-01 15:45:07 nick.cross Exp $
  */
 
-public interface ImRAccess 
+public interface ImRAccess
 {
-    public void connect( org.omg.CORBA.ORB orb )
-        throws org.omg.CORBA.INTERNAL;
-
     public String getImRHost();
     public int getImRPort();
-
-    public void registerPOA( String name, 
+    public void registerPOA( String name,
                              String server,
-                             String host, 
+                             String host,
                              int port)
         throws org.omg.CORBA.INTERNAL;
-
     public void setServerDown( String name )
-        throws org.omg.CORBA.INTERNAL;
-    
 }// ImRAccess
