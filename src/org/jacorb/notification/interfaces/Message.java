@@ -21,8 +21,6 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import java.util.Date;
-
 import org.jacorb.notification.NoTranslationException;
 import org.jacorb.notification.filter.ComponentName;
 import org.jacorb.notification.filter.EvaluationContext;
@@ -38,7 +36,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Message.java,v 1.7 2004-07-12 11:19:03 alphonse.bendt Exp $
+ * @version $Id: Message.java,v 1.8 2005-02-14 00:09:05 alphonse.bendt Exp $
  */
 
 public interface Message extends Disposable
@@ -75,9 +73,6 @@ public interface Message extends Disposable
     FilterStage getInitialFilterStage();
 
 
-    void setInitialFilterStage( FilterStage node );
-
-
     EvaluationResult extractValue(EvaluationContext context,
                                   ComponentName componentRootNode,
                                   RuntimeVariable runtimeVariable )
@@ -105,13 +100,13 @@ public interface Message extends Disposable
     boolean hasStartTime();
 
 
-    Date getStartTime();
+    long getStartTime();
 
 
     boolean hasStopTime();
 
 
-    Date getStopTime();
+    long getStopTime();
 
 
     boolean hasTimeout();

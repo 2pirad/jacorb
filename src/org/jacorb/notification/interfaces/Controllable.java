@@ -1,5 +1,3 @@
-package org.jacorb.notification.interfaces;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -21,19 +19,16 @@ package org.jacorb.notification.interfaces;
  *
  */
 
+package org.jacorb.notification.interfaces;
+
+
 /**
- * AdminEventListener.java
- *
- *
- * Created: Mon Jun  2 12:42:37 2003
- *
  * @author Alphonse Bendt
- * @version $Id: AdminEventListener.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: Controllable.java,v 1.1 2005-02-14 00:09:05 alphonse.bendt Exp $
  */
-
-public interface AdminEventListener 
+public interface Controllable
 {
-    void actionAdminCreated(AdminEvent e);
-
-    void actionAdminDestroyed(AdminEvent e);
+    String getControllerName();
+    
+    void addDisposeHook(Disposable d);
 }

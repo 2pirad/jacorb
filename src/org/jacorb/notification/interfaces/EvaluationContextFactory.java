@@ -1,5 +1,3 @@
-package org.jacorb.notification.interfaces;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -21,19 +19,15 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.servant.AbstractAdmin;
+package org.jacorb.notification.interfaces;
+
+import org.jacorb.notification.filter.EvaluationContext;
 
 /**
- * Indicate that a Admin wants to create a new ProxyObject.
- *
  * @author Alphonse Bendt
- * @version $Id: ProxyCreationRequestEvent.java,v 1.5 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: EvaluationContextFactory.java,v 1.1 2005-02-14 00:09:05 alphonse.bendt Exp $
  */
-
-public class ProxyCreationRequestEvent extends ApplicationEvent {
-
-    public ProxyCreationRequestEvent(AbstractAdmin admin) {
-        super(admin);
-    }
-
+public interface EvaluationContextFactory
+{
+    EvaluationContext newEvaluationContext();
 }

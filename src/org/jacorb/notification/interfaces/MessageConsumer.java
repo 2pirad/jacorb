@@ -36,7 +36,7 @@ import org.jacorb.notification.engine.TaskExecutor;
  * <br>
  *
  * @author Alphonse Bendt
- * @version $Id: MessageConsumer.java,v 1.8 2004-08-17 13:49:54 alphonse.bendt Exp $
+ * @version $Id: MessageConsumer.java,v 1.9 2005-02-14 00:09:05 alphonse.bendt Exp $
  */
 
 public interface MessageConsumer extends Disposable {
@@ -90,23 +90,9 @@ public interface MessageConsumer extends Disposable {
 
 
     /**
-     * access the current error count for this MessageConsumer.
-     */
-    //int getErrorCounter();
-
-
-    /**
      * increment the current error count by one for this MessageConsumer.
      */
     int incErrorCounter();
-
-
-    /**
-     * access the error threshold for this MessageConsumer. if the
-     * error count exeeds the threshold the MessageConsumer will be
-     * disconnected.
-     */
-    //int getErrorThreshold();
 
 
     /**
