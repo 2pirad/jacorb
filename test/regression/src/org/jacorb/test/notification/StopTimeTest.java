@@ -53,7 +53,7 @@ import org.omg.CORBA.BAD_QOS;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StopTimeTest.java,v 1.6 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: StopTimeTest.java,v 1.7 2004-02-08 14:27:41 alphonse.bendt Exp $
  */
 
 public class StopTimeTest extends NotificationTestCase
@@ -232,9 +232,9 @@ public class StopTimeTest extends NotificationTestCase
         final Object lock = new Object();
 
         TaskProcessor _taskProcessor = new TaskProcessor() {
-                public void processEventInternal(Message event) {
+                public void processMessageInternal(Message event) {
                     try {
-                        logger_.debug("processEventInternal called");
+                        logger_.debug("processMessageInternal called");
 
                         long _recvTime = System.currentTimeMillis();
                         assertEquals("unexpected event", event, _event);

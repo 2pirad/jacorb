@@ -20,7 +20,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredEventChannelTest.java,v 1.6 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: StructuredEventChannelTest.java,v 1.7 2004-02-08 14:27:41 alphonse.bendt Exp $
  */
 
 public class StructuredEventChannelTest extends NotificationTestCase
@@ -108,6 +108,7 @@ public class StructuredEventChannelTest extends NotificationTestCase
         _info = falseFilter_.add_constraints(_constraintExp);
     }
 
+
     public void testDestroyChannelDisconnectsClients() throws Exception
     {
         Property[] _p = new Property[0];
@@ -137,6 +138,7 @@ public class StructuredEventChannelTest extends NotificationTestCase
         assertTrue(!_pullReceiver.isConnected());
     }
 
+
     public void testSendPushPush() throws Exception
     {
         StructuredPushSender _sender = new StructuredPushSender(this, testEvent_);
@@ -154,6 +156,7 @@ public class StructuredEventChannelTest extends NotificationTestCase
         assertTrue("Error while sending", !_sender.error_);
         assertTrue("Should have received something", _receiver.isEventHandled());
     }
+
 
     public void testSendPushPull() throws Exception
     {
@@ -210,6 +213,7 @@ public class StructuredEventChannelTest extends NotificationTestCase
         assertTrue("Error while sending", !_senderError);
         assertTrue("Should have received something", _receiver.isEventHandled());
     }
+
 
     public static Test suite() throws Exception
     {

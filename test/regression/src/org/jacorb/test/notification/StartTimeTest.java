@@ -53,7 +53,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StartTimeTest.java,v 1.7 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: StartTimeTest.java,v 1.8 2004-02-08 14:27:41 alphonse.bendt Exp $
  */
 
 public class StartTimeTest extends TestCase
@@ -178,7 +178,7 @@ public class StartTimeTest extends TestCase
         final Latch _latch = new Latch();
 
         TaskProcessor _taskProcessor = new TaskProcessor() {
-                public void processEventInternal(Message event) {
+                public void processMessageInternal(Message event) {
                     try {
                         long _recvTime = System.currentTimeMillis();
                         assertEquals(event, _event);

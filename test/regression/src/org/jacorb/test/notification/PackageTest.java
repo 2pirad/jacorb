@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
  * Created: Mon Apr  7 15:20:03 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.6 2003-08-28 16:39:52 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.7 2004-02-08 14:27:41 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -57,7 +57,7 @@ public class PackageTest extends TestCase {
         _suite.addTest(AdminLimitTest.suite());
         _suite.addTest(FilterImplTest.suite());
         _suite.addTest(FilterTest.suite());
-        _suite.addTest(NotificationEventFactoryTest.suite());
+        _suite.addTest(MessageFactoryTest.suite());
         _suite.addTest(MessageUtilsTest.suite());
         _suite.addTest(NotificationEventTest.suite());
         _suite.addTest(CollectionsWrapperTest.suite());
