@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.4 2001-04-05 09:21:00 jacorb Exp $
+ * @version $Id: LongType.java,v 1.5 2002-02-19 09:38:17 steve.osselton Exp $
  */
 
 class LongType 
@@ -111,24 +111,3 @@ class LongType
    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
