@@ -30,7 +30,7 @@ import antlr.Token;
 /**
  * a simple node to represent COMPONENT Name
  *
- * @version $Id: ComponentName.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ComponentName.java,v 1.5 2004-01-16 17:15:45 alphonse.bendt Exp $
  */
 
 public class ComponentName extends AbstractTCLNode
@@ -59,7 +59,7 @@ public class ComponentName extends AbstractTCLNode
         AbstractTCLNode _left = (AbstractTCLNode) left();
 
         if (_left == null) {
-            return context.getResultExtractor().extractFromAny( _event.toAny() );
+            return EvaluationResult.fromAny( _event.toAny() );
         }
 
         switch (_left.getType()) {
