@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParseException.java,v 1.9 2003-09-03 16:00:16 brose Exp $
+ * @version $Id: ParseException.java,v 1.10 2003-09-03 20:59:11 brose Exp $
  *
  * Thrown by the IDL compiler when it encounters fatal errors
  */
@@ -50,9 +50,9 @@ public class ParseException
 
     public String getMessage()
     {
-        return "IDL Parse error in " + 
+        return 
             ( position != null ?  position.toString() : "" ) + 
-            ": " + super.getMessage();
+            ": " + "parse error: " + super.getMessage();
     }
     
 
