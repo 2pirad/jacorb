@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.10 2001-04-03 14:54:31 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.11 2001-04-04 08:53:01 noffke Exp $
  *
  */
 
@@ -679,7 +679,9 @@ public final class Delegate
             //store pending replies, so in the case of a LocationForward
             //a RemarshalException can thrown to *all* waiting threads. 
             if( ros.response_expected())
+            {
                 pending_replies.put( rep, rep );
+            }
         } 
         catch (org.omg.CORBA.SystemException cfe)
         {
