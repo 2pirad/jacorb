@@ -20,24 +20,17 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.PortableServer.Servant;
-import org.omg.PortableServer.POA;
-import org.omg.CORBA.ORB;
+import org.omg.CosNotification.Property;
+import org.omg.CosNotification.UnsupportedQoS;
+import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ManageableServant.java,v 1.2 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: PropertySetListener.java,v 1.1 2004-01-29 14:22:57 alphonse.bendt Exp $
  */
 
-public interface ManageableServant {
-
-    void setORB(ORB orb);
-
-    void setPOA(POA poa);
-
-    void preActivate() throws Exception;
-
-    org.omg.CORBA.Object activate();
-
-    void deactivate();
+public interface PropertySetListener {
+    void validateProperty(Property[] ps, List errorList);
+    void actionPropertySetChanged(PropertySet source) throws UnsupportedQoS;
 }
+

@@ -20,35 +20,28 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CosEventChannelAdmin.ProxyPushConsumerOperations;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
+import org.omg.CosEventChannelAdmin.ProxyPushConsumerHelper;
+import org.omg.CosEventChannelAdmin.ProxyPushConsumerOperations;
 import org.omg.CosEventChannelAdmin.ProxyPushConsumerPOATie;
 import org.omg.PortableServer.Servant;
-import org.omg.CosEventChannelAdmin.ProxyPushConsumerHelper;
+
 import org.jacorb.notification.ChannelContext;
-import org.jacorb.notification.PropertyManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushConsumerImpl.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushConsumerImpl.java,v 1.2 2004-01-29 14:22:57 alphonse.bendt Exp $
  */
 public class ECProxyPushConsumerImpl
     extends ProxyPushConsumerImpl
-    implements ProxyPushConsumerOperations {
+    implements ProxyPushConsumerOperations
+{
 
     ECProxyPushConsumerImpl( SupplierAdminTieImpl myAdminServant,
-                             ChannelContext channelContext,
-                             PropertyManager adminProperties,
-                             PropertyManager qosProperties,
-                             Integer key)
+                             ChannelContext channelContext)
     {
         super( myAdminServant,
-               channelContext,
-               adminProperties,
-               qosProperties,
-               key);
-
-        isKeyPublic_ = false;
+               channelContext);
     }
 
     ////////////////////////////////////////
@@ -59,17 +52,20 @@ public class ECProxyPushConsumerImpl
         connect_any_push_supplier( pushSupplier );
     }
 
+
     public synchronized Servant getServant()
     {
         if ( thisServant_ == null )
-            {
-                thisServant_ = new ProxyPushConsumerPOATie( this );
-            }
+        {
+            thisServant_ = new ProxyPushConsumerPOATie( this );
+        }
 
         return thisServant_;
     }
 
-    public org.omg.CORBA.Object getCorbaRef() {
+
+    public org.omg.CORBA.Object activate()
+    {
         return ProxyPushConsumerHelper.narrow(getServant()._this_object(getORB()));
     }
 
