@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.28 2003-09-12 09:39:17 andre.spiegel Exp $
+ * @version $Id: Member.java,v 1.29 2003-10-30 08:55:05 brose Exp $
  *
  */
 
@@ -180,10 +180,24 @@ public class Member
 
             if( tokName != null )
             {
-                if( dName.equalsIgnoreCase( tokName ) )
+
+                if (org.jacorb.idl.parser.strict_names)
                 {
-                    parser.fatal_error( "Declarator " + dName +
-                            " already defined in scope.", token );
+                    // check for name clashes strictly (i.e. case insensitive)
+                    if( dName.equalsIgnoreCase( tokName ) )
+                    {
+                        parser.fatal_error( "Declarator " + dName +
+                                            " already defined in scope.", token );
+                    }
+                }
+                else
+                {
+                    // check for name clashes only loosely (i.e. case sensitive)
+                    if( dName.equals( tokName ) )
+                    {
+                        parser.fatal_error( "Declarator " + dName +
+                                            " already defined in scope.", token );
+                    }
                 }
             }
 
