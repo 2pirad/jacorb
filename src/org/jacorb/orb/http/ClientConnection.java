@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection.http;
+package org.jacorb.orb.http;
 
 import java.net.*;
 import java.util.*;
@@ -26,16 +26,16 @@ import java.io.*;
 
 import org.jacorb.util.*;
 import org.jacorb.orb.*;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.12 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.13 2003-08-15 11:11:50 andre.spiegel Exp $
  */
 
 public final class ClientConnection 
-    extends org.jacorb.orb.connection.ClientConnection
+    extends org.jacorb.orb.giop.ClientConnection
 {
     static int counter = 0;
     int mycounter = counter++; 
