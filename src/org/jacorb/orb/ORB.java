@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.98 2003-09-12 14:57:14 brose Exp $
+ * @version $Id: ORB.java,v 1.99 2003-10-28 05:19:19 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -1700,26 +1700,20 @@ public final class ORB
         implements org.omg.CORBA.portable.ValueFactory
     {
         private Class implementationClass;
-
+    
         public JacORBValueFactory (Class c)
         {
             implementationClass = c;
         }
-
+    
         public java.io.Serializable read_value
           (org.omg.CORBA_2_3.portable.InputStream is)
         {
             StreamableValue value =
                 (StreamableValue)instantiate (implementationClass);
-
-            // Register the object even before reading its state.
-            // This is essential for recursive values.
-            ((org.jacorb.orb.CDRInputStream)is).register_value (value);
-
-            value._read (is);
-            return value;
+            return is.read_value(value);
         }
-
+    
     }
 
     /**
