@@ -19,14 +19,12 @@ import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyComm.PullConsumerPOA;
 import org.omg.PortableServer.POA;
 
-import org.jacorb.util.Debug;
-
 import junit.framework.TestCase;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyPullReceiver.java,v 1.5 2004-02-10 11:06:55 alphonse.bendt Exp $
+ * @version $Id: AnyPullReceiver.java,v 1.5.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class AnyPullReceiver
@@ -34,8 +32,6 @@ public class AnyPullReceiver
             implements Runnable,
             TestClientOperations
 {
-    Logger logger_ = Debug.getNamedLogger(getClass().getName());
-
     Any event_ = null;
     boolean received_ = false;
     boolean error_ = false;
@@ -127,18 +123,15 @@ public class AnyPullReceiver
         BooleanHolder _success = new BooleanHolder();
         _success.value = false;
         long _startTime = System.currentTimeMillis();
-        logger_.info("start receiver");
 
         try
         {
             while (true)
             {
-                logger_.debug("try pull");
                 event_ = mySupplier_.try_pull(_success);
 
                 if (_success.value)
                 {
-                    logger_.debug("Received Event");
                     received_ = true;
                     break;
                 }
@@ -149,7 +142,6 @@ public class AnyPullReceiver
                 }
                 else
                 {
-                    logger_.debug("Timeout");
                     received_ = false;
                     break;
                 }

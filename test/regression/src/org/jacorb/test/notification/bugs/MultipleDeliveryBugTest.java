@@ -22,25 +22,19 @@ package org.jacorb.test.notification.bugs;
 
 import org.jacorb.test.notification.NotificationTestCase;
 import org.jacorb.test.notification.NotificationTestCaseSetup;
-import org.jacorb.test.notification.StructuredPullReceiver;
 import org.jacorb.test.notification.StructuredPushReceiver;
 import org.jacorb.test.notification.StructuredPushSender;
-import org.jacorb.util.Debug;
 
 import org.omg.CORBA.Any;
-import org.omg.CORBA.IntHolder;
 import org.omg.CosNotification.EventHeader;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.FixedEventHeader;
 import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
-import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
 
 import junit.framework.Test;
-import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.test.common.TestUtils;
 
 /**
@@ -49,14 +43,11 @@ import org.jacorb.test.common.TestUtils;
  * Under high load Messages were delivered multiple times.
  *
  * @author Alphonse Bendt
- * @version $Id: MultipleDeliveryBugTest.java,v 1.5 2004-02-19 10:04:51 alphonse.bendt Exp $
+ * @version $Id: MultipleDeliveryBugTest.java,v 1.5.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class MultipleDeliveryBugTest extends NotificationTestCase
 {
-
-    Logger logger_ = Debug.getNamedLogger(getClass().getName());
-
     EventChannel channel_;
 
     public MultipleDeliveryBugTest (String name, NotificationTestCaseSetup setup)
@@ -132,5 +123,4 @@ public class MultipleDeliveryBugTest extends NotificationTestCase
     {
         junit.textui.TestRunner.run(suite());
     }
-
 }

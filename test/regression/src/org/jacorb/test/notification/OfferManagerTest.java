@@ -30,16 +30,18 @@ import java.util.List;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import java.util.ArrayList;
+import org.jacorb.orb.ORB;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: OfferManagerTest.java,v 1.1 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: OfferManagerTest.java,v 1.1.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class OfferManagerTest extends TestCase {
 
     public static final EventType[] EMPTY_EVENT_TYPE_ARRAY = new EventType[0];
 
+    ORB jorb_;
     OfferManager offerManager_;
     List added_;
     List removed_;
@@ -54,7 +56,11 @@ public class OfferManagerTest extends TestCase {
     ////////////////////////////////////////
 
     public void setUp() throws Exception {
+        jorb_ = (ORB)ORB.init(new String[] {}, null);
+
         offerManager_ = new OfferManager();
+        offerManager_.configure(jorb_.getConfiguration());
+
         added_ = new ArrayList();
         removed_ = new ArrayList();
         listener_ = new NotifyPublishOperations() {

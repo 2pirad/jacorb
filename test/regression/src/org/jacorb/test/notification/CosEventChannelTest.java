@@ -5,8 +5,6 @@ import org.omg.CORBA.IntHolder;
 import org.omg.CosNotification.Property;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
 
-import org.jacorb.util.Debug;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.apache.avalon.framework.logger.Logger;
@@ -17,14 +15,11 @@ import org.apache.avalon.framework.logger.Logger;
  *  CosEvent Interfaces.
  *
  * @author Alphonse Bendt
- * @version $Id: CosEventChannelTest.java,v 1.7 2004-02-13 18:48:38 alphonse.bendt Exp $
+ * @version $Id: CosEventChannelTest.java,v 1.7.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class CosEventChannelTest extends NotificationTestCase
 {
-
-    Logger logger_ = Debug.getNamedLogger(getClass().getName());
-
     EventChannel channel_;
     Any testData_;
 

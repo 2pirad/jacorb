@@ -26,7 +26,6 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
 import org.jacorb.notification.EventChannelFactoryImpl;
-import org.jacorb.util.Debug;
 
 import java.util.Properties;
 
@@ -36,12 +35,10 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCaseSetup.java,v 1.10 2004-02-10 11:06:55 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCaseSetup.java,v 1.10.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class NotificationTestCaseSetup extends TestSetup {
-
-    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     private ORB orb_;
     private POA poa_;

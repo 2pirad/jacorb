@@ -44,7 +44,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MappingFilterTest.java,v 1.3 2004-02-25 15:25:39 alphonse.bendt Exp $
+ * @version $Id: MappingFilterTest.java,v 1.3.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class MappingFilterTest extends NotificationTestCase
@@ -74,9 +74,15 @@ public class MappingFilterTest extends NotificationTestCase
         appContext_ =
             new ApplicationContext(orb_, POAHelper.narrow(orb_.resolve_initial_references("RootPOA")));
 
+        appContext_.configure(getConfiguration());
+
         filter_ = new FilterImpl(appContext_, FilterFactoryImpl.CONSTRAINT_GRAMMAR);
 
-        filterFactory_ = new FilterFactoryImpl(appContext_).getFilterFactory();
+        FilterFactoryImpl _filterFactoryServant = new FilterFactoryImpl(appContext_);
+
+        _filterFactoryServant.configure(getConfiguration());
+
+        filterFactory_ = _filterFactoryServant.getFilterFactory();
 
         testPerson_ = getTestUtils().getTestPersonAny();
     }

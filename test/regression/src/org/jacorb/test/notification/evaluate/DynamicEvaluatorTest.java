@@ -39,7 +39,7 @@ import junit.framework.TestSuite;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: DynamicEvaluatorTest.java,v 1.3 2004-01-23 19:45:06 alphonse.bendt Exp $
+ * @version $Id: DynamicEvaluatorTest.java,v 1.3.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 public class DynamicEvaluatorTest extends TestCase {
 
@@ -71,6 +71,8 @@ public class DynamicEvaluatorTest extends TestCase {
             DynAnyFactoryHelper.narrow(orb_.resolve_initial_references("DynAnyFactory"));
 
         evaluator_ = new DynamicEvaluator(_dynAnyFactory);
+
+        evaluator_.configure(((org.jacorb.orb.ORB)orb_).getConfiguration());
     }
 
     public void testExtractAny() throws Exception {

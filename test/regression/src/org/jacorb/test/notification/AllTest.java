@@ -28,12 +28,11 @@ import junit.swingui.TestRunner;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.9 2004-01-23 19:44:03 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.9.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class AllTest extends TestCase
 {
-
     public AllTest( String name )
     {
         super( name );

@@ -15,7 +15,6 @@ import org.omg.CosNotifyFilter.ConstraintInfo;
 import org.omg.CosNotifyFilter.Filter;
 
 import org.jacorb.test.common.TestUtils;
-import org.jacorb.util.Debug;
 
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import junit.framework.Test;
@@ -25,14 +24,12 @@ import org.omg.CORBA.TRANSIENT;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredEventChannelTest.java,v 1.11 2004-03-17 23:15:28 alphonse.bendt Exp $
+ * @version $Id: StructuredEventChannelTest.java,v 1.11.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 
 public class StructuredEventChannelTest extends NotificationTestCase
 {
     private static final EventType[] EMPTY_EVENT_TYPE = new EventType[0];
-
-    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     EventChannel channel_;
 

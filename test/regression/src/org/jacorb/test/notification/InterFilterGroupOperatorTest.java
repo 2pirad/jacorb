@@ -31,11 +31,8 @@ import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.CosNotifyFilter.ConstraintInfo;
 import org.omg.CosNotifyFilter.Filter;
 
-import org.jacorb.util.Debug;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Test the various InterFilterGroupOperator settings.
@@ -59,7 +56,7 @@ import org.apache.avalon.framework.logger.Logger;
  * to AND. ProxySupplierfilter set to TRUE.
  *
  * @author Alphonse Bendt
- * @version $Id: InterFilterGroupOperatorTest.java,v 1.7 2004-02-13 18:48:38 alphonse.bendt Exp $
+ * @version $Id: InterFilterGroupOperatorTest.java,v 1.7.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
  */
 public class InterFilterGroupOperatorTest extends NotificationTestCase
 {
@@ -69,8 +66,6 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
     ConsumerAdmin consumerAdmin_;
     Filter trueFilter_;
     Filter falseFilter_;
-
-    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     public void setUp() throws Exception
     {
