@@ -41,7 +41,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.28 2004-02-18 14:50:01 gerald Exp $
+ *  @version $Id: NameServer.java,v 1.29 2004-03-03 15:38:24 gerald Exp $
  */
 
 
@@ -196,13 +196,12 @@ public class NameServer
                 {
                     if( idx+1 < args.length )
                     {
-                        port = args[ idx+1 ];
+                        port = args[ ++idx ];
                         idx++;
                     }
                     else
                         usage();
                 }
-
 
                 if( idx < args.length  && args[ idx ].startsWith("-t"))
                 {
@@ -210,7 +209,7 @@ public class NameServer
                     {
                         try
                         {
-                            time_out = Integer.parseInt( args[ idx+1] );
+                            time_out = Integer.parseInt( args[ ++idx] );
                             idx++;
                         }
                         catch( NumberFormatException nf )
@@ -218,11 +217,7 @@ public class NameServer
                         }
                         if( idx +1 < args.length && args[idx +1].equals("imr_register") )
                         {
-                            //#ifjdk 1.2
                             imr_register = true;
-                        //#else
-                        //# throw new RuntimeException ("Sorry, imr_register not supported in this release");
-                        //#endif
                         }
                     }
                     else
