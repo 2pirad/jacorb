@@ -56,7 +56,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.119 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ORB.java,v 1.120 2004-07-19 15:28:50 phil.mesnier Exp $
  */
 
 public final class ORB
@@ -619,13 +619,15 @@ public final class ORB
     {
         List profiles     = new ArrayList();
         Map  componentMap = new HashMap();
-
+        int[] profileTags = new int[basicAdapter.getEndpointProfiles().size()];
+        int n = 0;
         for (Iterator i = basicAdapter.getEndpointProfiles().iterator();
              i.hasNext();)
         {
             Profile profile = (Profile)i.next();
             profile.set_object_key (objectKey);
             profiles.add (profile);
+            profileTags[n++] = profile.tag();
 
             TaggedComponentList profileComponents = new TaggedComponentList();
             profileComponents.addComponent(create_ORB_TYPE_ID());
@@ -650,6 +652,7 @@ public final class ORB
                                                componentMap,
                                                policy_overrides,
                                                profiles);
+            interceptor_manager.setProfileTags(profileTags);
             try
             {
                 interceptor_manager.getIORIterator().iterate( info );
@@ -1432,7 +1435,7 @@ public final class ORB
 
     protected void set_parameters(String[] args, java.util.Properties props)
     {
-        _props = props;        
+        _props = props;
 
         try
         {
