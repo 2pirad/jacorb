@@ -4,15 +4,11 @@
 
   <!-- ==================================================== -->
   <!--            JacORB demo build file                     -->
-  <!-- $Id: build.xml,v 1.3 2002-08-02 16:35:03 nicolas Exp $ -->
+  <!-- $Id: build.xml,v 1.4 2003-09-01 15:26:32 brose Exp $ -->
   <!-- ==================================================== -->
 
 
-   <target name="init_compile">
-	<property name="dirs.base" value="${basedir}"/>
-	<property name="classdir" value="${dirs.base}/classes"/>
-	<property name="demodir" value="${basedir}/demo"/>
-	<property name="lib" value="${dirs.base}/lib"/>
+   <target name="init_compile">	
 	<property name="target" value="all"/>
 	<mkdir dir="${classdir}/demo"/>
    </target>
