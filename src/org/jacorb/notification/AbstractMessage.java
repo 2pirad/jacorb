@@ -40,15 +40,12 @@ import org.omg.CORBA.ORB;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyFilter.MappingFilter;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.6 2003-11-26 10:36:21 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.7 2003-12-11 16:41:39 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
@@ -309,7 +306,7 @@ public abstract class AbstractMessage extends AbstractPoolable
     protected Logger logger_ =
         Debug.getNamedLogger(getClass().getName());
 
-    final static ORB sOrb = ORB.init();
+    static final ORB sOrb = ORB.init();
 
     protected boolean proxyConsumerFiltered_;
     protected boolean supplierAdminFiltered_;
@@ -372,7 +369,7 @@ public abstract class AbstractMessage extends AbstractPoolable
      * Add a reference on this NotificationEvent. After Usage release
      * must be called.
      */
-    synchronized public void addReference()
+    public synchronized void addReference()
     {
         ++referenced_;
     }
@@ -382,7 +379,7 @@ public abstract class AbstractMessage extends AbstractPoolable
      * internal Refcounter is zero the NotificationEvent is returned
      * to its pool.
      */
-    synchronized public void removeReference()
+    public synchronized void removeReference()
     {
         if ( referenced_ > 0 )
         {
