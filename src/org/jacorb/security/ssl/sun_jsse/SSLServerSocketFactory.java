@@ -3,7 +3,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.2 2001-10-02 13:51:13 jacorb Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.3 2001-10-04 07:45:26 jacorb Exp $
  */
 import org.jacorb.util.*;
 import org.jacorb.security.util.*;
@@ -120,9 +120,6 @@ public class SSLServerSocketFactory
 	    KeyStore key_store = 
 		KeyStoreUtil.getKeyStore( keystore_location,
 					  keystore_passphrase.toCharArray() );
-
-            key_store.load( new FileInputStream( keystore_location ),
-                            keystore_passphrase.toCharArray() );
 
 	    KeyManagerFactory kmf = KeyManagerFactory.getInstance( "SunX509" );
             kmf.init( key_store, keystore_passphrase.toCharArray() );

@@ -23,7 +23,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.2 2001-10-02 13:51:13 jacorb Exp $
+ * $Id: SSLSocketFactory.java,v 1.3 2001-10-04 07:45:26 jacorb Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -85,35 +85,38 @@ public class SSLSocketFactory
 	    KeyManagerFactory kmf = null;
 	    KeyStore key_store = null;
 
-	    //only add own credentials, if establish trust in client
-            //is supported
-            if((Environment.getIntProperty( "jacorb.security.ssl.client.supported_options", 16 ) & 0x40) != 0 ) 
-            {        
-		String keystore_location = 
+            if( Environment.isPropertyOn( "jacorb.security.jsse.trustees_from_ks" ) ||
+                ((Environment.getIntProperty( "jacorb.security.ssl.client.supported_options", 16 ) & 0x40) != 0 ))
+            {
+                String keystore_location = 
                     Environment.getProperty( "jacorb.security.keystore" );
-		if( keystore_location == null ) 
-		{
-		    System.out.print( "Please enter key store file name: " );
-		    keystore_location = 
+                if( keystore_location == null ) 
+                {
+                    System.out.print( "Please enter key store file name: " );
+                    keystore_location = 
                     (new BufferedReader(new InputStreamReader(System.in))).readLine();
-		}
-		
-		String keystore_passphrase = 
-		    Environment.getProperty( "jacorb.security.keystore_password" );
-		if( keystore_passphrase == null ) 
-		{
-		    System.out.print( "Please enter store pass phrase: " );
-		    keystore_passphrase= 
-			(new BufferedReader(new InputStreamReader(System.in))).readLine();
-		}
-
-		key_store = 
-		    KeyStoreUtil.getKeyStore( keystore_location,
-					      keystore_passphrase.toCharArray() );
-
-		kmf = KeyManagerFactory.getInstance( "SunX509" );
-		kmf.init( key_store, keystore_passphrase.toCharArray() );
-	    }
+                }
+                
+                String keystore_passphrase = 
+                    Environment.getProperty( "jacorb.security.keystore_password" );
+                if( keystore_passphrase == null ) 
+                {
+                    System.out.print( "Please enter store pass phrase: " );
+                    keystore_passphrase= 
+                        (new BufferedReader(new InputStreamReader(System.in))).readLine();
+                }
+            
+                key_store = 
+                    KeyStoreUtil.getKeyStore( keystore_location,
+                                              keystore_passphrase.toCharArray() );
+                //only add own credentials, if establish trust in
+                //client is supported
+                if((Environment.getIntProperty( "jacorb.security.ssl.client.supported_options", 16 ) & 0x40) != 0 ) 
+                {        
+                    kmf = KeyManagerFactory.getInstance( "SunX509" );
+                    kmf.init( key_store, keystore_passphrase.toCharArray() );
+                }
+            }
 
             TrustManagerFactory tmf = 
 		TrustManagerFactory.getInstance( "SunX509" );
@@ -121,6 +124,7 @@ public class SSLSocketFactory
 	    if( key_store != null &&
 		Environment.isPropertyOn( "jacorb.security.jsse.trustees_from_ks" ))
 	    {
+                //take trusted certificates from keystore
 		tmf.init( key_store );
 	    }
 	    else
@@ -143,3 +147,5 @@ public class SSLSocketFactory
 	return null;
     }
 }
+
+
