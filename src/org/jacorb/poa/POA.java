@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.36 2003-09-09 09:03:23 nick.cross Exp $
+ * @version $Id: POA.java,v 1.37 2003-10-28 12:15:21 nick.cross Exp $
  */
 
 public class POA
@@ -451,7 +451,6 @@ public class POA
             aom.add(objectId, servant);
 
             orb.set_delegate( servant );
-            //            ((org.jacorb.orb.ServantDelegate)servant._get_delegate()).setPOA(this);
         }
         catch (ObjectAlreadyActive e)
         {
@@ -466,6 +465,11 @@ public class POA
     {
         checkDestructionApparent ();
 
+        if( oid == null )
+        {
+            throw new org.omg.CORBA.BAD_PARAM( "Cannot activate_object_with_id with null ID." );
+        }
+
         if ( !isRetain() )
             throw new WrongPolicy();
 
@@ -479,7 +483,6 @@ public class POA
         aom.add( oid, servant );
 
         orb.set_delegate( servant );
-        // ((org.jacorb.orb.ServantDelegate)servant._get_delegate()).setPOA(this);
     }
 
     protected synchronized void addPOAListener( POAListener listener )
