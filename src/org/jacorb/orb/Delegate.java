@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.31 2001-12-14 12:39:50 spiegel Exp $
+ * @version $Id: Delegate.java,v 1.32 2001-12-21 10:35:47 nicolas Exp $
  *
  */
 
@@ -70,8 +70,6 @@ public final class Delegate
     /** set after the first attempt to determine whether 
         this reference is to a local object */
     private boolean resolved_locality = false;
-
-    private boolean location_forward_permanent = true;
 
     private Hashtable pending_replies = new Hashtable();
     private Barrier pending_replies_sync = new Barrier();
@@ -860,9 +858,7 @@ public final class Delegate
             {
                 if ( use_interceptors && (info != null) )
                 {
-                    //assuming "permanent", until new GIOP version is
-                    //implemented
-                    info.reply_status = LOCATION_FORWARD_PERMANENT.value;
+                    info.reply_status = LOCATION_FORWARD.value;
                     info.setReplyServiceContexts(rep.rep_hdr.service_context);
             
                     info.forward_reference = f.forward_reference;
@@ -977,11 +973,6 @@ public final class Delegate
                         pending_replies.remove( placeholder );
                     }
                 }
-    
-                if(! location_forward_permanent)
-                {
-                    fallback();
-                }
             }
         }
         else
@@ -993,14 +984,8 @@ public final class Delegate
     
                 invokeInterceptors(info, ClientInterceptorIterator.RECEIVE_OTHER);
             }
-
-            if(! location_forward_permanent)
-            {
-                fallback();
-            }
-
           
-            return null; // if call was oneway
+            return null; //call was oneway
         }
     }
 
@@ -1016,8 +1001,6 @@ public final class Delegate
         }
         catch (org.omg.PortableInterceptor.ForwardRequest fwd)
         {
-            location_forward_permanent = fwd.permanent;
-         
             rebind(orb.object_to_string(fwd.forward));    
             throw new RemarshalException();            
         }

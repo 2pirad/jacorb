@@ -31,7 +31,7 @@ import org.jacorb.util.Debug;
  * ServerRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInterceptorIterator.java,v 1.4 2001-03-27 12:01:27 noffke Exp $
+ * @version $Id: ServerInterceptorIterator.java,v 1.5 2001-12-21 10:35:48 nicolas Exp $
  */
 
 public class ServerInterceptorIterator
@@ -114,10 +114,7 @@ public class ServerInterceptorIterator
 	    reverseDirection();
 	    op = SEND_OTHER;
 	
-	    if (_fwd.permanent)
-		info.reply_status = LOCATION_FORWARD_PERMANENT.value;
-	    else
-		info.reply_status = LOCATION_FORWARD.value;
+            info.reply_status = LOCATION_FORWARD.value;
 
 	    info.forward_reference = _fwd.forward;
 

@@ -10,7 +10,7 @@ import org.jacorb.util.Debug;
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.4 2001-06-08 12:10:35 jacorb Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.5 2001-12-21 10:35:47 nicolas Exp $
  */
 
 public class ClientInterceptorIterator 
@@ -88,10 +88,7 @@ public class ClientInterceptorIterator
 	    reverseDirection();
 	    op = RECEIVE_OTHER;
 	
-	    if (_fwd.permanent)
-		info.reply_status = LOCATION_FORWARD_PERMANENT.value;
-	    else
-		info.reply_status = LOCATION_FORWARD.value;
+            info.reply_status = LOCATION_FORWARD.value;
 
 	    info.forward_reference = _fwd.forward;
 	    interceptor_ex = _fwd;
