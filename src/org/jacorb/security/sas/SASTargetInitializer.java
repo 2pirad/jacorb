@@ -35,13 +35,14 @@ import org.jacorb.util.Environment;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInitializer.java,v 1.2 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: SASTargetInitializer.java,v 1.3 2003-01-13 15:29:50 david.robison Exp $
  */
 
 public class SASTargetInitializer
         extends org.omg.CORBA.LocalObject
         implements ORBInitializer
 {
+    public static final int SecurityAttributeService = 15;
 
     public static int sasPrincipalNamePIC = (-1);
 
