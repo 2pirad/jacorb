@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.14 2001-12-14 14:13:12 gerald Exp $
+ * @version $Id: StructType.java,v 1.15 2001-12-17 14:07:28 gerald Exp $
  */
 
 class StructType 
@@ -137,7 +137,8 @@ class StructType
 	    throw new RuntimeException("Compiler Error: trying to reassign container for " + name );
 	}
 	enclosing_symbol = s;
-        memberlist.setEnclosingSymbol( s );
+	if( memberlist != null )
+            memberlist.setEnclosingSymbol( this );
     }
 
     public String toString()
