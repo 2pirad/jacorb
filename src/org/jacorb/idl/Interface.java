@@ -20,10 +20,12 @@
 
 package org.jacorb.idl;
 
+
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.5 2001-03-26 09:07:37 jacorb Exp $
+ * @version $Id: Interface.java,v 1.6 2001-03-26 09:08:44 jacorb Exp $
  */
+
 
 import java.util.*;
 import java.io.*;
