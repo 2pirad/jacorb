@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.10 2002-11-04 17:31:29 andre.spiegel Exp $
+ * @version $Id: ParamDecl.java,v 1.11 2002-11-22 11:39:50 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -80,6 +80,14 @@ class ParamDecl
         paramTypeSpec.setPackage( s );
     }
 
+    /**
+     * Returns a new ParamDecl with the same characteristics as this one,
+     * except that its mode is changed to 'in'.
+     */
+    public ParamDecl asIn()
+    {
+        return new ParamDecl (MODE_IN, this.paramTypeSpec, this.simple_declarator);
+    }
 
     public void parse()
     {
