@@ -38,7 +38,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.3 2004-02-09 16:25:27 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl
@@ -71,15 +71,13 @@ public class SequenceProxyPullConsumerImpl
     public synchronized void connect_sequence_pull_supplier( SequencePullSupplier sequencePullSupplier )
         throws AlreadyConnected
     {
-        if ( connected_ )
-        {
-            throw new AlreadyConnected();
-        }
+        assertNotConnected();
 
-        connected_ = true;
         active_ = true;
 
         sequencePullSupplier_ = sequencePullSupplier;
+
+        connectClient(sequencePullSupplier);
 
         try {
             subscriptionListener_ = NotifySubscribeHelper.narrow(sequencePullSupplier);
@@ -126,17 +124,9 @@ public class SequenceProxyPullConsumerImpl
 
     protected void disconnectClient()
     {
-        if ( connected_ )
-        {
-            if ( sequencePullSupplier_ != null )
-            {
-                stopTask();
-                sequencePullSupplier_.disconnect_sequence_pull_supplier();
-                sequencePullSupplier_ = null;
-            }
-        }
-
-        connected_ = false;
+        stopTask();
+        sequencePullSupplier_.disconnect_sequence_pull_supplier();
+        sequencePullSupplier_ = null;
     }
 
 

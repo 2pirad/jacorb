@@ -32,7 +32,7 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullSupplierImpl.java,v 1.2 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: ECProxyPullSupplierImpl.java,v 1.3 2004-02-13 18:30:16 alphonse.bendt Exp $
  */
 
 public class ECProxyPullSupplierImpl
@@ -41,14 +41,11 @@ public class ECProxyPullSupplierImpl
 {
 
     ECProxyPullSupplierImpl(AbstractAdmin adminServant,
-                            ChannelContext channelContext,
-                            Integer key) throws UnsupportedQoS
+                            ChannelContext channelContext) throws UnsupportedQoS
     {
 
         super(adminServant,
               channelContext);
-
-        setKey(key, false);
     }
 
     ////////////////////////////////////////

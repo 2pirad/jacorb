@@ -38,7 +38,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.3 2004-02-09 16:25:27 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -67,15 +67,7 @@ public class ProxyPushConsumerImpl
     public void disconnect_push_consumer()
     {
         logger_.info( "disconnect any_push_supplier" );
-
-        if ( !disposed_ )
-        {
-            dispose();
-        }
-        else
-        {
-            throw new OBJECT_NOT_EXIST();
-        }
+        dispose();
     }
 
 
@@ -96,8 +88,6 @@ public class ProxyPushConsumerImpl
     {
         logger_.debug("push Any into the Channel");
 
-        checkConnected();
-
         Message _mesg =
             messageFactory_.newMessage( event, this );
 
@@ -112,13 +102,11 @@ public class ProxyPushConsumerImpl
     {
         logger_.info( "connect any_push_supplier" );
 
-        if ( connected_ )
-        {
-            throw new AlreadyConnected();
-        }
+        assertNotConnected();
 
         pushSupplier_ = pushSupplier;
-        connected_ = true;
+
+        connectClient(pushSupplier);
 
         try {
             subscriptionListener_ = NotifySubscribeHelper.narrow(pushSupplier_);

@@ -49,7 +49,7 @@ import EDU.oswego.cs.dl.util.concurrent.Sync;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.3 2004-02-09 16:25:27 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl
@@ -133,8 +133,6 @@ public class ProxyPullConsumerImpl
         configurePullIntervall();
 
         configureTimerCallback();
-
-        connected_ = false;
     }
 
     ////////////////////////////////////////
@@ -147,17 +145,10 @@ public class ProxyPullConsumerImpl
 
     protected void disconnectClient()
     {
-        if ( pullSupplier_ != null )
-        {
-            stopTask();
+        stopTask();
 
-            pullSupplier_.disconnect_pull_supplier();
-            pullSupplier_ = null;
-
-            connected_ = false;
-            active_ = false;
-
-        }
+        pullSupplier_.disconnect_pull_supplier();
+        pullSupplier_ = null;
     }
 
 
@@ -165,10 +156,7 @@ public class ProxyPullConsumerImpl
         throws NotConnected,
                ConnectionAlreadyInactive
     {
-        if ( !connected_ )
-        {
-            throw new NotConnected();
-        }
+        assertConnected();
 
         if ( !active_ )
         {
@@ -184,10 +172,7 @@ public class ProxyPullConsumerImpl
         throws ConnectionAlreadyActive,
                NotConnected
     {
-        if ( !connected_ )
-        {
-            throw new NotConnected();
-        }
+        assertConnected();
 
         if ( active_ )
         {
@@ -198,21 +183,17 @@ public class ProxyPullConsumerImpl
     }
 
 
-    public void runPullEvent()
+    public void runPullEvent() throws Disconnected
     {
-        if ( !connected_ )
+        if ( !isConnected() )
             {
                 return;
             }
 
         try {
             runPullEventInternal();
-        } catch (Disconnected e) {
-            synchronized(this) {
-                connected_ = false;
-            }
         } catch (InterruptedException e) {
-
+            logger_.error("pull was interrupted", e);
         }
     }
 
@@ -253,24 +234,23 @@ public class ProxyPullConsumerImpl
     public void connect_any_pull_supplier( PullSupplier pullSupplier )
         throws AlreadyConnected
     {
-        if ( connected_ )
-        {
-            throw new AlreadyConnected();
-        }
-        else
-        {
-            connected_ = true;
-            active_ = true;
-            pullSupplier_ = pullSupplier;
-            startTask();
+        assertNotConnected();
 
-            try {
-                subscriptionListener_ = NotifySubscribeHelper.narrow(pullSupplier_);
-            } catch (Throwable t) {
 
-            }
+        active_ = true;
+        pullSupplier_ = pullSupplier;
+
+        connectClient(pullSupplier);
+
+        startTask();
+
+        try {
+            subscriptionListener_ = NotifySubscribeHelper.narrow(pullSupplier_);
+        } catch (Throwable t) {
+            logger_.info("disable subscription_change for PullSupplier");
         }
     }
+
 
 
     synchronized private void startTask()

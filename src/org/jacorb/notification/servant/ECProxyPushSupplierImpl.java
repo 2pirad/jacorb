@@ -32,7 +32,7 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushSupplierImpl.java,v 1.2 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushSupplierImpl.java,v 1.3 2004-02-13 18:30:16 alphonse.bendt Exp $
  */
 public class ECProxyPushSupplierImpl
             extends ProxyPushSupplierImpl
@@ -47,7 +47,7 @@ public class ECProxyPushSupplierImpl
         super(myAdminServant,
               channelContext);
 
-        isKeyPublic_ = false;
+        isIDPublic_ = false;
     }
 
     ////////////////////////////////////////

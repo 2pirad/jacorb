@@ -36,7 +36,7 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.3 2004-02-09 16:25:27 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl
@@ -62,33 +62,25 @@ public class SequenceProxyPushConsumerImpl
 
     protected void disconnectClient()
     {
-        if ( connected_ )
-        {
-            if ( sequencePushSupplier_ != null )
-            {
-                connected_ = false;
-                sequencePushSupplier_.disconnect_sequence_push_supplier();
-                sequencePushSupplier_ = null;
-            }
-
-        }
+        sequencePushSupplier_.disconnect_sequence_push_supplier();
+        sequencePushSupplier_ = null;
     }
 
 
     public void connect_sequence_push_supplier( SequencePushSupplier supplier )
         throws AlreadyConnected
     {
-        if ( connected_ )
-        {
-            throw new AlreadyConnected();
-        }
+        assertNotConnected();
 
-        connected_ = true;
         sequencePushSupplier_ = supplier;
+
+        connectClient(supplier);
 
         try {
             subscriptionListener_ = NotifySubscribeHelper.narrow(sequencePushSupplier_);
-        } catch (Throwable t) {}
+        } catch (Throwable t) {
+            logger_.info("disable subcription_change for SequencePushSupplier");
+        }
 
     }
 
