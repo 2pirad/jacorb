@@ -35,7 +35,7 @@ import org.jacorb.util.Environment;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: TSSInitializer.java,v 1.1 2002-09-10 16:24:05 david.robison Exp $
+ * @version $Id: TSSInitializer.java,v 1.2 2002-09-10 21:19:30 david.robison Exp $
  */
 
 public class TSSInitializer
@@ -54,7 +54,8 @@ public class TSSInitializer
             slotID = info.allocate_slot_id();
             Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, (byte) 1, (byte) 0);
             Codec codec = info.codec_factory().create_codec(encoding);
-            info.add_server_request_interceptor(new TSSInvocationInterceptor(codec, slotID));
+            org.jacorb.orb.ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB ();
+            info.add_server_request_interceptor(new TSSInvocationInterceptor(orb, codec, slotID));
         }
         catch (DuplicateName duplicateName)
         {

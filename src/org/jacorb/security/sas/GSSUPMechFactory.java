@@ -28,7 +28,7 @@ import java.security.*;
  * This is the GSS-API Sercurity Provider Interface (SPI) Facotry GSSUP GSSManager
  *
  * @author David Robison
- * @version $Id: GSSUPMechFactory.java,v 1.1 2002-09-10 16:24:05 david.robison Exp $
+ * @version $Id: GSSUPMechFactory.java,v 1.2 2002-09-10 21:19:30 david.robison Exp $
  */
 
 public final class GSSUPMechFactory implements MechanismFactory
@@ -83,16 +83,19 @@ public final class GSSUPMechFactory implements MechanismFactory
 
     public GSSContextSpi getMechanismContext(GSSNameSpi nameSpi, GSSCredentialSpi credSpi, int lifetime) throws GSSException
     {
+          System.out.println("getMechanismContext-1");
 	  return new GSSUPContextSpi(myProvider, myMechOid, lifetime);
     }
 
     public GSSContextSpi getMechanismContext(GSSCredentialSpi credSpi) throws GSSException
     {
-	  return null;
+          System.out.println("getMechanismContext-2");
+	  return new GSSUPContextSpi(credSpi.getProvider(), credSpi.getMechanism(), credSpi.getInitLifetime());
     }
 
     public GSSContextSpi getMechanismContext(byte[] b1) throws GSSException
     {
+          System.out.println("getMechanismContext");
 	  return null;
     }
 }
