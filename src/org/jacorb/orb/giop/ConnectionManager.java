@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ConnectionManager.java,v 1.20 2002-11-26 16:45:35 nicolas Exp $
+ * @version $Id: ConnectionManager.java,v 1.21 2002-12-02 09:21:53 nicolas Exp $
  *
  */
 
@@ -167,20 +167,11 @@ public class ConnectionManager
             {
                 _port += 65536;
             }
-
-            SocketFactory sf = null;
-
-            if( use_ssl )
-            {
-                sf = ssl_socket_factory;
-            }
-            else
-            {
-                sf = socket_factory;
-            }
             
             Transport transport = 
-                transport_manager.createClientTransport( host, _port );
+                transport_manager.createClientTransport( host, 
+                                                         _port,
+                                                         use_ssl );
 
             GIOPConnection connection = 
                 new GIOPConnection( transport,
