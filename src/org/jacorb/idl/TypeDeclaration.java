@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.7 2002-03-19 09:25:07 nicolas Exp $
+ * @version $Id: TypeDeclaration.java,v 1.8 2002-04-15 14:37:29 gerald Exp $
  */
 
 import java.util.*;
@@ -120,8 +120,7 @@ class TypeDeclaration
 	type_decl.set_included(i);
     }
 
-    public void parse() 
-	 
+    public void parse() 	 
     {
 	type_decl.parse();
     }

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeCodeTypeSpec.java,v 1.3 2002-03-25 17:48:57 gerald Exp $
+ * @version $Id: TypeCodeTypeSpec.java,v 1.4 2002-04-15 14:37:29 gerald Exp $
  */
 
 import java.util.*;
@@ -71,8 +71,7 @@ public class TypeCodeTypeSpec
     {
     }
 
-    public void parse() 
-		 
+    public void parse() 		 
     {
     }
 

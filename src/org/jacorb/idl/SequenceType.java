@@ -27,7 +27,7 @@ import java.io.*;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.17 2002-03-28 09:36:19 gerald Exp $
+ * @version $Id: SequenceType.java,v 1.18 2002-04-15 14:37:29 gerald Exp $
  */
 
 public class SequenceType 
@@ -119,7 +119,7 @@ public class SequenceType
 
     public String getTypeCodeExpression()
     {
-        Environment.output( 2, "Sequence getTypeCodeExpression " + name );
+        Environment.output( 1, "Sequence getTypeCodeExpression " + name );
 	String originalType = null;
 
 	if( recursive )

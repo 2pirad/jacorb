@@ -27,7 +27,7 @@ import java.io.*;
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.1 2002-03-28 09:37:29 gerald Exp $
+ * @version $Id: VectorType.java,v 1.2 2002-04-15 14:37:30 gerald Exp $
  */
 
 
@@ -99,19 +99,22 @@ public abstract class VectorType
 
     protected String elementTypeExpression()
     {        
-        if( type_spec.typeSpec() instanceof AliasTypeSpec )
+        TypeSpec ts = type_spec.typeSpec();
+
+        if( ts instanceof AliasTypeSpec )
         {
             return type_spec.full_name() + "Helper.type()";
         }
-        else if ( type_spec.typeSpec() instanceof BaseType || 
-                  type_spec.typeSpec() instanceof TypeCodeTypeSpec ||
-                  type_spec.typeSpec() instanceof TemplateTypeSpec  )
+        else if ( ts instanceof BaseType || 
+                  ts instanceof TypeCodeTypeSpec ||
+                  ts instanceof ConstrTypeSpec || // for value types
+                  ts instanceof TemplateTypeSpec  )
         {
-            return type_spec.getTypeCodeExpression() ;
+            return ts.getTypeCodeExpression() ;
         }
         else
         {
-            return type_spec.typeName()  + "Helper.type()";
+            return ts.typeName()  + "Helper.type()";
         }
     }
 
