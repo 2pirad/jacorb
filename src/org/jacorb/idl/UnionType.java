@@ -25,6 +25,13 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.*;
 
+/**
+ * The AST representation of an IDL union
+ *
+ * @author Gerald Brose
+ * @version $Id: UnionType.java,v 1.42 2003-08-20 19:37:47 brose Exp $
+ */
+
 class UnionType
     extends TypeDeclaration
     implements Scope
@@ -694,7 +701,7 @@ class UnionType
                         String lab = (String) unusedCaseLabels.elementAt (i);
                         if (! lab.equals (defaultStr))
                         {
-                            pw.print (" && discriminator != " + lab);
+                            pw.print (" && _discriminator != " + lab); // fixes bug #373
                         }
                     }
                 }
