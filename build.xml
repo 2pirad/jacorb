@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB build file                         -->
-  <!-- $Id: build.xml,v 1.6 2001-03-22 13:20:25 noffke Exp $ -->
+  <!-- $Id: build.xml,v 1.7 2001-03-26 13:44:00 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -216,7 +216,7 @@
 
    <target name="doc" depends="init">
            <javadoc destdir="${basedir}/doc/api"
-                    packagenames="jacorb.*">
+                    packagenames="org.jacorb.*">
                     <sourcepath> 
                                  <pathelement path="${src}" />
                                  <pathelement path="${src}/generated" />
