@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.5 2001-04-14 15:43:28 jacorb Exp $
+ * @version $Id: InterfaceBody.java,v 1.6 2001-04-24 10:01:24 jacorb Exp $
  */
 
 class InterfaceBody 
@@ -348,7 +348,9 @@ class InterfaceBody
 
     /** print methods to the stub file */
 
-    public void printStubMethods(PrintWriter ps, String classname, boolean locality_constraint)
+    public void printStubMethods(PrintWriter ps, 
+                                 String classname,
+                                 boolean locality_constraint)
     {
 	Operation [] ops = getMethods();
 	if( ops.length > 0 )
