@@ -28,7 +28,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.8 2001-03-28 10:13:10 noffke Exp $
+ * @version $Id: ReplyInputStream.java,v 1.9 2001-03-30 14:36:23 jacorb Exp $
  *
  */
 
@@ -142,13 +142,13 @@ public class ReplyInputStream
 	catch ( java.lang.InterruptedException e )
 	{}
 
-	if( communicationException )
-	{
-	    throw new org.omg.CORBA.COMM_FAILURE();
-	}
-	else if( remarshalException )
+        if( remarshalException )
 	{
 	    throw new org.omg.CORBA.portable.RemarshalException();
+	}	
+        else if( communicationException )
+	{
+	    throw new org.omg.CORBA.COMM_FAILURE();
 	}
 
 	wakeup();
