@@ -39,7 +39,7 @@ import org.omg.CORBA.ConstantDescription;
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.7 2001-05-01 08:13:38 jacorb Exp $
+ * @version $Id: InterfaceDef.java,v 1.8 2001-11-09 08:54:16 jacorb Exp $
  */
 
 public class InterfaceDef 
@@ -101,17 +101,42 @@ public class InterfaceDef
                   org.omg.CORBA.Repository ir )
         throws org.omg.CORBA.INTF_REPOS 
     {
+        Debug.assert( ir != null, "IR null!");
+        Debug.assert( def_in != null, "Defined?in null!");
+
         def_kind = org.omg.CORBA.DefinitionKind.dk_Interface;
         containing_repository = ir;
         defined_in = def_in;
-        myContainer = org.omg.CORBA.ContainedHelper.narrow( defined_in );
-
+        if( def_in.equals(ir) )
+            myContainer = null;
+        else
+            myContainer = org.omg.CORBA.ContainedHelper.narrow( defined_in );
+            
         this.path = path;
-        Debug.assert( ir != null, "IR null!");
-        Debug.assert( defined_in != null, "Defined?in null!");
+
         theClass = c;
         String classId = c.getName();
         this.helperClass = helperClass;
+
+        Hashtable irInfo= null;
+        Class irHelperClass = null;
+        try
+        {
+            irHelperClass = 
+                RepositoryImpl.loader.loadClass( theClass.getName() + "IRHelper");
+            irInfo = (Hashtable)irHelperClass.getDeclaredField("irInfo").get(null);
+        }
+        catch( ClassNotFoundException e )
+        {
+            org.jacorb.util.Debug.output(1, "!! No IR helper class for interface " + 
+                                     theClass.getName());
+        }
+        catch( Exception e )
+        {
+            e.printStackTrace();
+        }
+
+        Debug.assert( irInfo != null, "IR Info null!");
 
         try
         { 
@@ -132,7 +157,9 @@ public class InterfaceDef
                               " has no defined_in repository");
 
                 if( containedClass.isAssignableFrom( defined_in.getClass() ))
-                    absolute_name = myContainer.absolute_name() + "::" + name;
+                    absolute_name = 
+                        ( myContainer != null ? myContainer.absolute_name() : "Global" )
+                        + "::" + name;
                 else
                     absolute_name = "::" + name;
             } 
