@@ -1,0 +1,4 @@
+# shell script to run the domain tester server
+# $Id: runS,v 1.1 2001-06-13 13:55:02 jacorb Exp $
+echo jaco org.jacorb.orb.domain.test.DomainTesterServer $@
+jaco org.jacorb.orb.domain.test.DomainTesterServer $@

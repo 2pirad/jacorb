@@ -1,0 +1,4 @@
+# shell script to run the environment tester client program
+# $Id: runE,v 1.1 2001-06-13 13:55:02 jacorb Exp $
+cd ${JACORB}/classes
+jaco org.jacorb.orb.domain.test.EnvironmentTester
