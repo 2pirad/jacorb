@@ -21,34 +21,31 @@ package org.jacorb.notification;
  *
  */
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.jacorb.notification.interfaces.EventConsumer;
 import org.omg.CORBA.BooleanHolder;
-import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
+import org.omg.CosNotification.EventHeader;
+import org.omg.CosNotification.EventType;
+import org.omg.CosNotification.FixedEventHeader;
+import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullSupplierOperations;
-import org.omg.CosNotifyComm.StructuredPullConsumer;
-import java.util.LinkedList;
-import org.omg.CosNotification.EventType;
-import org.omg.CosNotification.FixedEventHeader;
-import org.omg.CosNotification.Property;
-import org.omg.CosNotification.EventHeader;
-import java.util.Collections;
-import java.util.List;
-import org.jacorb.notification.interfaces.EventConsumer;
-import org.omg.PortableServer.Servant;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullSupplierPOATie;
+import org.omg.CosNotifyComm.StructuredPullConsumer;
+import org.omg.PortableServer.Servant;
 
 /**
  * StructuredProxyPullSupplierImpl.java
  *
- *
- * Created: Tue Nov 05 14:25:49 2002
- *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.8 2003-07-16 00:07:01 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.9 2003-08-02 10:02:03 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullSupplierImpl
