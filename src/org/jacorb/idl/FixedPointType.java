@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.9 2002-03-04 18:05:56 steve.osselton Exp $
+ * @version $Id: FixedPointType.java,v 1.10 2002-03-08 14:58:14 steve.osselton Exp $
  */
 
 class FixedPointType 
@@ -261,10 +261,11 @@ class FixedPointType
     {
 	digits = digit_expr.pos_int_const();
 	scale = scale_expr.pos_int_const();
-        if( scale > 0 && scale > digits )
-            parser.error("Error in fixed point type " + typeName() + 
-                         ", scale must not exceed total number of digits.");
+
+        if ((scale < 0) || (digits <= 0) || (scale > digits))
+        {
+            parser.error ("Error in fixed point type " + typeName () + 
+                ", invalid format: <" + digits + "," + scale + ">");
+        }
     }
 }
-
-
