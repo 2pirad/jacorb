@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.23.2.1 2002-07-16 15:26:02 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.23.2.2 2002-07-17 13:08:05 gerald Exp $
  */
 
 class ValueDecl
@@ -161,7 +161,8 @@ class ValueDecl
                 {
                     justAnotherOne = true;
                 }
-                if( ! full_name().equals( "org.omg.CORBA.TypeCode" ) && stateMembers.size () != 0 )
+                if( ! full_name().equals( "org.omg.CORBA.TypeCode" ) && 
+                    stateMembers.size () != 0 )
                 {
                     TypeMap.replaceForwardDeclaration( full_name(), ctspec );
                 }
@@ -191,6 +192,9 @@ class ValueDecl
                         operations.add( e.nextElement() );
                 }
             }
+
+            for( Iterator i = factories.iterator(); i.hasNext(); )
+                ( (IdlSymbol)i.next() ).parse();
 
             // check inheritance rules
 
