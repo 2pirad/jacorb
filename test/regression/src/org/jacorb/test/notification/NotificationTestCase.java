@@ -35,12 +35,13 @@ import junit.framework.TestCase;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCase.java,v 1.8 2004-02-10 11:06:55 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCase.java,v 1.9 2004-02-27 12:17:40 alphonse.bendt Exp $
  */
 
 public class NotificationTestCase extends TestCase {
 
     private NotificationTestCaseSetup setup_;
+
     private EventChannel defaultChannel_;
 
     ////////////////////////////////////////

@@ -24,12 +24,11 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredEventChannelTest.java,v 1.9 2004-02-13 18:48:38 alphonse.bendt Exp $
+ * @version $Id: StructuredEventChannelTest.java,v 1.10 2004-02-27 12:18:07 alphonse.bendt Exp $
  */
 
 public class StructuredEventChannelTest extends NotificationTestCase
 {
-
     private static final EventType[] EMPTY_EVENT_TYPE = new EventType[0];
 
     Logger logger_ = Debug.getNamedLogger(getClass().getName());
@@ -42,10 +41,14 @@ public class StructuredEventChannelTest extends NotificationTestCase
     Filter falseFilter_;
     NotificationTestUtils testUtils_;
 
+    ////////////////////////////////////////
+
     public StructuredEventChannelTest(String name, NotificationTestCaseSetup setup)
     {
         super(name, setup);
     }
+
+    ////////////////////////////////////////
 
     public void tearDown() throws Exception
     {
@@ -158,6 +161,7 @@ public class StructuredEventChannelTest extends NotificationTestCase
         StructuredPushReceiver _receiver = new StructuredPushReceiver(this);
 
         _sender.connect(channel_, false);
+
         _receiver.connect(channel_, false);
 
         _sender.pushConsumer_.obtain_subscription_types(ObtainInfoMode.NONE_NOW_UPDATES_ON);
@@ -174,7 +178,6 @@ public class StructuredEventChannelTest extends NotificationTestCase
 
         assertEquals(1, subscriptionChangeCounter.get());
     }
-
 
 
     public void testObtainSubscriptionTypes_NONE_NOW_UPDATE_ON() throws Exception {
