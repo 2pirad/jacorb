@@ -22,12 +22,15 @@ package org.jacorb.notification.filter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterUtils.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: FilterUtils.java,v 1.2 2004-02-25 14:51:50 alphonse.bendt Exp $
  */
 public class FilterUtils {
 
-    private FilterUtils() {
-
+    /**
+     * this is a utility class
+     */
+    private FilterUtils()
+    {
     }
 
     /**
@@ -42,6 +45,14 @@ public class FilterUtils {
      */
     public static String calcConstraintKey( String domain_name, String type_name )
     {
+        if ("".equals(domain_name)) {
+            domain_name = "*";
+        }
+
+        if ("".equals(type_name)) {
+            type_name = "*";
+        }
+
         StringBuffer _b = new StringBuffer( domain_name );
 
         // insert a magic string
@@ -51,6 +62,4 @@ public class FilterUtils {
 
         return _b.toString();
     }
-
-
 }
