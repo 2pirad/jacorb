@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.11 2002-05-08 12:43:49 gerald Exp $
+ * @version $Id: Value.java,v 1.12 2002-11-16 13:25:53 gerald Exp $
  */
 
 import java.io.PrintWriter;
@@ -113,6 +113,9 @@ class Value
             System.err.println( "was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
             throw new RuntimeException( "Compiler Error: trying to reassign container for " + name );
         }
+        if( s == null )
+            throw new RuntimeException( "Compiler Error: enclosing symbol is null!");
+
         enclosing_symbol = s;
         value.setEnclosingSymbol( s );
     }

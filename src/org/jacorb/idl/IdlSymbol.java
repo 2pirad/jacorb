@@ -28,24 +28,28 @@ import java.util.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.20 2002-11-04 18:43:56 andre.spiegel Exp $
+ * @version $Id: IdlSymbol.java,v 1.21 2002-11-16 13:23:58 gerald Exp $
  */
 
 class IdlSymbol
-        extends java_cup.runtime.symbol
-        implements java.io.Serializable
+    extends java_cup.runtime.symbol
+    implements java.io.Serializable
 {
-
     private static int num = 10000;
     public String pack_name = "";
     String name = "";
+
     protected boolean is_pseudo = false; // is this a PIDL spec.?
     protected boolean included = false;
     protected boolean inhibitionFlag = false;
+
     str_token token;
+
     protected String _id;
     private String _version;
+
     protected IdlSymbol enclosing_symbol;
+
     protected String omg_package_prefix = "";
     private Hashtable imports = new Hashtable();
 
@@ -53,6 +57,10 @@ class IdlSymbol
 
     protected static final char fileSeparator =
             System.getProperty( "file.separator" ).charAt( 0 );
+
+    /**
+     * class contstructor
+     */
 
     public IdlSymbol( int num )
     {
