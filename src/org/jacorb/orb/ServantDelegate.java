@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -34,7 +34,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.3 2001-03-19 11:08:27 brose Exp $
+ * $Id: ServantDelegate.java,v 1.4 2001-03-26 09:06:28 jacorb Exp $
  */
 
 public class ServantDelegate
