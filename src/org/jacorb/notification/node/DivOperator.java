@@ -21,16 +21,17 @@ package org.jacorb.notification.node;
  *
  */
 
-import antlr.Token;
 import org.jacorb.notification.EvaluationContext;
+import org.jacorb.notification.evaluate.EvaluationException;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.jacorb.notification.evaluate.EvaluationException;
+
+import antlr.Token;
 
 /** 
  * A simple node to represent DIV operation 
- * @version $Id: DivOperator.java,v 1.5 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: DivOperator.java,v 1.6 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public class DivOperator extends TCLNode {

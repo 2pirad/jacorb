@@ -21,23 +21,21 @@ package org.jacorb.notification.node;
  *
  */
 
-import antlr.Token;
-import org.jacorb.notification.parser.TCLParser;
-import antlr.TokenStreamException;
-import antlr.RecognitionException;
-import org.omg.CORBA.ORB;
 import org.jacorb.notification.EvaluationContext;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.jacorb.notification.evaluate.EvaluationException;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
+import org.omg.CORBA.ORB;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
+
+import antlr.Token;
 
 /**
  * RuntimeVariableNode.java
  *
  *
  * @author Alphonse Bendt
- * @version $Id: RuntimeVariableNode.java,v 1.1 2003-06-05 13:04:08 alphonse.bendt Exp $
+ * @version $Id: RuntimeVariableNode.java,v 1.2 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public class RuntimeVariableNode extends TCLNode

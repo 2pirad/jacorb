@@ -21,14 +21,15 @@ package org.jacorb.notification.node;
  *
  */
 
-import antlr.Token;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.jacorb.notification.evaluate.EvaluationException;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.jacorb.notification.EvaluationContext;
+import org.jacorb.notification.evaluate.EvaluationException;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.TypeCodePackage.BadKind;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
+
+import antlr.Token;
 
 /**
  * ImplictOperatorNode.java
@@ -37,7 +38,7 @@ import org.omg.CORBA.TypeCodePackage.BadKind;
  * Created: Sat Sep 28 23:58:11 2002
  *
  * @author Alphonse Bendt
- * @version $Id: ImplicitOperatorNode.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
+ * @version $Id: ImplicitOperatorNode.java,v 1.7 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public class ImplicitOperatorNode extends TCLNode {

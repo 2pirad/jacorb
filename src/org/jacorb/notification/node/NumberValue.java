@@ -21,15 +21,16 @@ package org.jacorb.notification.node;
  *
  */
 
-import antlr.Token;
 import org.jacorb.notification.EvaluationContext;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
+
+import antlr.Token;
 
 /** 
  * A simple node to represent a Number 
- * @version $Id: NumberValue.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
+ * @version $Id: NumberValue.java,v 1.7 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public class NumberValue extends TCLNode {

@@ -21,23 +21,22 @@ package org.jacorb.notification.evaluate;
  *
  */
 
-import org.omg.DynamicAny.DynAnyFactory;
-import org.omg.DynamicAny.DynAny;
-import org.omg.CORBA.TCKind;
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
 import org.jacorb.notification.node.EvaluationResult;
 import org.omg.CORBA.Any;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
+import org.omg.CORBA.TCKind;
+import org.omg.DynamicAny.DynAnyFactory;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.apache.log.Logger;
-import org.apache.log.Hierarchy;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * ResultExtractor.java
  *
  *
  * @author Alphonse Bendt
- * @version $Id: ResultExtractor.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: ResultExtractor.java,v 1.7 2003-07-17 18:10:23 alphonse.bendt Exp $
  */
 
 public class ResultExtractor

@@ -28,8 +28,8 @@ import org.omg.CosNotifyChannelAdmin.AdminLimitExceeded;
  *
  * Created: Wed Feb 12 18:20:58 2003
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ProxyCreationRequestEventListener.java,v 1.1 2003-04-12 21:17:41 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: ProxyCreationRequestEventListener.java,v 1.2 2003-07-17 18:11:50 alphonse.bendt Exp $
  */
 
 public interface ProxyCreationRequestEventListener {

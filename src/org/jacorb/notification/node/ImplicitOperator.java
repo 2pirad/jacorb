@@ -21,10 +21,9 @@ package org.jacorb.notification.node;
  *
  */
 
-import org.omg.CORBA.Any;
-import org.jacorb.notification.evaluate.DynamicEvaluator;
-import org.jacorb.notification.evaluate.EvaluationException;
 import org.jacorb.notification.EvaluationContext;
+import org.jacorb.notification.evaluate.EvaluationException;
+import org.omg.CORBA.Any;
 
 /**
  * Operator.java
@@ -33,7 +32,7 @@ import org.jacorb.notification.EvaluationContext;
  * Created: Thu Oct 24 11:31:29 2002
  *
  * @author Alphonse Bendt
- * @version $Id: ImplicitOperator.java,v 1.5 2003-06-05 13:04:08 alphonse.bendt Exp $
+ * @version $Id: ImplicitOperator.java,v 1.6 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public interface ImplicitOperator {

@@ -21,10 +21,11 @@ package org.jacorb.notification.node;
  *
  */
 
-import antlr.collections.AST;
-import org.jacorb.notification.parser.TCLParserTokenTypes;
-import org.apache.log.Logger;
 import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
+import org.jacorb.notification.parser.TCLParserTokenTypes;
+
+import antlr.collections.AST;
 
 /**
  * Visitor for TCL Trees. Does some Restructuration of a TCL Tree.
@@ -32,7 +33,7 @@ import org.apache.log.Hierarchy;
  * Created: Wed Sep 18 02:07:17 2002
  *
  * @author Alphonse Bendt
- * @version $Id: TCLCleanUp.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
+ * @version $Id: TCLCleanUp.java,v 1.7 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public class TCLCleanUp extends TCLVisitor implements TCLParserTokenTypes

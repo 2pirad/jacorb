@@ -21,10 +21,9 @@ package org.jacorb.notification.node;
  *
  */
 
-import org.omg.CORBA.TCKind;
-import org.jacorb.notification.parser.TCLParserTokenTypes;
-import org.apache.log.Logger;
 import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
+import org.jacorb.notification.parser.TCLParserTokenTypes;
 
 /**
  * StaticTypeChecker.java
@@ -33,7 +32,7 @@ import org.apache.log.Hierarchy;
  * Created: Sat Jul 06 18:27:41 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StaticTypeChecker.java,v 1.4 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @version $Id: StaticTypeChecker.java,v 1.5 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public class StaticTypeChecker extends TCLVisitor implements TCLParserTokenTypes {

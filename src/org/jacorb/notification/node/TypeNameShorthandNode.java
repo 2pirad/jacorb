@@ -23,11 +23,11 @@ package org.jacorb.notification.node;
 
 import org.jacorb.notification.EvaluationContext;
 import org.jacorb.notification.NotificationEvent;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.jacorb.notification.evaluate.EvaluationException;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.jacorb.notification.parser.TCLParser;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  *
@@ -35,7 +35,7 @@ import org.jacorb.notification.parser.TCLParser;
  * Created: Thu Apr 10 12:08:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: TypeNameShorthandNode.java,v 1.2 2003-06-05 13:04:08 alphonse.bendt Exp $
+ * @version $Id: TypeNameShorthandNode.java,v 1.3 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public class TypeNameShorthandNode extends ComponentName

@@ -21,25 +21,27 @@ package org.jacorb.notification.node;
  *
  */
 
+import java.lang.reflect.Field;
+
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
+import org.jacorb.notification.EvaluationContext;
+import org.jacorb.notification.evaluate.EvaluationException;
+import org.jacorb.notification.parser.TCLParserTokenTypes;
+import org.omg.CORBA.TCKind;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
+
 import antlr.BaseAST;
 import antlr.Token;
 import antlr.collections.AST;
-import org.omg.CORBA.TCKind;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.jacorb.notification.EvaluationContext;
-import org.jacorb.notification.evaluate.EvaluationException;
-import java.lang.reflect.Field;
-import org.jacorb.notification.parser.TCLParserTokenTypes;
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
 
 /**
  * Base Class for TCLTree Nodes.
  *
  * @author Alphonse Bendt
- * @version $Id: TCLNode.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @version $Id: TCLNode.java,v 1.6 2003-07-17 18:08:52 alphonse.bendt Exp $
  */
 
 public abstract class TCLNode extends BaseAST implements TCLParserTokenTypes
