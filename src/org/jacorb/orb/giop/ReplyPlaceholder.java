@@ -33,7 +33,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * Created: Sat Aug 18 21:43:19 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.5 2002-04-09 14:43:49 steve.osselton Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.6 2002-07-08 16:58:53 nicolas Exp $
  */
 
 public class ReplyPlaceholder 
@@ -51,7 +51,7 @@ public class ReplyPlaceholder
     {        
         //get the client-side timeout property value
         String prop = 
-            Environment.getProperty( "jacorb.connection.client_timeout" );
+            Environment.getProperty( "jacorb.client.pending_reply_timeout" );
         
         if( prop != null )
         {
@@ -63,7 +63,7 @@ public class ReplyPlaceholder
             {
                 Debug.output( 1, "Unable to create int from string >" +
                               prop + '<' );
-                Debug.output( 1, "Please check property \"jacorb.connection.client_timeout\"" );
+                Debug.output( 1, "Please check property \"jacorb.client.pending_reply_timeout\"" );
             }
         }
 
