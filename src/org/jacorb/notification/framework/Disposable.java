@@ -1,3 +1,5 @@
+package org.jacorb.notification.framework;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,7 +20,6 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification.framework;
 
 /**
  * Disposable.java
@@ -27,7 +28,7 @@ package org.jacorb.notification.framework;
  * Created: Sat Nov 30 19:05:03 2002
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: Disposable.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Disposable.java,v 1.4 2003-01-14 11:46:07 alphonse.bendt Exp $
  */
 
 public interface Disposable {

@@ -1,3 +1,5 @@
+package org.jacorb.notification;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,11 +20,6 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification;
-
-/*
- *        JacORB - a free Java ORB
- */
 
 /**
  * FilterUtils.java
@@ -31,7 +28,7 @@ package org.jacorb.notification;
  * Created: Fri Nov 01 17:19:54 2002
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: FilterUtils.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: FilterUtils.java,v 1.4 2003-01-14 11:46:07 alphonse.bendt Exp $
  */
 
 public class FilterUtils {
@@ -41,4 +38,5 @@ public class FilterUtils {
     }
 
     
+
 }// FilterUtils

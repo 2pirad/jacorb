@@ -1,5 +1,9 @@
 package org.jacorb.notification;
 
+/*
+ *        JacORB - a free Java ORB
+ */
+
 import junit.framework.TestCase;
 import org.omg.CORBA.ORB;
 import org.omg.DynamicAny.DynAnyFactory;
@@ -13,10 +17,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.apache.log4j.BasicConfigurator;
 import org.omg.CosNotifyFilter.ConstraintInfo;
-
-/*
- *        JacORB - a free Java ORB
- */
+import org.omg.PortableServer.POAHelper;
 
 /**
  * FilterImplTest.java
@@ -25,7 +26,7 @@ import org.omg.CosNotifyFilter.ConstraintInfo;
  * Created: Sat Nov 09 16:34:05 2002
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: FilterImplTest.java,v 1.1 2002-12-03 23:23:02 alphonse.bendt Exp $
+ * @version $Id: FilterImplTest.java,v 1.2 2003-01-14 11:46:07 alphonse.bendt Exp $
  */
 
 public class FilterImplTest extends TestCase {
@@ -41,11 +42,14 @@ public class FilterImplTest extends TestCase {
 
     public void setUp() throws Exception {
 	orb_ = ORB.init(new String[0], null);
+	ApplicationContext _appContext = 
+	    new ApplicationContext(orb_, POAHelper.narrow(orb_.resolve_initial_references("RootPOA")));
+
 	dynAnyFactory_ = DynAnyFactoryHelper.narrow(orb_.resolve_initial_references("DynAnyFactory"));
 	resultExtractor_ = new ResultExtractor(dynAnyFactory_);
 	dynamicEvaluator_ = new DynamicEvaluator(orb_, dynAnyFactory_);
 	filter_ = new FilterImpl(FilterFactoryImpl.CONSTRAINT_GRAMMAR, 
-				 orb_, 
+				 _appContext, 
 				 dynAnyFactory_, 
 				 resultExtractor_, 
 				 dynamicEvaluator_);
