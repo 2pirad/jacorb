@@ -41,7 +41,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.58 2003-12-30 14:37:56 andre.spiegel Exp $
+ * @version $Id: ParsedIOR.java,v 1.59 2004-01-16 07:50:26 gerald Exp $
  */
 
 public class ParsedIOR
@@ -75,7 +75,7 @@ public class ParsedIOR
 
     public static IOR createObjectIOR(org.omg.ETF.Profile profile)
     {
-        String repId = "IDL:org.omg/CORBA/Object:1.0";
+        String repId = "IDL:omg.org/CORBA/Object:1.0";
         TaggedComponentList components = new TaggedComponentList();
 
         CDROutputStream orbIDComponentDataStream = new CDROutputStream();
