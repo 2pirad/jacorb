@@ -45,7 +45,7 @@ import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.19.2.1 2004-04-01 00:01:39 phil.mesnier Exp $
+ * @version $Id: TaskProcessor.java,v 1.19.2.2 2004-04-01 04:47:41 phil.mesnier Exp $
  */
 
 public class TaskProcessor
@@ -200,10 +200,6 @@ public class TaskProcessor
                     return _t;
                 }
             });
-
-        taskFactory_ = new TaskFactory( this );
-
-        taskFactory_.init();
     }
 
     public void configure (Configuration conf)
@@ -246,6 +242,9 @@ public class TaskProcessor
                                                + Attributes.THREADPOLICY
                                                + "\" is invalid");
         }
+        taskFactory_ = new TaskFactory( this );
+
+        taskFactory_.init();
     }
 
 
