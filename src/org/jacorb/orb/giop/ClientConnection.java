@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.34 2003-01-13 09:03:56 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.35 2003-04-04 14:28:52 andre.spiegel Exp $
  */
 
 public class ClientConnection
@@ -106,7 +106,7 @@ public class ClientConnection
 
         //if the other side only talks GIOP 1.0, don't send a codeset
         //context and don't try again
-        if( pior.getProfileBody().iiop_version.minor == 0 )
+        if( pior.getEffectiveProfile().version().minor == 0 )
         {
             connection.markTCSNegotiated();
             return null;
