@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.14 2001-06-11 08:39:55 jacorb Exp $
+ * @version $Id: Interface.java,v 1.15 2001-06-11 08:47:35 jacorb Exp $
  */
 
 import java.util.*;
@@ -184,7 +184,8 @@ class Interface
         } 
         catch ( IllegalRedefinition ill )
         {
-            parser.fatal_error("Illegal Redefinition of scope " + ill.oldDef + " with " + ill.newDef, token);
+            parser.fatal_error("Illegal Redefinition of  " + 
+                               ill.oldDef + " in nested scope as " + ill.newDef, token);
         }
         catch ( NameAlreadyDefined nad )
         {
