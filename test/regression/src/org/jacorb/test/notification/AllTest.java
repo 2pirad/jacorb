@@ -30,7 +30,7 @@ import junit.swingui.TestRunner;
  * AllTest.java
  *
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.6 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.7 2003-11-26 10:27:45 alphonse.bendt Exp $
  */
 
 public class AllTest extends TestCase
@@ -52,6 +52,7 @@ public class AllTest extends TestCase
         _suite.addTest( org.jacorb.test.notification.queue.PackageTest.suite() );
         _suite.addTest( org.jacorb.test.notification.evaluate.PackageTest.suite() );
         _suite.addTest( org.jacorb.test.notification.engine.PackageTest.suite() );
+        _suite.addTest( org.jacorb.test.notification.bugs.PackageTest.suite() );
 
         return _suite;
     }
