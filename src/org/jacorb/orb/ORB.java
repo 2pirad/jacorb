@@ -38,6 +38,7 @@ import org.omg.CORBA.TypeCode;
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CORBA.portable.ValueFactory;
+import org.omg.CORBA.portable.BoxedValueHelper;
 import org.omg.CORBA.portable.StreamableValue;
 import org.omg.Messaging.*;
 import org.omg.PortableInterceptor.*;
@@ -47,7 +48,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.104 2003-11-28 21:57:14 francisco Exp $
+ * @version $Id: ORB.java,v 1.105 2003-12-11 17:52:40 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -93,6 +94,12 @@ public final class ORB
      * register/unregister_value_factory() and lookup_value_factory().
      */
     protected Map valueFactories = new HashMap();
+
+    /**
+     * Maps repository ids (strings) of boxed value types to
+     * BoxedValueHelper instances for those types.
+     */
+    protected Map boxedValueHelpers = new HashMap();
 
     private Map objectKeyMap = new HashMap();
 
@@ -1778,6 +1785,35 @@ public final class ORB
                                         + c.getName()
                                         + " (InstantiationException)");
         }
+    }
+
+    /**
+     * Returns a BoxedValueHelper for the type specified by repId, or
+     * null if no such BoxedValueHelper can be found.  This method uses an
+     * internal cache of BoxedValueHelpers so that each class needs only
+     * be looked up once.
+     * 
+     * @param repId the repository id of the type for which a BoxedValueHelper
+     * should be returned.  It is assumed that repId is the repository id of a
+     * boxed value type.  Otherwise, the result will be null.
+     * @return an instance of the BoxedValueHelper class that corresponds
+     * to repId.
+     */
+    
+    public BoxedValueHelper getBoxedValueHelper(String repId)
+    {
+        BoxedValueHelper result = (BoxedValueHelper)boxedValueHelpers.get(repId);
+        if (result == null)
+        {
+            if (boxedValueHelpers.containsKey(repId))
+                return null;
+            else
+            {
+                result = org.jacorb.ir.RepositoryID.createBoxedValueHelper(repId);
+                boxedValueHelpers.put(repId, result);
+            }
+        }
+        return result;
     }
 
     /**
