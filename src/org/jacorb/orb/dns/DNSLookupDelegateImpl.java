@@ -13,7 +13,7 @@ import java.net.InetAddress;
  * Created: Thu Apr  5 10:54:29 2001
  *
  * @author Nicolas Noffke
- * @version $Id: DNSLookupDelegateImpl.java,v 1.2 2001-04-05 09:52:25 noffke Exp $
+ * @version $Id: DNSLookupDelegateImpl.java,v 1.3 2001-06-25 15:21:59 noffke Exp $
  */
 
 public class DNSLookupDelegateImpl
@@ -67,12 +67,32 @@ public class DNSLookupDelegateImpl
                     
     public String inverseLookup( String ip )
     {
-        return _inverseLookup( dns.inaddrString( ip ));
+        try
+        {
+            return _inverseLookup( dns.inaddrString( ip ));
+        }
+        catch( NoClassDefFoundError e )
+        {
+            Debug.output( 1, "DNS lookup support is compiled, but the classes of the org.xbill.dns package are not present" );
+            Debug.output( 2, e );
+        }            
+        
+        return null;
     }
 
     public String inverseLookup( InetAddress addr )
     {
-        return _inverseLookup( dns.inaddrString( addr ));
+        try
+        {
+            return _inverseLookup( dns.inaddrString( addr ));
+        }
+        catch( NoClassDefFoundError e )
+        {
+            Debug.output( 1, "DNS lookup support is compiled, but the classes of the org.xbill.dns package are not present" );
+            Debug.output( 2, e );
+        }
+        
+        return null;
     }
 
 } // DNSLookupDelegateImpl
