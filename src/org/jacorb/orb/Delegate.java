@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.33 2002-01-11 21:43:52 gerald Exp $
+ * @version $Id: Delegate.java,v 1.34 2002-01-23 14:15:52 gerald Exp $
  *
  */
 
@@ -1256,7 +1256,8 @@ public final class Delegate
             try 
             {
                 ServantObject so = new ServantObject();
-                if( poa.isRetain() || poa.useDefaultServant() )
+                if( ( poa.isRetain() && !poa.isUseServantManager() ) || 
+                    poa.useDefaultServant() )
                 {
                     so.servant = poa.reference_to_servant(self);
                 }
