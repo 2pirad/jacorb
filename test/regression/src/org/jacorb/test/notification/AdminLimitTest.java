@@ -34,23 +34,21 @@ import org.jacorb.notification.ApplicationContext;
 import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.ApplicationEvent;
-import org.jacorb.notification.interfaces.ProxyCreationRequestEvent;
-import org.jacorb.notification.interfaces.ProxyCreationRequestEventListener;
+import org.jacorb.notification.interfaces.ProxyEvent;
+import org.jacorb.notification.interfaces.ProxyEventListener;
 import org.jacorb.notification.servant.ConsumerAdminTieImpl;
+import org.jacorb.notification.util.QoSPropertySet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import java.util.ArrayList;
-import org.jacorb.notification.util.QoSPropertySet;
-import org.jacorb.notification.interfaces.ProxyEventListener;
-import org.jacorb.notification.interfaces.ProxyEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.9 2004-03-17 23:15:28 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.10 2004-03-18 00:34:13 alphonse.bendt Exp $
  */
 
 public class AdminLimitTest extends TestCase
