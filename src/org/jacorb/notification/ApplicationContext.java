@@ -45,7 +45,7 @@ import org.jacorb.notification.interfaces.Disposable;
  * Created: Sat Nov 30 16:02:04 2002
  *
  * @author Alphonse Bendt
- * @version $Id: ApplicationContext.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: ApplicationContext.java,v 1.7 2003-07-17 17:15:39 alphonse.bendt Exp $
  */
 
 public class ApplicationContext implements Disposable {
@@ -142,6 +142,8 @@ public class ApplicationContext implements Disposable {
 	evaluationResultPool_.dispose();
 	evaluationContextPool_.dispose();
 	notificationEventFactory_.dispose();
+
+	orb_.shutdown(true);
     }
 
     /**

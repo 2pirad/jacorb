@@ -43,7 +43,7 @@ import org.omg.CosNotifyFilter.FilterFactory;
  * Created: Sat Oct 12 17:25:43 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.7 2003-07-03 14:03:06 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.8 2003-07-17 17:15:39 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable {
@@ -124,6 +124,10 @@ public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable {
 	    }
 	}
 	return thisRef_;
+    }
+
+    public POA _default_POA() {
+	return applicationContext_.getPoa();
     }
 
 }
