@@ -1,4 +1,4 @@
-// $Id: tcl.g,v 1.2 2004-06-02 21:55:13 alphonse.bendt Exp $
+// $Id: tcl.g,v 1.3 2004-06-18 23:02:37 alphonse.bendt Exp $
 
 header {
 package org.jacorb.notification.filter.etcl;
@@ -97,11 +97,17 @@ tokens {
         TCLLexer _tclLexer = new TCLLexer( new StringReader( data ) );
         _tclLexer.setTokenStreamSelector( _selector );
 
-        ComponentLexer _compLexer = new ComponentLexer( _tclLexer.getInputState() );
+        ComponentLexer _compLexer = 
+            new ComponentLexer( _tclLexer.getInputState() );
+
         _compLexer.setTokenStreamSelector( _selector );
 
-        _selector.addInputStream( _tclLexer, TCLLexer.LEXER_NAME );
-        _selector.addInputStream( _compLexer, ComponentLexer.LEXER_NAME );
+        _selector.addInputStream( _tclLexer, 
+                                  TCLLexer.LEXER_NAME );
+
+        _selector.addInputStream( _compLexer, 
+                                  ComponentLexer.LEXER_NAME );
+
         _selector.select( TCLLexer.LEXER_NAME );
 
         // connect the Parser with the two Lexers
