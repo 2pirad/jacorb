@@ -33,7 +33,7 @@ import org.jacorb.orb.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.19 2003-04-24 09:59:25 andre.spiegel Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.20 2003-04-26 17:35:15 andre.spiegel Exp $
  */
 
 public class Server_TCP_IP_Transport
@@ -65,6 +65,7 @@ public class Server_TCP_IP_Transport
         
         profile = new InternetIOPProfile (address, null);
         connection_info = address.toString(); 
+        connected = true;
 
         Debug.output( 2, "Opened new server-side TCP/IP transport to " +
                       connection_info );
@@ -101,6 +102,7 @@ public class Server_TCP_IP_Transport
             }
             
             socket = null;
+            connected = false;
 
             Debug.output( 2, "Closed server-side transport to " +
                           connection_info );
@@ -113,7 +115,7 @@ public class Server_TCP_IP_Transport
         return true;
     }
 
-    protected void connect()
+    public void connect (org.omg.ETF.Profile server_profile, long time_out)
     {
         //can't reconnect
     }
