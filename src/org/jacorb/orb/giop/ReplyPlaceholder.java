@@ -32,7 +32,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.9 2002-12-05 17:39:04 nicolas Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.10 2002-12-11 09:01:13 nicolas Exp $
  */
 public abstract class ReplyPlaceholder 
 {
@@ -46,6 +46,11 @@ public abstract class ReplyPlaceholder
     protected int timeout = -1;
 
     protected boolean remarshalOnCF = false;
+
+    public ReplyPlaceholder()
+    {
+        this( false );
+    }
 
     public ReplyPlaceholder( boolean remarshalOnCF )
     {        
