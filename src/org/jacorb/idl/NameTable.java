@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.12 2002-07-08 09:18:41 gerald Exp $
+ * @version $Id: NameTable.java,v 1.12.4.1 2002-09-26 08:27:32 andre.spiegel Exp $
  *
  */
 
@@ -82,6 +82,7 @@ class NameTable
         h.put( "void", "type" );
         h.put( "org.omg.CORBA.Any", "type" );
         h.put( "org.omg.CORBA.Object", "interface" );
+        h.put( "org.omg.Messaging.ReplyHandler", "type" );
     }
 
     /**
