@@ -25,7 +25,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateReplyOutputStream.java,v 1.7 2001-03-28 09:09:19 jacorb Exp $
+ * @version $Id: LocateReplyOutputStream.java,v 1.8 2001-03-28 10:07:05 jacorb Exp $
  *
  */
 
@@ -34,12 +34,10 @@ public class LocateReplyOutputStream
 {
     private org.omg.GIOP.LocateReplyHeader_1_0 locate_rep_hdr;
 
-    public LocateReplyOutputStream ( ServerConnection c,
-                                     int request_id, 
+    public LocateReplyOutputStream ( int request_id, 
 				     int status, 
                                      org.omg.CORBA.Object arg )
     {
-        super(c);
 	locate_rep_hdr = 
             new org.omg.GIOP.LocateReplyHeader_1_0( request_id, 
                                                     org.omg.GIOP.LocateStatusType_1_0.from_int(status));
@@ -55,12 +53,6 @@ public class LocateReplyOutputStream
 
 
 }
-
-
-
-
-
-
 
 
 

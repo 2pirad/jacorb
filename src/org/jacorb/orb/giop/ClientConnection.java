@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2000  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -20,13 +20,6 @@
 
 package org.jacorb.orb.connection;
 
-/**
- *
- * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnection.java,v 1.6 2001-03-28 08:59:15 jacorb Exp $
- *
- */
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -36,6 +29,11 @@ import org.jacorb.orb.*;
 
 import org.jacorb.util.*;
 import org.jacorb.orb.factory.SocketFactory;
+
+/**
+ * @author Gerald Brose, FU Berlin
+ * @version $Id: ClientConnection.java,v 1.7 2001-03-28 10:07:03 jacorb Exp $
+ */
 
 public class ClientConnection
     extends AbstractConnection
@@ -494,7 +492,6 @@ public class ClientConnection
 		for( Enumeration e = replies.elements(); e.hasMoreElements();)
 		{
                     Debug.output(1,"WARNING: there were outstanding requests when reconnect succeeded! (Lost now)");
-                    
 		    ((ReplyInputStream) e.nextElement()).cancel();
 		}
 		return;
@@ -568,7 +565,8 @@ public class ClientConnection
 	    {
 		if( os.response_expected() )
 		{
-		    rep = new ReplyInputStream(this, os.requestId());
+		    rep = new ReplyInputStream(this.orb, os.requestId());
+                    rep.setCodeSet( this.TCS, this.TCSW );
 		    Integer key = new Integer( os.requestId() );
 		    //		    buffers.put( key, os );
 		    replies.put( key, rep );
@@ -611,7 +609,7 @@ public class ClientConnection
 	    LocateReplyInputStream rep = null;	    
 	    try
 	    {
-		rep = new LocateReplyInputStream(this, os.requestId());
+		rep = new LocateReplyInputStream(this.orb, os.requestId());
 		Integer key = new Integer( os.requestId() );
 		//		buffers.put( key, os );
 		replies.put( key, rep );
@@ -684,10 +682,4 @@ public class ClientConnection
 
 
 }
-
-
-
-
-
-
 

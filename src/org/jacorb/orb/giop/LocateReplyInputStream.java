@@ -30,7 +30,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateReplyInputStream.java,v 1.6 2001-03-28 09:02:14 jacorb Exp $
+ * @version $Id: LocateReplyInputStream.java,v 1.7 2001-03-28 10:07:04 jacorb Exp $
  *
  */
 
