@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.20 2001-12-11 09:28:32 steve.osselton Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.21 2002-02-25 20:27:52 nicolas Exp $
  */
 
 public class ImplementationRepositoryImpl 
@@ -745,6 +745,12 @@ public class ImplementationRepositoryImpl
                         // version, we might choose another random
                         // SSD.
                         ImRHostInfo _host = server_table.getHost(server.host);
+
+                        if( _host == null )
+                        {
+                            throw new ServerStartupFailed( "Unknown host: >>" +
+                                                           server.host + "<<" );
+                        }
 
                         Debug.output(Debug.IMR | Debug.INFORMATION, 
                                      "ImR: will restart " + server.name);
