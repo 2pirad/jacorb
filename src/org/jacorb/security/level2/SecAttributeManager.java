@@ -27,7 +27,7 @@ package org.jacorb.security.level2;
  * Created: Mon Sep  4 16:32:39 2000
  *
  * @author Nicolas Noffke
- * @version $Id: SecAttributeManager.java,v 1.9 2003-10-08 16:12:20 nicolas Exp $
+ * @version $Id: SecAttributeManager.java,v 1.10 2003-10-09 08:06:44 nicolas Exp $
  */
 
 import java.util.*;
@@ -58,16 +58,17 @@ public class SecAttributeManager
         
     public KeyAndCert getAttributeCertValue( SecAttribute attribute )
     {
-        return ( KeyAndCert ) getAttributeValue( attribute );
+        return (KeyAndCert) getAttributeValue( attribute );
     }
     
-    public SecAttribute createAttribute( Object attrib_value, 
-                                         AttributeType attribute_type )
+    public synchronized SecAttribute createAttribute( 
+        Object attrib_value, 
+        AttributeType attribute_type )
     {
         //value is id in byte array
-        byte[] value = new byte[]{ (byte) (( id >>> 24 ) & 0xff),
-                                   (byte) (( id >>> 16 ) & 0xff),
-                                   (byte) (( id >>>  8 ) & 0xff),
+        byte[] value = new byte[]{ (byte) (( id >> 24 ) & 0xff),
+                                   (byte) (( id >> 16 ) & 0xff),
+                                   (byte) (( id >>  8 ) & 0xff),
                                    (byte)  ( id & 0xff) };
 
         attributes.put( new Integer( id++ ), attrib_value );
@@ -75,7 +76,6 @@ public class SecAttributeManager
         return new SecAttribute( attribute_type,
                                  new byte[0], //no defining auth
                                  value );
-        
     }
 
     public Object getAttributeValue( SecAttribute attribute )
