@@ -45,7 +45,7 @@ import java.util.Stack;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.25 2002-05-22 09:58:10 gerald Exp $
+ * @version $Id: lexer.java,v 1.26 2002-06-05 13:38:21 steve.osselton Exp $
  * @author Gerald Brose
  *
  */
@@ -784,7 +784,22 @@ public class lexer
                     String vname = get_string();
                     advance(); // skip ' '
                     String version = get_string();
-                    parser.currentScopeData().versionMap.put( vname, version );
+                    String existingVersion = (String) parser.currentScopeData().versionMap.get (vname);
+                    if (existingVersion == null)
+                    {
+                        // Set version
+
+                        parser.currentScopeData().versionMap.put (vname, version);
+                    }
+                    else
+                    {
+                        // Check for version change
+
+                        if (! existingVersion.equals (version))
+                        {
+                            emit_warn ("Version re-declaration, ignoring: #pragma version " + version, null);
+                        }
+                    }
                 }
                 else if( name.equals( "ID" ) )
                 {
@@ -801,10 +816,14 @@ public class lexer
                     // do something with it
                 }
                 else
+                {
                     emit_warn( "Unknown pragma, ignoring: #pragma " + name, null );
+                }
             }
             else
+            {
                 emit_error( "Unrecognized preprocessor directive " + dir, null );
+            }
 
 
             /* swallow to '\n', '\f', or EOF */
