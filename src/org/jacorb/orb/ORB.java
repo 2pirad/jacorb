@@ -42,7 +42,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.57 2002-04-18 07:58:42 steve.osselton Exp $
+ * @version $Id: ORB.java,v 1.58 2002-05-06 13:43:22 gerald Exp $
  */
 
 public final class ORB
@@ -177,8 +177,7 @@ public final class ORB
             }
             else
             {           
-                Debug.output(3,"remove stale reference for key " + 
-                             key + " from cache ");
+                Debug.output(3,"remove stale reference  from cache ");
                 knownReferences.remove( key );
             }
         }
