@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.4 2001-03-29 14:02:44 jacorb Exp $
+ * @version $Id: BaseType.java,v 1.5 2001-04-05 09:20:59 jacorb Exp $
  */
 
 
@@ -93,7 +93,10 @@ class BaseType
 
     public String toString()
     {
-	return type_spec.toString();
+        if( type_spec != null )
+            return type_spec.toString();
+        else
+            return "BaseType";
     }
 
     public String typeName()

@@ -22,17 +22,27 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IntType.java,v 1.3 2001-03-19 11:07:42 brose Exp $
+ * @version $Id: IntType.java,v 1.4 2001-04-05 09:20:59 jacorb Exp $
  */
 
 class IntType 
     extends BaseType 
     implements SwitchTypeSpec 
 {
+    public boolean unsigned = false;
+
     public IntType(int num)
     {
 	super(num);
     }
+
+    public void setUnsigned()
+    {
+        unsigned = true;
+        if( type_spec != null )
+          ((IntType)type_spec).setUnsigned();
+    }
+
 }
 
 

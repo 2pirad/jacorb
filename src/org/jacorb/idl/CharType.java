@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: CharType.java,v 1.4 2001-03-27 12:01:17 noffke Exp $
+ * @version $Id: CharType.java,v 1.5 2001-04-05 09:20:59 jacorb Exp $
  */
 
 
@@ -126,23 +126,4 @@ class CharType
             return "extract_char";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

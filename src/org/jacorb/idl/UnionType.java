@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.6 2001-03-29 14:13:55 jacorb Exp $
+ * @version $Id: UnionType.java,v 1.7 2001-04-05 09:21:00 jacorb Exp $
  *
  */
 
@@ -232,10 +232,22 @@ class UnionType
 
 
 
+    private void printClassComment(String className, PrintWriter ps)
+    {
+	ps.println("/**");
+	ps.println(" *\tGenerated from IDL definition of union " + 
+                    "\"" + className + "\"" );
+        ps.println(" *\t@author JacORB IDL compiler ");
+        ps.println(" */\n");
+    }
+
     public void printUnionClass( String className, PrintWriter pw )
     {
 	if( !pack_name.equals(""))
 	    pw.println("package " + pack_name + ";" );
+
+        printClassComment( className, pw );
+
 	pw.println("public final class " + className );
 	pw.println("\timplements org.omg.CORBA.portable.IDLEntity");
 	pw.println("{");
@@ -538,6 +550,8 @@ class UnionType
 	if( !pack_name.equals(""))
 	    ps.println("package " + pack_name + ";" );
 
+        printClassComment( className, ps );
+
 	ps.println("final public class " + className + "Holder");
 	ps.println("\timplements org.omg.CORBA.portable.Streamable");
 	ps.println("{");
@@ -575,6 +589,8 @@ class UnionType
     {
 	if( !pack_name.equals(""))
 	    ps.println("package " + pack_name + ";" );
+
+        printClassComment( className, ps );
 
 	ps.println("public class " + className + "Helper");
 	ps.println("{");
