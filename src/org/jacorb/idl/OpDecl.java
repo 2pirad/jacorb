@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.10 2001-11-12 09:56:51 spiegel Exp $
+ * @version $Id: OpDecl.java,v 1.11 2001-12-07 15:54:13 gerald Exp $
  */
 
 class OpDecl 
@@ -36,6 +36,7 @@ class OpDecl
     public TypeSpec opTypeSpec;
     public Vector paramDecls;
     public RaisesExpr raisesExpr;
+    public Interface myInterface;
 
     public OpDecl(int num)
     {
@@ -61,8 +62,19 @@ class OpDecl
 	raisesExpr.setPackage(s);
     }
 
+    public void setEnclosingSymbol( IdlSymbol s )
+    {
+	if( enclosing_symbol != null && enclosing_symbol != s )
+	    throw new RuntimeException("Compiler Error: trying to reassign container for " 
+                                       + name );
+	enclosing_symbol = s;
+        raisesExpr.setEnclosingSymbol(s);
+    }
+
     public void parse()
     {
+        myInterface = (Interface)enclosing_symbol;
+
         //        escapeName();
         if( opAttribute == 1 )
         {
@@ -100,6 +112,18 @@ class OpDecl
                              " already defined in operation " + full_name(), 
                              token);
             }
+            if( param.paramTypeSpec.typeName().indexOf('.') < 1 )
+            {
+                if( param.paramAttribute > 1 )
+                {
+                    myInterface.imports.put( param.paramTypeSpec.typeName() + "Holder","" );
+                }
+                else
+                {
+                    myInterface.imports.put( param.paramTypeSpec.typeName(),"" );
+                }
+                myInterface.imports.put( param.paramTypeSpec.typeName()+ "Helper","" );
+            }
         }
 
 	if( opTypeSpec.typeSpec() instanceof ScopedName )
@@ -109,6 +133,11 @@ class OpDecl
 
 	    if( ts != null ) 
 		opTypeSpec = ts;
+            if( opTypeSpec.typeName().indexOf('.') < 1 )
+            {
+                myInterface.imports.put( opTypeSpec.typeName(),"" );
+                myInterface.imports.put( opTypeSpec.typeName()+ "Helper","" );
+            }
 	}
 
 	if( (! NameTable.defined( opTypeSpec.typeName(), "type" )) &&

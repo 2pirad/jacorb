@@ -1,4 +1,5 @@
 package org.jacorb.idl;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -24,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.4 2001-04-04 15:30:31 jacorb Exp $
+ * @version $Id: RaisesExpr.java,v 1.5 2001-12-07 15:54:13 gerald Exp $
  */
 
 class RaisesExpr 
@@ -118,6 +119,18 @@ class RaisesExpr
             nameList.addElement( h.get( (String)e.nextElement()));
         }
         h.clear();
+        String[] classes = getExceptionClassNames();
+
+        Interface myInterface = (Interface)enclosing_symbol;
+
+        for( int i = 0; i < classes.length; i++ )
+        {
+            if( classes[i].indexOf('.') < 0 )
+            {
+                myInterface.imports.put( classes[i], "" );
+                myInterface.imports.put( classes[i] + "Helper", "" );
+            }
+        }
     }
 
 

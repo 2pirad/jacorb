@@ -20,8 +20,7 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: MemberList.java,v 1.5 2001-11-08 17:07:14 spiegel Exp $
-
+ * @version $Id: MemberList.java,v 1.6 2001-12-07 15:54:13 gerald Exp $
  *
  */
 
@@ -31,7 +30,7 @@ import java.util.Vector;
 import java.util.Enumeration;
 import java.io.*;
 
-class  MemberList
+class MemberList
     extends SymbolList
 {
     Vector extendVector = new Vector();
@@ -93,19 +92,4 @@ class  MemberList
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

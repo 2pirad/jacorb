@@ -21,7 +21,7 @@ package org.jacorb.idl;
  */
 
 /**
- * @version $Id: ElementSpec.java,v 1.7 2001-09-07 12:40:15 jacorb Exp $
+ * @version $Id: ElementSpec.java,v 1.8 2001-12-07 15:54:12 gerald Exp $
  */ 
 
 class ElementSpec  
@@ -88,6 +88,12 @@ class ElementSpec
             if( ts.typeName().equals( containingUnion.typeName() ))
             {
                 parser.error("Illegal recursion in union " + containingUnion.full_name(), token);
+            }
+
+            if( ts.typeName().indexOf( '.' ) < 0 )
+            {
+                containingUnion.imports.put( ts.typeName(), "" );
+                containingUnion.imports.put( ts.typeName() + "Helper", "" );
             }
 
 	    if( ts != null ) 

@@ -46,7 +46,7 @@ import java_cup.runtime.float_token;
  *  
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.12 2001-10-01 07:34:46 jacorb Exp $
+ * @version $Id: lexer.java,v 1.13 2001-12-07 15:54:14 gerald Exp $
  * @author Gerald Brose
  * 
  */
@@ -176,6 +176,7 @@ public class lexer
         keywords.put("in",      new Integer(sym.IN));
         keywords.put("inout",   new Integer(sym.INOUT));
         keywords.put("interface",       new Integer(sym.INTERFACE));
+        keywords.put("local",    new Integer(sym.LOCAL));
         keywords.put("long",    new Integer(sym.LONG));
         keywords.put("module",  new Integer(sym.MODULE));
         keywords.put("native",  new Integer(sym.NATIVE));
@@ -788,7 +789,7 @@ public class lexer
                 else if( name.equals("local"))
                 {
                     /* proprietary pragma of the JacORB IDL compiler */
-                    parser.setLocalityContraint();
+                    // parser.setLocalityContraint();
                 }
                 else if( name.equals("inhibit_code_generation"))
                 {

@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.10 2001-06-13 09:54:50 jacorb Exp $
+ * @version $Id: SequenceType.java,v 1.11 2001-12-07 15:54:13 gerald Exp $
  */
 
 
@@ -354,6 +354,11 @@ public class SequenceType
                 ((ScopedName)type_spec.typeSpec()).resolvedTypeSpec();
 	    if( ts != null ) 
 		type_spec = ts;
+            if( type_spec.typeSpec().typeName().indexOf( '.' ) < 0 )
+            {
+                imports.put( type_spec.typeSpec().typeName(), "" );
+                imports.put( type_spec.typeSpec().typeName() + "Helper", "" );
+            }
 	}
 	try
 	{
@@ -412,6 +417,8 @@ public class SequenceType
 
 	String type = typeName();
 
+        printImport( ps );
+
         printClassComment( className, ps );
 
 	ps.println("public class " + className + "Holder");
@@ -452,6 +459,7 @@ public class SequenceType
 	    ps.println("package " + pack_name + ";" );
 
 	String type = typeName();
+        printImport( ps );
 
         printClassComment( className, ps );
 

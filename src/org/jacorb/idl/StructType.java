@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.12 2001-11-27 09:00:03 gerald Exp $
+ * @version $Id: StructType.java,v 1.13 2001-12-07 15:54:14 gerald Exp $
  */
 
 class StructType 
@@ -259,6 +259,8 @@ class StructType
 	if( !pack_name.equals(""))
 	    ps.println("package " + pack_name + ";" );
 
+        printImport(ps);
+
         printClassComment( className, ps );
 
 	ps.println("final public class " + className + "Holder");
@@ -299,6 +301,8 @@ class StructType
     {
 	if( !pack_name.equals(""))
 	    ps.println("package " + pack_name + ";\n" );
+
+        printImport(ps);
 
         printClassComment( className, ps );
 
@@ -369,6 +373,8 @@ class StructType
 
 	    ps.println("package " + pack_name + ";" );
 	}
+
+        printImport(ps);
 
         printClassComment( className, ps );
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definition.java,v 1.4 2001-03-27 12:01:17 noffke Exp $
+ * @version $Id: Definition.java,v 1.5 2001-12-07 15:54:12 gerald Exp $
  */
 
 import java.util.Vector;
@@ -80,30 +80,11 @@ class Definition
 	declaration.print(ps);
     }	
 
-    public void parse() 
-	
+    public void parse()        
     {
 	declaration.parse();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AttrDecl.java,v 1.4 2001-04-10 09:32:47 jacorb Exp $
+ * @version $Id: AttrDecl.java,v 1.5 2001-12-07 15:54:12 gerald Exp $
  */
 
 class AttrDecl 
@@ -55,22 +55,20 @@ class AttrDecl
 
     public void parse() 
     {
+        Interface myInterface = (Interface)enclosing_symbol;
+
 	if( param_type_spec.typeSpec() instanceof ScopedName )
 	{
-	    // System.out.println("Attr type spec, resolved type name: " +
-            // ((ScopedName)param_type_spec.typeSpec()).resolvedName() ) ;
-
 	    TypeSpec ts = 
                 ((ScopedName)param_type_spec.typeSpec()).resolvedTypeSpec();
 	    if( ts != null ) 
 		param_type_spec = ts;
+            if( ts.typeName().indexOf( '.' ) < 0 )
+            {
+                myInterface.imports.put( ts.typeName(), "" );
+                myInterface.imports.put( ts.typeName() + "Helper", "" );
+            }
 	}
-
-	//if( (! NameTable.defined( param_type_spec.typeName(), "type" )) &&
-	//	(! NameTable.defined( param_type_spec.typeName(), "interface" )))
-	//	parser.error( "Not a type: " + param_type_spec.typeName(), p_info);
-	//if( param_type_spec instanceof TemplateTypeSpec )
-	//	param_type_spec.parse();
 
 	declarators.parse();
 
