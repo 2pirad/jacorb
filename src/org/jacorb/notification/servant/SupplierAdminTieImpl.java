@@ -46,7 +46,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminTieImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminTieImpl.java,v 1.5 2004-03-03 12:17:53 alphonse.bendt Exp $
  */
 
 public class SupplierAdminTieImpl
@@ -98,7 +98,7 @@ public class SupplierAdminTieImpl
 
 
     /**
-     * access the ids of all PullConsumers
+     * access the ids of all PullConsumers (NotifyStyle)
      */
     public int[] pull_consumers()
     {
@@ -107,7 +107,7 @@ public class SupplierAdminTieImpl
 
 
     /**
-     * access the ids of all PushConsumers
+     * access the ids of all PushConsumers (NotifyStyle)
      */
     public int[] push_consumers()
     {
@@ -124,7 +124,7 @@ public class SupplierAdminTieImpl
         try {
             AbstractProxy _servant = obtain_notification_pull_consumer_servant( clientType );
 
-            intHolder.value = _servant.getKey().intValue();
+            intHolder.value = _servant.getID().intValue();
 
             _servant.preActivate();
 
@@ -155,9 +155,9 @@ public class SupplierAdminTieImpl
     }
 
 
-    public ProxyConsumer get_proxy_consumer( int key ) throws ProxyNotFound
+    public ProxyConsumer get_proxy_consumer( int id ) throws ProxyNotFound
     {
-        return ProxyConsumerHelper.narrow(getProxy(key).activate());
+        return ProxyConsumerHelper.narrow(getProxy(id).activate());
     }
 
 
@@ -172,7 +172,7 @@ public class SupplierAdminTieImpl
             AbstractProxy _servant =
                 obtain_notification_push_consumer_servant( clienttype );
 
-            intHolder.value =  _servant.getKey().intValue();
+            intHolder.value =  _servant.getID().intValue();
 
             _servant.preActivate();
 
@@ -202,7 +202,6 @@ public class SupplierAdminTieImpl
         return _servant;
     }
 
-    // Implementation of org.omg.CosEventChannelAdmin.SupplierAdminOperations
 
     /**
      * get a ProxyPushConsumer (EventService Style)
@@ -240,6 +239,8 @@ public class SupplierAdminTieImpl
             configureEventStyleID(_servant);
 
             addProxyToMap(_servant, pushServants_, modifyProxiesLock_);
+
+            _servant.set_qos(get_qos());
 
             _servant.preActivate();
 
