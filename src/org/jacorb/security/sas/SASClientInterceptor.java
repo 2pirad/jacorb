@@ -63,7 +63,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.7 2003-11-25 18:40:25 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.8 2003-11-25 20:29:24 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -320,7 +320,6 @@ public class SASClientInterceptor
             logger.warn("Error parsing ATLAS from IOR: " + e);
             throw new org.omg.CORBA.NO_PERMISSION("SAS Error parsing ATLAS from IOR: " + e, MinorCodes.SAS_ATLAS_FAILURE, CompletionStatus.COMPLETED_NO);
         }
-		logger.debug("AtlasProfile = " + atlasProfile);
         if (atlasProfile == null) return new AuthorizationElement[0];
         String cacheID = new String(atlasProfile.the_cache_id);
         String locator = atlasProfile.the_locator.the_url();
