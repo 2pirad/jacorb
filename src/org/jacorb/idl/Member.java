@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.7 2001-11-08 17:08:57 spiegel Exp $
+ * @version $Id: Member.java,v 1.8 2001-11-16 10:52:56 spiegel Exp $
  *
  */
 
@@ -232,8 +232,11 @@ class Member
     {
 	/* only print members that are not interfaces */
 
-	if( type_spec.typeSpec() instanceof ConstrTypeSpec && 
-	    !(((ConstrTypeSpec)type_spec.typeSpec()).c_type_spec.declaration() instanceof Interface)||
+	if( (type_spec.typeSpec() instanceof ConstrTypeSpec && 
+             !((((ConstrTypeSpec)type_spec.typeSpec()).c_type_spec.declaration() 
+                instanceof Interface) ||
+               (((ConstrTypeSpec)type_spec.typeSpec()).c_type_spec.declaration() 
+                instanceof Value))) ||
 	    type_spec.typeSpec() instanceof SequenceType || 
 	    type_spec.typeSpec() instanceof ArrayTypeSpec )
 	{
