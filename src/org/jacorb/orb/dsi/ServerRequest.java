@@ -38,7 +38,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.22 2003-08-15 11:17:47 andre.spiegel Exp $
+ * @version $Id: ServerRequest.java,v 1.23 2003-10-24 16:34:21 andre.spiegel Exp $
  */
 
 public class ServerRequest
@@ -399,7 +399,10 @@ public class ServerRequest
         stream_based = true;
 
         if( out != null )
-            throw new Error("Internal: reply already created!");
+            // The reply was already created.  This happens in oneway
+            // operations using SyncScope SYNC_WITH_SERVER, and does
+            // not do any harm.
+            return out;
 
         if( !stream_based )
             throw new Error("Internal: ServerRequest not stream-based!");
