@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.1 2005-02-14 00:17:14 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.2 2005-03-31 20:19:50 alphonse.bendt Exp $
  */
 public class PackageTest extends TestCase
 {
@@ -35,13 +35,15 @@ public class PackageTest extends TestCase
     {
         super(name);
     }
-    
-    public static Test suite()
+
+    public static Test suite() throws Exception
     {
         TestSuite _suite = new TestSuite("Tests in Package org.jacorb.test.notification.filter");
 
         _suite.addTest(CallbackManagerTest.suite());
-
+        _suite.addTest(FilterUsageDecoratorTest.suite());
+        _suite.addTest(GarbageCollectTest.suite());
+        
         return _suite;
     }
 }
