@@ -47,7 +47,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.77 2003-04-04 14:33:56 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.78 2003-04-14 15:36:05 andre.spiegel Exp $
  *
  */
 
@@ -208,8 +208,11 @@ public final class Delegate
 
             _pior.init();
 
-            connection = conn_mg.getConnection( _pior.getIIOPAddress().toString(),
-                                                _pior.useSSL() );
+            connection = conn_mg.getConnection
+            ( 
+                (InternetIOPProfile)_pior.getEffectiveProfile(),
+                _pior.useSSL()
+            );
 
             bound = true;
 
