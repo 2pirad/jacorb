@@ -44,7 +44,7 @@ import org.omg.CONV_FRAME.CodeSetContext;
  * Created: Sun Aug 12 22:26:25 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.3 2001-10-04 14:23:50 jacorb Exp $
+ * @version $Id: ServerRequestListener.java,v 1.4 2002-01-11 21:44:14 gerald Exp $
  */
 
 public class ServerRequestListener 
@@ -86,6 +86,8 @@ public class ServerRequestListener
                 new ReplyOutputStream( in.req_hdr.request_id,
                                        ReplyStatusType_1_2.SYSTEM_EXCEPTION,
                                        in.getGIOPMinor() );
+
+            Debug.output( 2, "About to reject request because connection is not SSL.");
         
             SystemExceptionHelper.write( out, 
                   new NO_PERMISSION( 3, CompletionStatus.COMPLETED_NO ));
