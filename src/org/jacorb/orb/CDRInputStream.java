@@ -43,7 +43,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.78 2004-01-06 15:50:45 nick.cross Exp $
+ * $Id: CDRInputStream.java,v 1.79 2004-01-07 14:23:16 nick.cross Exp $
  */
 
 public class CDRInputStream
@@ -316,8 +316,7 @@ public class CDRInputStream
         return giop_minor;
     }
 
-    public void close()
-        throws java.io.IOException
+    public void close() throws IOException
     {
         // Don't need to call super.close as super is noop.
         if( closed )
@@ -529,9 +528,23 @@ public class CDRInputStream
     }
 
 
-    public byte[] getBuffer()
+    /*
+     * Return a copy of the current buffer. Currently only used by ProxyImpl.
+     *
+     * @return a <code>byte[]</code> value.
+     */
+    public byte[] getBufferCopy()
     {
-        return buffer;
+        byte[] result = new byte[buffer.length];
+        System.arraycopy
+        (
+            buffer,
+            0,
+            result,
+            0,
+            buffer.length
+        );
+        return result;
     }
 
 
