@@ -38,7 +38,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.11 2003-08-20 20:58:10 francisco Exp $
+ * @version $Id: IIOPListener.java,v 1.12 2003-11-03 11:27:41 andre.spiegel Exp $
  */
 public class IIOPListener extends _ListenerLocalBase
 {
@@ -242,7 +242,7 @@ public class IIOPListener extends _ListenerLocalBase
      */
     private int getServerTimeout()
     {
-        String prop = Environment.getProperty ("jacorb.connection.server_timeout");
+        String prop = Environment.getProperty ("jacorb.connection.server.timeout");
         if (prop != null)
             return Integer.parseInt (prop);
         else
