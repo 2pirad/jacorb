@@ -17,7 +17,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
  *  CosEvent Interfaces.
  *
  * @author Alphonse Bendt
- * @version $Id: CosEventChannelTest.java,v 1.2 2003-07-03 14:03:06 alphonse.bendt Exp $
+ * @version $Id: CosEventChannelTest.java,v 1.3 2003-08-02 10:33:33 alphonse.bendt Exp $
  */
 
 public class CosEventChannelTest extends NotificationTestCase {
@@ -40,7 +40,8 @@ public class CosEventChannelTest extends NotificationTestCase {
 	testData_ = getTestUtils().getTestPersonAny();
     }
 
-    public void tearDown() throws Exception {
+    public void tearDown() {
+	super.tearDown();
 	channel_.destroy();
     }
 

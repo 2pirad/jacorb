@@ -32,17 +32,13 @@ import junit.framework.TestSuite;
  * Created: Mon Apr  7 15:20:03 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.3 2003-07-17 17:23:53 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.4 2003-08-02 10:33:33 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
 
     public PackageTest(String name) {
 	super(name);
-    } 
-
-    public void testSleep() throws Exception {
-	Thread.sleep(1000);
     }
  
     public static Test suite() throws Exception {
@@ -50,6 +46,7 @@ public class PackageTest extends TestCase {
 	    new TestSuite("Tests in Package org.jacorb.test.notification");
 
 	_suite.addTest(EventChannelFactoryTest.suite());
+	_suite.addTest(TimeoutTest.suite());
 	_suite.addTest(EventChannelTest.suite());
 	_suite.addTest(CosEventChannelTest.suite());
 	_suite.addTest(StructuredEventChannelTest.suite());
@@ -61,6 +58,8 @@ public class PackageTest extends TestCase {
 	_suite.addTest(NotificationEventFactoryTest.suite());
 	_suite.addTest(NotificationEventUtilsTest.suite());
 	_suite.addTest(NotificationEventTest.suite());
+	_suite.addTest(StartTimeTest.suite());
+	_suite.addTest(StopTimeTest.suite());
 	_suite.addTest(CollectionsWrapperTest.suite());
 
 	return _suite;

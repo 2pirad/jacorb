@@ -25,7 +25,7 @@ import org.jacorb.notification.ConstraintEntry;
  * Created: Sat Nov 09 16:34:05 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterImplTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: FilterImplTest.java,v 1.2 2003-08-02 10:33:33 alphonse.bendt Exp $
  */
 
 public class FilterImplTest extends TestCase {
@@ -45,8 +45,7 @@ public class FilterImplTest extends TestCase {
 	appContext_ = 
 	    new ApplicationContext(orb_, POAHelper.narrow(orb_.resolve_initial_references("RootPOA")));
 
-	filter_ = new FilterImpl(FilterFactoryImpl.CONSTRAINT_GRAMMAR, 
-				 appContext_);
+	filter_ = new FilterImpl(appContext_, FilterFactoryImpl.CONSTRAINT_GRAMMAR);
     }
 
     public void tearDown() {

@@ -30,7 +30,7 @@ import org.apache.log.Priority;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationEventTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
+ * @version $Id: NotificationEventTest.java,v 1.3 2003-08-02 10:33:33 alphonse.bendt Exp $
  */
 public class NotificationEventTest extends TestCase {
 
@@ -144,10 +144,7 @@ public class NotificationEventTest extends TestCase {
     public static Test suite(){
 	TestSuite suite;
 
-	//suite = new TestSuite(NotificationEventTest.class);
-	suite = new TestSuite();
-
-	suite.addTest(new NotificationEventTest("testEvaluate_Structured"));
+	suite = new TestSuite(NotificationEventTest.class);
 
 	return suite;
     }

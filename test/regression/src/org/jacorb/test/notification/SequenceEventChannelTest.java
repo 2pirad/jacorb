@@ -17,7 +17,7 @@ import org.apache.log.Hierarchy;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceEventChannelTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: SequenceEventChannelTest.java,v 1.2 2003-08-02 10:33:33 alphonse.bendt Exp $
  */
 
 public class SequenceEventChannelTest extends NotificationTestCase {
@@ -32,12 +32,12 @@ public class SequenceEventChannelTest extends NotificationTestCase {
 	super(name, setup);
     }
 
-    public void tearDown() throws Exception {
+    public void tearDown() {
+	super.tearDown();
 	channel_.destroy();
     }
 
     public void setUp() throws Exception {
-
 	channelFactory_ = getEventChannelFactory();
 
 	Property[] qos = new Property[0];

@@ -33,15 +33,15 @@ import org.jacorb.test.notification.TimingTestHelper;
  * Created: Wed Feb 12 13:28:29 2003
  *
  * @author Alphonse Bendt
- * @version $Id: AnyGenerator.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: AnyGenerator.java,v 1.2 2003-08-02 10:33:33 alphonse.bendt Exp $
  */
 
-class AnyGenerator implements TestEventGenerator {
+public class AnyGenerator implements TestEventGenerator {
 
     ORB orb_;
     int counter_ = 0;
 
-    AnyGenerator(ORB orb) {
+    public AnyGenerator(ORB orb) {
 	orb_ = orb;
     }
 

@@ -3,20 +3,20 @@ package org.jacorb.test.notification;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.apache.log.Hierarchy;
 import org.apache.log.Logger;
-import org.apache.log.Priority;
 import org.jacorb.notification.FilterFactoryImpl;
+import org.jacorb.notification.util.LogConfiguration;
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.CosNotifyFilter.ConstraintInfo;
 import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.FilterFactory;
-import java.util.Random;
 import org.omg.CosNotifyFilter.FilterFactoryHelper;
 import EDU.oswego.cs.dl.util.concurrent.Latch;
 import EDU.oswego.cs.dl.util.concurrent.ClockDaemon;
@@ -29,7 +29,7 @@ import org.omg.CORBA.ORB;
  * Created: Sat Oct 12 20:50:59 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterTest.java,v 1.3 2003-07-20 11:02:12 alphonse.bendt Exp $
+ * @version $Id: FilterTest.java,v 1.4 2003-08-02 10:33:33 alphonse.bendt Exp $
  */
 
 public class FilterTest extends TestCase {
