@@ -31,7 +31,7 @@ import java.util.*;
  * - additional insert_void operation
  *
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.37 2003-10-28 04:26:51 francisco Exp $
+ * $Id: Any.java,v 1.38 2003-10-29 11:51:55 andre.spiegel Exp $
  *
  */
 
@@ -814,7 +814,8 @@ public final class Any
             break;
         case TCKind._tk_value:
             insert_Value
-                (((org.omg.CORBA_2_3.portable.InputStream)input).read_value());
+                (((org.omg.CORBA_2_3.portable.InputStream)input).read_value(),
+                 type);
             break;
         case TCKind._tk_abstract_interface:
            java.lang.Object obj =
