@@ -23,7 +23,7 @@ package org.jacorb.test.orb.etf;
 import java.util.*;
 
 import org.jacorb.orb.ProfileSelector;
-import org.jacorb.orb.connection.ClientConnectionManager;
+import org.jacorb.orb.giop.ClientConnectionManager;
 import org.omg.ETF.Profile;
 
 /**
@@ -31,7 +31,7 @@ import org.omg.ETF.Profile;
  * where it is in the list.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: WIOPSelector.java,v 1.1 2003-08-11 09:19:56 andre.spiegel Exp $
+ * @version $Id: WIOPSelector.java,v 1.2 2003-08-15 11:28:00 andre.spiegel Exp $
  */
 public class WIOPSelector implements ProfileSelector
 {

@@ -7,10 +7,10 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.18 2003-05-22 08:26:52 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.19 2003-08-15 11:28:22 andre.spiegel Exp $
  */
 
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 import org.jacorb.orb.iiop.*;
 
 import java.io.*;
