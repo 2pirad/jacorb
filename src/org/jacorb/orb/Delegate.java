@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.19 2001-08-10 12:33:24 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.20 2001-09-05 12:01:00 jacorb Exp $
  *
  */
 
@@ -685,9 +685,12 @@ public final class Delegate
 
             //store pending replies, so in the case of a LocationForward
             //a RemarshalException can thrown to *all* waiting threads. 
-            if( ros.response_expected())
+            if( ros.response_expected() )
             {
-                pending_replies.put( rep, rep );
+                synchronized( pending_replies )
+                {
+                    pending_replies.put( rep, rep );
+                }
             }
         } 
         catch( org.omg.CORBA.SystemException cfe )
@@ -847,11 +850,15 @@ public final class Delegate
 
                 //tell every pending request to remarshal
                 //they will be blocked on the barrier
-                for( Enumeration e = pending_replies.elements();
-                     e.hasMoreElements(); )
+                synchronized( pending_replies )
                 {
-                    ReplyInputStream r = (ReplyInputStream) e.nextElement();
-                    r.retry();
+                    for( Enumeration e = pending_replies.elements();
+                         e.hasMoreElements(); )
+                    {
+                        ReplyInputStream r = 
+                            (ReplyInputStream) e.nextElement();
+                        r.retry();
+                    }
                 }
 
                 //do the actual rebind
@@ -940,7 +947,10 @@ public final class Delegate
             finally
             {
                 //reply returned (with whatever result)
-                pending_replies.remove( rep );
+                synchronized( pending_replies )
+                {
+                    pending_replies.remove( rep );
+                }
     
                 if(! location_forward_permanent)
                 {
