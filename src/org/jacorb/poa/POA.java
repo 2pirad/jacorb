@@ -43,7 +43,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.44 2004-01-09 16:10:42 nick.cross Exp $
+ * @version $Id: POA.java,v 1.45 2004-02-23 13:30:07 simon.mcqueen Exp $
  */
 
 public class POA
@@ -383,6 +383,12 @@ public class POA
                                     " rid: " + request.requestId() +
                                     " opname: " + request.operation() +
                                     " _invoke: object key not previously generated!");
+                        if (logger.isDebugEnabled())
+                        {
+                            logger.debug(logPrefix + 
+                                         " ObjectKey : " + org.jacorb.orb.util.CorbaLoc.parseKey(request.objectKey()) +
+                                         " to POA Id : " + org.jacorb.orb.util.CorbaLoc.parseKey(getPOAId()) + " mismatch.");
+                        }
                     }
                     throw new WrongAdapter();
                 }
@@ -393,7 +399,13 @@ public class POA
                         logger.warn(logPrefix +
                                     " rid: " + request.requestId() +
                                     " opname: " + request.operation() +
-                                    " _invoke: object key not previously generated!");
+                                    " _invoke: object id not previously generated!");
+                        if (logger.isDebugEnabled())
+                        {
+                            logger.debug(logPrefix + 
+                                         " ObjectId : " + org.jacorb.orb.util.CorbaLoc.parseKey(request.objectId()) +
+                                         " to POA watermark : " + org.jacorb.orb.util.CorbaLoc.parseKey(watermark) + " mismatch.");
+                        }
                     }
                     throw new WrongAdapter();
                 }
