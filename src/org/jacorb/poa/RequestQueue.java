@@ -31,7 +31,7 @@ import org.jacorb.util.Environment;
  * This class will manage a queue of ServerRequest objects.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestQueue.java,v 1.15 2004-01-06 14:53:15 nick.cross Exp $
+ * @version $Id: RequestQueue.java,v 1.16 2004-04-26 09:01:05 andre.spiegel Exp $
  */
 public class RequestQueue
 {
@@ -68,6 +68,12 @@ public class RequestQueue
     {
         if (queue.size() >= Environment.queueMax())
         {
+            if (logger.isWarnEnabled())
+            {
+                logger.warn("Request queue is full, consider increasing "
+                          + "jacorb.poa.queue_max (currently: "
+                          + Environment.queueMax() + ")");   
+            }
             if (Environment.queueWait())
             {
                 while (queue.size() > Environment.queueMin())
