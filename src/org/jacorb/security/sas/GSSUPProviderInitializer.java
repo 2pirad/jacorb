@@ -35,7 +35,7 @@ import org.jacorb.util.Environment;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: GSSUPProviderInitializer.java,v 1.1 2002-09-11 19:20:03 david.robison Exp $
+ * @version $Id: GSSUPProviderInitializer.java,v 1.2 2002-12-12 13:55:53 david.robison Exp $
  */
 
 public class GSSUPProviderInitializer
@@ -45,7 +45,7 @@ public class GSSUPProviderInitializer
     /**
     * This method registers the interceptors.
     */
-    public void post_init( ORBInitInfo info )
+    public void pre_init( ORBInitInfo info )
     {
         // save ORB
         org.jacorb.security.sas.GSSUPProvider.orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB ();
@@ -62,7 +62,7 @@ public class GSSUPProviderInitializer
         }
     }
 
-    public void pre_init(ORBInitInfo info)
+    public void post_init(ORBInitInfo info)
     {
     }
 }

@@ -33,13 +33,14 @@ import org.jacorb.util.Environment;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInitializer.java,v 1.1 2002-12-11 22:41:46 david.robison Exp $
+ * @version $Id: SASClientInitializer.java,v 1.2 2002-12-12 13:55:53 david.robison Exp $
  */
 
 public class SASClientInitializer
         extends org.omg.CORBA.LocalObject
         implements ORBInitializer
 {
+    private static SASClientInterceptor interceptor = null;
     /**
     * This method registers the interceptors.
     */
@@ -49,7 +50,8 @@ public class SASClientInitializer
         // install the CSS interceptor
         try
         {
-            info.add_client_request_interceptor(new SASClientInterceptor(info));
+            interceptor = new SASClientInterceptor(info);
+            info.add_client_request_interceptor(interceptor);
         }
         catch (DuplicateName duplicateName)
         {
@@ -63,6 +65,10 @@ public class SASClientInitializer
 
     public void pre_init(ORBInitInfo info)
     {
+    }
+
+    public static void setContextToken(byte[] contextToken) {
+        interceptor.setContextToken(contextToken);
     }
 }
 

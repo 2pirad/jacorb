@@ -43,7 +43,7 @@ import org.omg.ATLAS.*;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.1 2002-12-11 22:41:46 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.2 2002-12-12 13:55:53 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -65,6 +65,10 @@ public class SASClientInterceptor
         Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, (byte) 1, (byte) 0);
         codec = info.codec_factory().create_codec(encoding);
         useStateful = Boolean.valueOf(org.jacorb.util.Environment.getProperty("jacorb.security.sas.stateful", "true")).booleanValue();
+    }
+
+    public void setContextToken(byte[] contextToken) {
+        this.contextToken = contextToken;
     }
 
     public String name()
