@@ -25,8 +25,10 @@ import junit.framework.*;
 import org.jacorb.test.common.*;
 
 /**
+ * Test for bug 351, marshaling of a complex valuetype.
+ * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: TestCase.java,v 1.2 2003-08-31 13:15:46 andre.spiegel Exp $
+ * @version $Id: TestCase.java,v 1.3 2003-10-27 12:13:30 andre.spiegel Exp $
  */
 public class TestCase extends ClientServerTestCase
 {

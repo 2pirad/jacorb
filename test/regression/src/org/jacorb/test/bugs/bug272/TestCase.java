@@ -5,8 +5,10 @@ import junit.framework.*;
 import org.omg.CORBA.*;
 
 /**
+ * Test for bug 272, byte array in Any.
+ * 
  * @author Andre Spiegel
- * @version $Id: TestCase.java,v 1.1 2003-08-13 16:45:16 andre.spiegel Exp $
+ * @version $Id: TestCase.java,v 1.2 2003-10-27 12:14:15 andre.spiegel Exp $
  */
 public class TestCase extends junit.framework.TestCase
 {
