@@ -24,9 +24,12 @@ import java.util.List;
 
 import org.jacorb.notification.interfaces.EventConsumer;
 import org.jacorb.notification.interfaces.Message;
+import org.jacorb.notification.queue.EventQueue;
+
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
+import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.CosNotifyChannelAdmin.ConnectionAlreadyActive;
 import org.omg.CosNotifyChannelAdmin.ConnectionAlreadyInactive;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
@@ -34,12 +37,10 @@ import org.omg.CosNotifyChannelAdmin.NotConnected;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierPOATie;
 import org.omg.PortableServer.Servant;
-import org.jacorb.notification.queue.EventQueue;
-import org.omg.CosNotification.UnsupportedQoS;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.8 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.9 2003-09-12 09:23:11 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl
@@ -52,7 +53,7 @@ public class ProxyPushSupplierImpl
     private boolean connected_;
     private boolean enabled_;
     private boolean active_;
-    private ConsumerAdminTieImpl myAdminServant_;
+
     private EventQueue pendingEvents_;
 
     ProxyPushSupplierImpl(ConsumerAdminTieImpl myAdminServant,
@@ -69,7 +70,7 @@ public class ProxyPushSupplierImpl
               qosProperties,
               key);
 
-        init(myAdminServant, appContext, qosProperties);
+        init(appContext, qosProperties);
     }
 
     ProxyPushSupplierImpl(ConsumerAdminTieImpl myAdminServant,
@@ -84,14 +85,12 @@ public class ProxyPushSupplierImpl
               adminProperties,
               qosProperties);
 
-        init(myAdminServant, appContext, qosProperties);
+        init(appContext, qosProperties);
     }
 
-    void init(ConsumerAdminTieImpl myAdminServant,
-              ApplicationContext appContext,
+    private void init(ApplicationContext appContext,
               PropertyManager qosProperties) throws UnsupportedQoS {
 
-        myAdminServant_ = myAdminServant;
         connected_ = false;
         enabled_ = true;
 
