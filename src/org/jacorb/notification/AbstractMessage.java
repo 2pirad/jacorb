@@ -45,7 +45,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.8 2003-12-16 15:30:43 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.9 2003-12-19 13:51:07 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
@@ -379,7 +379,7 @@ public abstract class AbstractMessage extends AbstractPoolable
      * internal Refcounter is zero the NotificationEvent is returned
      * to its pool.
      */
-    private synchronized void removeReference()
+    protected synchronized void removeReference()
     {
         if ( referenced_ > 0 )
         {
