@@ -32,7 +32,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.21 2003-04-26 17:33:22 andre.spiegel Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.22 2003-04-27 07:38:41 andre.spiegel Exp $
  */
 
 public abstract class TCP_IP_Transport
@@ -170,8 +170,6 @@ public abstract class TCP_IP_Transport
                        int length,
                        long time_out )
     {
-        connect (null, 0);
-        
         try
         {
             out_stream.write( data, offset, length );
