@@ -36,7 +36,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.4 2003-09-12 09:32:47 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.5 2003-11-26 10:56:02 alphonse.bendt Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask
@@ -80,6 +80,14 @@ public class FilterProxySupplierTask extends AbstractFilterTask
     MessageFactory notificationEventFactory_;
 
     AlternateMessageMap changedMessages_ = new AlternateMessageMap();
+
+    private static int COUNT = 0;
+    private int id_ = ++COUNT;
+
+    public String toString()
+    {
+        return "[FilterProxySupplierTask#" + id_ + "]";
+    }
 
     /**
      * Initialize this FilterOutgoingTask with the Configuration of
@@ -189,8 +197,7 @@ public class FilterProxySupplierTask extends AbstractFilterTask
 
                     // the subsequent destination filters need to be eval'd
 
-                listOfFilterStageToBeProcessed_.
-                    addAll(arrayCurrentFilterStage_[x].getSubsequentFilterStages());
+                addFilterStage(arrayCurrentFilterStage_[x].getSubsequentFilterStages());
 
             }
         }
