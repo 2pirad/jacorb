@@ -26,22 +26,18 @@ import org.omg.CORBA.AnyHolder;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyFilter.MappingFilter;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
-import org.jacorb.notification.EvaluationContext;
-import org.jacorb.notification.evaluate.EvaluationException;
-import org.jacorb.notification.node.ComponentName;
-import org.jacorb.notification.node.DynamicTypeException;
-import org.jacorb.notification.node.EvaluationResult;
-import org.jacorb.notification.node.RuntimeVariableNode;
+import org.jacorb.notification.filter.EvaluationContext;
+import org.jacorb.notification.filter.EvaluationException;
+import org.jacorb.notification.filter.EvaluationResult;
+import org.jacorb.notification.filter.ComponentName;
+import org.jacorb.notification.filter.RuntimeVariable;
 
 import java.util.Date;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Message.java,v 1.3 2004-01-16 17:14:02 alphonse.bendt Exp $
+ * @version $Id: Message.java,v 1.4 2004-01-23 19:41:53 alphonse.bendt Exp $
  */
 
 public interface Message extends Disposable
@@ -51,72 +47,99 @@ public interface Message extends Disposable
     }
 
     int TYPE_ANY = 0;
+
     int TYPE_STRUCTURED = 1;
+
     int TYPE_TYPED = 2;
+
 
     void setMessageStateListener(MessageStateListener listener);
 
+
     MessageStateListener removeMessageStateListener();
+
 
     String getConstraintKey();
 
+
     Any toAny();
+
 
     StructuredEvent toStructuredEvent();
 
+
     FilterStage getInitialFilterStage();
+
 
     void setInitialFilterStage( FilterStage node );
 
+
     EvaluationResult extractValue(EvaluationContext context,
                                   ComponentName componentRootNode,
-                                  RuntimeVariableNode runtimeVariable )
-        throws EvaluationException,
-               DynamicTypeException;
+                                  RuntimeVariable runtimeVariable )
+        throws EvaluationException;
+
 
     EvaluationResult extractFilterableData(EvaluationContext context,
                                            ComponentName componentRootNode,
-                                                   String variable)
+                                           String variable)
         throws EvaluationException;
+
 
     EvaluationResult extractVariableHeader(EvaluationContext context,
                                            ComponentName componentRootNode,
                                            String variable)
         throws EvaluationException;
 
+
+
     EvaluationResult extractValue( EvaluationContext evaluationContext,
                                    ComponentName componentRootNode )
         throws EvaluationException;
 
+
     boolean hasStartTime();
+
 
     Date getStartTime();
 
+
     boolean hasStopTime();
+
 
     Date getStopTime();
 
+
     boolean hasTimeout();
+
 
     long getTimeout();
 
+
     void setTimeout(long timeout);
+
 
     int getPriority();
 
+
     void setPriority(int priority);
 
+
     boolean match(FilterStage filterStage);
+
 
     boolean match(MappingFilter filter,
                   AnyHolder value) throws UnsupportedFilterableData;
 
+
     Object clone();
+
 
     boolean isInvalid();
 
+
     int getType();
 
-    void actionTimeout();
 
+    void actionTimeout();
 }

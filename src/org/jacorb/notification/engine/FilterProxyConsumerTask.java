@@ -23,11 +23,12 @@ package org.jacorb.notification.engine;
 
 import org.omg.CORBA.AnyHolder;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
+
 import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTask.java,v 1.5 2004-01-16 17:21:27 alphonse.bendt Exp $
+ * @version $Id: FilterProxyConsumerTask.java,v 1.6 2004-01-23 19:41:53 alphonse.bendt Exp $
  */
 
 public class FilterProxyConsumerTask extends AbstractFilterTask
@@ -161,7 +162,7 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
 
         if ( !isFilterStageListEmpty() )
         {
-            taskFactory_.newFilterSupplierAdminTask( this ).schedule(true);
+            taskFactory_.newFilterSupplierAdminTask( this ).schedule();
         }
 
         dispose();
@@ -190,5 +191,12 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
         }
 
         return _forward;
+    }
+
+    public void schedule() throws InterruptedException {
+        // directRunAllowed is false here
+        // cause the calling thread is usually created by the ORB.
+        // exceptions are PullSuppliers.
+        schedule(false);
     }
 }

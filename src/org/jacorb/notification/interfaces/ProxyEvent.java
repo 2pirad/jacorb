@@ -21,14 +21,14 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.AbstractProxy;
+import org.jacorb.notification.servant.AbstractProxy;
 
 /**
  * ProxyEvent.java
  *
  *
  * @author Alphonse Bendt
- * @version $Id: ProxyEvent.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ProxyEvent.java,v 1.3 2004-01-23 19:41:53 alphonse.bendt Exp $
  */
 
 public class ProxyEvent extends ApplicationEvent

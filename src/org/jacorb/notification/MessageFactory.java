@@ -32,7 +32,7 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.3 2004-01-16 17:25:05 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.4 2004-01-23 19:41:53 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable
@@ -84,46 +84,53 @@ public class MessageFactory implements Disposable
         anyMessagePool_.dispose();
     }
 
+    ////////////////////////////////////////
+
     // Used by the Proxies
 
-    public Message newEvent( Any event,
-                                  FilterStage firstStage )
+    public Message newMessage( Any event,
+                               FilterStage firstStage )
     {
-        Message _e = newEvent( event );
+        Message _mesg = newMessage( event );
 
-        _e.setInitialFilterStage( firstStage );
+        _mesg.setInitialFilterStage( firstStage );
 
-        return _e;
+        return _mesg;
     }
 
-    public Message newEvent( StructuredEvent event,
-                                  FilterStage firstStage )
+
+    public Message newMessage( StructuredEvent event,
+                               FilterStage firstStage )
     {
-        Message _e = newEvent( event );
+        Message _mesg = newMessage( event );
 
-        _e.setInitialFilterStage( firstStage );
+        _mesg.setInitialFilterStage( firstStage );
 
-        return _e;
+        return _mesg;
     }
 
-    public Message newEvent( Any event )
+    ////////////////////////////////////////
+
+    // used by the Filters
+
+    public Message newMessage( Any any )
     {
-        AnyMessage _e =
+        AnyMessage _mesg =
             ( AnyMessage ) anyMessagePool_.lendObject();
 
-        _e.setAny( event );
+        _mesg.setAny( any );
 
-        return _e.getHandle();
+        return _mesg.getHandle();
     }
 
-    public Message newEvent( StructuredEvent event )
+
+    public Message newMessage( StructuredEvent event )
     {
-        StructuredEventMessage _e =
+        StructuredEventMessage _mesg =
             ( StructuredEventMessage ) structuredEventMessagePool_.lendObject();
 
-        _e.setStructuredEventValue( event );
+        _mesg.setStructuredEventValue( event );
 
-        return _e.getHandle();
+        return _mesg.getHandle();
     }
-
 }

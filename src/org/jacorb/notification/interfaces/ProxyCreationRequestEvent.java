@@ -21,15 +21,13 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.AbstractAdmin;
+import org.jacorb.notification.servant.AbstractAdmin;
 
 /**
  * Indicate that a Admin wants to create a new ProxyObject.
  *
- * Created: Wed Feb 12 18:19:14 2003
- *
  * @author Alphonse Bendt
- * @version $Id: ProxyCreationRequestEvent.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ProxyCreationRequestEvent.java,v 1.4 2004-01-23 19:41:53 alphonse.bendt Exp $
  */
 
 public class ProxyCreationRequestEvent extends ApplicationEvent {

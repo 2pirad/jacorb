@@ -29,14 +29,13 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimerDeliverTask.java,v 1.6 2004-01-17 01:15:36 alphonse.bendt Exp $
+ * @version $Id: TimerDeliverTask.java,v 1.7 2004-01-23 19:41:53 alphonse.bendt Exp $
  */
 
 public class TimerDeliverTask extends AbstractDeliverTask
 {
-
-    TimerDeliverTask(TaskExecutor te, TaskProcessor tp, TaskFactory tc) {
-        super(te, tp, tc);
+    TimerDeliverTask(TaskProcessor tp, TaskFactory tc) {
+        super(tp, tc);
     }
 
     ////////////////////////////////////////
@@ -51,16 +50,19 @@ public class TimerDeliverTask extends AbstractDeliverTask
             {
                 schedule(true);
             }
-            else
-            {
-                dispose();
-            }
+
         } else {
             if (logger_.isDebugEnabled()) {
                 logger_.debug("Nothing to do as the Target:"
                               + getMessageConsumer()
                               + " has no Pending Events.");
             }
+
+            dispose();
         }
+    }
+
+    public void schedule() throws InterruptedException {
+        schedule(false);
     }
 }

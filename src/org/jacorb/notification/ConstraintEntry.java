@@ -21,14 +21,15 @@ package org.jacorb.notification;
  *
  */
 
-import org.jacorb.notification.evaluate.FilterConstraint;
+import org.jacorb.notification.filter.FilterConstraint;
+import org.jacorb.notification.filter.FilterUtils;
 
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyFilter.ConstraintInfo;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConstraintEntry.java,v 1.5 2004-01-17 01:22:31 alphonse.bendt Exp $
+ * @version $Id: ConstraintEntry.java,v 1.6 2004-01-23 19:41:53 alphonse.bendt Exp $
  */
 
 public class ConstraintEntry
@@ -62,7 +63,7 @@ public class ConstraintEntry
             et_ = et;
 
             constraintKey_ =
-                MessageUtils.calcConstraintKey( et_.domain_name, et_.type_name );
+                FilterUtils.calcConstraintKey( et_.domain_name, et_.type_name );
         }
 
         public String toString()
