@@ -30,7 +30,7 @@ import org.apache.avalon.framework.configuration.*;
  * 
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: StreamConnectionBase.java,v 1.1 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: StreamConnectionBase.java,v 1.2 2004-08-25 10:55:16 simon.mcqueen Exp $
  */
 
 public abstract class StreamConnectionBase
@@ -86,7 +86,7 @@ public abstract class StreamConnectionBase
             }
             catch( InterruptedIOException e )
             {
-                int soTimeout = getSoTimeout();
+                int soTimeout = getTimeout();
                 
                 if (soTimeout != 0)
                 {
