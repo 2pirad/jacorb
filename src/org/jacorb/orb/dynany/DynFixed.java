@@ -29,7 +29,11 @@ import java.math.BigDecimal;
 /**
  * CORBA DynFixed
  *
- * @author Jason Courage
+ * Written by Jason Courage
+ *
+ * @author Jason Courage, PrismTech Ltd, March 2002 
+ * $Id: DynFixed.java,v 1.2 2002-03-28 16:25:26 jason.courage Exp $
+ *
  */
 
 public final class DynFixed
