@@ -21,6 +21,7 @@ package org.jacorb.test.common;
  */
 
 import java.io.*;
+import java.util.*;
 
 import org.omg.CORBA.*;
 import org.omg.PortableServer.*;
@@ -72,7 +73,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.3 2003-01-05 09:22:47 andre.spiegel Exp $
+ * @version $Id: ClientServerSetup.java,v 1.4 2003-01-16 17:27:09 nicolas Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -80,6 +81,9 @@ public class ClientServerSetup extends TestSetup {
     protected Process               serverProcess;
     protected org.omg.CORBA.Object  serverObject;
     protected org.omg.CORBA.ORB     clientOrb;
+
+    private Properties clientOrbProperties = null;
+    private Properties serverOrbProperties = null;
 
     /**
      * Constructs a new ClientServerSetup that is wrapped
@@ -99,20 +103,32 @@ public class ClientServerSetup extends TestSetup {
         this.servantName = servantName;
     }
 
+    public ClientServerSetup( Test test, 
+                              String servantName,
+                              Properties clientOrbProperties,
+                              Properties serverOrbProperties )
+    {
+        this( test, servantName );
+        
+        this.clientOrbProperties = clientOrbProperties;
+        this.serverOrbProperties = serverOrbProperties;
+    }
+
     public void setUp() throws Exception
     {
-        clientOrb = ORB.init (new String[0], null);
+        clientOrb = ORB.init (new String[0], clientOrbProperties );
         POA poa = POAHelper.narrow 
             ( clientOrb.resolve_initial_references( "RootPOA" ) );
         poa.the_POAManager().activate();
 
-        serverProcess = Runtime.getRuntime().exec 
-                          (   "jaco -Djacorb.verbosity=0 "
-                            + "-Djacorb.orb.print_version=off "
-                            + "-classpath " 
-                                    + System.getProperty ("java.class.path")
-                            + " org.jacorb.test.common.TestServer "
-                            + servantName );
+        serverProcess = Runtime.getRuntime().exec(   
+            "jaco -Djacorb.verbosity=0 "
+            + "-Djacorb.orb.print_version=off "
+            + propsToCommandLineArgs( serverOrbProperties )
+            + "-classpath " 
+            + System.getProperty ("java.class.path")
+            + " org.jacorb.test.common.TestServer "
+            + servantName );
         BufferedReader input = 
             new BufferedReader
                 ( new InputStreamReader( serverProcess.getInputStream() ) );
@@ -170,4 +186,38 @@ public class ClientServerSetup extends TestSetup {
         return serverProcess;
     }
 
+    private static String propsToCommandLineArgs( Properties props )
+    {
+        if( props == null )
+        {
+            return "";
+        }
+
+        StringBuffer sb = new StringBuffer();
+
+        for( Iterator keyIterator = props.keySet().iterator();
+             keyIterator.hasNext();
+            )
+        {
+            String key = (String) keyIterator.next();
+            sb.append( "-D" );
+            sb.append( key );
+            sb.append( '=' );
+            
+            String value = props.getProperty( key );
+            if( value == null )
+            {
+                value = "";
+            }
+
+            sb.append( value );
+
+            if( keyIterator.hasNext() )
+            {
+                sb.append( ' ' );
+            }
+        }
+
+        return sb.toString();
+    }
 }
