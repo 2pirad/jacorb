@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.13 2002-03-12 11:32:47 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.14 2002-09-10 16:24:25 david.robison Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -15,12 +15,16 @@
                    property="iaik.present" />
    </target>
 
-   <target name="all" depends="init,leveltwo,principal_authenticator,ssl,util">
+   <target name="all" depends="init,leveltwo,principal_authenticator,ssl,sas,util">
 
    </target>
 
    <target name="ssl">
            <ant antfile="${src}/org/jacorb/security/ssl/build.xml" dir="${basedir}"/>
+   </target>
+
+   <target name="sas">
+           <ant antfile="${src}/org/jacorb/security/sas/build.xml" dir="${basedir}"/>
    </target>
 
 
