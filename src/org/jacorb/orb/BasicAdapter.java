@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.9 2001-06-12 12:27:46 jacorb Exp $
+ * @version $Id: BasicAdapter.java,v 1.10 2001-06-15 11:44:41 jacorb Exp $
  */
 
 import java.io.*;
@@ -732,6 +732,14 @@ public class BasicAdapter
                             org.jacorb.orb.connection.LocateRequest request = 
                                 new org.jacorb.orb.connection.LocateRequest(orb, buf, connection );
                             deliverRequest( request );
+                            break;
+                        }
+                    case org.omg.GIOP.MsgType_1_0._MessageError:
+                        {
+                            //  org.omg.GIOP.CancelRequestHeader cancel_req_hdr =
+                            //  org.omg.GIOP.CancelRequestHeaderHelper.read( ois );
+                            Debug.output( 0,
+                                          "Message Error! (Sender announces it received an ill.-formed GIOP msg.)");
                             break;
                         }
                     default:
