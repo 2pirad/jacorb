@@ -33,7 +33,7 @@ import java.lang.reflect.*;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.16 2001-12-06 10:09:51 steve.osselton Exp $    
+ * @version $Id: TypeCode.java,v 1.15.2.1 2001-12-14 10:30:58 spiegel Exp $    
  */
  
 public class TypeCode 
@@ -86,13 +86,13 @@ public class TypeCode
         // Sun we provide the following bogus TypeCode objects so that
         // we can return something in these cases.
         primitive_tcs [TCKind._tk_objref] 
-            = new TypeCode( "IDL:omg.org/CORBA/Object:1.0", 
+            = new TypeCode( TCKind._tk_objref,
+                            "IDL:omg.org/CORBA/Object:1.0", 
                             "Object" );
         primitive_tcs [TCKind._tk_value] 
             = new TypeCode( "IDL:omg.org/CORBA/portable/ValueBase:1.0",
                             "ValueBase", org.omg.CORBA.VM_NONE.value,
-                            null, 
-                            new org.omg.CORBA.ValueMember[0]);
+                            null, null );
 
         primitive_tcs [TCKind._tk_string] 
             = new TypeCode( TCKind._tk_string, 0 );
@@ -258,13 +258,14 @@ public class TypeCode
     }
 
     /**
-     * Constructor for tk_objref
+     * Constructor for tk_objref, tk_abstract_interface
      */  
 
-    public TypeCode (java.lang.String _id, 
+    public TypeCode (int _kind, 
+              java.lang.String _id, 
               java.lang.String _name)
     { 
-        kind = TCKind._tk_objref;
+        kind = _kind;
         id   = _id;
         name = _name.replace('.','_'); // for orbixWeb Interop
     }
@@ -912,7 +913,7 @@ public class TypeCode
                                  0, create_tc (clz.getComponentType(),
                                                knownClasses));
         else if (java.rmi.Remote.class.isAssignableFrom (clz))
-            return new TypeCode (RepositoryID.repId (clz),
+            return new TypeCode (TCKind._tk_objref, RepositoryID.repId (clz),
                                  clz.getName());
         else if (java.io.Serializable.class.isAssignableFrom (clz))
         {
