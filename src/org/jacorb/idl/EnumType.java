@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.29 2004-01-15 12:38:18 nick.cross Exp $
+ * @version $Id: EnumType.java,v 1.30 2004-02-12 10:42:01 gerald Exp $
  */
 
 public class EnumType
@@ -361,7 +361,8 @@ public class EnumType
         pw.println("\t}");
 
         pw.println("\tjava.lang.Object readResolve()");
-        pw.println("\tthrows java.io.ObjectStreamException");
+        if (!parser.j2me )
+            pw.println("\tthrows java.io.ObjectStreamException");
         pw.println("\t{");
         pw.println("\t\treturn from_int(value());");
         pw.println("\t}");
