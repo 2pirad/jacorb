@@ -1,3 +1,4 @@
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -22,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.8 2001-03-26 09:18:13 jacorb Exp $
+ * @version $Id: Interface.java,v 1.9 2001-03-26 09:30:36 jacorb Exp $
  */
 
 import java.util.*;
