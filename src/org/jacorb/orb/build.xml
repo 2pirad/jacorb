@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.4 2001-04-04 15:30:32 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2001-04-05 09:52:19 noffke Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -18,7 +18,7 @@
 	property="java2" />	
    </target>
 
-   <target name="all" depends="init,domain,compile1,compile2"/> <!-- ir -->
+   <target name="all" depends="init,domain,compile1,compile2,dns"/> <!-- ir -->
 
    <target name="compile1" if="java2">
 	<javac srcdir="${src}"
@@ -37,6 +37,11 @@
 
    <target name="domain" >
            <ant antfile="${src}/org/jacorb/orb/domain/build.xml" dir="${basedir}"/>
+   </target>
+
+   <target name="dns" >
+           <ant antfile="${src}/org/jacorb/orb/dns/build.xml" 
+                dir="${basedir}"/>
    </target>
 
 

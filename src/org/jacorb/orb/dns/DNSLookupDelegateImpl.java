@@ -13,7 +13,7 @@ import java.net.InetAddress;
  * Created: Thu Apr  5 10:54:29 2001
  *
  * @author Nicolas Noffke
- * @version $Id: DNSLookupDelegateImpl.java,v 1.1 2001-04-05 09:22:12 noffke Exp $
+ * @version $Id: DNSLookupDelegateImpl.java,v 1.2 2001-04-05 09:52:25 noffke Exp $
  */
 
 public class DNSLookupDelegateImpl
@@ -58,6 +58,9 @@ public class DNSLookupDelegateImpl
         {
             Debug.output( 1, e );
         }
+
+        Debug.output( 2, "Unable to resolve " + addr + 
+                      " via DNS");
 
         return null;
     }
