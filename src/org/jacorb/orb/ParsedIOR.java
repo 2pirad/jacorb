@@ -43,7 +43,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.53 2003-08-18 04:31:02 francisco Exp $
+ * @version $Id: ParsedIOR.java,v 1.54 2003-08-18 11:23:54 andre.spiegel Exp $
  */
 
 public class ParsedIOR
@@ -303,22 +303,27 @@ public class ParsedIOR
         }
     }
 
+    /**
+     * Returns the value of the TAG_JAVA_CODEBASE component from this IOR,
+     * or null if no such component exists.  The component is first searched
+     * in the effective profile, if that is an IIOPProfile, and failing that,
+     * in the MULTIPLE_COMPONENTS list.
+     */
     public String getCodebaseComponent()
     {
-        String codebase =
-            components.getStringComponent (TAG_JAVA_CODEBASE.value);
-        if (codebase != null)
-            return codebase;
-        else if (effectiveProfile instanceof IIOPProfile)
+        String result = null;
+        if (effectiveProfile instanceof IIOPProfile)
         {
-            TaggedComponentList iiopComponents =
-                ((IIOPProfile)effectiveProfile).getComponents();
-            return iiopComponents.getStringComponent(TAG_JAVA_CODEBASE.value);
-        }
-        else
             // TODO Should there be a component access mechanism for all
             //      ETF profiles?  Clarify with OMG.
-            return null;
+            TaggedComponentList l =
+                ((IIOPProfile)effectiveProfile).getComponents();
+            result = l.getStringComponent (TAG_JAVA_CODEBASE.value);
+        }
+        if (result != null)
+            return result;
+        else
+            return components.getStringComponent (TAG_JAVA_CODEBASE.value);
     }
 
     /**
