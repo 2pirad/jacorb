@@ -27,7 +27,7 @@ import org.omg.IOP.ServiceContext;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequestInputStream.java,v 1.10 2002-03-19 09:25:25 nicolas Exp $
+ * @version $Id: LocateRequestInputStream.java,v 1.11 2002-05-09 14:23:12 jason.courage Exp $
  * 
  */
 
@@ -38,7 +38,7 @@ public class LocateRequestInputStream
 
     public LocateRequestInputStream( org.omg.CORBA.ORB orb, byte[] buf )
     {
-	super( orb,  buf );
+        super( orb,  buf );
 
         if( Messages.getMsgType( buffer ) == MsgType_1_1._LocateRequest )
         {
@@ -65,7 +65,7 @@ public class LocateRequestInputStream
                 case 2 : 
                 {
                     //GIOP 1.2
-                    LocateRequestHeader_1_2 req_hdr = 
+                    req_hdr = 
                         LocateRequestHeader_1_2Helper.read( this );
                 
                     ParsedIOR.unfiyTargetAddress( req_hdr.target );
@@ -80,20 +80,20 @@ public class LocateRequestInputStream
         }
         else
         {
-	    throw new Error( "Error: not a Locate request!" );
+            throw new Error( "Error: not a Locate request!" );
         }
     }
 
     public void finalize()
     {
-	try
-	{
-	    close();
-	}
-	catch( java.io.IOException iox )
-	{
-	    //ignore
-	}
+        try
+        {
+            close();
+        }
+        catch( java.io.IOException iox )
+        {
+            //ignore
+        }
     }
 }
 
