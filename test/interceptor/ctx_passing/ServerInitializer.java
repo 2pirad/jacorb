@@ -1,7 +1,7 @@
 package test.interceptor.ctx_passing;
 
 import org.omg.PortableInterceptor.*;
-import org.omg.IOP_N.*;
+import org.omg.IOP.*;
 
 /**
  * ServerInitializer.java
@@ -10,7 +10,7 @@ import org.omg.IOP_N.*;
  * Created: Fri Oct 26 11:14:36 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInitializer.java,v 1.1 2001-10-26 22:02:19 jacorb Exp $
+ * @version $Id: ServerInitializer.java,v 1.2 2001-11-19 10:58:03 jacorb Exp $
  */
 
 public class ServerInitializer 

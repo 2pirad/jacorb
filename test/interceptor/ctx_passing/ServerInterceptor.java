@@ -1,7 +1,7 @@
 package test.interceptor.ctx_passing;
 
 import org.omg.PortableInterceptor.*;
-import org.omg.IOP_N.Codec;
+import org.omg.IOP.Codec;
 import org.omg.IOP.ServiceContext;
 
 /**
@@ -11,7 +11,7 @@ import org.omg.IOP.ServiceContext;
  * Created: Fri Oct 26 11:17:02 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInterceptor.java,v 1.1 2001-10-26 22:02:19 jacorb Exp $
+ * @version $Id: ServerInterceptor.java,v 1.2 2001-11-19 10:58:03 jacorb Exp $
  */
 
 public class ServerInterceptor 
@@ -31,6 +31,10 @@ public class ServerInterceptor
     public String name() 
     {
         return "ServerInterceptor";
+    }
+
+    public void destroy()
+    {
     }
 
     public void receive_request_service_contexts(ServerRequestInfo ri) 

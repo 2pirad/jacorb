@@ -2,7 +2,7 @@ package test.interceptor.ctx_passing;
 
 import org.omg.PortableInterceptor.*;
 
-import org.omg.IOP_N.Codec;
+import org.omg.IOP.Codec;
 import org.omg.IOP.ServiceContext;
 
 /**
@@ -12,7 +12,7 @@ import org.omg.IOP.ServiceContext;
  * Created: Fri Oct 26 11:04:19 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientInterceptor.java,v 1.1 2001-10-26 22:02:18 jacorb Exp $
+ * @version $Id: ClientInterceptor.java,v 1.2 2001-11-19 10:58:02 jacorb Exp $
  */
 
 public class ClientInterceptor 
@@ -31,6 +31,10 @@ public class ClientInterceptor
     public String name() 
     {
         return "ClientInterceptor";
+    }
+
+    public void destroy()
+    {
     }
 
     public void send_request( ClientRequestInfo ri ) 
