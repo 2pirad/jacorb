@@ -10,22 +10,17 @@ import org.omg.CosNotifyFilter.FilterNotFound;
 import org.omg.CosNotifyChannelAdmin.AdminNotFound;
 
 /**
- * TestClientOperations.java
- *
- *
- * Created: Mon Dec 09 18:43:07 2002
- *
  * @author Alphonse Bendt
- * @version $Id: TestClientOperations.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: TestClientOperations.java,v 1.2 2004-01-23 19:44:03 alphonse.bendt Exp $
  */
 
 public interface TestClientOperations {
-    
-    public boolean isConnected();
-    public boolean isEventHandled();
-    public boolean isError();
-    public void connect(NotificationTestCaseSetup setup, EventChannel eventChannel, boolean useOrSemantic) throws AlreadyConnected, TypeError, AdminLimitExceeded, AdminNotFound;
 
-    public void shutdown() throws FilterNotFound;
+    boolean isConnected();
+    boolean isEventHandled();
+    boolean isError();
+    void connect(NotificationTestCaseSetup setup, EventChannel eventChannel, boolean useOrSemantic) throws AlreadyConnected, TypeError, AdminLimitExceeded, AdminNotFound;
 
-}// TestClientOperations
+    void shutdown() throws FilterNotFound;
+
+}

@@ -24,7 +24,7 @@ import junit.framework.TestSuite;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationEventFactoryTest.java,v 1.4 2003-08-27 20:46:50 alphonse.bendt Exp $
+ * @version $Id: NotificationEventFactoryTest.java,v 1.5 2004-01-23 19:44:03 alphonse.bendt Exp $
  */
 
 public class NotificationEventFactoryTest extends TestCase {
@@ -37,11 +37,11 @@ public class NotificationEventFactoryTest extends TestCase {
     StructuredEvent testStructured_;
 
     public void testNewEventStructured() throws Exception {
-        Message _notifyEvent = notificationEventFactory_.newEvent(testStructured_);
+        Message _notifyEvent = notificationEventFactory_.newMessage(testStructured_);
     }
 
     public void testStructuredToAny() throws Exception {
-        Message _notifyEvent = notificationEventFactory_.newEvent(testStructured_);
+        Message _notifyEvent = notificationEventFactory_.newMessage(testStructured_);
         assertNotNull(_notifyEvent);
         Any _any = _notifyEvent.toAny();
         StructuredEvent _event = StructuredEventHelper.extract(_any);
@@ -51,7 +51,7 @@ public class NotificationEventFactoryTest extends TestCase {
     }
 
     public void testStructuredToStructured() throws Exception {
-        Message _notifyEvent = notificationEventFactory_.newEvent(testStructured_);
+        Message _notifyEvent = notificationEventFactory_.newMessage(testStructured_);
         assertNotNull(_notifyEvent);
         StructuredEvent _event = _notifyEvent.toStructuredEvent();
         assertNotNull(_event);
@@ -60,12 +60,12 @@ public class NotificationEventFactoryTest extends TestCase {
     }
 
     public void testNewEventAny() throws Exception {
-        Message _notifyEvent = notificationEventFactory_.newEvent(testPerson_);
+        Message _notifyEvent = notificationEventFactory_.newMessage(testPerson_);
         assertNotNull(_notifyEvent);
     }
 
     public void testAnyToStructured() throws Exception {
-        Message _notifyEvent = notificationEventFactory_.newEvent(testPerson_);
+        Message _notifyEvent = notificationEventFactory_.newMessage(testPerson_);
         StructuredEvent _structured = _notifyEvent.toStructuredEvent();
         assertNotNull(_structured);
         assertEquals("%ANY", _structured.header.fixed_header.event_type.type_name);
@@ -79,7 +79,7 @@ public class NotificationEventFactoryTest extends TestCase {
     }
 
     public void testAnyToAny() throws Exception {
-        Message _notifyEvent = notificationEventFactory_.newEvent(testPerson_);
+        Message _notifyEvent = notificationEventFactory_.newMessage(testPerson_);
         Any _anyEvent = _notifyEvent.toAny();
         assertNotNull(_anyEvent);
 

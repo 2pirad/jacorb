@@ -29,7 +29,7 @@ import org.omg.CosNotification.PropertySeqHelper;
 import org.omg.DynamicAny.DynAnyFactory;
 import org.omg.DynamicAny.DynAnyFactoryHelper;
 
-import org.jacorb.notification.evaluate.DynamicEvaluator;
+import org.jacorb.notification.filter.DynamicEvaluator;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -39,7 +39,7 @@ import junit.framework.TestSuite;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: DynamicEvaluatorTest.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: DynamicEvaluatorTest.java,v 1.3 2004-01-23 19:45:06 alphonse.bendt Exp $
  */
 public class DynamicEvaluatorTest extends TestCase {
 
@@ -70,7 +70,7 @@ public class DynamicEvaluatorTest extends TestCase {
         DynAnyFactory _dynAnyFactory =
             DynAnyFactoryHelper.narrow(orb_.resolve_initial_references("DynAnyFactory"));
 
-        evaluator_ = new DynamicEvaluator(orb_, _dynAnyFactory);
+        evaluator_ = new DynamicEvaluator(_dynAnyFactory);
     }
 
     public void testExtractAny() throws Exception {

@@ -53,7 +53,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 17 11:48:32 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ReleaseTasksTest.java,v 1.4 2004-01-16 17:37:30 alphonse.bendt Exp $
+ * @version $Id: ReleaseTasksTest.java,v 1.5 2004-01-23 19:45:06 alphonse.bendt Exp $
  */
 
 public class ReleaseTasksTest extends NotificationTestCase
@@ -109,7 +109,7 @@ public class ReleaseTasksTest extends NotificationTestCase
 
         Message event = eventMock.getHandle();
 
-        eventChannelServant_.getChannelContext().processMessage(event);
+        eventChannelServant_.getChannelContext().getTaskProcessor().processMessage(event);
 
         pullReceiver.run();
 

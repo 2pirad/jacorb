@@ -28,7 +28,7 @@ import junit.swingui.TestRunner;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.8 2004-01-16 17:37:30 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.9 2004-01-23 19:44:03 alphonse.bendt Exp $
  */
 
 public class AllTest extends TestCase
@@ -60,5 +60,3 @@ public class AllTest extends TestCase
         junit.textui.TestRunner.run( suite() );
     }
 }
-
-

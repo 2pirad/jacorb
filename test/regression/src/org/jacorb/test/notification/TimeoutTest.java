@@ -48,7 +48,7 @@ import org.jacorb.util.Debug;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimeoutTest.java,v 1.3 2003-11-03 10:32:42 alphonse.bendt Exp $
+ * @version $Id: TimeoutTest.java,v 1.4 2004-01-23 19:44:03 alphonse.bendt Exp $
  */
 
  public class TimeoutTest extends NotificationTestCase
@@ -155,12 +155,12 @@ import org.jacorb.util.Debug;
 
 
     public void testStructuredEventWithoutTimeoutProperty() throws Exception {
-        Message _event = notificationEventFactory_.newEvent(structuredEvent_);
+        Message _event = notificationEventFactory_.newMessage(structuredEvent_);
         assertTrue(!_event.hasTimeout());
     }
 
     public void testAnyEventHasNoStopTime() throws Exception {
-        Message _event = notificationEventFactory_.newEvent(getORB().create_any());
+        Message _event = notificationEventFactory_.newMessage(getORB().create_any());
         assertTrue(!_event.hasTimeout());
     }
 
@@ -175,7 +175,7 @@ import org.jacorb.util.Debug;
 
         structuredEvent_.header.variable_header[0] = new Property(Timeout.value, _any);
 
-        Message _event = notificationEventFactory_.newEvent(structuredEvent_);
+        Message _event = notificationEventFactory_.newMessage(structuredEvent_);
         assertTrue(_event.hasTimeout());
         assertEquals(_timeout, _event.getTimeout());
     }
