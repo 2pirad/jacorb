@@ -33,7 +33,7 @@ import org.jacorb.poa.util.StringPair;
  * This class manages a queue of ServerRequest objects.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestQueue.java,v 1.15.2.2 2004-04-01 00:03:21 phil.mesnier Exp $
+ * @version $Id: RequestQueue.java,v 1.15.2.3 2004-04-28 07:18:26 gerald Exp $
  */
 public class RequestQueue
     implements Configurable
@@ -47,6 +47,8 @@ public class RequestQueue
     private int queueMin;
     private int queueMax;
     private boolean queueWait;
+
+    private boolean configured = false;
 
     private List queue =
         new ArrayList (POAConstants.QUEUE_CAPACITY_INI);
@@ -69,6 +71,7 @@ public class RequestQueue
         queueMax = configuration.getAttributeAsInteger("jacorb.poa.queue_max", 100);
         queueMin = configuration.getAttributeAsInteger("jacorb.poa.queue_min", 10);
         queueWait = configuration.getAttributeAsBoolean("jacorb.poa.queue_wait",false);
+        configured = true;
     }
 
     /**
@@ -86,6 +89,9 @@ public class RequestQueue
     protected synchronized void add(ServerRequest request)
         throws ResourceLimitReachedException
     {
+        if (!configured)
+            throw new Error("RQ.add(): not configured!");
+
         if (queue.size() >= queueMax )
         {
             if ( queueWait )
@@ -128,12 +134,16 @@ public class RequestQueue
 
     protected synchronized void addRequestQueueListener(RequestQueueListener listener)
     {
+        if (!configured)
+            throw new Error("RQ.add(): not configured!");
         queueListener = EventMulticaster.add(queueListener, listener);
     }
 
     protected synchronized StringPair[] deliverContent()
     {
-        StringPair[] result = new StringPair[queue.size()];
+         if (!configured)
+            throw new Error("RQ.add(): not configured!");
+       StringPair[] result = new StringPair[queue.size()];
         Iterator en = queue.iterator();
         ServerRequest sr;
         for (int i=0; i<result.length; i++)
@@ -146,6 +156,8 @@ public class RequestQueue
 
     protected synchronized ServerRequest getElementAndRemove(int rid)
     {
+        if (!configured)
+            throw new Error("RQ.add(): not configured!");
         if (!queue.isEmpty())
         {
             Iterator en = queue.iterator();
@@ -169,7 +181,9 @@ public class RequestQueue
 
     protected synchronized ServerRequest getFirst()
     {
-        if (!queue.isEmpty())
+         if (!configured)
+            throw new Error("RQ.add(): not configured!");
+       if (!queue.isEmpty())
         {
             return (ServerRequest) queue.get(0);
         }
@@ -178,11 +192,15 @@ public class RequestQueue
 
     protected boolean isEmpty()
     {
+        if (!configured)
+            throw new Error("RQ.add(): not configured!");
         return queue.isEmpty();
     }
 
     protected synchronized ServerRequest removeFirst()
     {
+        if (!configured)
+            throw new Error("RQ.add(): not configured!");
         if (!queue.isEmpty())
         {
             ServerRequest result = (ServerRequest) queue.get(0);
@@ -199,7 +217,9 @@ public class RequestQueue
 
     protected synchronized ServerRequest removeLast()
     {
-        if (!queue.isEmpty())
+         if (!configured)
+            throw new Error("RQ.add(): not configured!");
+       if (!queue.isEmpty())
         {
             int index = queue.size() - 1;
             ServerRequest result = (ServerRequest) queue.get(index);
@@ -215,6 +235,8 @@ public class RequestQueue
 
     protected synchronized void removeRequestQueueListener(RequestQueueListener listener)
     {
+        if (!configured)
+            throw new Error("RQ.add(): not configured!");
         queueListener = EventMulticaster.remove(queueListener, listener);
     }
 
