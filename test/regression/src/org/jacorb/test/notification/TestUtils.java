@@ -10,7 +10,7 @@ import org.jacorb.notification.filter.FilterConstraint;
 import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.filter.etcl.TCLCleanUp;
 import org.jacorb.notification.filter.etcl.AbstractTCLNode;
-import org.jacorb.notification.filter.etcl.parser.TCLParser;
+import org.jacorb.notification.filter.etcl.TCLParser;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.LongSeqHelper;
 import org.omg.CORBA.ORB;
@@ -32,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Dec 07 16:04:32 2002
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.5 2004-01-23 19:44:03 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.6 2004-01-23 20:00:02 alphonse.bendt Exp $
  */
 
 public class TestUtils {
