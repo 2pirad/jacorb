@@ -3,7 +3,7 @@
 // by other modules. This file is for declaration
 // purposes only!!
 
-// $Id: orb.idl,v 1.2 2002-05-06 14:43:36 gerald Exp $
+// $Id: orb.idl,v 1.3 2002-10-26 12:33:05 andre.spiegel Exp $
 
 #ifndef _MYORB_IDL
 #define _MYORB_IDL
@@ -161,6 +161,9 @@ module CORBA
     {
 	PolicyErrorCode reason;
     };
+
+    exception UserException {};
+    pseudo interface ExceptionList {};
 
 };
 
