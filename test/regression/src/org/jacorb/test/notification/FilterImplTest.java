@@ -28,15 +28,16 @@ import junit.framework.TestSuite;
  * Created: Sat Nov 09 16:34:05 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterImplTest.java,v 1.3 2003-08-27 20:46:50 alphonse.bendt Exp $
+ * @version $Id: FilterImplTest.java,v 1.4 2003-11-26 10:15:50 alphonse.bendt Exp $
  */
 
 public class FilterImplTest extends TestCase {
-    ORB orb_;
-    DynAnyFactory dynAnyFactory_;
-    ResultExtractor resultExtractor_;
-    DynamicEvaluator dynamicEvaluator_;
+
+    /**
+     * the testling
+     */
     FilterImpl filter_;
+
     ApplicationContext appContext_;
 
     public FilterImplTest(String test) {
@@ -44,9 +45,10 @@ public class FilterImplTest extends TestCase {
     }
 
     public void setUp() throws Exception {
-        orb_ = ORB.init(new String[0], null);
+        ORB _orb = ORB.init(new String[0], null);
+
         appContext_ =
-            new ApplicationContext(orb_, POAHelper.narrow(orb_.resolve_initial_references("RootPOA")));
+            new ApplicationContext(_orb, POAHelper.narrow(_orb.resolve_initial_references("RootPOA")));
 
         filter_ = new FilterImpl(appContext_, FilterFactoryImpl.CONSTRAINT_GRAMMAR);
     }
@@ -70,8 +72,7 @@ public class FilterImplTest extends TestCase {
         filter_.add_constraints(_exp);
 
         Iterator _i =
-            filter_.
-            getIterator(MessageUtils.calcConstraintKey("domain1", "type1"));
+            filter_.getIterator(MessageUtils.calcConstraintKey("domain1", "type1"));
 
         int _count = 0;
         while (_i.hasNext()) {
@@ -86,6 +87,7 @@ public class FilterImplTest extends TestCase {
         for (int x=0; x<_exp.length; ++x) {
             _exp[x] = new ConstraintExp();
         }
+
         EventType[] _eventType = new EventType[2];
         _eventType[0] = new EventType("*", "*");
         _eventType[1] = new EventType("domain*", "type*");
@@ -93,8 +95,7 @@ public class FilterImplTest extends TestCase {
         filter_.add_constraints(_exp);
 
         Iterator _i =
-            filter_.
-            getIterator(MessageUtils.calcConstraintKey("domain1", "type1"));
+            filter_.getIterator(MessageUtils.calcConstraintKey("domain1", "type1"));
 
         int _count = 0;
         while (_i.hasNext()) {
@@ -115,6 +116,7 @@ public class FilterImplTest extends TestCase {
 
         _i = filter_.getIterator(MessageUtils.calcConstraintKey("domain1", "type1"));
         _count = 0;
+
         while (_i.hasNext()) {
             _count++;
             ConstraintEntry _e = (ConstraintEntry)_i.next();
@@ -129,6 +131,7 @@ public class FilterImplTest extends TestCase {
         for (int x=0; x<_exp.length; ++x) {
             _exp[x] = new ConstraintExp();
         }
+
         EventType[] _eventType = new EventType[2];
         _eventType[0] = new EventType("*", "*");
         _eventType[1] = new EventType("domain*", "type*");
@@ -142,10 +145,12 @@ public class FilterImplTest extends TestCase {
         _eventType2[0] = new EventType("*", "*");
         _eventType2[1] = new EventType("domain*", "type*");
         _exp2[0] = new ConstraintExp(_eventType2, "2");
+
         ConstraintInfo[] _info = filter_.add_constraints(_exp2);
 
         Iterator _i = filter_.getIterator(MessageUtils.calcConstraintKey("domain1", "type1"));
         int _count = 0;
+
         while (_i.hasNext()) {
             _count++;
             ConstraintEntry _e = (ConstraintEntry)_i.next();
