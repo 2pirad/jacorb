@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BoundedDeadlineEventQueueTest.java,v 1.1 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: BoundedDeadlineEventQueueTest.java,v 1.2 2005-03-20 21:58:51 alphonse.bendt Exp $
  */
 public class BoundedDeadlineEventQueueTest extends TestCase
 {
@@ -94,6 +94,19 @@ public class BoundedDeadlineEventQueueTest extends TestCase
         objectUnderTest_.put(mockMessage1_);
         
         assertEquals(2, objectUnderTest_.getAllMessages(false).length);
+    }
+    
+    public void testGetAllClearsQueue() throws Exception
+    {
+        mockMessage1_.hasTimeout();
+        controlMessage1_.setDefaultReturnValue(false);
+        controlMessage1_.replay();
+        
+        objectUnderTest_.put(mockMessage1_);
+        
+        assertEquals(mockMessage1_, objectUnderTest_.getAllMessages(false)[0]);
+        
+        assertEquals(0, objectUnderTest_.getAllMessages(false).length);
     }
     
     public void testInsert() throws Exception
