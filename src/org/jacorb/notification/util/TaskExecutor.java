@@ -33,7 +33,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.2 2004-01-17 01:16:54 alphonse.bendt Exp $
+ * @version $Id: TaskExecutor.java,v 1.3 2004-01-17 01:18:45 alphonse.bendt Exp $
  */
 
 public class TaskExecutor implements Executor, Disposable
@@ -64,7 +64,9 @@ public class TaskExecutor implements Executor, Disposable
             {
                 executor_ = new DirectExecutor();
 
-                logger_.info( "Created direct Executing ThreadPool: " + name );
+                if (logger_.isInfoEnabled() ) {
+                    logger_.info( "Created direct Executing ThreadPool: " + name );
+                }
             }
         else
             {
@@ -94,7 +96,9 @@ public class TaskExecutor implements Executor, Disposable
 
                 executor_ = _executor;
 
-                logger_.info( "Created ThreadPool " + name + " with Size " + numberOfThreads );
+                if (logger_.isInfoEnabled()) {
+                    logger_.info( "Created ThreadPool " + name + " with Size " + numberOfThreads );
+                }
             }
     }
 
