@@ -40,7 +40,7 @@ import java.util.Enumeration;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.6 2001-10-24 14:02:41 jacorb Exp $
+ * @version $Id: AOM.java,v 1.7 2001-11-09 08:25:26 jacorb Exp $
  */
 
 public class AOM 
@@ -270,8 +270,8 @@ public class AOM
                 return;
 
             // wait for request completion on this object (see freeObject below)
-            if (requestController != null) 
-                requestController.waitForObjectCompletion(oid);
+            if ( requestController != null) 
+                 requestController.waitForObjectCompletion(oid);
 
             if ((servant = (Servant)objectMap.get(oidStr)) == null) 
                 return;
@@ -315,10 +315,13 @@ public class AOM
                 
             try 
             {
-                servant_activator.etherealize(oid, poa, servant, contains(servant), cleanup_in_progress);
+                servant_activator.etherealize( oid, poa, 
+                                               servant, contains(servant), 
+                                               cleanup_in_progress);
                                 
-                logTrace.printLog(2, oid, "servant is etherealized");                           
-                                // notify an aom listener
+                logTrace.printLog(2, oid, "servant is etherealized");
+                          
+                // notify an aom listener
 
                 if (aomListener != null) 
                     aomListener.servantEtherialized(oid, servant);
