@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.11 2002-02-21 15:08:42 nick.cross Exp $
+ * @version $Id: Literal.java,v 1.12 2002-02-27 17:36:54 nick.cross Exp $
  */
 
 class Literal
@@ -104,6 +104,12 @@ class Literal
       StringBuffer result = new StringBuffer();
 
       char[] chrs = name.toCharArray();
+
+      // Don't bother escaping if we have "xxx"
+      if (chrs[0] == '\"')
+      {
+         return name;
+      }
 
       for (int i=0; i<chrs.length; i++)
       {
