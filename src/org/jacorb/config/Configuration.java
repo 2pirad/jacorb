@@ -55,7 +55,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.6 2004-06-11 08:29:21 simon.mcqueen Exp $
+ * @version $Id: Configuration.java,v 1.7 2004-06-14 11:45:34 simon.mcqueen Exp $
  */
 
 public class Configuration
@@ -231,6 +231,7 @@ public class Configuration
            configDir += separator + "etc";
        else
        {
+           logLevel = getAttributeAsInteger("jacorb.config.log.verbosity",DEFAULT_LOG_LEVEL);
            if (logLevel > 0)
                System.err.println("[ jacorb.home unset! Will use '.' ]");
            configDir = ".";
@@ -253,6 +254,7 @@ public class Configuration
        }
        else
        {
+           logLevel = getAttributeAsInteger("jacorb.config.log.verbosity",DEFAULT_LOG_LEVEL);
            if (logLevel > 0)
                System.err.println("[ File " + propFileName + " for configuration " + name + 
                                   " not found ]");
