@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueInheritanceSpec.java,v 1.12 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ValueInheritanceSpec.java,v 1.13 2004-02-24 17:18:26 david.robison Exp $
  */
 
 class ValueInheritanceSpec
@@ -33,7 +33,7 @@ class ValueInheritanceSpec
 {
     /** the value types (both abstract and stateful) inherited by this
      value type */
-    Vector v;
+    //Vector v;
 
     /** the IDL interfaces inherited ("supported") by this value type */
     Vector supports;
@@ -45,7 +45,7 @@ class ValueInheritanceSpec
     public ValueInheritanceSpec( int num )
     {
         super( num );
-        v = new Vector();
+        //v = new Vector();
         supports = new Vector();
     }
 
