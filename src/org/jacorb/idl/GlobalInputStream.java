@@ -27,7 +27,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.16 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: GlobalInputStream.java,v 1.17 2003-12-10 09:03:18 gerald Exp $
  */
 
 public class GlobalInputStream
@@ -221,7 +221,7 @@ public class GlobalInputStream
     }
 
     public static int read()
-            throws IOException
+        throws IOException
     {
         int ch = 0;
 
@@ -244,7 +244,7 @@ public class GlobalInputStream
         }
         else
         {
-            ch = stream.read();
+            ch = currentStream().read();
 
             /*
              * if eof is reached, see whether we were reading
@@ -254,9 +254,9 @@ public class GlobalInputStream
 
             if (ch == -1)
             {
+                currentStream().close();
                 if (included)
                 {
-                    stream.close();
 
                     // undo effects of inhibition pragma
                     parser.setInhibitionState(false);
