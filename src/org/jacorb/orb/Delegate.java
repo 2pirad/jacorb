@@ -53,7 +53,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.81 2003-05-07 09:44:38 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.82 2003-05-24 10:04:25 andre.spiegel Exp $
  *
  */
 
@@ -149,7 +149,7 @@ public final class Delegate
     public Delegate ( org.jacorb.orb.ORB orb, org.omg.IOP.IOR _ior )
     {
         this.orb = orb;
-        _pior = new ParsedIOR( _ior );
+        _pior = new ParsedIOR( _ior, orb );
 
         checkIfImR( _pior.getTypeId() );
         conn_mg = orb.getClientConnectionManager();
@@ -1482,7 +1482,7 @@ public final class Delegate
 
         synchronized ( bind_sync )
         {
-            _pior = new ParsedIOR( ior );
+            _pior = new ParsedIOR( ior, orb );
         }
 
         return self;
