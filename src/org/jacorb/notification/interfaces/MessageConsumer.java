@@ -36,7 +36,7 @@ import org.omg.CosEventComm.Disconnected;
  * StructuredEvent) required by its Consumer and delivers it.
  *
  * @author Alphonse Bendt
- * @version $Id: MessageConsumer.java,v 1.2 2004-02-13 18:23:31 alphonse.bendt Exp $
+ * @version $Id: MessageConsumer.java,v 1.3 2004-03-03 12:06:10 alphonse.bendt Exp $
  */
 
 public interface MessageConsumer extends Disposable {
@@ -80,4 +80,6 @@ public interface MessageConsumer extends Disposable {
     int incErrorCounter();
 
     int getErrorThreshold();
+
+    boolean isDisposed();
 }
