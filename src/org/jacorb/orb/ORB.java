@@ -40,13 +40,16 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.9 2001-03-27 08:19:36 jacorb Exp $
+ * @version $Id: ORB.java,v 1.10 2001-03-27 09:10:37 jacorb Exp $
  */
 
 public final class ORB
     extends ORBSingleton
     implements org.jacorb.poa.POAListener
 {
+    private static final String versionString = "1.3.20";
+    private static final String dateString = "27 March 2001";
+
     /** "initial" references */
     private Hashtable initial_references = new Hashtable();
 
@@ -1098,6 +1101,12 @@ public final class ORB
         _args = args;
         _props = props;
         Environment.addProperties( props );
+
+        if( Environment.getProperty("jacorb.orb.print_version").equals("on"))
+        {
+            System.out.println("\tJacORB V " + versionString + ", www.jacorb.org");
+            System.out.println("\t(C) Gerald Brose, FU Berlin, " + dateString );
+        }
 
         initialReferencesInit();
         interceptorInit();
