@@ -29,8 +29,8 @@ import org.omg.CosEventComm.Disconnected;
  *
  * Created: Sun Feb 09 18:21:59 2003
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: TimerEventSupplier.java,v 1.1 2003-04-12 21:17:41 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: TimerEventSupplier.java,v 1.2 2003-07-17 18:13:42 alphonse.bendt Exp $
  */
 
 public interface TimerEventSupplier {
