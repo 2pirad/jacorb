@@ -30,7 +30,7 @@ import org.jacorb.orb.CDROutputStream;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.12 2004-01-06 15:50:45 nick.cross Exp $
+ * @version $Id: MessageOutputStream.java,v 1.13 2004-01-07 14:24:50 nick.cross Exp $
  */
 
 public class MessageOutputStream
@@ -49,8 +49,6 @@ public class MessageOutputStream
     public void writeGIOPMsgHeader( int message_type,
                                     int minor_version )
     {
-        byte[] buffer = getInternalBuffer();
-
         //attribute: magic (4 bytes)
         buffer[0] = (byte) 'G';
         buffer[1] = (byte) 'I';
@@ -75,8 +73,6 @@ public class MessageOutputStream
 
     public void insertMsgSize( int size )
     {
-        byte[] buffer = getInternalBuffer();
-
         //using big endian byte ordering
         buffer[8]  = (byte)((size >> 24) & 0xFF);
         buffer[9]  = (byte)((size >> 16) & 0xFF);
