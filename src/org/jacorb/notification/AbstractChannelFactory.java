@@ -71,7 +71,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.3 2004-06-24 08:15:46 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.4 2004-06-26 00:13:22 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory
@@ -501,7 +501,7 @@ public abstract class AbstractChannelFactory
         } catch (Throwable ex) {
             ex.printStackTrace();
 
-            throw new RuntimeException(ex);
+            throw new RuntimeException(ex.getMessage());
         }
 
         _eventChannelServant.setKey(_channelID);

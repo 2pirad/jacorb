@@ -42,7 +42,7 @@ import org.omg.CORBA.NamedValue;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.13 2004-06-18 23:11:18 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.14 2004-06-26 00:12:44 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable, Configurable
@@ -185,7 +185,7 @@ public class MessageFactory implements Disposable, Configurable
             return _handle;
         } catch (Bounds e) {
             // this should never happen!
-            throw new RuntimeException (e);
+            throw new RuntimeException (e.getMessage());
         }
     }
 
