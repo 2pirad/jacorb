@@ -49,7 +49,7 @@ import org.omg.CORBA.BAD_QOS;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.74 2004-01-05 13:20:44 gerald Exp $
+ * @version $Id: Environment.java,v 1.75 2004-01-07 14:04:20 nick.cross Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -63,20 +63,20 @@ public class Environment
     private static Properties   configurationProperties;
 
     /** default file names for ORB configurain files */
-    private static String propertiesFile1       = ".jacorb_properties";
-    private static String propertiesFile2       = "jacorb.properties";
+    private static final String propertiesFile1       = ".jacorb_properties";
+    private static final String propertiesFile2       = "jacorb.properties";
 
-    private static String jacorbPrefix          = "jacorb.";
-    private static String poaPrefix             = jacorbPrefix + "poa.";
+    private static final String jacorbPrefix          = "jacorb.";
+    private static final String poaPrefix             = jacorbPrefix + "poa.";
 
     /** root logger instance for JacORB */
     private static LoggerFactory loggerFactory = null;
 
     /**  logger factory used to create loggers */
-    private static org.apache.avalon.framework.logger.Logger logger = null;
+    private static Logger logger = null;
 
     /**  default class name for logger factory */
-    private static String loggerFactoryClzName = "org.jacorb.util.LogKitLoggerFactory";
+    private static final String loggerFactoryClzName = "org.jacorb.util.LogKitLoggerFactory";
 
     private static Class identityHashMapClass = null;
 
@@ -898,7 +898,7 @@ public class Environment
 
     /**
      * Collects all properties with prefix "org.omg.PortableInterceptor.ORBInitializerClass."
-     * and try to instanciate their values as ORBInitializer-Classes.
+     * and try to instantiate their values as ORBInitializer-Classes.
      *
      * @return a Vector containing ORBInitializer instances
      */
