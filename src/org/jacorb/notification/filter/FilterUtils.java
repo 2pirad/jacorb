@@ -22,8 +22,9 @@ package org.jacorb.notification.filter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterUtils.java,v 1.2 2004-02-25 14:51:50 alphonse.bendt Exp $
+ * @version $Id: FilterUtils.java,v 1.3 2004-02-25 15:38:55 alphonse.bendt Exp $
  */
+
 public class FilterUtils {
 
     /**

@@ -42,7 +42,7 @@ import org.apache.avalon.framework.logger.Logger;
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.3 2004-02-25 14:50:40 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.4 2004-02-25 15:38:55 alphonse.bendt Exp $
  */
 
 public class FilterConstraint
@@ -65,6 +65,7 @@ public class FilterConstraint
     {
         rootNode_ = root;
     }
+
 
     public FilterConstraint( ConstraintExp constraintExp )
         throws InvalidConstraint
@@ -105,6 +106,7 @@ public class FilterConstraint
         return constraint_;
     }
 
+
     public EvaluationResult evaluate( EvaluationContext evaluationContext,
                                       Message event )
         throws EvaluationException
@@ -117,12 +119,13 @@ public class FilterConstraint
             logger_.debug("evaluate()" + rootNode_.toStringTree());
         }
 
-        evaluationContext.setCurrentMessagea( event );
+        evaluationContext.setCurrentMessage( event );
 
         EvaluationResult _res = rootNode_.evaluate( evaluationContext );
 
         return _res;
     }
+
 
     public String toString()
     {
