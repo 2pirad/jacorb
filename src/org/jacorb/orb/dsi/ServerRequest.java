@@ -39,7 +39,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.27 2004-01-02 10:37:51 nick.cross Exp $
+ * @version $Id: ServerRequest.java,v 1.28 2004-02-05 11:12:28 simon.mcqueen Exp $
  */
 
 public class ServerRequest
@@ -98,7 +98,7 @@ public class ServerRequest
 
         getTimingPolicies();
 
-        object_key = orb.mapObjectKey( in.req_hdr.target.object_key() );
+        object_key = orb.mapObjectKey(org.jacorb.orb.ParsedIOR.extractObjectKey(in.req_hdr.target, orb));
 
         oid = org.jacorb.poa.util.POAUtil.extractOID( object_key );
     }
