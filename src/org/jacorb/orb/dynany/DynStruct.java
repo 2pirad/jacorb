@@ -29,7 +29,7 @@ import org.jacorb.orb.*;
  * CORBA DynStruct
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynStruct.java,v 1.4 2001-03-19 11:08:50 brose Exp $
+ * $Id: DynStruct.java,v 1.5 2001-08-29 13:03:22 jacorb Exp $
  */
 
 public final class DynStruct
@@ -233,6 +233,16 @@ public final class DynStruct
     {
 	super.destroy();
 	members = null;
+    }
+
+    /**
+     * returns the DynAny's internal any representation, 
+     * @overwrites getRepresentation() in DynAny
+     */
+
+    protected org.omg.CORBA.Any getRepresentation()
+    {
+        return members[pos].value;
     }
 
     /* iteration interface */

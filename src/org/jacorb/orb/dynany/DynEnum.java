@@ -27,7 +27,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynEnum.java,v 1.4 2001-03-19 11:08:49 brose Exp $
+ * $Id: DynEnum.java,v 1.5 2001-08-29 13:03:22 jacorb Exp $
  */
 
 public final class DynEnum
@@ -38,7 +38,7 @@ public final class DynEnum
     private int max;
     private String [] member_names;
 
-    DynEnum(org.jacorb.orb.ORB orb,
+    DynEnum( org.jacorb.orb.ORB orb,
             org.omg.DynamicAny.DynAnyFactory dynFactory,
             org.jacorb.orb.Any any)
 	throws InvalidValue, TypeMismatch
@@ -154,7 +154,6 @@ public final class DynEnum
 
 
 }
-
 
 
 

@@ -30,7 +30,7 @@ import java.util.Vector;
  * CORBA DynArray
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynArray.java,v 1.4 2001-03-19 11:08:49 brose Exp $
+ * $Id: DynArray.java,v 1.5 2001-08-29 13:03:21 jacorb Exp $
  */
 
 public final class DynArray
@@ -40,17 +40,17 @@ public final class DynArray
     private org.omg.CORBA.TypeCode elementType;
     private org.omg.CORBA.Any[] members;
 
-    DynArray(org.jacorb.orb.ORB orb,
-             org.omg.DynamicAny.DynAnyFactory dynFactory,
-             org.jacorb.orb.Any any)
+    DynArray( org.jacorb.orb.ORB orb,
+              org.omg.DynamicAny.DynAnyFactory dynFactory,
+              org.jacorb.orb.Any any)
 	throws org.omg.DynamicAny.DynAnyPackage.TypeMismatch, InvalidValue
     {
 	super(orb,dynFactory,any);
     }
 
-    DynArray(org.jacorb.orb.ORB orb,
-             org.omg.DynamicAny.DynAnyFactory dynFactory,
-             org.omg.CORBA.TypeCode tc)
+    DynArray( org.jacorb.orb.ORB orb,
+              org.omg.DynamicAny.DynAnyFactory dynFactory,
+              org.omg.CORBA.TypeCode tc)
 	throws InvalidValue, TypeMismatch
     {
 	if( tc.kind() != org.omg.CORBA.TCKind.tk_array )
@@ -185,6 +185,15 @@ public final class DynArray
 	elementType = null;
     }
 
+    /**
+     * returns the DynAny's internal any representation, 
+     * @overwrites getRepresentation() in DynAny
+     */
+
+    protected org.omg.CORBA.Any getRepresentation()
+    {
+        return members[pos];
+    }
 
     /* iteration interface */
 
