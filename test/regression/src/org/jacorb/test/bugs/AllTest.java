@@ -23,8 +23,10 @@ package org.jacorb.test.bugs;
 import junit.framework.*;
 
 /**
+ * Test suite for all bug tests.
+ * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: AllTest.java,v 1.6 2003-10-10 13:31:37 andre.spiegel Exp $
+ * @version $Id: AllTest.java,v 1.7 2003-10-29 11:48:51 andre.spiegel Exp $
  */
 
 public class AllTest extends TestCase
@@ -44,6 +46,7 @@ public class AllTest extends TestCase
       suite.addTest(org.jacorb.test.bugs.bug351.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug384.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug387.TestCase.suite());
+      suite.addTest(org.jacorb.test.bugs.bug401.TestCase.suite());
 
       return suite;
    }
