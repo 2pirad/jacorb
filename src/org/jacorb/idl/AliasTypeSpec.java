@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.28 2002-05-31 16:00:24 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.29 2002-06-03 13:42:11 gerald Exp $
  */
 
 public class AliasTypeSpec
@@ -118,10 +118,10 @@ public class AliasTypeSpec
             if( originalType.typeName().indexOf( '.' ) < 0 )
             {
                 String tName = null;
-                if( originalType instanceof SequenceType ||
-                        originalType instanceof ArrayTypeSpec )
+                if( originalType instanceof VectorType )
                 {
-                    tName = originalType.typeName().substring( 0, originalType.typeName().indexOf( '[' ) );
+                    tName =
+                        originalType.typeName().substring( 0, originalType.typeName().indexOf( '[' ) );
                 }
                 else
                 {
@@ -161,33 +161,39 @@ public class AliasTypeSpec
 
         String tc_name;
 
-        if( ts instanceof TemplateTypeSpec )
-        {
+//          if( ts instanceof TemplateTypeSpec )
+//          {
 //                if( ts instanceof VectorType && ((VectorType)ts).typedefd() )
 //                {
 //                    tc_name = ((VectorType)ts).helperName();                
 //                }
 //                else
 //                {
-                tc_name = originalType.getTypeCodeExpression();
-                //              }
-        }
-        else if( ts instanceof BaseType ||
-            ts instanceof ConstrTypeSpec || // for value types
-            ts instanceof ObjectTypeSpec ||
-            ts instanceof AliasTypeSpec ||
-            ts instanceof TypeCodeTypeSpec )
-        {
-            tc_name = originalType.getTypeCodeExpression();
-        }
-        else
-        {
-            tc_name = ts.typeName() + "Helper.type()";
-        }
+//                  tc_name = originalType.getTypeCodeExpression();
+//                }
+//          }
+        //        else 
+            if( ts instanceof BaseType ||
+                //  ts instanceof ConstrTypeSpec || // for value types
+                ts instanceof ObjectTypeSpec ||
+                ts instanceof TemplateTypeSpec || 
+                // ts instanceof AliasTypeSpec ||
+                ts instanceof TypeCodeTypeSpec )
+            {
+                tc_name = ts.getTypeCodeExpression();
+            }
+            else if(  ts instanceof AliasTypeSpec  )
+            {
+                tc_name = ts.full_name() + "Helper.type()";
+            }
+            else
+            {
+                tc_name = ts.typeName() + "Helper.type()";
+            }
 
-        return "org.omg.CORBA.ORB.init().create_alias_tc( " +
-            full_name() + "Helper.id(), \"" + name + "\"," + tc_name + " )";
-
+            return "org.omg.CORBA.ORB.init().create_alias_tc( " +
+                full_name() + "Helper.id(), \"" + name + "\"," + 
+                tc_name + " )";
  
         //            originalType.getTypeCodeExpression() + ")";
     }

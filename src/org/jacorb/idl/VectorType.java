@@ -26,14 +26,13 @@ package org.jacorb.idl;
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.4 2002-05-03 16:46:37 gerald Exp $
+ * @version $Id: VectorType.java,v 1.5 2002-06-03 13:42:13 gerald Exp $
  */
 
 
 public abstract class VectorType
-        extends TemplateTypeSpec
-{
-
+    extends TemplateTypeSpec
+{    
     TypeSpec type_spec;
 
     public VectorType( int num )

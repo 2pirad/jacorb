@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.18 2002-05-10 15:08:30 nick.cross Exp $
+ * @version $Id: Member.java,v 1.19 2002-06-03 13:42:11 gerald Exp $
  *
  */
 
@@ -109,12 +109,15 @@ class Member
             type_spec = ( (ScopedName)type_spec.typeSpec() ).resolvedTypeSpec();
             enclosing_symbol.addImportedName( name, type_spec );
 
-            if(type_spec instanceof AliasTypeSpec)
+            if( type_spec instanceof AliasTypeSpec )
             {
-               if (((AliasTypeSpec)type_spec.typeSpec()).originalType instanceof SequenceType)
-               {
-                  ((SequenceType)((AliasTypeSpec)type_spec.typeSpec()).originalType).setRecursive ();
-               }
+                AliasTypeSpec aliasTS = (AliasTypeSpec)type_spec;
+                if( aliasTS.originalType instanceof SequenceType )                    
+                {
+                    SequenceType sequenceTS = (SequenceType)aliasTS.originalType;
+                    if( sequenceTS.elementTypeSpec().typeName().equals( containingType.typeName()) )
+                        sequenceTS.setRecursive ();
+                }
             }
 
             clone_and_parse = false;
@@ -123,11 +126,11 @@ class Member
                 if( ( (ConstrTypeSpec)type_spec.typeSpec() ).c_type_spec instanceof StructType )
                 {
                     if(
-                            ( (ConstrTypeSpec)type_spec.typeSpec() ).c_type_spec.typeName().equals( containingType.typeName() )
-                    )
+                       ( (ConstrTypeSpec)type_spec.typeSpec() ).c_type_spec.typeName().equals( containingType.typeName() )
+                       )
                     {
                         parser.fatal_error( "Illegal type recursion (use sequence<" +
-                                containingType.typeName() + "> instead)", token );
+                                            containingType.typeName() + "> instead)", token );
                     }
                 }
             }

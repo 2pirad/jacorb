@@ -28,11 +28,11 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.22 2002-05-31 12:59:09 gerald Exp $
+ * @version $Id: SequenceType.java,v 1.23 2002-06-03 13:42:12 gerald Exp $
  */
 
 public class SequenceType
-        extends VectorType
+    extends VectorType
 {
     private boolean written = false;
 
