@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.7 2002-03-19 09:25:08 nicolas Exp $
+ * @version $Id: Value.java,v 1.8 2002-04-11 06:42:49 gerald Exp $
  */
 
 import java.util.Vector;
@@ -64,16 +64,6 @@ class Value
     {
 	return value.signature();
     }
-
-   /**
-     *	we have to be able to distinguish between explicitly typedef'd
-     *	type names and anonymously defined type names
-     */
-
-//      public void markTypeDefd(String alias)
-//      {
-//  	value_decl.markTypeDefd(alias);
-//      }
 
     /**
      * @returns a string for an expression of type TypeCode 
@@ -140,7 +130,7 @@ class Value
 
     public String printReadStatement(String var_name, String streamname)
     {
-	return var_name + "=" + printReadExpression(streamname) + ";";
+	return value.printReadStatement( var_name, streamname );
     }
 
     public String printWriteStatement(String var_name, String streamname)

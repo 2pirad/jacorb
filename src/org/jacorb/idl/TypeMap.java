@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.10 2002-03-19 09:25:07 nicolas Exp $
+ * @version $Id: TypeMap.java,v 1.11 2002-04-11 06:42:49 gerald Exp $
  */
 
 import java.util.*;
@@ -57,7 +57,7 @@ class TypeMap
     public static void typedef( String name, TypeSpec type ) 
 	throws NameAlreadyDefined
     {
-	Environment.output(3,"Typedef'ing " + name + " for " + 
+	Environment.output(3,"Typedef'ing " + name +
                            //                           type.typeName() + 
                            " , hash: " + type.hashCode() );
 

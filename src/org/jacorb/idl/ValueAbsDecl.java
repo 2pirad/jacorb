@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.3 2002-04-10 16:09:31 gerald Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.4 2002-04-11 06:42:49 gerald Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
@@ -38,7 +38,7 @@ class ValueAbsDecl
     extends Value
 {
     ValueBody body = null;
-    SymbolList inheritanceSpec;
+    ValueInheritanceSpec inheritanceSpec;
 
     public ValueAbsDecl(int num)
     {
@@ -61,6 +61,15 @@ class ValueAbsDecl
            inheritanceSpec.setPackage(s);
     }
 
+    public void setInheritanceSpec( ValueInheritanceSpec spec )
+    {
+        inheritanceSpec = spec;
+    }
+
+    public ValueInheritanceSpec setInheritanceSpec()
+    {
+        return inheritanceSpec;
+    }
 
     public TypeDeclaration declaration()
     {
@@ -165,21 +174,14 @@ class ValueAbsDecl
                 Environment.output(4, "Checking inheritanceSpec of " + full_name() );
                 for( Enumeration e = inheritanceSpec.v.elements(); e.hasMoreElements(); )
                 {
-                    try
+                    ScopedName name = (ScopedName)e.nextElement();
+                    ConstrTypeSpec ts = (ConstrTypeSpec)name.resolvedTypeSpec();
+                    if( ! (ts.declaration() instanceof Interface ) &&
+                        ! (ts.declaration() instanceof ValueAbsDecl )  )
                     {
-                        ScopedName name = (ScopedName)e.nextElement();
-                        ConstrTypeSpec ts = (ConstrTypeSpec)name.resolvedTypeSpec();
-                        if( ts.declaration() instanceof Interface )
-                        {
-                            continue;
-                        }
+                        parser.fatal_error("Illegal inheritance spec: " + 
+                                           inheritanceSpec, token );
                     }
-                    catch( Exception ex )
-                    {
-                        // ex.printStackTrace();
-                    }                        
-                    parser.fatal_error("Illegal inheritance spec: " + 
-                                       inheritanceSpec, token );
                 }
                 body.set_ancestors(inheritanceSpec);
             }

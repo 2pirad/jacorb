@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueInheritanceSpec.java,v 1.1 2002-04-10 16:10:10 gerald Exp $
+ * @version $Id: ValueInheritanceSpec.java,v 1.2 2002-04-11 06:42:50 gerald Exp $
  */
 
 class  ValueInheritanceSpec  
@@ -34,13 +34,23 @@ class  ValueInheritanceSpec
     public Vector v;
     public Vector supports;
 
-    public int truncatable;
+    public boolean truncatable;
 
     public ValueInheritanceSpec(int num)
     {
         super(num);
         v = new Vector();
         supports = new Vector();
+    }
+
+    public String[] getTruncatableIds()
+    {
+        if( ! truncatable )
+            return new String[0];
+        else
+        {
+            return new String[]{ ((ScopedName)v.elementAt(0)).toString() };
+        }
     }
 
     public void setPackage( String s)
