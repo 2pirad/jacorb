@@ -53,7 +53,7 @@ import org.apache.log.Hierarchy;
  * Created: Sat Jun  7 19:34:43 2003
  *
  * @author Alphonse Bendt
- * @version $Id: StartTimeTest.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: StartTimeTest.java,v 1.3 2003-08-27 20:46:50 alphonse.bendt Exp $
  */
 
 public class StartTimeTest extends TestCase
@@ -99,6 +99,7 @@ public class StartTimeTest extends TestCase
     }
 
     public void tearDown() throws Exception {
+        super.tearDown();
         notificationEventFactory_.dispose();
         applicationContext_.dispose();
     }

@@ -30,7 +30,7 @@ import org.apache.log.Priority;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationEventTest.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: NotificationEventTest.java,v 1.5 2003-08-27 20:46:50 alphonse.bendt Exp $
  */
 public class NotificationEventTest extends TestCase {
 
@@ -76,7 +76,8 @@ public class NotificationEventTest extends TestCase {
         testStructured_ = testUtils_.getStructuredEvent();
     }
 
-    public void tearDown() {
+    public void tearDown() throws Exception {
+        super.tearDown();
         appContext_.dispose();
     }
 

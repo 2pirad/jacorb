@@ -24,7 +24,7 @@ import junit.framework.TestSuite;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationEventFactoryTest.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: NotificationEventFactoryTest.java,v 1.4 2003-08-27 20:46:50 alphonse.bendt Exp $
  */
 
 public class NotificationEventFactoryTest extends TestCase {
@@ -116,7 +116,8 @@ public class NotificationEventFactoryTest extends TestCase {
         testStructured_.remainder_of_body = orb_.create_any();
     }
 
-    public void tearDown() {
+    public void tearDown() throws Exception {
+        super.tearDown();
         appContext_.dispose();
     }
 

@@ -16,7 +16,7 @@ import org.jacorb.orb.util.CorbaLoc;
  * Created: Thu Jul 17 14:16:43 2003
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryTest.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryTest.java,v 1.5 2003-08-27 20:46:50 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryTest
@@ -32,6 +32,7 @@ public class EventChannelFactoryTest
     }
 
     public void tearDown() throws Exception {
+        super.tearDown();
         factory_.dispose();
         orb.shutdown(true);
     }
