@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.13 2003-04-27 12:35:38 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.14 2003-05-05 09:54:22 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.connection.*;
@@ -48,9 +48,6 @@ public class GIOPConnectionTest extends TestCase
             new IIOPAddress ("127.0.0.1", 4711),
             null
         );
-            
-
-        private TransportListener listener = null;
 
         public DummyTransport( List messages )
         {
@@ -112,11 +109,6 @@ public class GIOPConnectionTest extends TestCase
         {
             return false;
         }
-        
-        public void setTransportListener(TransportListener listener)
-        {
-            this.listener = listener;
-        }
 
         public void turnOnFinalTimeout()
         {
@@ -132,7 +124,6 @@ public class GIOPConnectionTest extends TestCase
         {
             if (this.index + min_length > this.data.length)
             {
-                listener.streamClosed();
                 throw new org.omg.CORBA.COMM_FAILURE ("end of stream");
             }
             else
