@@ -22,9 +22,6 @@ package org.jacorb.notification;
  */
 
 import java.util.List;
-import java.util.AbstractList;
-import java.util.RandomAccess;
-import java.io.Serializable;
 import java.lang.Class;
 import java.util.Collections;
 
@@ -34,7 +31,7 @@ import java.util.Collections;
  * available in a pre 1.3 JDK.
  *
  * @author Alphonse Bendt
- * @version $Id: CollectionsWrapper.java,v 1.1 2003-07-16 00:07:01 alphonse.bendt Exp $
+ * @version $Id: CollectionsWrapper.java,v 1.2 2003-07-16 08:54:22 alphonse.bendt Exp $
  */
 
 public class CollectionsWrapper {
