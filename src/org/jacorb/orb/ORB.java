@@ -53,7 +53,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.113 2004-01-16 07:51:09 gerald Exp $
+ * @version $Id: ORB.java,v 1.114 2004-02-04 09:08:30 gerald Exp $
  */
 
 public final class ORB
@@ -137,6 +137,9 @@ public final class ORB
     private Set requests = Collections.synchronizedSet( new HashSet() );
     /* most recently completed dii request found during poll */
     private Request request = null;
+
+    /* PolicyManagement */
+    private org.omg.CORBA.PolicyManager policyManager = null;
 
     /* policy factories, from portable interceptor spec */
     private Map policy_factories = null;
@@ -1093,13 +1096,17 @@ public final class ORB
             {
                 return piCurrent;
             }
+            else if( identifier.equals("ORBPolicyManager") )
+            {
+                return policyManager;
+            }
             else if( identifier.equals("CodecFactory") )
             {
                 obj = new CodecFactoryImpl(this);
             }
             else
             {
-                throw new org.omg.CORBA.ORBPackage.InvalidName ();
+                throw new org.omg.CORBA.ORBPackage.InvalidName();
             }
 
             if (obj != null)
@@ -1384,8 +1391,12 @@ public final class ORB
         interceptorInit();
     }
 
-    protected void set_parameters
-        ( java.applet.Applet app, java.util.Properties  props )
+    /**
+     * Initialization method, called from within the super class 
+     * org.omg.CORBA.ORB
+     */
+
+    protected void set_parameters(java.applet.Applet app, java.util.Properties props)
     {
         applet = app;
         _props = props;
@@ -1394,6 +1405,8 @@ public final class ORB
 
         transport_manager = new TransportManager( this );
         giop_connection_manager = new GIOPConnectionManager();
+        // policyManager = new PolicyManager( this );
+
         clientConnectionManager =
             new ClientConnectionManager(
                 this,
