@@ -1,7 +1,7 @@
 package demo.notification.whiteboard;
 
 import java.util.Vector;
-import org.jacorb.notification.util.ObjectPoolBase;
+import org.jacorb.notification.util.AbstractObjectPool;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.ORB;
@@ -34,7 +34,7 @@ import org.apache.log.Hierarchy;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: Workgroup.java,v 1.2 2003-08-01 15:28:25 alphonse.bendt Exp $
+ * @version $Id: Workgroup.java,v 1.3 2003-10-30 16:31:30 simon.mcqueen Exp $
  */
 
 public class Workgroup 
@@ -451,9 +451,9 @@ class ImageHandler extends StructuredPushSupplierPOA implements WhiteboardVars, 
     StructuredEvent event_;
     Thread thisThread_;
 
-    ObjectPoolBase lineDataPool_;
+    AbstractObjectPool lineDataPool_;
 
-    ObjectPoolBase updatePool_; 
+    AbstractObjectPool updatePool_; 
 
     Vector queue_ = new Vector();
     Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor("ImageHandler");
@@ -505,14 +505,14 @@ class ImageHandler extends StructuredPushSupplierPOA implements WhiteboardVars, 
 	thisThread_.setPriority(3);
 	control_ = control;
 
-	lineDataPool_ = new ObjectPoolBase() {
+	lineDataPool_ = new AbstractObjectPool() {
 		public Object newInstance() {
 		return new LineData();
 	    }
 	};
 	lineDataPool_.init();
 
-	updatePool_ = new ObjectPoolBase() {
+	updatePool_ = new AbstractObjectPool() {
 	    public Object newInstance() {
 		return new WhiteboardUpdate();
 	    }
