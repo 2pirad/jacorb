@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.63 2002-05-27 08:46:26 jason.courage Exp $
+ * @version $Id: ORB.java,v 1.64 2002-05-27 18:38:35 jason.courage Exp $
  */
 
 public final class ORB
@@ -629,23 +629,26 @@ public final class ORB
                     profileDataStream.getBufferCopy()
                 );
                 taggedProfileVector.addElement( tp );
-
-                // now fill the last IOR profile with components
-
-                components = new TaggedComponent[ components_multi_profile.size() ];
-                components_multi_profile.copyInto( components );
-
-                profileDataStream = new CDROutputStream( this );
-                profileDataStream.beginEncapsulatedArray();
-                MultipleComponentProfileHelper.write( profileDataStream, components );
-
-                tp = new TaggedProfile
-                (
-                    TAG_MULTIPLE_COMPONENTS.value,
-                    profileDataStream.getBufferCopy()
-                );
-                taggedProfileVector.addElement( tp );                
             }
+        }
+
+        // now fill the last IOR profile with components (if any)
+
+        if( components_multi_profile.size() > 0 )
+        {
+            components = new TaggedComponent[ components_multi_profile.size() ];
+            components_multi_profile.copyInto( components );
+
+            profileDataStream = new CDROutputStream( this );
+            profileDataStream.beginEncapsulatedArray();
+            MultipleComponentProfileHelper.write( profileDataStream, components );
+
+            tp = new TaggedProfile
+            (
+                TAG_MULTIPLE_COMPONENTS.value,
+                profileDataStream.getBufferCopy()
+            );
+            taggedProfileVector.addElement( tp );                
         }
 
         // copy the profiles into the IOR
