@@ -1,34 +1,25 @@
 <?xml version="1.0"?>
 
-<project name="security" default="all" basedir="../../../..">
+<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../common.xml"> ]>
+
+<project name="naming" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
   <!--            Naming build file                         -->
-  <!-- $Id: build.xml,v 1.4 2002-03-12 11:32:46 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2002-10-15 12:32:39 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
-
-   <target name="init">
-	<property name="dirs.base" value="${basedir}"/>
-	<property name="classdir" value="${dirs.base}/classes"/>
-	<property name="src" value="${dirs.base}/src"/>
-   </target>
+   &common;
 
    <target name="all" depends="init,base"/>
 
    <target name="base">
-	<javac debug="${debug}" srcdir="${src}"
-               destdir="${classdir}"
-	       includes="org/jacorb/naming/*.java, org/jacorb/naming/**/*.java"
-        />
+      <antcall target="jacorb-javac">
+         <param name="javac-includes" value="org/jacorb/naming/*.java, org/jacorb/naming/**/*.java"/>
+      </antcall>
    </target>
+
 
    <target name="clean">
    </target>
-
 </project>
-
-
-
-
-
