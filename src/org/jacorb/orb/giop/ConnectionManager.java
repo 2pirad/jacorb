@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ConnectionManager.java,v 1.12 2001-08-07 08:10:00 jacorb Exp $
+ * @version $Id: ConnectionManager.java,v 1.13 2001-08-08 16:23:14 jacorb Exp $
  *
  */
 
@@ -115,7 +115,7 @@ public class ConnectionManager
 
     public final ClientConnection _getConnection( Delegate delegate )
         {
-            return _getConnection( delegate.get_adport(), delegate.port_is_ssl());
+            return _getConnection( delegate.get_adport(), delegate.useSSL());
         }
 
 
