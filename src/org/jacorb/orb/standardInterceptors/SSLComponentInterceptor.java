@@ -32,7 +32,7 @@ import org.jacorb.orb.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.17.2.2 2004-03-25 15:55:08 gerald Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.17.2.3 2004-03-30 09:40:34 gerald Exp $
  */
 
 public class SSLComponentInterceptor
@@ -55,11 +55,14 @@ public class SSLComponentInterceptor
         throws ConfigurationException
     {
         supported = 
-            (short)configuration.getAttributeAsInteger("jacorb.security.ssl.server.supported_options", 16 );
+            Short.parseShort(
+                configuration.getAttribute("jacorb.security.ssl.server.supported_options","20"),
+                16); // 16 is the base as we take the string value as hex!
 
         required = 
-            (short)configuration.getAttributeAsInteger("jacorb.security.ssl.server.required_options", 16 );
-
+            Short.parseShort(
+                configuration.getAttribute("jacorb.security.ssl.server.required_options","0"),
+                16);
 
     }
 
