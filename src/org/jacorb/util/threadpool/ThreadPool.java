@@ -30,7 +30,7 @@ import java.util.*;
  * Created: Fri Jun  9 15:09:01 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPool.java,v 1.12 2004-04-28 12:37:29 brose Exp $
+ * $Id: ThreadPool.java,v 1.13 2004-12-11 21:12:13 andre.spiegel Exp $
  */
 public class ThreadPool
 {
@@ -101,8 +101,6 @@ public class ThreadPool
             }
         }
 
-        idle_threads--;
-
         return job_queue.removeFirst();
     }
 
@@ -111,10 +109,23 @@ public class ThreadPool
         job_queue.add(job);
         notifyAll();
 
-        if ((idle_threads == 0) &&
-            (total_threads < max_threads))
+        // yes it is possible to have a negative value, look further
+        if(idle_threads <= 0)
         {
-            createNewThread();
+            if(total_threads < max_threads)
+            {
+                createNewThread();
+
+                // reserve the new thread for this job, not idle anymore
+                // can become negative, will be immediately reincremented in getJob()
+                idle_threads--;
+            }
+        } 
+        else
+        {
+            // reserve a thread for this job, not idle anymore
+            // can become negative, will be immediately reincremented in getJob()
+            idle_threads--;
         }
     }
 
