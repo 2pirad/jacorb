@@ -25,7 +25,7 @@ import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.6.2.1 2001-07-30 12:59:54 jacorb Exp $
+ * @version $Id: ORBSingleton.java,v 1.6.2.2 2001-07-30 15:16:26 jacorb Exp $
  */
 
 public class ORBSingleton
@@ -154,7 +154,8 @@ public class ORBSingleton
                                     short type_modifier,
                                     TypeCode concrete_base,
                                     org.omg.CORBA.ValueMember[] members) {
-        throw new org.omg.CORBA.NO_IMPLEMENT();
+        return new org.jacorb.orb.TypeCode (id, name, type_modifier,
+                                            concrete_base, members);
     }
 
     public org.omg.CORBA.TypeCode create_value_box_tc(String id,
