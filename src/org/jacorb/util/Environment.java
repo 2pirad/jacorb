@@ -49,7 +49,7 @@ import org.omg.CORBA.BAD_QOS;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.72 2004-01-02 12:09:30 nick.cross Exp $
+ * @version $Id: Environment.java,v 1.73 2004-01-03 10:23:21 andre.spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -149,10 +149,11 @@ public class Environment
     /**
      * Starting point for initialization of the ORB's
      * environment. Locates configuration files and reads properties
-     * from these, then initializes logging.
+     * from these, then initializes logging.  (This needs to be public
+     * because we also call it from the regression suite.)
      */
 
-    private static void init()
+    public static void init()
     {
         try
         {
