@@ -7,7 +7,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.31 2002-05-10 14:44:46 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.32 2002-05-13 08:35:08 gerald Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -53,7 +53,7 @@
         />
    <javac debug="${debug}" srcdir="${src}/generated"
                destdir="${classdir}"
-               includes="org/omg/CORBA_2_3/**/*.java,org/omg/IOP/**/*.java,org/omg/GIOP/**/*.java,org/omg/IIOP/**/*.java,org/omg/CONV_FRAME/**/*.java,org/omg/Dynamic/**/*.java"
+               includes="org/omg/CORBA_2_3/**/*.java,org/omg/CORBA_2_5/**/*.java,org/omg/IOP/**/*.java,org/omg/GIOP/**/*.java,org/omg/IIOP/**/*.java,org/omg/CONV_FRAME/**/*.java,org/omg/Dynamic/**/*.java"
         />
    <javac debug="${debug}" srcdir="${src}/generated"
                destdir="${classdir}"
