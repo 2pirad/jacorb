@@ -24,7 +24,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Case.java,v 1.13 2003-09-03 21:02:34 brose Exp $
  */
 
 class Case
@@ -259,6 +259,7 @@ class Case
                 }
             }
         } // for
+
     }
 
     IdlSymbol[] getLabels()
