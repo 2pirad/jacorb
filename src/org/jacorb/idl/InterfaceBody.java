@@ -27,7 +27,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.13 2002-04-17 08:49:08 gerald Exp $
+ * @version $Id: InterfaceBody.java,v 1.14 2002-10-05 13:01:43 andre.spiegel Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -401,7 +401,12 @@ class InterfaceBody
         if( ops.length <= 0 )
             return;
 
-        ps.println( "\tstatic private final java.util.Hashtable m_opsHash = new java.util.Hashtable();" );
+        String HASHTABLE = System.getProperty("java.version").startsWith ("1.1")
+                           ? "com.sun.java.util.collections.Hashtable"
+                           : "java.util.Hashtable";
+
+        ps.println( "\tstatic private final " + HASHTABLE 
+                      + " m_opsHash = new " + HASHTABLE + "();" );
         ps.println( "\tstatic" );
         ps.println( "\t{" );
 
