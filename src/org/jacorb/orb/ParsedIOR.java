@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.14 2001-11-14 09:46:34 jacorb Exp $
+ * @version $Id: ParsedIOR.java,v 1.15 2001-11-14 12:40:22 jacorb Exp $
  */
 
 public class ParsedIOR 
@@ -116,7 +116,9 @@ public class ParsedIOR
                                                   int min_minor )
     {
 	ProfileBody_1_1 _profile_body = null;
-	CDRInputStream in = new CDRInputStream((org.omg.CORBA.ORB)null, profile);
+	CDRInputStream in = 
+            new CDRInputStream((org.omg.CORBA.ORB)null, profile);
+
 	try
         {
 	    // look for all profiles, if we found TaggedComponents
