@@ -28,7 +28,7 @@ import org.jacorb.util.Environment;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.9 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.10 2002-09-10 16:26:02 david.robison Exp $
  */
 
 public class IORInterceptorInitializer 
@@ -58,6 +58,11 @@ public class IORInterceptorInitializer
                 Environment.hasProperty( "jacorb.security.ssl.server.required_options" ))
             {
                 info.add_ior_interceptor(new SSLComponentInterceptor(orb));
+            }
+
+            if( Environment.isPropertyOn( "jacorb.security.support_sas" ))
+            {
+                info.add_ior_interceptor(new SASComponentInterceptor(orb));
             }
 
             int giop_minor = 
