@@ -60,7 +60,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.13 2004-11-24 15:42:58 nicolas Exp $
+ * @version $Id: Configuration.java,v 1.14 2005-03-25 13:08:32 andre.spiegel Exp $
  */
 
 public class Configuration
@@ -72,7 +72,8 @@ public class Configuration
     private static final String TRUE = "true";
     private static final String ON = "on";
     private static final String EMPTY_STR = "";
-    private static final int DEFAULT_LOG_LEVEL = 3;
+    
+    private static final int DEFAULT_LOG_LEVEL = 0;
 
     private Configuration config;
     private String configName; 
