@@ -46,7 +46,7 @@ import java_cup.runtime.float_token;
  *  
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.5 2001-03-26 07:53:10 jacorb Exp $
+ * @version $Id: lexer.java,v 1.6 2001-05-31 08:04:14 jacorb Exp $
  * @author Gerald Brose
  * 
  */
@@ -1179,9 +1179,9 @@ public class lexer
                         }
                         
                         return new float_token(sym.FLOAT_NUMBER, 
-                                               Float.valueOf( value.toString() + "." + 
+                                               Float.valueOf( value.toString() + 
+                                                              "." + 
                                                               fraction.toString()).floatValue());
-
                     }
 
                     if( next_char == 'd' || next_char == 'D' )
@@ -1200,8 +1200,8 @@ public class lexer
                     if( fraction == null )
                     {
                         /* integer */
-                        return new int_token(sym.NUMBER, 
-                                             Integer.parseInt( value.toString()));
+                        return new int_token( sym.NUMBER, 
+                                              Integer.parseInt( value.toString()));
                     }
                     else
                     {                   

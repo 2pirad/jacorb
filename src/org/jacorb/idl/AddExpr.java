@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.5 2001-05-29 11:40:05 jacorb Exp $ 
+ * @version $Id: AddExpr.java,v 1.6 2001-05-31 08:04:12 jacorb Exp $ 
  */
 
 class AddExpr 
@@ -49,9 +49,10 @@ class AddExpr
         mult_expr.print(ps);
     }
 
-    public void setContained( boolean contained )
+
+    public void setDeclaration( ConstDecl declared_in )
     {
-        mult_expr.setContained( contained );
+        mult_expr.setDeclaration( declared_in );
     }
 
     public void setPackage( String s)

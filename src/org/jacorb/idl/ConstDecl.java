@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.6 2001-05-29 11:40:06 jacorb Exp $
+ * @version $Id: ConstDecl.java,v 1.7 2001-05-31 08:04:12 jacorb Exp $
  */
 
 import java.util.Vector;
@@ -72,6 +72,7 @@ class ConstDecl
 
     public void parse()
     {
+        const_expr.setDeclaration( this );
 	try 
 	{
 	    NameTable.define( full_name(), "constant" );
@@ -84,7 +85,6 @@ class ConstDecl
 	const_expr.parse();
 	t.typeName = name;
 	values.put( t.resolvedName(), const_expr.value() );
-        const_expr.setContained( contained());
     }
 
     int pos_int_const()
@@ -143,7 +143,7 @@ class ConstDecl
 	}
     }
 
-    private boolean contained()
+    boolean contained()
     {
         boolean result = false;
         IdlSymbol enc = getEnclosingSymbol();

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParseException.java,v 1.3 2001-03-19 11:07:47 brose Exp $
+ * @version $Id: ParseException.java,v 1.4 2001-05-31 08:04:13 jacorb Exp $
  *
  * Thrown by the IDL compiler when it encounters fatal errors
  */
@@ -33,6 +33,14 @@ public class ParseException
     public ParseException()
     {
     }
+    
+    public ParseException(String reason)
+    {
+        super( reason );
+    }
+
+    
+
 }
 
 

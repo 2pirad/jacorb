@@ -25,29 +25,44 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.4 2001-03-27 12:01:18 noffke Exp $
+ * @version $Id: Literal.java,v 1.5 2001-05-31 08:04:13 jacorb Exp $
  */
 
 class Literal 
     extends IdlSymbol
 {
     public String string;
-    
+    public java_cup.runtime.token token;
+
+    private ConstDecl declared_in;
+
     public Literal(int num)
     {
         super(num);
     }
-    
+
+    public void setDeclaration( ConstDecl declared_in )
+    {
+        this.declared_in = declared_in;
+    }
+
+    public void parse()
+    {
+        TypeSpec ts = declared_in.const_type.symbol.typeSpec();
+        Environment.output( 2, "Literal: ts " + ts.getClass().getName() +
+                            " token " + token.getClass().getName() );
+        if( ts instanceof FloatType && 
+            token instanceof java_cup.runtime.int_token
+            )
+        {
+            throw new ParseException("Excpecting float/double constant, found integral type!");
+        }
+    }
+
+
     public void print(PrintWriter ps)
     {
         ps.print( string );
     }
 }
-
-
-
-
-
-
-
 

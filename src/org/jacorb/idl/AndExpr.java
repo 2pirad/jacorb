@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AndExpr.java,v 1.5 2001-05-29 11:40:05 jacorb Exp $
+ * @version $Id: AndExpr.java,v 1.6 2001-05-31 08:04:12 jacorb Exp $
 */
 
 class AndExpr 
@@ -35,7 +35,8 @@ class AndExpr
     public AndExpr and_expr = null;
     public ShiftExpr shift_expr;
 
-    public AndExpr(int num){
+    public AndExpr(int num)
+    {
         super(num);
     }
 
@@ -49,9 +50,10 @@ class AndExpr
         shift_expr.print(ps);
     }
 
-    public void setContained( boolean contained )
+
+    public void setDeclaration( ConstDecl declared_in )
     {
-        shift_expr.setContained( contained );
+        shift_expr.setDeclaration( declared_in );
     }
 
     public void setPackage( String s)
@@ -61,7 +63,9 @@ class AndExpr
             pack_name = new String( s + "." + pack_name );
         else
             pack_name = s;
-        if( and_expr != null ){
+
+        if( and_expr != null )
+        {
             and_expr.setPackage(s);
         }
         shift_expr.setPackage( s);

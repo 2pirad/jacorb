@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.5 2001-05-29 11:40:07 jacorb Exp $
+ * @version $Id: MultExpr.java,v 1.6 2001-05-31 08:04:13 jacorb Exp $
  */
 
 class MultExpr 
@@ -49,9 +49,10 @@ class MultExpr
         unary_expr.print(ps);
     }
 
-    public void setContained( boolean contained )
+
+    public void setDeclaration( ConstDecl declared_in )
     {
-        unary_expr.setContained( contained );
+        unary_expr.setDeclaration( declared_in );
     }
 
     public void setPackage( String s)

@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: XorExpr.java,v 1.5 2001-05-29 11:40:08 jacorb Exp $
+ * @version $Id: XorExpr.java,v 1.6 2001-05-31 08:04:13 jacorb Exp $
  */
 
 class XorExpr 
@@ -47,9 +47,9 @@ class XorExpr
         and_expr.print(ps);
     }
 
-    public void setContained( boolean contained )
+    public void setDeclaration( ConstDecl declared_in )
     {
-        and_expr.setContained( contained );
+        and_expr.setDeclaration( declared_in );
     }
 
     public void setPackage( String s)

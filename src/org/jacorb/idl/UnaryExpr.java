@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnaryExpr.java,v 1.5 2001-05-29 11:40:08 jacorb Exp $
+ * @version $Id: UnaryExpr.java,v 1.6 2001-05-31 08:04:13 jacorb Exp $
  */
 
 class UnaryExpr 
@@ -44,9 +44,9 @@ class UnaryExpr
         primary_expr.print(ps);
     }
 
-    public void setContained( boolean contained )
+    public void setDeclaration( ConstDecl declared_in )
     {
-        primary_expr.setContained( contained );
+        primary_expr.setDeclaration( declared_in );
     }
 
     public void setPackage( String s)

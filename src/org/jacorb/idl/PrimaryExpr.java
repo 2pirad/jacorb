@@ -24,14 +24,16 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrimaryExpr.java,v 1.5 2001-05-29 11:40:07 jacorb Exp $
+ * @version $Id: PrimaryExpr.java,v 1.6 2001-05-31 08:04:13 jacorb Exp $
  */
 
 class PrimaryExpr 
     extends IdlSymbol
 {
-    private boolean contained = false;
     public IdlSymbol symbol;
+
+    private boolean contained = false;
+    private ConstDecl declared_in;
 
     public PrimaryExpr(int num)
     {
@@ -60,9 +62,11 @@ class PrimaryExpr
         symbol.parse();
     }
 
-    public void setContained( boolean contained )
-    {
-        this.contained = contained;
+    public void setDeclaration( ConstDecl declared_in )
+    {        
+        this.declared_in = declared_in;
+        if( symbol instanceof Literal )
+            ((Literal)symbol).setDeclaration( declared_in );
     }
 
     public void setPackage( String s)
@@ -113,7 +117,8 @@ class PrimaryExpr
         else if( symbol instanceof ScopedName)
         {
             //            return ConstDecl.namedValue( (ScopedName)symbol);
-            return ((ScopedName)symbol).resolvedName() + ( contained ? "" : ".value" );
+            return ((ScopedName)symbol).resolvedName() + 
+                ( declared_in.contained() ? "" : ".value" );
         } 
         else 
             return ((Literal)symbol).string;
