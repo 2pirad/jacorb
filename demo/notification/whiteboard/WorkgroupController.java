@@ -31,32 +31,32 @@ import org.omg.CORBA.ORB;
  * Created: Thu Jan 02 20:51:29 2003
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: WorkgroupController.java,v 1.1 2003-01-14 11:46:07 alphonse.bendt Exp $
+ * @version $Id: WorkgroupController.java,v 1.2 2003-11-16 14:20:12 alphonse.bendt Exp $
  */
 
 public interface WorkgroupController {
-    
-    public void drawLine(int x0, 
-			 int y0, 
-			 int x1, 
-			 int y1, 
-			 int red, 
-			 int green, 
-			 int blue);
 
-    public void drawLineLocal(int x0, 
-			      int y0, 
-			      int x1, 
-			      int y1, 
-			      int red, 
-			      int green, 
-			      int blue,
-			      int brushsize);
+    public void drawLine(int x0,
+                         int y0,
+                         int x1,
+                         int y1,
+                         int red,
+                         int green,
+                         int blue);
+
+    public void drawLineLocal(int x0,
+                              int y0,
+                              int x1,
+                              int y1,
+                              int red,
+                              int green,
+                              int blue,
+                              int brushsize);
 
     public void updateWholeImage(int[] data);
 
     public PixelImage getImage();
-    
+
     public void clearAll();
 
     public void clearAllLocal();
@@ -74,4 +74,5 @@ public interface WorkgroupController {
     public int getWorkgroupId();
 
     public void exit();
+
 }// WorkgroupController
