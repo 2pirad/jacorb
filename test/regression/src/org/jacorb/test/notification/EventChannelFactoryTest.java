@@ -9,7 +9,6 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryTest.java,v 1.7 2004-04-28 12:37:29 brose Exp $
  */
 
 public class EventChannelFactoryTest

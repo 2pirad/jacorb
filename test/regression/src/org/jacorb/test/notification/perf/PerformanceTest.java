@@ -67,7 +67,6 @@ import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PerformanceTest.java,v 1.5 2004-04-28 12:37:29 brose Exp $
  */
 
 public class PerformanceTest extends NotificationTestCase {

@@ -15,7 +15,6 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtilsTest.java,v 1.6 2004-04-28 12:37:29 brose Exp $
  */
 
 public class MessageUtilsTest extends NotificationTestCase

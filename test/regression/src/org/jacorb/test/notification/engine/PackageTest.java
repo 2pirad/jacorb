@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
  * Created: Mon Apr  7 15:20:03 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2 2004-03-17 23:15:28 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.3 2004-05-09 19:37:25 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -45,7 +45,6 @@ public class PackageTest extends TestCase {
         TestSuite _suite =
             new TestSuite("Tests in Package org.jacorb.test.notification.engine");
 
-        _suite.addTest(ReleaseTasksTest.suite());
         _suite.addTest(PushToConsumerTest.suite());
         _suite.addTest(PushOperationTest.suite());
         _suite.addTest(WaitRetryStrategyTest.suite());

@@ -10,7 +10,6 @@ import org.omg.CosEventComm.PushSupplierPOA;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CosEventPushSender.java,v 1.6 2004-04-28 12:37:29 brose Exp $
  */
 
 public class CosEventPushSender extends PushSupplierPOA implements TestClientOperations, Runnable {

@@ -16,7 +16,6 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterImplTest.java,v 1.10 2004-04-28 12:37:29 brose Exp $
  */
 
 public class FilterImplTest extends NotificationTestCase {

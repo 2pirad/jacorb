@@ -34,7 +34,6 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CollectionsWrapperTest.java,v 1.5 2004-04-28 12:37:29 brose Exp $
  */
 
 public class CollectionsWrapperTest extends TestCase

@@ -32,7 +32,6 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ThreadPoolTest.java,v 1.4 2004-04-28 12:37:29 brose Exp $
  */
 
 public class ThreadPoolTest extends TestCase

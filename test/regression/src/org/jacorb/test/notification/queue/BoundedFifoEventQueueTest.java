@@ -38,7 +38,6 @@ import java.util.ArrayList;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BoundedFifoEventQueueTest.java,v 1.4 2004-04-28 12:37:29 brose Exp $
  */
 
 public class BoundedFifoEventQueueTest extends TestCase

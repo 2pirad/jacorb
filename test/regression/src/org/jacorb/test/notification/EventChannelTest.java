@@ -22,7 +22,6 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelTest.java,v 1.8 2004-04-28 12:37:29 brose Exp $
  */
 
 public class EventChannelTest extends NotificationTestCase {

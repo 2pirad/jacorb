@@ -29,10 +29,10 @@ import org.omg.CORBA.TRANSIENT;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.jacorb.notification.engine.MessagePushOperation;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WaitRetryStrategyTest.java,v 1.2 2004-04-28 12:37:29 brose Exp $
  */
 public class WaitRetryStrategyTest extends TestCase {
 
@@ -60,6 +60,8 @@ public class WaitRetryStrategyTest extends TestCase {
                         throw new TRANSIENT();
                     }
                 }
+
+                public void dispose() {}
             };
     }
 

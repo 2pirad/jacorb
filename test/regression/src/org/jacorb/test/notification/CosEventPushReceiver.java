@@ -12,7 +12,6 @@ import org.omg.CosEventComm.PushConsumerPOA;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CosEventPushReceiver.java,v 1.6 2004-04-28 12:37:29 brose Exp $
  */
 
 public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, TestClientOperations {

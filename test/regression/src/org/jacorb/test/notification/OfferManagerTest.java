@@ -32,7 +32,6 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: OfferManagerTest.java,v 1.2 2004-04-28 12:37:29 brose Exp $
  */
 
 public class OfferManagerTest extends NotificationTestCase {
