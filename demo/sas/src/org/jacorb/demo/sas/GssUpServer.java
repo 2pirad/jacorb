@@ -20,7 +20,7 @@ import org.omg.CSIIOP.EstablishTrustInClient;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: GssUpServer.java,v 1.1 2004-01-30 15:41:28 david.robison Exp $
+ * @version $Id: GssUpServer.java,v 1.2 2004-02-01 02:33:21 david.robison Exp $
  */
 
 public class GssUpServer extends SASDemoPOA {
@@ -42,7 +42,7 @@ public class GssUpServer extends SASDemoPOA {
 				System.out.println("printSAS for user " + name);
 			}
 		} catch (Exception e) {
-			System.out.println("printSAS Error: " + e);
+			e.printStackTrace();
 		}
 	}
 

@@ -31,7 +31,7 @@ import java.util.*;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.12 2004-01-30 13:08:22 david.robison Exp $
+ * @version $Id: InterceptorManager.java,v 1.13 2004-02-01 02:31:20 david.robison Exp $
  */
 
 public class InterceptorManager  
@@ -167,8 +167,8 @@ public class InterceptorManager
      */
     public void setTSCurrent(Current current)
     {
-        currents.put(Thread.currentThread(), current);
-                     //new PICurrentImpl((PICurrentImpl)current));
+        currents.put(Thread.currentThread(),
+                     new PICurrentImpl((PICurrentImpl)current));
     }
 
     /**
