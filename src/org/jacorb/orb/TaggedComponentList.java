@@ -11,7 +11,7 @@ import org.omg.IOP.*;
  * generic methods to find and access individual components.
  * <p>
  * @author Andre Spiegel
- * @version $Id: TaggedComponentList.java,v 1.1 2003-04-04 13:48:06 andre.spiegel Exp $
+ * @version $Id: TaggedComponentList.java,v 1.2 2003-04-05 09:53:55 andre.spiegel Exp $
  */
 public class TaggedComponentList
 {
@@ -146,7 +146,7 @@ public class TaggedComponentList
 		catch (InvocationTargetException ex)
 		{
 			throw new RuntimeException ("Exception while reading component data: " 
-			                            + ex.getCause());
+			                            + ex.getTargetException());
 		}
 	}
 
