@@ -36,14 +36,12 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.13 2003-12-16 08:42:56 gerald Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.14 2003-12-19 14:16:48 nick.cross Exp $
  *
  */
 
 public class ClientConnectionManager
 {
-    public static final String FACTORY_PROP = "jacorb.net.socket_factory";
-
     private org.jacorb.orb.ORB orb = null;
 
     /** connection mgmt. */
