@@ -43,7 +43,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.76 2003-12-19 10:57:32 nick.cross Exp $
+ * $Id: CDRInputStream.java,v 1.77 2003-12-30 15:17:40 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -85,7 +85,7 @@ public class CDRInputStream
      * ( PositionAfterReadingId - start_pos
      *   - 4 [Size] - 4 [KindSize] ) = RemainingSizeToSkip
      */
-    private static Hashtable cachedTypecodes;
+    private static Map cachedTypecodes;
 
     /** indexes to support mark/reset */
     private int marked_pos;
@@ -277,7 +277,7 @@ public class CDRInputStream
         {
             if ( cachedTypecodes == null )
             {
-                cachedTypecodes = new Hashtable();
+                cachedTypecodes = new HashMap();
             }
             else
             {
@@ -1011,14 +1011,14 @@ public class CDRInputStream
 
     public final org.omg.CORBA.TypeCode read_TypeCode()
     {
-        Hashtable tcMap = new Hashtable();
+        Map tcMap = new HashMap();
         org.omg.CORBA.TypeCode result = read_TypeCode( tcMap );
         tcMap = null;
 
         return result;
     }
 
-    private final org.omg.CORBA.TypeCode read_TypeCode (final  Hashtable tcMap )
+    private final org.omg.CORBA.TypeCode read_TypeCode (final Map tcMap )
     {
         String  id           = null;
         String  name         = null;
