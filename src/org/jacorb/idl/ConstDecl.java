@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  *
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.15 2002-04-17 08:49:03 gerald Exp $
+ * @version $Id: ConstDecl.java,v 1.16 2002-06-18 13:04:59 steve.osselton Exp $
  */
 
 import java.io.File;
@@ -120,6 +120,7 @@ class ConstDecl
     public void printContained( PrintWriter ps )
     {
         TypeSpec ts = const_type.symbol.typeSpec();
+        boolean alias = ts instanceof AliasTypeSpec;
 
         if( ts instanceof AliasTypeSpec )
         {
@@ -136,9 +137,16 @@ class ConstDecl
         }
         else if( ts instanceof LongLongType )
         {
+            String val = const_expr.toString ();
+
             // long constant values need to terminate with an L
-            const_expr.print( ps );
-            ps.println( "L;" );
+
+            if (Character.isDigit (val.charAt (0)))
+            {
+               val = val + "L";
+            }
+
+            ps.println (val + ";");
         }
         else if( ts instanceof FloatType )
         {
@@ -243,8 +251,10 @@ class ConstDecl
             pw.println( "{" );
 
             TypeSpec ts = const_type.symbol.typeSpec();
-            if( ts instanceof AliasTypeSpec )
+            if (ts instanceof AliasTypeSpec)
+            {
                 ts = ( (AliasTypeSpec)ts ).originalType();
+            }
 
             pw.print( "\t" + const_type.toString() + " value = " );
 
@@ -258,8 +268,16 @@ class ConstDecl
             }
             else if( ts instanceof LongLongType )
             {
+                String val = const_expr.toString ();
+
                 // long constant values need to terminate with an L
-                pw.println( const_expr.toString() + "L;" );
+
+                if (Character.isDigit (val.charAt (0)))
+                {
+                   val = val + "L";
+                }
+
+                pw.println (val + ";");
             }
             else if( ts instanceof FloatType )
             {
