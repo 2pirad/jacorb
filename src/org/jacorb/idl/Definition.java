@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definition.java,v 1.7 2002-04-17 08:49:04 gerald Exp $
+ * @version $Id: Definition.java,v 1.8 2002-11-04 17:25:33 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -38,6 +38,13 @@ class Definition
     {
         super( num );
         pack_name = "";
+    }
+    
+    public Definition (Declaration d)
+    {
+        super (new_num());
+        pack_name = "";
+        this.declaration = d;
     }
 
     public void setPackage( String s )
