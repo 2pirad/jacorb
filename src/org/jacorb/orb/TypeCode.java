@@ -33,7 +33,7 @@ import java.lang.reflect.*;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.15.2.1 2001-12-14 10:30:58 spiegel Exp $    
+ * @version $Id: TypeCode.java,v 1.15.2.2 2001-12-14 10:47:10 spiegel Exp $    
  */
  
 public class TypeCode 
@@ -322,7 +322,7 @@ public class TypeCode
         value_modifier = type_modifier;
         content_type = (TypeCode)concrete_base;
 
-        member_count = members.length;
+        member_count = (members != null) ? members.length : 0;
         member_name = new String[member_count];
         member_type = new TypeCode[member_count];
         member_visibility = new short[member_count];
