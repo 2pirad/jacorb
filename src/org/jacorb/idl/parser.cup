@@ -17,7 +17,7 @@ import org.apache.log.output.io.*;
  *  Freie Universitaet Berlin.
  *
  *
- * $Id: parser.cup,v 1.65 2003-09-02 15:52:44 brose Exp $
+ * $Id: parser.cup,v 1.66 2003-09-03 10:21:01 brose Exp $
  *
  */
 
@@ -140,6 +140,7 @@ parser code
         }
         catch( org.jacorb.idl.ParseException e )
         {
+            System.err.println( "Parse Error: " + e.toString() );
             return false;
         }
         catch ( java.io.IOException io )
