@@ -25,13 +25,14 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 /**
- * @version $Id: JDK14PatternWrapper.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: JDK14PatternWrapper.java,v 1.4.4.1 2004-04-07 14:50:56 alphonse.bendt Exp $
  */
 
-class JDK14PatternWrapper extends PatternWrapper
+public class JDK14PatternWrapper extends PatternWrapper
 {
-
     private Pattern pattern_;
+
+    public JDK14PatternWrapper() {}
 
     public void compile( String patternString )
     {
