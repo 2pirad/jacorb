@@ -1,3 +1,4 @@
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -36,7 +37,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.2 2001-10-02 13:51:02 jacorb Exp $ 
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.3 2002-01-11 21:34:42 gerald Exp $ 
  */
 
 public class ServiceContextTransportingOutputStream 
@@ -103,6 +104,7 @@ public class ServiceContextTransportingOutputStream
     {
         return header_end + header_padding;
     }
+
 
     private int getHeaderPadding()
     {
@@ -308,7 +310,18 @@ public class ServiceContextTransportingOutputStream
         
         contexts.add( ctx );
     }
-    
+
+    public byte[] getBody()
+    {
+        byte [] result = 
+            org.jacorb.orb.BufferManager.getInstance().getBuffer( size() - getBodyBegin());
+
+        System.arraycopy( getInternalBuffer(), getBodyBegin(), result, 0, result.length );
+
+        return result;
+    }
+
+
     private CDROutputStream createContextStream()
     {
         CDROutputStream out = new CDROutputStream( (org.omg.CORBA.ORB) null );
