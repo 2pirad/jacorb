@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.20 2001-11-14 12:40:01 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.21 2001-11-16 09:00:14 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -1364,8 +1364,10 @@ public class CDROutputStream
                     for( int i = 0; i < tc.member_count(); i++)
                         write_value( tc.member_type(i), in, tcMap);
                 } 
-                catch ( org.omg.CORBA.TypeCodePackage.BadKind b ){} 
-                catch ( org.omg.CORBA.TypeCodePackage.Bounds b ){}
+                catch ( org.omg.CORBA.TypeCodePackage.BadKind b )
+                {} 
+                catch ( org.omg.CORBA.TypeCodePackage.Bounds b )
+                {}
                 break;
             }
             case TCKind._tk_enum:
