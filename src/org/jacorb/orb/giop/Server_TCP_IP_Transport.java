@@ -34,7 +34,7 @@ import org.jacorb.orb.iiop.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.23 2003-05-06 14:31:45 andre.spiegel Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.24 2003-05-07 09:35:52 andre.spiegel Exp $
  */
 
 public class Server_TCP_IP_Transport
@@ -44,11 +44,10 @@ public class Server_TCP_IP_Transport
     private IIOPProfile profile;
 
     public Server_TCP_IP_Transport( Socket socket,
-                                    boolean is_ssl,
-                                    TransportManager transport_manager )
+                                    boolean is_ssl )
         throws IOException
     {
-        super( transport_manager );
+        super();
 
         this.socket = socket;
         //        socket.setTcpNoDelay( true );
