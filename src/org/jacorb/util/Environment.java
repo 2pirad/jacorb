@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.23 2001-06-21 13:04:35 noffke Exp $
+ * @version $Id: Environment.java,v 1.24 2001-06-21 13:11:54 noffke Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -430,7 +430,7 @@ public class Environment
         else    if( varName.equals("_charset_flags"))
             _charset_flags = Integer.parseInt(o);
         else    if( varName.equals("_keyStore"))
-            _keyStore = _props.getProperty("user.home");
+            _keyStore = o;
         else    if( varName.equals("_impl_name"))
             _impl_name = o.getBytes();
         else    if ( varName.equals ( "_support_ssl")) // gb
