@@ -72,7 +72,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.2 2003-01-04 10:37:23 andre.spiegel Exp $
+ * @version $Id: ClientServerSetup.java,v 1.3 2003-01-05 09:22:47 andre.spiegel Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -117,7 +117,13 @@ public class ClientServerSetup extends TestSetup {
             new BufferedReader
                 ( new InputStreamReader( serverProcess.getInputStream() ) );
         String ior = input.readLine();
-        if ( ior.startsWith( "ERROR:" ) )
+        if (ior == null)
+        {
+           BufferedReader error = new BufferedReader
+              ( new InputStreamReader( serverProcess.getErrorStream() ) );
+           throw new RuntimeException ( "SPAWN ERROR: " + error.readLine() );
+        } 
+        else if ( ior.startsWith ( "ERROR:" ) )
             throw new RuntimeException ( "SERVER " + ior );
         else
             serverObject = clientOrb.string_to_object( ior );
