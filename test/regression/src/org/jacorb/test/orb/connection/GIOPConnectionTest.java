@@ -7,9 +7,10 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.1 2002-06-26 08:07:24 nicolas Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.2 2002-11-04 18:31:09 andre.spiegel Exp $
  */
 
+import org.jacorb.orb.*;
 import org.jacorb.orb.connection.*;
 
 import java.io.*;
@@ -468,19 +469,15 @@ public class GIOPConnectionTest
         byte[] result = transport.getWrittenMessage();
 
         ReplyInputStream r_in = new ReplyInputStream( null, result );
-        
-        try
+
+        Exception ex = r_in.getException();
+        if ( ex != null && ex.getClass() == org.omg.CORBA.NO_IMPLEMENT.class )
         {
-            r_in.checkExceptions();
-            fail(); //must throw
+            // o.k.
         }
-        catch( org.omg.CORBA.NO_IMPLEMENT e )
+        else
         {
-            //o.k.
-        }
-        catch( Exception e )
-        {
-            fail(); //anything else: not o.k.
+            fail();
         }
 
         MessageOutputStream m_out = 
