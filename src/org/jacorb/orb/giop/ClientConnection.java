@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.31 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.32 2003-01-06 14:53:07 andre.spiegel Exp $
  */
 
 public class ClientConnection
@@ -146,7 +146,7 @@ public class ClientConnection
 	os.beginEncapsulatedArray();
 	CodeSetContextHelper.write( os, new CodeSetContext( tcs, tcsw ));
 
-        return new ServiceContext( TAG_CODE_SETS.value,
+        return new ServiceContext( org.omg.IOP.CodeSets.value,
                                    os.getBufferCopy() );
     }
 
