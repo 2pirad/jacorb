@@ -27,7 +27,7 @@ import java.math.BigInteger;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.19 2003-04-01 15:19:26 nick.cross Exp $
+ * @version $Id: Literal.java,v 1.20 2003-05-15 11:40:59 nick.cross Exp $
  */
 
 class Literal
@@ -175,9 +175,17 @@ class Literal
     public String toString()
     {
         String result = string;
+
         if (token instanceof java_cup.runtime.long_token)
         {
-            result = (string + 'L');
+            if (string.indexOf( '.' ) > 0 )
+            {
+                result = (string + 'D');
+            }
+            else
+            {
+                result = (string + 'L');
+            }
         }
         return escapeBackslash (result);
     }

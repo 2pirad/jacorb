@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  *
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.21 2003-04-01 15:19:26 nick.cross Exp $
+ * @version $Id: ConstDecl.java,v 1.22 2003-05-15 11:40:59 nick.cross Exp $
  */
 
 import java.io.File;
@@ -231,6 +231,9 @@ class ConstDecl extends Declaration
             if( logger.isDebugEnabled() )
 		 logger.debug( "ConstDecl.print " + fname );
 
+            if( parser.checkJdk14 && pack_name.equals( "" ) )
+                parser.fatal_error
+                    ( "No package defined for " + className + " - illegal in JDK1.4", token );
             if( !pack_name.equals( "" ) )
                 pw.println( "package " + pack_name + ";" );
 
@@ -277,7 +280,7 @@ class ConstDecl extends Declaration
             else if( ts instanceof FixedPointConstType ||
                     ts instanceof FixedPointType )
             {
-                pw.println( "new java.math.BigDecimal (" + const_expr.toString() + "d);" );
+                pw.println( "new java.math.BigDecimal (" + const_expr.toString() + ");" );
             }
             else
             {
