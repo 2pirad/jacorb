@@ -53,7 +53,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.33 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: PrintIOR.java,v 1.34 2004-08-25 11:39:22 simon.mcqueen Exp $
  */
 
 public class PrintIOR
@@ -143,7 +143,7 @@ public class PrintIOR
                                (int)p.version().major + "." +
                                (int)p.version().minor);
 
-            System.out.println("\tHost\t:\t" + p.getAddress().getHostname());
+            System.out.println("\tHost\t:\t" + p.getAddress().getOriginalHost());
             int port = p.getAddress().getPort();
             if( port < 0 )
                 port += 65536;
