@@ -37,7 +37,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.19 2003-03-25 15:52:20 gerald Exp $
+ * @version $Id: PrintIOR.java,v 1.20 2003-04-01 12:20:57 nick.cross Exp $
  */
 
 public class PrintIOR
@@ -92,7 +92,7 @@ public class PrintIOR
 
         if( iorString.startsWith( "IOR:" ))
         {
-            ParsedIOR pior = new ParsedIOR( iorString );
+            ParsedIOR pior = new ParsedIOR( iorString, orb );
             printIOR(pior, orb);
         }
         else
@@ -563,4 +563,3 @@ public class PrintIOR
         }
     }
 }
-
