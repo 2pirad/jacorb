@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB demo build file                     -->
-  <!-- $Id: build.xml,v 1.5 2003-09-02 07:32:39 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.6 2003-09-02 10:41:56 brose Exp $ -->
   <!-- ==================================================== -->
 
 
@@ -17,6 +17,10 @@
    <target name="all"
    depends="init_compile,any,arrays,grid,hello,unions,poa_monitor,benchmark,dii,mtclient,dynany,interceptors,events,outparam,bank,concurrency,
    value,imr" />
+
+   <target name="ami" depends="init_compile">
+	   <ant dir="${basedir}" antfile="${basedir}/demo/ami/build.xml" target="${target}"/>
+   </target>
 
    <target name="any" depends="init_compile">
 	   <ant dir="${basedir}" antfile="${basedir}/demo/any/build.xml" target="${target}"/>
