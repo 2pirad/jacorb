@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.32 2001-12-07 10:44:34 steve.osselton Exp $
+ * @version $Id: Environment.java,v 1.33 2001-12-14 12:31:13 spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -682,7 +682,11 @@ public class Environment
 
                 try
                 {
-                    orb_initializers.addElement(Class.forName(name).newInstance());
+		    ClassLoader cl = 
+			Thread.currentThread().getContextClassLoader();
+		    if (cl == null)
+			cl = ClassLoader.getSystemClassLoader();
+                    orb_initializers.addElement(cl.loadClass(name).newInstance());
                     Debug.output(Debug.INTERCEPTOR | Debug.DEBUG1, 
                                  "Build: " + name);
                 }
