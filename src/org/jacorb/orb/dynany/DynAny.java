@@ -29,7 +29,7 @@ import org.jacorb.orb.TypeCode;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.21 2004-05-06 12:40:00 nicolas Exp $
+ * $Id: DynAny.java,v 1.22 2005-03-25 13:15:55 andre.spiegel Exp $
  *
  */
 public class DynAny
@@ -57,7 +57,18 @@ public class DynAny
       type = TypeCode.originalType( _type );
       anyRepresentation = defaultValue( type );
    }
-
+   
+   DynAny( org.omg.DynamicAny.DynAnyFactory dynFactory,
+           org.omg.CORBA.TypeCode _type,
+           org.omg.CORBA.ORB orb)
+      throws TypeMismatch
+   {
+      this.orb = orb;
+      this.dynFactory = dynFactory;
+      type = TypeCode.originalType( _type );
+      anyRepresentation = defaultValue( type );
+   }
+   
    public org.omg.CORBA.TypeCode type()
    {
       checkDestroyed ();

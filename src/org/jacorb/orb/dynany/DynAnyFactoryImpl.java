@@ -30,7 +30,7 @@ import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: DynAnyFactoryImpl.java,v 1.12 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: DynAnyFactoryImpl.java,v 1.13 2005-03-25 13:15:55 andre.spiegel Exp $
  * 
  */
 
@@ -97,7 +97,7 @@ public class DynAnyFactoryImpl
                 case org.omg.CORBA.TCKind._tk_wchar:
                 case org.omg.CORBA.TCKind._tk_wstring:
                 {
-                    return new DynAny( this , type ) ;
+                   return new DynAny( this , type, orb ) ;
                 }
                 case org.omg.CORBA.TCKind._tk_fixed:
                 {
@@ -106,23 +106,23 @@ public class DynAnyFactoryImpl
                 case org.omg.CORBA.TCKind._tk_except:
                 case org.omg.CORBA.TCKind._tk_struct:
                 {
-                    return new DynStruct( this , type ) ;                    
+                    return new DynStruct( this , type, orb ) ;                    
                 }
                 case org.omg.CORBA.TCKind._tk_enum:
                 {
-                    return new DynEnum( this , type ) ;
+                    return new DynEnum( this , type, orb ) ;
                 }
                 case org.omg.CORBA.TCKind._tk_array:
                 {
-                    return new DynArray( this , type ) ;
+                    return new DynArray( this , type, orb ) ;
                 }
                 case org.omg.CORBA.TCKind._tk_sequence:
                 {
-                    return new DynSequence( this , type ) ;
+                    return new DynSequence( this , type, orb ) ;
                 }
                 case org.omg.CORBA.TCKind._tk_union:
                 {
-                    return new DynUnion( this , type ) ;
+                    return new DynUnion( this , type, orb ) ;
                 }
                 default:
                     throw new InconsistentTypeCode();

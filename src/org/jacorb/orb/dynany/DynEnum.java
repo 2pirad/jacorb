@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynEnum.java,v 1.14 2004-05-06 12:40:00 nicolas Exp $
+ * $Id: DynEnum.java,v 1.15 2005-03-25 13:15:55 andre.spiegel Exp $
  */
 
 public final class DynEnum
@@ -39,6 +39,41 @@ public final class DynEnum
    private int max;
    private String [] member_names;
 
+    DynEnum( org.omg.DynamicAny.DynAnyFactory dynFactory,
+           org.omg.CORBA.TypeCode tc,org.omg.CORBA.ORB orb)
+     throws InvalidValue, TypeMismatch
+  {
+     org.omg.CORBA.TypeCode _type = TypeCode.originalType( tc );
+
+     if( _type.kind().value() != org.omg.CORBA.TCKind._tk_enum )
+        throw new TypeMismatch();
+
+     type = _type;
+
+     this.orb = orb;
+     this.dynFactory = dynFactory;
+     pos = -1;
+     enum_value = 0;
+
+     try
+     {	  
+        member_names = new String[ type().member_count()];
+        max = member_names.length;
+        for( int i = 0; i < member_names.length; i++ )
+           member_names[i] = type().member_name(i);
+     }
+     catch( org.omg.CORBA.TypeCodePackage.BadKind bk )
+     {	    
+        // should not happen
+        bk.printStackTrace();
+     }
+     catch( org.omg.CORBA.TypeCodePackage.Bounds b )
+     {	    
+        // should not happen
+        b.printStackTrace();
+     }    
+  }
+     
    DynEnum( org.omg.DynamicAny.DynAnyFactory dynFactory,
             org.omg.CORBA.TypeCode tc)
       throws InvalidValue, TypeMismatch
