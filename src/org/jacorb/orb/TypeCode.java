@@ -33,7 +33,7 @@ import java.lang.reflect.*;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.15 2001-11-30 17:40:50 spiegel Exp $    
+ * @version $Id: TypeCode.java,v 1.16 2001-12-06 10:09:51 steve.osselton Exp $    
  */
  
 public class TypeCode 
@@ -91,7 +91,8 @@ public class TypeCode
         primitive_tcs [TCKind._tk_value] 
             = new TypeCode( "IDL:omg.org/CORBA/portable/ValueBase:1.0",
                             "ValueBase", org.omg.CORBA.VM_NONE.value,
-                            null, null );
+                            null, 
+                            new org.omg.CORBA.ValueMember[0]);
 
         primitive_tcs [TCKind._tk_string] 
             = new TypeCode( TCKind._tk_string, 0 );
