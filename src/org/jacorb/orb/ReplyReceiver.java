@@ -47,7 +47,7 @@ import java.util.*;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.14 2003-08-15 11:17:42 andre.spiegel Exp $
+ * @version $Id: ReplyReceiver.java,v 1.15 2003-12-09 18:18:23 nicolas Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -63,7 +63,7 @@ public class ReplyReceiver extends ReplyPlaceholder
     private SystemException      systemException      = null;
     private ApplicationException applicationException = null;
 
-
+    private boolean retry_on_failure = false;
 
     public ReplyReceiver( org.jacorb.orb.Delegate        delegate,
                           String                         operation,
@@ -89,6 +89,10 @@ public class ReplyReceiver extends ReplyPlaceholder
         {
             timer = null;
         }
+        
+        //default to "off" is handled internally by Environment.isPropertyOn()
+        retry_on_failure =
+            Environment.isPropertyOn("jacorb.connection.client.retry_on_failure");
     }
 
     public synchronized void replyReceived ( MessageInputStream in )
@@ -237,7 +241,15 @@ public class ReplyReceiver extends ReplyPlaceholder
            }
            catch (org.omg.CORBA.COMM_FAILURE ex)
            {
-              throw new RemarshalException();
+               if (retry_on_failure)
+               {
+                   throw new RemarshalException();
+               }
+               else
+               {
+                   //rethrow
+                   throw ex;
+               }
            }
         }
         catch ( SystemException se )
