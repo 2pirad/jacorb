@@ -42,7 +42,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing certificates
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: CertUtils.java,v 1.4 2001-04-03 16:02:32 jacorb Exp $
+ * @version $Id: CertUtils.java,v 1.5 2001-06-08 14:21:13 noffke Exp $
  */
 
 public class CertUtils
@@ -342,7 +342,7 @@ public class CertUtils
         }
 	catch ( Exception ex ) 
 	{ 
-	    org.jacorb.util.Debug.output(3, "exception: " + ex.toString ());
+	    org.jacorb.util.Debug.output(1, ex);
 	    return null; 
 	}
     }
