@@ -7,7 +7,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.25 2002-04-19 14:34:09 jason.courage Exp $ -->
+   <!-- $Id: build.xml,v 1.26 2002-05-02 12:45:21 steve.osselton Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -466,7 +466,7 @@
    <!--     Notification service  -->
    <!--                           -->
 
-   <target name="notification" depends="init,notif,typed">
+   <target name="notification" depends="init,notif,typed" description="Compile Notification Service IDL">
    <javac debug="${debug}" srcdir="${src}/generated"
                destdir="${classdir}"
           includes="org/omg/CosNotification/*.java,org/omg/CosNotify**/*.java,org/omg/CosTyped*/**/*.java"
