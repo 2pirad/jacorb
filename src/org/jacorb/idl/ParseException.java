@@ -22,14 +22,16 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParseException.java,v 1.8 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ParseException.java,v 1.9 2003-09-03 16:00:16 brose Exp $
  *
  * Thrown by the IDL compiler when it encounters fatal errors
  */
 
 public class ParseException
-        extends RuntimeException
+    extends RuntimeException
 {
+    /** remember the error position  */
+    private PositionInfo position = null;
 
     public ParseException()
     {
@@ -39,6 +41,20 @@ public class ParseException
     {
         super( reason );
     }
+
+    public ParseException( String reason, PositionInfo pos )
+    {
+        super( reason );
+        position = pos;
+    }
+
+    public String getMessage()
+    {
+        return "IDL Parse error in " + 
+            ( position != null ?  position.toString() : "" ) + 
+            ": " + super.getMessage();
+    }
+    
 
 
 }
