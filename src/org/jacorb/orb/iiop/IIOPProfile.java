@@ -15,7 +15,7 @@ import org.omg.SSLIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.4 2003-06-20 15:17:14 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.5 2003-06-23 09:56:20 andre.spiegel Exp $
  */
 public class IIOPProfile extends _ProfileLocalBase
                          implements Cloneable
@@ -261,7 +261,7 @@ public class IIOPProfile extends _ProfileLocalBase
 		                                IIOPAddress.class);
 	}
 
-    public byte[] getObjectKey()
+    public byte[] get_object_key()
     {
         return objectKey;
     }
