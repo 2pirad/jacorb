@@ -22,7 +22,6 @@ package org.jacorb.security.sas;
 
 import java.security.Provider;
 
-import org.apache.avalon.framework.logger.Logger;
 import org.ietf.jgss.GSSException;
 import org.ietf.jgss.GSSName;
 import org.ietf.jgss.Oid;
@@ -36,13 +35,12 @@ import sun.security.jgss.spi.MechanismFactory;
  * This is the GSS-API Sercurity Provider Interface (SPI) Facotry GSSUP GSSManager
  *
  * @author David Robison
- * @version $Id: GSSUPMechFactory.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: GSSUPMechFactory.java,v 1.10 2004-05-07 13:08:29 david.robison Exp $
  */
 
 public final class GSSUPMechFactory
     implements MechanismFactory
 {
-    // private static Logger logger = Debug.getNamedLogger("jacorb.SAS.GSSUP");
 
     protected static Provider myProvider;
 

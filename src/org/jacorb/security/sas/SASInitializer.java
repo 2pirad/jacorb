@@ -20,13 +20,11 @@ package org.jacorb.security.sas;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.*;
-
 import org.jacorb.orb.standardInterceptors.SASComponentInterceptor;
 import org.jacorb.sasPolicy.ATLAS_POLICY_TYPE;
 import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
-
 import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
@@ -36,7 +34,7 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASInitializer.java,v 1.5 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: SASInitializer.java,v 1.6 2004-05-07 13:08:29 david.robison Exp $
  */
 
 public class SASInitializer

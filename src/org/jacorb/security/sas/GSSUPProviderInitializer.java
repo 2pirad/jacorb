@@ -21,10 +21,6 @@ package org.jacorb.security.sas;
  */
 
 import org.apache.avalon.framework.logger.Logger;
-
-import org.omg.IOP.ENCODING_CDR_ENCAPS;
-import org.omg.IOP.Encoding;
-import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
 
@@ -32,7 +28,7 @@ import org.omg.PortableInterceptor.ORBInitializer;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: GSSUPProviderInitializer.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: GSSUPProviderInitializer.java,v 1.9 2004-05-07 13:08:29 david.robison Exp $
  */
 
 public class GSSUPProviderInitializer
@@ -46,6 +42,7 @@ public class GSSUPProviderInitializer
      */
     public void pre_init( ORBInitInfo info )
     {
+        /*
         // save ORB
         org.jacorb.security.sas.GSSUPProvider.orb = 
             ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB ();
@@ -62,6 +59,7 @@ public class GSSUPProviderInitializer
         {
             // logger.error("UnknownEncoding", unknownEncoding);
         }
+        */
     }
 
     public void post_init(ORBInitInfo info)
