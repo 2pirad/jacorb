@@ -37,7 +37,7 @@ import org.apache.log.Logger;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: Workgroup.java,v 1.4 2003-11-16 14:20:12 alphonse.bendt Exp $
+ * @version $Id: Workgroup.java,v 1.5 2004-02-27 09:15:51 alphonse.bendt Exp $
  */
 
 public class Workgroup
@@ -508,14 +508,14 @@ class ImageHandler extends StructuredPushSupplierPOA implements WhiteboardVars, 
         thisThread_.setPriority(3);
         control_ = control;
 
-        lineDataPool_ = new AbstractObjectPool() {
+        lineDataPool_ = new AbstractObjectPool("LineDataPool") {
                 public Object newInstance() {
                     return new LineData();
                 }
             };
         lineDataPool_.init();
 
-        updatePool_ = new AbstractObjectPool() {
+        updatePool_ = new AbstractObjectPool("UpdatePool") {
             public Object newInstance() {
                 return new WhiteboardUpdate();
             }
