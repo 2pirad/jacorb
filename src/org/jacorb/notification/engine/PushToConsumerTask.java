@@ -23,7 +23,7 @@ package org.jacorb.notification.engine;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTask.java,v 1.14 2004-08-13 12:17:44 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTask.java,v 1.15 2004-08-27 08:48:57 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTask extends AbstractDeliverTask
@@ -54,8 +54,6 @@ public class PushToConsumerTask extends AbstractDeliverTask
         getMessageConsumer().deliverMessage( message_ );
 
         message_.dispose();
-
-        getMessageConsumer().resetErrorCounter();
 
         dispose();
     }

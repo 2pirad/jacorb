@@ -38,7 +38,7 @@ import org.omg.TimeBase.TimeTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.11 2004-08-27 08:48:57 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl
@@ -134,11 +134,11 @@ public class SequenceProxyPushSupplierImpl
     }
 
 
-    private void deliverPendingMessages(boolean force)
+    private void deliverPendingMessages(boolean flush)
     {
         Message[] _messages;
 
-        if (force)
+        if (flush)
         {
             _messages = getAllMessages();
         }
@@ -162,6 +162,8 @@ public class SequenceProxyPushSupplierImpl
 
             try {
                 sequencePushConsumer_.push_structured_events( _structuredEvents );
+                
+                resetErrorCounter();
             } catch (Throwable e) {
                 PushSequenceOperation _failedOperation =
                     new PushSequenceOperation(sequencePushConsumer_, _structuredEvents);

@@ -46,7 +46,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImpl.java,v 1.4 2004-07-12 11:19:56 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImpl.java,v 1.5 2004-08-27 08:48:57 alphonse.bendt Exp $
  */
 
 public class TypedProxyPushSupplierImpl
@@ -170,6 +170,8 @@ public class TypedProxyPushSupplierImpl
 
             try {
                 _request.invoke();
+                
+                resetErrorCounter();
             } catch (Throwable t) {
                 PushTypedOperation _failedOperation = new PushTypedOperation(_request);
 

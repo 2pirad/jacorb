@@ -36,7 +36,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.11 2004-08-27 08:48:57 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl
@@ -76,6 +76,8 @@ public class ProxyPushSupplierImpl
                         logger_.debug("pushConsumer.push(Any)");
 
                         pushConsumer_.push(message.toAny());
+                        
+                        resetErrorCounter();
                     } catch (Throwable e) {
                         PushAnyOperation _failedOperation =
                             new PushAnyOperation(pushConsumer_, (Message)message.clone());
