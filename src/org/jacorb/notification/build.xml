@@ -8,7 +8,7 @@
 
 <!-- ============================================================= -->
 <!--              JacORB - NotificationService build file          -->
-<!-- $Id: build.xml,v 1.25 2004-05-09 19:01:42 alphonse.bendt Exp $ -->
+<!-- $Id: build.xml,v 1.26 2004-05-25 13:11:41 alphonse.bendt Exp $ -->
 <!-- ============================================================= -->
 
   &common;
@@ -144,7 +144,7 @@
       <classpath>
         <pathelement location="${dirs.base}/classes" />
 	<pathelement location="${lib}/avalon-framework-4.1.5.jar" />
-        <pathelement location="${lib}/wrapper-3.0.3.jar" />
+        <pathelement location="${lib}/wrapper-3.1.0.jar" />
       </classpath>
 
       <include name="org/jacorb/notification/Main.java"/>
