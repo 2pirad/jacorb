@@ -13,10 +13,10 @@ import org.omg.SSLIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.2 2003-05-07 09:46:09 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.3 2003-05-23 13:29:19 andre.spiegel Exp $
  */
 public class IIOPProfile extends _ProfileLocalBase
-                                implements Cloneable
+                         implements Cloneable
 {
     private org.omg.GIOP.Version version = null;
     private IIOPAddress          primaryAddress = null; 
@@ -106,6 +106,7 @@ public class IIOPProfile extends _ProfileLocalBase
                     TAG_INTERNET_IOP.value,
                     profileDataStream.getBufferCopy()
                 );
+                break;
             }
             case 0:
             {
@@ -211,9 +212,41 @@ public class IIOPProfile extends _ProfileLocalBase
         return version;
     }
 
+    public void set_object_key(byte[] key)
+    {
+        this.objectKey = key;
+    }
+
+    public int tag()
+    {
+        return TAG_INTERNET_IOP.value;
+    }
+
     public IIOPAddress getAddress()
     {
         return primaryAddress;
+    }
+
+    /**
+     * Replaces the host in this profile's primary address with newHost
+     * (if it is not null), and the port with newPort (if it is not -1).
+     */
+    public void patchPrimaryAddress (String newHost, int newPort)
+    {
+        if (newHost != null)
+        {
+            primaryAddress = new IIOPAddress 
+            (
+                newHost,
+                (newPort != -1) ? newPort
+                                : primaryAddress.getPort()
+            );
+        }
+        else if (newPort != -1)
+        {
+            primaryAddress = new IIOPAddress (primaryAddress.getHost(),
+                                              newPort);
+        }
     }
 
 	public List getAlternateAddresses()
@@ -277,6 +310,17 @@ public class IIOPProfile extends _ProfileLocalBase
         return result.value;
     }
     
+    /**
+     * Returns a copy of this profile that is compatible with GIOP 1.0.
+     */
+    public IIOPProfile to_GIOP_1_0()
+    {
+        IIOPProfile result = new IIOPProfile (this.primaryAddress,
+                                              this.objectKey);
+        result.version.minor = 0;
+        return result;
+    }
+    
     public boolean equals (Object other)
     {
         if (other instanceof org.omg.ETF.Profile)
@@ -294,4 +338,5 @@ public class IIOPProfile extends _ProfileLocalBase
     {
         return primaryAddress.toString();
     }
+
 }
