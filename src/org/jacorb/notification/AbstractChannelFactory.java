@@ -68,7 +68,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.5 2004-07-12 11:21:19 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.6 2004-08-13 12:15:33 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory
@@ -128,7 +128,7 @@ public abstract class AbstractChannelFactory
 
     private Configuration config_;
 
-    private SynchronizedInt eventChannelIDPool_ =
+    private final SynchronizedInt eventChannelIDPool_ =
         new SynchronizedInt(-1);
 
     private NameComponent[] registeredName_ = null;
@@ -266,8 +266,9 @@ public abstract class AbstractChannelFactory
                                     rootPOA_.the_POAManager(),
                                     _policies );
 
-            for ( int x = 0; x < _policies.length; ++x )
+            for ( int x = 0; x < _policies.length; ++x ) {
                 _policies[ x ].destroy();
+            }
 
             rootPOA_.the_POAManager().activate();
         } catch (Exception e) {
