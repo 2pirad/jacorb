@@ -40,7 +40,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.90 2003-12-30 15:18:19 andre.spiegel Exp $
+ * @version $Id: CDROutputStream.java,v 1.91 2004-01-06 15:50:45 nick.cross Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -63,7 +63,6 @@ public class CDROutputStream
     private byte[] buffer;
 
     private boolean closed;
-    private boolean released;
 
     /* character encoding code sets for char and wchar, default ISO8859_1 */
     private int codeSet =  CodeSet.getTCSDefault();
@@ -402,31 +401,21 @@ public class CDROutputStream
 
     public void close()
     {
+        // Don't need to call super.close as super is noop.
         if( closed )
-        {
-            Debug.output(3, "Stream already closed");
-            return;
-        }
-
-        closed = true;
-    }
-
-    public void release ()
-    {
-        if( released )
         {
             return;
         }
 
         bufMgr.returnBuffer( buffer, true );
-        buffer = null;
 
+        buffer = null;
+        closed = true;
         if (deferredArrayQueue != null)
         {
             deferredArrayQueue.clear ();
         }
         deferred_writes = 0;
-        released = true;
     }
 
     /**
@@ -651,9 +640,16 @@ public class CDROutputStream
         index = 0;
     }
 
-    public void finalize()
+    protected void finalize() throws Throwable
     {
-        release();
+        try
+        {
+            bufMgr.returnBuffer( buffer, true );
+        }
+        finally
+        {
+            super.finalize();
+        }
     }
 
     public final void skip (final int step)
@@ -691,7 +687,7 @@ public class CDROutputStream
 
     public void setBufferWithoutReset (byte[] b, int size)
     {
-        release ();
+        close ();
         buffer = b;
         pos = size;
     }

@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.16 2003-08-15 11:17:53 andre.spiegel Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.17 2004-01-06 15:50:45 nick.cross Exp $
  */
 
 public class CodeSetInfoInterceptor
@@ -65,7 +65,6 @@ public class CodeSetInfoInterceptor
                                              os.getBufferCopy());
 
         os.close ();
-        os.release ();
         os = null;
         cs_info = null;
     }

@@ -43,7 +43,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.77 2003-12-30 15:17:40 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.78 2004-01-06 15:50:45 nick.cross Exp $
  */
 
 public class CDRInputStream
@@ -319,20 +319,16 @@ public class CDRInputStream
     public void close()
         throws java.io.IOException
     {
+        // Don't need to call super.close as super is noop.
         if( closed )
         {
             return;
         }
 
-        if (encaps_stack != null)
-        {
-            encaps_stack.removeAllElements();
-        }
-        if (recursiveTCMap != null)
-        {
-            recursiveTCMap.clear();
-        }
         BufferManager.getInstance().returnBuffer(buffer);
+
+        encaps_stack = null;
+        recursiveTCMap = null;
         closed = true;
     }
 

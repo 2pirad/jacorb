@@ -30,7 +30,7 @@ import org.jacorb.orb.CDROutputStream;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.11 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: MessageOutputStream.java,v 1.12 2004-01-06 15:50:45 nick.cross Exp $
  */
 
 public class MessageOutputStream
@@ -97,6 +97,6 @@ public class MessageOutputStream
 
         write( conn, 0, size() );
 
-        release();
+        close();
     }
 }// MessageOutputStream

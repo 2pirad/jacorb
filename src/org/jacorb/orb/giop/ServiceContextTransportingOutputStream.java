@@ -35,7 +35,7 @@ import org.omg.IOP.ServiceContextHelper;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.18 2003-12-18 11:13:13 nick.cross Exp $
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.19 2004-01-06 15:50:45 nick.cross Exp $
  */
 
 public class ServiceContextTransportingOutputStream
@@ -292,10 +292,10 @@ public class ServiceContextTransportingOutputStream
                 }
             }
         }
-        release();
+        close();
         if ( ctx_out != null )
         {
-            ctx_out.release();
+            ctx_out.close();
             ctx_out = null;
         }
     }
