@@ -47,7 +47,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.65 2003-11-11 23:04:49 andre.spiegel Exp $
+ * @version $Id: Environment.java,v 1.66 2003-11-29 15:15:33 andre.spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -67,6 +67,7 @@ public class Environment
 
     private static Properties   _props;
 
+    private static int                  _client_pending_reply_timeout = 0;
     private static int                  _retries = 10;
     private static long                 _retry_interval = 700;
     private static int                  _outbuf_size = 4096;
@@ -374,6 +375,8 @@ public class Environment
             _retries = Integer.parseInt(o);
         else if( varName.equals("_retry_interval"))
             _retry_interval = Integer.parseInt(o);
+        else if (varName.equals("_client_pending_reply_timeout"))
+            _client_pending_reply_timeout = Integer.parseInt(o);
         else if( varName.equals("_cache_entry_lifetime"))
             _cache_entry_lifetime = Long.parseLong(o);
         else if( varName.equals("_outbuf_size"))
@@ -436,6 +439,7 @@ public class Environment
     private static void readValues()
     {
         readValue("_verbosity", "verbosity", jacorbPrefix + "verbosity");
+        readValue("_client_pending_reply_timeout", jacorbPrefix + "connection.client.pending_reply_timeout");
         readValue("_retries","retries",jacorbPrefix+"retries");
         readValue("_retry_interval","retry_interval",jacorbPrefix+"retry_interval");
         readValue("_cache_entry_lifetime","_cache_entry_lifetime",jacorbPrefix+"domain.cache_entry.lifetime");
@@ -617,6 +621,10 @@ public class Environment
 
     public static final  long currentLogSize () { return _current_log_size; }
 
+    public static final int clientPendingReplyTimeout()
+    {
+        return _client_pending_reply_timeout;
+    }
     public static final int noOfRetries() { return _retries;   }
     public static final  int outBufSize() { return _outbuf_size; }
     public static final boolean locateOnBind() { return _locate_on_bind; }
