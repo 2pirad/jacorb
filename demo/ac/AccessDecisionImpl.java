@@ -18,11 +18,11 @@ import jacorb.security.level2.*;
  *
  * Created: Tue Jun 13 10:54:41 2000
  *
- * $Id: AccessDecisionImpl.java,v 1.1 2001-03-17 18:07:28 brose Exp $
+ * $Id: AccessDecisionImpl.java,v 1.2 2001-11-22 15:59:31 prism Exp $
  */
 
 public class AccessDecisionImpl
-  extends jacorb.orb.LocalityConstrainedObject
+  extends jacorb.orb.org.omg.CORBA.LocalObject
   implements AccessDecision
 {
     private static final int RESOLVER_POLICY = 200;

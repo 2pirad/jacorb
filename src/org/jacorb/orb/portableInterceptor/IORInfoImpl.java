@@ -12,10 +12,10 @@ import java.util.Vector;
  * See PI Spec p.7-64f
  *
  * @author Nicolas Noffke
- * @version $Id: IORInfoImpl.java,v 1.3 2001-03-19 11:08:54 brose Exp $
+ * @version $Id: IORInfoImpl.java,v 1.4 2001-11-22 15:59:35 prism Exp $
  */
 
-public class IORInfoImpl extends org.jacorb.orb.LocalityConstrainedObject 
+public class IORInfoImpl extends org.omg.CORBA.LocalObject 
   implements IORInfo{
 
   Vector components_iiop_profile = null;

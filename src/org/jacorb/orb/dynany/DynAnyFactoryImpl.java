@@ -27,12 +27,12 @@ import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: DynAnyFactoryImpl.java,v 1.5 2001-11-09 08:12:39 jacorb Exp $
+ * @version $Id: DynAnyFactoryImpl.java,v 1.6 2001-11-22 15:59:34 prism Exp $
  * 
  */
 
 public class DynAnyFactoryImpl
-    extends org.jacorb.orb.LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements org.omg.DynamicAny.DynAnyFactory
 {
     org.omg.CORBA.ORB orb;

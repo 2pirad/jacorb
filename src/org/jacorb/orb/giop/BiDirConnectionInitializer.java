@@ -29,11 +29,11 @@ import org.omg.BiDirPolicy.BIDIRECTIONAL_POLICY_TYPE;
 /**
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionInitializer.java,v 1.3 2001-11-19 09:42:46 jacorb Exp $
+ * @version $Id: BiDirConnectionInitializer.java,v 1.4 2001-11-22 15:59:33 prism Exp $
  */
 
 public class BiDirConnectionInitializer 
-  extends LocalityConstrainedObject 
+  extends org.omg.CORBA.LocalObject 
   implements ORBInitializer
 {
     public void post_init(ORBInitInfo info) 

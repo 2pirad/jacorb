@@ -21,11 +21,11 @@ package org.jacorb.orb;
  */
 
 /**
- * @version $Id: Current.java,v 1.3 2001-03-19 11:08:24 brose Exp $
+ * @version $Id: Current.java,v 1.4 2001-11-22 15:59:33 prism Exp $
  */
 
 public class Current
-    extends LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements org.omg.CORBA.Current
 {
     private org.omg.CORBA.Principal currentPrincipal;

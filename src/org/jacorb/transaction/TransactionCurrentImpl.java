@@ -13,11 +13,11 @@ import java.util.Hashtable;
  * maps to the methods in the control. 
  *
  * @author Nicolas Noffke
- * @version $Id: TransactionCurrentImpl.java,v 1.6 2001-11-19 09:44:43 jacorb Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.7 2001-11-22 15:59:41 prism Exp $
  */
 
 public class TransactionCurrentImpl 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements Current
 {
     private static final int DEFAULT_TIMEOUT = 30;

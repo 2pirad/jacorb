@@ -41,11 +41,11 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.13 2001-11-16 16:13:15 jacorb Exp $
+ * @version $Id: POA.java,v 1.14 2001-11-22 15:59:36 prism Exp $
  */
 
 public class POA 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements org.omg.PortableServer.POA 
 {
     // my orb instance

@@ -10,11 +10,11 @@ import org.omg.IOP.*;
  * Created: Fri Oct 26 10:58:29 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientInitializer.java,v 1.2 2001-11-19 10:58:02 jacorb Exp $
+ * @version $Id: ClientInitializer.java,v 1.3 2001-11-22 15:59:41 prism Exp $
  */
 
 public class ClientInitializer 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements ORBInitializer  
 {
     public static int slot_id = -1;

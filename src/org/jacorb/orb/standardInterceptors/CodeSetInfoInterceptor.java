@@ -9,11 +9,11 @@ import org.jacorb.util.Debug;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.7 2001-11-19 09:42:48 jacorb Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.8 2001-11-22 15:59:36 prism Exp $
  */
 
 public class CodeSetInfoInterceptor 
-    extends LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements IORInterceptor 
 {
     private org.omg.IOP.TaggedComponent tagc = null;

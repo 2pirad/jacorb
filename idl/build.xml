@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB idl build file                     -->
-  <!-- $Id: build.xml,v 1.8 2001-11-19 14:17:00 nicolas Exp $ -->
+  <!-- $Id: build.xml,v 1.9 2001-11-22 15:59:32 prism Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -98,6 +98,9 @@
 
 	<copy file="${src}/java_mapping/CORBA/ORB.java"
               tofile="${src}/generated/org/omg/CORBA/ORB.java"
+	/>	
+	<copy file="${src}/java_mapping/CORBA/LocalObject.java"
+              tofile="${src}/generated/org/omg/CORBA/LocalObject.java"
 	/>	
 	<copy file="${src}/java_mapping/CORBA/ORBPackage/InvalidNameHelper.java"
               tofile="${src}/generated/org/omg/CORBA/ORBPackage/InvalidNameHelper.java"

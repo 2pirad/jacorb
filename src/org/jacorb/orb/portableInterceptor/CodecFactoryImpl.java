@@ -13,10 +13,10 @@ import org.omg.CORBA.ORB;
  * See PI Spec p.10-80
  *
  * @author Nicolas Noffke
- * @version $Id: CodecFactoryImpl.java,v 1.4 2001-11-19 09:42:47 jacorb Exp $
+ * @version $Id: CodecFactoryImpl.java,v 1.5 2001-11-22 15:59:35 prism Exp $
  */
 
-public class CodecFactoryImpl extends org.jacorb.orb.LocalityConstrainedObject 
+public class CodecFactoryImpl extends org.omg.CORBA.LocalObject 
   implements CodecFactory {
 
   private ORB orb = null;

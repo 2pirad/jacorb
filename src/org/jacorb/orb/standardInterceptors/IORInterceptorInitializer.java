@@ -8,11 +8,11 @@ import org.jacorb.util.Environment;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.5 2001-11-15 12:20:18 jacorb Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.6 2001-11-22 15:59:36 prism Exp $
  */
 
 public class IORInterceptorInitializer 
-    extends LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements ORBInitializer
 {
   

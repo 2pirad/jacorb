@@ -36,11 +36,11 @@ import org.jacorb.util.Debug;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.6 2001-11-19 09:42:47 jacorb Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.7 2001-11-22 15:59:35 prism Exp $
  */
 
 public class ORBInitInfoImpl 
-    extends org.jacorb.orb.LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements ORBInitInfo
 {
     private int slot_count = 0;

@@ -15,11 +15,11 @@ import org.jacorb.util.Debug;
  * Created: Thu Apr 20 12:06:43 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 
 public class MapToDefaultDomainsPolicy
-    extends org.jacorb.orb.LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements org.jacorb.orb.domain.InitialMapToDefaultDomainPolicy
 {
   

@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.25 2001-11-20 12:45:12 spiegel Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.26 2001-11-22 15:59:32 prism Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -830,7 +830,7 @@ public class CDROutputStream
         }
         else
         {
-            if( value instanceof LocalityConstrainedObject )
+            if( value instanceof org.omg.CORBA.LocalObject )
                 throw new org.omg.CORBA.MARSHAL("Attempt to serialize a locality-constrained object.");     
             org.omg.CORBA.portable.ObjectImpl obj = 
                 (org.omg.CORBA.portable.ObjectImpl)value;

@@ -11,11 +11,11 @@ import org.omg.IOP.Codec;
  * in the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: ServerContextTransferInterceptor.java,v 1.4 2001-11-19 09:44:42 jacorb Exp $
+ * @version $Id: ServerContextTransferInterceptor.java,v 1.5 2001-11-22 15:59:40 prism Exp $
  */
 
 public class ServerContextTransferInterceptor 
-  extends org.jacorb.orb.LocalityConstrainedObject 
+  extends org.omg.CORBA.LocalObject 
     implements ServerRequestInterceptor{
 
     private Codec codec = null;

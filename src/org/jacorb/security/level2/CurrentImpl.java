@@ -31,13 +31,13 @@ import org.jacorb.util.*;
 
 /**
  *
- * @author Nicolas Noffke, Gerald Brose, André Benvenuti
- * @version $Id: CurrentImpl.java,v 1.7 2001-11-20 11:06:40 nicolas Exp $
+ * @author Nicolas Noffke, Gerald Brose, Andrý Benvenuti
+ * @version $Id: CurrentImpl.java,v 1.8 2001-11-22 15:59:38 prism Exp $
  *
  */
 
 public class CurrentImpl
-    extends org.jacorb.orb.LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements org.omg.SecurityLevel2.Current
 {
     private CredentialsImpl[] own_credentials;

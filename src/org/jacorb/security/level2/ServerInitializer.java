@@ -5,11 +5,11 @@ import org.jacorb.util.Debug;
 /**
  *
  * @author Nicolas Noffke
- * $Id: ServerInitializer.java,v 1.3 2001-03-19 11:09:23 brose Exp $
+ * $Id: ServerInitializer.java,v 1.4 2001-11-22 15:59:39 prism Exp $
  */
 
 public class ServerInitializer 
-  extends org.jacorb.orb.LocalityConstrainedObject 
+  extends org.omg.CORBA.LocalObject 
     implements org.omg.PortableInterceptor.ORBInitializer
 {
 

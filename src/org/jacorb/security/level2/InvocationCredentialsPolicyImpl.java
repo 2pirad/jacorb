@@ -9,11 +9,11 @@ import org.omg.CORBA.*;
  *
  * Created: Tue Jun 13 16:55:36 2000
  *
- * $Id: InvocationCredentialsPolicyImpl.java,v 1.3 2001-03-19 11:09:19 brose Exp $
+ * $Id: InvocationCredentialsPolicyImpl.java,v 1.4 2001-11-22 15:59:39 prism Exp $
  */
 
 public class InvocationCredentialsPolicyImpl
-    extends org.jacorb.orb.LocalityConstrainedObject  
+    extends org.omg.CORBA.LocalObject  
     implements InvocationCredentialsPolicy
 {
     private Credentials[] creds = null;

@@ -40,11 +40,11 @@ import javax.net.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.1 2001-11-19 10:53:42 jacorb Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.2 2001-11-22 15:59:40 prism Exp $
  */
 
 public class ServerInvocationInterceptor
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements ServerRequestInterceptor
 {
     public static final String DEFAULT_NAME = "ServerInvocationInterceptor";

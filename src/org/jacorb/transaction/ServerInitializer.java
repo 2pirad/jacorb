@@ -10,11 +10,11 @@ import org.omg.IOP.*;
  * via the static attribute
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInitializer.java,v 1.4 2001-11-19 09:44:42 jacorb Exp $
+ * @version $Id: ServerInitializer.java,v 1.5 2001-11-22 15:59:41 prism Exp $
  */
 
 public class ServerInitializer 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements ORBInitializer
 {
 

@@ -16,11 +16,11 @@ import java.lang.reflect.*;
  *
  * Created: Tue Jun 13 10:54:41 2000
  *
- * $Id: AccessDecisionImpl.java,v 1.4 2001-09-07 12:42:44 jacorb Exp $
+ * $Id: AccessDecisionImpl.java,v 1.5 2001-11-22 15:59:38 prism Exp $
  */
 
 public class AccessDecisionImpl
-  extends org.jacorb.orb.LocalityConstrainedObject
+  extends org.omg.CORBA.LocalObject
   implements AccessDecision
 {
 

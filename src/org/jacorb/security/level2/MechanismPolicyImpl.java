@@ -9,11 +9,11 @@ import org.omg.CORBA.*;
  *
  * Created: Tue Jun 13 11:37:29 2000
  *
- * $Id: MechanismPolicyImpl.java,v 1.3 2001-03-19 11:09:20 brose Exp $
+ * $Id: MechanismPolicyImpl.java,v 1.4 2001-11-22 15:59:39 prism Exp $
  */
 
 public class MechanismPolicyImpl 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements MechanismPolicy
 {
 

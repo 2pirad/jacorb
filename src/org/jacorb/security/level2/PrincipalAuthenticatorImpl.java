@@ -20,11 +20,11 @@ import org.jacorb.security.util.*;
  * from a Java key store
  *
  * @author Gerald Brose
- * $Id: PrincipalAuthenticatorImpl.java,v 1.9 2001-10-02 17:30:54 jacorb Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.10 2001-11-22 15:59:39 prism Exp $
  */
 
 public class PrincipalAuthenticatorImpl
-    extends org.jacorb.orb.LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements org.omg.SecurityLevel2.PrincipalAuthenticator
 {  
     public PrincipalAuthenticatorImpl()

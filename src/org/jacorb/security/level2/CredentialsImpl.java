@@ -32,12 +32,12 @@ import java.math.BigInteger;
 /**
  *  JacORB implementation of security Credentials
  *
- *  $Id: CredentialsImpl.java,v 1.4 2001-03-27 12:01:28 noffke Exp $
+ *  $Id: CredentialsImpl.java,v 1.5 2001-11-22 15:59:38 prism Exp $
  *
  */
 
 public class CredentialsImpl
-    extends org.jacorb.orb.LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements org.omg.SecurityLevel2.Credentials, 
                Serializable //for making a deep copy
 {

@@ -12,11 +12,11 @@ import org.omg.IOP.ServiceContext;
  * Created: Fri Oct 26 11:04:19 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientInterceptor.java,v 1.2 2001-11-19 10:58:02 jacorb Exp $
+ * @version $Id: ClientInterceptor.java,v 1.3 2001-11-22 15:59:41 prism Exp $
  */
 
 public class ClientInterceptor 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements ClientRequestInterceptor
 {    
     private int slot_id = -1;

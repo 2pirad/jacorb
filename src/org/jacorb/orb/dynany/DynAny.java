@@ -28,13 +28,13 @@ import org.omg.DynamicAny.DynAnyPackage.*;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.8 2001-11-16 16:13:14 jacorb Exp $
+ * $Id: DynAny.java,v 1.9 2001-11-22 15:59:34 prism Exp $
  *
  */
 
 
 public class DynAny
-    extends org.jacorb.orb.LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements org.omg.DynamicAny.DynAny
 {
     protected org.omg.DynamicAny.DynAnyFactory dynFactory;

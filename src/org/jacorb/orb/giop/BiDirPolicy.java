@@ -24,7 +24,7 @@ import org.omg.BiDirPolicy.*;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.Policy;
 
-import org.jacorb.orb.LocalityConstrainedObject;
+import org.omg.CORBA.LocalObject;
 
 /**
  * BiDirPolicy.java
@@ -33,11 +33,11 @@ import org.jacorb.orb.LocalityConstrainedObject;
  * Created: Mon Sep  3 18:39:06 2001
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirPolicy.java,v 1.2 2001-10-02 13:50:53 jacorb Exp $
+ * @version $Id: BiDirPolicy.java,v 1.3 2001-11-22 15:59:34 prism Exp $
  */
 
 public class BiDirPolicy 
-    extends LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements BidirectionalPolicy
 {
     private short value;

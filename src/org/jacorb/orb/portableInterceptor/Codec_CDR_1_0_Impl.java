@@ -13,11 +13,11 @@ import org.jacorb.util.Debug;
  * See PI SPec p.10-77ff
  *
  * @author Nicolas Noffke
- * @version $Id: Codec_CDR_1_0_Impl.java,v 1.4 2001-11-19 09:42:47 jacorb Exp $
+ * @version $Id: Codec_CDR_1_0_Impl.java,v 1.5 2001-11-22 15:59:35 prism Exp $
  */
 
 public class Codec_CDR_1_0_Impl 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements Codec 
 {
 

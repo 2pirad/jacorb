@@ -13,11 +13,11 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.9 2001-11-19 09:46:33 jacorb Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.10 2001-11-22 15:59:39 prism Exp $
  */
 
 public class ServerAccessDecisionInterceptor 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements ServerRequestInterceptor
 {
     public static final String DEFAULT_NAME = 

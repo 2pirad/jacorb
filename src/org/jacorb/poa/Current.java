@@ -32,11 +32,11 @@ import java.util.Vector;
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: Current.java,v 1.7 2001-11-09 08:26:40 jacorb Exp $
+ * @version $Id: Current.java,v 1.8 2001-11-22 15:59:36 prism Exp $
  */
 
 public class Current 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements org.omg.PortableServer.Current 
 {
     private Hashtable threadTable = new Hashtable(); 

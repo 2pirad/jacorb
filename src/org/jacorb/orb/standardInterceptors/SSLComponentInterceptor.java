@@ -11,11 +11,11 @@ import org.jacorb.util.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.10 2001-11-19 09:42:48 jacorb Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.11 2001-11-22 15:59:36 prism Exp $
  */
 
 public class SSLComponentInterceptor 
-    extends LocalityConstrainedObject
+    extends org.omg.CORBA.LocalObject
     implements IORInterceptor
 {
     private ORB orb = null;

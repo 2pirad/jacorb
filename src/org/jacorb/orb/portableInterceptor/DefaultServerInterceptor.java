@@ -8,11 +8,11 @@ import org.omg.PortableInterceptor.*;
  * A simple base class for user-defined server interceptors
  *
  * @author Gerald Brose.
- * @version $Id: DefaultServerInterceptor.java,v 1.2 2001-11-19 09:42:47 jacorb Exp $
+ * @version $Id: DefaultServerInterceptor.java,v 1.3 2001-11-22 15:59:35 prism Exp $
  */
 
 public abstract class DefaultServerInterceptor
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements ServerRequestInterceptor
 {
 

@@ -11,10 +11,10 @@ import java.util.Vector;
  * See PI Spec p. 6-55ff
  *
  * @author Nicolas Noffke
- * @version $Id: PICurrentImpl.java,v 1.3 2001-03-19 11:08:55 brose Exp $
+ * @version $Id: PICurrentImpl.java,v 1.4 2001-11-22 15:59:35 prism Exp $
  */
 
-public class PICurrentImpl extends org.jacorb.orb.LocalityConstrainedObject
+public class PICurrentImpl extends org.omg.CORBA.LocalObject
   implements org.omg.PortableInterceptor.Current{
 
   private Any[] m_slots = null;

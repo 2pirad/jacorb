@@ -13,11 +13,11 @@ import java.util.*;
  * See PI Spec p. 5-41ff
  *
  * @author Nicolas Noffke
- * @version $Id: RequestInfoImpl.java,v 1.3 2001-03-19 11:08:55 brose Exp $
+ * @version $Id: RequestInfoImpl.java,v 1.4 2001-11-22 15:59:36 prism Exp $
  */
 
 public abstract class RequestInfoImpl 
-    extends org.jacorb.orb.LocalityConstrainedObject 
+    extends org.omg.CORBA.LocalObject 
     implements RequestInfo
 {
 
