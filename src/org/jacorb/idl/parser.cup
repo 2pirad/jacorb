@@ -19,7 +19,7 @@ import org.apache.log.output.io.*;
  *  Freie Universitaet Berlin.
  *
  *
- * $Id: parser.cup,v 1.56 2003-03-04 08:38:55 gerald Exp $
+ * $Id: parser.cup,v 1.57 2003-03-04 08:46:07 gerald Exp $
  *
  */
 
@@ -107,7 +107,7 @@ parser code
 
         finalString = FINAL;
 
-        String pattern = "[%.8{category}] %.7{priority} : %{message}\\n%{throwable}";
+        String pattern = "[%.11{category}] %.7{priority} : %{message}\\n%{throwable}";
         PatternFormatter formatter = new PatternFormatter( pattern );
         logWriter = new OutputStreamWriter( System.err );
         WriterTarget writerTarget = new WriterTarget( logWriter, formatter );

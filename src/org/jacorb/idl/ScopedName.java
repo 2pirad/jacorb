@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.19 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ScopedName.java,v 1.20 2003-03-04 08:46:07 gerald Exp $
  *
  */
 
@@ -673,8 +673,6 @@ class ScopedName
 
     public static void addRecursionScope( String typeName )
     {
-        if( staticLogger.isWarnEnabled() )
-            staticLogger.warn( "addRecursionScope " + typeName );
         recursionStack.push( typeName );
     }
 
@@ -690,10 +688,6 @@ class ScopedName
 
     public static boolean isRecursionScope( String typeName )
     {
-        if( staticLogger.isWarnEnabled() )
-            staticLogger.warn( "Check isRecursionScope " + typeName +
-                               " " + recursionStack.search( typeName ) );
-
         return ( recursionStack.search( typeName ) != -1 );
     }
 
