@@ -21,7 +21,6 @@ package org.jacorb.notification.servant;
  *
  */
 
-
 import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.conf.Configuration;
 import org.jacorb.notification.conf.Default;
@@ -53,7 +52,7 @@ import EDU.oswego.cs.dl.util.concurrent.Sync;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.6 2004-03-03 12:17:34 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullConsumerImpl
