@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.65 2003-08-22 20:20:55 francisco Exp $
+ * $Id: CDRInputStream.java,v 1.66 2003-10-10 13:16:38 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1833,14 +1833,12 @@ public class CDRInputStream
     }
 
     /**
-     * called from Any
+     * Reads an instance of the type described by type code <code>tc</code>
+     * from this CDRInputStream, and remarshals it to the given OutputStream,
+     * <code>out</code>.  Called from Any.
      */
-
-    final void read_value
-    (
-     final org.omg.CORBA.TypeCode tc,
-     final org.omg.CORBA.portable.OutputStream out
-     )
+    final void read_value(final org.omg.CORBA.TypeCode tc,
+                          final org.omg.CORBA.portable.OutputStream out)
     {
         if (tc == null)
         {
@@ -1962,6 +1960,36 @@ public class CDRInputStream
                     b.printStackTrace();
                 }
                 break;
+            case TCKind._tk_value_box:
+                int tag = read_long();
+                if (tag == 0x00000000)
+                {
+                    ((org.omg.CORBA_2_3.portable.OutputStream)out)
+                                .write_value(null);
+                }
+                else if (tag == 0x7fffff00)
+                {
+                    out.write_long (0x7fffff00);
+                    try
+                    {
+                        read_value(tc.content_type(), out);
+                    }
+                    catch (org.omg.CORBA.TypeCodePackage.BadKind b)
+                    {
+                        throw new RuntimeException(b);
+                    }
+                }
+                else if (tag == 0xffffffff)
+                {
+                    throw new org.omg.CORBA.NO_IMPLEMENT
+                        ("reference sharing within Anys not implemented");   
+                }
+                else
+                {
+                    throw new org.omg.CORBA.NO_IMPLEMENT
+                        ("cannot handle value tag: " + tag + " within Any");
+                }
+                break;   
             case TCKind._tk_union:
                 try
                 {
