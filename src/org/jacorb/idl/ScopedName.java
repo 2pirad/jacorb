@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.21 2003-04-01 13:59:08 nick.cross Exp $
+ * @version $Id: ScopedName.java,v 1.22 2003-05-15 10:51:26 nick.cross Exp $
  *
  */
 
@@ -470,11 +470,6 @@ class ScopedName
 //  	    System.out.println("sub = " + sub + ", Looking at " +  prefix +  buf.toString()  + " hash: " + (new String (prefix + buf.toString())).hashCode() );
             if( sub > p_scopes.length )
             {
-                //    if( NameTable.defined( "Global." + s ))
-                //    return unMap( "Global." + s ) + suffix ;
-                // else
-                // 	System.out.println("Global." + s +" not found.");
-                //	new RuntimeException().printStackTrace();
                 parser.fatal_error( "Undefined name: " + pack_name + "." + s, token );
                 return "/* unresolved name */";
             }
@@ -495,7 +490,6 @@ class ScopedName
         String res = unMap( prefix + buf.toString() ) + suffix;
         if( logger.isDebugEnabled() )
 		 logger.debug( "ScopedName.resolve (at end) returns: " + res );
-        //System.out.println("Return! resolved name is " + res);
         return res;
     }
 
