@@ -49,7 +49,7 @@ import org.omg.CORBA.BAD_QOS;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.79 2004-02-01 20:37:38 francisco Exp $
+ * @version $Id: Environment.java,v 1.80 2004-02-03 20:57:01 francisco Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -322,7 +322,7 @@ public class Environment
         _queue_wait = isPropertyOn("jacorb.poa.queue_wait");
         _use_appligator_for_applets = isPropertyOn("jacorb.use_appligator_for_applets");
         _use_appligator_for_applications = isPropertyOn("jacorb.use_appligator_for_applications");
-        _impl_name = getProperty("jacorb.impl_name", "").getBytes();
+        _impl_name = getProperty("jacorb.implname", "").getBytes();
         _strict_check_on_tc_creation = isPropertyOn("jacorb.interop.strict_check_on_tc_creation", "on");
         _retry_on_failure = isPropertyOn("jacorb.connection.client.retry_on_failure");
         _useIndirection = ! isPropertyOn("jacorb.interop.indirection_encoding_disable");
