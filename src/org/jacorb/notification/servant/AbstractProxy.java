@@ -64,7 +64,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.13 2004-07-12 11:19:56 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.14 2004-08-17 13:50:52 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy
@@ -377,7 +377,7 @@ public abstract class AbstractProxy
         {
             logger_.fatalError("dispose has been called twice");
 
-            throw new OBJECT_NOT_EXIST();
+            // throw new OBJECT_NOT_EXIST();
         }
         disposed_.set(true);
     }
