@@ -31,7 +31,7 @@ import java.util.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.29 2002-03-28 16:08:34 jason.courage Exp $ 
+ * $Id: Any.java,v 1.30 2002-04-03 09:17:16 steve.osselton Exp $ 
  * 
  */
 
@@ -450,7 +450,7 @@ public final class Any
         {
            return create_input_stream().read_TypeCode ();
         }
-        return (TypeCode)value;
+        return (org.omg.CORBA.TypeCode)value;
     }
 
     // string

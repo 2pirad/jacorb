@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.36 2002-03-19 09:25:19 nicolas Exp $
+ * @version $Id: Delegate.java,v 1.37 2002-04-03 09:17:17 steve.osselton Exp $
  *
  */
 
@@ -1071,8 +1071,9 @@ public final class Delegate
 
         if (self != obj)
         {
-            ParsedIOR pior = new ParsedIOR (obj.toString ());
-            result = getIDString().equals (pior.getIDString ());
+            ParsedIOR pior1 = new ParsedIOR (obj.toString ());
+            ParsedIOR pior2 = new ParsedIOR (self.toString ());
+            result = pior2.getIDString().equals (pior1.getIDString ());
         }
 
         return result;

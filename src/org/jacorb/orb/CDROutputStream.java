@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.46 2002-04-02 16:57:10 oci Exp $
+ * @version     $Id: CDROutputStream.java,v 1.47 2002-04-03 09:17:16 steve.osselton Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -1063,6 +1063,7 @@ public class CDROutputStream
         buffer[pos++] = value;
     }
 
+/*
       public final void write_octet_array
           (final byte[] value, final int offset, final int length)
       {
@@ -1074,18 +1075,19 @@ public class CDROutputStream
               pos += length;
           }
       }
+*/
 
-//    public final void write_octet_array( final byte[] value, 
-//                                         final int offset, 
-//                                         final int length)
-//    {
-//        if( value != null )
-//        {
-//            deferredArrayQueue.add( new DeferredWriteFrame( index, offset, length, value ));
-//            index += length;
-//            deferred_writes += length;
-//        }
-//    }
+    public final void write_octet_array( final byte[] value, 
+                                         final int offset, 
+                                         final int length)
+    {
+        if( value != null )
+        {
+            deferredArrayQueue.add( new DeferredWriteFrame( index, offset, length, value ));
+            index += length;
+            deferred_writes += length;
+        }
+    }
 
     public final void write_Principal (final org.omg.CORBA.Principal value)
     {

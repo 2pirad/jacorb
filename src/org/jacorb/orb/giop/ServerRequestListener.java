@@ -44,7 +44,7 @@ import org.omg.CONV_FRAME.CodeSetContext;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.5 2002-03-19 09:25:27 nicolas Exp $
+ * @version $Id: ServerRequestListener.java,v 1.6 2002-04-03 09:17:17 steve.osselton Exp $
  */
 
 public class ServerRequestListener 
@@ -130,7 +130,7 @@ public class ServerRequestListener
         deliverRequest( server_request );
     }
 
-    public void locateRequestReceived( byte[] request,
+    public void locateRequestReceived ( byte[] request,
                                        GIOPConnection connection )
     {
         /*
