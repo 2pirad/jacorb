@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.11 2001-11-08 17:10:19 spiegel Exp $
+ * @version $Id: StructType.java,v 1.12 2001-11-27 09:00:03 gerald Exp $
  */
 
 class StructType 
@@ -217,7 +217,8 @@ class StructType
     public String getTypeCodeExpression()
     {
 	StringBuffer sb = new StringBuffer();
-	sb.append("org.omg.CORBA.ORB.init().create_struct_tc(" + 
+	sb.append("org.omg.CORBA.ORB.init().create_" + 
+                  (exc ? "exception" : "struct") + "_tc( " + 
                   typeName() + "Helper.id(),\"" + className()+ "\",");
 
 	if( memberlist != null )
