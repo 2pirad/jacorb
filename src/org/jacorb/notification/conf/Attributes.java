@@ -23,7 +23,7 @@ package org.jacorb.notification.conf;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Attributes.java,v 1.4 2004-06-18 23:02:18 alphonse.bendt Exp $
+ * @version $Id: Attributes.java,v 1.5 2005-02-13 23:57:36 alphonse.bendt Exp $
  */
 
 public interface Attributes
@@ -111,4 +111,6 @@ public interface Attributes
 
     String FILTER_PLUGIN_PREFIX =
         "jacorb.notification.filter.plugin";
+
+    String WILDCARDMAP_CLASS = "jacorb.notification.wildcardmap.implementation";
 }
