@@ -8,7 +8,7 @@ import org.jacorb.util.Environment;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.7 2002-03-19 09:25:34 nicolas Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.8 2002-05-28 07:56:54 nicolas Exp $
  */
 
 public class IORInterceptorInitializer 
@@ -40,7 +40,16 @@ public class IORInterceptorInitializer
                 info.add_ior_interceptor(new SSLComponentInterceptor(orb));
             }
 
-            info.add_ior_interceptor(new CodeSetInfoInterceptor(orb));
+            int giop_minor = 
+                Integer.parseInt( 
+                    Environment.getProperty( 
+                        "jacorb.giop_minor_version",
+                        "2" ));
+                
+            if( giop_minor > 0 )
+            {
+                info.add_ior_interceptor(new CodeSetInfoInterceptor(orb));
+            }
         }
         catch (Exception e)
         {

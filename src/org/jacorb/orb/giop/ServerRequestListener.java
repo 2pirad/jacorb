@@ -47,7 +47,7 @@ import org.omg.CONV_FRAME.CodeSetContext;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.7 2002-04-08 17:42:29 nicolas Exp $
+ * @version $Id: ServerRequestListener.java,v 1.8 2002-05-28 07:56:53 nicolas Exp $
  */
 
 public class ServerRequestListener 
@@ -110,17 +110,26 @@ public class ServerRequestListener
 
         if( ! connection.isTCSNegotiated() )
         {
-            CodeSetContext ctx = 
-                CodeSet.getCodeSetContext( in.req_hdr.service_context );
-            
-            if( ctx != null )
+            //If GIOP 1.0 is used don't check for a codeset context
+            if( in.getGIOPMinor() == 0 )
             {
-                connection.setCodeSets( ctx.char_data, ctx.wchar_data );
-
-                Debug.output( 3, "Received CodeSetContext. Using " +
-                              CodeSet.csName( ctx.char_data ) + " as TCS and " +
-                              CodeSet.csName( ctx.wchar_data ) + " as TCSW" );
-
+                connection.markTCSNegotiated();
+            }
+            else
+            {
+                CodeSetContext ctx = 
+                    CodeSet.getCodeSetContext( in.req_hdr.service_context );
+                
+                if( ctx != null )
+                {
+                    connection.setCodeSets( ctx.char_data, ctx.wchar_data );
+                    
+                    Debug.output( 3, "Received CodeSetContext. Using " +
+                                  CodeSet.csName( ctx.char_data ) + 
+                                  " as TCS and " +
+                                  CodeSet.csName( ctx.wchar_data ) + 
+                                  " as TCSW" );
+                }
             }
         }
         

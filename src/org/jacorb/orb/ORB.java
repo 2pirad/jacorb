@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.64 2002-05-27 18:38:35 jason.courage Exp $
+ * @version $Id: ORB.java,v 1.65 2002-05-28 07:56:52 nicolas Exp $
  */
 
 public final class ORB
@@ -633,7 +633,6 @@ public final class ORB
         }
 
         // now fill the last IOR profile with components (if any)
-
         if( components_multi_profile.size() > 0 )
         {
             components = new TaggedComponent[ components_multi_profile.size() ];

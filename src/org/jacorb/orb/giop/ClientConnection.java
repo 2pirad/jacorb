@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.25 2002-04-09 14:43:48 steve.osselton Exp $ 
+ * @version $Id: ClientConnection.java,v 1.26 2002-05-28 07:56:53 nicolas Exp $ 
  */
 
 public class ClientConnection 
@@ -90,7 +90,15 @@ public class ClientConnection
     {
         if( isTCSNegotiated() )
         {
-            //if negotiated, do nothing
+            //if already negotiated, do nothing
+            return null;
+        }
+
+        //if the other side only talks GIOP 1.0, don't send a codeset
+        //context and don't try again
+        if( pior.getProfileBody().iiop_version.minor == 0 )
+        {
+            connection.markTCSNegotiated();
             return null;
         }
 
@@ -113,16 +121,12 @@ public class ClientConnection
         
         if( tcs == -1 || tcsw == -1 )
         {
-            Debug.output( 2, "WARNING: CodeSet negotiation failed! No matching " +
-                          (( tcs == -1 )? "normal" : "wide") +
-                          " CodeSet found" );
-
-            //If we can't find matching codesets, we still mark the
-            //GIOPConnection as negotiated, so the following requests
-            //will not always try to select a codeset again.
-            connection.markTCSNegotiated();
-
-            return null;
+            //if no matching codesets can be found, an exception is
+            //thrown
+            throw new org.omg.CORBA.CODESET_INCOMPATIBLE( 
+                "WARNING: CodeSet negotiation failed! No matching " +
+                (( tcs == -1 )? "normal" : "wide") +
+                " CodeSet found");
         }
 
         //this also marks tcs as negotiated.
