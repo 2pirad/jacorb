@@ -61,7 +61,7 @@ import org.jacorb.util.Debug;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.4 2003-11-26 10:35:01 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.5 2003-12-16 15:06:30 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin
@@ -241,7 +241,7 @@ public abstract class AbstractAdmin
 
     public void validate_qos( Property[] aPropertySeq,
                               NamedPropertyRangeSeqHolder propertyRangeSeqHolder )
-    throws UnsupportedQoS
+        throws UnsupportedQoS
     {
         throw new NO_IMPLEMENT("The method validate_qos is not supported yet");
     }
@@ -251,7 +251,7 @@ public abstract class AbstractAdmin
         dispose();
     }
 
-    public synchronized void dispose()
+    public void dispose()
     {
         if ( !disposed_ )
         {
