@@ -40,9 +40,10 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.13 2003-12-16 08:42:56 gerald Exp $
+ * @version $Id: IIOPListener.java,v 1.14 2003-12-16 08:47:08 gerald Exp $
  */
-public class IIOPListener extends _ListenerLocalBase
+public class IIOPListener 
+    extends _ListenerLocalBase
 {
     private ServerSocketFactory    serverSocketFactory    = null;
     private SSLServerSocketFactory sslServerSocketFactory = null;
@@ -72,6 +73,7 @@ public class IIOPListener extends _ListenerLocalBase
 
     public IIOPListener()
     {
+        logger = Debug.getNamedLogger("jacorb.orb.iiop");
         if (!isSSLRequired())
         {
             acceptor = new Acceptor();
@@ -86,7 +88,6 @@ public class IIOPListener extends _ListenerLocalBase
 
         endpoint = createEndPointProfile();
 
-        logger = Debug.getNamedLogger("jacorb.orb.iiop");
     }
 
     /**
