@@ -28,13 +28,15 @@ import org.omg.CORBA.TypeCodePackage.BadKind;
 import org.omg.CORBA.TypeCodePackage.Bounds;
 
 import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EvaluationResult.java,v 1.2.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: EvaluationResult.java,v 1.2.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
  */
 
-public class EvaluationResult
+public class EvaluationResult implements Configurable
 {
     public static final EvaluationResult BOOL_TRUE;
 
@@ -60,6 +62,9 @@ public class EvaluationResult
     private Any any_;
 
     ////////////////////////////////////////
+    public void configure (Configuration conf)
+    {
+    }
 
     protected Object getValue()
     {

@@ -32,7 +32,7 @@ import org.jacorb.notification.util.TaskExecutor;
  * Abstract Base Class for FilterTask.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.7.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.7.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
  */
 
 abstract class AbstractFilterTask extends AbstractTask
@@ -156,7 +156,7 @@ abstract class AbstractFilterTask extends AbstractTask
 
     public void handleTaskError(AbstractTask task, Throwable error)
     {
-//        logger_.fatalError( "Error while Filtering in Task:" + task, error );
+       logger_.fatalError( "Error while Filtering in Task:" + task, error );
     }
 
 

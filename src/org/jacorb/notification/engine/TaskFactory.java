@@ -26,14 +26,17 @@ import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
 
 import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+
 import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskFactory.java,v 1.4.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
+ * @version $Id: TaskFactory.java,v 1.4.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
  */
 
-public class TaskFactory implements Disposable
+public class TaskFactory implements Disposable,Configurable
 {
     private TaskProcessor taskProcessor_;
 
@@ -105,14 +108,14 @@ public class TaskFactory implements Disposable
 
     ////////////////////////////////////////
 
-    public void init()
+    public void configure(Configuration conf)
     {
-        filterProxyConsumerTaskPool_.init();
-        filterProxySupplierTaskPool_.init();
-        filterConsumerAdminTaskPool_.init();
-        filterSupplierAdminTaskPool_.init();
+        filterProxyConsumerTaskPool_.configure(conf);
+        filterProxySupplierTaskPool_.configure(conf);
+        filterConsumerAdminTaskPool_.configure(conf);
+        filterSupplierAdminTaskPool_.configure(conf);
 
-        deliverTaskPool_.init();
+        deliverTaskPool_.configure(conf);
     }
 
 

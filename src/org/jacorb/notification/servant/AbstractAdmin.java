@@ -68,7 +68,7 @@ import org.apache.avalon.framework.configuration.Configuration;
  * Abstract Baseclass for Adminobjects.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.6.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: AbstractAdmin.java,v 1.6.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
  */
 
 public abstract class AbstractAdmin
@@ -143,6 +143,7 @@ public abstract class AbstractAdmin
     {
         logger_ = ((org.jacorb.config.Configuration)conf).
             getNamedLogger(getClass().getName());
+        filterManager_.configure (conf);
     }
 
     ////////////////////////////////////////

@@ -45,7 +45,7 @@ import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.19.2.2 2004-04-01 04:47:41 phil.mesnier Exp $
+ * @version $Id: TaskProcessor.java,v 1.19.2.3 2004-04-02 05:30:36 phil.mesnier Exp $
  */
 
 public class TaskProcessor
@@ -244,7 +244,7 @@ public class TaskProcessor
         }
         taskFactory_ = new TaskFactory( this );
 
-        taskFactory_.init();
+        taskFactory_.configure(conf);
     }
 
 

@@ -39,7 +39,7 @@ import EDU.oswego.cs.dl.util.concurrent.FIFOReadWriteLock;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventTypeSet.java,v 1.2.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: EventTypeSet.java,v 1.2.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
  */
 
 abstract class EventTypeSet
@@ -171,10 +171,10 @@ abstract class EventTypeSet
                 }
             }
 
-//             if (logger_.isDebugEnabled()) {
-//                 logger_.debug("added: " + _addedList);
-//                 logger_.debug("removed: " + _removedList);
-//             }
+            if (logger_.isDebugEnabled()) {
+                logger_.debug("added: " + _addedList);
+                logger_.debug("removed: " + _removedList);
+            }
 
             eventTypeSet_ = _changedEventTypeSet;
 

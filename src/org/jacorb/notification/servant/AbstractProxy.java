@@ -64,7 +64,7 @@ import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.7.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: AbstractProxy.java,v 1.7.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
  */
 
 public abstract class AbstractProxy
@@ -128,6 +128,7 @@ public abstract class AbstractProxy
             conf.getAttribute(Attributes.DISPOSE_PROXY_CALLS_DISCONNECT,
                               Default.DEFAULT_DISPOSE_PROXY_CALLS_DISCONNECT).
             equals ("on");
+        filterManager_.configure (conf);
     }
 
     ////////////////////////////////////////
