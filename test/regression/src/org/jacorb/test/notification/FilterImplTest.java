@@ -13,7 +13,6 @@ import org.jacorb.notification.FilterFactoryImpl;
 import org.jacorb.notification.FilterImpl;
 import org.jacorb.notification.MessageUtils;
 import org.jacorb.notification.evaluate.DynamicEvaluator;
-import org.jacorb.notification.evaluate.ResultExtractor;
 
 import java.util.Iterator;
 
@@ -28,7 +27,7 @@ import junit.framework.TestSuite;
  * Created: Sat Nov 09 16:34:05 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterImplTest.java,v 1.4 2003-11-26 10:15:50 alphonse.bendt Exp $
+ * @version $Id: FilterImplTest.java,v 1.5 2004-01-16 17:37:30 alphonse.bendt Exp $
  */
 
 public class FilterImplTest extends TestCase {

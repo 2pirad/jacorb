@@ -36,7 +36,7 @@ import junit.framework.TestSuite;
  * Created: Mon Nov 24 19:08:50 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ObjectPoolTest.java,v 1.1 2003-11-26 10:01:39 alphonse.bendt Exp $
+ * @version $Id: ObjectPoolTest.java,v 1.2 2004-01-16 17:37:30 alphonse.bendt Exp $
  */
 
 public class ObjectPoolTest extends TestCase
@@ -68,7 +68,7 @@ public class ObjectPoolTest extends TestCase
 
         int testSize = 10;
 
-        AbstractObjectPool pool = new AbstractObjectPool(testSize, 1, 2, 20)
+        AbstractObjectPool pool = new AbstractObjectPool("Test", testSize, 1, 2, 20)
                                   {
                                       public Object newInstance()
                                       {

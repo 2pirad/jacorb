@@ -53,7 +53,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Jun  7 19:34:43 2003
  *
  * @author Alphonse Bendt
- * @version $Id: StartTimeTest.java,v 1.4 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: StartTimeTest.java,v 1.5 2004-01-16 17:37:30 alphonse.bendt Exp $
  */
 
 public class StartTimeTest extends TestCase
@@ -165,7 +165,7 @@ public class StartTimeTest extends TestCase
 
             };
 
-        _taskProcessor.processEvent(_event);
+        _taskProcessor.processMessage(_event);
 
         _latch.acquire();
 

@@ -7,7 +7,6 @@ import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.evaluate.DynamicEvaluator;
 import org.jacorb.notification.evaluate.FilterConstraint;
-import org.jacorb.notification.evaluate.ResultExtractor;
 import org.jacorb.notification.node.EvaluationResult;
 import org.jacorb.notification.node.TCLCleanUp;
 import org.jacorb.notification.node.AbstractTCLNode;
@@ -33,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Dec 07 16:04:32 2002
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.3 2003-11-03 10:32:42 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.4 2004-01-16 17:37:30 alphonse.bendt Exp $
  */
 
 public class TestUtils {
@@ -203,8 +202,6 @@ public class TestUtils {
         DynAnyFactory _dynAnyFactory =
             appContext.getDynAnyFactory();
 
-        ResultExtractor _resultExtractor = appContext.getResultExtractor();
-
         DynamicEvaluator _dynamicEvaluator = appContext.getDynamicEvaluator();
 
         MessageFactory _notificationEventFactory =
@@ -219,7 +216,6 @@ public class TestUtils {
 
         EvaluationContext _context = new EvaluationContext();
         _context.setDynamicEvaluator(_dynamicEvaluator);
-        _context.setResultExtractor(_resultExtractor);
 
         _res = _evaluator.evaluate(_context, event);
 

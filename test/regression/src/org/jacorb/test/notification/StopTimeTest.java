@@ -48,7 +48,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StopTimeTest.java,v 1.3 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: StopTimeTest.java,v 1.4 2004-01-16 17:37:30 alphonse.bendt Exp $
  */
 
 public class StopTimeTest extends NotificationTestCase
@@ -230,7 +230,7 @@ public class StopTimeTest extends NotificationTestCase
                 }
             };
 
-        _taskProcessor.processEvent(_event);
+        _taskProcessor.processMessage(_event);
 
         if (!_received.contains(_event)) {
             synchronized(lock) {

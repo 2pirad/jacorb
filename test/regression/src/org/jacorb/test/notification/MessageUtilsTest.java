@@ -3,7 +3,6 @@ package org.jacorb.test.notification;
 import org.jacorb.notification.ApplicationContext;
 import org.jacorb.notification.EvaluationContext;
 import org.jacorb.notification.evaluate.DynamicEvaluator;
-import org.jacorb.notification.evaluate.ResultExtractor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.node.AbstractTCLNode;
 import org.jacorb.notification.node.ComponentName;
@@ -21,7 +20,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtilsTest.java,v 1.3 2003-09-12 09:38:07 alphonse.bendt Exp $
+ * @version $Id: MessageUtilsTest.java,v 1.4 2004-01-16 17:37:30 alphonse.bendt Exp $
  */
 
 public class MessageUtilsTest extends TestCase
@@ -47,8 +46,6 @@ public class MessageUtilsTest extends TestCase
         context_ = new EvaluationContext();
         context_.setDynamicEvaluator( new DynamicEvaluator( appContext_.getOrb(),
                                                             DynAnyFactoryHelper.narrow( appContext_.getOrb().resolve_initial_references( "DynAnyFactory" ) ) ) );
-
-        context_.setResultExtractor( new ResultExtractor() );
 
     }
 

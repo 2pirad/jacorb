@@ -27,10 +27,8 @@ import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
 
 /**
- * AllTest.java
- *
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.7 2003-11-26 10:27:45 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.8 2004-01-16 17:37:30 alphonse.bendt Exp $
  */
 
 public class AllTest extends TestCase
@@ -62,3 +60,5 @@ public class AllTest extends TestCase
         junit.textui.TestRunner.run( suite() );
     }
 }
+
+
