@@ -9,17 +9,18 @@ import java.awt.Menu;
 import java.awt.event.ActionListener;
 import java.awt.MenuItem;
 import java.awt.event.ActionEvent;
-import org.apache.log4j.Logger;
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
 
 /**
  *
  * @author 
- * @version $Id: WorkgroupFrame.java,v 1.1 2003-01-14 11:46:07 alphonse.bendt Exp $
+ * @version $Id: WorkgroupFrame.java,v 1.2 2003-08-01 15:28:25 alphonse.bendt Exp $
  */
 
 public class WorkgroupFrame extends Frame implements IWorkgroupFrame {
 
-    Logger logger_ = Logger.getLogger("WorkgroupFrame");
+    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor("WorkgroupFrame");
 
     BrushSizeDrawCanvas drawCanvas_;
     SelectDialog dialog;
