@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.36 2002-03-01 09:59:54 steve.osselton Exp $
+ * @version     $Id: CDROutputStream.java,v 1.37 2002-03-01 17:45:59 jason.courage Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -1266,11 +1266,14 @@ public class CDROutputStream
     }
 
     /** 
-     *    called from Any 
+     * called from Any 
      */
 
     public final void write_value
-        (final org.omg.CORBA.TypeCode tc, final CDRInputStream in)
+    (
+        final org.omg.CORBA.TypeCode tc,
+        final org.omg.CORBA.portable.InputStream in
+    )
     {
         Debug.myAssert( tc != null, "Illegal null pointer for TypeCode");
         int kind = ((TypeCode)tc)._kind();
@@ -1300,10 +1303,8 @@ public class CDROutputStream
                 write_ushort(in.read_ushort());
                 break;
             case TCKind._tk_long:
-            {
                 write_long( in.read_long());
                 break;
-            }
             case TCKind._tk_ulong:
                 write_ulong( in.read_ulong());
                 break;
