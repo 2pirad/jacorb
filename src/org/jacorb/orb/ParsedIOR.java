@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.16 2001-12-11 10:46:32 gerald Exp $
+ * @version $Id: ParsedIOR.java,v 1.17 2001-12-14 12:28:51 spiegel Exp $
  */
 
 public class ParsedIOR 
@@ -264,6 +264,24 @@ public class ParsedIOR
             
             addr.object_key( pior.get_object_key() );
         }
+    }
+
+    public String getCodebaseComponent()
+    {
+        for ( int i = 0; i < taggedComponents.length; i++ )
+        {
+	    if( taggedComponents[i].tag != TAG_JAVA_CODEBASE.value ) 
+		continue;
+
+	    Debug.output(4,"TAG_JAVA_CODEBASE found");			
+
+	    // get codebase cs from IOR 
+	    CDRInputStream is =
+		new CDRInputStream( orb, 
+                                   taggedComponents[i].component_data);
+	    return is.read_string();
+	}
+        return null;
     }
 
     /* instance part */
