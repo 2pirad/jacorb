@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.11 2002-02-14 14:04:00 steve.osselton Exp $
+ * @version $Id: ORBSingleton.java,v 1.12 2002-02-14 15:22:23 gerald Exp $
  */
 
 public class ORBSingleton
@@ -110,7 +110,7 @@ public class ORBSingleton
     private void checkTCRepositorId( String repId )
         throws BAD_PARAM
     {
-        if( repId == null || repId.indexOf( ':' ) > 0 )
+        if( repId == null || repId.indexOf( ':' ) < 0 )
         {
             throw new BAD_PARAM("Illegal Repository ID " + repId, 
                                 16, CompletionStatus.COMPLETED_NO );    
