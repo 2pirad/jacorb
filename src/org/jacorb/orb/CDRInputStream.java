@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.63 2003-08-15 11:17:14 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.64 2003-08-19 11:34:33 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1846,8 +1846,8 @@ public class CDRInputStream
         {
             throw new org.omg.CORBA.BAD_PARAM("TypeCode is null");
         }
-        int kind = ((org.jacorb.orb.TypeCode)tc)._kind();
 
+	int kind = tc.kind().value();
 	switch (kind)
 	{
             case TCKind._tk_null:
