@@ -46,7 +46,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.7 2004-02-09 16:17:26 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.8 2004-03-17 08:11:12 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
@@ -209,5 +209,10 @@ public class AnyMessage extends AbstractMessage
     public long getTimeout()
     {
         throw new UnsupportedOperationException();
+    }
+
+
+    public String toString() {
+        return anyValue_.toString();
     }
 }
