@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.6 2001-05-31 08:50:18 jacorb Exp $
+ * @version $Id: Literal.java,v 1.7 2001-05-31 11:54:57 jacorb Exp $
  */
 
 class Literal 
@@ -49,15 +49,17 @@ class Literal
     public void parse()
     {
         TypeSpec ts = declared_in.const_type.symbol.typeSpec();
-        if( ts instanceof FloatPtType )
-        {
-            Environment.output( 2, "Literal: ts " + 
-                                ts.getClass().getName() + " token: " +
-                                token + " " + token.sym );
 
-            if( ! (token instanceof java_cup.runtime.float_token  ))
-                parser.error("Expecting float/double constant, found integral type!" );
-        }
+        Environment.output(2, "Literal " + ts.getClass().getName() + " " + 
+                           ( token != null? token.getClass().getName() :"<no token>"));
+
+        if( ts instanceof FloatPtType && 
+            !(token instanceof java_cup.runtime.float_token  ))
+            parser.error("Expecting float/double constant!" );    
+        else if(  ts instanceof FixedPointConstType && 
+                 !( token instanceof fixed_token  ) )
+            parser.error("Expecting fixed point constant (perhaps a missing \"d\")!" );    
+        
     }
 
 
