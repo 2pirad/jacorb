@@ -28,10 +28,10 @@ import org.omg.CosEventComm.Disconnected;
  * this PullConsumer needs to poll its Supplier regularly.
  *
  * @author Alphonse Bendt
- * @version $Id: TimerEventSupplier.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: TimerEventSupplier.java,v 1.4 2004-02-13 18:25:36 alphonse.bendt Exp $
  */
 
-public interface TimerEventSupplier {
+public interface TimerEventSupplier extends Disposable {
 
     /**
      * execute a pull-Operations. depending on the underlying
