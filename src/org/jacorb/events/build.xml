@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.7 2002-07-09 12:12:01 steve.osselton Exp $ -->
+  <!-- $Id: build.xml,v 1.8 2002-09-27 15:19:15 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
 
@@ -29,8 +29,8 @@
 
 
    <target name="idl" depends="coseventsidl,jacorbeventidl" >
-	<javac debug="${debug}" srcdir="${src}"
-	       includes="org/jacorb/orb/events/**.java"
+	<javac debug="${debug}" srcdir="${src}/generated"
+	       includes="org/jacorb/events/**.java"
                destdir="${classdir}"
 	        />
    </target>
@@ -40,19 +40,19 @@
 
     <target name="com">
         <jacidl generateir="true"
-                srcdir="${idl}/omg"
+                srcdir="${idl}"
                 packageprefix="org.omg"
                 destdir="${src}/generated"
-                includes="CosEventComm.idl"/>
+                includes="omg/CosEventComm.idl"/>
     </target>
 
     <target name="admin">
         <jacidl generateir="true"
-                srcdir="${idl}/omg"
+                srcdir="${idl}"
                 packageprefix="org.omg"
-                destdir="${src}/generated"
                 includepath="${idl}/omg"
-                includes="CosEventChannelAdmin.idl"/>
+                includes="omg/CosEventChannelAdmin.idl"
+                destdir="${src}/generated"/>
     </target>
 
    <target name="jacorbeventidl">
