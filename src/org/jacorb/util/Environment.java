@@ -45,7 +45,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.56 2003-06-23 18:58:45 andre.spiegel Exp $
+ * @version $Id: Environment.java,v 1.57 2003-06-30 08:44:54 nick.cross Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -510,7 +510,7 @@ public class Environment
                 (new FileOutputStream (logFileName, append));
             if (_verbosity > 2)
             {
-                System.out.println("write output to log file \""+logFileName+"\"");
+                System.out.println("Write output to log file \""+logFileName+"\"");
             }
         }
         catch (java.io.IOException ioe)
@@ -767,7 +767,7 @@ public class Environment
             while (tok.hasMoreTokens())
                 result.add (tok.nextToken().trim());
         }
-        return result;                            
+        return result;
     }
 
     /*
