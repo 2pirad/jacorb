@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.5 2001-03-26 10:08:18 jacorb Exp $
+ * @version $Id: PrintIOR.java,v 1.6 2001-03-28 11:30:36 noffke Exp $
  */
 
 public class PrintIOR 
@@ -124,16 +124,17 @@ public class PrintIOR
                 if ( ssl != null )
                 {
                     System.out.println("\tSSL Tagged Component :  " );
-                    if( ssl.port < 0 ) 
-                        ssl.port += 65536;
+                    int ssl_port = ssl.port;
+                    if( ssl_port < 0 ) 
+                        ssl_port += 65536;
 
                     System.out.print   ( "\t\ttarget_supports\t:\t" );
                     dump               ( ssl.target_supports );
                     java.lang.System.out.println();
-                    System.out.print   ( "\t\target_requires\t:\t" );
+                    System.out.print   ( "\t\ttarget_requires\t:\t" );
                     dump               ( ssl.target_requires );
                     java.lang.System.out.println();
-                    System.out.println ( "\t\tSSL Port\t:\t" + ssl.port );
+                    System.out.println ( "\t\tSSL Port\t:\t" + ssl_port );
                 }
                 System.out.println("TAG_MULTIPLE_COMPONENTS Profiles:");
                 org.omg.CONV_FRAME.CodeSetComponentInfo codeSet = 
