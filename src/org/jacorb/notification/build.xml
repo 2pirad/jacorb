@@ -8,7 +8,7 @@
 
 <!-- ============================================================= -->
 <!--              JacORB - NotificationService build file          -->
-<!-- $Id: build.xml,v 1.4 2003-06-05 13:04:09 alphonse.bendt Exp $ -->
+<!-- $Id: build.xml,v 1.5 2003-06-05 13:42:31 alphonse.bendt Exp $ -->
 <!-- ============================================================= -->
 
   &common;
@@ -210,7 +210,7 @@
 
       <param name="javac-excludes"
         value="org/jacorb/notification/util/GNUPatternWrapper.java, 
-               org/jacorb/notification/util/JDK14PatternWrapper.java />
+               org/jacorb/notification/util/JDK14PatternWrapper.java" />
 
     </antcall>
   </target>
