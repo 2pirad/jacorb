@@ -27,7 +27,7 @@ import org.omg.GSSUP.*;
  * This is the GSS-API Sercurity Provider Interface (SPI) Provider for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: NT_GSSUPProvider.java,v 1.1 2002-09-11 21:27:57 david.robison Exp $
+ * @version $Id: NT_GSSUPProvider.java,v 1.2 2002-09-12 14:38:58 david.robison Exp $
  */
 
 public class NT_GSSUPProvider extends Provider
@@ -38,8 +38,6 @@ public class NT_GSSUPProvider extends Provider
 
     /**
      * Returns the default GSSManager implementation.
-     *
-     * @return a GSSManager implementation
      */
     public NT_GSSUPProvider()
     {
