@@ -25,7 +25,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2 2004-05-09 19:37:25 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.3 2004-07-19 16:56:24 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -43,6 +43,7 @@ public class PackageTest extends TestCase {
         suite.addTest(TypedProxyPullConsumerImplTest.suite());
         suite.addTest(TypedConsumerAdminImplTest.suite());
         suite.addTest(TypedSupplierAdminImplTest.suite());
+        suite.addTest(org.jacorb.test.notification.TypedNotificationChannelTest.suite());
 
         return suite;
     }
