@@ -37,7 +37,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.18 2003-02-26 07:37:18 andre.spiegel Exp $
+ * @version $Id: PrintIOR.java,v 1.19 2003-03-25 15:52:20 gerald Exp $
  */
 
 public class PrintIOR
@@ -98,6 +98,7 @@ public class PrintIOR
         else
             System.out.println("Sorry, we only unparse IORs in the standard IOR URL scheme");
 
+        orb.shutdown(true);
     }
 
 
@@ -165,7 +166,6 @@ public class PrintIOR
             printTaggedComponents( multiple_components );
         }
 
-        orb.shutdown(true);
     }
 
     /**
