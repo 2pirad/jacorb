@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB build file                         -->
-  <!-- $Id: build.xml,v 1.4 2001-03-19 14:01:35 noffke Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2001-03-20 15:41:27 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -112,8 +112,8 @@
       <delete file="${lib}/jacorb.jar"/>
        <jar jarfile="${lib}/jacorb.jar" 
 	    basedir="${classdir}"
-	    includes="jacorb/**,org/omg/**, HTTPClient/**"
-	    excludes="jacorb/idl/**"
+	    includes="org/jacorb/**,org/omg/**, HTTPClient/**"
+	    excludes="org/jacorb/idl/**"
 	    />	    
    </target>
 
