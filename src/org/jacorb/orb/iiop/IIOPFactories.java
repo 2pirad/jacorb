@@ -28,14 +28,13 @@ import org.omg.RTCORBA.ProtocolProperties;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.2 2003-05-06 14:30:09 andre.spiegel Exp $
+ * @version $Id: IIOPFactories.java,v 1.3 2003-05-24 09:54:46 andre.spiegel Exp $
  */
 public class IIOPFactories extends org.omg.ETF._FactoriesLocalBase
 {
     public Connection create_connection (ProtocolProperties props)
     {
-        // TODO Auto-generated method stub
-        return null;
+        return new ClientIIOPConnection();
     }
 
     public Listener create_listener (ProtocolProperties props,
