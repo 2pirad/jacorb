@@ -65,7 +65,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.18 2004-03-04 18:17:33 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.19 2004-04-19 13:46:34 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -257,7 +257,7 @@ public class SASClientInterceptor
         {
             logger.warn("No SAS security context found (exception): "+e);
         }
-        if (ctx == null) return;
+        if (ctx == null || ctx.context_data.length <= 1) return;
 
         try
         {
