@@ -26,7 +26,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.1 2003-01-13 09:03:56 nicolas Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.2 2003-04-24 10:07:56 andre.spiegel Exp $
  */
 
 public class ClientGIOPConnection 
@@ -73,7 +73,8 @@ public class ClientGIOPConnection
 
         try
         {
-            transport.closeAllowReopen();
+            transport.close();
+            transport = new Client_TCP_IP_Transport ((Client_TCP_IP_Transport)transport);            
         }
         catch( IOException e )
         {
