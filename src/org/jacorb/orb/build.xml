@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.6 2001-05-10 14:44:23 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.7 2001-05-22 09:16:28 noffke Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -18,11 +18,7 @@
 	property="java2" />	
    </target>
 
-   <target name="all" depends="init,http,domain,compile1,compile2,dns"/> <!-- ir -->
-
-   <target name="http">
-       <ant antfile="${jsrc}/HTTPClient/build.xml" dir="${basedir}"/>
-   </target>
+   <target name="all" depends="init,domain,compile1,compile2,dns"/> <!-- ir -->
 
    <target name="compile1" if="java2">
 	<javac srcdir="${src}"
