@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.26 2004-01-06 14:45:43 nick.cross Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.27 2004-01-15 11:12:13 nick.cross Exp $
  *
  */
 
@@ -46,14 +46,14 @@ public class ArrayTypeSpec
     {
         super(num);
         declarator = ad;
-        //  	try
-        //  	{
-        //  	    declarator.parse();
-        //  	}
-        //  	catch (ParseError p)
-        //  	{
-        //  	    p.printStackTrace();
-        //  	}
+        //    try
+        //    {
+        //        declarator.parse();
+        //    }
+        //    catch (ParseError p)
+        //    {
+        //        p.printStackTrace();
+        //    }
         name = declarator.name();
         set_token(ad.get_token());
         setEnclosingSymbol(ad.getEnclosingSymbol());
@@ -142,8 +142,8 @@ public class ArrayTypeSpec
     }
 
     /**
-     *	we have to be able to distinguish between explicitly typedef'd
-     *	type names and anonymously defined type names
+     * we have to be able to distinguish between explicitly typedef'd
+     * type names and anonymously defined type names
      */
 
     public void markTypeDefd()

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyHandlerTypeSpec.java,v 1.6 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: ReplyHandlerTypeSpec.java,v 1.7 2004-01-15 11:12:13 nick.cross Exp $
  */
 import java.io.PrintWriter;
 
@@ -74,10 +74,8 @@ public class ReplyHandlerTypeSpec
     }
 
     /**
-     * @return a string for an expression of type TypeCode
-     * 			that describes this type
+     * @return a string for an expression of type TypeCode that describes this type
      */
-
     public String getTypeCodeExpression()
     {
         return "org.omg.CORBA.ORB.init().create_interface_tc(\"IDL:omg.org/Messaging/ReplyHandler:1.0\",\"ReplyHandler\")";
@@ -105,6 +103,3 @@ public class ReplyHandlerTypeSpec
     }
 
 }
-
-
-

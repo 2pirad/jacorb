@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.19 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.20 2004-01-15 11:12:13 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
@@ -129,8 +129,7 @@ public class ConstrTypeSpec
     }
 
     /**
-     * @return a string for an expression of type TypeCode
-     * 			that describes this type
+     * @return a string for an expression of type TypeCode that describes this type
      */
     public String getTypeCodeExpression()
     {
@@ -174,7 +173,7 @@ public class ConstrTypeSpec
     }
 
     /**
-     */ 
+     */
 
     public void accept( IDLTreeVisitor visitor )
     {
@@ -183,4 +182,3 @@ public class ConstrTypeSpec
 
 
 }
-

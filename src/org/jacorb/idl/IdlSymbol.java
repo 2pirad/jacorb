@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.32 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: IdlSymbol.java,v 1.33 2004-01-15 11:12:13 nick.cross Exp $
  */
 
 public class IdlSymbol
@@ -145,7 +145,7 @@ public class IdlSymbol
         return name;
     }
 
- 
+
 
     /**
      * A number of IDL constructs need to have their names
@@ -193,7 +193,7 @@ public class IdlSymbol
     public void setEnclosingSymbol( IdlSymbol s )
     {
         if( enclosing_symbol != null && enclosing_symbol != s )
-            throw new RuntimeException( "Compiler Error: trying to reassign container for " + 
+            throw new RuntimeException( "Compiler Error: trying to reassign container for " +
                                         name );
 
         enclosing_symbol = s;
@@ -348,7 +348,7 @@ public class IdlSymbol
         if( name != null && name.indexOf( '.' ) < 0 && !BaseType.isBasicName( name ) )
         {
             if( logger.isDebugEnabled() )
-		 logger.debug( "addImportedName " + name );
+                logger.debug( "addImportedName " + name );
 
             // If we have a typedef for a basic type we only want
             // to import the helper class.
@@ -638,7 +638,7 @@ public class IdlSymbol
 
     /**
      * let the visitor pattern do its work...
-     */ 
+     */
 
     public void accept( IDLTreeVisitor visitor )
     {
@@ -646,4 +646,3 @@ public class IdlSymbol
     }
 
 }
-

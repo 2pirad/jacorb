@@ -27,7 +27,7 @@ import java.math.BigInteger;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.21 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Literal.java,v 1.22 2004-01-15 11:12:13 nick.cross Exp $
  */
 
 class Literal
@@ -143,8 +143,8 @@ class Literal
             }
 
             if( logger.isWarnEnabled() )
-		 logger.warn( "Literal " + ts.getClass().getName() + " " +
-                    ( token != null? token.getClass().getName() :"<no token>" ) );
+                logger.warn( "Literal " + ts.getClass().getName() + " " +
+                             ( token != null? token.getClass().getName() :"<no token>" ) );
 
             if( ts instanceof FloatPtType &&
                     !( token instanceof java_cup.runtime.float_token ) )
@@ -308,4 +308,3 @@ class Literal
         return result.toString();
     }
 }
-

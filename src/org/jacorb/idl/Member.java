@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.29 2003-10-30 08:55:05 brose Exp $
+ * @version $Id: Member.java,v 1.30 2004-01-15 11:12:13 nick.cross Exp $
  *
  */
 
@@ -34,8 +34,8 @@ public class Member
 {
     public TypeSpec type_spec;
 
-    /** 
-        this list initially set by the parser but later flattened so that 
+    /**
+        this list initially set by the parser but later flattened so that
         each member only has a single declarator. The list will be null after
         calling parse()!
      */
@@ -98,8 +98,8 @@ public class Member
     }
 
     /**
-     *	Parsing members means creating new members for definitions
-     *   with more than one declarator.
+     * Parsing members means creating new members for definitions
+     * with more than one declarator.
      */
     public void parse()
     {
@@ -304,4 +304,3 @@ public class Member
         return type_spec.typeSpec();
     }
 }
-

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TemplateTypeSpec.java,v 1.10 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: TemplateTypeSpec.java,v 1.11 2004-01-15 11:12:13 nick.cross Exp $
  */
 
 
@@ -44,10 +44,9 @@ class TemplateTypeSpec
     }
 
     /**
-     *	we have to be able to distinguish between explicitly typedef'd
-     *	type names and anonymously defined type names
+     * we have to be able to distinguish between explicitly typedef'd
+     * type names and anonymously defined type names
      */
-
     public void markTypeDefd()
     {
         typedefd = true;
@@ -59,27 +58,3 @@ class TemplateTypeSpec
         return true;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

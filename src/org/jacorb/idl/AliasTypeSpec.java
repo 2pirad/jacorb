@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.44 2004-01-06 14:45:43 nick.cross Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.45 2004-01-15 11:12:13 nick.cross Exp $
  */
 
 public class AliasTypeSpec
@@ -190,8 +190,7 @@ public class AliasTypeSpec
 
 
     /**
-     * @return a string for an expression of type TypeCode that
-     * 			describes this type
+     * @return a string for an expression of type TypeCode that describes this type
      * Note that this is the TypeSpec for the alias type and is not unwound to
      * the original type.
      */
