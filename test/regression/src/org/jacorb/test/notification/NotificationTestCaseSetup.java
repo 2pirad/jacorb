@@ -21,9 +21,7 @@ package org.jacorb.test.notification;
  *
  */
 
-import org.jacorb.test.common.ClientServerSetup;
 import junit.framework.Test;
-import junit.framework.TestSuite;
 import org.omg.CORBA.ORB;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
@@ -36,7 +34,7 @@ import junit.extensions.TestSetup;
  * NotificationTestCaseSetup.java
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCaseSetup.java,v 1.3 2003-07-18 18:45:16 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCaseSetup.java,v 1.4 2003-07-20 12:22:25 alphonse.bendt Exp $
  */
 
 public class NotificationTestCaseSetup extends TestSetup {
@@ -62,6 +60,19 @@ public class NotificationTestCaseSetup extends TestSetup {
 	orb_ = ORB.init(new String[0], null);
 	poa_ = POAHelper.narrow(orb_.resolve_initial_references("RootPOA"));
 	testUtils_ = new TestUtils(orb_);
+	eventChannelServant_ = EventChannelFactoryImpl.newFactory();
+
+	poa_.the_POAManager().activate();
+
+	Thread thread = new Thread(
+		   new Runnable() {
+		       public void run() {
+			   orb_.run();
+		       }
+		   });
+	thread.setDaemon(true);
+	thread.start();
+
 	eventChannelServant_ = EventChannelFactoryImpl.newFactory();
     }
 

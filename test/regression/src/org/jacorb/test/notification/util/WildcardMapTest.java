@@ -7,8 +7,6 @@ import java.util.Random;
 import java.util.Map;
 import java.util.Hashtable;
 import org.apache.log.Hierarchy;
-import org.apache.log.Priority;
-import org.jacorb.test.notification.NotificationTestCase;
 import org.jacorb.notification.util.WildcardMap;
 
 /**
@@ -16,7 +14,7 @@ import org.jacorb.notification.util.WildcardMap;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: WildcardMapTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
+ * @version $Id: WildcardMapTest.java,v 1.3 2003-07-20 12:22:24 alphonse.bendt Exp $
  */
 
 public class WildcardMapTest extends TestCase {
