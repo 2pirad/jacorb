@@ -32,22 +32,23 @@ import org.omg.CosEventChannelAdmin.ProxyPushSupplierHelper;
 import org.omg.CosEventChannelAdmin.ProxyPushSupplierOperations;
 import org.omg.CosEventChannelAdmin.ProxyPushSupplierPOATie;
 import org.omg.CosEventComm.PushConsumer;
+import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushSupplierImpl.java,v 1.8 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushSupplierImpl.java,v 1.9 2005-02-20 21:45:26 alphonse.bendt Exp $
  */
 public class ECProxyPushSupplierImpl extends ProxyPushSupplierImpl implements
         ProxyPushSupplierOperations
 {
+    private static final ConsumerAdmin NO_ADMIN = null;
+    
     public ECProxyPushSupplierImpl(IAdmin admin, ORB orb, POA poa, Configuration conf,
             TaskProcessor taskProcessor, TaskExecutor taskExecutor) throws ConfigurationException
     {
-        super(admin, orb, poa, conf, taskProcessor, taskExecutor, OfferManager.NULL_MANAGER, SubscriptionManager.NULL_MANAGER);
-
-        //isIDPublic_ = false;
+        super(admin, orb, poa, conf, taskProcessor, taskExecutor, OfferManager.NULL_MANAGER, SubscriptionManager.NULL_MANAGER, NO_ADMIN);
     }
 
     ////////////////////////////////////////

@@ -54,7 +54,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImpl.java,v 1.6 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImpl.java,v 1.7 2005-02-20 21:45:26 alphonse.bendt Exp $
  */
 
 public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
@@ -128,22 +128,6 @@ public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
         return TypedProxyPushSupplierHelper.narrow(getServant()._this_object(getORB()));
     }
 
-    public void deliverPendingData()
-    {
-        final Message[] messages = getAllMessages();
-
-        for (int i = 0; i < messages.length; ++i)
-        {
-            try
-            {
-                deliverMessageInternal(messages[i]);
-            } finally
-            {
-                messages[i].dispose();
-            }
-        }
-    }
-
     public void isIDLAssignable(final String ifName) throws IllegalArgumentException
     {
         if (typedConsumer_._is_a(ifName))
@@ -164,21 +148,30 @@ public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
                 return;
             }
         }
-        
+
         throw new IllegalArgumentException();
     }
 
-    public void deliverMessage(Message message)
+    public void messageDelivered()
     {
-        if (isConnected())
+        if (isEnabled())
         {
-            if (isEnabled())
+            deliverPendingData();
+        }
+    }
+
+    public void deliverPendingData()
+    {
+        final Message[] messages = getAllMessages();
+
+        for (int i = 0; i < messages.length; ++i)
+        {
+            try
             {
-                deliverMessageInternal(message);
-            }
-            else
+                deliverMessageInternal(messages[i]);
+            } finally
             {
-                enqueue(message);
+                messages[i].dispose();
             }
         }
     }
@@ -257,7 +250,7 @@ public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
         {
             thisServant_ = new TypedProxyPushSupplierPOATie(this);
         }
-        
+
         return thisServant_;
     }
 }

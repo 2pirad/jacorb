@@ -36,6 +36,7 @@ import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.StructuredEvent;
+import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPullSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPullSupplierPOATie;
@@ -45,7 +46,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.10 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.11 2005-02-20 21:45:26 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullSupplierImpl extends StructuredProxyPullSupplierImpl implements
@@ -67,9 +68,9 @@ public class SequenceProxyPullSupplierImpl extends StructuredProxyPullSupplierIm
     ////////////////////////////////////////
 
     public SequenceProxyPullSupplierImpl(IAdmin admin, ORB orb, POA poa, Configuration conf,
-            TaskProcessor taskProcessor, OfferManager offerManager, SubscriptionManager subscriptionManager) throws ConfigurationException
+            TaskProcessor taskProcessor, OfferManager offerManager, SubscriptionManager subscriptionManager, ConsumerAdmin consumerAdmin) throws ConfigurationException
     {
-        super(admin, orb, poa, conf, taskProcessor, offerManager, subscriptionManager);
+        super(admin, orb, poa, conf, taskProcessor, offerManager, subscriptionManager, consumerAdmin);
     }
 
     public ProxyType MyType()
