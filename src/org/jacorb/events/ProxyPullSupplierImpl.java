@@ -40,7 +40,7 @@ import java.util.*;
  *    section 2.1.5 "Disconnection Behavior" on page 2-4.
  *
  * @authors Jeff Carlson, Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose 1997
- * @version $Id: ProxyPullSupplierImpl.java,v 1.4 2001-09-10 01:32:50 jcarlson Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.5 2001-09-11 02:36:20 jcarlson Exp $
  */
 public class ProxyPullSupplierImpl
     extends org.omg.CosEventChannelAdmin.ProxyPullSupplierPOA
@@ -103,7 +103,6 @@ public class ProxyPullSupplierImpl
   {
     if ( connected )
     {
-      myEventChannel.disconnect_pull_supplier( this );
       if ( myPullConsumer != null )
       {
         myPullConsumer.disconnect_pull_consumer();
