@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.58 2004-02-13 16:17:02 gerald Exp $
+ * @version $Id: Interface.java,v 1.59 2004-04-24 00:55:44 andre.spiegel Exp $
  */
 
 import java.io.File;
@@ -50,7 +50,7 @@ public class Interface
     /** <code>abstractInterfaces</code> is to keep a record of those interfaces
      * that are abstract so any inheriting interface know what to inherit from.
      */
-    private static HashSet abstractInterfaces;
+    protected static HashSet abstractInterfaces;
 
 
     public Interface(int num)
