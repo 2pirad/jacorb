@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.21 2004-05-05 07:56:40 brose Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.22 2004-12-08 00:07:31 alphonse.bendt Exp $
  */
 
 import org.jacorb.orb.giop.*;
@@ -28,25 +28,21 @@ import org.jacorb.config.Configuration;
 public class GIOPConnectionTest 
     extends TestCase
 {
-    Configuration config;
+    private Configuration config;
+    private ORB orb;
 
     public void setUp() 
         throws Exception
     {
-        config = Configuration.getConfiguration(null,null);
+        orb = (ORB) ORB.init(new String[0], null);
+        config = Configuration.getConfiguration(null, orb, false);
     }
 
     public static junit.framework.TestSuite suite()
     {
-        TestSuite suite = new TestSuite ("GIOPConnection Test");
-
-        suite.addTest (new GIOPConnectionTest ("testGIOP_1_2_CorrectFragmentedRequest"));
-        suite.addTest (new GIOPConnectionTest ("testGIOP_1_0_CorrectRefusing"));
-        suite.addTest (new GIOPConnectionTest ("testGIOP_1_1_IllegalMessageType"));
-        suite.addTest (new GIOPConnectionTest ("testGIOP_1_1_NoImplement"));
-
-        return suite;
+        return new TestSuite (GIOPConnectionTest.class, "GIOPConnection Test");
     }
+    
 
     private class DummyTransport extends org.omg.ETF._ConnectionLocalBase
     {
@@ -137,11 +133,8 @@ public class GIOPConnectionTest
             {
                 throw new org.omg.CORBA.COMM_FAILURE ("end of stream");
             }
-            else
-            {
-                System.arraycopy (this.data, this.index, data.value, offset, min_length);
-                this.index += min_length;
-            }
+            System.arraycopy(this.data, this.index, data.value, offset, min_length);
+            this.index += min_length; 
         }
 
         public boolean is_data_available()
@@ -475,8 +468,8 @@ public class GIOPConnectionTest
 
         messages.add( b );
 
-        MessageOutputStream m_out =
-            new MessageOutputStream();
+//        MessageOutputStream m_out =
+//            new MessageOutputStream();
 
         DummyTransport transport =
             new DummyTransport( messages );
