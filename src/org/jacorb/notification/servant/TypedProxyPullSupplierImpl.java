@@ -72,7 +72,7 @@ import org.jacorb.notification.*;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImpl.java,v 1.2 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImpl.java,v 1.3 2004-05-11 12:14:56 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullSupplierImpl
@@ -423,20 +423,23 @@ public class TypedProxyPullSupplierImpl
         {
             Property[] _props = message.toTypedEvent();
 
-            String _operation = null;
+            String _fullQualifiedOperation = null;
 
             if (TypedEventMessage.OPERATION_NAME.equals(_props[0].name))
             {
-                _operation = _props[0].value.extract_string();
+                _fullQualifiedOperation = _props[0].value.extract_string();
             }
             else if (TypedEventMessage.EVENT_TYPE.equals(_props[0].name))
             {
-                _operation = EventTypeHelper.extract(_props[0].value).type_name;
+                _fullQualifiedOperation = EventTypeHelper.extract(_props[0].value).type_name;
             }
             else
             {
                 throw new IllegalArgumentException();
             }
+
+            int idx = _fullQualifiedOperation.lastIndexOf("::");
+            String _operation = _fullQualifiedOperation.substring(idx + 2);
 
             ((EventQueue)eventQueueMap_.get(_operation)).put((Message)message.clone());
         }

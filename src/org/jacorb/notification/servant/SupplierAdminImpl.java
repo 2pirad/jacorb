@@ -49,11 +49,11 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminImpl.java,v 1.2 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminImpl.java,v 1.3 2004-05-11 12:14:56 alphonse.bendt Exp $
  */
 
 public class SupplierAdminImpl
-    extends AbstractAdmin
+    extends AbstractSupplierAdmin
     implements SupplierAdminOperations,
                Disposable
 {

@@ -24,9 +24,10 @@ import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterStageSource.java,v 1.2 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: FilterStageSource.java,v 1.3 2004-05-11 12:14:56 alphonse.bendt Exp $
  */
 
 public interface FilterStageSource {
     List getSubsequentFilterStages();
+    //    void setSubsequentFilterStageSource(FilterStageSource source);
 }

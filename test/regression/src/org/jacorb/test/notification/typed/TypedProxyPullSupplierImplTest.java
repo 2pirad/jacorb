@@ -39,13 +39,17 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.2 2004-05-09 19:37:25 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.3 2004-05-11 12:14:55 alphonse.bendt Exp $
  */
 public class TypedProxyPullSupplierImplTest extends NotificationTestCase {
 
     TypedProxyPullSupplierImpl objectUnderTest_;
 
     TypedProxyPullSupplier supplier_;
+
+    private static String DRINKING_COFFEE_ID =
+        "::org::jacorb::test::notification::typed::Coffee::drinking_coffee";
+
 
     public void setUp() throws Exception {
         objectUnderTest_ = new TypedProxyPullSupplierImpl(PullCoffeeHelper.id());
@@ -92,7 +96,7 @@ public class TypedProxyPullSupplierImplTest extends NotificationTestCase {
         TypedEventMessage _mesg = new TypedEventMessage();
 
         _mesg.setTypedEvent(PullCoffeeHelper.id(),
-                            "drinking_coffee",
+                            DRINKING_COFFEE_ID,
                             new Property[] {
                                 new Property("name", toAny("jacorb")),
                                 new Property("minutes", toAny(10))
@@ -125,7 +129,7 @@ public class TypedProxyPullSupplierImplTest extends NotificationTestCase {
         TypedEventMessage _mesg = new TypedEventMessage();
 
         _mesg.setTypedEvent(PullCoffeeHelper.id(),
-                            "drinking_coffee",
+                            DRINKING_COFFEE_ID,
                             new Property[] {
                                 new Property("name", toAny("jacorb")),
                                 new Property("minutes", toAny(10))
