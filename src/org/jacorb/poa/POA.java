@@ -41,7 +41,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.5 2001-04-14 15:43:48 jacorb Exp $
+ * @version $Id: POA.java,v 1.6 2001-05-02 08:35:41 jacorb Exp $
  */
 
 public class POA 
@@ -1140,7 +1140,6 @@ public class POA
         } 
         catch (org.omg.PortableServer.CurrentPackage.NoContext e) 
         {
-            Debug.output(2, e );
         }
         return false;
     }
