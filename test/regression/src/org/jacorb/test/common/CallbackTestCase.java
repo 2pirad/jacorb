@@ -106,7 +106,7 @@ import junit.framework.*;
  * time, the test case fails.
  *  
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: CallbackTestCase.java,v 1.4 2002-11-12 11:06:13 andre.spiegel Exp $
+ * @version $Id: CallbackTestCase.java,v 1.5 2003-07-26 17:42:09 alphonse.bendt Exp $
  */
 public class CallbackTestCase extends ClientServerTestCase
 {
@@ -121,6 +121,9 @@ public class CallbackTestCase extends ClientServerTestCase
         private boolean replyReceived  = false;
         private boolean testFailed     = false;
         private String  failureMessage = null;
+
+	protected ReplyHandler() {
+	}
 
         public synchronized void wait_for_reply(long timeout)
         {
