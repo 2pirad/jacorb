@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * maps to the methods in the control. 
  *
  * @author Nicolas Noffke
- * @version $Id: TransactionCurrentImpl.java,v 1.4 2001-03-27 07:52:01 jacorb Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.5 2001-06-25 11:42:27 noffke Exp $
  */
 
 public class TransactionCurrentImpl 
@@ -36,14 +36,20 @@ public class TransactionCurrentImpl
         contexts = new Hashtable();
         timeouts = new Hashtable();
 
-        try{
+        try
+        {
             NamingContextExt nc = 
                 NamingContextExtHelper.narrow(orb.resolve_initial_references("NameService"));
             NameComponent [] name = new NameComponent[1];
             name[0] = new NameComponent( "TransactionService", "service");
             factory = TransactionFactoryHelper.narrow(nc.resolve(name));    
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
+            org.jacorb.util.Debug.output( 1, "Unable to obtain Transaction Service reference. Giving up." );
             org.jacorb.util.Debug.output(2, e);
+
+            System.exit( -1 );
         }
     }
 
