@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.40 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: StructType.java,v 1.41 2003-10-30 16:33:47 simon.mcqueen Exp $
  */
 
 public class StructType
@@ -548,7 +548,7 @@ public class StructType
             {
                 Member m = (Member)e.nextElement();
                 Declarator d = m.declarator;
-                ps.print(m.type_spec.getJavaTypeName() + " " + d.name());
+                ps.print(m.type_spec.toString() + " " + d.name());
                 if (e.hasMoreElements())
                     ps.print(", ");
             }
