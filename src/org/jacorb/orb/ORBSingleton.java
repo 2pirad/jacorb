@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.20 2002-02-28 16:06:56 jason.courage Exp $
+ * @version $Id: ORBSingleton.java,v 1.21 2002-03-05 08:21:10 gerald Exp $
  */
 
 public class ORBSingleton
@@ -438,7 +438,6 @@ public class ORBSingleton
     {
         checkTCRepositorId( id );
         checkTCName( name );
-        checkTCMemberType( concrete_base );
 
         return new org.jacorb.orb.TypeCode (id, 
                                             name, 
@@ -453,7 +452,6 @@ public class ORBSingleton
     {
         checkTCRepositorId( id );
         checkTCName( name );
-        checkTCMemberType( boxed_type );
 
         return new org.jacorb.orb.TypeCode (org.omg.CORBA.TCKind._tk_value_box,
                                             id,
