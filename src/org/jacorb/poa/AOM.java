@@ -40,7 +40,7 @@ import java.util.Enumeration;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.4 2001-03-27 12:01:28 noffke Exp $
+ * @version $Id: AOM.java,v 1.5 2001-08-28 13:31:59 jacorb Exp $
  */
 
 public class AOM 
@@ -112,16 +112,7 @@ public class AOM
 
         if ( unique ) 
         {
-            //System.out.println("AOM " + this + " unique, putting oid str : " + oidStr + " for  " + servant.hashCode() );
             servantMap.put(servant, oidStr);
-            for( Enumeration e = servantMap.keys(); e.hasMoreElements();)
-            {
-                Object o = e.nextElement();
-                //                System.out.println("servantMap(" + o.hashCode() + 
-                //                                   ") = " + servantMap.get( o ) );
-            }
-
-
         }
                 
         logTrace.printLog(Debug.POA | 2, oid, "object is activated");
@@ -172,15 +163,6 @@ public class AOM
             throw new POAInternalError("error: not UNIQUE_ID policy (getObjectId)");
 
         String oidStr = (String)servantMap.get(servant);
-
-        //System.out.println("AOM " + this + " getObjectId oid str : " + oidStr + " for  " + servant.hashCode() );
-
-            for( Enumeration e = servantMap.keys(); e.hasMoreElements();)
-            {
-                Object o = e.nextElement();
-                //                System.out.println("servantMap(" + o.hashCode() + 
-                //                 ") = " + servantMap.get( o ) );
-            }
 
         if (oidStr != null) 
             return POAUtil.string_to_objectId(oidStr);
