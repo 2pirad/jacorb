@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.76 2002-10-15 13:05:31 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.77 2002-11-04 18:05:52 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -161,8 +161,7 @@ public final class ORB
      *  arrived over the network and is called from CDRInputStream. It
      *  removes stale cache entries
      */
-
-    synchronized org.omg.CORBA.Object _getObject( ParsedIOR pior )
+    public synchronized org.omg.CORBA.Object _getObject( ParsedIOR pior )
     {
         String key = pior.getIORString();
         org.omg.CORBA.portable.ObjectImpl o =
