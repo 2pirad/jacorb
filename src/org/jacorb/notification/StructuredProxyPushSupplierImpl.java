@@ -42,7 +42,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.15 2004-01-16 17:25:05 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.16 2004-01-17 01:22:31 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl
@@ -90,6 +90,7 @@ public class StructuredProxyPushSupplierImpl
                 if ( active_ && enabled_ )
                 {
                     pushConsumer_.push_structured_event( event.toStructuredEvent() );
+
                     event.dispose();
                 }
                 else

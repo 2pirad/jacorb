@@ -49,10 +49,8 @@ import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.PortableServer.Servant;
 
 /**
- * SupplierAdminImpl.java
- *
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminTieImpl.java,v 1.10 2004-01-16 17:25:05 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminTieImpl.java,v 1.11 2004-01-17 01:22:31 alphonse.bendt Exp $
  */
 
 public class SupplierAdminTieImpl
@@ -62,10 +60,14 @@ public class SupplierAdminTieImpl
 {
 
     private SupplierAdminPOATie thisServant_;
+
     private SupplierAdmin thisRef_;
+
     private List eventStyleServants_ = new Vector();
 
     private List listProxyEventListener_ = new ArrayList();
+
+    ////////////////////////////////////////
 
     SupplierAdminTieImpl( ApplicationContext appContext,
                           ChannelContext channelContext,
@@ -94,6 +96,8 @@ public class SupplierAdminTieImpl
                myId,
                myOperator );
     }
+
+    ////////////////////////////////////////
 
     public synchronized Servant getServant()
     {
@@ -416,20 +420,24 @@ public class SupplierAdminTieImpl
         return _ret;
     }
 
+
     public List getSubsequentFilterStages()
     {
         return getChannelServant().getAllConsumerAdmins();
     }
+
 
     public MessageConsumer getMessageConsumer()
     {
         return null;
     }
 
+
     public boolean hasMessageConsumer()
     {
         return false;
     }
+
 
     public void dispose()
     {
@@ -446,6 +454,7 @@ public class SupplierAdminTieImpl
         listProxyEventListener_.clear();
     }
 
+
     void fireProxyRemoved( AbstractProxy b )
     {
         Iterator i = listProxyEventListener_.iterator();
@@ -457,6 +466,7 @@ public class SupplierAdminTieImpl
         }
     }
 
+
     void fireProxyCreated( AbstractProxy b )
     {
         Iterator i = listProxyEventListener_.iterator();
@@ -467,6 +477,7 @@ public class SupplierAdminTieImpl
             ( ( ProxyEventListener ) i.next() ).actionProxyCreated( e );
         }
     }
+
 
     public void remove( AbstractProxy pb )
     {
@@ -502,15 +513,18 @@ public class SupplierAdminTieImpl
         fireProxyRemoved( pb );
     }
 
+
     public boolean hasOrSemantic()
     {
         return false;
     }
 
+
     public void addProxyEventListener( ProxyEventListener l )
     {
         listProxyEventListener_.add( l );
     }
+
 
     public void removeProxyEventListener( ProxyEventListener l )
     {

@@ -130,7 +130,7 @@ import org.apache.avalon.framework.logger.Logger;
  * administration of this callback list by unique identifier. <br>
  *
  * @author Alphonse Bendt
- * @version $Id: FilterImpl.java,v 1.14 2004-01-16 17:25:05 alphonse.bendt Exp $
+ * @version $Id: FilterImpl.java,v 1.15 2004-01-17 01:22:31 alphonse.bendt Exp $
  */
 
 public class FilterImpl extends FilterPOA implements Disposable
@@ -644,10 +644,10 @@ public class FilterImpl extends FilterPOA implements Disposable
                                 try
                                     {
                                         boolean _result =
-                                            _entry.
-                                            getConstraintEvaluator().
-                                            evaluate( evaluationContext, event ).
-                                            getBool();
+                                            _entry
+                                            .getFilterConstraint()
+                                            .evaluate( evaluationContext, event )
+                                            .getBool();
 
                                         if ( _result )
                                             {
