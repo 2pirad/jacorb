@@ -3,7 +3,7 @@ package org.jacorb.orb.dynany;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ import java.util.*;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.18 2003-10-29 12:00:30 simon.mcqueen Exp $
+ * @version $Id: DynSequence.java,v 1.19 2004-05-06 12:40:00 nicolas Exp $
  *
  */
 

@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -28,8 +28,8 @@ import java.util.Enumeration;
 /*
  * The compiler backend for the IDL/Java mapping
  *
- * @author Copyright (c) 1999-2003, Gerald Brose
- * @version $Id: JavaMappingGeneratingVisitor.java,v 1.3 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @author Copyright (c) 1999-2004, Gerald Brose
+ * @version $Id: JavaMappingGeneratingVisitor.java,v 1.4 2004-05-06 12:39:59 nicolas Exp $
  *
  */
 

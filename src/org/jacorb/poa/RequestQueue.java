@@ -3,7 +3,7 @@ package org.jacorb.poa;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -33,7 +33,7 @@ import org.jacorb.poa.util.StringPair;
  * This class manages a queue of ServerRequest objects.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestQueue.java,v 1.17 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: RequestQueue.java,v 1.18 2004-05-06 12:40:00 nicolas Exp $
  */
 public class RequestQueue
     implements Configurable

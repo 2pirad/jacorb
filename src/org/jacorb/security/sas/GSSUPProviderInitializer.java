@@ -3,7 +3,7 @@ package org.jacorb.security.sas;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 2002-2003 Gerald Brose
+ *   Copyright (C) 2002-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.omg.PortableInterceptor.ORBInitializer;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: GSSUPProviderInitializer.java,v 1.7 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: GSSUPProviderInitializer.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
  */
 
 public class GSSUPProviderInitializer

@@ -3,7 +3,7 @@ package org.jacorb.orb.giop;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateReplyInputStream.java,v 1.13 2003-12-18 11:15:20 nick.cross Exp $
+ * @version $Id: LocateReplyInputStream.java,v 1.14 2004-05-06 12:40:00 nicolas Exp $
  *
  */
 

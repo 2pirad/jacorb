@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -29,7 +29,7 @@ import java.awt.event.ActionEvent;
  * A user sponsor, i.e. a frame that asks for user input
  *
  * @author Gerald Brose
- * @version $Id: UserSponsor.java,v 1.6 2002-12-20 18:29:06 nicolas Exp $
+ * @version $Id: UserSponsor.java,v 1.7 2004-05-06 12:40:01 nicolas Exp $
  */
 
 public class UserSponsor

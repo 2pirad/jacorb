@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ package org.jacorb.security.util;
  * This class manages a key store
  *
  * @author Gerald Brose, FU Berlin; Andre Benvenuti, GST Bern
- * @version $Id: KeyStoreManager.java,v 1.8 2003-10-28 17:22:52 simon.mcqueen Exp $
+ * @version $Id: KeyStoreManager.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
  */
 
 import java.security.*;

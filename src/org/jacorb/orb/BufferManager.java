@@ -2,7 +2,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -36,7 +36,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
  * shared BuffferManager across all ORBs in a process.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.17 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: BufferManager.java,v 1.18 2004-05-06 12:40:00 nicolas Exp $
 */
 
 public final class BufferManager

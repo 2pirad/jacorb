@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionClientInterceptor.java,v 1.8 2004-01-28 09:33:07 nicolas Exp $
+ * @version $Id: BiDirConnectionClientInterceptor.java,v 1.9 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class BiDirConnectionClientInterceptor

@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.21 2004-02-13 12:34:33 nick.cross Exp $
+ * @version $Id: GlobalInputStream.java,v 1.22 2004-05-06 12:39:58 nicolas Exp $
  */
 
 public class GlobalInputStream

@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.19 2004-01-15 12:38:18 nick.cross Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.20 2004-05-06 12:39:59 nicolas Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and

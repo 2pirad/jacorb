@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import java.security.cert.Certificate;
  * Created: Mon Sep  4 16:33:49 2000
  *
  * @author Nicolas Noffke
- * @version $Id: KeyAndCert.java,v 1.9 2003-10-30 13:15:57 brose Exp $
+ * @version $Id: KeyAndCert.java,v 1.10 2004-05-06 12:40:01 nicolas Exp $
  */
 
 public class KeyAndCert

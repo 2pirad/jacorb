@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.omg.CosNaming.*;
  * This class handles the events on the tree
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Handler.java,v 1.9 2004-03-03 15:38:24 gerald Exp $ 
+ * @version $Id: Handler.java,v 1.10 2004-05-06 12:39:59 nicolas Exp $ 
  */
 
 public class Handler

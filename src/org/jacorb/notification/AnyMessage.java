@@ -3,7 +3,7 @@ package org.jacorb.notification;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -46,7 +46,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.9 2004-03-17 22:42:42 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.10 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public class AnyMessage extends AbstractMessage

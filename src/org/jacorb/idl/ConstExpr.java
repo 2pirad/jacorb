@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.15 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ConstExpr.java,v 1.16 2004-05-06 12:39:58 nicolas Exp $
  */
 
 class ConstExpr

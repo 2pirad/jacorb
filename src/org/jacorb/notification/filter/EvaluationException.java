@@ -3,7 +3,7 @@ package org.jacorb.notification.filter;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import java.lang.Exception;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EvaluationException.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: EvaluationException.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public class EvaluationException extends Exception

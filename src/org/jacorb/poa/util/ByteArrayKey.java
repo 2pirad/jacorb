@@ -3,7 +3,7 @@ package org.jacorb.poa.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ package org.jacorb.poa.util;
  * in hashtables.
  *
  * @author Steve Osselton
- * @version $Id: ByteArrayKey.java,v 1.7 2003-10-29 12:00:30 simon.mcqueen Exp $
+ * @version $Id: ByteArrayKey.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
  */
 
 public class ByteArrayKey

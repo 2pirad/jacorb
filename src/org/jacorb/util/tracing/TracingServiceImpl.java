@@ -3,7 +3,7 @@ package org.jacorb.util.tracing;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import org.omg.CosNaming.NamingContextExtHelper;
 
 /**
  * @author Gerald Brose
- * @version $Id: TracingServiceImpl.java,v 1.8 2003-09-01 09:54:29 nick.cross Exp $
+ * @version $Id: TracingServiceImpl.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
  */
 public class TracingServiceImpl
     extends TracingServicePOA

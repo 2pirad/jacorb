@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.44 2004-02-20 13:47:39 gerald Exp $
+ * @version $Id: StructType.java,v 1.45 2004-05-06 12:39:58 nicolas Exp $
  */
 
 public class StructType

@@ -3,7 +3,7 @@ package org.jacorb.orb.dsi;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.29 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: ServerRequest.java,v 1.30 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class ServerRequest

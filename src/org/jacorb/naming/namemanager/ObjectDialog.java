@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import java.awt.event.*;
 /**
  * A dialog to enter the name and ior for an object binding
  *
- * @version $Id: ObjectDialog.java,v 1.2 2004-03-03 15:38:24 gerald Exp $
+ * @version $Id: ObjectDialog.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
  * @author Gerald Brose, Xtradyne Technologies
  */
 

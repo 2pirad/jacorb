@@ -3,7 +3,7 @@ package org.jacorb.security.level2;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import org.omg.SecurityLevel2.*;
  * JacORB implementation of security Credentials
  *
  * @author Gerald Brose
- * @version  $Id: ReceivedCredentialsImpl.java,v 1.7 2003-01-03 21:04:24 gerald Exp $
+ * @version  $Id: ReceivedCredentialsImpl.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
  *
  */
 

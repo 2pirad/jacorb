@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.43 2004-05-06 07:23:54 brose Exp $
+ * @version $Id: BasicAdapter.java,v 1.44 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class BasicAdapter

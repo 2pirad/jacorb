@@ -3,7 +3,7 @@ package org.jacorb.ir;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import java.lang.reflect.*;
  * The main server that starts the Interface Repository
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IRServer.java,v 1.8 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: IRServer.java,v 1.9 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public class IRServer

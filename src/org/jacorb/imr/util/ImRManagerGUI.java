@@ -3,7 +3,7 @@ package org.jacorb.imr.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -39,7 +39,7 @@ import org.jacorb.imr.*;
  * The GUI'ed version of the ImRManager.
  *
  * @author Nicolas Noffke
- * @version $Id: ImRManagerGUI.java,v 1.7 2004-04-28 12:37:27 brose Exp $
+ * @version $Id: ImRManagerGUI.java,v 1.8 2004-05-06 12:39:59 nicolas Exp $
  *
  */
 

@@ -3,7 +3,7 @@ package org.jacorb.notification.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ import org.apache.regexp.RESyntaxException;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JakartaRegexpPatternWrapper.java,v 1.2 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: JakartaRegexpPatternWrapper.java,v 1.3 2004-05-06 12:40:00 nicolas Exp $
  */
 public class JakartaRegexpPatternWrapper extends PatternWrapper {
 

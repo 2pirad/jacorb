@@ -3,7 +3,7 @@ package org.jacorb.naming;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -23,7 +23,7 @@ package org.jacorb.naming;
 /**   
  * Implementation of the  "BindingIterator" interface
  * @author Gerald Brose
- * @version $Id: BindingIteratorImpl.java,v 1.6 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: BindingIteratorImpl.java,v 1.7 2004-05-06 12:39:59 nicolas Exp $
  */
 
 import  org.omg.CosNaming.*;

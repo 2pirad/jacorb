@@ -3,7 +3,7 @@ package org.jacorb.notification;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -49,7 +49,7 @@ import org.jacorb.notification.interfaces.Message.MessageStateListener;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.18 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: AbstractMessage.java,v 1.19 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public abstract class AbstractMessage

@@ -3,7 +3,7 @@ package org.jacorb.poa;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -51,7 +51,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.26 2004-05-03 05:40:53 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.27 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class RequestProcessor

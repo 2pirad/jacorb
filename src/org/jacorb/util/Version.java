@@ -3,7 +3,7 @@ package org.jacorb.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ package org.jacorb.util;
  * Holds the release date and version of JacORB. An attempt to bring more
  * maintainability to the versioning.
  * @author Gerald Brose
- * @version $Id: Version.java,v 1.24 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: Version.java,v 1.25 2004-05-06 12:40:01 nicolas Exp $
  */
 public final class Version
 {

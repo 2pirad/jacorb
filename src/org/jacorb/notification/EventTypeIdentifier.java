@@ -3,7 +3,7 @@ package org.jacorb.notification;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -23,7 +23,7 @@ package org.jacorb.notification;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventTypeIdentifier.java,v 1.6 2004-01-29 14:14:00 alphonse.bendt Exp $
+ * @version $Id: EventTypeIdentifier.java,v 1.7 2004-05-06 12:39:59 nicolas Exp $
  */
 
 interface EventTypeIdentifier {

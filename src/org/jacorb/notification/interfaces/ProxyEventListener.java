@@ -3,7 +3,7 @@ package org.jacorb.notification.interfaces;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import org.omg.CosNotifyChannelAdmin.AdminLimitExceeded;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyEventListener.java,v 1.2 2004-03-17 23:01:54 alphonse.bendt Exp $
+ * @version $Id: ProxyEventListener.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public interface ProxyEventListener {

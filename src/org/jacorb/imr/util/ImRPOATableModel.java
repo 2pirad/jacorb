@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,10 @@ import javax.swing.event.*;
  * @author Nicolas Noffke
  * 
  * $Log: ImRPOATableModel.java,v $
- * Revision 1.6  2002-12-20 18:29:04  nicolas
+ * Revision 1.7  2004-05-06 12:39:59  nicolas
+ * Updated Copyright notice to 2004
+ *
+ * Revision 1.6  2002/12/20 18:29:04  nicolas
  * Updated Copyright year to 2003
  *
  * Revision 1.5  2002/07/01 07:54:16  nicolas

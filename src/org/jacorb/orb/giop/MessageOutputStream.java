@@ -3,7 +3,7 @@ package org.jacorb.orb.giop;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.jacorb.orb.CDROutputStream;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.13 2004-01-07 14:24:50 nick.cross Exp $
+ * @version $Id: MessageOutputStream.java,v 1.14 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class MessageOutputStream

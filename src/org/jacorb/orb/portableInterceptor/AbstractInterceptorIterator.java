@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import org.omg.CORBA.UserException;
  * AbstractInterceptorIterator.java
  *
  *
- * @version $Id: AbstractInterceptorIterator.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: AbstractInterceptorIterator.java,v 1.7 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public abstract class AbstractInterceptorIterator  

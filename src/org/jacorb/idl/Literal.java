@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import java.math.BigInteger;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.23 2004-01-30 13:40:31 gerald Exp $
+ * @version $Id: Literal.java,v 1.24 2004-05-06 12:39:58 nicolas Exp $
  */
 
 class Literal

@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -23,7 +23,7 @@ package org.jacorb.orb.factory;
 /* 
  * 
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.7 2004-05-06 09:41:34 nicolas Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.8 2004-05-06 12:40:00 nicolas Exp $
  */
 
 import java.net.*;

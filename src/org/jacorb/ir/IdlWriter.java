@@ -3,7 +3,7 @@ package org.jacorb.ir;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.omg.DynamicAny.*;
  * This class prints IDL from IR-Descriptions to PrintStreams
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IdlWriter.java,v 1.9 2003-08-22 20:20:55 francisco Exp $
+ * @version $Id: IdlWriter.java,v 1.10 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public class IdlWriter 

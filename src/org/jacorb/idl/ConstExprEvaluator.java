@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -36,7 +36,7 @@ import java.lang.Double;
  * When the getValue() is called, a Double object is returned.
  * If it returns null, an error occured.<p>
 
- * @version $Id: ConstExprEvaluator.java,v 1.3 2004-01-15 11:12:13 nick.cross Exp $
+ * @version $Id: ConstExprEvaluator.java,v 1.4 2004-05-06 12:39:58 nicolas Exp $
  * @author  Gerald Brose,
  *          The-Son LAI <a href="mailto:Lts@writeme.com">Lts@writeme.com</a>
  */

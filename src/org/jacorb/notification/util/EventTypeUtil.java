@@ -3,7 +3,7 @@ package org.jacorb.notification.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ import org.omg.CosNotification.EventType;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventTypeUtil.java,v 1.1 2004-02-20 12:47:08 alphonse.bendt Exp $
+ * @version $Id: EventTypeUtil.java,v 1.2 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class EventTypeUtil

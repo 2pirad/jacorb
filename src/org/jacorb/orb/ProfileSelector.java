@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ import org.jacorb.orb.giop.ClientConnectionManager;
  * an object's IOR should be used to communicate with the object.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: ProfileSelector.java,v 1.2 2003-08-15 11:17:41 andre.spiegel Exp $
+ * @version $Id: ProfileSelector.java,v 1.3 2004-05-06 12:40:00 nicolas Exp $
  */
 public interface ProfileSelector
 {

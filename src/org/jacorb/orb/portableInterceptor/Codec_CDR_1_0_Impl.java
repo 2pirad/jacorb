@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.jacorb.orb.CDROutputStream;
  * See PI SPec p.10-77ff
  *
  * @author Nicolas Noffke
- * @version $Id: Codec_CDR_1_0_Impl.java,v 1.10 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: Codec_CDR_1_0_Impl.java,v 1.11 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class Codec_CDR_1_0_Impl

@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import java.util.*;
  * information the has to be saved for each encapsulation and
  * restored later
  * @author Gerald Brose
- * @version $Id: EncapsInfo.java,v 1.10 2003-10-30 10:14:32 andre.spiegel Exp $
+ * @version $Id: EncapsInfo.java,v 1.11 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class EncapsInfo

@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.23 2004-02-13 14:03:51 nick.cross Exp $
+ * @version $Id: JacIDL.java,v 1.24 2004-05-06 12:39:58 nicolas Exp $
  */
 
 public class JacIDL

@@ -3,7 +3,7 @@ package org.jacorb.security.sas;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 2000-2003 Nicolas Noffke, Gerald Brose.
+ *   Copyright (C) 2000-2004 Nicolas Noffke, Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -53,7 +53,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.21 2004-05-05 13:42:03 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.22 2004-05-06 12:40:01 nicolas Exp $
  */
 
 public class SASClientInterceptor

@@ -3,7 +3,7 @@ package org.jacorb.poa;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
  * The poa manager class, an implementation of org.omg.PortableServer.POAManager
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAManager.java,v 1.13 2004-01-02 01:50:07 andre.spiegel Exp $
+ * @version $Id: POAManager.java,v 1.14 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class POAManager

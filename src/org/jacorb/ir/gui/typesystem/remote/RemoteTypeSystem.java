@@ -3,7 +3,7 @@ package org.jacorb.ir.gui.typesystem.remote;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.jacorb.ir.gui.typesystem.*;
 
 /**
  * @author Joerg v. Frantzius, Gerald Brose.
- * $Id: RemoteTypeSystem.java,v 1.11 2004-04-28 12:37:28 brose Exp $
+ * $Id: RemoteTypeSystem.java,v 1.12 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public class RemoteTypeSystem

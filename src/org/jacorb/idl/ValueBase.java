@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBase.java,v 1.1 2004-04-21 14:56:13 brose Exp $
+ * @version $Id: ValueBase.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
  */
 
 class ValueBase

@@ -3,7 +3,7 @@ package org.jacorb.config;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -28,7 +28,7 @@ import org.apache.avalon.framework.configuration.Configurable;
  * specific logging backend.
  *
  * @author Gerald Brose 
- * @version $Id: LoggerFactory.java,v 1.2 2004-04-28 12:37:27 brose Exp $
+ * @version $Id: LoggerFactory.java,v 1.3 2004-05-06 12:39:58 nicolas Exp $
  * @since JacORB 2.0 beta 3
  */
 

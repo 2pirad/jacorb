@@ -4,7 +4,7 @@ package org.jacorb.orb;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import org.jacorb.orb.giop.ClientConnectionManager;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: DefaultProfileSelector.java,v 1.3 2003-08-15 11:17:26 andre.spiegel Exp $
+ * @version $Id: DefaultProfileSelector.java,v 1.4 2004-05-06 12:40:00 nicolas Exp $
  */
 public class DefaultProfileSelector implements ProfileSelector
 {

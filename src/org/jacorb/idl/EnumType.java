@@ -1,7 +1,7 @@
 /*
 *        JacORB - a free Java ORB
 *
-*   Copyright (C) 1997-2004  Gerald Brose.
+*   Copyright (C) 1997-2004 Gerald Brose.
 *
 *   This library is free software; you can redistribute it and/or
 *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.32 2004-03-05 10:51:47 gerald Exp $
+ * @version $Id: EnumType.java,v 1.33 2004-05-06 12:39:58 nicolas Exp $
  */
 
 public class EnumType

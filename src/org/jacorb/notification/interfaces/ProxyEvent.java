@@ -3,7 +3,7 @@ package org.jacorb.notification.interfaces;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import org.jacorb.notification.servant.AbstractAdmin;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyEvent.java,v 1.4 2004-03-17 23:01:54 alphonse.bendt Exp $
+ * @version $Id: ProxyEvent.java,v 1.5 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public class ProxyEvent extends ApplicationEvent

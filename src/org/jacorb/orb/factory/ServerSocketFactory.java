@@ -3,7 +3,7 @@ package org.jacorb.orb.factory;
 /*
  *        Written for JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003  Gerald Brose, André Benvenuti.
+ *   Copyright (C) 1999-2004 Gerald Brose, André Benvenuti.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ package org.jacorb.orb.factory;
  * the code which asks for the sockets.
  * 
  * @author André Benvenuti
- * $Id: ServerSocketFactory.java,v 1.7 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: ServerSocketFactory.java,v 1.8 2004-05-06 12:40:00 nicolas Exp $
  */
 
 import java.net.*;

@@ -2,7 +2,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.20 2004-01-15 11:12:13 nick.cross Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.21 2004-05-06 12:39:58 nicolas Exp $
  */
 
 import java.io.PrintWriter;

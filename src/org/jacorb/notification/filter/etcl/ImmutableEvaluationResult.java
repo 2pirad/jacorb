@@ -5,7 +5,7 @@ import org.jacorb.notification.filter.EvaluationResult;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.jacorb.notification.filter.EvaluationResult;
  * Created: Thu Jan 02 15:48:45 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ImmutableEvaluationResult.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: ImmutableEvaluationResult.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
  */
 
 public class ImmutableEvaluationResult extends EvaluationResult

@@ -3,7 +3,7 @@ package org.jacorb.notification.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ package org.jacorb.notification.util;
  * or remove Operation occurs the Cache is invalidated.
  *
  * @author Alphonse Bendt
- * @version $Id: CachingWildcardMap.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: CachingWildcardMap.java,v 1.4 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class CachingWildcardMap extends WildcardMap

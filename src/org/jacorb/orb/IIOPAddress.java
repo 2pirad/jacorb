@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -28,7 +28,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.12 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: IIOPAddress.java,v 1.13 2004-05-06 12:40:00 nicolas Exp $
  */
 public class IIOPAddress 
     implements Configurable

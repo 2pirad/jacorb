@@ -3,7 +3,7 @@ package org.jacorb.events;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -38,7 +38,7 @@ import org.jacorb.orb.*;
  * @author Joerg v. Frantzius
  * @author Rainer Lischetzki
  * @author Gerald Brose
- * $Id: ProxyPullConsumerImpl.java,v 1.9 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * $Id: ProxyPullConsumerImpl.java,v 1.10 2004-05-06 12:39:58 nicolas Exp $
  */
 public class ProxyPullConsumerImpl
     extends org.omg.CosEventChannelAdmin.ProxyPullConsumerPOA

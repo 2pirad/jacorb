@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -29,7 +29,7 @@ import org.jacorb.util.threadpool.*;
  * Created: Sat Aug 18 10:40:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.7 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.8 2004-05-06 12:40:00 nicolas Exp $
  */
 
 public class MessageReceptorPool

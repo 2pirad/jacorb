@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 2000-2003  Gerald Brose.
+ *   Copyright (C) 2000-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ package org.jacorb.security.util;
  * TrustNodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KSEntryTree.java,v 1.7 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: KSEntryTree.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
  */
 
 import java.awt.*;

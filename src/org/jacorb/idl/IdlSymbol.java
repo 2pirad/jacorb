@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.35 2004-01-30 13:40:31 gerald Exp $
+ * @version $Id: IdlSymbol.java,v 1.36 2004-05-06 12:39:58 nicolas Exp $
  */
 
 public class IdlSymbol

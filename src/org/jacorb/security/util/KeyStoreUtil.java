@@ -3,7 +3,7 @@ package org.jacorb.security.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 2000-2003  Gerald Brose.
+ *   Copyright (C) 2000-2004 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -43,7 +43,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KeyStoreUtil.java,v 1.9 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.10 2004-05-06 12:40:01 nicolas Exp $
  */
 
 public class KeyStoreUtil
