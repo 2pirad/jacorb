@@ -25,7 +25,7 @@ import java.util.Hashtable;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.6 2001-06-08 12:10:34 jacorb Exp $    
+ * @version $Id: TypeCode.java,v 1.7 2001-08-29 09:16:49 jacorb Exp $    
  */
  
 public class TypeCode 
@@ -139,10 +139,10 @@ public class TypeCode
      * Constructor for  tk_union
      */
 
-    public TypeCode (java.lang.String _id, 
-              java.lang.String _name, 
-              org.omg.CORBA.TypeCode _discriminator_type, 
-              org.omg.CORBA.UnionMember[] _members) 
+    public TypeCode ( java.lang.String _id, 
+                      java.lang.String _name, 
+                      org.omg.CORBA.TypeCode _discriminator_type, 
+                      org.omg.CORBA.UnionMember[] _members ) 
     {
         kind = TCKind._tk_union;
         id   =  _id ;
@@ -158,7 +158,9 @@ public class TypeCode
             member_label[i] = (Any)_members[i].label;
             if( member_label[i].kind().equals( TCKind.tk_octet ) &&
                 ((Byte)member_label[i].value()).byteValue() == (byte)0 )
+            {
                 default_index = i;
+            }
             member_type[i] = (TypeCode)_members[i].type;
         }
     }
@@ -168,8 +170,8 @@ public class TypeCode
      */
 
     public TypeCode (java.lang.String _id, 
-              java.lang.String _name, 
-              java.lang.String[] _members) 
+                     java.lang.String _name, 
+                     java.lang.String[] _members) 
     {
         kind = TCKind._tk_enum;
         id = _id;
@@ -187,8 +189,8 @@ public class TypeCode
      */  
 
     public TypeCode ( String _id, 
-               String _name, 
-               org.omg.CORBA.TypeCode _original_type)
+                      String _name, 
+                      org.omg.CORBA.TypeCode _original_type)
     { 
         id = _id;
         kind = TCKind._tk_alias;
