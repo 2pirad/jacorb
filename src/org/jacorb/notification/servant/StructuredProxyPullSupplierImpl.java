@@ -23,10 +23,13 @@ package org.jacorb.notification.servant;
 
 import java.util.List;
 
-import org.jacorb.notification.interfaces.MessageConsumer;
+import org.jacorb.notification.ChannelContext;
+import org.jacorb.notification.CollectionsWrapper;
 import org.jacorb.notification.interfaces.Message;
+import org.jacorb.notification.interfaces.MessageConsumer;
 
 import org.omg.CORBA.BooleanHolder;
+import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.EventHeader;
@@ -35,22 +38,18 @@ import org.omg.CosNotification.FixedEventHeader;
 import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotification.UnsupportedQoS;
-import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
+import org.omg.CosNotifyChannelAdmin.ProxySupplierHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullSupplierPOATie;
+import org.omg.CosNotifyComm.NotifyPublishHelper;
+import org.omg.CosNotifyComm.NotifyPublishOperations;
 import org.omg.CosNotifyComm.StructuredPullConsumer;
 import org.omg.PortableServer.Servant;
-import org.omg.CORBA.ORB;
-
-
-import org.omg.CosNotifyChannelAdmin.ProxySupplierHelper;
-import org.jacorb.notification.ChannelContext;
-import org.jacorb.notification.CollectionsWrapper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.2 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.3 2004-02-09 16:25:27 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullSupplierImpl
@@ -78,7 +77,9 @@ public class StructuredProxyPullSupplierImpl
     /**
      * the associated Consumer.
      */
-    StructuredPullConsumer structuredPullConsumer_;
+    private StructuredPullConsumer structuredPullConsumer_;
+
+    private NotifyPublishOperations offerListener_;
 
     ////////////////////////////////////////
 
@@ -104,6 +105,10 @@ public class StructuredProxyPullSupplierImpl
 
         connected_ = true;
         structuredPullConsumer_ = consumer;
+
+        try {
+            offerListener_ = NotifyPublishHelper.narrow(consumer);
+        } catch (Throwable t) {}
     }
 
 
@@ -230,5 +235,10 @@ public class StructuredProxyPullSupplierImpl
 
     public org.omg.CORBA.Object activate() {
         return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
+    }
+
+
+    NotifyPublishOperations getOfferListener() {
+        return offerListener_;
     }
 }

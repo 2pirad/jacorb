@@ -27,6 +27,8 @@ import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPushConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPushConsumerPOATie;
+import org.omg.CosNotifyComm.NotifySubscribeHelper;
+import org.omg.CosNotifyComm.NotifySubscribeOperations;
 import org.omg.CosNotifyComm.SequencePushSupplier;
 import org.omg.PortableServer.Servant;
 
@@ -34,14 +36,16 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.2 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.3 2004-02-09 16:25:27 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl
     extends StructuredProxyPushConsumerImpl
     implements SequenceProxyPushConsumerOperations
 {
-    private SequencePushSupplier mySequencePushSupplier_;
+    private SequencePushSupplier sequencePushSupplier_;
+
+    private NotifySubscribeOperations subscriptionListener_;
 
     ////////////////////////////////////////
 
@@ -60,11 +64,11 @@ public class SequenceProxyPushConsumerImpl
     {
         if ( connected_ )
         {
-            if ( mySequencePushSupplier_ != null )
+            if ( sequencePushSupplier_ != null )
             {
                 connected_ = false;
-                mySequencePushSupplier_.disconnect_sequence_push_supplier();
-                mySequencePushSupplier_ = null;
+                sequencePushSupplier_.disconnect_sequence_push_supplier();
+                sequencePushSupplier_ = null;
             }
 
         }
@@ -80,7 +84,12 @@ public class SequenceProxyPushConsumerImpl
         }
 
         connected_ = true;
-        mySequencePushSupplier_ = supplier;
+        sequencePushSupplier_ = supplier;
+
+        try {
+            subscriptionListener_ = NotifySubscribeHelper.narrow(sequencePushSupplier_);
+        } catch (Throwable t) {}
+
     }
 
 
@@ -108,5 +117,10 @@ public class SequenceProxyPushConsumerImpl
         }
 
         return thisServant_;
+    }
+
+
+    NotifySubscribeOperations getSubscriptionListener() {
+        return subscriptionListener_;
     }
 }

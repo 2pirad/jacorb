@@ -21,13 +21,11 @@ package org.jacorb.notification.servant;
  *
  */
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.jacorb.notification.ChannelContext;
-import org.jacorb.notification.FilterManager;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.MessageConsumer;
@@ -54,11 +52,10 @@ import org.omg.CosNotifyChannelAdmin.ProxySupplierHelper;
 import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.CosNotifyFilter.MappingFilter;
 import org.omg.PortableServer.Servant;
-import org.omg.CORBA.NO_IMPLEMENT;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminTieImpl.java,v 1.2 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminTieImpl.java,v 1.3 2004-02-09 16:25:27 alphonse.bendt Exp $
  */
 
 public class ConsumerAdminTieImpl
@@ -134,12 +131,12 @@ public class ConsumerAdminTieImpl
     }
 
 
-    public void subscription_change( EventType[] eventType1,
-                                     EventType[] eventType2 )
+    public void subscription_change( EventType[] added,
+                                     EventType[] removed )
         throws InvalidEventType
-        {
-            throw new NO_IMPLEMENT();
-        }
+    {
+        subscriptionManager_.subscription_change(added, removed);
+    }
 
 
     public ProxySupplier get_proxy_supplier( int key ) throws ProxyNotFound
@@ -256,6 +253,8 @@ public class ConsumerAdminTieImpl
                 throw new BAD_PARAM();
         }
 
+        configureManagers(_servant);
+
         configureNotifyStyleID(_servant);
 
         configureMappingFilters(_servant);
@@ -356,6 +355,8 @@ public class ConsumerAdminTieImpl
             default:
                 throw new BAD_PARAM("The ClientType: " + clientType.value() + " is unknown");
         }
+
+        configureManagers(_servant);
 
         configureNotifyStyleID(_servant);
 
@@ -506,5 +507,4 @@ public class ConsumerAdminTieImpl
                 }
             });
     }
-
 }
