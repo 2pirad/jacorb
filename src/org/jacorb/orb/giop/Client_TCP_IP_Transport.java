@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.3 2001-11-16 15:14:32 jacorb Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.4 2002-02-08 14:22:01 steve.osselton Exp $
  */
 
 public class Client_TCP_IP_Transport 
@@ -174,7 +174,8 @@ public class Client_TCP_IP_Transport
     {
         if( connected && socket != null )
         {
-            socket.close();
+            socket.shutdownOutput ();
+            socket.close ();
             
             //this will cause exceptions when trying to read from
             //the streams. Better than "nulling" them.            
