@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.19 2002-04-17 08:49:12 gerald Exp $
+ * @version $Id: SequenceType.java,v 1.20 2002-05-03 16:46:36 gerald Exp $
  */
 
 public class SequenceType
@@ -102,10 +102,6 @@ public class SequenceType
             max.setPackage( s );
     }
 
-    boolean typedefd()
-    {
-        return typedefd;
-    }
 
 
     void setRecursive()

@@ -26,7 +26,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.12 2002-04-17 08:49:16 gerald Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.13 2002-05-03 16:46:37 gerald Exp $
  */
 
 class ValueBoxDecl
@@ -249,10 +249,13 @@ class ValueBoxDecl
         ps.println( "\tpublic static " + type + " read (final org.omg.CORBA.portable.InputStream in)" );
         ps.println( "\t{" );
         if( typeSpec.typeSpec() instanceof BaseType )
-
             ps.println( "\t\t" + type + " result = new " + type + "(" + typeSpec.typeSpec().printReadExpression( "in" ) + ");" );
         else
-            ps.println( "\t\t" + type + " result = " + typeSpec.typeSpec().printReadExpression( "in" ) + ";" );
+        {
+            ps.println( "\t\t" + type + " result;");
+            ps.println( "\t\t" + typeSpec.typeSpec().printReadStatement("result", "in" ) + ";" );
+            //ps.println( "\t\t" + type + " result = " + typeSpec.typeSpec().printReadExpression( "in" ) + ";" );
+        }
         ps.println( "\t\treturn result;" );
         ps.println( "\t}" );
 

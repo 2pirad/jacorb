@@ -26,7 +26,7 @@ package org.jacorb.idl;
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.3 2002-04-17 08:49:17 gerald Exp $
+ * @version $Id: VectorType.java,v 1.4 2002-05-03 16:46:37 gerald Exp $
  */
 
 
@@ -90,10 +90,17 @@ public abstract class VectorType
         return name + "[]";
     }
 
+    boolean typedefd()
+    {
+        return typedefd;
+    }
 
     public String printReadExpression( String streamname )
     {
-        return helperName() + ".read(" + streamname + ")";
+        if( typedefd() )
+            return helperName() + ".read(" + streamname + ")";
+       else
+            return "*****";
     }
 
 
