@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--               ssl build file                         -->
-  <!-- $Id: build.xml,v 1.3 2002-02-25 20:50:10 nicolas Exp $ -->
+  <!-- $Id: build.xml,v 1.4 2002-04-26 15:56:26 nicolas Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -13,7 +13,7 @@
 	<property name="src" value="${dirs.base}/src"/>
 	<available classname="iaik.x509.X509Certificate" 
                    property="iaik.present" />
-	<available classname="javax.net.ssl.TrustManager" 
+	<available classname="com.sun.net.ssl.SSLContext" 
                    property="sun_jsse.present" />
    </target>
 
