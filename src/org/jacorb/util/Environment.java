@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.34 2002-03-19 09:25:53 nicolas Exp $
+ * @version $Id: Environment.java,v 1.35 2002-03-22 15:28:34 nicolas Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -230,6 +230,8 @@ public class Environment
                             new BufferedInputStream( 
                                  new FileInputStream( strtok.nextToken() )));
                     }
+		    
+		    loaded = true;
                 } 
                 catch ( IOException e ) 
                 {                    
