@@ -40,7 +40,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.24 2003-04-23 09:45:38 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.25 2003-04-23 15:07:07 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -695,7 +695,10 @@ public abstract class GIOPConnection
 
     public final boolean isSSL()
     {
-        return transport.isSSL();
+        if (transport instanceof TCP_IP_Transport)
+            return ((TCP_IP_Transport)transport).isSSL();
+        else
+            return false;
     }
 
     public void close()
