@@ -65,7 +65,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.15 2004-02-05 15:57:12 nick.cross Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.16 2004-02-11 13:34:58 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -125,8 +125,8 @@ public class SASClientInterceptor
     public void send_request(org.omg.PortableInterceptor.ClientRequestInfo ri)
         throws org.omg.PortableInterceptor.ForwardRequest
     {
-        if (ri.operation().equals("_is_a")) return;
-        if (ri.operation().equals("_non_existent")) return;
+        //if (ri.operation().equals("_is_a")) return;
+        //if (ri.operation().equals("_non_existent")) return;
         org.omg.CORBA.ORB orb = ((ClientRequestInfoImpl) ri).orb;
 
         // see if target requires protected requests by looking into the IOR
