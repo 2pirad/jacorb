@@ -29,16 +29,15 @@ import org.jacorb.util.threadpool.*;
  * Created: Sat Aug 18 10:40:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.4 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.5 2003-04-01 13:38:47 nick.cross Exp $
  */
 
-public class MessageReceptorPool 
+public class MessageReceptorPool
 {
     private static MessageReceptorPool singleton = null;
-
     private ThreadPool pool = null;
 
-    public MessageReceptorPool()
+    private MessageReceptorPool()
     {
         pool = new ThreadPool( new ConsumerFactory(){
                 public Consumer create()
@@ -59,11 +58,9 @@ public class MessageReceptorPool
 
         return singleton;
     }
-    
+
     public void connectionCreated( GIOPConnection conn )
     {
         pool.putJob( conn );
     }
 }// MessageReceptorPool
-
-
