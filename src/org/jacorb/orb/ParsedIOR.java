@@ -39,7 +39,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.25 2002-03-04 18:29:03 nicolas Exp $
+ * @version $Id: ParsedIOR.java,v 1.26 2002-03-13 15:42:47 steve.osselton Exp $
  */
 
 public class ParsedIOR 
@@ -905,10 +905,26 @@ public class ParsedIOR
             java.lang.Object obj = null;
             try
             {
-                javax.naming.Context initialContext = new javax.naming.InitialContext ();
-                obj = initialContext.lookup (jndiName);
+//                javax.naming.Context initialContext = new javax.naming.InitialContext ();
+//                obj = initialContext.lookup (jndiName);
+//
+// Replaced lines above with reflected equivalent so will compile under JDK < 1.3
+// which do not include javax.naming classes. For jndi based name resolution to
+// work obviously javax.naming classes must be in CLASSPATH.
+//
+                Class[] types = new Class [1];
+                java.lang.Object[] params = new java.lang.Object[1];
+
+                Class cls = Class.forName ("javax.naming.InitialContext");
+                java.lang.Object initialContext = cls.newInstance ();
+
+                types[0] = String.class;
+                params[0] = jndiName;
+
+                java.lang.reflect.Method method = cls.getMethod ("lookup", types);
+                obj = method.invoke (initialContext, params);
             }
-            catch (javax.naming.NamingException ex)
+            catch (Exception ex)
             {
                 throw new IllegalArgumentException ("Failed to lookup JNDI/IOR: " + ex);
             }
