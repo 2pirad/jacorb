@@ -25,7 +25,7 @@ import java.util.Hashtable;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.4 2001-03-29 15:25:26 jacorb Exp $    
+ * @version $Id: TypeCode.java,v 1.5 2001-04-04 08:26:40 jacorb Exp $    
  */
  
 public class TypeCode 
@@ -641,6 +641,13 @@ public class TypeCode
         case   TCKind._tk_short: return "short";
         case   TCKind._tk_float: return "float";
         case   TCKind._tk_double: return "double";
+        case   TCKind._tk_fixed: 
+            try
+            {
+              return "fixed <" + fixed_digits() + "," + fixed_scale()  + ">";
+            } 
+            catch ( org.omg.CORBA.TypeCodePackage.BadKind bk )
+            {}
         case   TCKind._tk_boolean: return "boolean";
         case   TCKind._tk_octet: return "octet";
         case   TCKind._tk_char: return "char";

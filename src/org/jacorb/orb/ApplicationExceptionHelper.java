@@ -9,7 +9,7 @@ import java.lang.reflect.*;
  * application exception into an any.
  *
  * @author Nicolas Noffke
- * @version $Id: ApplicationExceptionHelper.java,v 1.4 2001-04-03 16:02:30 jacorb Exp $
+ * @version $Id: ApplicationExceptionHelper.java,v 1.5 2001-04-04 08:26:40 jacorb Exp $
  */
 
 public class ApplicationExceptionHelper  
@@ -59,7 +59,10 @@ public class ApplicationExceptionHelper
 
             try
             {
-                _helper = Class.forName( nameBuf.toString());                
+                _helper = Class.forName( nameBuf.toString());
+                name = nameBuf.toString();
+                name = name.substring( 0, name.indexOf("Helper"));
+                break;
             }
             catch( ClassNotFoundException cnf )
             {
@@ -86,7 +89,7 @@ public class ApplicationExceptionHelper
         Method _insert = 
             _helper.getMethod("insert", 
                               new Class[]{ Class.forName("org.omg.CORBA.Any"), 
-                                           s.getClass() }
+                                           Class.forName( name ) }
                               ); 
         _insert.invoke( null, new java.lang.Object[]{any, _user_ex} );
     }
