@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.5 2001-11-16 10:51:48 spiegel Exp $
+ * @version $Id: TypeDeclaration.java,v 1.6 2001-12-17 14:12:00 gerald Exp $
  */
 
 import java.util.*;
@@ -168,24 +168,4 @@ class TypeDeclaration
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
