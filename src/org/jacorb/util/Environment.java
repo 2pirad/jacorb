@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.18 2001-05-14 11:16:15 noffke Exp $
+ * @version $Id: Environment.java,v 1.19 2001-06-07 14:40:40 noffke Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -129,7 +129,7 @@ public class Environment
     private static String  _default_user            = null;
     private static String  _default_password        = null;
     // rt: ssl client/server is changed per default
-    private static boolean _change_ssl_roles        = true;
+    private static boolean _change_ssl_roles        = false;
     
     //
     // bnv: security features for the default user and SecInvocationPolicy objects for default security domain
