@@ -17,7 +17,7 @@ import org.apache.log.output.io.*;
  *  Freie Universitaet Berlin.
  *
  *
- * $Id: parser.cup,v 1.68 2003-09-08 14:20:16 brose Exp $
+ * $Id: parser.cup,v 1.69 2003-10-08 14:05:38 brose Exp $
  *
  */
 
@@ -104,6 +104,8 @@ parser code
         include_state = false;
         generateIR = false;
         generate_skeletons = true;
+
+        strict_names = true;
 
         generateIncluded = false;
         inhibitionState = false;
@@ -443,8 +445,22 @@ parser code
        String idlp = mapping.substring(0,split_idx);
        String jp = mapping.substring(split_idx+1);
 
-       pack_replace.put( idlp, jp );
-       logger.debug( "Replace pack " + idlp + " with " + jp );
+       if( idlp.length() == 0 )
+       {
+           package_prefix = jp;
+           if( logger.isDebugEnabled() )
+           {
+               logger.debug( "Replace unnamed global package with " + jp );
+           }
+       }
+       else
+       {
+           pack_replace.put( idlp, jp );
+           if( logger.isDebugEnabled() )
+           {
+               logger.debug( "Replace pack " + idlp + " with " + jp );
+           }
+       }
     }
 
 
