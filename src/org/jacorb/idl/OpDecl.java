@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.5 2001-04-04 14:42:41 jacorb Exp $
+ * @version $Id: OpDecl.java,v 1.6 2001-04-04 14:54:57 jacorb Exp $
  */
 
 import java.util.*;
@@ -64,9 +64,16 @@ class OpDecl
     public void parse()
     {
         //        escapeName();
-        if( opAttribute == 1  && !raisesExpr.empty())
-            parser.error("Oneway operation "+full_name()+
-                         " may not define a raises clases.", token);
+        if( opAttribute == 1 )
+        {
+            if( !raisesExpr.empty())
+                parser.error("Oneway operation "+full_name()+
+                             " may not define a raises clases.", token);
+
+            if( ! (opTypeSpec.typeSpec() instanceof VoidTypeSpec) )
+                parser.error("Oneway operation "+full_name()+
+                             " may only define void as return type.", token);
+        }
 
 	try
 	{
