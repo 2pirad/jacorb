@@ -51,7 +51,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.30 2004-11-18 23:36:59 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.31 2004-12-11 22:31:34 andre.spiegel Exp $
  */
 
 public class RequestProcessor
@@ -239,7 +239,7 @@ public class RequestProcessor
                 logger.warn("rid: "+request.requestId() +
                             " opname: " + request.operation() +
                             " incarnate: system exception was thrown (" +
-                            e.getMessage() + ")");
+                            e.toString() + ")");
             }
             request.setSystemException(e);
         }
@@ -256,17 +256,16 @@ public class RequestProcessor
 
         }
         catch (Throwable e)
-        { /* not spec. */
-            if (logger.isWarnEnabled())
+        {
+            /* not spec. */
+            if (logger.isErrorEnabled())
             {
-                logger.warn("rid: " + request.requestId() +
-                            " opname: " + request.operation() +
-                            " incarnate: throwable was thrown (" +
-                            e.getMessage() + ")", e);
+                logger.error("rid: " + request.requestId() +
+                             " opname: " + request.operation() +
+                             " incarnate: throwable was thrown (" +
+                             e.getClass().getName() + ")", e);
             }
-
             request.setSystemException(new org.omg.CORBA.OBJ_ADAPTER(e.getMessage()));
-            /* which system exception I should raise? */
         }
     }
 
@@ -314,11 +313,11 @@ public class RequestProcessor
                 if( specialOperations.containsKey(request.operation()) &&
                     !(servant instanceof org.jacorb.orb.Forwarder) )
                 {
-                    ((org.jacorb.orb.ServantDelegate)servant._get_delegate())._invoke(
-                                                                                      servant,
-                                                                                      request.operation(),
-                                                                                      request.getInputStream(),
-                                                                                      request);
+                    ((org.jacorb.orb.ServantDelegate)servant._get_delegate())
+                        ._invoke(servant,
+                                 request.operation(),
+                                 request.getInputStream(),
+                                 request);
                 }
                 else
                 {
@@ -343,23 +342,19 @@ public class RequestProcessor
                 logger.info("rid: " + request.requestId() +
                             " opname: " + request.operation() +
                             " invocation: system exception was thrown (" +
-                            e.getMessage() + ")");
+                            e.toString() + ")");
             }
             request.setSystemException(e);
         }
         catch (Throwable e)
         {
             /* not spec. */
-            if (logger.isWarnEnabled())
-            {
-                logger.warn("rid: " + request.requestId() +
-                            " opname: " + request.operation() +
-                            " invocation: throwable was thrown, " +
-                            e.toString());
-                if (logger.isDebugEnabled())
-                {
-                    logger.debug("Exception:", e);
-                }
+            if (logger.isErrorEnabled())
+            {   
+                logger.error("rid: " + request.requestId() +
+                             " opname: " + request.operation() +
+                             " invocation: throwable was thrown (" +
+                             e.getClass().getName() + ")", e);  
             }
             request.setSystemException (new org.omg.CORBA.UNKNOWN(e.toString()));
         }
