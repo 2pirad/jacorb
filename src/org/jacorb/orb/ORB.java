@@ -41,14 +41,14 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.52 2002-03-19 09:25:19 nicolas Exp $
+ * @version $Id: ORB.java,v 1.53 2002-03-22 18:24:10 nicolas Exp $
  */
 
 public final class ORB
     extends ORBSingleton
     implements org.jacorb.poa.POAListener
 {
-    private static final String versionString = "1.4 beta 3";
+    private static final String versionString = "1.4 beta 4";
     private static final String dateString = "March 2002";
     private static final String nullIORString =
        "IOR:00000000000000010000000000000000";
