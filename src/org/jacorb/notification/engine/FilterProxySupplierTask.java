@@ -22,7 +22,7 @@ package org.jacorb.notification.engine;
  */
 
 import java.util.Collections;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.jacorb.notification.interfaces.FilterStage;
@@ -34,7 +34,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.8 2004-01-29 14:17:56 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.9 2004-02-08 14:18:55 alphonse.bendt Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask
@@ -46,7 +46,7 @@ public class FilterProxySupplierTask extends AbstractFilterTask
         //////////////////////////////
 
         public AlternateMessageMap() {
-            this(new Hashtable());
+            this(new HashMap());
         }
 
         AlternateMessageMap(Map m) {
