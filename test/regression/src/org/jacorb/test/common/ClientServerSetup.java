@@ -73,14 +73,15 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.5 2003-03-31 11:25:57 andre.spiegel Exp $
+ * @version $Id: ClientServerSetup.java,v 1.6 2003-04-27 12:30:08 andre.spiegel Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
-    protected String                servantName;
-    protected Process               serverProcess;
-    protected org.omg.CORBA.Object  serverObject;
-    protected org.omg.CORBA.ORB     clientOrb;
+    protected String                     servantName;
+    protected Process                    serverProcess;
+    protected org.omg.CORBA.Object       serverObject;
+    protected org.omg.CORBA.ORB          clientOrb;
+    protected org.omg.PortableServer.POA clientRootPOA;
 
     private Properties clientOrbProperties = null;
     private Properties serverOrbProperties = null;
@@ -117,9 +118,9 @@ public class ClientServerSetup extends TestSetup {
     public void setUp() throws Exception
     {
         clientOrb = ORB.init (new String[0], clientOrbProperties );
-        POA poa = POAHelper.narrow 
-            ( clientOrb.resolve_initial_references( "RootPOA" ) );
-        poa.the_POAManager().activate();
+        clientRootPOA = POAHelper.narrow 
+                          ( clientOrb.resolve_initial_references( "RootPOA" ) );
+        clientRootPOA.the_POAManager().activate();
 
         serverProcess = Runtime.getRuntime().exec(   
             "jaco -Djacorb.verbosity=0 "
@@ -127,7 +128,7 @@ public class ClientServerSetup extends TestSetup {
             + propsToCommandLineArgs( serverOrbProperties )
             + " -classpath " 
             + System.getProperty ("java.class.path")
-            + " org.jacorb.test.common.TestServer "
+            + " " + getTestServerMain() + " "
             + servantName );
         BufferedReader input = 
             new BufferedReader
@@ -150,7 +151,10 @@ public class ClientServerSetup extends TestSetup {
         serverProcess.destroy();
     }
 
-
+    public String getTestServerMain()
+    {
+        return "org.jacorb.test.common.TestServer";
+    }
 
     /**
      * Gets a reference to the object that was instantiated in the
@@ -184,6 +188,11 @@ public class ClientServerSetup extends TestSetup {
     public Process getServerProcess()
     {
         return serverProcess;
+    }
+
+    public POA getClientRootPOA()
+    {
+        return clientRootPOA;
     }
 
     private static String propsToCommandLineArgs( Properties props )
