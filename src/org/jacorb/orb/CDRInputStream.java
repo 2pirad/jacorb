@@ -47,7 +47,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.84 2004-07-16 08:10:33 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.85 2004-07-19 04:37:13 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -551,7 +551,7 @@ public class CDRInputStream
 
         getEncapsStack().push(
             new EncapsInfo (old_endian, index, pos, size,
-                            getRepIdMap(), getValueMap(), getCodebaseMap())
+                            getValueMap(), getRepIdMap(), getCodebaseMap())
         );
         
         valueMap    = ObjectUtil.createIdentityHashMap();
