@@ -23,7 +23,7 @@ package org.jacorb.orb.portableInterceptor;
 import org.omg.PortableInterceptor.*;
 import org.omg.PortableInterceptor.ORBInitInfoPackage.*;
 import org.omg.CORBA.Object;
-import org.omg.IOP_N.CodecFactory;
+import org.omg.IOP.CodecFactory;
 
 import java.util.*;
 
@@ -36,7 +36,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.5 2001-09-07 12:39:20 jacorb Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.6 2001-11-19 09:42:47 jacorb Exp $
  */
 
 public class ORBInitInfoImpl 

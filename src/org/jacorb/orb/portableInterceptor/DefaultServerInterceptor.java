@@ -8,7 +8,7 @@ import org.omg.PortableInterceptor.*;
  * A simple base class for user-defined server interceptors
  *
  * @author Gerald Brose.
- * @version $Id: DefaultServerInterceptor.java,v 1.1 2001-04-11 08:09:46 jacorb Exp $
+ * @version $Id: DefaultServerInterceptor.java,v 1.2 2001-11-19 09:42:47 jacorb Exp $
  */
 
 public abstract class DefaultServerInterceptor
@@ -19,6 +19,9 @@ public abstract class DefaultServerInterceptor
     // InterceptorOperations interface
     public abstract String name();
 
+    public void destroy()
+    {
+    }
 
     public void receive_request_service_contexts( ServerRequestInfo ri ) 
         throws ForwardRequest

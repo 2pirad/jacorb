@@ -23,13 +23,13 @@ package org.jacorb.orb.connection;
 import org.jacorb.orb.*;
 
 import org.omg.PortableInterceptor.*;
-import org.omg.IOP_N.*;
+import org.omg.IOP.*;
 import org.omg.BiDirPolicy.BIDIRECTIONAL_POLICY_TYPE;
 
 /**
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionInitializer.java,v 1.2 2001-10-02 13:50:52 jacorb Exp $
+ * @version $Id: BiDirConnectionInitializer.java,v 1.3 2001-11-19 09:42:46 jacorb Exp $
  */
 
 public class BiDirConnectionInitializer 

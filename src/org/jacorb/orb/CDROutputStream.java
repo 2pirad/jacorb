@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.23 2001-11-19 09:16:01 gerald Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.24 2001-11-19 09:42:45 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -434,7 +434,7 @@ public class CDROutputStream
 
         if( codeSet == CodeSet.ISO8859_1 )
         {
-            if( c > 255 || c < 0 )
+            if( (c & 0xFF00) != 0 )//Are there any 1s in the MSB?
             {
                 throw new org.omg.CORBA.MARSHAL("char (" + c + 
                                                 ") out of range for ISO8859_1");
@@ -453,7 +453,7 @@ public class CDROutputStream
     public final void write_char_array(char[] value, int offset, int length)
     {
         if( value == null ) 
-            throw new org.omg.CORBA.MARSHAL("Null References");
+            throw new org.omg.CORBA.MARSHAL( "Null References" );
         check( length*3 );
         for( int i = offset; i < offset+length; i++) 
             write_char( value[i] );

@@ -42,7 +42,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.36 2001-11-15 16:42:31 jacorb Exp $
+ * @version $Id: ORB.java,v 1.37 2001-11-19 09:42:46 jacorb Exp $
  */
 
 public final class ORB
@@ -1451,6 +1451,11 @@ public final class ORB
         {
             shutdown( true );
         }
+
+        if( interceptor_manager != null )
+        {
+            interceptor_manager.destroy();
+        } 
         
         // other clean up possible here ?
         destroyed = true;

@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB idl build file                     -->
-  <!-- $Id: build.xml,v 1.6 2001-11-16 13:29:15 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.7 2001-11-19 09:40:07 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -58,7 +58,7 @@
         />
 	<javac srcdir="${src}/generated"
                destdir="${classdir}"
-               includes="org/omg/Messaging/**/*.java,org/omg/IOP_N/**/*.java,org/omg/PortableInterceptor/**/*.java"
+               includes="org/omg/Messaging/**/*.java,org/omg/PortableInterceptor/**/*.java"
         />
 
    </target>
@@ -156,9 +156,11 @@
 	      <arg line="${idlflags} -noskel  -nostub ${include}/omg/Messaging.idl"/>
 	</java>
 
+        <!--
 	<java classname="org.jacorb.idl.parser" classpath="${classpath}" fork="yes">
 	      <arg line="${idlflags} -noskel  ${include}/omg/IOP_N.idl"/>
 	</java>
+        -->
 
 	<java classname="org.jacorb.idl.parser" classpath="${classpath}" fork="yes">
 	      <arg line="${idlflags} -noskel  -nostub ${include}/omg/PortableInterceptor.idl"/>

@@ -11,7 +11,7 @@ import org.jacorb.util.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.9 2001-10-02 13:51:04 jacorb Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.10 2001-11-19 09:42:48 jacorb Exp $
  */
 
 public class SSLComponentInterceptor 
@@ -26,12 +26,16 @@ public class SSLComponentInterceptor
         this.orb = orb;
     }
   
+    // implementation of org.omg.PortableInterceptor.IORInterceptorOperations interface
+
     public String name()
     {
         return "SSLComponentCreator";
     }
 
-    // implementation of org.omg.PortableInterceptor.IORInterceptorOperations interface
+    public void destroy()
+    {
+    } 
 
     /**
      * Builds an ssl TaggedComponent.

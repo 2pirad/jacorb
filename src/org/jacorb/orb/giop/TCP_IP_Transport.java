@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2001
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.3 2001-10-04 14:23:50 jacorb Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.4 2001-11-19 09:42:46 jacorb Exp $
  */
 
 public abstract class TCP_IP_Transport 
@@ -286,8 +286,6 @@ public abstract class TCP_IP_Transport
     public void sendMessages()
         throws IOException
     {
-        out_stream.flush();
-
         if( b_out != null )
         {
             byte[] b = b_out.toByteArray();
@@ -296,6 +294,8 @@ public abstract class TCP_IP_Transport
 
             b_out.reset();
         }
+
+        out_stream.flush();
     }
 }// TCP_IP_Transport
 

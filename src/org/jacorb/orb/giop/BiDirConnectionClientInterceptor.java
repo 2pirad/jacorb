@@ -24,13 +24,13 @@ import org.jacorb.orb.*;
 import org.jacorb.orb.portableInterceptor.*;
 
 import org.omg.PortableInterceptor.*;
-import org.omg.IOP_N.Codec;
+import org.omg.IOP.Codec;
 import org.omg.IOP.*;
 import org.omg.IIOP.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionClientInterceptor.java,v 1.3 2001-11-09 15:09:26 jacorb Exp $
+ * @version $Id: BiDirConnectionClientInterceptor.java,v 1.4 2001-11-19 09:42:46 jacorb Exp $
  */
 
 public class BiDirConnectionClientInterceptor
@@ -52,6 +52,10 @@ public class BiDirConnectionClientInterceptor
     public String name() 
     {
         return name;
+    }
+
+    public void destroy()
+    {
     }
 
     public void send_request( ClientRequestInfo ri ) 

@@ -9,7 +9,7 @@ import org.jacorb.util.Debug;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.4 2001-10-26 22:03:06 jacorb Exp $
+ * @version $Id: InterceptorManager.java,v 1.5 2001-11-19 09:42:47 jacorb Exp $
  */
 
 public class InterceptorManager  
@@ -201,6 +201,34 @@ public class InterceptorManager
     public boolean hasIORInterceptors()
     {
         return ior_interceptors.length > 0;
+    }
+
+    public void destroy()
+    {
+        if( hasClientRequestInterceptors() )
+        {
+            for( int i = 0; i < client_req_interceptors.length; i++ )
+            {
+                client_req_interceptors[ i ].destroy();
+            }
+        }
+
+        if( hasServerRequestInterceptors() )
+        {
+            for( int i = 0; i < server_req_interceptors.length; i++ )
+            {
+                server_req_interceptors[ i ].destroy();
+            }
+        }
+
+        if( hasIORInterceptors() )
+        {
+            for( int i = 0; i < ior_interceptors.length; i++ )
+            {
+                ior_interceptors[ i ].destroy();
+            }
+        }
+
     }
 } // InterceptorManager
 

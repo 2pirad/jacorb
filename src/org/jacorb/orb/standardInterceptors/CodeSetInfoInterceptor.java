@@ -9,7 +9,7 @@ import org.jacorb.util.Debug;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.6 2001-10-26 22:03:06 jacorb Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.7 2001-11-19 09:42:48 jacorb Exp $
  */
 
 public class CodeSetInfoInterceptor 
@@ -50,6 +50,10 @@ public class CodeSetInfoInterceptor
     {
 	return "CodeSetInfoComponentCreator";
     }
+
+    public void destroy()
+    {
+    } 
 
     /**
      * Creates default IOR codeset  component. Because we are in Java,
