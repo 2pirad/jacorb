@@ -48,7 +48,7 @@ import org.apache.log.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.1 2003-08-25 21:00:47 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.2 2003-08-27 20:15:17 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
@@ -457,7 +457,7 @@ public abstract class AbstractMessage extends AbstractPoolable
 
     public abstract long getTimeout();
 
-    abstract protected int getPriority();
+    public abstract int getPriority();
 
     public abstract boolean match(FilterStage filterStage);
 
