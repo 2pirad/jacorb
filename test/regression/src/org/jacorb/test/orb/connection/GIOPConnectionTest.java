@@ -7,10 +7,9 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.9 2003-01-16 17:26:04 nicolas Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.10 2003-02-18 09:13:08 andre.spiegel Exp $
  */
 
-import org.jacorb.orb.*;
 import org.jacorb.orb.connection.*;
 
 import java.io.*;
@@ -195,7 +194,8 @@ public class GIOPConnectionTest
             new RequestOutputStream( (ClientConnection) null, //ClientConnection
                                      0,           //request id
                                      "foo",       //operation
-                                     true,        //response expected
+                                     true,        // response expected
+                                     (short)-1,   // SYNC_SCOPE (irrelevant)
                                      null,        //request start time
                                      null,        //request end time
                                      null,        //reply start time
@@ -282,6 +282,7 @@ public class GIOPConnectionTest
                                      0,           //request id
                                      "foo",       //operation
                                      true,        //response expected
+                                     (short)-1,   //SYNC_SCOPE (irrelevant)
                                      null,        //request start time
                                      null,        //request end time
                                      null,        //reply end time
@@ -464,6 +465,7 @@ public class GIOPConnectionTest
                                      0,           //request id
                                      "foo",       //operation
                                      true,        //response expected
+                                     (short)-1,   //SYNC_SCOPE (irrelevant)
                                      null,        //request start time
                                      null,        //request end time
                                      null,        //reply end time
