@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.87 2004-10-21 14:33:56 francisco Exp $
+ * $Id: CDRInputStream.java,v 1.88 2004-10-26 12:31:24 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1088,16 +1088,16 @@ public class CDRInputStream
 
         index += size;
 
-//         if( (size > 0) &&
-//             (buf[ size - 1 ] == 0) )
-//         {
+        if ((size > 0) &&
+            (buf[ size - 1 ] == 0))
+        {
             //omit terminating NULL char
             result = new String( buf, 0, size - 1 );
-//         }
-//         else
-//         {
-//             result = new String( buf );
-//         }
+        }
+        else
+        {
+            result = new String( buf );
+        }
 
         buf = null;
         return result;
