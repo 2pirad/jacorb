@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.4 2002-02-08 14:22:01 steve.osselton Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.5 2002-02-11 11:06:24 steve.osselton Exp $
  */
 
 public class Client_TCP_IP_Transport 
@@ -174,7 +174,19 @@ public class Client_TCP_IP_Transport
     {
         if( connected && socket != null )
         {
-            socket.shutdownOutput ();
+            // Try and invoke socket.shutdownOutput via reflection
+
+            try
+            {
+                java.lang.reflect.Method method 
+                    = (socket.getClass().getMethod ("shutdownOutput", new Class [0]));
+                method.invoke (socket, new java.lang.Object[0]);
+            }
+            catch (Throwable ex)
+            {
+                // If Socket does not support shutdownOutput method (i.e JDK < 1.3)
+            }
+
             socket.close ();
             
             //this will cause exceptions when trying to read from
