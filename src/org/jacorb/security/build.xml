@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.8 2001-11-09 09:08:54 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.9 2001-11-13 08:52:37 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -42,7 +42,6 @@
    </target>
 
    <target name="check1" if="iaik.present">
-        <echo message="generating util"/>
 	<javac srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/security/util/*.java"
