@@ -38,7 +38,7 @@ import EDU.oswego.cs.dl.util.concurrent.FIFOReadWriteLock;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventTypeSet.java,v 1.1 2004-02-09 16:20:45 alphonse.bendt Exp $
+ * @version $Id: EventTypeSet.java,v 1.2 2004-02-13 18:31:46 alphonse.bendt Exp $
  */
 
 abstract class EventTypeSet {
@@ -108,8 +108,6 @@ abstract class EventTypeSet {
     private Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     private Set eventTypeSet_ = new TreeSet();
-
-    private Object eventTypeLock_ = eventTypeSet_;
 
     private ReadWriteLock readWriteLock_ = new FIFOReadWriteLock();
 
