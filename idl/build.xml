@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.41 2003-04-29 09:35:26 andre.spiegel Exp $ -->
+   <!-- $Id: build.xml,v 1.42 2003-09-02 12:14:49 brose Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -73,7 +73,6 @@
       <mkdir dir="${src}/generated/org"/>
 
       <copy todir="${src}/generated">
-         <!-- <fileset dir="${src}/omg-99-10-27"> -->
          <fileset dir="${src}/omg-02-01-02">
              <include name="**/*.java"/>
          </fileset>
