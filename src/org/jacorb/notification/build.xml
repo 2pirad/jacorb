@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE project [
-  <!ENTITY common SYSTEM "file:../../../../common.xml">
+  <!ENTITY common SYSTEM "file:../../../../etc/common.xml">
 ]>
 
 <project name="notification" default="all" basedir="../../../..">
 
 <!-- ============================================================= -->
 <!--              JacORB - NotificationService build file          -->
-<!-- $Id: build.xml,v 1.17 2003-10-28 12:20:57 nick.cross Exp $ -->
+<!-- $Id: build.xml,v 1.18 2003-10-30 14:14:57 brose Exp $ -->
 <!-- ============================================================= -->
 
   &common;

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../../common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../../etc/common.xml"> ]>
 
 <project name="dns" default="all" basedir="../../../../..">
 
   <!-- ==================================================== -->
   <!--             dns lookup build file                    -->
-  <!-- $Id: build.xml,v 1.4 2003-07-04 14:06:02 andre.spiegel Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2003-10-30 14:14:57 brose Exp $ -->
   <!-- ==================================================== -->
 
    &common;

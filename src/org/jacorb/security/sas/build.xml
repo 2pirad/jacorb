@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../../common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../../etc/common.xml"> ]>
 
 <project name="sas" default="all" basedir="../../../../..">
 
   <!-- ==================================================== -->
   <!--                 iaik build file                      -->
-  <!-- $Id: build.xml,v 1.5 2002-10-15 12:32:39 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.6 2003-10-30 14:14:57 brose Exp $ -->
   <!-- ==================================================== -->
 
    &common;

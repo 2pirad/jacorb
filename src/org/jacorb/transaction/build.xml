@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../etc/common.xml"> ]>
 
 <project name="transaction" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
   <!--            TransactionService build file            -->
-  <!-- $Id: build.xml,v 1.6 2003-08-15 13:29:26 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.7 2003-10-30 14:14:58 brose Exp $ -->
   <!-- ==================================================== -->
 
    &common;
