@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.18 2003-12-19 12:00:49 nick.cross Exp $
+ * @version $Id: JacIDL.java,v 1.19 2004-01-01 16:26:51 gerald Exp $
  */
 
 public class JacIDL
@@ -61,6 +61,7 @@ public class JacIDL
     private boolean _nofinal;
     private boolean _ami_callback;
     private boolean _force_overwrite;
+    private boolean _unchecked_narrow;
 
     private List _defines = new ArrayList();
     private List _undefines = new ArrayList();
@@ -81,6 +82,7 @@ public class JacIDL
         _nofinal = false;
         _force_overwrite = false;
         _ami_callback = false;
+        _unchecked_narrow = false;
         _debuglevel = 0;
     }
 
@@ -233,6 +235,14 @@ public class JacIDL
         _force_overwrite = flag;
     }
 
+    /**
+     * Sets the flag to generated unchecked narrow() calls in stubs
+     */
+    public void setUncheckedNarrow(boolean flag)
+    {
+        _unchecked_narrow = flag;
+    }
+
     // ****************************************************************
     // **** Nested elements
     // ******************************
@@ -319,8 +329,10 @@ public class JacIDL
         // AMI callback model
         parser.generate_ami_callback = _ami_callback;
 
-        // AMI callback model
+        //
         parser.forceOverwrite = _force_overwrite;
+
+        parser.useUncheckedNarrow = _unchecked_narrow;
 
         // include path
         if (_includepath != null)
