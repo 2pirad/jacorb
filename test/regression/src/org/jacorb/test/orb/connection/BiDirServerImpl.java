@@ -10,7 +10,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: BiDirServerImpl.java,v 1.2 2003-05-15 11:45:18 nick.cross Exp $
+ * @version $Id: BiDirServerImpl.java,v 1.3 2003-08-08 16:07:11 andre.spiegel Exp $
  */
 public class BiDirServerImpl extends BiDirServerPOA
 {
@@ -82,7 +82,7 @@ public class BiDirServerImpl extends BiDirServerPOA
             org.omg.CORBA.Object o =
                 bidir_poa.servant_to_reference(new BiDirServerImpl());
 
-            System.out.println (orb.object_to_string(o));
+            System.out.println ("SERVER IOR: " + orb.object_to_string(o));
             System.out.flush();
 
             orb.run();
