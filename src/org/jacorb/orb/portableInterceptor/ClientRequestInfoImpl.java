@@ -27,6 +27,7 @@ import org.omg.Dynamic.Parameter;
 
 import java.util.*;
 
+import org.jacorb.orb.InternetIOPProfile;
 import org.jacorb.util.Debug;
 
 /**
@@ -35,7 +36,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.12 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.14 2003-04-04 14:30:48 andre.spiegel Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -87,13 +88,9 @@ public class ClientRequestInfoImpl
          else
              this.target = self;
 
-         this.effective_profile = pior.getEffectiveProfile();
-
-         // bnv: simply call pior.getProfileBody()
-         org.omg.IIOP.ProfileBody_1_1 _body = pior.getProfileBody();
-
-         if ( _body != null )
-             this.effective_components = _body.components;
+                 InternetIOPProfile profile = (InternetIOPProfile)pior.getEffectiveProfile();
+         this.effective_profile    = profile.asTaggedProfile();
+                 this.effective_components = profile.getComponents().asArray(); 
 
          if ( this.effective_components == null )
          {
@@ -122,7 +119,7 @@ public class ClientRequestInfoImpl
             try
             {
                 NamedValue value = request.arguments.item(i);
-	
+        
                 ParameterMode mode = null;
                 if (value.flags() == ARG_IN.value)
                     mode = ParameterMode.PARAM_IN;
@@ -130,7 +127,7 @@ public class ClientRequestInfoImpl
                     mode = ParameterMode.PARAM_OUT;
                 else if (value.flags() == ARG_INOUT.value)
                     mode = ParameterMode.PARAM_INOUT;
-	
+        
                 arguments[i] = new org.omg.Dynamic.Parameter(value.value(), mode);
             }
             catch (Exception e)
@@ -364,9 +361,3 @@ public class ClientRequestInfoImpl
     }
 
 } // ClientRequestInfoImpl
-
-
-
-
-
-
