@@ -36,7 +36,7 @@ import sun.security.jgss.spi.GSSNameSpi;
  * This is the GSS-API Sercurity Provider Interface (SPI) for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: GSSUPNameSpi.java,v 1.11 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: GSSUPNameSpi.java,v 1.12 2004-05-05 13:41:42 david.robison Exp $
  */
 
 public final class GSSUPNameSpi 
@@ -262,6 +262,7 @@ public final class GSSUPNameSpi
         {
             // logger.error("Error decoding for GSSNameSpi: " + e);
         }
+        logger.error("Bailout - GSSUP");
         return null;
     }
 

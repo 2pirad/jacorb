@@ -53,7 +53,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.20 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.21 2004-05-05 13:42:03 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -321,6 +321,7 @@ public class SASClientInterceptor
         if (contextBody.discriminator() == MTCompleteEstablishContext.value) 
         {
             CompleteEstablishContext reply = contextBody.complete_msg();
+            logger.debug("receive_exception MTCompleteEstablishContext: " + reply.client_context_id);
 
             // if not stateful, remove from connection
             if (reply.client_context_id > 0 && !reply.context_stateful) 
@@ -331,6 +332,7 @@ public class SASClientInterceptor
         if (contextBody.discriminator() == MTContextError.value) 
         {
             ContextError reply = contextBody.error_msg();
+            logger.debug("receive_exception MTContextError: " + reply.client_context_id);
 
             // if stateful, remove from connection
             if (reply.client_context_id > 0) 
