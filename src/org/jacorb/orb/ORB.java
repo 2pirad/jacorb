@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.22.2.3 2001-08-22 07:22:08 jacorb Exp $
+ * @version $Id: ORB.java,v 1.22.2.4 2001-09-05 09:50:52 jacorb Exp $
  */
 
 public final class ORB
@@ -106,8 +106,25 @@ public final class ORB
 
     private static org.omg.CORBA.TCKind kind;
 
+    private boolean bidir_giop = false;
+
     public ORB()
     {
+    }
+
+    public boolean useBiDirGIOP()
+    {
+        return bidir_giop;
+    }
+    
+    public void turnOnBiDirGIOP()
+    {
+        if( ! bidir_giop )
+        {
+            bidir_giop = true;
+            
+            connectionManager.setRequestListener( basicAdapter.getRequestListener() );
+        }
     }
 
     /** 
@@ -1133,6 +1150,7 @@ public final class ORB
             // add PolicyFactories to ORB
             policy_factories = info.getPolicyFactories(); 
 
+            /*
             // add policy factories that are always present
             try
             {
@@ -1146,6 +1164,7 @@ public final class ORB
             {
                 e.printStackTrace();
             }
+            */
         }
     }
 

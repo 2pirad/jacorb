@@ -33,7 +33,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * Created: Sat Aug 18 21:43:19 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.1.2.1 2001-08-22 07:22:16 jacorb Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.1.2.2 2001-09-05 09:50:55 jacorb Exp $
  */
 
 public class ReplyPlaceholder 
@@ -43,7 +43,7 @@ public class ReplyPlaceholder
     private boolean remarshalException = false;
     private boolean timeoutException = false;
 
-    private ReplyInputStream in = null;
+    private MessageInputStream in = null;
 
     private int timeout = -1;
 
@@ -69,14 +69,11 @@ public class ReplyPlaceholder
 
     }
     
-    public synchronized void replyReceived( org.omg.CORBA.ORB orb,
-                                            byte[] reply )
+    public synchronized void replyReceived( MessageInputStream in )
     {
         if( ! timeoutException )
         {
-            //only create stream, if not already canceled
-            in = 
-                new ReplyInputStream( orb, reply );
+            this.in = in;
         
             ready = true;
             
@@ -99,7 +96,7 @@ public class ReplyPlaceholder
 	this.notify();
     }
 
-    public synchronized ReplyInputStream getInputStream() 
+    public synchronized MessageInputStream getInputStream() 
 	throws RemarshalException
     {
         while( !ready ) 

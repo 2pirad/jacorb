@@ -29,12 +29,12 @@ import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.11.2.4 2001-08-22 07:22:15 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.11.2.5 2001-09-05 09:50:55 jacorb Exp $
  *
  */
 
 public class ReplyInputStream
-    extends GIOPInputStream
+    extends ServiceContextTransportingInputStream
 {
     public ReplyHeader_1_2 rep_hdr = null;
 
@@ -154,4 +154,13 @@ public class ReplyInputStream
 	}
     }
 }
+
+
+
+
+
+
+
+
+
 

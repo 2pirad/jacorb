@@ -26,15 +26,17 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.8.4.4 2001-08-22 07:22:16 jacorb Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.8.4.5 2001-09-05 09:50:55 jacorb Exp $
  *
  */
 
 public class ReplyOutputStream
-    extends GIOPOutputStream
+    extends ServiceContextTransportingOutputStream
 {
-    private int request_id = -1;
-    private ReplyStatusType_1_2 reply_status = null;
+    /*
+      private int request_id = -1;
+      private ReplyStatusType_1_2 reply_status = null;
+    */
 
     public ReplyOutputStream ( int request_id,
                                ReplyStatusType_1_2 reply_status,
@@ -42,8 +44,10 @@ public class ReplyOutputStream
     {
         super();
 
+        /*
         this.request_id = request_id;
         this.reply_status = reply_status;
+        */
 
         setGIOPMinor( giop_minor );
  
@@ -100,11 +104,21 @@ public class ReplyOutputStream
         }        
     }
 
+    /*
     public int requestId()
     {
         return request_id;
     }
+    */
 }
+
+
+
+
+
+
+
+
 
 
 

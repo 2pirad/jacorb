@@ -25,12 +25,12 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateReplyOutputStream.java,v 1.8.4.2 2001-08-10 17:47:12 jacorb Exp $
+ * @version $Id: LocateReplyOutputStream.java,v 1.8.4.3 2001-09-05 09:50:54 jacorb Exp $
  *
  */
 
 public class LocateReplyOutputStream
-    extends ReplyOutputStream
+    extends MessageOutputStream
 {
     public LocateReplyOutputStream ( int request_id, 
 				     int status, 
@@ -38,6 +38,7 @@ public class LocateReplyOutputStream
                                      int giop_minor )
     {
         super();
+        setGIOPMinor( giop_minor );
         
         writeGIOPMsgHeader( MsgType_1_1._LocateReply, giop_minor );
 

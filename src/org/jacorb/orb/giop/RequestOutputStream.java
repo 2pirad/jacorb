@@ -30,20 +30,19 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.10.4.4 2001-08-22 07:22:17 jacorb Exp $
+ * @version $Id: RequestOutputStream.java,v 1.10.4.5 2001-09-05 09:50:56 jacorb Exp $
  *
  */
 
 public class RequestOutputStream
-    extends GIOPOutputStream
+    extends ServiceContextTransportingOutputStream
 {
     private static byte[] principal = new byte[ 0 ];
     private static byte[] reserved = new byte[ 3 ];
-    
+
     private int request_id = -1;
-    private String operation = null;
     private boolean response_expected = true;
-    private byte[] object_key = null;
+    private String operation = null;
 
     private org.jacorb.orb.dii.Request request = null;
 
@@ -57,11 +56,10 @@ public class RequestOutputStream
         
         setGIOPMinor( giop_minor );
 
+        
         this.request_id = request_id;
-        this.operation = operation;
         this.response_expected = response_expected;
-        this.object_key = object_key;
-
+        this.operation = operation;
 
         System.out.println(">>>>>>>>>Created request for op " + 
                            operation + 
@@ -129,7 +127,7 @@ public class RequestOutputStream
             }
         }               
     }
-
+    
     public int requestId()
     {
         return request_id;
@@ -139,12 +137,12 @@ public class RequestOutputStream
     {
         return response_expected;
     }
-
+   
     public String operation()
     {
         return operation;
     }
-    
+
     public void setRequest(org.jacorb.orb.dii.Request request)
     {
         this.request = request;

@@ -32,7 +32,7 @@ import org.jacorb.orb.connection.CodeSet;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.10.2.2 2001-08-22 07:22:06 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.10.2.3 2001-09-05 09:50:50 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -65,10 +65,10 @@ public class CDRInputStream
     protected int index = 0;
 
     /** 
-        for this stream to be able to return a live object reference,
-	a full ORB (not the Singleton!) must be known. If this stream 
-	is used only to demarshal base type data, the Singleton is enough
-    */
+     * for this stream to be able to return a live object reference, a
+     * full ORB (not the Singleton!) must be known. If this stream is
+     * used only to demarshal base type data, the Singleton is enough 
+     */
     public org.omg.CORBA.ORB orb = null;
 
     /**
@@ -98,6 +98,11 @@ public class CDRInputStream
     public void setGIOPMinor( int giop_minor )
     {
         this.giop_minor = giop_minor;
+    }
+
+    public int getGIOPMinor()
+    {
+        return giop_minor;
     }
 
     public void close()

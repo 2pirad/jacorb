@@ -41,7 +41,7 @@ import org.omg.CORBA.CompletionStatus;
  * Created: Sun Aug 12 22:26:25 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.1.2.1 2001-08-22 07:22:18 jacorb Exp $
+ * @version $Id: ServerRequestListener.java,v 1.1.2.2 2001-09-05 09:50:56 jacorb Exp $
  */
 
 public class ServerRequestListener 
@@ -85,8 +85,11 @@ public class ServerRequestListener
             return;
         } 
 
+        RequestInputStream in = 
+            new RequestInputStream( orb, request );
+
         ServerRequest server_request = 
-            new ServerRequest( orb, request, connection );
+            new ServerRequest( orb, in, connection );
 
         orb.getBasicAdapter().replyPending();
 
@@ -229,6 +232,15 @@ public class ServerRequestListener
         }                       
     }
 }// ServerRequestListener
+
+
+
+
+
+
+
+
+
 
 
 

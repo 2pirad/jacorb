@@ -33,7 +33,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.9.2.2 2001-08-22 07:22:07 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.9.2.3 2001-09-05 09:50:51 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -120,6 +120,11 @@ public class CDROutputStream
     public void setGIOPMinor( int giop_minor )
     {
         this.giop_minor = giop_minor;
+    }
+
+    public int getGIOPMinor()
+    {
+        return giop_minor;
     }
 
     public void close() 

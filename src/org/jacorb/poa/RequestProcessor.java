@@ -49,7 +49,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.5.4.2 2001-08-22 07:23:07 jacorb Exp $
+ * @version $Id: RequestProcessor.java,v 1.5.4.3 2001-09-05 09:50:58 jacorb Exp $
  */
 
 public class RequestProcessor 
@@ -274,7 +274,7 @@ public class RequestProcessor
             controller.getLogTrace().printLog(1, request, "invocation: system exception was thrown ("+e+")");
             request.setSystemException(e);
         } 
-        catch (Throwable e) 
+        catch (Throwable e)             
         {         /* not spec. */
             controller.getLogTrace().printLog(0, request, "invocation: throwable was thrown");
             controller.getLogTrace().printLog(0, e);

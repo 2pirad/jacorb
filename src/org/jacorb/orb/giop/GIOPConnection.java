@@ -37,7 +37,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2001
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.1.2.1 2001-08-22 07:22:11 jacorb Exp $
+ * @version $Id: GIOPConnection.java,v 1.1.2.2 2001-09-05 09:50:54 jacorb Exp $
  */
 
 public class GIOPConnection 
@@ -235,7 +235,7 @@ public class GIOPConnection
         transport.addOutgoingMessage( message, start, size );
     }
     
-    public void sendMessage( GIOPOutputStream out )
+    public void sendMessage( MessageOutputStream out )
         throws IOException
     {
         try
