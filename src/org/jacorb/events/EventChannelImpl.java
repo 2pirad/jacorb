@@ -36,7 +36,7 @@ import java.net.*;
  * references only.
  *
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose, Jeff Carlson
- * @version $Id: EventChannelImpl.java,v 1.7 2002-03-19 09:24:56 nicolas Exp $
+ * @version $Id: EventChannelImpl.java,v 1.7.2.1 2002-07-29 07:39:45 nicolas Exp $
  */
 
 public class EventChannelImpl extends JacORBEventChannelPOA
@@ -243,8 +243,9 @@ public class EventChannelImpl extends JacORBEventChannelPOA
         }
         catch( org.omg.CORBA.COMM_FAILURE comm )
         {
-          pullSuppliers.removeElementAt( i );
+          pushSuppliers.removeElementAt( i );
           --i;
+          --n;
         }
       }
     }
@@ -261,6 +262,7 @@ public class EventChannelImpl extends JacORBEventChannelPOA
         {
           pullSuppliers.removeElementAt( i );
           --i;
+          --n;
         }
       }
     }
