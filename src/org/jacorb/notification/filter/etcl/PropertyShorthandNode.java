@@ -25,24 +25,25 @@ import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.filter.ParseException;
+import org.jacorb.notification.filter.PropertyDoesNotExistException;
 import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PropertyShorthandNode.java,v 1.5 2004-06-03 23:11:55 alphonse.bendt Exp $
+ * @version $Id: PropertyShorthandNode.java,v 1.6 2004-06-29 13:58:38 alphonse.bendt Exp $
  */
 
 public class PropertyShorthandNode extends AbstractTCLNode
 {
-    String value_;
+    private final String value_;
 
-    ETCLComponentName shorthandVariableHeader_;
+    private final ETCLComponentName shorthandVariableHeader_;
 
-    ETCLComponentName shorthandFilterableData_;
+    private final ETCLComponentName shorthandFilterableData_;
 
-    ETCLComponentName shorthandDefault_;
+    private final ETCLComponentName shorthandDefault_;
 
-    ETCLComponentName shorthandDefaultAny_;
+    private final ETCLComponentName shorthandDefaultAny_;
 
     ////////////////////////////////////////
 
@@ -72,11 +73,10 @@ public class PropertyShorthandNode extends AbstractTCLNode
         } catch (VisitorException e) {
             throw new RuntimeException();
         }
-
     }
 
 
-    public EvaluationResult evaluate(EvaluationContext context) throws EvaluationException {
+    public EvaluationResult evaluate(EvaluationContext context) throws PropertyDoesNotExistException {
 
         Message _event = context.getCurrentMessage();
         EvaluationResult _res = null;
@@ -110,7 +110,7 @@ public class PropertyShorthandNode extends AbstractTCLNode
             }
 
             if (_res == null) {
-                throw new EvaluationException("the shorthand property $" + value_ + " does not exist");
+                throw new PropertyDoesNotExistException(value_);
             }
         }
 
