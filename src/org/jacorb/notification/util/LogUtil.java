@@ -25,26 +25,35 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.LogKitLogger;
 import org.apache.avalon.framework.logger.Logger;
 import org.apache.log.Hierarchy;
-import org.jacorb.config.Configuration;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: LogUtil.java,v 1.1 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: LogUtil.java,v 1.2 2005-03-31 20:10:43 alphonse.bendt Exp $
  */
 public class LogUtil
 {
-    private static Configuration config;
+    private static org.jacorb.config.Configuration sConfiguration_;
 
+    public static Logger getLogger(org.apache.avalon.framework.configuration.Configuration config, String name)
+    {
+        try {
+            return ((org.jacorb.config.Configuration)config).getNamedLogger(name);
+        } catch (ClassCastException e)
+        {
+            return getLogger(name);
+        }
+    }
+    
     public static Logger getLogger(String name)
     {
         try
         {
-            if (config == null)
+            if (sConfiguration_ == null)
             {
-                config = Configuration.getConfiguration(null, null, false);
+                sConfiguration_ = org.jacorb.config.Configuration.getConfiguration(null, null, false);
             }
             
-            return config.getNamedLogger(name);
+            return sConfiguration_.getNamedLogger(name);
         } catch (ConfigurationException e)
         {
             return new LogKitLogger(Hierarchy.getDefaultHierarchy().getLoggerFor(name));
