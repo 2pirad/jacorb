@@ -37,7 +37,7 @@ import java.io.IOException;
  * Created: Sat Aug 18 11:47:12 2001
  *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirClientRequestListener.java,v 1.2 2001-10-02 13:50:57 jacorb Exp $
+ * @version $Id: NoBiDirClientRequestListener.java,v 1.3 2001-10-04 14:23:49 jacorb Exp $
  */
 
 public class NoBiDirClientRequestListener 
@@ -77,10 +77,6 @@ public class NoBiDirClientRequestListener
                                   GIOPConnection connection )
     {
         
-    }
-
-    public void connectionClosed()
-    {
     }
     
     private void replyException( byte[] request, 

@@ -33,7 +33,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * Created: Sat Aug 18 21:43:19 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.2 2001-10-02 13:50:59 jacorb Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.3 2001-10-04 14:23:50 jacorb Exp $
  */
 
 public class ReplyPlaceholder 
@@ -92,6 +92,13 @@ public class ReplyPlaceholder
     public synchronized void retry()
     {
 	remarshalException = true;
+	ready = true;
+	this.notify();
+    }
+
+    public synchronized void timeout()
+    {
+	timeoutException = true;
 	ready = true;
 	this.notify();
     }

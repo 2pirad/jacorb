@@ -35,11 +35,11 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.18 2001-10-02 13:50:53 jacorb Exp $ 
+ * @version $Id: ClientConnection.java,v 1.19 2001-10-04 14:23:49 jacorb Exp $ 
  */
 
 public class ClientConnection 
-    implements ReplyListener
+    implements ReplyListener, ConnectionListener
 {
     private GIOPConnection connection = null;
     private org.omg.CORBA.ORB orb = null;
@@ -81,6 +81,7 @@ public class ClientConnection
         }
         
         connection.setReplyListener( this );
+        connection.setConnectionListener( this );
 
         replies = new Hashtable();
     }
@@ -297,14 +298,53 @@ public class ClientConnection
         
     }
 
+    /*
+     * Operations from ConnectionListener
+     */
     public void connectionClosed()
+    {
+        streamClosed();
+
+        if( ! client_initiated )
+        {
+            //if this is a server side BiDir connection, it will stay
+            //pooled in the ConnectionManager even if no Delegate is
+            //associated with it. Therefore, it has to be removed when
+            //the underlying connection closed.
+            
+            conn_mg.removeConnection( this );
+        }
+    }
+    
+    public void connectionTimedOut()
+    {
+        synchronized( replies )
+        {
+            if( replies.size() > 0 )
+            {
+                Debug.output( 1, "ERROR: Read timed out. Lost " +
+                              replies.size() + " outstanding replie(s)!");
+            }
+
+            for( Enumeration keys = replies.keys();
+                 keys.hasMoreElements(); )
+            {
+                ReplyPlaceholder placeholder =
+                    (ReplyPlaceholder) replies.remove( keys.nextElement() );
+               
+                placeholder.timeout();
+            }
+        }        
+    }
+    
+    public void streamClosed()
     {
         synchronized( replies )
         {
             if( replies.size() > 0 )
             {
                 Debug.output( 1, "ERROR: Abnormal connection termination. Lost " +
-                              replies.size() + " outstanding replies!");
+                              replies.size() + " outstanding replie(s)!");
             }
 
             for( Enumeration keys = replies.keys();
@@ -315,17 +355,7 @@ public class ClientConnection
                
                 placeholder.cancel();
             }
-        }        
-
-        if( ! client_initiated )
-        {
-            //if this is a server side BiDir connection, it will stay
-            //pooled in the COnnectionManager even if no Delegate is
-            //associated with it. Therefore, it has to be removed when
-            //the underlying connection closed.
-            
-            conn_mg.removeConnection( this );
-        }
+        }                
     }
 }// ClientConnection
 
