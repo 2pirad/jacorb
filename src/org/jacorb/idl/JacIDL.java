@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.21 2004-01-15 12:38:18 nick.cross Exp $
+ * @version $Id: JacIDL.java,v 1.22 2004-02-04 14:52:26 gerald Exp $
  */
 
 public class JacIDL
@@ -82,7 +82,7 @@ public class JacIDL
         _force_overwrite = false;
         _ami_callback = false;
         _unchecked_narrow = false;
-        _debuglevel = 0;
+        _debuglevel = 1;
     }
 
     /**
@@ -412,6 +412,11 @@ public class JacIDL
         catch (IOException ioex)
         {
             ioex.printStackTrace();
+            throw new BuildException();
+        }
+        catch (ParseException pex)
+        {
+            System.err.println(pex.getMessage());
             throw new BuildException();
         }
         catch (Exception ex)
