@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.66 2002-05-28 09:58:13 jason.courage Exp $
+ * @version $Id: ORB.java,v 1.67 2002-05-29 07:55:52 gerald Exp $
  */
 
 public final class ORB
@@ -1913,7 +1913,7 @@ public final class ORB
             Object o = objectKeyMap.get( s );
             if( o != null )
             {
-                return ((String)o).getBytes();
+                return org.jacorb.orb.util.CorbaLoc.parseKey((String)o);
             }
         }
         // else:
