@@ -42,7 +42,7 @@ import org.apache.avalon.framework.logger.Logger;
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.2 2004-01-23 19:59:20 alphonse.bendt Exp $
  */
 
 public class FilterConstraint
@@ -105,8 +105,7 @@ public class FilterConstraint
 
     public EvaluationResult evaluate( EvaluationContext evaluationContext,
                                       Message event )
-        throws EvaluationException,
-               DynamicTypeException
+        throws EvaluationException
     {
         if (logger_.isDebugEnabled() ) {
             logger_.debug("evaluate()" + rootNode_.toStringTree());
