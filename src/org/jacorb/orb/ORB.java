@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.27 2001-11-02 15:31:01 jacorb Exp $
+ * @version $Id: ORB.java,v 1.28 2001-11-02 16:07:32 jacorb Exp $
  */
 
 public final class ORB
@@ -1424,7 +1424,7 @@ public final class ORB
 
         try
         {
-            ParsedIOR pior = new ParsedIOR( str );
+            ParsedIOR pior = new ParsedIOR( str, this );
             if( pior.isNull() )
             {
                 return null;
