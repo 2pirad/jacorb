@@ -39,7 +39,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.17 2004-05-06 09:41:04 nicolas Exp $
+ * @version $Id: IIOPListener.java,v 1.18 2004-06-22 11:15:10 simon.mcqueen Exp $
  */
 public class IIOPListener 
     extends _ListenerLocalBase
@@ -138,7 +138,8 @@ public class IIOPListener
                 16);
 
 
-        if (!isSSLRequired())
+        if (!isSSLRequired() || 
+            configuration.getAttributeAsBoolean("jacorb.security.ssl.always_open_unsecured_endpoint"))
         {
             acceptor = new Acceptor();
             acceptor.init();
