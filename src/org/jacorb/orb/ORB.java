@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.10 2001-03-27 09:10:37 jacorb Exp $
+ * @version $Id: ORB.java,v 1.11 2001-03-28 08:04:22 jacorb Exp $
  */
 
 public final class ORB
@@ -1102,10 +1102,16 @@ public final class ORB
         _props = props;
         Environment.addProperties( props );
 
-        if( Environment.getProperty("jacorb.orb.print_version").equals("on"))
+        String versionProperty = 
+            Environment.getProperty("jacorb.orb.print_version");
+
+        if( versionProperty != null &&
+            versionProperty.equals("on") )
         {
-            System.out.println("\tJacORB V " + versionString + ", www.jacorb.org");
-            System.out.println("\t(C) Gerald Brose, FU Berlin, " + dateString );
+            System.out.println("\tJacORB V " + versionString + 
+                               ", www.jacorb.org");
+            System.out.println("\t(C) Gerald Brose, FU Berlin, " + 
+                               dateString );
         }
 
         initialReferencesInit();
