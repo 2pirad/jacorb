@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.14 2003-04-24 09:57:13 andre.spiegel Exp $
+ * @version $Id: Transport.java,v 1.15 2003-04-26 17:31:22 andre.spiegel Exp $
  */
 
 public interface Transport 
@@ -51,7 +51,11 @@ public interface Transport
                
     void flush();
 
+    void connect (org.omg.ETF.Profile server_profile, long time_out);
+    
     void close();
+    
+    boolean is_connected();
 
     org.omg.ETF.Profile get_server_profile(); 
 
