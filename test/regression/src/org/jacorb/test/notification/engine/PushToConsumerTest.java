@@ -45,6 +45,9 @@ import junit.framework.TestSuite;
 import org.apache.log.Hierarchy;
 import org.apache.log.Logger;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
+import org.jacorb.notification.ConfigurableProperties;
+import org.jacorb.notification.Constants;
+import org.jacorb.util.Environment;
 
 /**
  *  Unit Test for class PushToConsumer
@@ -53,7 +56,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
  * Created: Mon Aug 18 16:11:37 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTest.java,v 1.3 2003-08-28 17:01:09 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTest.java,v 1.4 2003-09-12 09:38:45 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTest extends TestCase
@@ -128,7 +131,14 @@ public class PushToConsumerTest extends TestCase
 
         taskProcessor_.schedulePushToConsumerTask(task);
 
-        Thread.sleep(10000);
+        long sleepTime =
+            Environment.getIntPropertyWithDefault( ConfigurableProperties.BACKOUT_INTERVAL,
+                                                   Constants.DEFAULT_BACKOUT_INTERVAL )
+            * (Environment.getIntPropertyWithDefault(ConfigurableProperties.EVENTCONSUMER_ERROR_THRESHOLD,
+                                                    Constants.DEFAULT_EVENTCONSUMER_ERROR_THRESHOLD)
+            + 2);
+
+        Thread.sleep(sleepTime);
 
         eventConsumer.check();
     }
