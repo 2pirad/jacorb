@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.85 2004-04-21 14:56:13 brose Exp $
+ * $Id: parser.cup,v 1.86 2004-04-21 15:42:13 brose Exp $
  */
 
 action code
@@ -389,6 +389,7 @@ parser code
                     {
                         prepareAndParse(argv[i]);
                     }
+                    continue;
                 }
                 if( argv[i].endsWith(".idl") )
                 {
@@ -456,7 +457,7 @@ parser code
             System.out.print( argv[i] + " " );
         System.out.println(" : " + msg);
 
-        System.out.println("Usage: idl [-h|-help][-v|-version][-Dsymbol[=value]][-Idir][-U<symbol>][-W debug_level ][-all][-forceOverwrite][-ami_callback][-ami_polling][-backend classname][-d <Output Dir>][-unchecked_narrow][-i2jpackage x:y][-i2jpackagefile <filename>][-cldc10][-ir][-nofinal][-noskel][-nostub][-sloppy_forward][-sloppy_names][-permissive_rmic][-syntax] <filelist>");
+        System.out.println("Usage: idl [-h|-help][-v|-version][-Dsymbol[=value]][-Idir][-U<symbol>][-W debug_level ][-all][-forceOverwrite][-ami_callback][-ami_polling][-backend classname][-d <Output Dir>][-unchecked_narrow][-i2jpackage x:y][-i2jpackagefile <filename>][-cldc10][-ir][-nofinal][-noskel][-nostub][-sloppy_forward][-sloppy_names][-permissive_rmic][-syntax][-in inputfile] <filelist>");
     }
 
 
