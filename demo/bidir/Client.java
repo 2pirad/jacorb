@@ -13,7 +13,7 @@ import java.util.Properties;
  * Created: Mon Sep  3 19:28:34 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Client.java,v 1.1 2001-10-04 07:43:34 jacorb Exp $
+ * @version $Id: Client.java,v 1.2 2003-12-01 12:36:00 simon.mcqueen Exp $
  */
 
 public class Client 
@@ -35,7 +35,7 @@ public class Client
     {
         Properties props = new Properties();
         props.put( "org.omg.PortableInterceptor.ORBInitializerClass.bidir_init",
-                   "org.jacorb.orb.connection.BiDirConnectionInitializer" );
+                   "org.jacorb.orb.giop.BiDirConnectionInitializer" );
 
         org.omg.CORBA.ORB orb = org.omg.CORBA.ORB.init( args, props );
 
