@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.19.2.1 2001-07-30 13:00:39 jacorb Exp $
+ * @version $Id: ORB.java,v 1.19.2.2 2001-09-20 09:31:17 jacorb Exp $
  */
 
 public final class ORB
@@ -1287,7 +1287,14 @@ public final class ORB
 
     public String object_to_string( org.omg.CORBA.Object obj)
     {
-        return obj.toString();
+        Object delegate = 
+            ((org.omg.CORBA.portable.ObjectImpl)obj)._get_delegate();
+        if (delegate instanceof org.jacorb.orb.Delegate)
+            return delegate.toString();
+        else
+            throw new Error("Argument has a delegate whose class is "
+                            + delegate.getClass().getName()
+                            + ", a org.jacorb.orb.Delegate was expected");
     }
 
     public void perform_work() 
