@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.21 2001-07-23 18:50:02 jacorb Exp $
+ * @version $Id: ORB.java,v 1.19.2.1 2001-07-30 13:00:39 jacorb Exp $
  */
 
 public final class ORB
@@ -108,6 +108,28 @@ public final class ORB
 
     public ORB()
     {
+        connectionManager = new ConnectionManager(this);
+
+        String s = Environment.getProperty( "jacorb.hashtable_class" );
+        if( s == null || s.length() == 0 )
+        {
+            Debug.output( Debug.INFORMATION | Debug.ORB_MISC, 
+                          "Property \"jacorb.hashtable_class\" not present. Will use default hashtable implementation" );
+            knownReferences = new Hashtable();  
+
+        }
+        else
+        {
+            try
+            {
+                knownReferences = (Hashtable) Class.forName( s ).newInstance();
+            }
+            catch( Exception e )
+            {
+                Debug.output( Debug.INFORMATION | Debug.ORB_MISC, e );
+                knownReferences = new Hashtable();
+            }
+        }
     }
 
     /** 
@@ -750,21 +772,7 @@ public final class ORB
 
             if( url != null )
             {
-		try
-		{
-		    obj = this.string_to_object( url );
-		}
-		catch( Exception e )
-		{
-		    Debug.output( 1, "ERROR: Could not create initial reference for \"" +
-				  identifier + '\"' );
-		    Debug.output( 1, "Please check property \"ORBInitRef." + 
-				  identifier + '\"' );
-
-		    Debug.output( 3, e );
-
-		    throw new org.omg.CORBA.ORBPackage.InvalidName();
-		}
+                obj = this.string_to_object( url );
             }
             /* "special" behavior follows */
             else if( identifier.equals("NameService") && isApplet() )
@@ -1032,31 +1040,7 @@ public final class ORB
     {      
         _args = args;
         _props = props;
-
         Environment.addProperties( props );
-
-	connectionManager = new ConnectionManager(this);
-	
-        String s = Environment.getProperty( "jacorb.hashtable_class" );
-        if( s == null || s.length() == 0 )
-        {
-            Debug.output( Debug.INFORMATION | Debug.ORB_MISC, 
-                          "Property \"jacorb.hashtable_class\" not present. Will use default hashtable implementation" );
-            knownReferences = new Hashtable();  
-
-        }
-        else
-        {
-            try
-            {
-                knownReferences = (Hashtable) Class.forName( s ).newInstance();
-            }
-            catch( Exception e )
-            {
-                Debug.output( Debug.INFORMATION | Debug.ORB_MISC, e );
-                knownReferences = new Hashtable();
-            }
-        }
 
         String versionProperty = 
             Environment.getProperty("jacorb.orb.print_version");
@@ -1073,38 +1057,11 @@ public final class ORB
         interceptorInit();
     }
 
-    protected void set_parameters( java.applet.Applet app, 
-				   java.util.Properties  props )
+    protected void set_parameters(java.applet.Applet app, java.util.Properties  props)
     {
         applet = app;
         _props = props;
-
         Environment.addProperties( props );
-
-	connectionManager = new ConnectionManager(this);
-	
-        String s = Environment.getProperty( "jacorb.hashtable_class" );
-        if( s == null || s.length() == 0 )
-        {
-            Debug.output( Debug.INFORMATION | Debug.ORB_MISC, 
-                          "Property \"jacorb.hashtable_class\" not present. Will use default hashtable implementation" );
-            knownReferences = new Hashtable();  
-
-        }
-        else
-        {
-            try
-            {
-                knownReferences = (Hashtable) Class.forName( s ).newInstance();
-            }
-            catch( Exception e )
-            {
-                Debug.output( Debug.INFORMATION | Debug.ORB_MISC, e );
-                knownReferences = new Hashtable();
-            }
-        }
-
-
         // unproxyTable = new Hashtable();
 
         interceptorInit();
@@ -1342,6 +1299,19 @@ public final class ORB
         return false;
     }
 
+    public org.omg.CORBA.portable.ValueFactory lookup_value_factory 
+                                                         (String repositoryId) 
+    {
+        String className = org.jacorb.ir.RepositoryID.className (repositoryId);
+        
+        return new org.omg.CORBA.portable.ValueFactory() {
+                public java.io.Serializable read_value 
+                    (org.omg.CORBA_2_3.portable.InputStream is) {
+                    return null;
+                }
+            };
+    }
+                                                        
     /**
      * Test, if the ORB has ClientRequestInterceptors <br>
      * Called by Delegate.
