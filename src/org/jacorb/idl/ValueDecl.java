@@ -28,10 +28,10 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.31 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ValueDecl.java,v 1.32 2003-09-12 09:44:24 brose Exp $
  */
 
-class ValueDecl
+public class ValueDecl
     extends Value
 {
     private MemberList stateMembers;
@@ -802,6 +802,18 @@ class ValueDecl
         out.println( "}" );
         out.close();
     }
+
+
+    /**
+     * @overrides accept in TypeDeclaration
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitValue( this );
+    }
+
+
 
 }
 

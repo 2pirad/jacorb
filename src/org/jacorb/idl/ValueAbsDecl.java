@@ -27,14 +27,14 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.13 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.14 2003-09-12 09:43:34 brose Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
  * not others is a nuisance...
  */
 
-class ValueAbsDecl
+public class ValueAbsDecl
     extends Value
 {
     ValueBody body = null;
@@ -356,5 +356,17 @@ class ValueAbsDecl
             }
         }
     }
+
+
+    /**
+     * @overrides accept in TypeDeclaration
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitValue( this );
+    }
+
+
 }
 
