@@ -35,8 +35,8 @@ import java.net.*;
  * and interacts with the implementation objects locally, i.e. using Java
  * references only.
  *
- * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: EventChannelImpl.java,v 1.5 2001-09-10 01:32:49 jcarlson Exp $
+ * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose, Jeff Carlson
+ * @version $Id: EventChannelImpl.java,v 1.6 2001-11-16 11:02:12 jacorb Exp $
  */
 
 public class EventChannelImpl extends JacORBEventChannelPOA
