@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.19 2001-10-04 14:23:49 jacorb Exp $ 
+ * @version $Id: ClientConnection.java,v 1.20 2001-10-11 07:05:52 jacorb Exp $ 
  */
 
 public class ClientConnection 
@@ -172,6 +172,26 @@ public class ClientConnection
         return id;
     }
 
+    public synchronized void setMinId( int min_id )
+    {
+        if( (id_count % 2) == 0 )
+        {
+            if( (min_id % 2) == 1 )
+            {
+                min_id += 1;//make it even
+            }
+        }
+        else
+        {
+            if( (min_id % 2) == 0 )
+            {
+                min_id += 1; //make it odd
+            }
+        }
+
+        id_count = Math.max( id_count, min_id );
+    }
+
     public void incClients()
     {
         client_count++;
@@ -195,24 +215,22 @@ public class ClientConnection
     /**
      * The request_id parameter is only used, if response_expected.
      */
-    public ReplyPlaceholder sendRequest( MessageOutputStream os,
-                                         boolean response_expected,
-                                         int request_id )
+    public void sendRequest( MessageOutputStream os,
+                             ReplyPlaceholder placeholder,
+                             int request_id )
     {        
-        ReplyPlaceholder placeholder = null;
-
-        if( response_expected )
+        Integer key = new Integer( request_id );
+        
+        synchronized( replies )
         {
-            Integer key = new Integer( request_id );
-            
-            placeholder = new ReplyPlaceholder();
-
-            synchronized( replies )
-            {
-                replies.put( key, placeholder );
-            }
+            replies.put( key, placeholder );
         }
 
+        sendRequest( os );
+    }
+
+    public void sendRequest( MessageOutputStream os )
+    {
         try
         {
             connection.sendMessage( os );
@@ -222,8 +240,6 @@ public class ClientConnection
             Debug.output(2,e);
             throw new org.omg.CORBA.COMM_FAILURE();
         }		
-        
-        return placeholder;
     }
 
     public void close()
