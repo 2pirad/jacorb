@@ -21,7 +21,6 @@ package org.jacorb.imr;
  *
  */
 
-import org.jacorb.util.Debug;
 
 /**
  * This class provides shared or exclusive access to a ressource.
@@ -30,7 +29,7 @@ import org.jacorb.util.Debug;
  *
  * @author Nicolas Noffke
  * 
- * $Id: RessourceLock.java,v 1.7 2003-12-16 08:41:27 gerald Exp $
+ * $Id: RessourceLock.java,v 1.7.4.1 2004-03-25 14:50:27 gerald Exp $
  *
  */
 
@@ -66,7 +65,6 @@ public class RessourceLock
 	    }
             catch (java.lang.Exception _e)
             {
-		Debug.output(4, _e);
 	    }
 	}
 	shared++;
@@ -99,7 +97,6 @@ public class RessourceLock
 	    }
             catch (java.lang.Exception _e)
             {
-		Debug.output(4, _e);
 	    }
 	}
 	exclusive++;
