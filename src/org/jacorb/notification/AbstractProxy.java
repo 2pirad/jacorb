@@ -56,7 +56,7 @@ import org.apache.avalon.framework.logger.Logger;
  * ProxyBase.java
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.5 2003-11-26 10:40:55 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.6 2003-12-11 16:43:38 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations,
@@ -126,18 +126,12 @@ public abstract class AbstractProxy implements FilterAdminOperations,
 
     abstract public Servant getServant();
 
-    public void addProxyDisposedEventListener(ProxyEventListener listener)
+    public synchronized void addProxyDisposedEventListener(ProxyEventListener listener)
     {
         if (proxyDisposedEventListener_ == null)
-        {
-            synchronized (this)
             {
-                if (proxyDisposedEventListener_ == null)
-                {
-                    proxyDisposedEventListener_ = new Vector();
-                }
+                proxyDisposedEventListener_ = new Vector();
             }
-        }
 
         proxyDisposedEventListener_.add(listener);
     }
@@ -269,7 +263,7 @@ public abstract class AbstractProxy implements FilterAdminOperations,
         return filterManager_.getFilters();
     }
 
-    synchronized public void dispose()
+    public void dispose()
     {
         if (logger_.isDebugEnabled())
         {
