@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.63 2002-09-19 15:48:10 nick.cross Exp $
+ * @version $Id: CDROutputStream.java,v 1.64 2002-09-24 17:16:28 steve.osselton Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -1344,8 +1344,8 @@ public class CDROutputStream
                      write_string( value.member_name(i) );
                   }
                   endEncapsulation();
-                  break;
                }
+               break;
             case TCKind._tk_union:
                if (Environment.indirectionEncoding () &&
                    tcMap.containsKey (value.id ()))
