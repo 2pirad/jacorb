@@ -36,7 +36,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.14 2002-05-29 12:43:13 nicolas Exp $
+ * @version $Id: PrintIOR.java,v 1.15 2002-06-20 10:45:50 steve.osselton Exp $
  */
 
 public class PrintIOR 
@@ -199,6 +199,10 @@ public class PrintIOR
                 case TAG_JAVA_CODEBASE.value:
                     System.out.println("\t#"+ i + ": TAG_JAVA_CODEBASE");
                     printJavaCodebaseComponent( taggedComponents[i] );
+                    break;
+                case TAG_ORB_TYPE.value:
+                    System.out.println("\t#"+ i + ": TAG_ORB_TYPE");
+                    printOrbTypeComponent( taggedComponents[i] );
                     break;
                 default:             
                     System.out.println("\tUnknown tag : " + 
@@ -456,6 +460,24 @@ public class PrintIOR
         String codebase = is.read_string();
 
         System.out.println( "\t\tCodebase: " + codebase );
+    }
+
+    private static void printOrbTypeComponent (TaggedComponent tc)
+    {
+        CDRInputStream is =
+            new CDRInputStream ((org.omg.CORBA.ORB)null, tc.component_data );
+        is.openEncapsulatedArray ();
+        int type = is.read_long ();
+
+        System.out.print ( "\t\tType: " + type);
+        if (type == ORBConstants.JACORB_ORB_ID)
+        {
+            System.out.println (" (JacORB)");
+        }
+        else
+        {
+            System.out.println (" (Foreign)");
+        }
     }
     
     public static void dumpHex(byte bs[])
