@@ -38,7 +38,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.73 2003-11-11 23:11:24 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.74 2003-12-11 17:55:20 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1965,7 +1965,7 @@ public class CDRInputStream
                 {
                     String id = tc.id();
                     org.omg.CORBA.portable.BoxedValueHelper helper =
-                                  RepositoryID.createBoxedValueHelper(id);
+                        ((org.jacorb.orb.ORB)orb).getBoxedValueHelper(id);
                     if (helper == null)
                         throw new RuntimeException
                             ("No BoxedValueHelper for id " + id);
