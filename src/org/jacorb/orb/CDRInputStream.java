@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.25 2001-11-16 16:13:10 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.26 2001-11-19 09:17:04 gerald Exp $
  */
 
 public class CDRInputStream
@@ -45,6 +45,9 @@ public class CDRInputStream
 
     /** the stack for saving/restoring encapsulation information */
     private Stack encaps_stack = new Stack();
+
+    /** hashtable to remember the original  TCs for a given ID that is
+        used in a recursive/repeated TC */
     private Hashtable recursiveTCMap = new Hashtable();
 
     /** indexes to support mark/reset */
