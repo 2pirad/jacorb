@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.7 2001-03-26 09:10:42 jacorb Exp $
+ * @version $Id: Interface.java,v 1.5 2001-03-26 09:07:37 jacorb Exp $
  */
 
 import java.util.*;
