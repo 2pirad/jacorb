@@ -30,17 +30,14 @@ import org.jacorb.notification.interfaces.Message;
 import org.jacorb.util.Debug;
 
 import EDU.oswego.cs.dl.util.concurrent.Heap;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BoundedDeadlineEventQueue.java,v 1.2 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: BoundedDeadlineEventQueue.java,v 1.3 2003-12-03 11:34:10 alphonse.bendt Exp $
  */
 
 public class BoundedDeadlineEventQueue extends AbstractBoundedEventQueue
 {
-
-    Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
     private Heap heap_;
     private long counter_ = 0;
