@@ -40,7 +40,7 @@ import java.util.Enumeration;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.8 2001-11-15 12:20:18 jacorb Exp $
+ * @version $Id: AOM.java,v 1.9 2002-03-11 18:23:16 steve.osselton Exp $
  */
 
 public class AOM 
@@ -330,9 +330,14 @@ public class AOM
                 
             try 
             {
-                servant_activator.etherealize( oid, poa, 
-                                               servant, contains(servant), 
-                                               cleanup_in_progress);
+                servant_activator.etherealize
+                (
+                     oid,
+                     poa, 
+                     servant,
+                     cleanup_in_progress,
+                     contains (servant)
+                );
                                 
                 logTrace.printLog(2, oid, "servant is etherealized");
                           
