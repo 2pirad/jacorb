@@ -31,7 +31,7 @@ import org.omg.CORBA.TCKind;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.85 2003-11-11 23:13:20 andre.spiegel Exp $
+ * @version $Id: CDROutputStream.java,v 1.86 2003-12-11 17:54:23 andre.spiegel Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -2029,7 +2029,7 @@ public class CDROutputStream
                 {
                     String id = tc.id();
                     org.omg.CORBA.portable.BoxedValueHelper helper =
-                        RepositoryID.createBoxedValueHelper(id);
+                        ((org.jacorb.orb.ORB)orb).getBoxedValueHelper(id);
                     if (helper == null)
                         throw new RuntimeException
                             ("No BoxedValueHelper for id " + id);
