@@ -25,6 +25,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.*;
 import org.jacorb.ir.RepositoryID;
+import org.jacorb.util.Debug;
 import org.omg.CORBA.TCKind;
 import org.omg.CORBA.ValueMember;
 
@@ -33,7 +34,7 @@ import org.omg.CORBA.ValueMember;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.32 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: TypeCode.java,v 1.33 2003-05-19 13:11:03 nick.cross Exp $
  */
 
 public class TypeCode
@@ -841,6 +842,10 @@ public class TypeCode
 
         result.resolveRecursion ();
 
+        if( Debug.isDebugEnabled() )
+        {
+            Debug.output( "Compacting typecode " + this + " and returning " + result );
+        }
         return result;
     }
 
