@@ -50,7 +50,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.21 2003-12-17 13:37:41 nick.cross Exp $
+ * @version $Id: RequestProcessor.java,v 1.22 2003-12-30 15:23:11 andre.spiegel Exp $
  */
 
 public class RequestProcessor
@@ -70,12 +70,12 @@ public class RequestProcessor
     /** this processor's logger instance, obtained from the request controller */
     private Logger logger;
 
-    private static Hashtable specialOperations;
+    private static Map specialOperations;
     private static int count = 0;
 
     static
     {
-        specialOperations = new Hashtable(50);
+        specialOperations = new HashMap(50);
         specialOperations.put("_is_a", "");
         specialOperations.put("_interface", "");
         specialOperations.put("_non_existent", "");
