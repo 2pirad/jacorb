@@ -52,7 +52,7 @@ import java.io.*;
  * property, if it's set. If not, the default is 0.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.9 2004-01-28 12:45:38 david.robison Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.10 2004-01-30 09:31:09 nick.cross Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -91,17 +91,30 @@ public class LogKitLoggerFactory
 
         append = Environment.isPropertyOn("jacorb.logfile.append");
 
+
         if (defaultPriorityString != null)
         {
-			if (defaultPriorityString != null && defaultPriorityString.toUpperCase().equals("DEBUG")) {
-				defaultPriorityString = "4";
-			} else if (defaultPriorityString != null && defaultPriorityString.toUpperCase().equals("INFO")) {
-				defaultPriorityString = "3";        	
-			} else if (defaultPriorityString != null && defaultPriorityString.toUpperCase().equals("WARN")) {
-				defaultPriorityString = "2";        	
-			} else if (defaultPriorityString != null && defaultPriorityString.toUpperCase().equals("ERROR")) {
-				defaultPriorityString = "1";        	
-			}
+            if (defaultPriorityString != null &&
+                defaultPriorityString.toUpperCase().equals("DEBUG"))
+            {
+                defaultPriorityString = "4";
+            }
+            else if (defaultPriorityString != null &&
+                     defaultPriorityString.toUpperCase().equals("INFO"))
+            {
+                defaultPriorityString = "3";
+            }
+            else if (defaultPriorityString != null &&
+                     defaultPriorityString.toUpperCase().equals("WARN"))
+            {
+                defaultPriorityString = "2";
+            }
+            else if (defaultPriorityString != null &&
+                     defaultPriorityString.toUpperCase().equals("ERROR"))
+            {
+                defaultPriorityString = "1";
+            }
+
             try
             {
                 defaultPriority = Integer.parseInt(defaultPriorityString);
@@ -268,19 +281,30 @@ public class LogKitLoggerFactory
         while (!prefix.equals(""))
         {
             String priorityString =
-                Environment.getProperty( prefix + ".log.verbosity");
+            Environment.getProperty( prefix + ".log.verbosity");
 
             if (priorityString != null)
             {
-				if (priorityString != null && priorityString.toUpperCase().equals("DEBUG")) {
-					priorityString = "4";
-				} else if (priorityString != null && priorityString.toUpperCase().equals("INFO")) {
-					priorityString = "3";        	
-				} else if (priorityString != null && priorityString.toUpperCase().equals("WARN")) {
-					priorityString = "2";        	
-				} else if (priorityString != null && priorityString.toUpperCase().equals("ERROR")) {
-					priorityString = "1";        	
-				}
+                if (priorityString != null &&
+                    priorityString.toUpperCase().equals("DEBUG"))
+                {
+                    priorityString = "4";
+                }
+                else if (priorityString != null &&
+                         priorityString.toUpperCase().equals("INFO"))
+                {
+                    priorityString = "3";
+                }
+                else if (priorityString != null &&
+                         priorityString.toUpperCase().equals("WARN"))
+                {
+                    priorityString = "2";
+                }
+                else if (priorityString != null &&
+                         priorityString.toUpperCase().equals("ERROR"))
+                {
+                    priorityString = "1";
+                }
                 return Integer.parseInt(priorityString);
             }
 
