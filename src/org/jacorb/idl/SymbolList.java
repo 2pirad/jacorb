@@ -25,11 +25,11 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: SymbolList.java,v 1.13 2003-09-03 10:13:20 brose Exp $
  */
 
-class SymbolList
-        extends IdlSymbol
+public class SymbolList
+    extends IdlSymbol
 {
     Vector v;
 
@@ -52,11 +52,15 @@ class SymbolList
     }
 
 
-    public int size ()
+    public int size()
     {
-        return v.size ();
+        return v.size();
     }
 
+    public Enumeration elements()
+    {
+        return v.elements();
+    }
 
     public void parse()
     {
