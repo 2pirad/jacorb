@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.67 2002-10-15 15:04:51 nick.cross Exp $
+ * @version $Id: CDROutputStream.java,v 1.68 2002-11-07 10:30:53 andre.spiegel Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -648,7 +648,7 @@ public class CDROutputStream
 
         if( (c & too_large_mask) != 0 )//Are there any 1s in the MSB?
         {
-            throw new org.omg.CORBA.MARSHAL(
+            throw new org.omg.CORBA.DATA_CONVERSION(
                 "char (" + c +
                 ") out of range for " +
                 CodeSet.csName( codeSet) );
