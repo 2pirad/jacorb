@@ -37,7 +37,7 @@ import org.jacorb.orb.portableInterceptor.*;
  * Created: Sun Sep  2 18:16:27 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.8 2003-04-14 15:26:39 andre.spiegel Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.9 2003-04-26 17:40:58 andre.spiegel Exp $
  */
 
 public class BiDirConnectionServerInterceptor 
@@ -105,13 +105,12 @@ public class BiDirConnectionServerInterceptor
             for( int i = 0; i < bidir_ctx.listen_points.length; i++ )
             {
                 ListenPoint p = bidir_ctx.listen_points[i];
-                
-                String info = p.host + ':' + 
-                    ((p.port < 0)? ((int) p.port) + 65536 : (int) p.port);
 
-                Debug.output( 2, "BiDirServerInterceptor: Added client conn to target " + info );
+                IIOPAddress addr = new IIOPAddress (p.host, p.port);                
+
+                Debug.output( 2, "BiDirServerInterceptor: Added client conn to target " + addr );
                 
-                conn_mg.addConnection( connection );
+                conn_mg.addConnection( connection, new InternetIOPProfile (addr, null) );
             }            
         }
     }    
