@@ -23,7 +23,7 @@ package org.jacorb.security.ssl;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.5 2001-05-28 09:59:26 noffke Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.6 2001-05-28 10:00:50 noffke Exp $
  * 
  * We follow the design of socket factories in package javax.net 
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we 
@@ -133,7 +133,7 @@ public class SSLSocketFactory
                                                      kac[i].key );
 	    }
             
-            if( Environment.requiredBySSL & 0x20 != 0 )
+            if( (Environment.requiredBySSL() & 0x20) != 0 )
             {
                 //required: establish trust in target
                 //--> force other side to authenticate
