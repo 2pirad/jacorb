@@ -27,16 +27,14 @@ import org.omg.GIOP.*;
 import org.omg.CORBA.portable.RemarshalException;
 
 /**
- * ReplyPlaceholder.java
- *
- *
- * Created: Sat Aug 18 21:43:19 2002
+ * Connections deliver replies to instances of this class.
+ * The mechanism by which the ORB can retrieve the replies is
+ * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.6.4.2 2002-10-20 14:46:56 andre.spiegel Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.6.4.3 2002-10-25 08:49:08 andre.spiegel Exp $
  */
-
-public class ReplyPlaceholder 
+public abstract class ReplyPlaceholder 
 {
     protected boolean ready = false;
     protected boolean communicationException = false;
@@ -103,7 +101,14 @@ public class ReplyPlaceholder
 	this.notify();
     }
 
-    public synchronized MessageInputStream getInputStream() 
+    /**
+     * Non-public implementation of the blocking method that
+     * returns a reply when it becomes available.  Subclasses
+     * should specify a different method, under a different
+     * name, that does any specific processing of the reply before
+     * returning it to the caller.
+     */
+    protected synchronized MessageInputStream getInputStream() 
 	throws RemarshalException
     {
         while( !ready ) 
