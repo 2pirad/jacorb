@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.15 2002-03-19 09:25:17 nicolas Exp $
+ * @version $Id: BasicAdapter.java,v 1.16 2002-06-25 08:03:18 gerald Exp $
  */
 
 import java.io.*;
@@ -454,6 +454,7 @@ public class BasicAdapter
 
                     if( timeout > 0 )
                     {
+                        Debug.output( 3, "Socket timeout: " + timeout );
                         socket.setSoTimeout(timeout);
                     }
 

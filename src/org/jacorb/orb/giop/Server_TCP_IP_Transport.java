@@ -32,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.7 2002-05-06 07:27:52 gerald Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.8 2002-06-25 08:03:18 gerald Exp $
  */
 
 public class Server_TCP_IP_Transport 
@@ -61,7 +61,6 @@ public class Server_TCP_IP_Transport
 
         Debug.output( 2, "Opened new server-side TCP/IP transport to " +
                       connection_info );
-
     }
 
     public Socket getSocket()
@@ -72,6 +71,8 @@ public class Server_TCP_IP_Transport
     protected void close( int reason )
         throws IOException
     {
+        Debug.output( 2, "Closing TCP connection, reason " + reason );
+
         //ignore the reasons since this transport can never be
         //reestablished.
         if( socket != null )
@@ -95,7 +96,7 @@ public class Server_TCP_IP_Transport
             //socket.shutdownOutput();
         }
 
-        Debug.output( 2, "Closed server-side TCP/IP transport to " +
+        Debug.output( 2, "Closed connection (server-side) " +
                       connection_info );
 
         throw new CloseConnectionException();

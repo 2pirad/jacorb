@@ -30,15 +30,14 @@ import org.jacorb.util.*;
  * Created: Sat Aug 18 10:52:45 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.4 2002-03-19 09:25:25 nicolas Exp $
+ * @version $Id: MessageReceptor.java,v 1.5 2002-06-25 08:03:18 gerald Exp $
  */
 
 public class MessageReceptor 
     implements Consumer  
 {
     public MessageReceptor()
-    {
-        
+    {        
     }
     
     // implementation of org.jacorb.util.threadpool.Consumer interface
@@ -63,7 +62,3 @@ public class MessageReceptor
         }
     }    
 }// MessageReceptor
-
-
-
-
