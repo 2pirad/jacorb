@@ -26,7 +26,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.4 2003-04-23 14:38:41 nick.cross Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.5 2003-04-24 10:05:18 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -105,10 +105,10 @@ public class ServerGIOPConnection
             }
             else
             {
-                transport.closeCompletely();
+                transport.close();
             }
         }
-        catch( IOException e )
+        catch( org.omg.CORBA.COMM_FAILURE e )
         {
             Debug.output( 1, e );
         }
