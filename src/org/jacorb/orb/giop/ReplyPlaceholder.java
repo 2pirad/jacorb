@@ -32,7 +32,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.16 2003-11-29 15:19:55 andre.spiegel Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.17 2004-02-12 11:08:44 gerald Exp $
  */
 public abstract class ReplyPlaceholder
 {
@@ -80,12 +80,12 @@ public abstract class ReplyPlaceholder
         notify();
     }
 
-    public synchronized void timeout()
-    {
-        timeoutException = true;
-        ready = true;
-        notify();
-    }
+//     public synchronized void timeout()
+//     {
+//         timeoutException = true;
+//         ready = true;
+//         notify();
+//     }
 
     /**
      * Non-public implementation of the blocking method that
