@@ -41,7 +41,7 @@ import java.util.Enumeration;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.10 2002-05-29 14:52:31 gerald Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.11 2002-06-12 14:33:43 reimo Exp $
  */
 public class RequestController 
     extends Thread 
@@ -156,37 +156,6 @@ public class RequestController
     {
         deactivationList.removeElement( POAUtil.oid_to_bak(oid) );	
     }
-
-    /**
-     * called from POA.deactivateObject() 
-     */
-
-    boolean deactivationInProgress( byte[] oid )
-    {
-        return deactivationList.contains( POAUtil.oid_to_bak(oid) );
-    }
-
-    /**
-     * called from POA.deactivate_object() to determine when to return
-     */
-
-    void waitForDeactivationStart( byte[] oid ) 
-    {
-        if ( !deactivationInProgress( oid ) && aom.contains( oid ) ) 
-        {
-            synchronized( oid )
-            {
-                try 
-                {
-                    oid.wait();
-                }
-                catch (InterruptedException e) 
-                {
-                }
-            }
-        }		
-    }
-
 
     AOM getAOM() 
     {
@@ -592,7 +561,7 @@ public class RequestController
             {
             }
         }
-    }
+    }    
 }
 
 
