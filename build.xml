@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB build file                         -->
-  <!-- $Id: build.xml,v 1.1 2001-03-17 18:07:21 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.2 2001-03-19 08:40:31 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -504,7 +504,7 @@
    <!-- ==================================================== -->
 
    <target name="jacorb" depends="init">
-        <ant antfile="${src}/jacorb/build.xml" dir="${basedir}"/>
+        <ant antfile="${src}/org/jacorb/build.xml" dir="${basedir}"/>
    </target>
 
    <!-- ==================================================== -->

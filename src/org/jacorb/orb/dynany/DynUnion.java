@@ -30,7 +30,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.2 2001-03-17 18:44:58 brose Exp $
+ * $Id: DynUnion.java,v 1.3 2001-03-19 08:40:36 jacorb Exp $
  *
  */
 
@@ -161,7 +161,7 @@ public final class DynUnion
 	os.write_value( member.type(), 
                         (CDRInputStream) member.to_any().create_input_stream());
 
-	jacorb.orb.Any out_any = 
+	org.jacorb.orb.Any out_any = 
             (org.jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
 
 	out_any.type( type() );

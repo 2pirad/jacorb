@@ -29,7 +29,7 @@ import org.jacorb.orb.*;
  * CORBA DynStruct
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynStruct.java,v 1.2 2001-03-17 18:44:58 brose Exp $
+ * $Id: DynStruct.java,v 1.3 2001-03-19 08:40:36 jacorb Exp $
  */
 
 public final class DynStruct
@@ -132,7 +132,8 @@ public final class DynStruct
 
     public org.omg.CORBA.Any to_any() 
     {
-	jacorb.orb.Any out_any = (org.jacorb.orb.Any)orb.create_any();
+	org.jacorb.orb.Any out_any = 
+            (org.jacorb.orb.Any)orb.create_any();
 	out_any.type( type());
 
 	CDROutputStream os = new CDROutputStream();

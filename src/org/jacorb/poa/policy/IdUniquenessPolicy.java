@@ -24,23 +24,28 @@ package org.jacorb.poa.policy;
  * This class implements the id uniqueness policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.0, 05/03/99, RT
+ * @version $Id: IdUniquenessPolicy.java,v 1.2 2001-03-19 08:40:43 jacorb Exp $
  */
-public class IdUniquenessPolicy extends org.jacorb.orb.LocalityConstrainedObject implements org.omg.PortableServer.IdUniquenessPolicy {
-	private org.omg.PortableServer.IdUniquenessPolicyValue value;
-	private IdUniquenessPolicy() {
-	}
-	public IdUniquenessPolicy(org.omg.PortableServer.IdUniquenessPolicyValue _value) {
-		value = _value;
-	}
-	public org.omg.CORBA.Policy copy() {
-		return new IdUniquenessPolicy(value());
-	}
-	public void destroy() {
-	}
-	public int policy_type() {
-		return org.omg.PortableServer.ID_UNIQUENESS_POLICY_ID.value;
-	}
-	public org.omg.PortableServer.IdUniquenessPolicyValue value() {
-		return value;
-	}
+
+public class IdUniquenessPolicy 
+    extends org.jacorb.orb.LocalityConstrainedObject
+    implements org.omg.PortableServer.IdUniquenessPolicy 
+{
+    private org.omg.PortableServer.IdUniquenessPolicyValue value;
+    private IdUniquenessPolicy() {
+    }
+    public IdUniquenessPolicy(org.omg.PortableServer.IdUniquenessPolicyValue _value) {
+        value = _value;
+    }
+    public org.omg.CORBA.Policy copy() {
+        return new IdUniquenessPolicy(value());
+    }
+    public void destroy() {
+    }
+    public int policy_type() {
+        return org.omg.PortableServer.ID_UNIQUENESS_POLICY_ID.value;
+    }
+    public org.omg.PortableServer.IdUniquenessPolicyValue value() {
+        return value;
+    }
+}

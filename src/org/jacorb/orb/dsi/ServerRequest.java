@@ -28,7 +28,7 @@ import org.jacorb.orb.portableInterceptor.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.2 2001-03-17 18:44:56 brose Exp $
+ * @version $Id: ServerRequest.java,v 1.3 2001-03-19 08:40:35 jacorb Exp $
  */
 
 public class ServerRequest 
@@ -269,7 +269,7 @@ public class ServerRequest
 			    for( java.util.Enumeration e = args.enumerate(); 
 				 e.hasMoreElements(); )
 			    {
-				jacorb.orb.NamedValue nv = 
+				org.jacorb.orb.NamedValue nv = 
 				    (org.jacorb.orb.NamedValue)e.nextElement();
 				
 				if( nv.flags() != org.omg.CORBA.ARG_IN.value )
