@@ -38,7 +38,7 @@ import org.jacorb.notification.interfaces.Message;
  * SequenceProxyPullConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.6 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl
@@ -153,18 +153,12 @@ public class SequenceProxyPullConsumerImpl
         super.dispose();
     }
 
-    public Servant getServant()
+    public synchronized Servant getServant()
     {
         if ( thisServant_ == null )
-        {
-            synchronized ( this )
-            {
-                if ( thisServant_ == null )
                 {
                     thisServant_ = new SequenceProxyPullConsumerPOATie( this );
                 }
-            }
-        }
 
         return thisServant_;
     }

@@ -32,7 +32,7 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.2 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable
@@ -47,14 +47,11 @@ public class MessageFactory implements Disposable
                 return _p;
             }
 
-            public void passivateObject( Object o )
-            {
-            }
-
             public void activateObject( Object o )
             {
-                ( ( AbstractPoolable ) o ).reset();
-                ( ( AbstractPoolable ) o ).setObjectPool( this );
+                AbstractPoolable obj = (AbstractPoolable) o;
+                obj.reset();
+                obj.setObjectPool( this );
             }
         };
 
@@ -67,14 +64,11 @@ public class MessageFactory implements Disposable
                 return _p;
             }
 
-            public void passivateObject( Object o )
-            {
-            }
-
             public void activateObject( Object o )
             {
-                ( ( AbstractPoolable ) o ).reset();
-                ( ( AbstractPoolable ) o ).setObjectPool( this );
+                AbstractPoolable obj = (AbstractPoolable) o;
+                obj.reset();
+                obj.setObjectPool( this );
             }
         };
 

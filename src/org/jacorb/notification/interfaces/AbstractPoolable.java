@@ -30,10 +30,10 @@ import org.jacorb.notification.util.AbstractObjectPool;
  * Created: Sat Jan 04 17:01:16 2003
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractPoolable.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolable.java,v 1.2 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
-public abstract class AbstractPoolable
+public abstract class AbstractPoolable implements Disposable
 {
     private AbstractObjectPool objectPool_;
 
@@ -44,7 +44,7 @@ public abstract class AbstractPoolable
      * ObjectPool. It's forbidden to use the Object
      * after release has been called as this may cause unexpected behaviour.
      */
-    public void release()
+    public void dispose()
     {
         if ( objectPool_ != null )
         {

@@ -36,7 +36,7 @@ import org.omg.PortableServer.Servant;
  * SequenceProxyPushConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.6 2003-09-12 09:23:58 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.7 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl
@@ -102,18 +102,12 @@ public class SequenceProxyPushConsumerImpl
         dispose();
     }
 
-    public Servant getServant()
+    public synchronized Servant getServant()
     {
         if ( thisServant_ == null )
-        {
-            synchronized ( this )
             {
-                if ( thisServant_ == null )
-                {
-                    thisServant_ = new SequenceProxyPushConsumerPOATie( this );
-                }
+                thisServant_ = new SequenceProxyPushConsumerPOATie( this );
             }
-        }
 
         return thisServant_;
     }

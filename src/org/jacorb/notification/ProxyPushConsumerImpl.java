@@ -38,7 +38,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.9 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.10 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -181,18 +181,12 @@ public class ProxyPushConsumerImpl
         disconnectClient();
     }
 
-    public Servant getServant()
+    public synchronized Servant getServant()
     {
         if ( thisServant_ == null )
-        {
-            synchronized ( this )
             {
-                if ( thisServant_ == null )
-                {
-                    thisServant_ = new ProxyPushConsumerPOATie( this );
-                }
+                thisServant_ = new ProxyPushConsumerPOATie( this );
             }
-        }
 
         return thisServant_;
     }

@@ -40,7 +40,7 @@ import org.omg.PortableServer.Servant;
  * StructuredProxyPushConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.9 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.10 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl
@@ -133,13 +133,9 @@ public class StructuredProxyPushConsumerImpl
         disconnectClient();
     }
 
-    public Servant getServant() {
+    public synchronized Servant getServant() {
         if (thisServant_ == null) {
-            synchronized(this) {
-                if (thisServant_ == null) {
-                    thisServant_ = new StructuredProxyPushConsumerPOATie(this);
-                }
-            }
+            thisServant_ = new StructuredProxyPushConsumerPOATie(this);
         }
         return thisServant_;
     }

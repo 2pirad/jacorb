@@ -53,7 +53,7 @@ import org.apache.avalon.framework.logger.Logger;
  * Created: Sat Nov 30 16:02:04 2002
  *
  * @author Alphonse Bendt
- * @version $Id: ApplicationContext.java,v 1.11 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: ApplicationContext.java,v 1.12 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class ApplicationContext implements Disposable
@@ -97,12 +97,9 @@ public class ApplicationContext implements Disposable
 
                 public void activateObject( Object o )
                 {
-                    ( ( AbstractPoolable ) o ).setObjectPool( this );
-                }
-
-                public void passivateObject( Object o )
-                {
-                    ( ( AbstractPoolable ) o ).reset();
+                    AbstractPoolable obj = (AbstractPoolable) o;
+                    obj.reset();
+                    obj.setObjectPool( this );
                 }
             };
 
@@ -118,12 +115,9 @@ public class ApplicationContext implements Disposable
 
                 public void activateObject( Object o )
                 {
-                    ( ( AbstractPoolable ) o ).setObjectPool( this );
-                }
-
-                public void passivateObject( Object o )
-                {
-                    ( ( AbstractPoolable ) o ).reset();
+                    AbstractPoolable obj = (AbstractPoolable) o;
+                    obj.reset();
+                    obj.setObjectPool( this );
                 }
             };
 

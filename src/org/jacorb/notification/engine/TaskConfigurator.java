@@ -40,7 +40,7 @@ import org.apache.avalon.framework.logger.Logger;
  * TaskConfigurator.java
  *
  * @author Alphonse Bendt
- * @version $Id: TaskConfigurator.java,v 1.11 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: TaskConfigurator.java,v 1.12 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class TaskConfigurator implements Disposable
@@ -218,7 +218,7 @@ public class TaskConfigurator implements Disposable
                 event.dispose();
             }
 
-            currentFilterTask.release();
+            currentFilterTask.dispose();
 
             if ( filterTaskToBeScheduled != null )
             {
@@ -321,7 +321,7 @@ public class TaskConfigurator implements Disposable
             m.dispose();
         }
 
-        _pushToConsumerTask.release();
+        _pushToConsumerTask.dispose();
 
     }
 
@@ -348,7 +348,7 @@ public class TaskConfigurator implements Disposable
                     case Task.DONE:
                         // ( ( AbstractTask ) task ).removeMessage().dispose();
 
-                        ( ( AbstractPoolable ) task ).release();
+                        ( ( AbstractPoolable ) task ).dispose();
                         break;
 
                     default:

@@ -131,7 +131,7 @@ import org.apache.avalon.framework.logger.Logger;
  * administration of this callback list by unique identifier. <br>
  *
  * @author Alphonse Bendt
- * @version $Id: FilterImpl.java,v 1.12 2003-11-04 07:54:02 alphonse.bendt Exp $
+ * @version $Id: FilterImpl.java,v 1.13 2003-12-16 15:30:43 alphonse.bendt Exp $
  */
 
 public class FilterImpl extends FilterPOA implements Disposable
@@ -665,13 +665,11 @@ public class FilterImpl extends FilterPOA implements Disposable
                         }
                         catch ( EvaluationException e )
                         {
-                            // ignore
-                            e.printStackTrace();
+                            logger_.fatalError("Error evaluating filter", e);
                         }
                         catch ( DynamicTypeException e )
                         {
-                            // ignore
-                            e.printStackTrace();
+                            logger_.fatalError("Error evaluating filter", e);
                         }
                     }
                 }
@@ -720,14 +718,18 @@ public class FilterImpl extends FilterPOA implements Disposable
                 _event.dispose();
             }
             catch (Exception e)
-            {}
+                {
+                    logger_.fatalError("Error disposing event", e);
+                }
 
             try
             {
-                _evaluationContext.release();
+                _evaluationContext.dispose();
             }
             catch (Exception e)
-            {}
+            {
+                logger_.fatalError("Error disposing EvaluationContext", e);
+            }
         }
     }
 
@@ -759,14 +761,18 @@ public class FilterImpl extends FilterPOA implements Disposable
                 _event.dispose();
             }
             catch (Exception e)
-            {}
+            {
+                logger_.fatalError("Error disposing event", e);
+            }
 
             try
             {
-                _evaluationContext.release();
+                _evaluationContext.dispose();
             }
             catch (Exception e)
-            {}
+            {
+                logger_.fatalError("Error releasing EvaluationContext", e);
+            }
         }
     }
 
