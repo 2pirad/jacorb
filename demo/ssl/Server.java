@@ -18,7 +18,7 @@ import org.jacorb.security.level2.*;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: Server.java,v 1.1 2001-06-21 15:02:43 noffke Exp $
+ * @version $Id: Server.java,v 1.2 2001-07-30 17:11:52 jacorb Exp $
  */
 
 public class Server 
@@ -53,7 +53,7 @@ public class Server
     }
 
     /**
-     * This method retirevs the received client certificate 
+     * This method retrievs the received client certificate 
      * from the Credentials.
      */
     private X509Certificate getClientCert()
