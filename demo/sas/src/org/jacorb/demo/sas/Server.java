@@ -14,7 +14,7 @@ import org.omg.PortableServer.POA;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: Server.java,v 1.1 2004-01-30 15:41:28 david.robison Exp $
+ * @version $Id: Server.java,v 1.2 2004-02-05 10:49:54 nick.cross Exp $
  */
 
 public class Server extends SASDemoPOA
@@ -49,7 +49,7 @@ public class Server extends SASDemoPOA
     public static void main( String[] args )
     {
         if( args.length != 1 )
-		{
+        {
             System.out.println( "Usage: java demo.sas.GssUpServer <ior_file>" );
             System.exit( -1 );
         }
@@ -64,7 +64,7 @@ public class Server extends SASDemoPOA
             pw.println( orb.object_to_string( demo ));
             pw.flush();
             pw.close();
-	    	orb.run();
+            orb.run();
         }
         catch( Exception e )
         {

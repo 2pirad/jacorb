@@ -12,7 +12,7 @@ import org.omg.CORBA.ORB;
  * transparent.
  *
  * @author Nicolas Noffke
- * @version $Id: SslClient.java,v 1.1 2004-01-30 15:41:28 david.robison Exp $
+ * @version $Id: SslClient.java,v 1.2 2004-02-05 10:49:54 nick.cross Exp $
  */
 
 public class SslClient
@@ -20,13 +20,13 @@ public class SslClient
     public static void main( String args[] )
     {
         if( args.length != 1 )
-	{
+        {
             System.out.println( "Usage: java demo.sas.SslClient <ior_file>" );
             System.exit( 1 );
         }
 
         try
-	{
+        {
             File f = new File( args[ 0 ] );
 
             //check if file exists
@@ -65,7 +65,7 @@ public class SslClient
             System.out.println( "Call to server succeeded" );
         }
         catch( Exception ex )
-	{
+        {
             ex.printStackTrace();
         }
     }
