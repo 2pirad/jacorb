@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.41 2004-02-12 11:07:15 gerald Exp $
+ * @version $Id: GIOPConnection.java,v 1.42 2004-04-26 04:48:25 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -725,7 +725,8 @@ public abstract class GIOPConnection
         {
             synchronized (connect_sync)
             {
-                transport.connect (profile, 0);
+               long timeout = Environment.getIntPropertyWithDefault("jacorb.connection.client.pending_reply_timeout", 0);
+                transport.connect (profile, timeout);
                 connect_sync.notifyAll();
             }
         }
