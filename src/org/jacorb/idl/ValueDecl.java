@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.36 2004-01-15 12:38:18 nick.cross Exp $
+ * @version $Id: ValueDecl.java,v 1.37 2004-02-02 15:35:26 gerald Exp $
  */
 
 public class ValueDecl
@@ -381,6 +381,12 @@ public class ValueDecl
 
     public void print(PrintWriter ps)
     {
+        // no code generation for included definitions
+        if (included && !generateIncluded())
+        {
+            return;
+        }
+
         try
         {
             String path = parser.out_dir
