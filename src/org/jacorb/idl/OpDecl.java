@@ -25,10 +25,10 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.30 2003-08-15 13:46:02 nick.cross Exp $
+ * @version $Id: OpDecl.java,v 1.31 2003-09-02 15:35:39 brose Exp $
  */
 
-class OpDecl
+public class OpDecl
     extends Declaration
     implements Operation
 {
@@ -240,8 +240,7 @@ class OpDecl
 
     public void printMethod( PrintWriter ps,
                              String classname,
-                             boolean is_local,
-                             boolean is_abstract)
+                             boolean is_local )
     {
         /* in some cases generated name have an underscore prepended for the
            mapped java name. On the wire, we must use the original name */
@@ -358,16 +357,8 @@ class OpDecl
         ps.println( "\t\t\tif( _so == null )" );
         ps.println( "\t\t\t\tthrow new org.omg.CORBA.UNKNOWN(\"local invocations not supported!\");" );
 
-        if( is_abstract )
-        {
-            ps.println( "\t\t\t" + classname + " _localServant = (" +
-                        classname + ")_so.servant;" );
-        }
-        else
-        {
-            ps.println( "\t\t\t" + classname + "Operations _localServant = (" +
-                        classname + "Operations)_so.servant;" );
-        }
+        ps.println( "\t\t\t" + classname + "Operations _localServant = (" +
+                classname + "Operations)_so.servant;" );
 
         if( opAttribute == 0 &&
                 !( opTypeSpec.typeSpec() instanceof VoidTypeSpec ) )
@@ -797,6 +788,12 @@ class OpDecl
         if( logger.isDebugEnabled() )
             logger.debug( "OpInfo for " + name + " : " + sb.toString() );
     }
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitOpDecl( this );
+    }
+
 
 
 }
