@@ -37,7 +37,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.27 2003-04-24 10:06:41 andre.spiegel Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.28 2003-04-26 17:36:50 andre.spiegel Exp $
  */
 
 public class Client_TCP_IP_Transport
@@ -50,7 +50,6 @@ public class Client_TCP_IP_Transport
     private int sslPort = -1;
 
     private boolean closed = false;
-    private boolean connected = false;
 
     //for testing purposes only: # of open transports
     //used by org.jacorb.test.orb.connection[Client|Server]ConnectionTimeoutTest
@@ -111,8 +110,8 @@ public class Client_TCP_IP_Transport
 
     public synchronized boolean waitUntilConnected()
     {
-        while( ! connected &&
-               ! closed )
+        while( ! connected && 
+               ! closed)
         {
             try
             {
@@ -123,10 +122,10 @@ public class Client_TCP_IP_Transport
             }
         }
 
-        return ! closed;
+        return !closed;
      }
 
-    protected synchronized void connect()
+    public synchronized void connect (org.omg.ETF.Profile server_profile, long time_out)
     {
         if( ! connected )
         {
