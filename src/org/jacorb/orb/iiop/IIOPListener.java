@@ -38,7 +38,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.6 2003-06-20 15:14:43 andre.spiegel Exp $
+ * @version $Id: IIOPListener.java,v 1.7 2003-07-11 00:23:32 andre.spiegel Exp $
  */
 public class IIOPListener extends _ListenerLocalBase
 {
@@ -387,7 +387,7 @@ public class IIOPListener extends _ListenerLocalBase
         Connection result = null;
         try
         {
-            result = new ServerIIOPConnection (socket, isSSL);
+            result = createServerConnection (socket, isSSL);
         }
         catch (IOException ex)
         {
@@ -407,6 +407,18 @@ public class IIOPListener extends _ListenerLocalBase
                 incoming_connections.notifyAll();
             }
         }
+    }
+    
+    /**
+     * Template method to create a server-side ETF Connection.
+     * This can be overridden by subclasses to pass a different
+     * kind of Connection up to the ORB.
+     */
+    protected Connection createServerConnection (Socket socket,
+                                                 boolean is_ssl)
+        throws IOException
+    {
+        return new ServerIIOPConnection (socket, is_ssl);   
     }
     
     // Acceptor classes below this line
