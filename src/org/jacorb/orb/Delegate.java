@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.61.2.4 2002-10-21 09:02:26 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.61.2.5 2002-10-21 19:09:17 andre.spiegel Exp $
  *
  */
 
@@ -758,7 +758,8 @@ public final class Delegate
             }
             else  // response expected, synchronous or asynchronous
             {
-                receiver = new ReplyReceiver ( this, 
+                receiver = new ReplyReceiver ( this,
+                                               ros.operation(),
                                                interceptors,
                                                replyHandler );
                 synchronized ( bind_sync )
@@ -798,8 +799,8 @@ public final class Delegate
 
         if ( replyHandler == null && receiver != null )
         {
-            // Synchronous invocation, 
-            // the following blocks until the reply arrives.
+            // Synchronous invocation. 
+            // This call blocks until the reply arrives.
             return receiver.getReplyInputStream();
         }
         else
