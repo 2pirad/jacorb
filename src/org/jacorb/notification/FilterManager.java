@@ -34,7 +34,7 @@ import org.omg.CosNotifyFilter.FilterNotFound;
  * FilterManager.java
  *
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.3 2003-08-02 10:28:32 alphonse.bendt Exp $
+ * @version $Id: FilterManager.java,v 1.4 2003-09-12 09:30:09 alphonse.bendt Exp $
  */
 
 public class FilterManager implements FilterAdminOperations
@@ -44,7 +44,8 @@ public class FilterManager implements FilterAdminOperations
     protected List filtersReadOnlyView_;
     protected int filterIdPool_ = 0;
 
-    public static FilterManager EMPTY = new FilterManager( Collections.EMPTY_LIST );
+    public static final FilterManager EMPTY =
+        new FilterManager( Collections.EMPTY_LIST );
 
     protected FilterManager( List list )
     {
