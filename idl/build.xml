@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB idl build file                     -->
-  <!-- $Id: build.xml,v 1.10 2001-12-11 11:26:10 gerald Exp $ -->
+  <!-- $Id: build.xml,v 1.11 2001-12-14 12:23:04 spiegel Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -107,6 +107,9 @@
 	/>	
 	<copy file="${src}/java_mapping/CORBA/FixedHolder.java"
               tofile="${src}/generated/org/omg/CORBA/FixedHolder.java"
+	/>
+	<copy file="${src}/java_mapping/CORBA/SetOverrideType.java"
+              tofile="${src}/generated/org/omg/CORBA/SetOverrideType.java"
 	/>
    </target>
 
