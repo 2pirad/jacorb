@@ -38,7 +38,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.2 2003-05-06 14:30:09 andre.spiegel Exp $
+ * @version $Id: IIOPListener.java,v 1.3 2003-05-09 08:11:02 andre.spiegel Exp $
  */
 public class IIOPListener extends _ListenerLocalBase
 {
@@ -378,8 +378,17 @@ public class IIOPListener extends _ListenerLocalBase
      */
     private void deliverConnection (Socket socket)
     {
-        Connection result = null; // new ServerIIOPConnection (socket,
-                                  //                           endpoint());
+        Connection result = null;
+        try
+        {
+            result = new ServerIIOPConnection (socket, false);
+        }
+        catch (IOException ex)
+        {
+            Debug.output (1, "Could not create connection from socket: " + ex);
+            return;
+        }
+
         if (up != null)
         {
               up.add_input (result);
