@@ -8,7 +8,7 @@ import org.omg.SSLIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: InternetIOPProfile.java,v 1.3 2003-04-14 15:32:12 andre.spiegel Exp $
+ * @version $Id: InternetIOPProfile.java,v 1.4 2003-04-26 17:43:16 andre.spiegel Exp $
  */
 public class InternetIOPProfile extends _ProfileLocalBase
 {
@@ -133,4 +133,8 @@ public class InternetIOPProfile extends _ProfileLocalBase
         return primaryAddress.hashCode();
     }
     
+    public String toString()
+    {
+        return primaryAddress.toString();
+    }
 }
