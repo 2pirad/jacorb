@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.97 2003-08-18 10:48:00 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.98 2003-09-12 14:57:14 brose Exp $
  */
 
 public final class ORB
@@ -1311,7 +1311,7 @@ public final class ORB
         {
             System.out.println("\tJacORB V " + versionString +
                                ", www.jacorb.org");
-            System.out.println("\t(C) Gerald Brose, FU Berlin/XTRADYNE Technologies, " +
+            System.out.println("\t(C) Gerald Brose, XTRADYNE Technologies/FU Berlin, " +
                                dateString);
         }
 
