@@ -40,7 +40,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.92 2004-01-07 14:24:50 nick.cross Exp $
+ * @version $Id: CDROutputStream.java,v 1.93 2004-01-15 10:19:06 simon.mcqueen Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -810,7 +810,7 @@ public class CDROutputStream
             ch = s.charAt (i);
             if ((ch & too_large_mask) != 0)
             {
-                throw new MARSHAL("char (" + buffer[ pos-1 ] +
+                throw new MARSHAL("char (0x" + Integer.toHexString(ch) +
                                   ") out of range for " +
                                   CodeSet.csName( codeSet ) );
             }
