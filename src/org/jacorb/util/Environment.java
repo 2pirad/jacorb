@@ -45,7 +45,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.46 2002-10-14 16:53:09 steve.osselton Exp $
+ * @version $Id: Environment.java,v 1.47 2002-10-15 12:55:00 steve.osselton Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -170,7 +170,8 @@ public class Environment
              * load config files from the default ClassLoader's classpath
              *
              * supported by Per Bockman (pebo@enea.se)
-             */
+             */ 
+            //#ifjdk 1.2
             try
             {
                 java.net.URL url = null;
@@ -199,6 +200,7 @@ public class Environment
             {
                 // ignore it
             }
+            //#endif
 
             if( ! loaded ) //no props file found in classpath
             {
@@ -770,11 +772,17 @@ public class Environment
 
                 try
                 {
+                    //#ifjdk 1.2
                     ClassLoader cl =
                     Thread.currentThread().getContextClassLoader();
                     if (cl == null)
                         cl = ClassLoader.getSystemClassLoader();
                     orb_initializers.addElement(cl.loadClass(name).newInstance());
+                    //#else
+                    //# orb_initializers.addElement
+                    //#     (Class.forName(name).newInstance());
+                    //#endif
+
                     Debug.output(Debug.INTERCEPTOR | Debug.DEBUG1,
                                  "Build: " + name);
                 }
