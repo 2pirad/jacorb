@@ -49,7 +49,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.10 2002-04-19 10:23:21 reimo Exp $
+ * @version $Id: RequestProcessor.java,v 1.11 2002-05-06 14:02:36 gerald Exp $
  */
 
 public class RequestProcessor 
@@ -77,7 +77,6 @@ public class RequestProcessor
         specialOperations.put("_non_existent", "");
 
         specialOperations.put("_get_policy", "");
-        specialOperations.put("_get_domain_managers", "");
         specialOperations.put("_set_policy_overrides", "");
     }
 
