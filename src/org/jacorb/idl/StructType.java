@@ -24,10 +24,11 @@ package org.jacorb.idl;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.27 2002-06-03 20:12:18 gerald Exp $
+ * @version $Id: StructType.java,v 1.27.2.1 2002-07-18 13:15:09 gerald Exp $
  */
 
 class StructType
@@ -244,13 +245,27 @@ class StructType
     }
 
     /**
-     * @returns a string for an expression of type TypeCode that describes this type
+     * @returns a string for an expression of type TypeCode that
+     * describes this type 
      */
 
     public String getTypeCodeExpression()
     {
         return full_name() + "Helper.type()";
     }
+
+    public String getTypeCodeExpression( Set knownTypes )
+    {
+        if( knownTypes.contains( this ) )
+        {
+            return this.getRecursiveTypeCodeExpression();
+        }
+        else
+        {   
+            return this.getTypeCodeExpression();
+        }
+    }
+
 
     private void printClassComment( String className, PrintWriter ps )
     {
