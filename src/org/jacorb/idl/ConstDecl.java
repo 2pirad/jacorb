@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.11 2002-02-26 13:13:42 steve.osselton Exp $
+ * @version $Id: ConstDecl.java,v 1.12 2002-02-26 14:33:21 steve.osselton Exp $
  */
 
 import java.util.*;
@@ -61,7 +61,6 @@ class ConstDecl
 	}
 	else
 	{
-	    System.out.println(resolvedName + " not a defined constant");
 	    return resolvedName;
 	}
     }
