@@ -21,19 +21,15 @@ package org.jacorb.test.notification;
  *
  */
 
-import org.omg.CORBA.ORB;
 import org.omg.CORBA.Any;
+import org.omg.CORBA.ORB;
+
 import org.jacorb.test.notification.TimingTest;
 import org.jacorb.test.notification.TimingTestHelper;
 
 /**
- * AnyGenerator.java
- *
- *
- * Created: Wed Feb 12 13:28:29 2003
- *
  * @author Alphonse Bendt
- * @version $Id: AnyGenerator.java,v 1.2 2003-08-02 10:33:33 alphonse.bendt Exp $
+ * @version $Id: AnyGenerator.java,v 1.2.4.1 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class AnyGenerator implements TestEventGenerator {
@@ -42,17 +38,17 @@ public class AnyGenerator implements TestEventGenerator {
     int counter_ = 0;
 
     public AnyGenerator(ORB orb) {
-	orb_ = orb;
+        orb_ = orb;
     }
 
     public Any getNextEvent() {
-	TimingTest _t = new TimingTest();
-	_t.id = counter_++;
-	_t.currentTime = (int)System.currentTimeMillis();
+        TimingTest _t = new TimingTest();
+        _t.id = counter_++;
+        _t.currentTime = (int)System.currentTimeMillis();
 
-	Any _event = orb_.create_any();
-	TimingTestHelper.insert(_event, _t);
+        Any _event = orb_.create_any();
+        TimingTestHelper.insert(_event, _t);
 
-	return _event;
+        return _event;
     }
 }

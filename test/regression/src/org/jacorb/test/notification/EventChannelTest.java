@@ -2,6 +2,7 @@ package org.jacorb.test.notification;
 
 import org.omg.CORBA.Any;
 import org.omg.CORBA.IntHolder;
+import org.omg.CORBA.TRANSIENT;
 import org.omg.CosNotification.AnyOrder;
 import org.omg.CosNotification.DiscardPolicy;
 import org.omg.CosNotification.LifoOrder;
@@ -17,15 +18,11 @@ import org.omg.CosNotifyChannelAdmin.ProxySupplier;
 import org.omg.CosNotifyChannelAdmin.SupplierAdmin;
 import org.omg.CosNotifyFilter.FilterFactory;
 
-import org.jacorb.test.common.TestUtils;
-
 import junit.framework.Test;
-import junit.framework.TestSuite;
-import org.omg.CORBA.TRANSIENT;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelTest.java,v 1.7.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: EventChannelTest.java,v 1.7.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class EventChannelTest extends NotificationTestCase {
@@ -358,24 +355,7 @@ public class EventChannelTest extends NotificationTestCase {
     }
 
     public static Test suite() throws Exception {
-        TestSuite _suite;
-
-        _suite = new TestSuite("Basic CosNotification EventChannel Tests");
-
-        NotificationTestCaseSetup _setup =
-            new NotificationTestCaseSetup(_suite);
-
-        String[] methodNames = TestUtils.getTestMethods( EventChannelTest.class, "testSendEventPushPush_MisbehavingConsumer" );
-
-        for (int x=0; x<methodNames.length; ++x) {
-            _suite.addTest(new EventChannelTest(methodNames[x], _setup));
-        }
-
-        return _setup;
-    }
-
-
-    public static void main(String[] args) throws Exception {
-        junit.textui.TestRunner.run(suite());
+        return NotificationTestCase.suite("Basic CosNotification EventChannel Tests",
+                                          EventChannelTest.class);
     }
 }

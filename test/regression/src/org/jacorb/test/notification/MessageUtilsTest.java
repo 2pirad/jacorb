@@ -15,7 +15,7 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtilsTest.java,v 1.5.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: MessageUtilsTest.java,v 1.5.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class MessageUtilsTest extends NotificationTestCase
@@ -86,6 +86,6 @@ public class MessageUtilsTest extends NotificationTestCase
 
     public static Test suite() throws Exception
     {
-        return NotificationTestCase.notificationSuite(MessageUtilsTest.class);
+        return NotificationTestCase.suite(MessageUtilsTest.class);
     }
 }

@@ -51,7 +51,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StartTimeTest.java,v 1.8.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: StartTimeTest.java,v 1.8.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class StartTimeTest extends NotificationTestCase
@@ -193,6 +193,6 @@ public class StartTimeTest extends NotificationTestCase
 
     public static Test suite() throws Exception
     {
-        return NotificationTestCase.notificationSuite(StartTimeTest.class);
+        return NotificationTestCase.suite(StartTimeTest.class);
     }
 }

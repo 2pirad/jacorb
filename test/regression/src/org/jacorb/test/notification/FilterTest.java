@@ -22,7 +22,7 @@ import junit.framework.TestSuite;
 /**
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: FilterTest.java,v 1.10.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: FilterTest.java,v 1.10.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class FilterTest extends NotificationTestCase {
@@ -244,7 +244,7 @@ public class FilterTest extends NotificationTestCase {
 
 
     public static Test suite() throws Exception {
-        return NotificationTestCase.notificationSuite(FilterTest.class);
+        return NotificationTestCase.suite(FilterTest.class);
     }
 }
 

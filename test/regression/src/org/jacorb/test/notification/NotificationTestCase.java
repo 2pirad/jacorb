@@ -28,16 +28,18 @@ import org.omg.CosNotifyChannelAdmin.EventChannel;
 import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
 import org.omg.PortableServer.POA;
 
-import junit.framework.TestCase;
 import org.jacorb.config.Configuration;
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import org.jacorb.test.common.TestUtils;
+
 import java.lang.reflect.Constructor;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCase.java,v 1.9.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCase.java,v 1.9.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class NotificationTestCase extends TestCase {
@@ -110,8 +112,13 @@ public class NotificationTestCase extends TestCase {
     }
 
 
-    protected static Test notificationSuite(Class clazz) throws Exception {
-        TestSuite _suite = new TestSuite();
+    protected static Test suite(Class clazz) throws Exception {
+        return suite("TestSuite defined in Class: " + clazz.getName(), clazz);
+    }
+
+
+    protected static Test suite(String suiteName, Class clazz) throws Exception {
+        TestSuite _suite = new TestSuite(suiteName);
 
         NotificationTestCaseSetup _setup =
             new NotificationTestCaseSetup(_suite);

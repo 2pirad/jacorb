@@ -30,7 +30,6 @@ import org.jacorb.notification.interfaces.Message;
 import org.jacorb.util.Time;
 
 import org.omg.CORBA.Any;
-import org.omg.CORBA.ORB;
 import org.omg.CosNotification.EventHeader;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.FixedEventHeader;
@@ -49,7 +48,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StopTimeTest.java,v 1.10.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: StopTimeTest.java,v 1.10.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class StopTimeTest extends NotificationTestCase
@@ -60,17 +59,12 @@ public class StopTimeTest extends NotificationTestCase
 
     EventChannel eventChannel_;
 
-    ORB orb_;
-
-
     public StopTimeTest (String name, NotificationTestCaseSetup setup)
     {
         super(name, setup);
     }
 
     public void setUp() throws Exception {
-        orb_ = (ORB) ORB.init(new String[] {}, null);
-
         eventChannel_ = getDefaultChannel();
 
         messageFactory_ = new MessageFactory();
@@ -111,7 +105,9 @@ public class StopTimeTest extends NotificationTestCase
 
 
     public void testDisableStopTimeSupported() throws Exception {
-        if (true) return;
+        if (true) {
+            return;
+        }
 
         Any falseAny = getORB().create_any();
         falseAny.insert_boolean(false);
@@ -254,23 +250,6 @@ public class StopTimeTest extends NotificationTestCase
 
     public static Test suite() throws Exception
     {
-        TestSuite _suite = new TestSuite();
-
-        NotificationTestCaseSetup _setup =
-            new NotificationTestCaseSetup(_suite);
-
-        String[] methodNames = TestUtils.getTestMethods(StopTimeTest.class);
-
-        for (int x=0; x<methodNames.length; ++x) {
-            _suite.addTest(new StopTimeTest(methodNames[x], _setup));
-        }
-
-        return _setup;
-    }
-
-
-    public static void main(String[] args) throws Exception
-    {
-        junit.textui.TestRunner.run(suite());
+        return NotificationTestCase.suite(StopTimeTest.class);
     }
 }

@@ -21,18 +21,20 @@ package org.jacorb.test.notification;
  *
  */
 
+import org.jacorb.notification.CollectionsWrapper;
+
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.jacorb.notification.CollectionsWrapper;
-import java.util.List;
-import java.util.Iterator;
-import java.util.Collections;
-import java.lang.reflect.Method;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CollectionsWrapperTest.java,v 1.4 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: CollectionsWrapperTest.java,v 1.4.2.1 2004-04-08 11:47:37 alphonse.bendt Exp $
  */
 
 public class CollectionsWrapperTest extends TestCase
@@ -46,8 +48,6 @@ public class CollectionsWrapperTest extends TestCase
         for (int x=0; x<list.length; ++x) {
             list[x] = Collections.singletonList("testling");
         }
-
-        //      System.out.println(System.currentTimeMillis() - now);
 
         Method method = Collections.class.getMethod("singletonList", new Class[] {Object.class});
 
@@ -76,31 +76,17 @@ public class CollectionsWrapperTest extends TestCase
         }
     }
 
-    /**
-     *
-     * @param name test name
-     */
+
     public CollectionsWrapperTest (String name)
     {
         super(name);
     }
 
-    /**
-     * @return a <code>TestSuite</code>
-     */
+
     public static Test suite()
     {
         TestSuite suite = new TestSuite(CollectionsWrapperTest.class);
 
         return suite;
-    }
-
-    /**
-     * Entry point
-     */
-    public static void main(String[] args)
-    {
-        junit.textui.TestRunner.run(suite());
-
     }
 }
