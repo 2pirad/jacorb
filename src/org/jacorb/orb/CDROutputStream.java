@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.24 2001-11-19 09:42:45 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.25 2001-11-20 12:45:12 spiegel Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -1618,7 +1618,8 @@ public class CDROutputStream
         if (!write_special_value (value))
         {
             valueMap.put (value, new Integer(pos));
-            if (value instanceof org.omg.CORBA.portable.IDLEntity)
+            if ((value instanceof org.omg.CORBA.portable.IDLEntity) ||
+                (value instanceof java.lang.String))
                 write_long (0x7fffff00);
             else
             {
