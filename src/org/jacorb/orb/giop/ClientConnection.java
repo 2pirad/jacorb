@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.21 2001-10-17 07:44:58 jacorb Exp $ 
+ * @version $Id: ClientConnection.java,v 1.22 2001-10-26 22:03:06 jacorb Exp $ 
  */
 
 public class ClientConnection 
@@ -153,7 +153,7 @@ public class ClientConnection
 
     public int getTCSW()
     {
-        return connection.getTCS();
+        return connection.getTCSW();
     }
     
     public String getInfo()

@@ -9,7 +9,7 @@ import org.jacorb.util.Debug;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.3 2001-03-19 11:08:54 brose Exp $
+ * @version $Id: InterceptorManager.java,v 1.4 2001-10-26 22:03:06 jacorb Exp $
  */
 
 public class InterceptorManager  
@@ -118,8 +118,7 @@ public class InterceptorManager
         if (ts_current == null){
             //create new client current
             //server currents have been created and set separately
-            Debug.output( Debug.INTERCEPTOR | Debug.INFORMATION, 
-                          "InterceptorManager.getCurrent() creates new empty PI current");
+;
             ts_current = getEmptyCurrent();
             currents.put(Thread.currentThread(),
                          ts_current);

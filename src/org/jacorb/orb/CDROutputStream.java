@@ -34,7 +34,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.13 2001-10-02 13:50:50 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.14 2001-10-26 22:03:05 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -477,7 +477,7 @@ public class CDROutputStream
         
     public final void write_string (String s)
     {
-        if ( s==null )
+        if( s == null )
             throw new org.omg.CORBA.MARSHAL("Null References");
                 
         check(7 + s.length()*3,4);    // the worst case
@@ -502,6 +502,9 @@ public class CDROutputStream
         {
         case 0:
         case CodeSet.ISO8859_1:
+            /*
+             * DOES IT MAKE SENSE TO HAVE ISO 8859-1 AS WCHAR CODESET?
+             */
             short x = (short)c;
             if( x > 255 || x < 0 )
                 throw new org.omg.CORBA.MARSHAL("char ("+x+") out of range for ISO8859_1");
@@ -561,7 +564,7 @@ public class CDROutputStream
                 
         // write characters in current wide encoding, add null terminator
         for( int i=0; i < size; i++ ) 
-            write_wchar( s.charAt(i));
+            write_wchar( s.charAt(i) );
 
         write_wchar( (char)0 );
                         

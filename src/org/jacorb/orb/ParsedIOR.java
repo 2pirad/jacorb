@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.10 2001-10-11 07:03:33 jacorb Exp $
+ * @version $Id: ParsedIOR.java,v 1.11 2001-10-26 22:03:06 jacorb Exp $
  */
 
 public class ParsedIOR 
@@ -402,15 +402,18 @@ public class ParsedIOR
 	ior = _ior;
 	ior_str = getIORString();
 
+        TaggedComponent[] iiop_components = 
+            profileBodies[ effectiveProfileBody ].components;
+
         //retrieve the codeset component
-        for( int i = 0; i < taggedComponents.length; i++ )
+        for( int i = 0; i < iiop_components.length; i++ )
         {
-	    if( taggedComponents[i].tag == TAG_CODE_SETS.value )
+	    if( iiop_components[i].tag == TAG_CODE_SETS.value )
             {
                 // get server cs from IOR 
                 CDRInputStream is =
                     new CDRInputStream( orb, 
-                                        taggedComponents[i].component_data);
+                                        iiop_components[i].component_data);
                 
                 is.openEncapsulatedArray();
                 
