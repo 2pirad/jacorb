@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.28 2002-11-24 23:04:55 steve.osselton Exp $
+ * @version $Id: lexer.java,v 1.29 2002-11-24 23:12:19 steve.osselton Exp $
  * @author Gerald Brose
  *
  */
@@ -207,8 +207,6 @@ public class lexer
         keywords.put( "void", new Integer( sym.VOID ) );
         keywords.put( "wchar", new Integer( sym.WCHAR ) );
         keywords.put( "wstring", new Integer( sym.WSTRING ) );
-
-        keywords.put( "int", new Integer( sym.INT ) );
 
         keywords.put( "::", new Integer( sym.DBLCOLON ) );
         keywords.put( "<<", new Integer( sym.LSHIFT ) );
