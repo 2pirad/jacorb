@@ -65,7 +65,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.17 2004-02-13 10:47:16 nicolas Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.18 2004-03-04 18:17:33 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -208,7 +208,7 @@ public class SASClientInterceptor
         {
             logger.warn("No SAS security context found: "+e);
         }
-        if (ctx == null) return;
+        if (ctx == null || ctx.context_data.length <= 1) return;
 
         try
         {
@@ -217,7 +217,7 @@ public class SASClientInterceptor
         }
         catch (Exception e)
         {
-            logger.warn("Could not parse SAS reply: " + e);
+            logger.warn("Could not parse SAS reply: " + e);e.printStackTrace();
             throw new org.omg.CORBA.NO_PERMISSION("SAS Could not parse SAS reply: " + e, MinorCodes.SAS_CSS_FAILURE, CompletionStatus.COMPLETED_MAYBE);
         }
         ClientConnection connection = ((ClientRequestInfoImpl) ri).connection;
