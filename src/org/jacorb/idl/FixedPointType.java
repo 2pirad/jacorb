@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.21 2003-10-24 19:47:59 brose Exp $
+ * @version $Id: FixedPointType.java,v 1.22 2004-01-06 14:45:43 nick.cross Exp $
  */
 
 public class FixedPointType
@@ -99,8 +99,8 @@ public class FixedPointType
 
     private void printHelperClass(String className, PrintWriter ps)
     {
-        if (parser.checkJdk14 && pack_name.equals(""))
-            parser.fatal_error
+        if (Environment.JAVA14 && pack_name.equals(""))
+            lexer.emit_warn
                 ("No package defined for " + className + " - illegal in JDK1.4", token);
         if (!pack_name.equals(""))
             ps.println("package " + pack_name + ";");
@@ -283,4 +283,3 @@ public class FixedPointType
         }
     }
 }
-

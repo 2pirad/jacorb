@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.33 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: SequenceType.java,v 1.34 2004-01-06 14:45:43 nick.cross Exp $
  */
 
 public class SequenceType
@@ -371,8 +371,8 @@ public class SequenceType
 
     private void printHolderClass(String className, PrintWriter ps)
     {
-        if (parser.checkJdk14 && pack_name.equals(""))
-            parser.fatal_error
+        if (Environment.JAVA14 && pack_name.equals(""))
+            lexer.emit_warn
                 ("No package defined for " + className + " - illegal in JDK1.4", token);
         if (!pack_name.equals(""))
             ps.println("package " + pack_name + ";\n");
@@ -417,8 +417,8 @@ public class SequenceType
 
     private void printHelperClass(String className, PrintWriter ps)
     {
-        if (parser.checkJdk14 && pack_name.equals(""))
-            parser.fatal_error
+        if (Environment.JAVA14 && pack_name.equals(""))
+            lexer.emit_warn
                 ("No package defined for " + className + " - illegal in JDK1.4", token);
         if (!pack_name.equals(""))
             ps.println("package " + pack_name + ";");
@@ -573,4 +573,3 @@ public class SequenceType
 
 
 }
-

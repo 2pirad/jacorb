@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.27 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: EnumType.java,v 1.28 2004-01-06 14:45:43 nick.cross Exp $
  */
 
 public class EnumType
@@ -217,8 +217,8 @@ public class EnumType
 
     private void printHolderClass(String className, PrintWriter ps)
     {
-        if (parser.checkJdk14 && pack_name.equals(""))
-            parser.fatal_error
+        if (Environment.JAVA14 && pack_name.equals(""))
+            lexer.emit_warn
                 ("No package defined for " + className + " - illegal in JDK1.4", token);
         if (!pack_name.equals(""))
             ps.println("package " + pack_name + ";");
@@ -260,8 +260,8 @@ public class EnumType
 
     private void printHelperClass(String className, PrintWriter ps)
     {
-        if (parser.checkJdk14 && pack_name.equals(""))
-            parser.fatal_error
+        if (Environment.JAVA14 && pack_name.equals(""))
+            lexer.emit_warn
                 ("No package defined for " + className + " - illegal in JDK1.4", token);
         if (!pack_name.equals(""))
             ps.println("package " + pack_name + ";");
@@ -319,8 +319,8 @@ public class EnumType
 
     private void printEnumClass(String className, PrintWriter pw)
     {
-        if (parser.checkJdk14 && pack_name.equals(""))
-            parser.fatal_error
+        if (Environment.JAVA14 && pack_name.equals(""))
+            lexer.emit_warn
                 ("No package defined for " + className + " - illegal in JDK1.4", token);
         if (!pack_name.equals(""))
             pw.println("package " + pack_name + ";");
@@ -471,4 +471,3 @@ public class EnumType
     }
 
 }
-
