@@ -22,12 +22,14 @@ package org.jacorb.orb.connection;
 
 
 /**
- * StatisticsProvider.java
- *
+ * This class is used to collect statistical data about
+ * transports. Since the nature of the data is specific to the type of
+ * the statistics, no method is provided for access to data. Instead,
+ * the accessor method is to be defined in the implementation, that
+ * works together with the SelectionStrategy.
  *
  * @author Nicolas Noffke
- * @version $Id: StatisticsProvider.java,v 1.1 2002-11-26 16:45:35 nicolas Exp $
- */
+ * @version $Id: StatisticsProvider.java,v 1.2 2002-11-27 16:13:20 nicolas Exp $ */
 
 public interface StatisticsProvider 
 {
