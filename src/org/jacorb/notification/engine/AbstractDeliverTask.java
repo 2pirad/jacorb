@@ -29,12 +29,12 @@ import org.omg.CORBA.OBJECT_NOT_EXIST;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractDeliverTask.java,v 1.4 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: AbstractDeliverTask.java,v 1.5 2004-02-11 21:19:10 alphonse.bendt Exp $
  */
 
 public abstract class AbstractDeliverTask extends AbstractTask
 {
-    private MessageConsumer target_;
+    private MessageConsumer messageConsumer_;
 
     ////////////////////
 
@@ -58,19 +58,19 @@ public abstract class AbstractDeliverTask extends AbstractTask
     {
         super.reset();
 
-        target_ = null;
+        messageConsumer_ = null;
     }
 
 
     protected MessageConsumer getMessageConsumer()
     {
-        return target_;
+        return messageConsumer_;
     }
 
 
-    public void setMessageConsumer( MessageConsumer mc )
+    public void setMessageConsumer( MessageConsumer messageConsumer )
     {
-        target_ = mc;
+        messageConsumer_ = messageConsumer;
     }
 
 
@@ -143,8 +143,6 @@ public abstract class AbstractDeliverTask extends AbstractTask
 
                     logger_.info("will backoff MessageConsumer for a while");
 
-                    //                    _consumer.backoff();
-
                     taskProcessor_.backoutMessageConsumer(_consumer);
                 }
                 catch (Exception e)
@@ -152,7 +150,7 @@ public abstract class AbstractDeliverTask extends AbstractTask
                     // if regardless of disabling the MessageConsumer
                     // above the MessageConsumer still
                     // throws an exception we'll assume its totally
-                    // messed up and dispose it.
+                    // messed up and get rid of it.
                     logger_.error("a disabled MessageConsumer should not throw "
                                   + " an exception during deliverEvent", e);
                     try
