@@ -37,7 +37,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.6 2002-04-02 09:00:08 gerald Exp $ 
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.7 2002-04-04 14:21:38 jason.courage Exp $ 
  */
 
 public class ServiceContextTransportingOutputStream 
@@ -116,7 +116,7 @@ public class ServiceContextTransportingOutputStream
         return size() > getBodyBegin();
     }
 
-    protected void insertMsgSize()
+    public void insertMsgSize()
     {
         if( header_padding == 0 )
         {
