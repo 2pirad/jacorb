@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.28 2001-12-14 12:38:54 spiegel Exp $
+ * @version     $Id: CDROutputStream.java,v 1.29 2001-12-20 17:45:10 steve.osselton Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -878,9 +878,9 @@ public class CDROutputStream
         }
     }
 
-    public  final void write_Principal(org.omg.CORBA.Principal value)
+    public  final void write_Principal (org.omg.CORBA.Principal value)
     {
-        write_octet_array( value.name(), 0, value.name().length);
+       throw new org.omg.CORBA.NO_IMPLEMENT ("Principal deprecated");
     }
 
     public  final void write_short(short value)
@@ -1331,8 +1331,7 @@ public class CDROutputStream
                 write_TypeCode(in.read_TypeCode());
                 break;
             case TCKind._tk_Principal:
-                write_Principal( in.read_Principal());
-                break;
+                throw new org.omg.CORBA.NO_IMPLEMENT ("Principal deprecated");
             case TCKind._tk_objref: 
                 write_Object( in.read_Object());
                 break;
