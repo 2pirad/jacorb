@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.30 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ServerRequest.java,v 1.31 2004-06-09 05:33:16 andre.spiegel Exp $
  */
 
 public class ServerRequest
@@ -256,7 +256,7 @@ public class ServerRequest
                     }
                 }
 
-                info.arguments = params;
+                info.setArguments (params);
 
                 ServerInterceptorIterator intercept_iter =
                     orb.getInterceptorManager().getServerIterator();
