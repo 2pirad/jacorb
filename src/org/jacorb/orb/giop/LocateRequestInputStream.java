@@ -18,12 +18,12 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package jacorb.orb.connection;
+package org.jacorb.orb.connection;
 
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequestInputStream.java,v 1.4 2001-03-28 08:45:39 jacorb Exp $
+ * @version $Id: LocateRequestInputStream.java,v 1.5 2001-03-28 08:55:48 brose Exp $
  *
  * Hack for locate requests: turn a locate request into
  * a _non_existent() request and actually ping the object. This appears
@@ -60,6 +60,8 @@ public class LocateRequestInputStream
                                                 null ); 
     }
 }
+
+
 
 
 

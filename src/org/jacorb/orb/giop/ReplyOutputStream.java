@@ -1,4 +1,4 @@
-package jacorb.orb.connection;
+package org.jacorb.orb.connection;
 
 /*
  *        JacORB - a free Java ORB
@@ -23,16 +23,16 @@ package jacorb.orb.connection;
 import java.io.*;
 import org.omg.GIOP.*;
 
-import jacorb.orb.*;
+import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.4 2001-03-28 08:45:39 jacorb Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.5 2001-03-28 08:55:51 brose Exp $
  *
  */
 
 public class ReplyOutputStream
-    extends jacorb.orb.CDROutputStream
+    extends org.jacorb.orb.CDROutputStream
 {
     private org.omg.GIOP.ReplyHeader_1_0 rep_hdr;
 
@@ -128,6 +128,8 @@ public class ReplyOutputStream
         }
     } 
 }
+
+
 
 
 

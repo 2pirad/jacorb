@@ -18,19 +18,19 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package jacorb.orb.connection;
+package org.jacorb.orb.connection;
 
-import jacorb.orb.*;
+import org.jacorb.orb.*;
 
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.5 2001-03-28 08:45:40 jacorb Exp $
+ * @version $Id: RequestInputStream.java,v 1.6 2001-03-28 08:55:53 brose Exp $
  * 
  */
 
 public class RequestInputStream
-    extends jacorb.orb.CDRInputStream
+    extends org.jacorb.orb.CDRInputStream
 {
     public org.omg.GIOP.RequestHeader_1_0 req_hdr;
     public org.omg.GIOP.MessageHeader_1_0 msg_hdr=null;
@@ -65,6 +65,8 @@ public class RequestInputStream
 	req_hdr = org.omg.GIOP.RequestHeader_1_0Helper.read(this);	   
     }
 }
+
+
 
 
 

@@ -1,4 +1,4 @@
-package jacorb.orb.connection;
+package org.jacorb.orb.connection;
 
 /*
  *        JacORB - a free Java ORB
@@ -21,14 +21,14 @@ package jacorb.orb.connection;
  */
 
 import java.io.*;
-import jacorb.orb.*;
+import org.jacorb.orb.*;
 import org.omg.GIOP.*;
 import org.omg.CORBA.portable.ApplicationException;
 import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.5 2001-03-28 08:45:39 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.6 2001-03-28 08:55:51 brose Exp $
  *
  */
 
@@ -52,7 +52,7 @@ public class ReplyInputStream
     }
 
     /**
-     * called from jacorb.orb.Connection
+     * called from org.jacorb.orb.Connection
      * @param buf - the reply message buffer
      * @param target - the target object that was called (necessary 
      * for determining the correct interceptors)
@@ -167,7 +167,7 @@ public class ReplyInputStream
 	    }
  	    case  org.omg.GIOP.ReplyStatusType_1_0._SYSTEM_EXCEPTION: 
 	    {
-		throw( jacorb.orb.SystemExceptionHelper.read(this) );
+		throw( org.jacorb.orb.SystemExceptionHelper.read(this) );
 	    }
 	    case  org.omg.GIOP.ReplyStatusType_1_0._LOCATION_FORWARD: 
 		throw new org.omg.PortableServer.ForwardRequest( this.read_Object());
@@ -205,6 +205,8 @@ public class ReplyInputStream
 	return this;
     }
 }
+
+
 
 
 

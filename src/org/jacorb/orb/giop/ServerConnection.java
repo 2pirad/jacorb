@@ -27,7 +27,7 @@ package org.jacorb.orb.connection;
  * vice versa<p>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerConnection.java,v 1.4 2001-03-27 12:01:26 noffke Exp $
+ * @version $Id: ServerConnection.java,v 1.5 2001-03-28 08:55:54 brose Exp $
  *
  */
 
@@ -401,6 +401,8 @@ public class ServerConnection
 
 
 }
+
+
 
 
 

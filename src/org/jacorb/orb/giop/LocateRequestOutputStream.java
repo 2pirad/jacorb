@@ -1,4 +1,4 @@
-package jacorb.orb.connection;
+package org.jacorb.orb.connection;
 
 /*
  *        JacORB - a free Java ORB
@@ -22,16 +22,16 @@ package jacorb.orb.connection;
 
 import java.io.*;
 import org.omg.GIOP.*;
-import jacorb.orb.*;
+import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateRequestOutputStream.java,v 1.4 2001-03-28 08:45:39 jacorb Exp $
+ * @version $Id: LocateRequestOutputStream.java,v 1.5 2001-03-28 08:55:49 brose Exp $
  *
  */
 
 public class LocateRequestOutputStream
-    extends jacorb.orb.CDROutputStream
+    extends org.jacorb.orb.CDROutputStream
 {
     private org.omg.GIOP.LocateRequestHeader_1_0 req_hdr;
 
@@ -55,6 +55,8 @@ public class LocateRequestOutputStream
 
 
 }
+
+
 
 
 

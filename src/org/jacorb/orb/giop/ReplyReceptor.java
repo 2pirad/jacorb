@@ -27,7 +27,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Gerald Brose, FU Berlin 1996
- * $Id: ReplyReceptor.java,v 1.3 2001-03-19 11:08:32 brose Exp $	
+ * $Id: ReplyReceptor.java,v 1.4 2001-03-28 08:55:52 brose Exp $	
  *
  * An object of this class is created for every connection and listens
  * for replies.
@@ -130,6 +130,8 @@ public class ReplyReceptor
         }
     }
 }
+
+
 
 
 
