@@ -22,6 +22,10 @@ package org.jacorb.test.orb.etf;
 
 import junit.framework.*;
 
+/**
+ * @version $Id: AllTest.java,v 1.2.4.1 2004-04-28 09:06:50 gerald Exp $
+ */
+
 public class AllTest extends TestCase
 {
     public AllTest(String name)
