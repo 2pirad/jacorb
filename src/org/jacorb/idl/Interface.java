@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.42 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: Interface.java,v 1.43 2003-06-09 14:04:36 nick.cross Exp $
  */
 
 import java.io.File;
@@ -859,17 +859,17 @@ class Interface
         ps.println( "\t\t_delegate = delegate;" );
         ps.println( "\t}" );
 
-        //      ps.println("\tpublic POA _default_POA()");
-        //      ps.println("\t{");
-        //      ps.println("\t\tif( _poa != null )");
-        //      ps.println("\t\t{");
-        //      ps.println("\t\t\treturn _poa;");
-        //      ps.println("\t\t}");
-        //      ps.println("\t\telse");
-        //      ps.println("\t\t{");
-        //      ps.println("\t\t\treturn super._default_POA();");
-        //      ps.println("\t\t}");
-        //      ps.println("\t}");
+        ps.println("\tpublic POA _default_POA()");
+        ps.println("\t{");
+        ps.println("\t\tif( _poa != null )");
+        ps.println("\t\t{");
+        ps.println("\t\t\treturn _poa;");
+        ps.println("\t\t}");
+        ps.println("\t\telse");
+        ps.println("\t\t{");
+        ps.println("\t\t\treturn super._default_POA();");
+        ps.println("\t\t}");
+        ps.println("\t}");
 
         body.printDelegatedMethods( ps );
         ps.println( "}" );
