@@ -32,10 +32,11 @@ import junit.framework.TestSuite;
 /**
  *  Unit Test for class LogKitLoggerFactory
  * @author Alphonse Bendt
- * @version $Id: LogKitLoggerFactoryTest.java,v 1.3 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: LogKitLoggerFactoryTest.java,v 1.4 2004-05-05 07:56:40 brose Exp $
  */
 
-public class LogKitLoggerFactoryTest extends TestCase
+public class LogKitLoggerFactoryTest 
+    extends TestCase
 {
     ////////////////////////////////////////
 
@@ -44,14 +45,15 @@ public class LogKitLoggerFactoryTest extends TestCase
 
     ////////////////////////////////////////
 
-    public LogKitLoggerFactoryTest (String name)
+    public LogKitLoggerFactoryTest(String name)
     {
         super(name);
     }
 
     ////////////////////////////////////////
 
-    public void setUp() throws Exception
+    public void setUp()
+        throws Exception
     {
         Properties props = new Properties();
 
@@ -62,9 +64,9 @@ public class LogKitLoggerFactoryTest extends TestCase
         props.setProperty("jacorb.trailingspace.test1", "INFO ");
         props.setProperty("jacorb.trailingspace.test2", "INFO");
 
-        config = new Configuration ("jacorb",props,null);
+        config =  Configuration.getConfiguration(props,null);
 
-        defaultPriority = config.getAttributeAsInteger ("jacorb.log.default.verbosity",0);
+        defaultPriority = config.getAttributeAsInteger("jacorb.log.default.verbosity",0);
     }
 
     private int priorityFor(Logger l)
@@ -80,8 +82,10 @@ public class LogKitLoggerFactoryTest extends TestCase
         return 0;
     }
 
-    public void testGetPriorityForNamedLogger() throws Exception
+    public void testGetPriorityForNamedLogger() 
+        throws Exception
     {
+
         assertEquals(defaultPriority, priorityFor(config.getNamedLogger("foologger")));
 
         assertEquals(2, priorityFor(config.getNamedLogger("jacorb")));

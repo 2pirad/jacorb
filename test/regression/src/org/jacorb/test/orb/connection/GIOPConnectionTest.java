@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.20 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.21 2004-05-05 07:56:40 brose Exp $
  */
 
 import org.jacorb.orb.giop.*;
@@ -25,14 +25,15 @@ import junit.framework.*;
 
 import org.jacorb.config.Configuration;
 
-public class GIOPConnectionTest extends TestCase
+public class GIOPConnectionTest 
+    extends TestCase
 {
-
     Configuration config;
 
-    public void setUp() throws Exception
+    public void setUp() 
+        throws Exception
     {
-        config = new Configuration ("jacorb",null,null);
+        config = Configuration.getConfiguration(null,null);
     }
 
     public static junit.framework.TestSuite suite()
