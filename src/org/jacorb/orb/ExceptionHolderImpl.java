@@ -40,9 +40,10 @@ import org.jacorb.orb.giop.*;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.9 2003-12-16 08:42:56 gerald Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.9.4.1 2004-03-23 17:19:10 gerald Exp $
  */
-public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
+public class ExceptionHolderImpl 
+    extends org.omg.Messaging.ExceptionHolder
 {
     /**
      * Constructs an ExceptionHolderImpl object from an input stream.
@@ -159,7 +160,7 @@ public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
         String name = RepositoryID.className (id, "Helper");
 
         // if class doesn't exist, let exception propagate
-        Class  helper = Environment.classForName (name);
+        Class  helper = ObjectUtil.classForName (name);
 
         // helper must not be null from here on
         
@@ -168,7 +169,7 @@ public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
         Method readMethod = 
             helper.getMethod( "read", 
                                new Class[]{ 
-                                   Environment.classForName("org.omg.CORBA.portable.InputStream")
+                                   ObjectUtil.classForName("org.omg.CORBA.portable.InputStream")
                                } );    
         java.lang.Object result = 
             readMethod.invoke( null, 

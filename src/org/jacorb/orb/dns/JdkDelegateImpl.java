@@ -22,18 +22,28 @@ package org.jacorb.orb.dns;
 
 import java.net.*;
 
-import org.jacorb.util.Debug;
+import org.apache.avalon.framework.logger.Logger;
+
 
 /**
  * A DNS Delegate that resolves names using the JDK methods.
  * This only works reliably since JDK 1.4.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: JdkDelegateImpl.java,v 1.1 2003-07-04 14:05:00 andre.spiegel Exp $
+ * @version $Id: JdkDelegateImpl.java,v 1.1.4.1 2004-03-23 17:19:10 gerald Exp $
  */
-public class JdkDelegateImpl implements DNSLookupDelegate
+
+public class JdkDelegateImpl 
+    implements DNSLookupDelegate
 {
-    public String inverseLookup (String ip)
+    Logger logger;
+
+    JdkDelegateImpl(Logger logger)
+    {
+        this.logger = logger;
+    }
+
+    public String inverseLookup(String ip)
     {
         try
         {
@@ -41,7 +51,10 @@ public class JdkDelegateImpl implements DNSLookupDelegate
         }
         catch (UnknownHostException e)
         {
-            Debug.output (2, "Could not resolve ip: " + ip);
+            if (logger.isWarnEnabled())
+            {
+                logger.warn("Could not resolve IP " + ip);
+            }
             return null;
         }
     }
