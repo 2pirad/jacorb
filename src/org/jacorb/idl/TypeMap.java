@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.12.4.1 2002-09-26 08:31:39 andre.spiegel Exp $
+ * @version $Id: TypeMap.java,v 1.12.4.2 2002-10-25 19:25:26 andre.spiegel Exp $
  */
 
 
@@ -39,7 +39,6 @@ class TypeMap
         typemap.put( "org.omg.CORBA.TypeCode", new TypeCodeTypeSpec( IdlSymbol.new_num() ) );
         typemap.put( "CORBA.Object", new ObjectTypeSpec( IdlSymbol.new_num() ) );
         typemap.put( "CORBA.TypeCode", new TypeCodeTypeSpec( IdlSymbol.new_num() ) );
-        typemap.put( "org.omg.Messaging.ReplyHandler", new ReplyHandlerTypeSpec( IdlSymbol.new_num() ) );
     }
 
     // return the type spec associated with a name, if any
