@@ -32,7 +32,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.18 2003-04-23 09:39:31 andre.spiegel Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.19 2003-04-23 15:08:27 andre.spiegel Exp $
  */
 
 public abstract class TCP_IP_Transport
@@ -243,6 +243,8 @@ public abstract class TCP_IP_Transport
             }
         }
     }
+    
+    public abstract boolean isSSL();
     
     protected org.omg.CORBA.COMM_FAILURE to_COMM_FAILURE (IOException ex)
     {
