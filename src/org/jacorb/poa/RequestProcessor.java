@@ -45,7 +45,7 @@ import org.omg.PortableInterceptor.*;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.3 2001-03-19 11:09:03 brose Exp $
+ * @version $Id: RequestProcessor.java,v 1.4 2001-04-14 15:43:49 jacorb Exp $
  */
 public class RequestProcessor 
     extends Thread 
@@ -205,11 +205,13 @@ public class RequestProcessor
                 else
                 {
                     ((InvokeHandler) servant)._invoke(request.operation(), 
-                                                      request.getInputStream(), request);
+                                                      request.getInputStream(), 
+                                                      request);
                 }
 
             } 
-            else if (servant instanceof org.omg.PortableServer.DynamicImplementation) {                         
+            else if (servant instanceof org.omg.PortableServer.DynamicImplementation) 
+            {                         
                 controller.getLogTrace().printLog(3, request, 
                                                   "invoke operation on servant (dsi based)");
                 if( specialOperations.containsKey(request.operation()) && 
@@ -530,12 +532,6 @@ public class RequestProcessor
     }
 
 }
-
-
-
-
-
-
 
 
 

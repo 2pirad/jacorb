@@ -17,7 +17,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.3 2001-03-19 11:08:56 brose Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.4 2001-04-14 15:43:48 jacorb Exp $
  */
 
 public class ServerRequestInfoImpl 
@@ -106,7 +106,7 @@ public class ServerRequestInfoImpl
      */
     public org.omg.CORBA.Object target()
     {
-        return servant._this_object(orb);
+        return servant._this_object();
     }
 
     // implementation of RequestInfoOperations interface

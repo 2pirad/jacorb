@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.6 2001-04-05 09:20:59 jacorb Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.7 2001-04-14 15:43:28 jacorb Exp $
  */
 
 public class AliasTypeSpec 
@@ -249,7 +249,8 @@ public class AliasTypeSpec
 	//	return typeName() + "Helper.read(" + Streamname +")" ;
 
 
-	if( originalType.basic()  &&  !(originalType instanceof TemplateTypeSpec))
+	if( originalType.basic()  &&  
+            !(originalType instanceof TemplateTypeSpec))
 	{
 	    return originalType.printReadExpression(streamname);
 	}

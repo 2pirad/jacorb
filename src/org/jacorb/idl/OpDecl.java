@@ -20,13 +20,13 @@
 
 package org.jacorb.idl;
 
-/**
- * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.7 2001-04-10 09:32:48 jacorb Exp $
- */
-
 import java.util.*;
 import java.io.*;
+
+/**
+ * @author Gerald Brose
+ * @version $Id: OpDecl.java,v 1.8 2001-04-14 15:43:29 jacorb Exp $
+ */
 
 class OpDecl 
     extends Declaration
@@ -370,17 +370,17 @@ class OpDecl
 	for( Enumeration e = paramDecls.elements(); e.hasMoreElements();)
 	{
 	    ParamDecl p = (ParamDecl)e.nextElement();
-	    TypeSpec ts = p.paramTypeSpec;
+	    TypeSpec ts = p.paramTypeSpec.typeSpec();
 	    if( p.paramAttribute == 1 ) // in params
 	    {
-		ps.println("\t\t\t\t" + ts.toString() + " _arg" + (argc++) + "=" + 
-                           ts.printReadExpression("_input") + ";");
+		ps.println("\t\t\t\t" + ts.toString() + " _arg" + (argc++) + 
+                           "=" + ts.printReadExpression("_input") + ";");
 	    }
 	    else
 	    {
 		holders = true;
-		ps.println("\t\t\t\t" + ts.holderName() + " _arg" + (argc++) + "= new " + 
-                           ts.holderName() + "();");
+		ps.println("\t\t\t\t" + ts.holderName() + " _arg" + (argc++) +
+                           "= new " + ts.holderName() + "();");
 		if( p.paramAttribute == 3 ) // inout
 		{
 		    ps.println("\t\t\t\t_arg" + (argc-1) + "._read(_input);");
@@ -389,8 +389,9 @@ class OpDecl
 	}
 
 
-	boolean complex = ( opTypeSpec.typeSpec() instanceof ArrayTypeSpec ) ||
-	    (opTypeSpec.typeSpec() instanceof FixedPointType );
+	boolean complex = 
+            ( opTypeSpec.typeSpec() instanceof ArrayTypeSpec ) ||
+	    ( opTypeSpec.typeSpec() instanceof FixedPointType );
 
 	String write_str = null;
 	//	if( (!(opTypeSpec.typeSpec() instanceof VoidTypeSpec ))    || holders )
@@ -525,7 +526,10 @@ class OpDecl
     }
 
 
-    /** collect Interface Repository information in the argument hashtable */
+    /** 
+     *    collect Interface Repository information in the argument hashtable 
+     */
+
     public void getIRInfo(Hashtable irInfoTable )
     {
         StringBuffer sb = new StringBuffer();
