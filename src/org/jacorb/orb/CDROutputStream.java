@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.29 2001-12-20 17:45:10 steve.osselton Exp $
+ * @version     $Id: CDROutputStream.java,v 1.30 2002-01-11 21:36:06 gerald Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -371,6 +371,7 @@ public class CDROutputStream
     /**
      * Add <tt>amount</tt> empty space
      */
+
     public void increaseSize( int amount )
     {
         pos += amount;
