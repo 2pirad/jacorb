@@ -43,7 +43,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.82 2003-01-07 18:06:59 nicolas Exp $
+ * @version $Id: ORB.java,v 1.83 2003-03-25 08:55:29 gerald Exp $
  */
 
 public final class ORB
@@ -749,23 +749,18 @@ public final class ORB
     }
 
     public org.jacorb.poa.POA getRootPOA()
+        throws org.omg.CORBA.INITIALIZE
     {
         if( rootpoa == null )
         {
             rootpoa = org.jacorb.poa.POA._POA_init(this);
             rootpoa._addPOAEventListener( this );
 
-            try
-            {
-                basicAdapter = new BasicAdapter( this, 
-                                                 rootpoa, 
-                                                 transport_manager,
-                                                 giop_connection_manager );
-            }
-            catch( IOException io )
-            {
-                System.err.println("ORB: could not initialize Root POA!");
-            }
+            basicAdapter = new BasicAdapter( this, 
+                                             rootpoa, 
+                                             transport_manager,
+                                             giop_connection_manager );
+            
         }
         return rootpoa;
     }
