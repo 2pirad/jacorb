@@ -43,7 +43,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KeyStoreUtil.java,v 1.3 2001-03-19 11:09:28 brose Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.4 2001-06-21 15:10:26 noffke Exp $
  */
 
 public class KeyStoreUtil
@@ -58,7 +58,21 @@ public class KeyStoreUtil
 	throws 	java.io.IOException, KeyStoreException, NoSuchAlgorithmException,
 	CertificateException
     {
-	FileInputStream in = new FileInputStream(file_name);
+        //try unchanged name first
+        File f = new File( file_name );
+        
+        if( ! f.exists() )
+        {
+            //try to prepend home dir
+            String name = 
+                System.getProperty( "user.home" ) +
+                System.getProperty( "file.separator" ) +
+                file_name;
+
+            f = new File( name );
+        }
+
+	FileInputStream in = new FileInputStream( f );
 
 	KeyStore ks;
 	//	ks = KeyStore.getInstance("jks");
