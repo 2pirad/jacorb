@@ -5,7 +5,6 @@ import java.io.*;
 import java.security.cert.X509Certificate;
 
 import org.omg.PortableServer.POA;
-import org.omg.SecurityLevel2.*;
 import org.omg.Security.*;
 import org.omg.CORBA.ORB;
 import org.ietf.jgss.*;
@@ -20,7 +19,7 @@ import org.jacorb.security.level2.*;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: Server.java,v 1.3 2002-09-11 19:19:04 david.robison Exp $
+ * @version $Id: Server.java,v 1.4 2002-09-11 20:22:43 david.robison Exp $
  */
 
 public class Server
