@@ -43,12 +43,11 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTest.java,v 1.9 2004-02-20 12:42:37 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTest.java,v 1.10 2004-03-03 12:22:17 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTest extends TestCase
 {
-
     TaskProcessor taskProcessor_;
 
     ORB orb = ORB.init();
