@@ -38,7 +38,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.29 2003-05-09 10:49:29 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.30 2003-05-23 13:37:14 andre.spiegel Exp $
  */
 public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 {
@@ -124,6 +124,11 @@ public class BasicAdapter extends org.omg.ETF._HandleLocalBase
     public RequestListener getRequestListener()
     {
         return request_listener;
+    }
+
+    public org.omg.ETF.Profile getEndpointProfile()
+    {
+        return listener.endpoint();
     }
 
     /**
