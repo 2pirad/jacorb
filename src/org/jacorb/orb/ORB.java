@@ -53,7 +53,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.112 2004-01-02 10:34:34 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.113 2004-01-16 07:51:09 gerald Exp $
  */
 
 public final class ORB
@@ -649,7 +649,7 @@ public final class ORB
                                               boolean _transient )
     {
         if( rep_id == null )
-            rep_id = "IDL:org.omg/CORBA/Object:1.0";
+            rep_id = "IDL:omg.org/CORBA/Object:1.0";
 
         org.omg.IOP.IOR ior =
         createIOR( rep_id, object_key, _transient, poa, null );
