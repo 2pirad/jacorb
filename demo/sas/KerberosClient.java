@@ -18,7 +18,7 @@ import org.omg.CORBA.ORB;
  * transparent.
  *
  * @author Nicolas Noffke
- * @version $Id: KerberosClient.java,v 1.1 2004-01-06 13:34:38 david.robison Exp $
+ * @version $Id: KerberosClient.java,v 1.2 2004-01-28 19:50:41 david.robison Exp $
  */
 
 public class KerberosClient {
@@ -76,7 +76,9 @@ public class KerberosClient {
 			System.out.println("Login error: " + le);
 			System.exit(1);
 		}
+		System.out.println("7");
 		mySubject = loginContext.getSubject();
+		System.out.println("8");
 		myPrincipal = (Principal) mySubject.getPrincipals().iterator().next();
 		System.out.println("Found principal " + myPrincipal.getName());
 

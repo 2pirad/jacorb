@@ -21,6 +21,9 @@ package org.jacorb.security.sas;
  */
 
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.orb.standardInterceptors.SASComponentInterceptor;
+import org.jacorb.sasPolicy.ATLAS_POLICY_TYPE;
+import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
 import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
@@ -30,10 +33,10 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInitializer.java,v 1.5 2003-11-25 18:40:25 david.robison Exp $
+ * @version $Id: SASInitializer.java,v 1.1 2004-01-28 19:50:03 david.robison Exp $
  */
 
-public class SASTargetInitializer
+public class SASInitializer
         extends org.omg.CORBA.LocalObject
         implements ORBInitializer
 {
@@ -49,20 +52,48 @@ public class SASTargetInitializer
     */
     public void post_init( ORBInitInfo info )
     {
-        // install the TSS interceptor
-        try
-        {
-            sasPrincipalNamePIC = info.allocate_slot_id();
-            info.add_server_request_interceptor(new SASTargetInterceptor(info));
-        }
-        catch (DuplicateName duplicateName)
-        {
-            logger.error("DuplicateName", duplicateName);
-        }
-        catch (UnknownEncoding unknownEncoding)
-        {
-            logger.error("UnknownEncoding", unknownEncoding);
-        }
+		// install the TSS interceptor
+		try
+		{
+			sasPrincipalNamePIC = info.allocate_slot_id();
+			info.add_server_request_interceptor(new SASTargetInterceptor(info));
+		}
+		catch (DuplicateName duplicateName)
+		{
+			logger.error("TSS DuplicateName", duplicateName);
+		}
+		catch (UnknownEncoding unknownEncoding)
+		{
+			logger.error("TSS UnknownEncoding", unknownEncoding);
+		}
+		
+		// install the CSS interceptor
+		try
+		{
+			info.add_client_request_interceptor(new SASClientInterceptor(info));
+		}
+		catch (DuplicateName duplicateName)
+		{
+			logger.error("CSS DuplicateName", duplicateName);
+		}
+		catch (UnknownEncoding unknownEncoding)
+		{
+			logger.error("CSS UnknownEncoding", unknownEncoding);
+		}
+		
+		// install IOR interceptor
+		try
+		{
+			info.add_ior_interceptor(new SASComponentInterceptor(info));
+		}
+		catch (DuplicateName duplicateName)
+		{
+			logger.error("IOR DuplicateName", duplicateName);
+		}
+		
+		// create policy factory
+		info.register_policy_factory( SAS_POLICY_TYPE.value, new SASPolicyFactory() );
+		info.register_policy_factory( ATLAS_POLICY_TYPE.value, new ATLASPolicyFactory() );
     }
 
     public void pre_init(ORBInitInfo info)
