@@ -25,11 +25,8 @@ import org.tanukisoftware.wrapper.WrapperListener;
 import org.tanukisoftware.wrapper.WrapperManager;
 
 /**
- * Main.java
- *
- *
  * @author Alphonse Bendt
- * @version $Id: Main.java,v 1.5 2003-09-12 09:20:42 alphonse.bendt Exp $
+ * @version $Id: Main.java,v 1.6 2004-01-16 17:05:59 alphonse.bendt Exp $
  */
 
 public class Main implements WrapperListener
