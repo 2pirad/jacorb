@@ -32,9 +32,9 @@ import java.util.Vector;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.EventChannelEvent;
 import org.jacorb.notification.interfaces.EventChannelEventListener;
+// import org.jacorb.notification.persistence.EventChannelStore;
+// import org.jacorb.notification.persistence.PersistenceException;
 import org.jacorb.notification.util.PatternWrapper;
-import org.jacorb.notification.persistence.EventChannelStore;
-import org.jacorb.notification.persistence.PersistenceException;
 import org.jacorb.util.Debug;
 
 import org.omg.CORBA.Any;
@@ -61,6 +61,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
 import org.omg.CosNotifyChannelAdmin.EventChannelFactoryPOA;
 import org.omg.CosNotifyFilter.FilterFactory;
 import org.omg.PortableServer.IdAssignmentPolicyValue;
+import org.omg.PortableServer.LifespanPolicyValue;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 import org.omg.PortableServer.POAPackage.ObjectNotActive;
@@ -68,7 +69,6 @@ import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
 
 import org.apache.avalon.framework.logger.Logger;
-import org.omg.PortableServer.LifespanPolicyValue;
 
 /**
  * <code>EventChannelFactoryImpl</code> is a implementation of
@@ -86,12 +86,12 @@ import org.omg.PortableServer.LifespanPolicyValue;
  * reference of that event channel.<br>
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.23 2004-01-16 17:25:05 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.24 2004-01-16 22:28:37 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl
-            extends EventChannelFactoryPOA
-            implements Disposable
+    extends EventChannelFactoryPOA
+    implements Disposable
 {
     interface ShutdownCallback
     {
@@ -102,8 +102,11 @@ public class EventChannelFactoryImpl
     ////////////////////////////////////////
 
     private static final Object[] INTEGER_ARRAY_TEMPLATE = new Integer[ 0 ];
+
     private static final String NOTIFICATION_SERVICE = "NotificationService";
+
     private static final String EVENTCHANNEL_FACTORY_POA_NAME = "NotificationPOA";
+
     private static final String OBJECT_NAME = "_factory";
 
     private static final String PERSISTENT_EVENTCHANNEL_POA_NAME = "PersistentNotificationPOA";
@@ -111,21 +114,32 @@ public class EventChannelFactoryImpl
     ////////////////////////////////////////
 
     protected EventChannelFactory thisFactory_;
+
     protected FilterFactory defaultFilterFactory_;
+
     protected FilterFactoryImpl defaultFilterFactoryServant_;
+
     protected ApplicationContext applicationContext_;
+
     protected ChannelContext channelContextTemplate_;
+
     protected int counter_ = 0;
+
     protected Map allChannels_;
+
     protected Logger logger_ = Debug.getNamedLogger(getClass().getName() );
+
     protected String ior_;
+
     protected Vector listEventChannelEventListener_ = new Vector();
+
     protected String corbaLoc_;
 
     private POA eventChannelFactoryPOA_;
+
     private POA persistentEventChannelPOA_;
 
-    private EventChannelStore eventChannelStore_;
+    //    private EventChannelStore eventChannelStore_;
 
     ////////////////////////////////////////
 
@@ -210,7 +224,6 @@ public class EventChannelFactoryImpl
 
         logger_.info( "EventChannelFactory - ready" );
     }
-
 
     ////////////////////////////////////////
 
@@ -831,3 +844,4 @@ public class EventChannelFactoryImpl
         newFactory( args );
     }
 }
+
