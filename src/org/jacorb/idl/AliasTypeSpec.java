@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.27 2002-05-31 12:59:09 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.28 2002-05-31 16:00:24 gerald Exp $
  */
 
 public class AliasTypeSpec
@@ -163,14 +163,14 @@ public class AliasTypeSpec
 
         if( ts instanceof TemplateTypeSpec )
         {
-            if( ts instanceof VectorType && ((VectorType)ts).typedefd() )
-            {
-                tc_name = full_name() + "Helper.type()";                
-            }
-            else
-            {
+//                if( ts instanceof VectorType && ((VectorType)ts).typedefd() )
+//                {
+//                    tc_name = ((VectorType)ts).helperName();                
+//                }
+//                else
+//                {
                 tc_name = originalType.getTypeCodeExpression();
-            }
+                //              }
         }
         else if( ts instanceof BaseType ||
             ts instanceof ConstrTypeSpec || // for value types
