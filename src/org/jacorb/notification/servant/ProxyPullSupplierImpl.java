@@ -45,7 +45,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class ProxyPullSupplierImpl
@@ -72,11 +72,15 @@ public class ProxyPullSupplierImpl
 
         super(admin,
               channelContext);
-
-        setProxyType(ProxyType.PULL_ANY);
     }
 
     ////////////////////////////////////////
+
+
+    public ProxyType MyType() {
+        return ProxyType.PULL_ANY;
+    }
+
 
     public void disconnect_pull_supplier()
     {
@@ -98,7 +102,7 @@ public class ProxyPullSupplierImpl
 
     public Any pull() throws Disconnected
     {
-        assertConnectedOrThrowDisconnected();
+        checkStillConnected();
 
         try
         {
@@ -124,7 +128,7 @@ public class ProxyPullSupplierImpl
     public Any try_pull (BooleanHolder hasEvent)
         throws Disconnected
     {
-        assertConnectedOrThrowDisconnected();
+        checkStillConnected();
 
         Any event = sUndefinedAny;
 
@@ -210,7 +214,7 @@ public class ProxyPullSupplierImpl
     }
 
 
-    public void deliverPendingMessages()
+    public void deliverPendingData()
     {
         // as we do not actively deliver events we can ignore this
     }

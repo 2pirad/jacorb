@@ -29,28 +29,25 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimerDeliverTask.java,v 1.7 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: TimerDeliverTask.java,v 1.8 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class TimerDeliverTask extends AbstractDeliverTask
 {
-    TimerDeliverTask(TaskProcessor tp, TaskFactory tc) {
-        super(tp, tc);
+    TimerDeliverTask(TaskProcessor tp) {
+        super(tp);
     }
 
     ////////////////////////////////////////
 
-    public void doWork() throws Disconnected, NotConnected, InterruptedException
+    public void doWork()
+        throws Disconnected,
+               NotConnected,
+               InterruptedException
     {
-        if ( getMessageConsumer().hasPendingMessages() )
+        if ( getMessageConsumer().hasPendingData() )
         {
-            getMessageConsumer().deliverPendingMessages();
-
-            if ( getMessageConsumer().hasPendingMessages() )
-            {
-                schedule(true);
-            }
-
+            getMessageConsumer().deliverPendingData();
         } else {
             if (logger_.isDebugEnabled()) {
                 logger_.debug("Nothing to do as the Target:"
@@ -61,6 +58,7 @@ public class TimerDeliverTask extends AbstractDeliverTask
             dispose();
         }
     }
+
 
     public void schedule() throws InterruptedException {
         schedule(false);

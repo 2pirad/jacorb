@@ -37,7 +37,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl
@@ -52,14 +52,17 @@ public class StructuredProxyPushConsumerImpl
                                            ChannelContext channelContext) {
         super(supplierAdminServant,
               channelContext);
-
-        setProxyType(ProxyType.PUSH_STRUCTURED);
     }
 
     ////////////////////////////////////////
 
+    public ProxyType MyType() {
+        return ProxyType.PUSH_STRUCTURED;
+    }
+
+
     public void push_structured_event(StructuredEvent structuredEvent) throws Disconnected {
-        assertConnectedOrThrowDisconnected();
+        checkStillConnected();
 
         Message _mesg =
             messageFactory_.newMessage(structuredEvent, this);
@@ -76,6 +79,8 @@ public class StructuredProxyPushConsumerImpl
 
 
     protected void disconnectClient() {
+        logger_.info("disconnect structured_push_supplier");
+
         pushSupplier_.disconnect_structured_push_supplier();
 
         pushSupplier_ = null;
@@ -87,9 +92,11 @@ public class StructuredProxyPushConsumerImpl
     {
         assertNotConnected();
 
+        connectClient(supplier);
+
         pushSupplier_ = supplier;
 
-        connectClient(supplier);
+        logger_.info("connect structured_push_supplier");
     }
 
 

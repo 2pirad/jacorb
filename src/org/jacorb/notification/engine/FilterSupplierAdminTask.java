@@ -25,7 +25,7 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterSupplierAdminTask.java,v 1.6 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: FilterSupplierAdminTask.java,v 1.7 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class FilterSupplierAdminTask extends AbstractFilterTask
@@ -65,7 +65,7 @@ public class FilterSupplierAdminTask extends AbstractFilterTask
         boolean _forward = filter();
 
         if (_forward) {
-            taskFactory_.newFilterConsumerAdminTask( this ).schedule();
+            getTaskFactory().newFilterConsumerAdminTask( this ).schedule();
         }
 
         dispose();
@@ -94,5 +94,4 @@ public class FilterSupplierAdminTask extends AbstractFilterTask
 
         return _forward;
     }
-
 }

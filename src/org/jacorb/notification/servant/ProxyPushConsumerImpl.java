@@ -38,7 +38,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -55,11 +55,13 @@ public class ProxyPushConsumerImpl
 
         super( myAdminServant,
                channelContext);
-
-        setProxyType( ProxyType.PUSH_ANY );
     }
 
     ////////////////////////////////////////
+
+    public ProxyType MyType() {
+        return ProxyType.PUSH_ANY;
+    }
 
 
     public void disconnect_push_consumer()
@@ -84,7 +86,7 @@ public class ProxyPushConsumerImpl
      */
     public void push( Any event ) throws Disconnected
     {
-        assertConnectedOrThrowDisconnected();
+        checkStillConnected();
 
         logger_.debug("push Any into the Channel");
 

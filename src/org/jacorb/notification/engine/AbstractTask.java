@@ -30,7 +30,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTask.java,v 1.6 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: AbstractTask.java,v 1.7 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTask
@@ -41,18 +41,14 @@ public abstract class AbstractTask
 
     protected Message message_;
 
-    protected TaskProcessor taskProcessor_;
-
-    protected TaskFactory taskFactory_;
+    private TaskProcessor taskProcessor_;
 
     private TaskExecutor executor_;
 
     ////////////////////
 
-    protected AbstractTask(TaskExecutor ex, TaskProcessor tp, TaskFactory tf) {
-        executor_ = ex;
+    protected AbstractTask(TaskProcessor tp) {
         taskProcessor_ = tp;
-        taskFactory_ = tf;
     }
 
     ////////////////////
@@ -61,6 +57,15 @@ public abstract class AbstractTask
         return executor_;
     }
 
+
+    protected void setTaskExecutor(TaskExecutor taskExecutor) {
+        executor_ = taskExecutor;
+    }
+
+
+    protected TaskProcessor getTaskProcessor() {
+        return taskProcessor_;
+    }
 
     /**
      * set the Message for this Task to use.

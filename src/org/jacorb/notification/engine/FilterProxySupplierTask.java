@@ -34,7 +34,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.9 2004-02-08 14:18:55 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.10 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask
@@ -121,7 +121,7 @@ public class FilterProxySupplierTask extends AbstractFilterTask
     {
         filter();
 
-        AbstractDeliverTask.scheduleTasks(taskFactory_.newPushToConsumerTask( this ) );
+        AbstractDeliverTask.scheduleTasks(getTaskFactory().newPushToConsumerTask( this ) );
 
         dispose();
     }

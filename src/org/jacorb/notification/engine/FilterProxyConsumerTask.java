@@ -28,7 +28,7 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTask.java,v 1.7 2004-01-29 14:17:18 alphonse.bendt Exp $
+ * @version $Id: FilterProxyConsumerTask.java,v 1.8 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class FilterProxyConsumerTask extends AbstractFilterTask
@@ -162,7 +162,7 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
 
         if ( !isFilterStageListEmpty() )
         {
-            taskFactory_.newFilterSupplierAdminTask( this ).schedule();
+            getTaskFactory().newFilterSupplierAdminTask( this ).schedule();
         }
 
         dispose();

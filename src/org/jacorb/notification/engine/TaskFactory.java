@@ -31,16 +31,14 @@ import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskFactory.java,v 1.3 2004-01-29 14:19:02 alphonse.bendt Exp $
+ * @version $Id: TaskFactory.java,v 1.4 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class TaskFactory implements Disposable
 {
     private final Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
-
     private TaskProcessor taskProcessor_;
-
 
     private AbstractTaskPool filterProxyConsumerTaskPool_ =
         new AbstractTaskPool("FilterProxyConsumerTaskPool")
@@ -95,8 +93,7 @@ public class TaskFactory implements Disposable
         {
             public Object newInstance()
             {
-                PushToConsumerTask _task = new PushToConsumerTask(taskProcessor_,
-                                                                  TaskFactory.this);
+                PushToConsumerTask _task = new PushToConsumerTask(taskProcessor_);
 
                 return _task;
             }

@@ -36,7 +36,7 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl
@@ -52,15 +52,21 @@ public class SequenceProxyPushConsumerImpl
     {
         super( supplierAdmin,
                channelContext);
-
-        setProxyType( ProxyType.PUSH_SEQUENCE );
     }
 
     ////////////////////////////////////////
 
+    public ProxyType MyType() {
+        return ProxyType.PUSH_SEQUENCE;
+    }
+
+
     protected void disconnectClient()
     {
+        logger_.info("disconnect sequence_push_supplier");
+
         sequencePushSupplier_.disconnect_sequence_push_supplier();
+
         sequencePushSupplier_ = null;
     }
 
@@ -70,16 +76,18 @@ public class SequenceProxyPushConsumerImpl
     {
         assertNotConnected();
 
+        connectClient(supplier);
+
         sequencePushSupplier_ = supplier;
 
-        connectClient(supplier);
+        logger_.info("connect sequence_push_supplier");
     }
 
 
     public void push_structured_events( StructuredEvent[] events )
         throws Disconnected
     {
-        assertConnectedOrThrowDisconnected();
+        checkStillConnected();
 
         for ( int x = 0; x < events.length; ++x )
         {

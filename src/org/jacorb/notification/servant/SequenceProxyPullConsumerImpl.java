@@ -36,7 +36,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl
@@ -52,11 +52,14 @@ public class SequenceProxyPullConsumerImpl
     {
         super( admin,
                channelContext);
-
-        setProxyType( ProxyType.PULL_SEQUENCE );
     }
 
     ////////////////////////////////////////
+
+    public ProxyType MyType() {
+        return ProxyType.PULL_SEQUENCE;
+    }
+
 
     public void disconnect_sequence_pull_consumer()
     {
@@ -68,8 +71,6 @@ public class SequenceProxyPullConsumerImpl
         throws AlreadyConnected
     {
         assertNotConnected();
-
-        active_ = true;
 
         sequencePullSupplier_ = sequencePullSupplier;
 

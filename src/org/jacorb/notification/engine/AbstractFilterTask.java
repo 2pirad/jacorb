@@ -32,12 +32,12 @@ import org.jacorb.notification.util.TaskExecutor;
  * Abstract Base Class for FilterTask.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.6 2004-02-11 21:19:43 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.7 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 abstract class AbstractFilterTask extends AbstractTask
 {
-    //    private boolean disposed_ = false;
+    private TaskFactory taskFactory_;
 
     /**
      * for debugging purpose.
@@ -70,10 +70,19 @@ abstract class AbstractFilterTask extends AbstractTask
 
     AbstractFilterTask(TaskExecutor executor, TaskProcessor tp, TaskFactory tc)
     {
-        super(executor, tp, tc);
+        super(tp);
+
+        setTaskExecutor(executor);
+
+        taskFactory_ = tc;
     }
 
     ////////////////////
+
+    protected TaskFactory getTaskFactory() {
+        return taskFactory_;
+    }
+
 
     protected boolean isFilterStageListEmpty()
     {

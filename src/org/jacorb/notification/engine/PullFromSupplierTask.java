@@ -28,7 +28,7 @@ import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.7 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: PullFromSupplierTask.java,v 1.8 2004-03-17 23:13:19 alphonse.bendt Exp $
  */
 
 public class PullFromSupplierTask extends AbstractTask
@@ -37,8 +37,10 @@ public class PullFromSupplierTask extends AbstractTask
 
     ////////////////////////////////////////
 
-    PullFromSupplierTask(TaskExecutor te) {
-        super(te, null, null);
+    PullFromSupplierTask(TaskExecutor executor) {
+        super(null);
+
+        setTaskExecutor(executor);
     }
 
     ////////////////////////////////////////
