@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.39 2003-04-14 15:37:42 andre.spiegel Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.40 2003-04-28 14:26:45 nick.cross Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1256,7 +1256,8 @@ public class ImplementationRepositoryImpl
                 GIOPConnection connection =
                     new ClientGIOPConnection( transport,
                                               request_listener,
-                                              reply_listener );
+                                              reply_listener,
+                                              null);
 
                 receptor_pool.connectionCreated( connection );
             }
@@ -1312,7 +1313,7 @@ public class ImplementationRepositoryImpl
 
         cm = ((org.jacorb.orb.ORB)orb).getClientConnectionManager ();
         address = new IIOPAddress (host, port);
-        connection = cm.getConnection 
+        connection = cm.getConnection
         (
             new InternetIOPProfile (address, object_key),
             false
