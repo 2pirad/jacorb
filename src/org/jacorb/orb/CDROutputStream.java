@@ -33,7 +33,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.8.2.8 2001-09-21 15:21:39 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.8.2.9 2001-10-02 07:09:07 spiegel Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -1583,13 +1583,12 @@ public class CDROutputStream
             write_long (0x7fffff00);
 
         if (value.getClass() == String.class) 
-	    // ValueHandler does not work forStrings,
-	    // so I treat them as a special case
+            // special handling for strings required according to spec
 	    write_wstring((String)value);
         else if (value instanceof org.omg.CORBA.portable.StreamableValue)
             ((org.omg.CORBA.portable.StreamableValue)value)._write (this);
         else
-            javax.rmi.CORBA.Util.createValueHandler().writeValue (this, value);
+            org.jacorb.util.ValueHandler.writeValue (this, value);
 
     }
 
