@@ -22,13 +22,11 @@ package org.jacorb.notification.interfaces;
  */
 
 import org.jacorb.notification.servant.AbstractProxy;
+import org.jacorb.notification.servant.AbstractAdmin;
 
 /**
- * ProxyEvent.java
- *
- *
  * @author Alphonse Bendt
- * @version $Id: ProxyEvent.java,v 1.3 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: ProxyEvent.java,v 1.4 2004-03-17 23:01:54 alphonse.bendt Exp $
  */
 
 public class ProxyEvent extends ApplicationEvent
@@ -38,4 +36,9 @@ public class ProxyEvent extends ApplicationEvent
         super(b);
     }
 
+
+    public ProxyEvent(AbstractAdmin admin)
+    {
+        super(admin);
+    }
 }

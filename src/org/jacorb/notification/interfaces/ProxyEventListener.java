@@ -21,15 +21,24 @@ package org.jacorb.notification.interfaces;
  *
  */
 
+import org.omg.CosNotifyChannelAdmin.AdminLimitExceeded;
+
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyEventListener.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: ProxyEventListener.java,v 1.2 2004-03-17 23:01:54 alphonse.bendt Exp $
  */
 
 public interface ProxyEventListener {
 
-    void actionProxyDisposed(ProxyEvent event);
-    
-    void actionProxyCreated(ProxyEvent event);
+    /**
+     * This event is fired if a Admin wants to create a new Proxy. A
+     * Listener may throw AdminLimitExceeded if the creation of more
+     * Proxies exeeds a limit.
+     */
+    void actionProxyCreationRequest( ProxyEvent event )
+        throws AdminLimitExceeded;
 
+    void actionProxyDisposed(ProxyEvent event);
+
+    void actionProxyCreated(ProxyEvent event);
 }
