@@ -27,7 +27,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.7 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.8 2003-10-28 15:26:06 nick.cross Exp $
  */
 
 public class ClientGIOPConnection
@@ -72,12 +72,14 @@ public class ClientGIOPConnection
 
     public void closeAllowReopen()
     {
-        getWriteLock();
-
         try
         {
-            transport.close();
-            transport = new ClientIIOPConnection ((ClientIIOPConnection)transport);
+            synchronized (connect_sync )
+            {
+                getWriteLock();
+                transport.close();
+                transport = new ClientIIOPConnection ((ClientIIOPConnection)transport);
+            }
         }
         finally
         {
