@@ -40,7 +40,7 @@ import java.util.Enumeration;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.12 2002-05-08 14:46:58 gerald Exp $
+ * @version $Id: AOM.java,v 1.13 2002-05-29 14:53:35 gerald Exp $
  */
 
 public class AOM 
@@ -298,14 +298,14 @@ public class AOM
             /* object deactivation */
 
             objectMap.remove(oidbak);
-            servant._set_delegate(null);
+            // servant._set_delegate(null);
 
             if (unique) 
             {
                 servantMap.remove(servant);
             }
 
-        	if (logTrace.test(2))
+            if (logTrace.test(2))
             	logTrace.printLog(oid, "object is deactivated");
 
             // notify an aom listener                   
@@ -348,7 +348,7 @@ public class AOM
                      contains (servant)
                 );
                                 
-	        	if (logTrace.test(2))
+                if (logTrace.test(2))
     	            logTrace.printLog(oid, "servant is etherealized");
                           
                 // notify an aom listener
