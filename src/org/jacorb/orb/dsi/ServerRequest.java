@@ -28,7 +28,7 @@ import org.jacorb.orb.portableInterceptor.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.5 2001-03-28 08:43:39 jacorb Exp $
+ * @version $Id: ServerRequest.java,v 1.6 2001-03-28 12:35:17 jacorb Exp $
  */
 
 public class ServerRequest 
@@ -61,13 +61,16 @@ public class ServerRequest
 
     /** only to be called implicitly by subclasses (LocateRequest) */
 
-    protected ServerRequest( org.jacorb.orb.ORB orb, ServerConnection _connection )
+    protected ServerRequest( org.jacorb.orb.ORB orb, 
+                             ServerConnection _connection )
     {
 	this.orb = orb;
 	connection = _connection;
     }
 
-    public ServerRequest( org.jacorb.orb.ORB orb, byte[] _buf, ServerConnection _connection )
+    public ServerRequest( org.jacorb.orb.ORB orb, 
+                          byte[] _buf, 
+                          ServerConnection _connection )
     {
 	this.orb = orb;
 	in = new RequestInputStream( orb,_buf);
