@@ -25,7 +25,7 @@ import org.jacorb.util.Debug;
 /**
  *
  * @author Nicolas Noffke
- * $Id: ServerInitializer.java,v 1.7 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: ServerInitializer.java,v 1.8 2003-12-16 08:42:12 gerald Exp $
  */
 
 public class ServerInitializer 
@@ -50,9 +50,10 @@ public class ServerInitializer
 
             info.add_server_request_interceptor
                 (new ServerAccessDecisionInterceptor(current));
-        }catch (Exception e)
+        }
+        catch (Exception e)
         {
-            Debug.output(Debug.SECURITY | Debug.IMPORTANT, e);
+            Debug.output(1, e);
         }
     }
 

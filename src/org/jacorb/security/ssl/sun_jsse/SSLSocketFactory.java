@@ -22,7 +22,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.9 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: SSLSocketFactory.java,v 1.10 2003-12-16 08:42:12 gerald Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -33,6 +33,8 @@ import java.net.*;
 import java.io.*;
 import java.security.*;
 import java.util.*;
+
+import org.apache.avalon.framework.logger.Logger;
 
 import javax.net.ssl.*;
 import javax.net.*;
@@ -48,14 +50,18 @@ public class SSLSocketFactory
     private SocketFactory factory = null;
     private boolean change_roles = false;
     private String[] cipher_suites = null;
+    private Logger logger;
     
     public SSLSocketFactory( org.jacorb.orb.ORB orb ) 
     {
+        logger = Debug.getNamedLogger("jacorb.security.jsse");
+
 	factory = createSocketFactory();
 
 	if( factory == null )
 	{
-	    Debug.output( 1, "ERROR: Unable to create ServerSocketFactory!" );
+	    if (logger.isErrorEnabled())
+                logger.error("Unable to create ServerSocketFactory!" );
 	}
 	
 	change_roles = 
@@ -65,7 +71,7 @@ public class SSLSocketFactory
         // We need to obtain all the cipher suites to use from the 
         // properties file.
 	String cipher_suite_list = 
-		Environment.getProperty("jacorb.security.ssl.client.cipher_suites" );
+            Environment.getProperty("jacorb.security.ssl.client.cipher_suites" );
 	
 	if ( cipher_suite_list != null )
 	{
@@ -167,6 +173,8 @@ public class SSLSocketFactory
 		Environment.isPropertyOn( "jacorb.security.jsse.trustees_from_ks" ))
 	    {
                 //take trusted certificates from keystore
+                if (logger.isInfoEnabled())
+                    logger.info("Loading certs from keystore " + key_store );
 		tmf.init( key_store );
 	    }
 	    else
@@ -183,7 +191,8 @@ public class SSLSocketFactory
 	} 
 	catch( Exception e ) 
 	{
-	    Debug.output( 1, e );
+            if (logger.isWarnEnabled())
+                logger.warn("Exception " + e.getMessage() + " in SSLSocketFactory");
 	}
 
 	return null;
