@@ -1,7 +1,7 @@
 #! /bin/sh
 
 #
-# $Id: ntfy-wrapper.template,v 1.1 2004-02-20 12:54:17 alphonse.bendt Exp $
+# $Id: ntfy-wrapper.template,v 1.2 2004-03-13 10:32:42 alphonse.bendt Exp $
 #
 # sh script suitable for starting and stopping 
 # the JacORB Notification Service controlled by the Java Service Wrapper
@@ -17,9 +17,19 @@
 APP_NAME="JacORB-Notify"
 APP_LONG_NAME="JacORB Notification Service"
 
-# Wrapper
-WRAPPER_CMD="wrapper"
 WRAPPER_CONF="NotifyService-Wrapper.conf"
+
+# Wrapper
+
+# specify a custom location (full qualified path) for the wrapper
+# command here. Not necessary if 'wrapper' is available via
+# PATH. Works also if WRAPPER_CMD is a symlink which points to the
+# actual cmd.   
+#WRAPPER_CMD="/usr/local/wrapper/bin/wrapper"
+
+# specify the location of the wrapper home here. This is not
+# necessary if WRAPPER_CMD is located inside WRAPPER_HOME/bin.
+#WRAPPER_HOME="/usr/local/wrapper"
 
 # Priority at which to run the wrapper.  See "man nice" for valid priorities.
 #  nice is only used if a priority is specified.
