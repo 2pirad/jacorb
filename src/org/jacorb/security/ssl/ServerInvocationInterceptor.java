@@ -39,20 +39,31 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.4 2001-03-29 14:02:45 jacorb Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.5 2001-04-02 09:19:51 noffke Exp $
  */
 
 public class ServerInvocationInterceptor
     extends org.jacorb.orb.LocalityConstrainedObject 
     implements ServerRequestInterceptor
 {
+    public static final String DEFAULT_NAME = "ServerInvocationInterceptor";
+
+    private String name = null;
+
     private org.jacorb.security.level2.CurrentImpl current = null;
     private SecAttributeManager attrib_mgr;
     private AttributeType type; 
 
     public ServerInvocationInterceptor(org.omg.SecurityLevel2.Current current)
     {
+        this( current, DEFAULT_NAME );
+    }
+
+    public ServerInvocationInterceptor( org.omg.SecurityLevel2.Current current,
+                                        String name )
+    {
         this.current = (CurrentImpl) current;
+        this.name = name;
 
         attrib_mgr = SecAttributeManager.getInstance();
 
@@ -64,7 +75,7 @@ public class ServerInvocationInterceptor
 
     public String name()
     {
-        return "1_ServerInvocationInterceptor";
+        return name;
     }
 
     public void receive_request( ServerRequestInfo ri )
