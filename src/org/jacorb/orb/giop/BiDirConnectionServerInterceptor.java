@@ -37,7 +37,7 @@ import org.jacorb.orb.portableInterceptor.*;
  * Created: Sun Sep  2 18:16:27 2001
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.2 2001-10-02 13:50:53 jacorb Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.3 2001-11-09 15:09:54 jacorb Exp $
  */
 
 public class BiDirConnectionServerInterceptor 
@@ -87,21 +87,14 @@ public class BiDirConnectionServerInterceptor
 
             BiDirIIOPServiceContext bidir_ctx = null;
 
-            try
-            {
-                bidir_ctx = 
-                    BiDirIIOPServiceContextHelper.extract( codec.decode( ctx.context_data ));
-            }
-            catch( org.omg.IOP_N.CodecPackage.FormatMismatch fm )
-            {
-                //ignore
-            }
+            CDRInputStream cdr_in = 
+                new CDRInputStream( orb, ctx.context_data );
 
-            if( bidir_ctx == null )
-            {
-                return; //format mismatch
-            }
-                
+            cdr_in.openEncapsulatedArray();
+            
+            bidir_ctx = 
+                BiDirIIOPServiceContextHelper.read( cdr_in );            
+
             GIOPConnection connection = 
                 ((ServerRequestInfoImpl) ri).request.getConnection();
             
