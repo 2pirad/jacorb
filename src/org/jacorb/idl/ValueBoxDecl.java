@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.28 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.29 2005-03-08 11:49:36 andre.spiegel Exp $
  */
 
 public class ValueBoxDecl
@@ -279,7 +279,7 @@ public class ValueBoxDecl
         else
         {
             ps.println("\t\t" + type + " result;");
-            ps.println("\t\t" + typeSpec.typeSpec().printReadStatement("result", "in") + ";");
+            ps.println("\t\t" + typeSpec.typeSpec().printReadStatement("result", "in"));
         }
         ps.println("\t\treturn result;");
         ps.println("\t}");
