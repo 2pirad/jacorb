@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.2 2002-11-04 18:31:09 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.3 2002-11-04 18:56:58 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.*;
@@ -78,6 +78,10 @@ public class GIOPConnectionTest
             throws IOException
         {
             closed = true;
+        }
+
+        public void setIdle()
+        {
         }
     
         public boolean isSSL()
