@@ -24,11 +24,11 @@ package org.jacorb.util;
  * Holds the release date and version of JacORB. An attempt to bring more
  * maintainability to the versioning.
  * @author Gerald Brose
- * @version $Id: Version.java,v 1.25 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: Version.java,v 1.26 2004-05-07 10:47:49 brose Exp $
  */
 public final class Version
 {
-    public static final String version = "2.2-alpha (CVS)";
-    public static final String date = "28-April-2004";
+    public static final String version = "2.2";
+    public static final String date = "7-May-2004";
     public static final String longVersion = version + ", " + date;
 }
