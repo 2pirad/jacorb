@@ -40,7 +40,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.42 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ParsedIOR.java,v 1.43 2003-03-31 15:51:58 andre.spiegel Exp $
  */
 
 public class ParsedIOR
@@ -65,7 +65,7 @@ public class ParsedIOR
 
     private ORB orb = null;
 
-    private String adport = null;
+	private IIOPAddress iiopAddress = null;
     private boolean use_ssl = false;
     private boolean use_sas = false;
 
@@ -612,12 +612,7 @@ public class ParsedIOR
         if( port < 0 )
             port += 65536;
 
-        adport = pb.host + ":" + port;
-    }
-
-    public String getAdPort()
-    {
-        return adport;
+		iiopAddress = new IIOPAddress (pb.host, port);
     }
 
     public boolean useSSL()
@@ -987,25 +982,10 @@ public class ParsedIOR
         }
     }
 
-    public String getAddress ()
-    {
-        return (getHost () + ":" + getPort ());
-    }
-
-    public String getPort ()
-    {
-        int port = profileBodies[effectiveProfileBody].port;
-        if (port < 0)
-        {
-            port += 65536;
-        }
-        return (Integer.toString (port));
-    }
-
-    public String getHost ()
-    {
-        return (profileBodies[effectiveProfileBody].host);
-    }
+	public IIOPAddress getIIOPAddress()
+	{
+		return iiopAddress;
+	}
 
     public String getTypeId()
     {
