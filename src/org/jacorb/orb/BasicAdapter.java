@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.19 2002-10-21 07:49:54 nicolas Exp $
+ * @version $Id: BasicAdapter.java,v 1.20 2002-11-26 16:45:34 nicolas Exp $
  */
 
 import java.io.*;
@@ -52,8 +52,6 @@ public class BasicAdapter
         socket_factory = SocketFactoryManager.getServerSocketFactory ((ORB) null);
     }
 
-    /** the number of outstanding replies. */
-
     private  org.jacorb.orb.ORB orb; 
     private  POA rootPOA; 
     private  Listener listener;
@@ -64,11 +62,16 @@ public class BasicAdapter
     private ReplyListener reply_listener = null;
     private int timeout = 0;
 
-    public BasicAdapter( org.jacorb.orb.ORB orb, POA rootPOA )
+    private TransportManager transport_manager = null;
+
+    public BasicAdapter( org.jacorb.orb.ORB orb, 
+                         POA rootPOA,
+                         TransportManager transport_manager )
         throws IOException
     {
         this.orb = orb;
         this.rootPOA = rootPOA;
+        this.transport_manager = transport_manager;
 
         if( Environment.isPropertyOn( "jacorb.security.support_ssl" ))
         {
@@ -462,13 +465,13 @@ public class BasicAdapter
                     }
 
                     Transport transport = 
-                        new Server_TCP_IP_Transport( socket, is_ssl );                    
+                        transport_manager.createServerTransport( socket, is_ssl );
 
                     GIOPConnection connection = 
                         new GIOPConnection( transport,
                                             request_listener,
                                             reply_listener );
-
+                    
                     receptor_pool.connectionCreated( connection );
                 } 
                 catch( Exception e )

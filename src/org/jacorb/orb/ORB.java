@@ -43,7 +43,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.79 2002-11-21 11:09:20 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.80 2002-11-26 16:45:34 nicolas Exp $
  */
 
 public final class ORB
@@ -74,6 +74,9 @@ public final class ORB
 
     /** connection mgmt. */
     private ConnectionManager connectionManager;
+
+    /** The transport manager*/
+    private TransportManager transport_manager = null;
 
     /** buffer mgmt. */
     private BufferManager bufferManager = BufferManager.getInstance();
@@ -747,7 +750,9 @@ public final class ORB
 
             try
             {
-                basicAdapter = new BasicAdapter( this, rootpoa );
+                basicAdapter = new BasicAdapter( this, 
+                                                 rootpoa, 
+                                                 transport_manager );
             }
             catch( IOException io )
             {
@@ -1341,8 +1346,8 @@ public final class ORB
             }
         }
 
-
-        connectionManager = new ConnectionManager(this);
+        transport_manager = new TransportManager( this );
+        connectionManager = new ConnectionManager( this, transport_manager );
 
         String s = Environment.getProperty( "jacorb.hashtable_class" );
         if( s == null || s.length() == 0 )
@@ -1416,7 +1421,8 @@ public final class ORB
 
         Environment.addProperties( props );
 
-        connectionManager = new ConnectionManager(this);
+        transport_manager = new TransportManager( this );
+        connectionManager = new ConnectionManager( this, transport_manager );
 
         String s = Environment.getProperty( "jacorb.hashtable_class" );
         if( s == null || s.length() == 0 )

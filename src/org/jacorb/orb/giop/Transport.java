@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.6 2002-10-21 07:49:54 nicolas Exp $
+ * @version $Id: Transport.java,v 1.7 2002-11-26 16:45:35 nicolas Exp $
  */
 
 public interface Transport 
@@ -98,6 +98,12 @@ public interface Transport
      * on a read timeout is o.k.  
      */
     public boolean isIdle();
+
+    /**
+     * Get the statistics provider for transport usage statistics.
+     */
+    public StatisticsProvider getStatisticsProvider();
+
 }// Transport
 
 

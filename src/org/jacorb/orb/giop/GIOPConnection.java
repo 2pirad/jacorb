@@ -40,7 +40,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.16 2002-11-13 13:50:29 nicolas Exp $
+ * @version $Id: GIOPConnection.java,v 1.17 2002-11-26 16:45:35 nicolas Exp $
  */
 
 public final class GIOPConnection
@@ -557,8 +557,6 @@ public final class GIOPConnection
     private final void sendMessage( MessageOutputStream out )
         throws IOException
     {
-        Debug.myAssert( pending_messages >= 0,
-                        "pending_messages >= 0" );
         try
         {
             getWriteLock();

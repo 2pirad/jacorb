@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.17 2002-11-13 13:50:29 nicolas Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.18 2002-11-26 16:45:34 nicolas Exp $
  */
 
 public class Client_TCP_IP_Transport
@@ -55,8 +55,12 @@ public class Client_TCP_IP_Transport
 
     public Client_TCP_IP_Transport( String target_host,
                                     int target_port,
-                                    SocketFactory socket_factory )
+                                    SocketFactory socket_factory,
+                                    StatisticsProvider statistics_provider,
+                                    TransportManager transport_manager )
     {
+        super( statistics_provider, transport_manager );
+
         this.target_host = target_host;
         this.target_port = target_port;
         this.socket_factory = socket_factory;
@@ -208,7 +212,8 @@ public class Client_TCP_IP_Transport
             }
             catch (Throwable ex)
             {
-                // If Socket does not support shutdownOutput method (i.e JDK < 1.3)
+                // If Socket does not support shutdownOutput method
+                // (i.e JDK < 1.3)
             }
 
             socket.close ();
