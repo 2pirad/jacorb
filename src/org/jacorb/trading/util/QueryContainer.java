@@ -13,7 +13,10 @@ import java.lang.*;
  *
  * @author Nicolas Noffke
  * $Log: QueryContainer.java,v $
- * Revision 1.4  2002-03-19 09:25:46  nicolas
+ * Revision 1.5  2003-10-28 17:22:52  simon.mcqueen
+ * Javadoc fixes only. @author can only be used at class level.
+ *
+ * Revision 1.4  2002/03/19 09:25:46  nicolas
  * updated copyright to 2002
  *
  * Revision 1.3  2002/03/19 11:10:13  brose
@@ -69,7 +72,6 @@ public class QueryContainer  {
      * @param desired_props The desired properties
      * @param how_many  No. of offers to be returned
      * @param target  The lookup-interface of the queries target trader
-     * @author Nicolas Noffke
      */
     public QueryContainer(String type,
 			  String constr,
@@ -105,7 +107,6 @@ public class QueryContainer  {
      *
      * @param templ The template to take the values from
      * @param target The lookup-interface of the queries target trader
-     * @author Nicolas Noffke
      */
     public QueryContainer(QueryContainer templ, Lookup target){
 	this(templ.m_type, templ.m_constr, templ.m_pref,
@@ -115,7 +116,6 @@ public class QueryContainer  {
 
     /**
      * This method blocks until the result is ready.
-     * @author Nicolas Noffke
      */
     public void resultReady(){
 	m_mutex.P(); // Blocks, until QueryThread issues V()
@@ -128,7 +128,6 @@ public class QueryContainer  {
      * *Not* safe to call until resultReady returned.
      *
      * @return Null, if query returned correctly.
-     * @author Nicolas Noffke
      */
     public UserException getException(){
 	return m_exception;
@@ -139,7 +138,6 @@ public class QueryContainer  {
      * *Not* safe to call until resultReady returned.
      *
      * @return The offers
-     * @author Nicolas Noffke
      */
     public OfferSeqHolder getOffers(){
 	return m_offers;
@@ -150,7 +148,6 @@ public class QueryContainer  {
      * *Not* safe to call until resultReady returned.
      *
      * @return The offer iterator
-     * @author Nicolas Noffke
      */
     public OfferIteratorHolder getItr(){
 	return m_offer_itr;
@@ -161,7 +158,6 @@ public class QueryContainer  {
      * *Not* safe to call until resultReady returned.
      *
      * @return The limits_applied policies
-     * @author Nicolas Noffke
      */
     public PolicyNameSeqHolder getLimits(){
 	return m_limits_applied;
