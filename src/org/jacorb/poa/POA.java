@@ -41,7 +41,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.16 2001-12-17 16:52:12 steve.osselton Exp $
+ * @version $Id: POA.java,v 1.17 2002-03-07 16:53:15 spiegel Exp $
  */
 
 public class POA 
@@ -1237,7 +1237,7 @@ public class POA
             threadPolicy.value() == ThreadPolicyValue.SINGLE_THREAD_MODEL;
     }
 
-    protected boolean isSystemId() 
+    public boolean isSystemId() 
     {
         return idAssignmentPolicy == null || 
             idAssignmentPolicy.value() == IdAssignmentPolicyValue.SYSTEM_ID;
