@@ -40,15 +40,15 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.11 2001-03-28 08:04:22 jacorb Exp $
+ * @version $Id: ORB.java,v 1.12 2001-03-28 11:37:05 jacorb Exp $
  */
 
 public final class ORB
     extends ORBSingleton
     implements org.jacorb.poa.POAListener
 {
-    private static final String versionString = "1.3.20";
-    private static final String dateString = "27 March 2001";
+    private static final String versionString = "1.3.21";
+    private static final String dateString = "28 March 2001";
 
     /** "initial" references */
     private Hashtable initial_references = new Hashtable();
