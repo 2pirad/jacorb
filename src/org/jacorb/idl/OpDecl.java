@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.24 2002-11-16 13:25:53 gerald Exp $
+ * @version $Id: OpDecl.java,v 1.25 2002-11-22 11:41:28 andre.spiegel Exp $
  */
 
 class OpDecl
@@ -417,7 +417,7 @@ class OpDecl
             if ( p.paramAttribute != ParamDecl.MODE_OUT )
             {
                 ps.print( ", " );
-                p.print( ps );
+                p.asIn().print( ps );
             }
         }
 
@@ -440,7 +440,7 @@ class OpDecl
         {
             ParamDecl p = ( (ParamDecl)i.next() );
             if( p.paramAttribute != ParamDecl.MODE_OUT ) 
-                ps.println( "\t\t\t\t" + p.printWriteStatement( "_os" ) );
+                ps.println( "\t\t\t\t" + p.asIn().printWriteStatement( "_os" ) );
         }
 
         //ps.println( "\t\t\t\t_invoke(_os, ami_handler);" );
