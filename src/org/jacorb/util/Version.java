@@ -27,16 +27,16 @@ import java.io.*;
  * Holds the release date and version of JacORB. An attempt to bring more maintainability to
  * the versioning.
  * @author Gerald Brose
- * @version $Id: Version.java,v 1.9 2002-06-07 07:17:15 gerald Exp $
+ * @version $Id: Version.java,v 1.10 2002-07-08 10:05:50 gerald Exp $
  */
 
 public final class Version
 {
-    public static final String shortVersion = "1.4";
+    public static final String shortVersion = "1.4.1";
 
     public static final String version = shortVersion;
 
-    public static final String date = "June 2002";
+    public static final String date = "July 2002";
 
     public static final String longVersion = version + ", " + date;
 
