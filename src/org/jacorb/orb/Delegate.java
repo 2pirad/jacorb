@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.12 2001-06-08 10:42:06 noffke Exp $
+ * @version $Id: Delegate.java,v 1.13 2001-06-13 09:20:26 jacorb Exp $
  *
  */
 
@@ -1145,10 +1145,9 @@ public final class Delegate
     /**
      */
 
-    public synchronized org.omg.CORBA.portable.OutputStream request(
-                                                                    org.omg.CORBA.Object self,
-                                                                    String operation,
-                                                                    boolean responseExpected )
+    public synchronized org.omg.CORBA.portable.OutputStream request( org.omg.CORBA.Object self,
+                                                                     String operation,
+                                                                     boolean responseExpected )
     {    
         // NOTE: When making changes to this method which are outside of the 
         // Interceptor-if-statement, please make shure to update 
