@@ -95,7 +95,7 @@ import org.jacorb.notification.servant.AdminPropertySet;
  * reference of that event channel.<br>
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.28 2004-01-29 14:12:52 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.29 2004-02-09 16:18:08 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl
@@ -265,7 +265,7 @@ public class EventChannelFactoryImpl
             _channel = EventChannelHelper.narrow(_channelServant.activate());
 
             if (logger_.isInfoEnabled()) {
-                logger_.info( "created EventChannel id=" + _identifier );
+                logger_.info( "created EventChannel with ID: " + _identifier );
             }
 
             allChannels_.put( _key, _channelServant );
