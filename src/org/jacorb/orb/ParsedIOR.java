@@ -38,7 +38,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.22 2002-01-18 17:55:53 nicolas Exp $
+ * @version $Id: ParsedIOR.java,v 1.23 2002-02-13 17:34:49 steve.osselton Exp $
  */
 
 public class ParsedIOR 
@@ -784,13 +784,3 @@ public class ParsedIOR
 	ior_str = getIORString ();
     }
 }
-
-
-
-
-
-
-
-
-
-
