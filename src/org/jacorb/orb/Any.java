@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.18 2001-12-21 11:23:14 steve.osselton Exp $ 
+ * $Id: Any.java,v 1.19 2002-01-11 21:35:45 gerald Exp $ 
  * 
  */
 
@@ -647,7 +647,7 @@ public final class Any
         if( value instanceof org.jacorb.orb.CDROutputStream )
         {
             //System.out.println("Any.create_input_stream()");
-            return new org.jacorb.orb.CDRInputStream(orb, ((CDROutputStream)value).getBufferCopy());
+            return new org.jacorb.orb.CDRInputStream( orb, ((CDROutputStream)value).getBufferCopy());
         }
         else
         {
