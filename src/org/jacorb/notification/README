@@ -7,7 +7,12 @@ to download the library gnu.regexp from
 http://www.cacas.org/java/gnu/regexp
 and make it available in the classpath
 
+compile with
+ant -Dnotification.build.jdk12=true to build a JDK1.2 compliant
+version.
+
+
 any comments/suggestions to:
 Alphonse Bendt <bendt(at)inf.fu-berlin.de>
 
-$Id: README,v 1.4 2003-07-03 21:43:16 alphonse.bendt Exp $
+$Id: README,v 1.5 2003-07-16 00:28:15 alphonse.bendt Exp $
