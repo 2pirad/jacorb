@@ -35,7 +35,7 @@ import org.jacorb.util.*;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.10 2003-05-07 09:39:29 andre.spiegel Exp $
+ * @version $Id: TransportManager.java,v 1.11 2003-05-07 16:13:55 andre.spiegel Exp $
  * */
 
 public class TransportManager
@@ -79,20 +79,17 @@ public class TransportManager
 
     }
 
-    public Transport createClientTransport()
+    public org.omg.ETF.Connection createClientTransport()
     {
-        return new Client_TCP_IP_Transport();
+        return new ClientIIOPConnection();
     }
 
-    public Transport createServerTransport( Socket socket,
-                                            boolean is_ssl )
+    public org.omg.ETF.Connection createServerTransport( Socket socket,
+                                                         boolean is_ssl )
         throws IOException
     {
-        Transport transport = 
-            new Server_TCP_IP_Transport( socket, 
+        return new ServerIIOPConnection( socket, 
                                          is_ssl );
-
-        return transport;
     }
 }
 

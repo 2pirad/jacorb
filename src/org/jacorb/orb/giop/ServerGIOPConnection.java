@@ -22,11 +22,12 @@ package org.jacorb.orb.connection;
 
 import java.io.*;
 
+import org.jacorb.orb.iiop.*;
 import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.8 2003-05-07 09:36:44 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.9 2003-05-07 16:15:23 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -51,7 +52,7 @@ public class ServerGIOPConnection
     private boolean delayClose = false;
 
     public ServerGIOPConnection( org.omg.ETF.Profile profile,
-                                 Transport transport,
+                                 org.omg.ETF.Connection transport,
                                  RequestListener request_listener,
                                  ReplyListener reply_listener,
                                  StatisticsProvider statistics_provider,
@@ -104,9 +105,9 @@ public class ServerGIOPConnection
                 statistics_provider.flushed();
             }
 
-            if( delayClose && transport instanceof TCP_IP_Transport )
+            if( delayClose && transport instanceof IIOPConnection )
             {
-                ((TCP_IP_Transport)transport).turnOnFinalTimeout();
+                ((IIOPConnection)transport).turnOnFinalTimeout();
             }
             else
             {

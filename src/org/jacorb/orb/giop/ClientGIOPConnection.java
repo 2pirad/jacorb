@@ -22,18 +22,19 @@ package org.jacorb.orb.connection;
 
 import java.io.*;
 
+import org.jacorb.orb.iiop.*;
 import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.5 2003-05-07 09:32:30 andre.spiegel Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.6 2003-05-07 16:15:23 andre.spiegel Exp $
  */
 
 public class ClientGIOPConnection
     extends GIOPConnection
 {
     public ClientGIOPConnection( org.omg.ETF.Profile profile,
-                                 Transport transport,
+                                 org.omg.ETF.Connection transport,
                                  RequestListener request_listener,
                                  ReplyListener reply_listener,
                                  StatisticsProvider statistics_provider )
@@ -76,7 +77,7 @@ public class ClientGIOPConnection
         try
         {
             transport.close();
-            transport = new Client_TCP_IP_Transport ((Client_TCP_IP_Transport)transport);
+            transport = new ClientIIOPConnection ((ClientIIOPConnection)transport);
         }
         finally
         {

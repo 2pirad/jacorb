@@ -34,7 +34,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.6 2003-05-07 09:31:28 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.7 2003-05-07 16:15:23 andre.spiegel Exp $
  *
  */
 
@@ -147,12 +147,10 @@ public class ClientConnectionManager
 
         if (c == null)
         {
-            Transport transport = transport_manager.createClientTransport();
-
             GIOPConnection connection = 
                 giop_connection_manager.createClientGIOPConnection( 
                     profile,
-                    transport,
+                    transport_manager.createClientTransport(),
                     request_listener,
                     null );
             

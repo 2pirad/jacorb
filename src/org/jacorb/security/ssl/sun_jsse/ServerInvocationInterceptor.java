@@ -32,6 +32,7 @@ import org.jacorb.util.*;
 import org.jacorb.orb.portableInterceptor.ServerRequestInfoImpl;
 import org.jacorb.security.level2.*;
 import org.jacorb.orb.dsi.ServerRequest;
+import org.jacorb.orb.iiop.*;
 import org.jacorb.orb.connection.*;
 
 import javax.net.ssl.SSLSocket;
@@ -40,7 +41,7 @@ import javax.net.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.4 2002-12-20 18:29:06 nicolas Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.5 2003-05-07 16:21:41 andre.spiegel Exp $
  */
 
 public class ServerInvocationInterceptor
@@ -108,8 +109,8 @@ public class ServerInvocationInterceptor
             return;
         }
             
-        Server_TCP_IP_Transport transport =
-            (Server_TCP_IP_Transport) connection.getTransport();
+        ServerIIOPConnection transport =
+            (ServerIIOPConnection) connection.getTransport();
         
         SSLSocket sslSocket = (SSLSocket) transport.getSocket();
 

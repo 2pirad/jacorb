@@ -50,7 +50,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.42 2003-05-07 09:48:56 andre.spiegel Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.43 2003-05-07 16:17:06 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1250,7 +1250,7 @@ public class ImplementationRepositoryImpl
                 Socket socket = server_socket.accept();
                 socket.setSoTimeout( timeout );
 
-                Transport transport =
+                org.omg.ETF.Connection transport =
                     transport_manager.createServerTransport( socket,
                                                              false ); //no ssl
 
