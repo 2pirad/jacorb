@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.12 2003-04-26 17:51:10 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.13 2003-04-27 12:35:38 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.connection.*;
@@ -113,11 +113,6 @@ public class GIOPConnectionTest extends TestCase
             return false;
         }
         
-        public StatisticsProvider getStatisticsProvider()
-        {
-            return null;
-        }
-
         public void setTransportListener(TransportListener listener)
         {
             this.listener = listener;
@@ -147,10 +142,6 @@ public class GIOPConnectionTest extends TestCase
             }
         }
 
-        public boolean waitUntilConnected()
-        {
-            return true;
-        }
     }
     
 
