@@ -30,7 +30,7 @@ import org.omg.DynamicAny.*;
  * This class prints IDL from IR-Descriptions to PrintStreams
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IdlWriter.java,v 1.10 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: IdlWriter.java,v 1.11 2005-01-28 14:49:45 andre.spiegel Exp $
  */
 
 public class IdlWriter 
@@ -312,7 +312,7 @@ public class IdlWriter
             print( "};" + "\n\n" );
         } 
         else 
-            System.err.println("Error, could not find struct " + s_def.id() + " in IR ");
+            System.err.println("Error, could not find struct " + t.id + " in IR ");
 
     }
 
@@ -413,7 +413,7 @@ public class IdlWriter
             print( "enum " + e_def.name() + " {" + vals + "};" + "\n\n" );
         } 
         else 
-            System.err.println("Error, could not find enum " + e_def.id() + " in IR ");
+            System.err.println("Error, could not find enum " + t.id + " in IR ");
 
     }
 
@@ -482,7 +482,7 @@ public class IdlWriter
         } 
         else 
             System.err.println("Error, could not find union " + 
-                               u_def.id() + " in IR ");
+                               t.id + " in IR ");
     }
 
     /** 
