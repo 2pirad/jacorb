@@ -21,77 +21,100 @@ package org.jacorb.notification;
  */
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.omg.CORBA.UNKNOWN;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.notification.util.LogUtil;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.CosNotifyComm.NotifyPublishOperations;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: OfferManager.java,v 1.5 2004-07-12 11:21:19 alphonse.bendt Exp $
+ * @version $Id: OfferManager.java,v 1.6 2005-02-13 23:56:59 alphonse.bendt Exp $
  */
 
-public class OfferManager
-    extends EventTypeSet
-    implements NotifyPublishOperations {
+public class OfferManager extends EventTypeSet implements NotifyPublishOperations
+{
+    public static final OfferManager NULL_MANAGER = new OfferManager(Collections.EMPTY_LIST);
 
-    private List listeners_ = new ArrayList();
+    private final List listeners_;
+
+    private final Logger logger_ = LogUtil.getLogger(getClass().getName());
+
+    public OfferManager()
+    {
+        this(new ArrayList());
+    }
+
+    private OfferManager(List list) 
+    {
+        listeners_ = list;   
+    }
 
     ////////////////////////////////////////
-    public void addListener(NotifyPublishOperations listener) {
-        synchronized(listeners_) {
+
+    public void addListener(NotifyPublishOperations listener)
+    {
+        synchronized (listeners_)
+        {
             listeners_.add(listener);
         }
     }
 
-    public void removeListener(NotifyPublishOperations listener) {
-        synchronized(listeners_) {
+    public void removeListener(NotifyPublishOperations listener)
+    {
+        synchronized (listeners_)
+        {
             listeners_.remove(listener);
         }
     }
 
-
-    public void actionSetChanged(EventType[] added, EventType[] removed) {
-        synchronized(listeners_) {
+    public void actionSetChanged(EventType[] added, EventType[] removed)
+    {
+        synchronized (listeners_)
+        {
             // use a iterator on a copy of the original list here.
             // otherwise the iterator would fail if the list would be
             // modified concurrently which happens during offer_change.
             Iterator _i = new ArrayList(listeners_).iterator();
 
-            while (_i.hasNext()) {
-                NotifyPublishOperations _listener = (NotifyPublishOperations)_i.next();
+            while (_i.hasNext())
+            {
+                NotifyPublishOperations _listener = (NotifyPublishOperations) _i.next();
 
-                try {
+                try
+                {
                     _listener.offer_change(added, removed);
-                } catch (Throwable t) {
-                     logger_.error("unable to offer_change", t);
+                } catch (Exception e)
+                {
+                    logger_.error("offer_change failed for " + _listener, e);
                 }
             }
         }
     }
 
-
-    public void offer_change(EventType[] added, EventType[] removed) throws InvalidEventType {
-        try {
+    public void offer_change(EventType[] added, EventType[] removed) throws InvalidEventType
+    {
+        try
+        {
             changeSet(added, removed);
-        } catch (InterruptedException e) {
-             logger_.fatalError("interrupted", e);
-
-            throw new UNKNOWN();
+        } catch (InterruptedException e)
+        {
+            // ignore
         }
     }
 
-
-    public EventType[] obtain_offered_types() {
-        try {
+    public EventType[] obtain_offered_types()
+    {
+        try
+        {
             return getAllTypes();
-        } catch (InterruptedException e) {
-             logger_.fatalError("interrupted", e);
-
-            throw new UNKNOWN();
+        } catch (InterruptedException e)
+        {
+            return EMPTY_EVENT_TYPE;
         }
     }
 }

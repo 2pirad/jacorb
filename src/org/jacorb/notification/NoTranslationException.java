@@ -22,9 +22,18 @@ package org.jacorb.notification;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NoTranslationException.java,v 1.2 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: NoTranslationException.java,v 1.3 2005-02-13 23:56:59 alphonse.bendt Exp $
  */
 
 public class NoTranslationException extends Exception {
+    public NoTranslationException()
+    {
+        super();
+    }
+    
+    public NoTranslationException(Exception cause)
+    {
+        super(cause.getMessage());
+    }
 }
 
