@@ -32,7 +32,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.19 2003-04-23 15:08:27 andre.spiegel Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.20 2003-04-24 09:58:16 andre.spiegel Exp $
  */
 
 public abstract class TCP_IP_Transport
@@ -56,6 +56,19 @@ public abstract class TCP_IP_Transport
     private TransportListener transport_listener = null;
 
     private int finalTimeout = 20000;
+    
+    public TCP_IP_Transport (TCP_IP_Transport other)
+    {
+        this.in_stream = other.in_stream;
+        this.out_stream = other.out_stream;
+        this.b_out = other.b_out;
+        this.dump_incoming = other.dump_incoming;
+        this.connection_info = other.connection_info;
+        this.statistics_provider = other.statistics_provider;
+        this.transport_manager = other.transport_manager;
+        this.transport_listener = other.transport_listener;
+        this.finalTimeout = other.finalTimeout;
+    }
 
     public TCP_IP_Transport( StatisticsProvider statistics_provider,
                              TransportManager transport_manager )
