@@ -37,7 +37,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2001
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.3 2001-10-04 14:23:49 jacorb Exp $
+ * @version $Id: GIOPConnection.java,v 1.4 2001-10-11 07:04:30 jacorb Exp $
  */
 
 public class GIOPConnection 
@@ -282,7 +282,7 @@ public class GIOPConnection
             {
                 try
                 {
-                    wait();
+                    write_sync.wait();
                 }
                 catch( InterruptedException e )
                 {
@@ -293,7 +293,7 @@ public class GIOPConnection
         }
     }
 
-    private synchronized void releaseWriteLock()
+    private void releaseWriteLock()
     {
         synchronized( write_sync )
         {            
