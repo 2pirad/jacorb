@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.73 2003-12-10 09:00:17 gerald Exp $
+ * $Id: parser.cup,v 1.74 2003-12-10 09:16:48 gerald Exp $
  */
 
 action code
@@ -260,7 +260,7 @@ parser code
 
                     int level = Integer.parseInt( argv[++i] );
                     
-                    logger.setPriority(org.jacorb.util.Environment.intToPriority(level));
+                    logger.setPriority(Environment.intToPriority(level));
                     
                     continue;
                 }
