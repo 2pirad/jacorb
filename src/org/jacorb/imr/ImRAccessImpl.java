@@ -20,6 +20,11 @@
  */
 package org.jacorb.imr;
 
+import org.jacorb.imr.RegistrationPackage.DuplicatePOAName;
+import org.jacorb.imr.RegistrationPackage.IllegalPOAName;
+import org.omg.CORBA.INTERNAL;
+
+
 /**
  * ImRAccessImpl.java
  *
@@ -27,13 +32,8 @@ package org.jacorb.imr;
  * Created: Thu Jan 31 21:05:55 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ImRAccessImpl.java,v 1.5 2003-04-01 16:21:51 nick.cross Exp $
+ * @version $Id: ImRAccessImpl.java,v 1.6 2003-12-16 08:41:27 gerald Exp $
  */
-
-import org.jacorb.imr.RegistrationPackage.DuplicatePOAName;
-import org.jacorb.imr.RegistrationPackage.IllegalPOAName;
-import org.omg.CORBA.INTERNAL;
-
 
 public class ImRAccessImpl
     implements org.jacorb.orb.ImRAccess

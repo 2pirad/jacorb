@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
  * 
  * @author Nicolas Noffke
  * 
- * $Id: ImRManager.java,v 1.8 2002-12-20 18:29:04 nicolas Exp $
+ * $Id: ImRManager.java,v 1.9 2003-12-16 08:41:27 gerald Exp $
  */
 
 public class ImRManager
@@ -63,7 +63,7 @@ public class ImRManager
             }
             catch (UnknownServerName n)
             {
-                Debug.output(Debug.IMR | Debug.INFORMATION, n);
+                Debug.output(3, n);
             }
 
             if (info == null)
@@ -77,7 +77,7 @@ public class ImRManager
         }
         catch (Exception e)
         {
-            Debug.output(Debug.IMR | Debug.INFORMATION, e);
+            Debug.output(3, e);
         }
     }
 
@@ -93,7 +93,7 @@ public class ImRManager
         }
         catch (java.net.UnknownHostException e)
         {
-            Debug.output(Debug.IMR | Debug.INFORMATION, e);
+            Debug.output(3, e);
         }
 
         return "";
@@ -119,7 +119,7 @@ public class ImRManager
         }
         catch (Exception e)
         {
-            Debug.output(Debug.IMR | Debug.INFORMATION, e);
+            Debug.output(3, e);
         }
 
         return "";

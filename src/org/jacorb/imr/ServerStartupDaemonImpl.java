@@ -26,7 +26,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerStartupDaemonImpl.java,v 1.8 2002-12-20 18:29:04 nicolas Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.9 2003-12-16 08:41:27 gerald Exp $
  *
  */
 
@@ -116,7 +116,7 @@ public class ServerStartupDaemonImpl
     {
 	try
         {
-	    Debug.output(Debug.IMR | Debug.INFORMATION, 
+	    Debug.output(4, 
                          "Starting: " + command );
 
 	    Process _server = Runtime.getRuntime().exec( command );
@@ -126,7 +126,7 @@ public class ServerStartupDaemonImpl
 	}
         catch (Exception _e)
         {
-	    Debug.output(Debug.IMR | Debug.INFORMATION, _e);
+	    Debug.output(4, _e);
 	    throw new ServerStartupFailed( _e.toString() );
 	}
     }
@@ -197,7 +197,7 @@ public class ServerStartupDaemonImpl
 		_e.printStackTrace();
 	    }
 	    
-	    Debug.output( Debug.IMR | Debug.INFORMATION, 
+	    Debug.output( 4, 
                          "A server process exited" );
 	}
     }//OutputForwarder
