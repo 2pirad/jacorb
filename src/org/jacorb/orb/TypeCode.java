@@ -33,7 +33,7 @@ import java.lang.reflect.*;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.26 2002-03-19 09:25:20 nicolas Exp $    
+ * @version $Id: TypeCode.java,v 1.27 2002-04-02 19:28:57 francisco Exp $    
  */
  
 public class TypeCode 
@@ -339,7 +339,15 @@ public class TypeCode
         this.name = name.replace('.','_'); // for orbixWeb Interop
         value_modifier = type_modifier;
         content_type = (TypeCode)concrete_base;
+        setValueMembers(members);
+    }
 
+    /**
+     * Auxiliary method that sets the members of a tk_value.
+     */
+
+    private void setValueMembers(org.omg.CORBA.ValueMember[] members)
+    {
         member_count = (members != null) ? members.length : 0;
         member_name = new String[member_count];
         member_type = new TypeCode[member_count];
@@ -1084,8 +1092,9 @@ public class TypeCode
                               clz.getName(),
                               org.omg.CORBA.VM_NONE.value,
                               superTypeCode,
-                              getValueMembers (clz, knownTypes));
+                              new ValueMember[0]);
             knownTypes.put (clz, newTypeCode);
+            newTypeCode.setValueMembers(getValueMembers (clz, knownTypes));
             return newTypeCode;
         }
         else
