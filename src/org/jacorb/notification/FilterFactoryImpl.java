@@ -47,7 +47,7 @@ import java.util.Iterator;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.17.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.17.2.3 2004-04-07 14:55:39 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl
@@ -80,6 +80,8 @@ public class FilterFactoryImpl
             POAHelper.narrow( orb_.resolve_initial_references( "RootPOA" ) );
 
         applicationContext_ = new ApplicationContext( orb_, poa_);
+
+        applicationContext_.configure( ( ( org.jacorb.orb.ORB ) orb_ ).getConfiguration() );
 
         isApplicationContextCreatedHere_ = true;
 
@@ -120,6 +122,7 @@ public class FilterFactoryImpl
     public void configure (Configuration conf)
     {
         config_ = ((org.jacorb.config.Configuration)conf);
+
         logger_ = config_.getNamedLogger(getClass().getName());
     }
 

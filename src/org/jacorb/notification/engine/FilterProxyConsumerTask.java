@@ -24,11 +24,11 @@ package org.jacorb.notification.engine;
 import org.omg.CORBA.AnyHolder;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTask.java,v 1.8.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: FilterProxyConsumerTask.java,v 1.8.2.3 2004-04-07 14:54:49 alphonse.bendt Exp $
  */
 
 public class FilterProxyConsumerTask extends AbstractFilterTask

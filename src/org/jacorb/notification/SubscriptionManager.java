@@ -20,7 +20,6 @@ package org.jacorb.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CORBA.UNKNOWN;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.CosNotifyComm.NotifySubscribeOperations;
@@ -29,11 +28,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.logger.Logger;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: SubscriptionManager.java,v 1.2.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: SubscriptionManager.java,v 1.2.2.2 2004-04-07 14:55:39 alphonse.bendt Exp $
  */
 
 public class SubscriptionManager

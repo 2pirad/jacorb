@@ -27,14 +27,14 @@ import java.util.Map;
 
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 import org.omg.CORBA.AnyHolder;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.10.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.10.2.2 2004-04-07 14:54:49 alphonse.bendt Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask

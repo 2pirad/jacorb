@@ -25,11 +25,10 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.jacorb.notification.interfaces.Disposable;
-
 import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.*;
-
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
 
 /**
  * Abstract Base Class for Simple Pooling Mechanism. Subclasses must
@@ -39,11 +38,11 @@ import org.apache.avalon.framework.configuration.*;
  * returned to its pool!
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractObjectPool.java,v 1.5.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: AbstractObjectPool.java,v 1.5.2.3 2004-04-07 14:52:52 alphonse.bendt Exp $
  */
 
 public abstract class AbstractObjectPool
-    implements Runnable, Disposable, Configurable
+    implements Runnable, Configurable
 {
     public static final boolean DEBUG = false;
 
@@ -72,7 +71,8 @@ public abstract class AbstractObjectPool
         startListCleaner();
     }
 
-    static synchronized void deregisterPool( AbstractObjectPool pool )
+
+    public static synchronized void deregisterPool( AbstractObjectPool pool )
     {
         sPoolsToLookAfter.remove( pool );
 
@@ -81,6 +81,7 @@ public abstract class AbstractObjectPool
             stopListCleaner();
         }
     }
+
 
     static class ListCleaner extends Thread
     {
@@ -177,8 +178,6 @@ public abstract class AbstractObjectPool
             }
         }
     }
-
-//     static Logger logger_ = Debug.getNamedLogger( AbstractObjectPool.class.getName() );
 
     String name_;
 
@@ -330,6 +329,8 @@ public abstract class AbstractObjectPool
 
         ++lendCount_;
 
+        //        logger_.debug("lendObject " + _ret);
+
         return _ret;
     }
 
@@ -338,6 +339,8 @@ public abstract class AbstractObjectPool
      */
     public void returnObject( Object o )
     {
+        //logger_.debug("returnObject " + o);
+
         ++returnCount_;
 
         if ( active_.remove( o ) )
@@ -359,9 +362,11 @@ public abstract class AbstractObjectPool
             }
         else
             {
+
                 // ignore
 //                 logger_.warn( "Object " + o + " was not in pool " + name_ +". multiple release?" );
                 //                throw new RuntimeException();
+
             }
     }
 
@@ -388,5 +393,4 @@ public abstract class AbstractObjectPool
      */
     public void destroyObject( Object o )
     {}
-
 }

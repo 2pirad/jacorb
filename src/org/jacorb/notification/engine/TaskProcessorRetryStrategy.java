@@ -21,11 +21,11 @@ package org.jacorb.notification.engine;
  */
 
 import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.1.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.1.2.2 2004-04-07 14:54:50 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategy extends RetryStrategy
 {

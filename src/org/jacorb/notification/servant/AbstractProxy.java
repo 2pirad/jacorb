@@ -64,7 +64,7 @@ import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.7.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: AbstractProxy.java,v 1.7.2.3 2004-04-07 14:53:53 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy
@@ -76,17 +76,28 @@ public abstract class AbstractProxy
                Configurable
 {
     private MappingFilter nullMappingFilterRef_;
+
     protected boolean isIDPublic_;
+
     protected Logger logger_ = null;
+
     private SynchronizedBoolean connected_ = new SynchronizedBoolean(false);
+
     protected QoSPropertySet qosSettings_ =
         new QoSPropertySet(QoSPropertySet.PROXY_QOS);
+
     protected Integer id_;
+
     protected AbstractAdmin admin_;
+
     protected OfferManager offerManager_;
+
     protected SubscriptionManager subscriptionManager_;
+
     protected Servant thisServant_;
+
     protected MappingFilter lifetimeFilter_;
+
     protected MappingFilter priorityFilter_;
 
     /**
@@ -104,20 +115,33 @@ public abstract class AbstractProxy
     private org.omg.CORBA.Object client_;
     private SynchronizedBoolean active_ = new SynchronizedBoolean(true);
 
+    protected ChannelContext channelContext_;
+
     ////////////////////////////////////////
 
     AbstractProxy(AbstractAdmin admin,
                   ChannelContext channelContext)
     {
         admin_ = admin;
+
+        channelContext_ = channelContext;
+
         filterManager_ = new FilterManager(channelContext);
+
         setPOA(channelContext.getPOA());
+
         setORB(channelContext.getORB());
+
         setTaskProcessor(channelContext.getTaskProcessor());
 
         nullMappingFilterRef_ =
             MappingFilterHelper.narrow(getORB().string_to_object(getORB().object_to_string(null)));
+
+        org.jacorb.orb.ORB jorb = (org.jacorb.orb.ORB)channelContext.getORB();
+
+        this.configure(jorb.getConfiguration());
     }
+
 
     public void configure (Configuration conf)
     {
@@ -561,7 +585,7 @@ public abstract class AbstractProxy
 
     protected void handleDisconnected(Disconnected e) {
         logger_.fatalError("Illegal state: Client think it's disconnected. "
-                           + "Proxy thinks it's connected. The Proxy will be destroyed.y", e);
+                           + "Proxy thinks it's connected. The Proxy will be destroyed.", e);
 
         dispose();
     }

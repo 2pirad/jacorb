@@ -26,13 +26,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jacorb.notification.interfaces.FilterStage;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * Abstract Base Class for FilterTask.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.7.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.7.2.3 2004-04-07 14:54:49 alphonse.bendt Exp $
  */
 
 abstract class AbstractFilterTask extends AbstractTask

@@ -68,7 +68,7 @@ import org.apache.avalon.framework.configuration.Configuration;
  * Abstract Baseclass for Adminobjects.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.6.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: AbstractAdmin.java,v 1.6.2.3 2004-04-07 14:53:53 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin
@@ -133,16 +133,22 @@ public abstract class AbstractAdmin
     protected AbstractAdmin(ChannelContext channelContext)
     {
         channelContext_ = channelContext;
+
         filterManager_ =
             new FilterManager(channelContext_);
+
         setPOA(channelContext_.getPOA());
+
         setORB(channelContext_.getORB());
+
+        configure( ( (org.jacorb.orb.ORB)channelContext_.getORB() ).getConfiguration() );
     }
 
     public void configure (Configuration conf)
     {
         logger_ = ((org.jacorb.config.Configuration)conf).
             getNamedLogger(getClass().getName());
+
         filterManager_.configure (conf);
     }
 

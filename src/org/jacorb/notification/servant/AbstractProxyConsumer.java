@@ -33,7 +33,6 @@ import org.jacorb.notification.util.PropertySet;
 import org.jacorb.notification.util.PropertySetListener;
 
 import org.omg.CORBA.BAD_PARAM;
-import org.omg.CORBA.BAD_QOS;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.Priority;
@@ -56,7 +55,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.5.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.5.2.2 2004-04-07 14:53:53 alphonse.bendt Exp $
  */
 
 abstract class AbstractProxyConsumer
@@ -69,11 +68,13 @@ abstract class AbstractProxyConsumer
     ////////////////////////////////////////
 
     protected MessageFactory messageFactory_;
+
     private TaskProcessor taskProcessor_;
     private SynchronizedBoolean isStartTimeSupported_ =
         new SynchronizedBoolean(true);
     private SynchronizedBoolean isStopTimeSupported_ =
         new SynchronizedBoolean(true);
+
     private List subsequentDestinations_;
     private NotifySubscribeOperations proxySubscriptionListener_;
     private NotifySubscribe subscriptionListener_;
@@ -89,6 +90,7 @@ abstract class AbstractProxyConsumer
         messageFactory_ =
             channelContext.getMessageFactory();
         subsequentDestinations_ = CollectionsWrapper.singletonList(admin_);
+
         taskProcessor_ = channelContext.getTaskProcessor();
     }
 
@@ -159,7 +161,7 @@ abstract class AbstractProxyConsumer
     protected void schedulePullTask( MessageSupplier target )
     {
         try {
-            taskProcessor_.scheduleTimedPullTask( target );
+            getTaskProcessor().scheduleTimedPullTask( target );
         } catch (InterruptedException e) {
             logger_.fatalError("failed to schedule pull for MessageSupplier", e);
         }

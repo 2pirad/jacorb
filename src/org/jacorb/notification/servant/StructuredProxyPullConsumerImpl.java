@@ -54,7 +54,7 @@ import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.7.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.7.2.2 2004-04-07 14:53:53 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullConsumerImpl
@@ -81,9 +81,6 @@ public class StructuredProxyPullConsumerImpl
     {
         super( admin,
                channelContext);
-
-        org.jacorb.orb.ORB jorb = (org.jacorb.orb.ORB)channelContext.getORB();
-        this.configure(jorb.getConfiguration());
 
         engine_ = channelContext.getTaskProcessor();
 

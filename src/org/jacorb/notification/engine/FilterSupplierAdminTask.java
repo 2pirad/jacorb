@@ -21,11 +21,11 @@ package org.jacorb.notification.engine;
  *
  */
 
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterSupplierAdminTask.java,v 1.7 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: FilterSupplierAdminTask.java,v 1.7.2.1 2004-04-07 14:54:49 alphonse.bendt Exp $
  */
 
 public class FilterSupplierAdminTask extends AbstractFilterTask

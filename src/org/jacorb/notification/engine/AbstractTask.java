@@ -23,11 +23,11 @@ package org.jacorb.notification.engine;
 
 import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTask.java,v 1.7.2.2 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: AbstractTask.java,v 1.7.2.3 2004-04-07 14:54:49 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTask
@@ -111,8 +111,7 @@ public abstract class AbstractTask
             {
                 doWork();
             }
-
-            if ( isMessageInvalid() )
+            else if ( isMessageInvalid() )
             {
                 dispose();
 

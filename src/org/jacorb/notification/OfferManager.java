@@ -29,11 +29,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.logger.Logger;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: OfferManager.java,v 1.1.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: OfferManager.java,v 1.1.2.2 2004-04-07 14:55:39 alphonse.bendt Exp $
  */
 
 public class OfferManager

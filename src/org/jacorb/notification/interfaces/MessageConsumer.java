@@ -21,7 +21,7 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * The interface MessageConsumer provides an abstraction of an
@@ -36,7 +36,7 @@ import org.jacorb.notification.util.TaskExecutor;
  * <br>
  *
  * @author Alphonse Bendt
- * @version $Id: MessageConsumer.java,v 1.4 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: MessageConsumer.java,v 1.4.2.1 2004-04-07 14:54:40 alphonse.bendt Exp $
  */
 
 public interface MessageConsumer extends Disposable {

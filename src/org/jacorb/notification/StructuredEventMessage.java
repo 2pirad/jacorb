@@ -55,7 +55,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.10 2004-03-17 22:44:14 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.10.2.1 2004-04-07 14:55:39 alphonse.bendt Exp $
  */
 
 class StructuredEventMessage extends AbstractMessage
@@ -245,6 +245,10 @@ class StructuredEventMessage extends AbstractMessage
 
 
     public String toString() {
-        return toStructuredEvent().toString();
+        if (toStructuredEvent() == null) {
+            return null;
+        } else {
+            return toStructuredEvent().toString();
+        }
     }
 }

@@ -45,7 +45,7 @@ import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.6.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.6.2.2 2004-04-07 14:53:53 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl
@@ -98,9 +98,6 @@ public class ProxyPullConsumerImpl
     {
         super( adminServant,
                channelContext);
-
-        org.jacorb.orb.ORB jorb = (org.jacorb.orb.ORB)channelContext.getORB();
-        this.configure(jorb.getConfiguration());
 
         configureTimerCallback();
     }

@@ -21,20 +21,19 @@ package org.jacorb.notification.queue;
  *
  */
 
-
 import org.jacorb.notification.interfaces.Message;
 
 /**
- *
  * @author Alphonse Bendt
- * @version $Id: AbstractBoundedEventQueue.java,v 1.4.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: AbstractBoundedEventQueue.java,v 1.4.2.2 2004-04-07 14:54:40 alphonse.bendt Exp $
  */
 
 abstract public class AbstractBoundedEventQueue implements EventQueue
 {
-
     private Object lock_ = new Object();
+
     private int capacity_;
+
     private EventQueueOverflowStrategy overflowStrategy_;
 
     protected AbstractBoundedEventQueue( int capacity,
@@ -170,5 +169,4 @@ abstract public class AbstractBoundedEventQueue implements EventQueue
             lock_.notifyAll();
         }
     }
-
 }

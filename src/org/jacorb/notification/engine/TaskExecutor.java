@@ -1,4 +1,4 @@
-package org.jacorb.notification.util;
+package org.jacorb.notification.engine;
 
 /*
  *        JacORB - a free Java ORB
@@ -32,14 +32,14 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.4.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: TaskExecutor.java,v 1.1.2.1 2004-04-07 14:54:49 alphonse.bendt Exp $
  */
 
 public class TaskExecutor implements Executor, Disposable
 {
     private static TaskExecutor DIRECT_EXECUTOR = new TaskExecutor("Direct", 0);
 
-//     private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
+    //     private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
     private Executor executor_;
 
@@ -63,9 +63,9 @@ public class TaskExecutor implements Executor, Disposable
             {
                 executor_ = new DirectExecutor();
 
-//                 if (logger_.isInfoEnabled() ) {
-//                     logger_.info( "Created ThreadPool " + name + ": DirectExecutor");
-//                 }
+                //                 if (logger_.isInfoEnabled() ) {
+                //                     logger_.info( "Created ThreadPool " + name + ": DirectExecutor");
+                //                 }
             }
         else
             {
@@ -95,9 +95,9 @@ public class TaskExecutor implements Executor, Disposable
 
                 executor_ = _executor;
 
-//                 if (logger_.isInfoEnabled()) {
-//                     logger_.info( "Created ThreadPool " + name + ": Threads=" + numberOfThreads );
-//                 }
+                //                 if (logger_.isInfoEnabled()) {
+                //                     logger_.info( "Created ThreadPool " + name + ": Threads=" + numberOfThreads );
+                //                 }
             }
     }
 
@@ -127,3 +127,4 @@ public class TaskExecutor implements Executor, Disposable
         executor_.execute( r );
     }
 }
+

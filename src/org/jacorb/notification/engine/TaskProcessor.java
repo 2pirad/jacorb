@@ -30,8 +30,6 @@ import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.interfaces.MessageSupplier;
 import org.jacorb.notification.servant.AbstractProxySupplier;
-import org.jacorb.notification.util.TaskExecutor;
-//import org.jacorb.util.Debug;
 
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.StructuredEvent;
@@ -42,10 +40,9 @@ import org.apache.avalon.framework.logger.Logger;
 import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
 
-
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.19.2.3 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: TaskProcessor.java,v 1.19.2.4 2004-04-07 14:54:49 alphonse.bendt Exp $
  */
 
 public class TaskProcessor
@@ -304,12 +301,19 @@ public class TaskProcessor
     public void dispose()
     {
         logger_.info( "shutdown TaskProcessor" );
+
         clockDaemon_.shutDown();
+
         matchTaskExecutor_.dispose();
-        if (pushTaskExecutor_ != null)
+
+        if (pushTaskExecutor_ != null) {
             pushTaskExecutor_.dispose();
+        }
+
         pullTaskExecutor_.dispose();
+
         taskFactory_.dispose();
+
         logger_.debug( "shutdown complete" );
     }
 

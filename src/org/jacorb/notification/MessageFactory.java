@@ -36,10 +36,9 @@ import org.omg.CosNotification.StructuredEventHelper;
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.Configurable;
 
-
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.8.2.1 2004-04-02 05:30:36 phil.mesnier Exp $
+ * @version $Id: MessageFactory.java,v 1.8.2.2 2004-04-07 14:55:39 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable, Configurable
