@@ -30,14 +30,14 @@ import java.util.Calendar;
  * This class collects some useful routines for the POA.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAUtil.java,v 1.9 2002-04-19 10:23:27 reimo Exp $
+ * @version $Id: POAUtil.java,v 1.10 2002-05-27 08:53:25 jason.courage Exp $
  */
 
 public final class POAUtil 
 {
     /**
      * converts an oid into a string, if the inHex flag is set
-     * the string contains an hex dump
+     * the string contains a hex dump
      */
 
     public static String convert(byte[] objectId, boolean inHex) 
@@ -128,17 +128,38 @@ public final class POAUtil
         return "unknown";
     }
 
+
+    /**
+     * extracts the object key flag from the specified object key
+     */
+
+    public static byte extractKeyFlag(byte[] object_key)
+    {
+        return object_key[0];
+    }
+
+    /**
+     * determine if the key flag indicates persistence
+     */
+
+    public static boolean isPersistent(byte flag)
+    {
+        return ((flag & POAConstants.PERSISTENT) == POAConstants.PERSISTENT);
+    }
+
     /**
      * extracts the impl name from a specified object key
      */
 
     public static String extractImplName(byte[] object_key) 
     {
-        for (int i = 0; i < object_key.length; i++) 
+        // skip the first byte because it is not part of the POA name
+
+        for (int i = 1; i < object_key.length; i++) 
         {
             if( object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE ) 
             {
-                byte[] result = IdUtil.extract(object_key, 0, i);
+                byte[] result = IdUtil.extract(object_key, 1, i-1);
                 return unmaskStr( new String(result) );
             }
         }
@@ -391,5 +412,3 @@ public final class POAUtil
         return new String(unmaskId(str.getBytes()));
     }
 }
-
-
