@@ -17,7 +17,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.5 2001-06-08 12:10:35 jacorb Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.5.4.1 2001-08-22 07:22:23 jacorb Exp $
  */
 
 public class ServerRequestInfoImpl 
@@ -90,24 +90,9 @@ public class ServerRequestInfoImpl
         forward_reference = request.getForwardReference();
     }
 
-    /**
-     * This method builds an array of ServiceContexts.
-     * The last ServiceContext is a dummy object for
-     * data aligning purposes.
-     */
-
-    public ServiceContext[] getReplyServiceContexts()
+    public Enumeration getReplyServiceContexts()
     {
-        //copying manually for jdk1.1 compatibility
-        ServiceContext[] _ctx = new ServiceContext[reply_ctx.size() + 1];
-        Enumeration _enum = reply_ctx.elements(); 
-        int _i = 0;
-        while(_enum.hasMoreElements())
-            _ctx[_i++] = (ServiceContext) _enum.nextElement();
-
-        _ctx[_ctx.length - 1] = new ServiceContext(Integer.MAX_VALUE, new byte[0]);
-
-        return _ctx;
+        return reply_ctx.elements(); 
     }
 
     /**

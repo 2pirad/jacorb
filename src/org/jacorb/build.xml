@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB ORB build file                         -->
-  <!-- $Id: build.xml,v 1.7 2001-06-11 08:48:25 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.7.4.1 2001-08-22 07:23:06 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -85,8 +85,10 @@
    </target>
 
    <target name="subdirs"
-               depends="utils,CAD,orb,poa,ir,naming,imr,security,proxy,events,concurrency,transaction,trading,WeakHashtable,tracing">
+               depends="utils,CAD,orb,poa,ir,naming,events,concurrency,transaction,trading,WeakHashtable,tracing">
    </target>
+
+<!--imr,security,proxy,-->
 
    <target name="proxy" depends="init" >
    	<javac srcdir="${jsrc}"
