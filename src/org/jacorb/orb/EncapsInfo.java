@@ -26,7 +26,7 @@ import java.util.*;
  * information the has to be saved for each encapsulation and
  * restored later
  * @author Gerald Brose
- * @version $Id: EncapsInfo.java,v 1.11 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: EncapsInfo.java,v 1.12 2004-07-16 08:09:05 andre.spiegel Exp $
  */
 
 public class EncapsInfo
@@ -41,12 +41,16 @@ public class EncapsInfo
 
     /** constructor used by CDRInputStream */
 
-    public EncapsInfo(boolean le, int index, int start, int size)
+    public EncapsInfo(boolean le, int index, int start, int size,
+                      Map valueMap, Map repIdMap, Map codebaseMap)
     {
-	littleEndian = le;
+        littleEndian = le;
 	this.index = index;
 	this.start = start;
 	this.size = size;
+	this.valueMap = valueMap;
+	this.repIdMap = repIdMap;
+	this.codebaseMap = codebaseMap;
     }
 
     /**
