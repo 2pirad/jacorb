@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.18 2004-01-06 14:45:43 nick.cross Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.19 2004-01-15 12:38:18 nick.cross Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -92,7 +92,7 @@ public class ValueAbsDecl
     {
         if (enclosing_symbol != null && enclosing_symbol != s)
         {
-            System.err.println("was " + enclosing_symbol.getClass().getName() +
+            logger.error("was " + enclosing_symbol.getClass().getName() +
                                " now: " + s.getClass().getName());
             throw new RuntimeException("Compiler Error: trying to reassign container for " + name);
         }
@@ -373,20 +373,13 @@ public class ValueAbsDecl
             }
             catch (java.io.IOException i)
             {
-                System.err.println("File IO error");
-                i.printStackTrace();
+                throw new RuntimeException("File IO error" + i);
             }
         }
     }
-
-
-    /**
-     */
 
     public void accept(IDLTreeVisitor visitor)
     {
         visitor.visitValue(this);
     }
-
-
 }

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.20 2004-01-14 18:04:43 nick.cross Exp $
+ * @version $Id: Value.java,v 1.21 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
@@ -110,7 +110,7 @@ public class Value
     {
         if( enclosing_symbol != null && enclosing_symbol != s )
         {
-            System.err.println( "was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
+            logger.error("was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
             throw new RuntimeException( "Compiler Error: trying to reassign container for " + name );
         }
         if( s == null )

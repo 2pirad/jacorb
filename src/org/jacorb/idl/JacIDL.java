@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.20 2004-01-12 10:14:05 simon.mcqueen Exp $
+ * @version $Id: JacIDL.java,v 1.21 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 public class JacIDL
@@ -52,7 +52,6 @@ public class JacIDL
     private boolean _omgprefix;
     private boolean _generateincluded;
     private boolean _parseonly;
-    //    private boolean _globalimport;
     private boolean _noskel;
     private boolean _nostub;
     private boolean _sloppyforward;
@@ -377,7 +376,6 @@ public class JacIDL
         resetFileLists();
         DirectoryScanner ds = getDirectoryScanner(_srcdir);
         String files[] = ds.getIncludedFiles();
-        //log("files: "+files);
         scanFiles(files);
 
         // ***********************************

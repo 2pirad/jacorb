@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.25 2004-01-15 11:12:13 nick.cross Exp $
+ * @version $Id: InterfaceBody.java,v 1.26 2004-01-15 12:38:18 nick.cross Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -81,7 +81,7 @@ public class InterfaceBody
                     }
                     catch( InterruptedException ie )
                     {
-                        System.out.println( "ParseThread " + this + " interrupted!" );
+                        logger.info( "ParseThread " + this + " interrupted!" );
                     }
                 }
             }

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.22 2004-01-06 14:45:43 nick.cross Exp $
+ * @version $Id: FixedPointType.java,v 1.23 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 public class FixedPointType
@@ -197,8 +197,7 @@ public class FixedPointType
         }
         catch(java.io.IOException i)
         {
-            System.err.println("File IO error");
-            i.printStackTrace();
+            throw new RuntimeException("File IO error" + i);
         }
     }
 

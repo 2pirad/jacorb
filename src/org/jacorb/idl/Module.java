@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.15 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: Module.java,v 1.16 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 import java.io.File;
@@ -68,7 +68,6 @@ public class Module
 
         if (pack_name.length() > 0)
         {
-            //  unreplacedName = unreplacedName + "." + pack_name;
             pack_name = s + "." + pack_name;
             spec.setPackage(s);
         }
@@ -172,7 +171,7 @@ public class Module
     }
 
     /**
-     */ 
+     */
 
     public void accept(IDLTreeVisitor visitor)
     {
@@ -181,4 +180,3 @@ public class Module
 
 
 }
-

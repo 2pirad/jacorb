@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.16 2004-01-15 11:12:13 nick.cross Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.17 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
@@ -98,19 +98,6 @@ class ArrayDeclarator
              e.hasMoreElements();
                 )
             ( (FixedArraySize)e.nextElement() ).parse();
-    }
-
-    public void define()
-    {
-        try
-        {
-            NameTable.define( full_name(), "type" );
-        }
-        catch( NameAlreadyDefined p )
-        {
-            //parser.error("Array declarator " +
-            // full_name() + " already declared",p_info);
-        }
     }
 
     public void setEnclosingSymbol( IdlSymbol s )

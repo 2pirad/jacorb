@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.26 2004-01-06 14:45:43 nick.cross Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.27 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 public class ValueBoxDecl
@@ -100,7 +100,7 @@ public class ValueBoxDecl
     {
         if (enclosing_symbol != null && enclosing_symbol != s)
         {
-            System.err.println("was " + enclosing_symbol.getClass().getName() +
+            logger.error("was " + enclosing_symbol.getClass().getName() +
                                 " now: " + s.getClass().getName());
             throw new RuntimeException("Compiler Error: trying to reassign container for " + name);
         }
@@ -280,7 +280,6 @@ public class ValueBoxDecl
         {
             ps.println("\t\t" + type + " result;");
             ps.println("\t\t" + typeSpec.typeSpec().printReadStatement("result", "in") + ";");
-            //ps.println("\t\t" + type + " result = " + typeSpec.typeSpec().printReadExpression("in") + ";");
         }
         ps.println("\t\treturn result;");
         ps.println("\t}");
@@ -420,20 +419,13 @@ public class ValueBoxDecl
             }
             catch (java.io.IOException i)
             {
-                System.err.println("File IO error");
-                i.printStackTrace();
+                throw new RuntimeException("File IO error" + i);
             }
         }
     }
-
-
-    /**
-     */
 
     public void accept(IDLTreeVisitor visitor)
     {
         visitor.visitValue(this);
     }
-
-
 }

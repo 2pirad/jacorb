@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.13 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: RaisesExpr.java,v 1.14 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 class RaisesExpr
@@ -107,7 +107,6 @@ class RaisesExpr
             catch( Exception ex )
             {
                 // any type cast errors
-                // ex.printStackTrace();
             }
             parser.fatal_error( "Illegal type in raises clause: " +
                     name.toString(), token );
@@ -144,10 +143,3 @@ class RaisesExpr
         }
     }
 }
-
-
-
-
-
-
-

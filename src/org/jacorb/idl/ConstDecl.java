@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  *
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.26 2004-01-06 14:45:43 nick.cross Exp $
+ * @version $Id: ConstDecl.java,v 1.27 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 import java.io.File;
@@ -207,7 +207,6 @@ class ConstDecl extends Declaration
 
         try
         {
-            //new RuntimeException().printStackTrace();
             String fullName = ScopedName.unPseudoName(full_name());
             String className;
             if (fullName.indexOf('.') > 0)
@@ -302,8 +301,7 @@ class ConstDecl extends Declaration
         }
         catch (java.io.IOException i)
         {
-            System.err.println("File IO error");
-            i.printStackTrace();
+            throw new RuntimeException("File IO error" + i);
         }
     }
 }

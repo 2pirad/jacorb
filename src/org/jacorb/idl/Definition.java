@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definition.java,v 1.13 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: Definition.java,v 1.14 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
@@ -38,7 +38,7 @@ public class Definition
         super( num );
         pack_name = "";
     }
-    
+
     public Definition (Declaration d)
     {
         super (new_num());
@@ -57,7 +57,7 @@ public class Definition
     {
         if( enclosing_symbol != null && enclosing_symbol != s )
         {
-            System.err.println( "was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
+            logger.error("was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
             throw new RuntimeException( "Compiler Error: trying to reassign container for " + name );
         }
         enclosing_symbol = s;
@@ -91,7 +91,7 @@ public class Definition
     }
 
     /**
-     */ 
+     */
 
     public void accept( IDLTreeVisitor visitor )
     {
@@ -100,9 +100,3 @@ public class Definition
 
 
 }
-
-
-
-
-
-

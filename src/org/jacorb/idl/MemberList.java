@@ -20,7 +20,7 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: MemberList.java,v 1.15 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: MemberList.java,v 1.16 2004-01-15 12:38:18 nick.cross Exp $
  *
  */
 
@@ -78,7 +78,7 @@ public class MemberList
 
         if( enclosing_symbol != null && enclosing_symbol != s )
         {
-            System.err.println( "was " + enclosing_symbol.getClass().getName() + 
+            logger.error("was " + enclosing_symbol.getClass().getName() +
                                 " now: " + s.getClass().getName() );
 
             throw new RuntimeException( "Compiler Error: trying to reassign container" );
@@ -94,7 +94,3 @@ public class MemberList
     }
 
 }
-
-
-
-

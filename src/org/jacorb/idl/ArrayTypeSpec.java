@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.27 2004-01-15 11:12:13 nick.cross Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.28 2004-01-15 12:38:18 nick.cross Exp $
  *
  */
 
@@ -46,14 +46,6 @@ public class ArrayTypeSpec
     {
         super(num);
         declarator = ad;
-        //    try
-        //    {
-        //        declarator.parse();
-        //    }
-        //    catch (ParseError p)
-        //    {
-        //        p.printStackTrace();
-        //    }
         name = declarator.name();
         set_token(ad.get_token());
         setEnclosingSymbol(ad.getEnclosingSymbol());
@@ -507,9 +499,7 @@ public class ArrayTypeSpec
         }
         catch (java.io.IOException i)
         {
-            System.err.println("File IO error");
-            i.printStackTrace();
+            throw new RuntimeException("File IO error" + i);
         }
     }
-
 }

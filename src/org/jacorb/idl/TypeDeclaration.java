@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.22 2004-01-14 18:04:43 nick.cross Exp $
+ * @version $Id: TypeDeclaration.java,v 1.23 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
@@ -161,7 +161,7 @@ public class TypeDeclaration
     {
         if( enclosing_symbol != null && enclosing_symbol != s )
         {
-            System.err.println( "was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
+            logger.error("was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
             throw new RuntimeException( "Compiler Error: trying to reassign container for " + name );
         }
         enclosing_symbol = s;
@@ -183,24 +183,8 @@ public class TypeDeclaration
         return type_decl.printWriteStatement( var_name, streamname );
     }
 
-//      public String id()
-//      {
-//          System.out.println("TypeDecl.id() called in class " + getClass().getName() + " from: ");
-//          new RuntimeException().printStackTrace();
-
-//          if( type_decl != null )
-//              return type_decl.id();
-//          else
-//              return super.id();
-//      }
-
-    /**
-     */
-
     public void accept( IDLTreeVisitor visitor )
     {
         type_decl.accept( visitor );
     }
-
-
 }

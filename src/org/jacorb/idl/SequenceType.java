@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.34 2004-01-06 14:45:43 nick.cross Exp $
+ * @version $Id: SequenceType.java,v 1.35 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 public class SequenceType
@@ -337,7 +337,6 @@ public class SequenceType
         }
         try
         {
-            //NameTable.define(typeName(), "type");
             NameTable.define(full_name(), "type");
         }
         catch (NameAlreadyDefined n)
@@ -566,10 +565,7 @@ public class SequenceType
         }
         catch (java.io.IOException i)
         {
-            System.err.println("File IO error");
-            i.printStackTrace();
+            throw new RuntimeException("File IO error" + i);
         }
     }
-
-
 }

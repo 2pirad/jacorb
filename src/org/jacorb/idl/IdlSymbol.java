@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.33 2004-01-15 11:12:13 nick.cross Exp $
+ * @version $Id: IdlSymbol.java,v 1.34 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 public class IdlSymbol
@@ -451,7 +451,7 @@ public class IdlSymbol
                         _id = (String)sd.idMap.get (name);
                         break;
                     }
-                    // Not had a #pragma prefix; attempt to determine using prefix
+                    // Not had a #pragma prefix, attempt to determine using prefix
                     else
                     {
                         // Slightly horrible...this says 'if the current token prefix
@@ -642,7 +642,6 @@ public class IdlSymbol
 
     public void accept( IDLTreeVisitor visitor )
     {
-        // nothing here, all work done in subclasses;
+        // nothing here, all work done in subclasses.
     }
-
 }

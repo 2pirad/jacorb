@@ -27,7 +27,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.19 2004-01-14 18:04:43 nick.cross Exp $
+ * @version $Id: GlobalInputStream.java,v 1.20 2004-01-15 12:38:18 nick.cross Exp $
  */
 
 public class GlobalInputStream
@@ -93,7 +93,6 @@ public class GlobalInputStream
     public static void include(String fname, int lookahead, boolean useIncludePath)
         throws FileNotFoundException
     {
-        //      System.out.println("Including " + fname + " , lookahead char is " + (char)lookahead);
         included = true;
         PositionInfo position = lexer.getPosition();
         position.file = currentFile();

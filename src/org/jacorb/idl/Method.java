@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Method.java,v 1.17 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Method.java,v 1.18 2004-01-15 12:38:18 nick.cross Exp $
  *
  * This class is used to represent accessor operations
  */
@@ -261,7 +261,6 @@ public class Method
             ps.println( "\t\t\ttry" );
             ps.println( "\t\t\t{" );
             ps.println( "\t\t\t\torg.omg.CORBA.portable.OutputStream _os = _request(\"_get_" + name + "\",true);" );
-            //ps.println( "\t\t\t\t_invoke(_os, ami_handler);" );
             ps.println( "\t\t\t\t((org.jacorb.orb.Delegate)_get_delegate()).invoke(this, _os, ami_handler);" );
             ps.println( "\t\t\t\treturn;" );
             ps.println( "\t\t\t}" );
@@ -287,7 +286,6 @@ public class Method
             ps.println( "\t\t\t{" );
             ps.println( "\t\t\t\torg.omg.CORBA.portable.OutputStream _os = _request(\"_set_" + name + "\",true);" );
             ps.println( "\t\t\t\t" + parameterType.typeSpec().printWriteStatement( "attr_" + name, "_os" ) );
-            //ps.println( "\t\t\t\t_invoke(_os, ami_handler);" );
             ps.println( "\t\t\t\t((org.jacorb.orb.Delegate)_get_delegate()).invoke(this, _os, ami_handler);" );
             ps.println( "\t\t\t\treturn;" );
             ps.println( "\t\t\t}" );
@@ -349,4 +347,3 @@ public class Method
 
 
 }
-
