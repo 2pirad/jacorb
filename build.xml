@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB build file                         -->
-  <!-- $Id: build.xml,v 1.11 2001-06-08 14:08:34 noffke Exp $ -->
+  <!-- $Id: build.xml,v 1.12 2001-11-19 14:51:46 nicolas Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -222,6 +222,12 @@
       <delete dir="${classdir}/java_cup"/>  
       <delete dir="${classdir}/HTTPClient"/>  
       <delete dir="${src}/generated"/>  
+   </target>
+
+   <target name="realclean" depends="clean">
+      <delete>
+        <fileset dir="lib/" includes="*.jar"/>
+      </delete >  
    </target>
 
    <!-- ==================================================== -->
