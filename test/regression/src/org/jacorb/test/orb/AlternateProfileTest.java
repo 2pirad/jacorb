@@ -23,7 +23,7 @@ import org.omg.CORBA.ORB;
  * special IORInfoExt functions to set up the IORs.
  * 
  * @author Marc Heide
- * @version $Id: AlternateProfileTest.java,v 1.1 2003-12-16 13:38:04 andre.spiegel Exp $
+ * @version $Id: AlternateProfileTest.java,v 1.2 2004-07-30 15:30:55 simon.mcqueen Exp $
  */
 public class AlternateProfileTest extends ClientServerTestCase
 {
@@ -60,7 +60,7 @@ public class AlternateProfileTest extends ClientServerTestCase
         TestSuite suite = new TestSuite("Test TAG_ALTERNATE_IIOP_ADDRESS");
 
         Properties client_props = new Properties();
-        client_props.setProperty ("jacorb.retries", "2");
+        client_props.setProperty ("jacorb.retries", "0");
         client_props.setProperty ("jacorb.retry_interval", "50");
         client_props.setProperty ("jacorb.connection.client.pending_reply_timeout", "2000");
         client_props.setProperty ("jacorb.log.verbosity", "4");

@@ -11,7 +11,7 @@ import org.jacorb.test.common.*;
  * Tests components of type TAG_ALTERNATE_IIOP_ADDRESS within IORs.
  * 
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddressTest.java,v 1.3 2003-12-16 13:38:32 andre.spiegel Exp $
+ * @version $Id: AlternateIIOPAddressTest.java,v 1.4 2004-07-30 15:30:55 simon.mcqueen Exp $
  */
 public class AlternateIIOPAddressTest extends ClientServerTestCase
 {
@@ -46,7 +46,7 @@ public class AlternateIIOPAddressTest extends ClientServerTestCase
         TestSuite suite = new TestSuite("Test TAG_ALTERNATE_IIOP_ADDRESS");
 
         Properties client_props = new Properties();
-        client_props.setProperty ("jacorb.retries", "2");
+        client_props.setProperty ("jacorb.retries", "0");
         client_props.setProperty ("jacorb.retry_interval", "50");
 
         Properties server_props = new Properties();
