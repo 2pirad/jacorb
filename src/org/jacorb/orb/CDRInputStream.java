@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.18 2001-11-07 12:59:18 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.19 2001-11-08 16:41:21 spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1490,7 +1490,11 @@ public class CDRInputStream
             org.omg.CORBA.portable.ValueFactory factory =
                 ((org.omg.CORBA_2_3.ORB)orb).lookup_value_factory 
                                                             (repository_id);
-            result = factory.read_value (this);
+            if (factory == null)
+                throw new org.omg.CORBA.MARSHAL 
+                    ("could not find value factory for " + repository_id);
+            else
+                result = factory.read_value (this);
         }
         else // RMI
         {
