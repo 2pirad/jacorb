@@ -47,7 +47,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.76 2003-04-04 14:28:01 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.77 2003-04-04 14:33:56 andre.spiegel Exp $
  *
  */
 
@@ -552,9 +552,9 @@ public final class Delegate
     {
         Policy p = get_client_policy (SYNC_SCOPE_POLICY_TYPE.value);
         if (p != null)
-                return ((org.omg.Messaging.SyncScopePolicy)p).synchronization();
+            return ((org.omg.Messaging.SyncScopePolicy)p).synchronization();
         else
-                        return ((org.omg.Messaging.SYNC_NONE.value));
+            return ((org.omg.Messaging.SYNC_NONE.value));
     }
 
     /**
