@@ -36,7 +36,7 @@ import javax.net.*;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.13 2004-05-06 09:43:19 nicolas Exp $
+ * $Id: SSLSocketFactory.java,v 1.14 2004-10-21 14:57:24 francisco Exp $
  */
 
 public class SSLSocketFactory 
@@ -130,7 +130,8 @@ public class SSLSocketFactory
         throws IOException, UnknownHostException
     {       
         SSLSocket s = (SSLSocket)factory.createSocket( host, port );
-	
+        String[] v3 = {"SSLv3"};
+	     s.setEnabledProtocols(v3);
         // Andrew T. Finnell
         // We need a way to enable the cipher suites that we would like to use
         // We should obtain these from the properties file
@@ -150,7 +151,7 @@ public class SSLSocketFactory
     private SocketFactory createSocketFactory() 
         throws IOException, java.security.GeneralSecurityException
     {
-        Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
+        //Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
 
         KeyManagerFactory kmf = null;
         KeyStore key_store = null;
@@ -184,7 +185,7 @@ public class SSLSocketFactory
             tmf.init( (KeyStore) null );
         }
         
-        SSLContext ctx = SSLContext.getInstance( "TLS" );
+        SSLContext ctx = SSLContext.getInstance( "SSLv3" );
         ctx.init( (kmf == null)? null : kmf.getKeyManagers(), 
                   tmf.getTrustManagers(), 
                   null );
