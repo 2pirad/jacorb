@@ -23,7 +23,7 @@ package org.jacorb.notification;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConfigurableProperties.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ConfigurableProperties.java,v 1.2 2003-08-28 15:41:24 alphonse.bendt Exp $
  */
 
 public interface ConfigurableProperties
@@ -50,4 +50,9 @@ public interface ConfigurableProperties
     public static final String DISCARD_POLICY =
         "jacorb.notification.discard_policy";
 
+    public static final String BACKOUT_INTERVAL =
+        "jacorb.notification.backout_interval";
+
+    public static final String EVENTCONSUMER_ERROR_THRESHOLD =
+        "jacorb.notification.eventconsumer_error_threshold";
 }

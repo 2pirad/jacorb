@@ -27,7 +27,7 @@ import org.omg.CosNotification.FifoOrder;
  * Constants.java
  *
  * @author Alphonse Bendt
- * @version $Id: Constants.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: Constants.java,v 1.3 2003-08-28 15:41:24 alphonse.bendt Exp $
  */
 
 public interface Constants
@@ -39,4 +39,6 @@ public interface Constants
     public final static int DEFAULT_MAX_BATCH_SIZE = 1;
     public final static int DEFAULT_FILTER_POOL_SIZE = 2;
     public final static int DEFAULT_DELIVER_POOL_SIZE = 4;
+    public static final int DEFAULT_BACKOUT_INTERVAL = 2000;
+    public static final int DEFAULT_EVENTCONSUMER_ERROR_THRESHOLD = 3;
 }
