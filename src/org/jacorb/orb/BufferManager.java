@@ -30,7 +30,7 @@ import org.jacorb.util.*;
  * Buffers are generally created on demand.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.10 2002-05-06 08:18:02 gerald Exp $ 
+ * @version $Id: BufferManager.java,v 1.11 2002-05-07 12:46:24 gerald Exp $ 
 */
 
 public final class BufferManager
@@ -231,7 +231,7 @@ public final class BufferManager
 
     public void release()
     {
-        printStatistics();
+        // printStatistics();
 	for( int i= MAX; i > 0; )
 	{
 	    i--;
