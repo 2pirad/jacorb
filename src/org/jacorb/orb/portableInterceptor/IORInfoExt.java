@@ -29,7 +29,7 @@ import org.omg.PortableInterceptor.IORInfo;
  * It provides convenience methods to modify the newly created IOR.
 
  * @author Marc Heide
- * @version $Id: IORInfoExt.java,v 1.1 2003-12-16 13:34:03 andre.spiegel Exp $
+ * @version $Id: IORInfoExt.java,v 1.2 2004-01-05 14:40:44 gerald Exp $
  */
 
 public interface IORInfoExt extends IORInfo
@@ -59,7 +59,7 @@ public interface IORInfoExt extends IORInfo
     * @param tag        tag of profile, e.g. TAG_INTERNET_IOP.value
     * @param position   position in IOR
     * @return           profile
-    * @excception       ArrayIndexOutOfBoundsException if position is
+    * @exception       ArrayIndexOutOfBoundsException if position is
     *                   out of range
     */
    public org.omg.ETF.Profile get_profile(int tag, int position);
