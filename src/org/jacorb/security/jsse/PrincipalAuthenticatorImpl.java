@@ -20,7 +20,7 @@ import org.jacorb.security.level2.*;
  * from a Java key store
  *
  * @author Nicolas Noffke
- * $Id: PrincipalAuthenticatorImpl.java,v 1.3 2001-03-19 11:09:16 brose Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.4 2001-07-03 09:44:19 noffke Exp $
  */
 
 public class PrincipalAuthenticatorImpl
@@ -126,8 +126,8 @@ public class PrincipalAuthenticatorImpl
                 {
                     throw new RuntimeException("Cannot handle security attribute.");
                 }
-                privileges[i]  = attrib_mgr.createCertAttribute( k_a_c,
-                                                                 type );
+                privileges[i]  = attrib_mgr.createAttribute( k_a_c,
+                                                             type );
             }
         
             CredentialsImpl credsImpl = 
