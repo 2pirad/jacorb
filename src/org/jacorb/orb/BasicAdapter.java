@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.42 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: BasicAdapter.java,v 1.43 2004-05-06 07:23:54 brose Exp $
  */
 
 public class BasicAdapter
@@ -394,7 +394,7 @@ public class BasicAdapter
      * to be called from the POA
      */
 
-    public synchronized void return_result(org.jacorb.orb.dsi.ServerRequest request)
+    public void return_result(org.jacorb.orb.dsi.ServerRequest request)
     {
         request.reply();
     }
