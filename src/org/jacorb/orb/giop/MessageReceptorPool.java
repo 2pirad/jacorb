@@ -20,6 +20,9 @@
 
 package org.jacorb.orb.giop;
 
+import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.Configuration;
+
 import org.jacorb.util.threadpool.*;
 
 /**
@@ -29,16 +32,37 @@ import org.jacorb.util.threadpool.*;
  * Created: Sat Aug 18 10:40:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.8 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.9 2005-02-09 09:50:10 andre.spiegel Exp $
  */
 
 public class MessageReceptorPool
 {
+    private static final int MAX_DEFAULT = 1000;
+
     private static MessageReceptorPool singleton = null;
+
+    private int maxConnectionThreads = 1000;
     private ThreadPool pool = null;
 
-    private MessageReceptorPool()
+    private MessageReceptorPool(Configuration myConfiguration)
     {
+        org.jacorb.config.Configuration configuration =
+            (org.jacorb.config.Configuration) myConfiguration;
+
+        int maxConnectionThreads = MAX_DEFAULT;
+
+        final String attribute = "jacorb.connection.max_threads";
+
+        maxConnectionThreads =
+            configuration.getAttributeAsInteger(attribute, MAX_DEFAULT);
+
+        Logger logger = configuration.getNamedLogger("jacorb.orb.giop");
+
+        if (logger.isDebugEnabled())
+        {
+            logger.debug("Maximum connection threads: " + maxConnectionThreads);
+        }
+
         pool = 
             new ThreadPool( new ConsumerFactory(){
                     public Consumer create()
@@ -46,15 +70,15 @@ public class MessageReceptorPool
                         return new MessageReceptor();
                     }
                 },
-                               1000, //maximum number of connections
+                               maxConnectionThreads, //maximum number of connections
                                5 ); //max idle threads
     }
 
-    public static synchronized MessageReceptorPool getInstance()
+    public static synchronized MessageReceptorPool getInstance(Configuration myConfiguration)
     {
         if( singleton == null )
         {
-            singleton = new MessageReceptorPool();
+            singleton = new MessageReceptorPool(myConfiguration);
         }
 
         return singleton;
