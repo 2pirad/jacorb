@@ -62,7 +62,7 @@ import org.omg.PortableServer.POAPackage.ObjectNotActive;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelImpl.java,v 1.6 2003-07-17 17:15:39 alphonse.bendt Exp $
+ * @version $Id: EventChannelImpl.java,v 1.7 2003-07-18 18:32:47 alphonse.bendt Exp $
  */
 
 public class EventChannelImpl extends EventChannelPOA implements Disposable
@@ -685,11 +685,11 @@ public class EventChannelImpl extends EventChannelPOA implements Disposable
 
     public void dispose()
     {
-        logger_.info( "dispose" );
-        logger_.info( "dispose default consumer admin" );
+
 
 	myFactoryServant_.removeEventChannelServant(getKey());
 
+        logger_.info( "dispose default consumer admin" );
         if ( defaultConsumerAdmin_ != null )
         {
             defaultConsumerAdminImpl_.dispose();
@@ -698,7 +698,6 @@ public class EventChannelImpl extends EventChannelPOA implements Disposable
         }
 
         logger_.info( "dispose default supplier admin" );
-
         if ( defaultSupplierAdmin_ != null )
         {
             defaultSupplierAdminImpl_.dispose();
