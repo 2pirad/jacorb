@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ImR build file                         -->
-  <!-- $Id: build.xml,v 1.8 2002-03-05 15:11:42 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.9 2002-03-12 11:32:45 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -20,7 +20,7 @@
    </target>
 
    <target name="all" depends="init,idl">
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/imr/*.java,org/jacorb/imr/util/*.java"
 	        />
@@ -29,7 +29,7 @@
    <!-- -->
 
    <target name="idl" depends="idlcompile">
-	<javac srcdir="${src}/generated"
+	<javac debug="${debug}" srcdir="${src}/generated"
                destdir="${classdir}"
 	       includes="org/jacorb/imr/**/*.java,org/jacorb/imr/*.java"
 	        />

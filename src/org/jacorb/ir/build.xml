@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             Interface Repository build               -->
-  <!-- $Id: build.xml,v 1.4 2001-11-20 10:40:55 gerald Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2002-03-12 11:32:45 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -16,7 +16,7 @@
    <target name="all" depends="init,compile"/>
 
    <target name="compile">
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
                bootclasspath="${dirs.base}/classes:${java.home}/lib/rt.jar"
 	       includes="org/jacorb/ir/*.java,org/jacorb/ir/**/*.java"

@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.4 2002-03-05 15:10:43 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2002-03-12 11:32:45 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
 
@@ -19,7 +19,7 @@
    </target>
 
    <target name="all" depends="init,idl,coscompile">
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/events/**.java"
 	        />
@@ -27,7 +27,7 @@
 
 
    <target name="idl" depends="coseventsidl,jacorbeventidl" >
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
 	       includes="org/jacorb/orb/events/**.java"
                destdir="${classdir}"
 	        />
@@ -62,7 +62,7 @@
    </target>
 
    <target name="coscompile">
-	<javac srcdir="${src}/generated"
+	<javac debug="${debug}" srcdir="${src}/generated"
 	       includes="org/omg/CosEvent*/**.java"
                destdir="${classdir}"
 	        />

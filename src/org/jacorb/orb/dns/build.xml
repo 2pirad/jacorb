@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             dns lookup build file                    -->
-  <!-- $Id: build.xml,v 1.1 2001-04-05 09:22:12 noffke Exp $ -->
+  <!-- $Id: build.xml,v 1.2 2002-03-12 11:32:46 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="dns_test">
@@ -21,14 +21,14 @@
    <target name="all" depends="init,dns,dns_delegate"/> 
 
    <target name="dns" >
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/orb/dns/DNSLookup.java,org/jacorb/orb/dns/DNSLookupDelegate.java"
 	        />
    </target>
 
    <target name="dns_delegate" if="dns_available">
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/orb/dns/DNSLookupDelegateImpl.java"
 	        />

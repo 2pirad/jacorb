@@ -3,7 +3,7 @@
 <project name="poa" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
-  <!-- $Id: build.xml,v 1.4 2001-11-13 08:53:24 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2002-03-12 11:32:47 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -18,14 +18,14 @@
 	
 
    <target name="base">
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/poa/**.java,org/jacorb/poa/except/*.java,org/jacorb/poa/policy/*.java,org/jacorb/poa/util/*.java"
 	        />
    </target>
 
    <target name="gui" if="swing.present">
-	<javac srcdir="${src}"
+	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/poa/gui/**.java,org/jacorb/poa/gui/**/**.java"
         />
