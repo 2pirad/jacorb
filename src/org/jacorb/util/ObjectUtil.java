@@ -24,16 +24,17 @@ import java.util.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ObjectUtil.java,v 1.5 2001-07-23 18:50:03 jacorb Exp $
+ * @version $Id: ObjectUtil.java,v 1.6 2001-11-09 08:57:17 jacorb Exp $
  */
 
 public  class ObjectUtil
 {
     /**
-     * @returns the contents of the ressource as a string
+     * @returns the contents of the ressource as a string, or null
+     * if the contents of the resource could not be located using url
      */
 
-    public static final String readURL(String url) 
+    public static final String readURL( String url ) 
     {
 	try
 	{
@@ -52,17 +53,13 @@ public  class ObjectUtil
 	}
 	catch ( Exception e )
 	{ 
-            org.jacorb.util.Debug.output( 1, "ERROR: Could not read from URL " + url );
-	    org.jacorb.util.Debug.output( 3, e );	    
+            Debug.output( 1, "ERROR: Could not read from URL " + url );
+	    Debug.output( 5, e );	    
 	}
 
 	return null;
     }
 
 }
-
-
-
-
 
 
