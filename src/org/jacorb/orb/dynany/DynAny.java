@@ -28,7 +28,7 @@ import org.omg.DynamicAny.DynAnyPackage.*;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.6 2001-09-07 12:32:42 jacorb Exp $
+ * $Id: DynAny.java,v 1.7 2001-10-12 14:39:34 jacorb Exp $
  *
  */
 
@@ -83,8 +83,9 @@ public class DynAny
             throw new TypeMismatch();
     }
 
-    public boolean equal(org.omg.DynamicAny.DynAny dyn_any)
+    public boolean equal( org.omg.DynamicAny.DynAny dyn_any )
     {
+        org.jacorb.util.Debug.assert( anyRepresentation != null, "anyRepresentation not initialized");
         return dyn_any.to_any().equal( anyRepresentation );
     }
 
