@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  *
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.22 2003-05-15 11:40:59 nick.cross Exp $
+ * @version $Id: ConstDecl.java,v 1.23 2003-09-09 14:00:49 brose Exp $
  */
 
 import java.io.File;
@@ -94,6 +94,14 @@ class ConstDecl extends Declaration
         values.put( t.resolvedName() +
                     ( contained() ? "" : ".value" ),
                     const_expr.value() );
+
+        if( logger.isDebugEnabled() )
+        {
+            logger.debug("ConstDecl.parse, put value: " + t.resolvedName() +
+                         ( contained() ? "" : ".value" ) + " , " + 
+                         const_expr.value() );
+        }
+
         declarations.put( t.resolvedName(), this );
     }
 
