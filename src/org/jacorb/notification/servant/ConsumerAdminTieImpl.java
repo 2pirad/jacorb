@@ -51,11 +51,12 @@ import org.omg.CosNotifyChannelAdmin.ProxySupplier;
 import org.omg.CosNotifyChannelAdmin.ProxySupplierHelper;
 import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.CosNotifyFilter.MappingFilter;
+import org.omg.CosNotifyFilter.MappingFilterHelper;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminTieImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminTieImpl.java,v 1.5 2004-03-03 12:15:51 alphonse.bendt Exp $
  */
 
 public class ConsumerAdminTieImpl
@@ -100,6 +101,12 @@ public class ConsumerAdminTieImpl
                         }
                 }
             };
+
+        lifetimeFilter_ =
+            MappingFilterHelper.unchecked_narrow(getORB().string_to_object(getORB().object_to_string(null)));
+
+        priorityFilter_ =
+            MappingFilterHelper.unchecked_narrow(getORB().string_to_object(getORB().object_to_string(null)));
 
         addProxyEventListener(this);
     }
@@ -153,10 +160,6 @@ public class ConsumerAdminTieImpl
      */
     public MappingFilter lifetime_filter()
     {
-        if (lifetimeFilter_ == null)
-        {
-            throw new BAD_PARAM("No lifetime filter set");
-        }
         return lifetimeFilter_;
     }
 
@@ -166,10 +169,6 @@ public class ConsumerAdminTieImpl
      */
     public MappingFilter priority_filter()
     {
-        if (priorityFilter_ == null)
-        {
-            throw new BAD_PARAM("No priority filter set");
-        }
         return priorityFilter_;
     }
 
@@ -191,7 +190,7 @@ public class ConsumerAdminTieImpl
             AbstractProxy _servant =
                 obtain_notification_pull_supplier_servant( clientType );
 
-            intHolder.value = _servant.getKey().intValue();
+            intHolder.value = _servant.getID().intValue();
 
             _servant.preActivate();
 
@@ -269,7 +268,7 @@ public class ConsumerAdminTieImpl
             AbstractProxy _servant =
                 obtain_notification_push_supplier_servant( clientType );
 
-            intHolder.value = _servant.getKey().intValue();
+            intHolder.value = _servant.getID().intValue();
 
             _servant.preActivate();
 
