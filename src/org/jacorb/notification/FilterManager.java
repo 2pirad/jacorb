@@ -46,7 +46,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.12 2004-07-12 11:21:19 alphonse.bendt Exp $
+ * @version $Id: FilterManager.java,v 1.13 2004-08-03 14:21:21 alphonse.bendt Exp $
  */
 
 public class FilterManager
@@ -65,7 +65,7 @@ public class FilterManager
 
     private ORB orb_;
 
-    private Object filtersLock_;
+    private final Object filtersLock_ = new Object();
 
     private boolean filtersModified_;
 
@@ -84,8 +84,6 @@ public class FilterManager
     protected FilterManager( Map filters )
     {
         filters_ = filters;
-
-        filtersLock_ = filters;
 
         filtersModified_ = true;
     }
@@ -144,7 +142,7 @@ public class FilterManager
                 filters_.remove(_key);
                 filtersModified_ = true;
             } else {
-                throw new FilterNotFound("Filter with ID=" + _key + " does not exist");
+                throwFilterNotFound(_key);
             }
         }
     }
@@ -161,10 +159,17 @@ public class FilterManager
         }
 
         if (_filter == null) {
-            throw new FilterNotFound("Filter with ID=" + _key + " does not exist");
+            throwFilterNotFound(_key);
+
+            return null;
         } else {
             return _filter;
         }
+    }
+
+
+    private void throwFilterNotFound(Integer filterId) throws FilterNotFound {
+        throw new FilterNotFound("Filter with ID=" + filterId + " does not exist");
     }
 
 
