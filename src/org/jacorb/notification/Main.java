@@ -26,26 +26,29 @@ import org.tanukisoftware.wrapper.WrapperManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Main.java,v 1.7 2004-01-29 14:14:00 alphonse.bendt Exp $
+ * @version $Id: Main.java,v 1.8 2004-02-14 12:41:59 alphonse.bendt Exp $
  */
 
 public class Main implements WrapperListener
 {
-
     private EventChannelFactoryImpl application_;
+
+    ////////////////////////////////////////
 
     private Main()
     {
         super();
     }
 
+    ////////////////////////////////////////
+
     // Implementation of org.tanukisoftware.wrapper.WrapperListener
 
-    public Integer start( String[] stringArray )
+    public Integer start( String[] args )
     {
         try
         {
-            application_ = EventChannelFactoryImpl.newFactory( stringArray );
+            application_ = EventChannelFactoryImpl.newFactory( args );
 
             return null;
         }
@@ -76,6 +79,7 @@ public class Main implements WrapperListener
 
         return 0;
     }
+
 
     public void controlEvent( int event )
     {
