@@ -23,7 +23,7 @@ package org.jacorb.security.ssl;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.4 2001-04-18 08:12:01 noffke Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.5 2001-05-28 09:59:26 noffke Exp $
  * 
  * We follow the design of socket factories in package javax.net 
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we 
@@ -132,8 +132,13 @@ public class SSLSocketFactory
 		defaultContext.addServerCredentials( kac[i].chain,  
                                                      kac[i].key );
 	    }
-
-            defaultContext.setRequestClientCertificate( true );
+            
+            if( Environment.requiredBySSL & 0x20 != 0 )
+            {
+                //required: establish trust in target
+                //--> force other side to authenticate
+                defaultContext.setRequestClientCertificate( true );
+            }
 
             ctx = defaultContext;
 	}
