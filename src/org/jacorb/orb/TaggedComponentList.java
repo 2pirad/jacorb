@@ -11,7 +11,7 @@ import org.omg.IOP.*;
  * generic methods to find and access individual components.
  * <p>
  * @author Andre Spiegel
- * @version $Id: TaggedComponentList.java,v 1.4 2003-04-29 09:22:57 andre.spiegel Exp $
+ * @version $Id: TaggedComponentList.java,v 1.5 2003-05-05 10:05:56 andre.spiegel Exp $
  */
 public class TaggedComponentList implements Cloneable
 {
@@ -78,6 +78,66 @@ public class TaggedComponentList implements Cloneable
 		return components;
 	}
 	
+    /**
+     * Adds a tagged component to this list. The component's data
+     * is created by marshaling the given data Object using the
+     * write() method of the given helper class.
+     */
+    public void addComponent (int tag, Object data, Class helper)
+    {
+        try
+        {
+            Method writeMethod = helper.getMethod 
+            (
+                "write", 
+                new Class[]
+                {
+                    org.omg.CORBA.portable.OutputStream.class,
+                    data.getClass()
+                }
+            );
+            CDROutputStream out = new CDROutputStream();
+            out.beginEncapsulatedArray();
+            writeMethod.invoke
+            (
+                null,
+                new Object[]{ out, data }
+            );
+            addComponent (tag, out.getBufferCopy());
+        }
+        catch (NoSuchMethodException ex)
+        {
+            throw new RuntimeException ("Helper " + helper.getName() 
+                                        + " has no appropriate write() method.");
+        }
+        catch (IllegalAccessException ex)
+        {
+            throw new RuntimeException ("Cannot access write() method of helper "
+                                        + helper.getName());
+        }
+        catch (InvocationTargetException ex)
+        {
+            throw new RuntimeException ("Exception while marshaling component data: " 
+                                        + ex.getTargetException());
+        }
+    }
+    
+    /**
+     * Adds a tagged component to this list.
+     */
+    public void addComponent (int tag, byte[] data)
+    {
+        TaggedComponent[] newComponents = 
+            new TaggedComponent [components.length + 1];
+        System.arraycopy (components, 0, newComponents, 0, components.length);
+        newComponents [components.length] = new TaggedComponent
+        (
+            tag,
+            data
+        ); 
+    }
+    
+    
 	/**
 	 * Searches for a component with the given tag in this component list.  
 	 * If one is found, this method reads the corresponding data with the given
