@@ -39,7 +39,7 @@ import org.jacorb.orb.connection.*;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.3 2002-11-05 08:31:38 andre.spiegel Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.4 2002-11-15 10:26:07 andre.spiegel Exp $
  */
 public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
 {
@@ -146,36 +146,15 @@ public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
                IllegalAccessException,
                InvocationTargetException
     {
-        String name = RepositoryID.className( id );
-        Class  helper = null;
+        String name = RepositoryID.className (id, "Helper");
 
-        //first, try with unmodified name
-        try
-        {
-            helper = Class.forName( name + "Helper" );
-        }
-        catch( ClassNotFoundException cnf )
-        {
-        }
-        
-        //not found, try with "Package" inserted
-        if( helper == null )
-        {
-            StringBuffer buf = new StringBuffer( name );
-            buf.insert( name.lastIndexOf( '.' ),
-                        "Package" );
-            
-            name = buf.toString();
-            
-            //don't try-catch here, so the exception will make this
-            //method return
-            helper = Class.forName( name + "Helper" );
-        }
+        // if class doesn't exist, let exception propagate
+        Class  helper = Class.forName (name);
 
-        //_helper must not be null from here on
+        // helper must not be null from here on
         
-        //get read method from helper and invoke it,
-        //i.e. read the object from the stream
+        // get read method from helper and invoke it,
+        // i.e. read the object from the stream
         Method readMethod = 
             helper.getMethod( "read", 
                                new Class[]{ 
