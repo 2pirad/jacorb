@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.22 2002-03-06 14:31:00 jason.courage Exp $
+ * @version $Id: ORBSingleton.java,v 1.23 2002-03-07 10:06:14 jason.courage Exp $
  */
 
 public class ORBSingleton
@@ -468,6 +468,16 @@ public class ORBSingleton
                                            name);
     }
 
+    public org.omg.CORBA.TypeCode create_local_interface_tc(String id,
+                                                            String name) 
+    {
+       checkTCRepositoryId( id );
+       checkTCName( name );
+       return new org.jacorb.orb.TypeCode (org.omg.CORBA.TCKind._tk_local_interface,
+                                           id, 
+                                           name);
+    }
+   
     public org.omg.CORBA.TypeCode create_native_tc(String id,
                                                    String name) 
     {
