@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.14 2001-05-10 12:46:30 noffke Exp $
+ * @version $Id: Environment.java,v 1.15 2001-05-14 11:11:41 noffke Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -233,9 +233,9 @@ public class Environment
                     }
                     buf.append((String)propertiesFiles.elementAt(i));
                 }       
-                if( _verbosity > 3)
+                if( _verbosity >= 1 )
                 {
-                    System.err.println("Setup Warning: no properties file found! This warning can be ignored\n for applets. (A properties file should be in the current directory or in \n" + buf.toString() + "t)");
+                    System.err.println("WARNING: no properties file found! This warning can be ignored\n for applets. (A properties file should be in the current directory or in \n" + buf.toString() + "t)");
                 } 
             }
 
