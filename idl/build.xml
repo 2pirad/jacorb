@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../etc/common.xml"> ]>
 
 <project name="idl" default="all" basedir="..">
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.43 2003-10-24 20:15:29 brose Exp $ -->
+   <!-- $Id: build.xml,v 1.44 2003-10-30 13:51:14 gerald Exp $ -->
    <!-- ==================================================== -->
 
    &common;
