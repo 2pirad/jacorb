@@ -43,7 +43,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.42 2004-01-02 01:50:07 andre.spiegel Exp $
+ * @version $Id: POA.java,v 1.43 2004-01-06 14:53:15 nick.cross Exp $
  */
 
 public class POA
@@ -380,7 +380,7 @@ public class POA
                     if (logger.isWarnEnabled())
                     {
                     	logger.warn(logPrefix +
-                                    "rid: " + request.requestId() +
+                                    " rid: " + request.requestId() +
                                     " opname: " + request.operation() +
                                     " _invoke: object key not previously generated!");
                     }
@@ -391,7 +391,7 @@ public class POA
                     if (logger.isWarnEnabled())
                     {
                     	logger.warn(logPrefix +
-                                    "rid: " + request.requestId() +
+                                    " rid: " + request.requestId() +
                                     " opname: " + request.operation() +
                                     " _invoke: object key not previously generated!");
                     }
@@ -408,7 +408,7 @@ public class POA
                 if (logger.isDebugEnabled())
                 {
                     logger.debug(logPrefix +
-                                "rid: " + request.requestId() +
+                                " rid: " + request.requestId() +
                                 " opname: " + request.operation() +
                                 " _invoke: queuing request");
                 }

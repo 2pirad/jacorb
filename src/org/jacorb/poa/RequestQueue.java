@@ -31,7 +31,7 @@ import org.jacorb.util.Environment;
  * This class will manage a queue of ServerRequest objects.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestQueue.java,v 1.14 2003-12-30 13:54:39 andre.spiegel Exp $
+ * @version $Id: RequestQueue.java,v 1.15 2004-01-06 14:53:15 nick.cross Exp $
  */
 public class RequestQueue
 {
@@ -39,7 +39,7 @@ public class RequestQueue
     private RequestController controller;
     private Logger logger;
     private List queue =
-        new ArrayList (POAConstants.QUEUE_CAPACITY_INI); 
+        new ArrayList (POAConstants.QUEUE_CAPACITY_INI);
                     // POAConstants.QUEUE_CAPACITY_INC);
 
     private RequestQueue()
@@ -96,7 +96,7 @@ public class RequestQueue
 
         if (logger.isDebugEnabled())
         {
-            logger.debug("rid:" + request.requestId() +
+            logger.debug("rid: " + request.requestId() +
                          " opname: " + request.operation() +
                          " is queued (queue size: " + queue.size() + ")");
         }
