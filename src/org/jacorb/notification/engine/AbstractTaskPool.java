@@ -26,7 +26,7 @@ import org.jacorb.notification.util.AbstractObjectPool;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTaskPool.java,v 1.3 2004-01-16 17:21:27 alphonse.bendt Exp $
+ * @version $Id: AbstractTaskPool.java,v 1.4 2004-02-11 21:20:04 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTaskPool extends AbstractObjectPool
@@ -35,14 +35,17 @@ public abstract class AbstractTaskPool extends AbstractObjectPool
         super(name, a, b, c, d);
     }
 
+
     public AbstractTaskPool(String name) {
         super(name);
     }
+
 
     public void passivateObject( Object o )
     {
         ( ( AbstractPoolable ) o ).reset();
     }
+
 
     public void activateObject( Object o )
     {
