@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.56 2002-06-21 15:07:49 steve.osselton Exp $
+ * @version $Id: Delegate.java,v 1.56.2.1 2002-07-16 17:00:28 steve.osselton Exp $
  *
  */
 
@@ -1165,24 +1165,43 @@ public final class Delegate
         /* ok, we could not affirm by simply looking at the locally available
            type ids, so ask the object itself */
 
-        while ( true )
+        while (true)
         {
-            try
-            {
-                org.omg.CORBA.portable.OutputStream os = request( self, "_is_a", true );
-                os.write_string( logical_type_id );
-                org.omg.CORBA.portable.InputStream is = invoke( self, os );
-                return is.read_boolean();
-            }
-            catch ( RemarshalException r )
-            {
-            }
-            catch ( ApplicationException _ax )
-            {
-                String _id = _ax.getId();
-                throw new RuntimeException( "Unexpected exception " + _id );
-            }
+            // If local object call _is_a directly
 
+            if (is_local (self))
+            {
+                org.omg.PortableServer.Servant servant;
+                ServantObject so = servant_preinvoke (self, "_is_a", java.lang.Object.class);
+
+                try
+                {
+                    servant = (org.omg.PortableServer.Servant) so.servant;
+                    return (servant._is_a (logical_type_id));
+                }
+                finally
+                {
+                    servant_postinvoke (self, so);
+                }
+            }
+            else
+            {
+                try
+                {
+                    org.omg.CORBA.portable.OutputStream os = request( self, "_is_a", true );
+                    os.write_string( logical_type_id );
+                    org.omg.CORBA.portable.InputStream is = invoke( self, os );
+                    return is.read_boolean();
+                }
+                catch ( RemarshalException r )
+                {
+                }
+                catch ( ApplicationException _ax )
+                {
+                    String _id = _ax.getId();
+                    throw new RuntimeException( "Unexpected exception " + _id );
+                }
+            }
         }
     }
 
