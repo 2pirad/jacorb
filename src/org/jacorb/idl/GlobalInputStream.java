@@ -27,7 +27,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.18 2003-12-15 09:44:34 gerald Exp $
+ * @version $Id: GlobalInputStream.java,v 1.19 2004-01-14 18:04:43 nick.cross Exp $
  */
 
 public class GlobalInputStream
@@ -75,8 +75,8 @@ public class GlobalInputStream
      */
 
     public static boolean isMoreRecentThan(File other)
-    {       
-        return (parser.forceOverwrite || 
+    {
+        return (parser.forceOverwrite ||
                  (other.lastModified() < currentFile.lastModified())) ;
     }
 
@@ -164,7 +164,7 @@ public class GlobalInputStream
                 }
 
                 if (logger.isInfoEnabled())
-		 logger.info("opening " + dir + File.separator + fname);
+                    logger.info("opening " + dir + File.separator + fname);
                 currentFile = new File(dir + File.separator + fname);
             }
             else
@@ -285,4 +285,3 @@ public class GlobalInputStream
     }
 
 }
-

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.19 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: Value.java,v 1.20 2004-01-14 18:04:43 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
@@ -61,7 +61,7 @@ public class Value
 
     /**
      * @return a string for an expression of type TypeCode
-     * 			that describes this type
+     * that describes this type
      */
 
     public String getTypeCodeExpression()
@@ -136,7 +136,7 @@ public class Value
     }
 
     /**
-     */ 
+     */
 
     public void accept( IDLTreeVisitor visitor )
     {
@@ -145,10 +145,3 @@ public class Value
 
 
 }
-
-
-
-
-
-
-
