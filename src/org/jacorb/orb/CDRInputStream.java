@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.CodeSet;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.9.2.6 2001-09-21 13:50:17 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.9.2.7 2001-09-21 15:24:40 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -637,6 +637,7 @@ public class CDRInputStream
 	case TCKind._tk_TypeCode:
 	case TCKind._tk_longlong:
 	case TCKind._tk_ulonglong:
+        case TCKind._tk_wchar:
 	case TCKind._tk_Principal:
 	    return orb.get_primitive_tc( org.omg.CORBA.TCKind.from_int(kind) );
 	case TCKind._tk_objref: 
