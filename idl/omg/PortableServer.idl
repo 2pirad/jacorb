@@ -1,6 +1,6 @@
 // CORBA V2.6
 // PORTABLE OBJECT ADAPTER, Chapter 9
-// $Id: PortableServer.idl,v 1.5 2002-03-11 18:18:38 steve.osselton Exp $
+// $Id: PortableServer.idl,v 1.6 2002-03-14 15:48:10 gerald Exp $
 
 #ifndef _POA_IDL_
 #define _POA_IDL_
@@ -160,9 +160,9 @@ module PortableServer
     //
     // **************************************************
 	
-    local interface ServantManager {};
+     interface ServantManager {};
 	
-    local interface ServantActivator : ServantManager 
+     interface ServantActivator : ServantManager 
     {
 	Servant incarnate (in ObjectId oid,
 			   in POA adapter)
