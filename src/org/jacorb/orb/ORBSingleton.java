@@ -29,11 +29,11 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.27 2002-05-06 13:44:07 gerald Exp $
+ * @version $Id: ORBSingleton.java,v 1.28 2002-05-13 08:36:35 gerald Exp $
  */
 
 public class ORBSingleton
-    extends org.omg.CORBA_2_3.ORB
+    extends org.omg.CORBA_2_5.ORB
 {
     /* factory methods: */
 
