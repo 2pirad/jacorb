@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.16 2003-09-03 09:36:36 brose Exp $
+ * @version $Id: ParamDecl.java,v 1.17 2003-09-03 20:57:20 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -100,9 +100,9 @@ public class ParamDecl
                 paramTypeSpec = ts;
         }
 
-        if (paramTypeSpec == null)
+        if( paramTypeSpec == null )
         {
-            throw new ParseException( "paramTypeSpec is null " + name );
+            throw new ParseException("parameter TypeSpec is null " + name, this.myPosition );
         }
 
         //simple_declarator.print(ps);
