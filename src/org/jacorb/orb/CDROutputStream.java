@@ -31,14 +31,14 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.9 2001-07-29 08:48:20 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.8.2.1 2001-07-30 13:02:37 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
  */
 
 public class CDROutputStream
-    extends org.omg.CORBA.portable.OutputStream
+    extends org.omg.CORBA_2_3.portable.OutputStream
 {
     /** GIOP Message header version 1.0 Big Endian */
     private static final byte[] giopMessageHeader = { (byte)'G', (byte)'I',
@@ -65,6 +65,13 @@ public class CDROutputStream
     private int encaps_start = -1;
     private Stack encaps_stack = new java.util.Stack();
     private Stack recursiveTCStack = new Stack();
+
+    /**
+     * Maps all value objects that have already been written to this stream
+     * to their position within the buffer.  The position is stored as 
+     * a java.lang.Integer.
+     */
+    private Hashtable valueMap = new Hashtable();
 
     private final static String null_ior_str = 
         "IOR:00000000000000010000000000000000";
@@ -116,7 +123,7 @@ public class CDROutputStream
      *  and the character encoding sets
      */
 
-    public CDROutputStream( byte[] buf )
+    public CDROutputStream(  byte [] buf )
     {
         bufMgr = BufferManager.getInstance();
         buffer = buf;
@@ -196,11 +203,7 @@ public class CDROutputStream
     public void release()
     {
         if( released )
-	{
-	    return;
-            //throw new Error("Stream already released!");
-	}
-	
+            throw new java.lang.Error("Stream already released!");
         if( bufMgr != null )
         {
             bufMgr.returnBuffer( buffer );
@@ -1415,6 +1418,59 @@ public class CDROutputStream
         }
     }
 
+    /**
+     * Writes the value of the valuetype instance `value' to this stream,
+     * without codebase or type information.
+     */
+    public void write_value (java.io.Serializable value) 
+    {
+        if (!write_special_value (value))
+        {
+            valueMap.put (value, new Integer(pos));
+            write_long (0x7fffff00); // no codebase, no type information
+            ((org.omg.CORBA.portable.Streamable)value)._write (this);
+        }
+    }
+
+    public void write_value (java.io.Serializable value,
+                             org.omg.CORBA.portable.BoxedValueHelper factory)
+    {
+        if (!write_special_value (value))
+        {
+            valueMap.put (value, new Integer(pos));
+            write_long (0x7fffff00); // no codebase, no type information
+            factory.write_value (this, value);
+        }
+    }
+
+    /**
+     * If value is null, or has already been written to this stream,
+     * then this method writes the appropriate encoding and returns true,
+     * otherwise does nothing and returns false.
+     */
+    private boolean write_special_value (java.io.Serializable value) 
+    {
+        if (value == null)
+        {
+            // null tag
+            write_long (0x00000000);
+            return true;
+        }
+        else 
+        {
+            Integer index = (Integer)valueMap.get (value);
+            if (index != null) 
+            {
+                // value has already been written -- make an indirection
+                write_long (0xffffffff);
+                write_long (index.intValue() - pos);
+                return true;
+            }
+            else
+                return false;
+        }
+    }
+
     public void setSize(int s){
         pos = s;
     }
@@ -1476,12 +1532,6 @@ public class CDROutputStream
     {
         return header_stream;
     }
-
-    public void finalize()
-    {
-	release();
-    }
-
 }
 
 
