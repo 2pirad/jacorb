@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB ORB build file                         -->
-  <!-- $Id: build.xml,v 1.30.4.2 2004-03-29 11:51:40 gerald Exp $ -->
+  <!-- $Id: build.xml,v 1.30.4.3 2004-04-28 07:10:47 gerald Exp $ -->
   <!-- ==================================================== -->
 
   &common;
@@ -22,8 +22,8 @@
    </target>
 
    <target name="subdirs"
-           depends="template,config,util,orb,poa,imr,ir,naming,events,concurrency,tracing,security">
-<!--           depends="config,template,util,orb,poa,proxy,imr,ir,naming,events,concurrency,transaction,trading,tracing,security,notification"> -->
+           depends="template,config,util,orb,poa,imr,ir,naming,events,concurrency,transaction,trading,tracing,security,notification">
+<!--       depends="config,template,util,orb,poa,imr,ir,naming,events,concurrency,transaction,trading,tracing,security,notification"> -->
 
    </target>
 
