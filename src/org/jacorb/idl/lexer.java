@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.35 2003-05-15 11:31:02 nick.cross Exp $
+ * @version $Id: lexer.java,v 1.36 2003-06-10 09:54:24 nick.cross Exp $
  * @author Gerald Brose
  *
  */
@@ -677,11 +677,14 @@ public class lexer
                 undefine( name );
                 // System.out.println("#Undefined symbol " + name  );
             }
-            else if( dir.equals( "if" ) )
+            else if( dir.equals( "if" ) || dir.equals( "elif" ) )
             {
-                ifStack.push( new Boolean( conditionalCompilation ) );
-                if( !conditionalCompilation )
-                    return;
+                if (! dir.equals( "elif" ) )
+                {
+                    ifStack.push( new Boolean( conditionalCompilation ) );
+                    if( !conditionalCompilation )
+                        return;
+                }
 
                 swallow_whitespace();
 
@@ -732,6 +735,10 @@ public class lexer
                 else if (defineStr.equals("0"))
                 {
                     conditionalCompilation = false;
+                }
+                else if (defineStr.equals("1"))
+                {
+                    conditionalCompilation = true;
                 }
                 else
                 {
