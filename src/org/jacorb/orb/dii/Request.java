@@ -35,7 +35,7 @@ import java.util.Enumeration;
  * DII requests
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.5 2001-03-28 08:55:04 jacorb Exp $
+ * @version $Id: Request.java,v 1.6 2001-06-08 12:10:34 jacorb Exp $
  */
 
 public class Request 
@@ -216,9 +216,10 @@ public class Request
         }
     }
 
-    private void _invoke(boolean response_expected)
+    private void _invoke( boolean response_expected )
     {
-        while (true){
+        while (true)
+        {
             org.jacorb.orb.Delegate deleg = 
                 (org.jacorb.orb.Delegate)((org.omg.CORBA.portable.ObjectImpl)target)._get_delegate();
         
@@ -234,13 +235,16 @@ public class Request
                     nv.send(ros);   
             }
 
-            try{   
+            try
+            {   
                 reply = deleg.invoke(target, ros);
                     
-                if( response_expected ){            
+                if( response_expected )
+                {            
                     _read_result();
             
-                    if (info != null){
+                    if (info != null)
+                    {
                         info.result = result_value.value();
                         InterceptorManager manager = orb.getInterceptorManager();
                         info.current = manager.getCurrent();
@@ -255,7 +259,8 @@ public class Request
                     }
                 }
             }
-            catch(RemarshalException rem){
+            catch(RemarshalException rem)
+            {
                 //try again
                 continue;
             }

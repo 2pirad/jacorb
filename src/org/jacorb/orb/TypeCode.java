@@ -25,7 +25,7 @@ import java.util.Hashtable;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.5 2001-04-04 08:26:40 jacorb Exp $    
+ * @version $Id: TypeCode.java,v 1.6 2001-06-08 12:10:34 jacorb Exp $    
  */
  
 public class TypeCode 
@@ -573,6 +573,7 @@ public class TypeCode
             case TCKind._tk_union:
                 {
                     tcMap.put(this.id(), this);
+            org.jacorb.util.Debug.output( 4, "resolve recursion.put : " + this.id() );
 
                     for( int i = 0; i < member_count(); i++ )
                     {

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.5 2001-04-24 10:00:56 jacorb Exp $
+ * @version $Id: NameTable.java,v 1.6 2001-06-08 12:10:32 jacorb Exp $
  *
  */
 
@@ -58,6 +58,19 @@ class NameTable
 
     static
     {
+        init();
+    }
+
+    public static void init()
+    {
+        h.clear();
+        operationSources.clear();
+        shadows.clear();
+        ancestors.clear();
+
+        operationSources.clear();
+        parsed_interfaces.clear();
+
         h.put("char", "type");
         h.put("boolean", "type");
         h.put("long", "type");

@@ -10,7 +10,7 @@ import org.jacorb.util.Debug;
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.3 2001-03-19 11:08:53 brose Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.4 2001-06-08 12:10:35 jacorb Exp $
  */
 
 public class ClientInterceptorIterator 
@@ -61,7 +61,7 @@ public class ClientInterceptorIterator
 
 	try
         {
-	    Debug.output( Debug.INFORMATION | Debug.INTERCEPTOR, 
+	    Debug.output( Debug.DEBUG1 | Debug.INTERCEPTOR, 
                           "Invoking CI " + interceptor.name());
 	    
             switch (op) 

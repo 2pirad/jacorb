@@ -6,7 +6,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerStartupDaemonImpl.java,v 1.4 2001-03-21 09:00:30 noffke Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.5 2001-06-08 12:10:33 jacorb Exp $
  *
  */
 
@@ -38,8 +38,9 @@ public class ServerStartupDaemonImpl
 	throws Exception
     {
 	Registration _registration = null;
-
-	_registration = RegistrationHelper.narrow(ImplementationRepositoryImpl.getImR(orb));
+        
+	_registration = 
+            RegistrationHelper.narrow( orb.resolve_initial_references("ImplementationRepository"));
 	if( _registration == null )
 	    throw new java.lang.Error("ImR not found");
 

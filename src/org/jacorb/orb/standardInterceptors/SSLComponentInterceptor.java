@@ -9,7 +9,7 @@ import org.jacorb.util.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.4 2001-03-28 11:32:01 noffke Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.5 2001-06-08 12:10:35 jacorb Exp $
  */
 
 public class SSLComponentInterceptor 
@@ -46,7 +46,8 @@ public class SSLComponentInterceptor
 
             if( !org.jacorb.util.Environment.enforceSSL() ) 
             {
-                // target supports unprotected messages
+                // target (we) also supports unprotected messages
+                // viz. on the other, non-SSL socket
                 ssl.target_supports |= 0x1;
             }
 

@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.16 2001-04-14 15:43:48 jacorb Exp $
+ * @version $Id: ORB.java,v 1.17 2001-06-08 12:10:34 jacorb Exp $
  */
 
 public final class ORB
@@ -318,9 +318,8 @@ public final class ORB
                 if (imr == null)
                 {
                     // we're first to consult ImR
-                    ImplementationRepository _imr_impl = 
-                        ImplementationRepositoryImpl.getImR(this);
-                    imr = RegistrationHelper.narrow(_imr_impl);
+                    imr = RegistrationHelper.narrow( 
+                             resolve_initial_references("ImplementationRepository"));
                 }
 
                 if (imr_info == null)
@@ -646,8 +645,13 @@ public final class ORB
 
             if (imr == null && Environment.useImR() )
             {
-                ImplementationRepository _imr_impl = ImplementationRepositoryImpl.getImR(this);
-                imr = RegistrationHelper.narrow(_imr_impl);
+                try
+                {
+                    imr = RegistrationHelper.narrow( 
+                        resolve_initial_references("ImplementationRepository")  );
+                }
+                catch( org.omg.CORBA.ORBPackage.InvalidName in )
+                {}
                 if (imr == null || imr._non_existent())
                 {
                     Debug.output(3, "No connection to ImplementationRepository");

@@ -20,7 +20,7 @@ import org.jacorb.security.util.*;
  * from a Java key store
  *
  * @author Gerald Brose
- * $Id: PrincipalAuthenticatorImpl.java,v 1.3 2001-03-19 11:09:20 brose Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.4 2001-06-08 12:10:35 jacorb Exp $
  */
 
 public class PrincipalAuthenticatorImpl
@@ -33,6 +33,7 @@ public class PrincipalAuthenticatorImpl
     private SecAttributeManager attrib_mgr = null;
     
     // rt: orb param removed (this simplyfies the using with java reflection)
+
     public PrincipalAuthenticatorImpl()
     {
         loginData = new LoginData();
@@ -126,9 +127,7 @@ public class PrincipalAuthenticatorImpl
 
             SecAttribute attrib = attrib_mgr.createAttribute( k_a_c,
                                                               type );
-        
-
-        
+                
             CredentialsImpl credsImpl = 
                 new CredentialsImpl( new SecAttribute[]{ attrib },
                 AuthenticationStatus.SecAuthSuccess,

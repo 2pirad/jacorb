@@ -9,7 +9,7 @@ package org.jacorb.orb.domain.gui;
  * Created: Tue Jul  4 20:54:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.4 $ 
+ * @version $Revision: 1.5 $ 
  */
 
 public class DefaultPolicyEditor 
@@ -20,6 +20,7 @@ public class DefaultPolicyEditor
     protected org.omg.CORBA.Policy _policy;
 
     public org.omg.CORBA.ORB orb;
+    public org.omg.PortableServer.POA poa;
 
     public DefaultPolicyEditor() 
     {
@@ -33,6 +34,15 @@ public class DefaultPolicyEditor
     public void setORB(org.omg.CORBA.ORB orb)
     {
         this.orb = orb;
+        try
+        {
+            poa = 
+                org.omg.PortableServer.POAHelper.narrow( orb.resolve_initial_references("RootPOA"));
+        } 
+        catch( Exception e )
+        {
+            e.printStackTrace();
+        } 
     }
 
     /**
