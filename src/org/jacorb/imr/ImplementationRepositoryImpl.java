@@ -50,7 +50,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.47 2003-08-15 11:17:06 andre.spiegel Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.48 2003-10-27 09:06:00 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1554,11 +1554,9 @@ public class ImplementationRepositoryImpl
 
             // The typecode is for org.omg.CORBA.Object, but avoiding
             // creation of new ObjectHolder Instance.
-            org.omg.IOP.IOR _ior =
-            ParsedIOR.createObjectIOR( _poa.host,
-                                       (short) _poa.port,
-                                       object_key,
-                                       giop_minor );
+            IIOPAddress addr = new IIOPAddress (_poa.host,(short)_poa.port);
+            IIOPProfile p = new IIOPProfile (addr,object_key,giop_minor);
+            org.omg.IOP.IOR _ior = ParsedIOR.createObjectIOR(p);
 
             if( !_old_poa_state )
             {
