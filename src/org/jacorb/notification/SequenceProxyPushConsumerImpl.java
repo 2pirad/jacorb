@@ -36,26 +36,24 @@ import org.omg.PortableServer.Servant;
  * SequenceProxyPushConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.6 2003-09-12 09:23:58 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl
-            extends StructuredProxyPushConsumerImpl
-            implements SequenceProxyPushConsumerOperations
+    extends StructuredProxyPushConsumerImpl
+    implements SequenceProxyPushConsumerOperations
 {
 
     private SequencePushSupplier mySequencePushSupplier_;
 
-    private List subsequentDestinations_;
-
-    public SequenceProxyPushConsumerImpl( SupplierAdminTieImpl supplierAdminServant,
+    public SequenceProxyPushConsumerImpl( SupplierAdminTieImpl supplierAdmin,
                                           ApplicationContext appContext,
                                           ChannelContext channelContext,
                                           PropertyManager adminProperties,
                                           PropertyManager qosProperties,
                                           Integer key )
     {
-        super( supplierAdminServant,
+        super( supplierAdmin,
                appContext,
                channelContext,
                adminProperties,
@@ -79,7 +77,8 @@ public class SequenceProxyPushConsumerImpl
         }
     }
 
-    public void connect_sequence_push_supplier( SequencePushSupplier supplier ) throws AlreadyConnected
+    public void connect_sequence_push_supplier( SequencePushSupplier supplier )
+        throws AlreadyConnected
     {
         if ( connected_ )
         {
@@ -118,5 +117,4 @@ public class SequenceProxyPushConsumerImpl
 
         return thisServant_;
     }
-
 }
