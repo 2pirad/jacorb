@@ -32,8 +32,6 @@ import org.jacorb.notification.interfaces.AdminEvent;
 import org.jacorb.notification.interfaces.AdminEventListener;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
-import org.jacorb.notification.interfaces.ProxyCreationRequestEvent;
-import org.jacorb.notification.interfaces.ProxyCreationRequestEventListener;
 import org.jacorb.notification.interfaces.ProxyEvent;
 import org.jacorb.notification.interfaces.ProxyEventListener;
 import org.jacorb.notification.servant.AbstractAdmin;
@@ -78,7 +76,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelImpl.java,v 1.20 2004-03-17 22:43:58 alphonse.bendt Exp $
+ * @version $Id: EventChannelImpl.java,v 1.21 2004-03-17 23:00:33 alphonse.bendt Exp $
  */
 
 public class EventChannelImpl
