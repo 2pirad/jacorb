@@ -31,12 +31,11 @@ import org.omg.CosNotifyFilter.MappingFilter;
  * these Classes during processing of a Message.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterStage.java,v 1.5 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: FilterStage.java,v 1.6 2004-01-29 14:20:28 alphonse.bendt Exp $
  */
 
 public interface FilterStage
 {
-
     /**
      * check if this FilterStage has been disposed.
      */
@@ -58,9 +57,9 @@ public interface FilterStage
     boolean hasMessageConsumer();
 
     /**
-     * check if this DistributorNode has OR Semantic enabled.
+     * check if this FilterStage has OR Semantic enabled.
      */
-    boolean hasOrSemantic();
+    boolean hasInterFilterGroupOperatorOR();
 
     /**
      * get the associated MessageConsumer or null.
