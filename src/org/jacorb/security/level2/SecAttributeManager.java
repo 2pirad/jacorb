@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2002 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ package org.jacorb.security.level2;
  * Created: Mon Sep  4 16:32:39 2000
  *
  * @author Nicolas Noffke
- * @version $Id: SecAttributeManager.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: SecAttributeManager.java,v 1.9 2003-10-08 16:12:20 nicolas Exp $
  */
 
 import java.util.*;
@@ -94,6 +94,21 @@ public class SecAttributeManager
         return attributes.get( new Integer( the_id ));
     }
 
+    public void removeAttribute( SecAttribute attribute )
+    {
+        if( attribute.value.length != 4 )
+        {
+            throw new Error( "Value of SecAttribute unknown!" );
+        }
+
+        int the_id =
+            ((attribute.value[0] & 0xff) << 24 ) +
+            ((attribute.value[1] & 0xff) << 16 ) +
+            ((attribute.value[2] & 0xff) << 8 ) +
+            (attribute.value[3] & 0xff);
+
+        attributes.remove( new Integer( the_id ));
+    }
 } // SecAttributeManager
 
 

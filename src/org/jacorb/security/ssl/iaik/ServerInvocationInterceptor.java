@@ -23,6 +23,7 @@ package org.jacorb.security.ssl.iaik;
 import java.io.*;
 import org.omg.SecurityReplaceable.*;
 import org.omg.Security.*;
+import org.omg.SecurityLevel2.ReceivedCredentials;
 
 import org.omg.PortableInterceptor.*;
 import org.omg.CORBA.ORBPackage.*;
@@ -41,7 +42,7 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.9 2003-08-15 11:18:19 andre.spiegel Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.10 2003-10-08 16:12:20 nicolas Exp $
  */
 
 public class ServerInvocationInterceptor
@@ -132,20 +133,42 @@ public class ServerInvocationInterceptor
 
     public void send_reply( ServerRequestInfo ri )
     {
+        removeAttribute();
         current.remove_received_credentials();
     }
 
     public void send_exception( ServerRequestInfo ri )
         throws ForwardRequest
     {
+        removeAttribute();
         current.remove_received_credentials();
     }
 
     public void send_other( ServerRequestInfo ri )
         throws ForwardRequest
     {
+        removeAttribute();
         current.remove_received_credentials();
     }
+
+    private void removeAttribute()
+    {
+        ReceivedCredentials creds = current.received_credentials();
+
+        if (creds == null)
+        {
+            return;
+        }
+
+        SecAttribute[] attributes = creds.get_attributes(
+            new AttributeType[]{ type } );
+
+        if (attributes.length != 0)
+        {
+            attrib_mgr.removeAttribute(attributes[0]);
+        }
+    }
+
 }
 
 
