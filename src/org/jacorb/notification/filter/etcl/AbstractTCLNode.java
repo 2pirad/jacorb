@@ -26,20 +26,18 @@ import java.lang.reflect.Field;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
-import org.jacorb.util.Debug;
 
 import org.omg.CORBA.TCKind;
 
 import antlr.BaseAST;
 import antlr.Token;
 import antlr.collections.AST;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Base Class for TCLTree Nodes.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractTCLNode.java,v 1.2 2004-02-20 12:17:46 alphonse.bendt Exp $
+ * @version $Id: AbstractTCLNode.java,v 1.2.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public abstract class AbstractTCLNode extends BaseAST implements TCLParserTokenTypes
@@ -50,7 +48,6 @@ public abstract class AbstractTCLNode extends BaseAST implements TCLParserTokenT
 
     private String name_;
 
-    protected Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
     ////////////////////////////////////////////////////////////
     // Constructor
@@ -60,7 +57,6 @@ public abstract class AbstractTCLNode extends BaseAST implements TCLParserTokenT
         super();
         setType( tok.getType() );
     }
-
 
     protected AbstractTCLNode()
     {
@@ -309,7 +305,6 @@ public abstract class AbstractTCLNode extends BaseAST implements TCLParserTokenT
         }
         catch ( Exception e )
         {
-            Debug.getNamedLogger(AbstractTCLNode.class.getName()).fatalError("getNameForType: ", e);
         }
 
         return "unknown type: " + t;

@@ -38,7 +38,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.6.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -52,7 +52,6 @@ public class ProxyPushConsumerImpl
     ProxyPushConsumerImpl( AbstractAdmin myAdminServant,
                            ChannelContext channelContext)
     {
-
         super( myAdminServant,
                channelContext);
     }

@@ -28,7 +28,7 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTask.java,v 1.8 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: FilterProxyConsumerTask.java,v 1.8.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
  */
 
 public class FilterProxyConsumerTask extends AbstractFilterTask
@@ -95,7 +95,7 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
         }
         catch ( UnsupportedFilterableData e )
         {
-            logger_.error( "Error evaluating PriorityFilter", e );
+//             logger_.error( "Error evaluating PriorityFilter", e );
         }
     }
 
@@ -123,7 +123,7 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
         }
         catch ( UnsupportedFilterableData e )
         {
-            logger_.error( "Error evaluating LifetimeFilter", e );
+//             logger_.error( "Error evaluating LifetimeFilter", e );
         }
     }
 
@@ -144,12 +144,12 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
 
         if ( !_filterMatch && arrayCurrentFilterStage_[ 0 ].hasInterFilterGroupOperatorOR() )
         {
-            if ( logger_.isDebugEnabled() )
-            {
-                logger_.debug( "filter failed, but the ProxyConsumer"
-                               + arrayCurrentFilterStage_[ 0 ]
-                               + " has InterFilterGroupOperator OR_OP Enabled" );
-            }
+//             if ( logger_.isDebugEnabled() )
+//             {
+//                 logger_.debug( "filter failed, but the ProxyConsumer"
+//                                + arrayCurrentFilterStage_[ 0 ]
+//                                + " has InterFilterGroupOperator OR_OP Enabled" );
+//             }
 
             // no filter attached to the current ProxyConsumer
             // matched. However the ProxyConsumer has

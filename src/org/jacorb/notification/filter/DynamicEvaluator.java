@@ -21,8 +21,6 @@ package org.jacorb.notification.filter;
  *
  */
 
-import org.jacorb.util.Debug;
-
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.TCKind;
@@ -43,16 +41,19 @@ import org.omg.DynamicAny.DynUnion;
 import org.omg.DynamicAny.DynUnionHelper;
 
 import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * Provide the Basic operations needed to evaluate filter expressions
  * on Anys.
  *
  * @author Alphonse Bendt
- * @version $Id: DynamicEvaluator.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: DynamicEvaluator.java,v 1.1.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public class DynamicEvaluator
+    implements Configurable
 {
     private static final String NAME = "name";
 
@@ -60,7 +61,7 @@ public class DynamicEvaluator
 
     ////////////////////////////////////////
 
-    private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
+    private Logger logger_ = null;
 
     private DynAnyFactory dynAnyFactory_;
 
@@ -80,6 +81,12 @@ public class DynamicEvaluator
     public DynamicEvaluator( DynAnyFactory dynAnyFactory )
     {
         dynAnyFactory_ = dynAnyFactory;
+    }
+
+    public void configure (Configuration conf)
+    {
+        logger_ = ((org.jacorb.config.Configuration)conf).
+            getNamedLogger( getClass().getName() );
     }
 
     ////////////////////////////////////////

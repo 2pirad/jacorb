@@ -25,18 +25,15 @@ import org.omg.CosEventComm.Disconnected;
 
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.util.Debug;
 
 import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RetryStrategy.java,v 1.1 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: RetryStrategy.java,v 1.1.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
  */
 public abstract class RetryStrategy implements Disposable
 {
-    protected Logger logger_ = Debug.getNamedLogger(getClass().getName());
-
     protected PushOperation pushOperation_;
 
     protected MessageConsumer messageConsumer_;
@@ -66,8 +63,6 @@ public abstract class RetryStrategy implements Disposable
     public void remoteExceptionOccured(Throwable error)
         throws RetryException
     {
-        logger_.debug("error: remote exception occured during retry", error);
-
         if (isFatalException(error)) {
             messageConsumer_.dispose();
             dispose();

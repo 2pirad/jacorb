@@ -23,7 +23,7 @@ package org.jacorb.notification.engine;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTask.java,v 1.10 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTask.java,v 1.10.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
  */
 
 public class PushToConsumerTask extends AbstractDeliverTask
@@ -42,14 +42,14 @@ public class PushToConsumerTask extends AbstractDeliverTask
 
     public void doWork() throws Exception
     {
-        if ( logger_.isDebugEnabled() )
-        {
-            logger_.debug( this
-                           + ".push "
-                           + message_
-                           + " to "
-                           + getMessageConsumer() );
-        }
+//         if ( logger_.isDebugEnabled() )
+//         {
+//             logger_.debug( this
+//                            + ".push "
+//                            + message_
+//                            + " to "
+//                            + getMessageConsumer() );
+//         }
 
         getMessageConsumer().deliverMessage( message_ );
 

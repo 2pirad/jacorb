@@ -41,13 +41,13 @@ import org.omg.CosNotifyFilter.MappingFilterPOA;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 import org.jacorb.notification.interfaces.Disposable;
-import org.jacorb.util.Debug;
+//import org.jacorb.util.Debug;
 
 import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MappingFilterImpl.java,v 1.8 2004-02-25 15:27:24 alphonse.bendt Exp $
+ * @version $Id: MappingFilterImpl.java,v 1.8.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public class MappingFilterImpl extends MappingFilterPOA implements Disposable
@@ -83,7 +83,7 @@ public class MappingFilterImpl extends MappingFilterPOA implements Disposable
 
     ////////////////////////////////////////
 
-    private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
+//     private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
     private FilterImpl filterImpl_;
 

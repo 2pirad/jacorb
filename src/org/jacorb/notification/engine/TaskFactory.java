@@ -24,20 +24,17 @@ package org.jacorb.notification.engine;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.util.Debug;
 
 import org.apache.avalon.framework.logger.Logger;
 import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskFactory.java,v 1.4 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: TaskFactory.java,v 1.4.2.1 2004-04-01 00:01:52 phil.mesnier Exp $
  */
 
 public class TaskFactory implements Disposable
 {
-    private final Logger logger_ = Debug.getNamedLogger( getClass().getName() );
-
     private TaskProcessor taskProcessor_;
 
     private AbstractTaskPool filterProxyConsumerTaskPool_ =
@@ -310,4 +307,3 @@ public class TaskFactory implements Disposable
         return _deliverTasks;
     }
 }
-

@@ -39,7 +39,6 @@ import org.jacorb.notification.interfaces.ProxyEvent;
 import org.jacorb.notification.interfaces.ProxyEventListener;
 import org.jacorb.notification.util.AdminPropertySet;
 import org.jacorb.notification.util.QoSPropertySet;
-import org.jacorb.util.Debug;
 
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CORBA.ORB;
@@ -62,19 +61,22 @@ import org.omg.PortableServer.Servant;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * Abstract Baseclass for Adminobjects.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.6 2004-03-17 23:08:07 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.6.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public abstract class AbstractAdmin
     implements QoSAdminOperations,
                FilterAdminOperations,
                FilterStage,
-               ManageableServant
+               ManageableServant,
+               Configurable
 {
     /**
      * the default InterFilterGroupOperator used.
@@ -88,8 +90,7 @@ public abstract class AbstractAdmin
 
     protected SubscriptionManager subscriptionManager_;
 
-    protected final Logger logger_ =
-        Debug.getNamedLogger( getClass().getName() );
+    protected Logger logger_ = null;
 
     protected final Object modifyProxiesLock_ = new Object();
 
@@ -132,13 +133,16 @@ public abstract class AbstractAdmin
     protected AbstractAdmin(ChannelContext channelContext)
     {
         channelContext_ = channelContext;
-
         filterManager_ =
             new FilterManager(channelContext_);
-
         setPOA(channelContext_.getPOA());
-
         setORB(channelContext_.getORB());
+    }
+
+    public void configure (Configuration conf)
+    {
+        logger_ = ((org.jacorb.config.Configuration)conf).
+            getNamedLogger(getClass().getName());
     }
 
     ////////////////////////////////////////

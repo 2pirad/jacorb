@@ -26,7 +26,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.jacorb.notification.interfaces.Disposable;
-import org.jacorb.util.Debug;
 
 import org.apache.avalon.framework.logger.Logger;
 
@@ -38,7 +37,7 @@ import org.apache.avalon.framework.logger.Logger;
  * returned to its pool!
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractObjectPool.java,v 1.5 2004-01-23 20:03:02 alphonse.bendt Exp $
+ * @version $Id: AbstractObjectPool.java,v 1.5.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public abstract class AbstractObjectPool implements Runnable, Disposable
@@ -127,7 +126,7 @@ public abstract class AbstractObjectPool implements Runnable, Disposable
                 }
                 catch ( Throwable t )
                 {
-                    logger_.fatalError( "Error while cleaning Pool", t );
+//                     logger_.fatalError( "Error while cleaning Pool", t );
                 }
             }
         }
@@ -176,7 +175,7 @@ public abstract class AbstractObjectPool implements Runnable, Disposable
         }
     }
 
-    static Logger logger_ = Debug.getNamedLogger( AbstractObjectPool.class.getName() );
+//     static Logger logger_ = Debug.getNamedLogger( AbstractObjectPool.class.getName() );
 
     String name_;
 
@@ -334,7 +333,7 @@ public abstract class AbstractObjectPool implements Runnable, Disposable
         else
             {
                 // ignore
-                logger_.warn( "Object " + o + " was not in pool " + name_ +". multiple release?" );
+//                 logger_.warn( "Object " + o + " was not in pool " + name_ +". multiple release?" );
                 //                throw new RuntimeException();
             }
     }

@@ -37,7 +37,7 @@ import org.jacorb.notification.filter.EvaluationResult;
  * Created: Tue Apr 29 11:55:47 2003
  *
  * @author Alphonse Bendt
- * @version $Id: CurrentTimeNode.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: CurrentTimeNode.java,v 1.1.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public class CurrentTimeNode extends ETCLComponentName {
@@ -49,8 +49,6 @@ public class CurrentTimeNode extends ETCLComponentName {
 
     public EvaluationResult evaluate( EvaluationContext context )
         throws EvaluationException {
-
-        logger_.debug("evaluate CurrentTimeNode");
 
         EvaluationResult _result = new EvaluationResult();
 

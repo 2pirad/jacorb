@@ -25,7 +25,6 @@ import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.util.Debug;
 
 /**
  * DomainNameShorthandNode.java
@@ -34,7 +33,7 @@ import org.jacorb.util.Debug;
  * Created: Thu Apr 10 12:08:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: DomainNameShorthandNode.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: DomainNameShorthandNode.java,v 1.1.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public class DomainNameShorthandNode
@@ -49,10 +48,6 @@ public class DomainNameShorthandNode
             expandedPath_ = TCLParser.parse( COMP_NAME );
             expandedPath_.acceptInOrder( new TCLCleanUp() );
         } catch (Exception e) {
-
-            Debug.getNamedLogger(DomainNameShorthandNode.class.getName())
-                .fatalError("Unexpected Exception", e);
-
         }
     }
 
@@ -78,8 +73,6 @@ public class DomainNameShorthandNode
 
     public EvaluationResult evaluate( EvaluationContext context )
         throws EvaluationException {
-
-        logger_.debug("evaluate");
 
         Message _event = context.getCurrentMessage();
 

@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PropertyShorthandNode.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: PropertyShorthandNode.java,v 1.1.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
  */
 
 public class PropertyShorthandNode extends AbstractTCLNode
@@ -69,10 +69,8 @@ public class PropertyShorthandNode extends AbstractTCLNode
             shorthandDefaultAny_.acceptInOrder(new TCLCleanUp());
 
         } catch (ParseException e) {
-            logger_.fatalError("Exception during parse", e);
             throw new RuntimeException();
         } catch (VisitorException e) {
-            logger_.fatalError("Exception during parse", e);
             throw new RuntimeException();
         }
 
