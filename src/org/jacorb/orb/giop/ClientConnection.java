@@ -36,7 +36,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.43 2004-01-06 16:29:07 nick.cross Exp $
+ * @version $Id: ClientConnection.java,v 1.44 2004-01-12 10:56:22 nick.cross Exp $
  */
 
 public class ClientConnection
@@ -164,9 +164,9 @@ public class ClientConnection
                       CodeSet.csName( tcsw ) + " as TCSW" );
 
         // encapsulate context
-	CDROutputStream os = new CDROutputStream( orb );
-	os.beginEncapsulatedArray();
-	CodeSetContextHelper.write( os, new CodeSetContext( tcs, tcsw ));
+        CDROutputStream os = new CDROutputStream( orb );
+        os.beginEncapsulatedArray();
+        CodeSetContextHelper.write( os, new CodeSetContext( tcs, tcsw ));
 
         return new ServiceContext( org.omg.IOP.CodeSets.value,
                                    os.getBufferCopy() );
