@@ -37,7 +37,7 @@ import org.jacorb.util.*;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.7 2002-12-11 12:17:17 david.robison Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.8 2002-12-11 22:38:26 david.robison Exp $
  */
 
 public class SASComponentInterceptor
@@ -166,10 +166,16 @@ public class SASComponentInterceptor
                 SAS_ContextSec sasContextSec = new SAS_ContextSec((short)0, (short)0, serviceConfiguration, new byte[0][0], 0);
 
                 // create the security mech list
-                boolean useStateful = Boolean.valueOf(org.jacorb.util.Environment.getProperty("jacorb.security.sas.stateful", "true")).booleanValue();                CompoundSecMech[] compoundSecMech = new CompoundSecMech[1];
+                boolean useStateful = Boolean.valueOf(org.jacorb.util.Environment.getProperty("jacorb.security.sas.stateful", "true")).booleanValue();
+                CompoundSecMech[] compoundSecMech = new CompoundSecMech[1];
                 String mechOID = org.jacorb.util.Environment.getProperty("jacorb.security.sas.mechanism.oid");
-                Oid oid = new Oid(mechOID);
-                byte[] clientAuthenticationMech = oid.getDER();
+                byte[] clientAuthenticationMech;
+                if (mechOID == null) {
+                    clientAuthenticationMech = new byte[0];
+                } else {
+                  Oid oid = new Oid(mechOID);
+                  clientAuthenticationMech = oid.getDER();
+                }
                 AS_ContextSec asContextSec = new AS_ContextSec(asTargetSupports, asTargetRequires, clientAuthenticationMech, targetName);
                 compoundSecMech[0] = new CompoundSecMech(targetRequires, transportMech, asContextSec, sasContextSec);
                 CompoundSecMechList compoundSecMechList = new CompoundSecMechList(useStateful, compoundSecMech);
