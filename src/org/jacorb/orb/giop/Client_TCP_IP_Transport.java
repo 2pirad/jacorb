@@ -37,7 +37,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.24 2003-04-14 15:20:18 andre.spiegel Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.25 2003-04-22 10:03:59 andre.spiegel Exp $
  */
 
 public class Client_TCP_IP_Transport
@@ -291,7 +291,7 @@ public class Client_TCP_IP_Transport
         return socket_factory.isSSL( socket );
     }
     
-    public InternetIOPProfile get_server_profile()
+    public org.omg.ETF.Profile get_server_profile()
     {
         return target_profile;
     }
