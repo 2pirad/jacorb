@@ -23,13 +23,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.15 2003-04-01 14:00:28 nick.cross Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.16 2003-09-03 09:44:09 brose Exp $
  */
 
 import java.io.PrintWriter;
 import java.util.*;
 
-class ConstrTypeSpec
+public class ConstrTypeSpec
     extends TypeSpec
 {
     public TypeDeclaration c_type_spec;
@@ -172,5 +172,15 @@ class ConstrTypeSpec
     {
         return c_type_spec.declaration().id();
     }
+
+    /**
+     * @overrides accept in IdlSymbol
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        c_type_spec.declaration().accept( visitor );
+    }
+
 
 }

@@ -22,15 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: NativeType.java,v 1.8 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: NativeType.java,v 1.9 2003-09-03 09:44:09 brose Exp $
  */
 
 import java.io.PrintWriter;
 
-class NativeType
-        extends TypeDeclaration
+public class NativeType
+    extends TypeDeclaration
 {
-
     SimpleDeclarator declarator;
 
     public NativeType( int num )
@@ -133,6 +132,16 @@ class NativeType
     public void print( PrintWriter ps )
     {
     }
+
+    /**
+     * @overrides accept in TypeDeclaration
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitNative( this );
+    }
+
 
 }
 

@@ -22,14 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IntType.java,v 1.10 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: IntType.java,v 1.11 2003-09-03 09:44:09 brose Exp $
  */
 
 class IntType
-        extends BaseType
-        implements SwitchTypeSpec
+    extends BaseType
+    implements SwitchTypeSpec
 {
-
     public boolean unsigned = false;
 
     public IntType( int num )

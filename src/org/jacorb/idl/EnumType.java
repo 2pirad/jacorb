@@ -26,10 +26,10 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.23 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: EnumType.java,v 1.24 2003-09-03 09:44:09 brose Exp $
  */
 
-class EnumType
+public class EnumType
     extends TypeDeclaration
     implements SwitchTypeSpec
 {
@@ -449,4 +449,14 @@ class EnumType
     {
         return true;
     }
+
+    /**
+     * @overrides accept in TypeDeclaration
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitEnum( this );
+    }
+
 }

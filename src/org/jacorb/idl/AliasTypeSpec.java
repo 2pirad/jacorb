@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.36 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.37 2003-09-03 09:44:09 brose Exp $
  */
 
 public class AliasTypeSpec
@@ -484,4 +484,12 @@ public class AliasTypeSpec
         ps.println( "\t}" );
         ps.println( "}" );
     }
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitAlias( this );
+    }
+
+
+
 }

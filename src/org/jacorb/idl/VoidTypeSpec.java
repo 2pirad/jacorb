@@ -22,15 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: VoidTypeSpec.java,v 1.8 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: VoidTypeSpec.java,v 1.9 2003-09-03 09:44:09 brose Exp $
  */
 
 import java.io.PrintWriter;
 
-class VoidTypeSpec
-        extends TypeSpec
+public class VoidTypeSpec
+    extends TypeSpec
 {
-
     public VoidTypeSpec( int num )
     {
         super( num );
@@ -41,10 +40,13 @@ class VoidTypeSpec
         return "void";
     }
 
+    /**
+     * @returns true if this is a basic type
+     */
 
-    public String typeSignature()
-    {
-        return "V";
+    public boolean basic()
+    {        
+        return true;
     }
 
     public void print( PrintWriter ps )
