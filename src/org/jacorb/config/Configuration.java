@@ -49,7 +49,7 @@ import org.jacorb.util.ObjectUtil;
  *
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.1.2.3 2004-03-25 15:55:08 gerald Exp $
+ * @version $Id: Configuration.java,v 1.1.2.4 2004-03-26 17:19:26 nicolas Exp $
  */
 
 public class Configuration
@@ -57,6 +57,10 @@ public class Configuration
 {
     private static final String fileSuffix = ".orb.properties";
     private static final String COMMON_PROPS = "common" + fileSuffix;
+
+    private static final String TRUE = "true";
+    private static final String ON = "on";
+    private static final String EMPTY_STR = "";
 
     private Configuration config;
     private String configName; 
@@ -426,5 +430,34 @@ public class Configuration
         }
     }
 
+    public boolean getAttributeAsBoolean(String key)
+        throws ConfigurationException
+    {
+        String s = getAttribute(key);
+        
+        if (s != null && s.length() > 0)
+        {
+            s = s.toLowerCase();
+            return ON.equals(s) || TRUE.equals(s);
+        }
+        else
+        {
+            return false;
+        }
+    }
 
+    public boolean getAttributeAsBoolean(String key, boolean defaultValue)
+    {
+        String s = getAttribute(key, EMPTY_STR);
+        
+        if (s.length() > 0)
+        {
+            s = s.toLowerCase();
+            return ON.equals(s) || TRUE.equals(s);
+        }
+        else
+        {
+            return defaultValue;
+        }
+    }
 }
