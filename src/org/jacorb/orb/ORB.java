@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.68 2002-06-07 07:20:04 gerald Exp $
+ * @version $Id: ORB.java,v 1.69 2002-06-20 10:01:56 steve.osselton Exp $
  */
 
 public final class ORB
@@ -1821,6 +1821,15 @@ public final class ORB
     public boolean hasServerRequestInterceptors ()
     {
         return hasServerInterceptors;
+    }
+
+    /**
+     * Test, if the ORB has client or server side interceptors.
+     */
+
+    public boolean hasRequestInterceptors ()
+    {
+        return (hasServerInterceptors || hasClientInterceptors);
     }
 
     /**
