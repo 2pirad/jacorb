@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.7 2002-02-14 10:35:58 steve.osselton Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.8 2002-03-06 14:33:20 gerald Exp $
  */
 
 public class Client_TCP_IP_Transport 
@@ -128,9 +128,11 @@ public class Client_TCP_IP_Transport
                         socket.setSoTimeout( timeout );
                     }
 
-                    in_stream = socket.getInputStream();
+                    in_stream =
+                        new BufferedInputStream(socket.getInputStream());
                     
-                    out_stream = socket.getOutputStream();
+                    out_stream = 
+                        new BufferedOutputStream( socket.getOutputStream());
 
                     Debug.output( 2, "Succeeded to connect to " +
                                   connection_info +
