@@ -23,11 +23,9 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.8 2002-07-01 07:54:17 nicolas Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.9 2002-10-21 17:26:09 nicolas Exp $
  */
 import org.jacorb.util.*;
-import org.jacorb.security.util.*;
-import org.jacorb.security.level2.*;
 
 //uncomment this line if you want to compile with the separately
 //available jsse1.0.2
