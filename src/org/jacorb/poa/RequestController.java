@@ -41,7 +41,7 @@ import java.util.Enumeration;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.5 2001-09-07 12:44:22 jacorb Exp $
  */
 public class RequestController extends Thread {
 	
