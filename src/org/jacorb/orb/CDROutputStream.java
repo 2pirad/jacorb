@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.50 2002-05-03 08:45:09 gerald Exp $
+ * @version     $Id: CDROutputStream.java,v 1.51 2002-05-08 14:48:39 gerald Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -44,7 +44,7 @@ public class CDROutputStream
     static int instances = 0;
 
     /** for statistics */
-    private int copies = 0;
+    //    private int copies = 0;
 
     /** needed for alignment purposes */
     private int index = 0;
@@ -317,7 +317,7 @@ public class CDROutputStream
         deferredArrayQueue.clear ();
         deferred_writes = 0;
         released = true;
-        Debug.output(1,"Outbuf copies " + copies );
+        //        Debug.output(1,"Outbuf copies " + copies );
     }
 
     /**
@@ -377,7 +377,7 @@ public class CDROutputStream
             {
                 new_buf = bufMgr.getBuffer( pos+i+2 );
                 System.arraycopy( buffer, 0, new_buf, 0, pos );
-                copies++;
+                // copies++;
 
                 bufMgr.returnBuffer( buffer );
             }

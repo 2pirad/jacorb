@@ -40,7 +40,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.42 2002-05-06 14:36:50 gerald Exp $
+ * @version $Id: Delegate.java,v 1.43 2002-05-08 14:48:40 gerald Exp $
  *
  */
 
@@ -1244,14 +1244,16 @@ public final class Delegate
                     if( poa.isRetain() )
                     {
                         org.omg.PortableServer.ServantActivator sa = 
-                            org.omg.PortableServer.ServantActivatorHelper.narrow( sm );
+                            (org.omg.PortableServer.ServantActivator) sm ;
+                        //  org.omg.PortableServer.ServantActivatorHelper.narrow( sm );
                         so.servant = sa.incarnate( oid, poa );
 
                     }
                     else
                     {
                         org.omg.PortableServer.ServantLocator sl = 
-                            org.omg.PortableServer.ServantLocatorHelper.narrow( sm );
+                            (org.omg.PortableServer.ServantLocator) sm;
+                        //org.omg.PortableServer.ServantLocatorHelper.narrow( sm );
                         so.servant = 
                             sl.preinvoke( oid, poa, operation, 
                                           new org.omg.PortableServer.ServantLocatorPackage.CookieHolder() );

@@ -40,7 +40,7 @@ import java.util.Enumeration;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.11 2002-04-19 10:23:20 reimo Exp $
+ * @version $Id: AOM.java,v 1.12 2002-05-08 14:46:58 gerald Exp $
  */
 
 public class AOM 
@@ -88,8 +88,9 @@ public class AOM
     {
         ByteArrayKey oidbak = POAUtil.oid_to_bak(oid);
 
-        /* an incarnation and activation with the same oid has priority */
-        /* a reactivation for the same oid blocks until etherealization is complete */
+        /* an inCarnation and activation with the same oid has
+           priority, a reactivation for the same oid blocks until
+           etherealization is complete */
 
         while (incarnationList.contains(oidbak) || 
                etherealisationList.contains(oidbak)) 

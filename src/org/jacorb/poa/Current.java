@@ -32,12 +32,13 @@ import java.util.Vector;
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: Current.java,v 1.11 2002-04-19 10:23:20 reimo Exp $
+ * @version $Id: Current.java,v 1.12 2002-05-08 14:46:58 gerald Exp $
  */
 
 public class Current 
-    extends org.omg.CORBA.LocalObject 
-    implements org.omg.PortableServer.Current 
+    extends org.omg.PortableServer._CurrentLocalBase
+  //    extends org.omg.CORBA.LocalObject 
+  //    implements org.omg.PortableServer.Current 
 {
     private Hashtable threadTable = new Hashtable(); 
     // Thread -> vector of InvocationContext elements (Stack)

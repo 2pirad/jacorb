@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.9 2002-05-06 14:35:39 gerald Exp $
+ * $Id: ServantDelegate.java,v 1.10 2002-05-08 14:48:40 gerald Exp $
  */
 
 public class ServantDelegate
@@ -43,19 +43,19 @@ public class ServantDelegate
     private transient Repository ir = null;
     private transient org.omg.PortableServer.Current _current = null;
     private transient POA poa = null;
-    private transient POA selfPOA = null;
+    //    private transient POA selfPOA = null;
 
     ServantDelegate( org.jacorb.orb.ORB orb )
     {
 	this.orb = orb;
     }
 
-    public void setPOA(POA poa)
-    {
-        if( selfPOA != null )
-            throw new org.omg.CORBA.BAD_INV_ORDER("The Servant has already been associated with a POA");  
-        this.selfPOA = poa;
-    }
+//      public void setPOA(POA poa)
+//      {
+//          if( selfPOA != null )
+//              throw new org.omg.CORBA.BAD_INV_ORDER("The Servant has already been associated with a POA");  
+//          this.selfPOA = poa;
+//      }
 
     /**
      * Must be checked for every invocation (cf. Lang. Mapping p. 1-89)
@@ -163,9 +163,9 @@ public class ServantDelegate
 	check();      
 	try 
 	{ 
-            if( selfPOA != null )
-                return selfPOA;
-            else
+//              if( selfPOA != null )
+//                  return selfPOA;
+//              else
                 return POAHelper.narrow(orb(self).resolve_initial_references("RootPOA"));  
 	}     
 	catch(InvalidName e) 
