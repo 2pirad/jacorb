@@ -5,7 +5,7 @@
 <project name="poa" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
-  <!-- $Id: build.xml,v 1.7 2002-10-15 12:32:39 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.8 2003-08-15 13:29:26 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -30,9 +30,5 @@
       <antcall target="jacorb-javac">
          <param name="javac-includes" value="org/jacorb/poa/gui/**.java,org/jacorb/poa/gui/**/**.java"/>
       </antcall>
-   </target>
-
-
-   <target name="clean">
    </target>
 </project>

@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--             Collection build file                    -->
-  <!-- $Id: build.xml,v 1.5 2002-10-15 12:32:39 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.6 2003-08-15 13:29:26 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -15,9 +15,5 @@
       <antcall target="jacorb-javac">
          <param name="javac-includes" value="org/jacorb/collection/util/*.java,org/jacorb/collection/*.java"/>
       </antcall>
-   </target>
-
-
-   <target name="clean">
    </target>
 </project>

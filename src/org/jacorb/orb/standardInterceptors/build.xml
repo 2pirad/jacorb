@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--      JacORB Standard Interceptors build file         -->
-  <!-- $Id: build.xml,v 1.8 2002-10-15 12:32:39 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.9 2003-08-15 13:29:26 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -26,9 +26,5 @@
       <antcall target="jacorb-javac">
          <param name="javac-includes" value="org/jacorb/orb/standardInterceptors/SASComponentInterceptor.java"/>
       </antcall>
-   </target>
-
-
-   <target name="clean">
    </target>
 </project>
