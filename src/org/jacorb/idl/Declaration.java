@@ -22,11 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Declaration.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Declaration.java,v 1.10 2003-09-03 09:35:05 brose Exp $
  */
 
 
-class Declaration
+public class Declaration
     extends IdlSymbol
 {
     public Declaration( int num )
@@ -34,6 +34,17 @@ class Declaration
         super( num );
         pack_name = "";
     }
+
+    /**
+     * @overrides accept in IdlSymbol
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitDeclaration( this );
+    }
+
+
 }
 
 
