@@ -38,7 +38,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.31 2003-05-24 10:08:20 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.32 2003-06-20 15:07:09 andre.spiegel Exp $
  */
 public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 {
@@ -182,7 +182,9 @@ public class BasicAdapter extends org.omg.ETF._HandleLocalBase
         if (listener instanceof IIOPListener)
         {
             IIOPProfile profile = (IIOPProfile)listener.endpoint();
-            return profile.getAddress().getHost();
+            return Environment.isPropertyOn ("jacorb.dns.enable")
+                   ? profile.getAddress().getHostname()
+                   : profile.getAddress().getIP();
         }
         else
         {
