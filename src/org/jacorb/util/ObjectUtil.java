@@ -24,7 +24,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ObjectUtil.java,v 1.4 2001-03-27 12:01:50 noffke Exp $
+ * @version $Id: ObjectUtil.java,v 1.5 2001-07-23 18:50:03 jacorb Exp $
  */
 
 public  class ObjectUtil
@@ -52,9 +52,10 @@ public  class ObjectUtil
 	}
 	catch ( Exception e )
 	{ 
-            org.jacorb.util.Debug.output(2, "Could not read from URL " + url );
-	    org.jacorb.util.Debug.output(3,e);	    
+            org.jacorb.util.Debug.output( 1, "ERROR: Could not read from URL " + url );
+	    org.jacorb.util.Debug.output( 3, e );	    
 	}
+
 	return null;
     }
 
