@@ -27,14 +27,13 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.21 2002-04-17 08:49:13 gerald Exp $
+ * @version $Id: StructType.java,v 1.22 2002-05-07 12:57:30 gerald Exp $
  */
 
 class StructType
-        extends TypeDeclaration
-        implements Scope
+    extends TypeDeclaration
+    implements Scope
 {
-
     private boolean written = false;
     public boolean exc;
     public MemberList memberlist = null;

@@ -20,7 +20,7 @@ package org.jacorb.orb;
  */
 
 /**
- * @version $Id: Reference.java,v 1.5 2002-05-06 14:37:26 gerald Exp $
+ * @version $Id: Reference.java,v 1.6 2002-05-07 12:57:30 gerald Exp $
  */
 
 public class Reference

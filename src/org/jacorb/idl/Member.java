@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.16 2002-04-17 08:49:09 gerald Exp $
+ * @version $Id: Member.java,v 1.17 2002-05-07 12:57:29 gerald Exp $
  *
  */
 
@@ -31,9 +31,8 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 class Member
-        extends Declaration
+    extends Declaration
 {
-
     public TypeSpec type_spec;
     public SymbolList declarators;
     public Vector extendVector;

@@ -20,7 +20,7 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: MemberList.java,v 1.9 2002-04-17 08:49:09 gerald Exp $
+ * @version $Id: MemberList.java,v 1.10 2002-05-07 12:57:30 gerald Exp $
  *
  */
 
@@ -30,9 +30,8 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 class MemberList
-        extends SymbolList
+    extends SymbolList
 {
-
     Vector extendVector = new Vector();
     private TypeDeclaration containingType;
     private boolean parsed = false;

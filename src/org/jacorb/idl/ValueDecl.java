@@ -28,12 +28,12 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.14 2002-04-17 08:49:16 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.15 2002-05-07 12:57:30 gerald Exp $
  */
-class ValueDecl
-        extends Value
-{
 
+class ValueDecl
+    extends Value
+{
     private MemberList stateMembers;
     private List operations;
     private List exports;
@@ -65,6 +65,10 @@ class ValueDecl
             else
                 exports.add( dec );
         }
+        stateMembers.setContainingType( this );
+        stateMembers.setPackage( name );
+        if( stateMembers != null )
+            stateMembers.setEnclosingSymbol( this );
     }
 
     public void setInheritanceSpec( ValueInheritanceSpec spec )
@@ -121,7 +125,8 @@ class ValueDecl
                 inheritanceSpec != null &&
                 inheritanceSpec.truncatable != null )
         {
-            parser.error( "Valuetype " + typeName() + " may no be BOTH custom AND truncatable", token );
+            parser.error( "Valuetype " + typeName() + 
+                          " may no be BOTH custom AND truncatable", token );
         }
 
         try
@@ -165,7 +170,9 @@ class ValueDecl
             for( Enumeration e = inheritanceSpec.getValueTypes(); e.hasMoreElements(); )
             {
                 ScopedName name = (ScopedName)e.nextElement();
-                ConstrTypeSpec ts = (ConstrTypeSpec)name.resolvedTypeSpec().typeSpec();
+                ConstrTypeSpec ts = 
+                    (ConstrTypeSpec)name.resolvedTypeSpec().typeSpec();
+
                 if( ts.declaration() instanceof Value )
                 {
                     continue;
