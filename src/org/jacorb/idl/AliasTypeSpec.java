@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.7 2001-04-14 15:43:28 jacorb Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.8 2001-06-08 15:34:49 jacorb Exp $
  */
 
 public class AliasTypeSpec 
@@ -283,9 +283,14 @@ public class AliasTypeSpec
         ps.println(" */\n");
     }
 
+
+
     public String holderName()
     {
-	if( originalType.basic()  &&  !(originalType instanceof TemplateTypeSpec))
+	if( originalType.basic() && 
+           (  !(originalType instanceof TemplateTypeSpec) ||
+              originalType instanceof StringType )
+              )
 	{
 	    return originalType.holderName();
 	}
@@ -294,6 +299,7 @@ public class AliasTypeSpec
 	    return full_name() + "Holder";
 	}
     }
+
 
     private void printHolderClass(String className, PrintWriter ps)
     {
@@ -437,25 +443,7 @@ public class AliasTypeSpec
 	}
     }
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

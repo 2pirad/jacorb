@@ -46,7 +46,7 @@ import java_cup.runtime.float_token;
  *  
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.8 2001-06-08 12:10:32 jacorb Exp $
+ * @version $Id: lexer.java,v 1.9 2001-06-08 15:34:49 jacorb Exp $
  * @author Gerald Brose
  * 
  */
@@ -134,8 +134,8 @@ public class lexer
         warning_count = 0;
         currentPragmaPrefix = "" ;
         line = new StringBuffer();
-        ifStack.clear();
-        tokenStack.clear();
+        ifStack.removeAllElements();
+        tokenStack.removeAllElements();
         defines.clear();
    }
 
