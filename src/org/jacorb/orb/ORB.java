@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.90 2003-05-23 13:33:58 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.91 2003-05-24 10:02:38 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -2011,6 +2011,14 @@ public final class ORB
         return interceptor_manager;
     }
 
+    public TransportManager getTransportManager()
+    {
+        if (transport_manager == null)
+        {
+            transport_manager = new TransportManager (this);
+        }
+        return transport_manager;
+    }
 
     /* DII helper methods */
 
