@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ConnectionManager.java,v 1.16 2001-10-11 07:05:52 jacorb Exp $
+ * @version $Id: ConnectionManager.java,v 1.17 2001-10-17 07:44:58 jacorb Exp $
  *
  */
 
@@ -142,8 +142,7 @@ public class ConnectionManager
      * @return <code>Connection</code> */
 
     public synchronized ClientConnection getConnection( String host_and_port, 
-                                                        boolean use_ssl,
-                                                        int initial_id )
+                                                        boolean use_ssl )
     {
         host_and_port = unifyTargetAddress( host_and_port );
         
@@ -214,8 +213,6 @@ public class ConnectionManager
         }
 
         c.incClients();
-
-        c.setMinId( initial_id );
 
         return c;
     }

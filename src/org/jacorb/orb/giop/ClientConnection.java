@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.20 2001-10-11 07:05:52 jacorb Exp $ 
+ * @version $Id: ClientConnection.java,v 1.21 2001-10-17 07:44:58 jacorb Exp $ 
  */
 
 public class ClientConnection 
@@ -170,26 +170,6 @@ public class ClientConnection
         id_count += 2;
 
         return id;
-    }
-
-    public synchronized void setMinId( int min_id )
-    {
-        if( (id_count % 2) == 0 )
-        {
-            if( (min_id % 2) == 1 )
-            {
-                min_id += 1;//make it even
-            }
-        }
-        else
-        {
-            if( (min_id % 2) == 0 )
-            {
-                min_id += 1; //make it odd
-            }
-        }
-
-        id_count = Math.max( id_count, min_id );
     }
 
     public void incClients()
