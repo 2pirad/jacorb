@@ -27,7 +27,7 @@ import org.omg.CORBA.portable.*;
 
 import org.jacorb.orb.portableInterceptor.*;
 import org.jacorb.orb.ParsedIOR;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 import org.jacorb.orb.*;
 import org.jacorb.util.Debug;
 import java.util.Enumeration;
@@ -36,7 +36,7 @@ import java.util.Enumeration;
  * DII requests
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.10 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: Request.java,v 1.11 2003-08-15 11:17:44 andre.spiegel Exp $
  */
 
 public class Request 

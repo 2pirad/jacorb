@@ -26,7 +26,7 @@ import java.util.*;
 
 import org.jacorb.util.*;
 import org.jacorb.orb.*;
-import org.jacorb.orb.connection.TransportManager;
+import org.jacorb.orb.giop.TransportManager;
 import org.jacorb.orb.factory.*;
 import org.jacorb.orb.iiop.*;
 
@@ -41,7 +41,7 @@ import org.omg.CSIIOP.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.2 2003-06-20 15:13:02 andre.spiegel Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.3 2003-08-15 11:17:49 andre.spiegel Exp $
  */
 
 public class ClientIIOPConnection

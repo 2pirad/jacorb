@@ -26,7 +26,7 @@ import org.jacorb.util.*;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.orb.SystemExceptionHelper;
 import org.jacorb.orb.portableInterceptor.*;
-import org.jacorb.orb.connection.ReplyOutputStream;
+import org.jacorb.orb.giop.ReplyOutputStream;
 
 
 import java.util.*;
@@ -49,7 +49,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.17 2003-02-23 12:58:51 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.18 2003-08-15 11:18:04 andre.spiegel Exp $
  */
 
 public class RequestProcessor 

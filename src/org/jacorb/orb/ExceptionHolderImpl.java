@@ -32,7 +32,7 @@ import org.omg.CORBA.UserException;
 
 import org.jacorb.ir.*;
 import org.jacorb.util.*;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 
 /**
  * JacORB-specific implementation of 
@@ -40,7 +40,7 @@ import org.jacorb.orb.connection.*;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.7 2003-08-15 11:17:32 andre.spiegel Exp $
  */
 public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
 {

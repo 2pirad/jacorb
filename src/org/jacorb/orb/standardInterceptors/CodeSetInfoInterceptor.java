@@ -22,14 +22,14 @@ package org.jacorb.orb.standardInterceptors;
 
 import org.omg.PortableInterceptor.*;
 import org.jacorb.orb.*;
-import org.jacorb.orb.connection.CodeSet;
+import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.util.Debug;
 
 /**
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.15 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.16 2003-08-15 11:17:53 andre.spiegel Exp $
  */
 
 public class CodeSetInfoInterceptor

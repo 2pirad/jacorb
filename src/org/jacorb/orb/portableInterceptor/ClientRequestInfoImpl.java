@@ -36,7 +36,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.16 2003-05-06 14:35:58 andre.spiegel Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.17 2003-08-15 11:17:51 andre.spiegel Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -53,10 +53,10 @@ public class ClientRequestInfoImpl
     public org.jacorb.orb.Delegate delegate = null;
     public org.jacorb.orb.ORB orb = null;
 
-    public org.jacorb.orb.connection.RequestOutputStream request_os = null;
-    public org.jacorb.orb.connection.ReplyInputStream reply_is = null;
+    public org.jacorb.orb.giop.RequestOutputStream request_os = null;
+    public org.jacorb.orb.giop.ReplyInputStream reply_is = null;
 
-    public org.jacorb.orb.connection.ClientConnection connection = null;
+    public org.jacorb.orb.giop.ClientConnection connection = null;
 
     public ClientRequestInfoImpl() 
     {
@@ -65,11 +65,11 @@ public class ClientRequestInfoImpl
 
     public ClientRequestInfoImpl
                       ( org.jacorb.orb.ORB orb,
-                        org.jacorb.orb.connection.RequestOutputStream ros,
+                        org.jacorb.orb.giop.RequestOutputStream ros,
                         org.omg.CORBA.Object self,
                         org.jacorb.orb.Delegate delegate,
                         org.jacorb.orb.ParsedIOR piorOriginal,
-                        org.jacorb.orb.connection.ClientConnection connection )
+                        org.jacorb.orb.giop.ClientConnection connection )
     {
          this.orb = orb;
          this.operation = ros.operation();

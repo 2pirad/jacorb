@@ -33,7 +33,7 @@ import org.jacorb.orb.portableInterceptor.ServerRequestInfoImpl;
 import org.jacorb.security.level2.*;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.orb.iiop.*;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 
 import iaik.security.ssl.SSLSocket;
 
@@ -41,7 +41,7 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.8 2003-05-07 16:20:42 andre.spiegel Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.9 2003-08-15 11:18:19 andre.spiegel Exp $
  */
 
 public class ServerInvocationInterceptor

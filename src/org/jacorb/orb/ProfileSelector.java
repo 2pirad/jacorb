@@ -24,14 +24,14 @@ import java.util.*;
 
 import org.omg.ETF.Profile;
 
-import org.jacorb.orb.connection.ClientConnectionManager;
+import org.jacorb.orb.giop.ClientConnectionManager;
 
 /**
  * A ProfileSelector decides, on the client side, which Profile from
  * an object's IOR should be used to communicate with the object.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: ProfileSelector.java,v 1.1 2003-06-23 19:04:17 andre.spiegel Exp $
+ * @version $Id: ProfileSelector.java,v 1.2 2003-08-15 11:17:41 andre.spiegel Exp $
  */
 public interface ProfileSelector
 {

@@ -31,7 +31,7 @@ import org.omg.CORBA.*;
 import org.jacorb.util.*;
 import org.jacorb.orb.portableInterceptor.ClientRequestInfoImpl;
 import org.jacorb.orb.*;
-import org.jacorb.orb.connection.ClientConnection;
+import org.jacorb.orb.giop.ClientConnection;
 import org.omg.IOP.CodecFactoryPackage.*;
 
 import org.omg.IOP.*;
@@ -43,7 +43,7 @@ import org.omg.ATLAS.*;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.3 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.4 2003-08-15 11:18:11 andre.spiegel Exp $
  */
 
 public class SASClientInterceptor

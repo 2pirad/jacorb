@@ -23,7 +23,7 @@ package org.jacorb.orb;
 import java.lang.reflect.Constructor;
 import java.net.*;
 import java.util.*;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 import org.jacorb.orb.iiop.*;
 import org.jacorb.orb.factory.SSLServerSocketFactory;
 import org.jacorb.orb.factory.ServerSocketFactory;
@@ -39,7 +39,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.35 2003-07-02 08:29:10 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.36 2003-08-15 11:17:08 andre.spiegel Exp $
  */
 public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 {

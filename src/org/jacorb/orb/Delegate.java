@@ -25,13 +25,13 @@ import java.util.*;
 import org.jacorb.ir.RepositoryID;
 import java.util.*;
 import org.jacorb.imr.ImRAccessImpl;
-import org.jacorb.orb.connection.ClientConnection;
-import org.jacorb.orb.connection.ClientConnectionManager;
-import org.jacorb.orb.connection.LocateReplyInputStream;
-import org.jacorb.orb.connection.LocateRequestOutputStream;
-import org.jacorb.orb.connection.ReplyInputStream;
-import org.jacorb.orb.connection.ReplyPlaceholder;
-import org.jacorb.orb.connection.RequestOutputStream;
+import org.jacorb.orb.giop.ClientConnection;
+import org.jacorb.orb.giop.ClientConnectionManager;
+import org.jacorb.orb.giop.LocateReplyInputStream;
+import org.jacorb.orb.giop.LocateRequestOutputStream;
+import org.jacorb.orb.giop.ReplyInputStream;
+import org.jacorb.orb.giop.ReplyPlaceholder;
+import org.jacorb.orb.giop.RequestOutputStream;
 import org.jacorb.orb.iiop.*;
 import org.jacorb.orb.portableInterceptor.ClientInterceptorIterator;
 import org.jacorb.orb.portableInterceptor.ClientRequestInfoImpl;
@@ -59,7 +59,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.85 2003-08-11 13:47:29 nick.cross Exp $
+ * @version $Id: Delegate.java,v 1.86 2003-08-15 11:17:29 andre.spiegel Exp $
  *
  */
 

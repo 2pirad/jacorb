@@ -23,11 +23,11 @@ package org.jacorb.orb;
 
 import java.util.*;
 import org.omg.ETF.Profile;
-import org.jacorb.orb.connection.ClientConnectionManager;
+import org.jacorb.orb.giop.ClientConnectionManager;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: DefaultProfileSelector.java,v 1.2 2003-08-11 09:34:06 andre.spiegel Exp $
+ * @version $Id: DefaultProfileSelector.java,v 1.3 2003-08-15 11:17:26 andre.spiegel Exp $
  */
 public class DefaultProfileSelector implements ProfileSelector
 {

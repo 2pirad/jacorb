@@ -22,7 +22,7 @@ package org.jacorb.orb;
 
 import java.io.IOException;
 import java.util.*;
-import org.jacorb.orb.connection.CodeSet;
+import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.util.Debug;
 import org.jacorb.util.Environment;
 import org.jacorb.util.ValueHandler;
@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.62 2003-05-24 10:05:57 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.63 2003-08-15 11:17:14 andre.spiegel Exp $
  */
 
 public class CDRInputStream

@@ -37,7 +37,7 @@ import org.jacorb.orb.*;
 import org.omg.IOP.*;
 import org.omg.GIOP.*;
 import org.omg.CSI.*;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.omg.IOP.CodecFactoryPackage.*;
 
@@ -45,7 +45,7 @@ import org.omg.IOP.CodecFactoryPackage.*;
  * This is the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInterceptor.java,v 1.4 2003-01-13 15:29:50 david.robison Exp $
+ * @version $Id: SASTargetInterceptor.java,v 1.5 2003-08-15 11:18:14 andre.spiegel Exp $
  */
 
 public class SASTargetInterceptor
@@ -73,7 +73,7 @@ public class SASTargetInterceptor
         //sourceNameSlotID = info.allocate_slot_id();
         //contextMsgSlotID = info.allocate_slot_id();
         sasReplySlotID = info.allocate_slot_id();
-        sasContextsCubby = org.jacorb.orb.connection.GIOPConnection.allocate_cubby_id();
+        sasContextsCubby = org.jacorb.orb.giop.GIOPConnection.allocate_cubby_id();
         Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, (byte) 1, (byte) 0);
         codec = info.codec_factory().create_codec(encoding);
         orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB ();

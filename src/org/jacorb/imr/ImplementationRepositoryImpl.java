@@ -26,7 +26,7 @@ import org.jacorb.imr.RegistrationPackage.*;
 import org.jacorb.imr.AdminPackage.*;
 
 import org.jacorb.orb.*;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 import org.jacorb.orb.iiop.*;
 
 import org.jacorb.poa.util.POAUtil;
@@ -50,7 +50,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.46 2003-08-11 14:24:47 nick.cross Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.47 2003-08-15 11:17:06 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl

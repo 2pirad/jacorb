@@ -23,7 +23,7 @@ package org.jacorb.orb.dsi;
 import java.util.Vector;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 import org.jacorb.orb.portableInterceptor.ServerInterceptorIterator;
 import org.jacorb.orb.portableInterceptor.ServerRequestInfoImpl;
 import org.jacorb.poa.util.POAUtil;
@@ -38,7 +38,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.21 2003-04-16 14:13:11 nick.cross Exp $
+ * @version $Id: ServerRequest.java,v 1.22 2003-08-15 11:17:47 andre.spiegel Exp $
  */
 
 public class ServerRequest

@@ -20,7 +20,7 @@
 
 package org.jacorb.orb.util;
 
-import org.jacorb.orb.connection.CodeSet;
+import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.orb.iiop.*;
 import org.jacorb.orb.ParsedIOR;
 import org.jacorb.orb.*;
@@ -36,7 +36,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.24 2003-08-11 13:17:27 nick.cross Exp $
+ * @version $Id: PrintIOR.java,v 1.25 2003-08-15 11:17:56 andre.spiegel Exp $
  */
 
 public class PrintIOR

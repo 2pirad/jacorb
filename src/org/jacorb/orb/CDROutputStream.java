@@ -23,7 +23,7 @@ package org.jacorb.orb;
 import java.io.*;
 import java.util.*;
 import org.jacorb.ir.RepositoryID;
-import org.jacorb.orb.connection.CodeSet;
+import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.util.Debug;
 import org.jacorb.util.Environment;
 import org.jacorb.util.ValueHandler;
@@ -31,7 +31,7 @@ import org.omg.CORBA.TCKind;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.78 2003-08-11 14:23:59 nick.cross Exp $
+ * @version $Id: CDROutputStream.java,v 1.79 2003-08-15 11:17:21 andre.spiegel Exp $
  *
  * A stream for CDR marshalling.
  *

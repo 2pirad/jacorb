@@ -30,7 +30,7 @@ import org.jacorb.util.*;
 import org.jacorb.orb.iiop.*;
 import org.jacorb.orb.policies.*;
 import org.jacorb.orb.dii.Request;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 import org.jacorb.orb.portableInterceptor.*;
 import org.jacorb.poa.util.POAUtil;
 
@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.95 2003-08-11 13:17:04 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.96 2003-08-15 11:17:38 andre.spiegel Exp $
  */
 
 public final class ORB
