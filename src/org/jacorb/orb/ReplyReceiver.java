@@ -47,7 +47,7 @@ import java.util.*;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.11 2003-04-23 14:39:20 nick.cross Exp $
+ * @version $Id: ReplyReceiver.java,v 1.12 2003-04-29 13:07:26 nick.cross Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -227,7 +227,17 @@ public class ReplyReceiver extends ReplyPlaceholder
     {
         try
         {
-            super.getInputStream();  // block until reply is available
+           // On NT connection closure due to service shutdown is not
+           // detected until this point, resulting in a COMM_FAILURE.
+           // Map to RemarshalException to force rebind attempt.
+           try
+           {
+               getInputStream();  // block until reply is available
+           }
+           catch (org.omg.CORBA.COMM_FAILURE ex)
+           {
+              throw new RemarshalException();
+           }
         }
         catch ( SystemException se )
         {

@@ -37,7 +37,7 @@ import org.jacorb.util.*;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.9 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.10 2003-04-29 13:07:26 nick.cross Exp $
  */
 
 public class SASComponentInterceptor
@@ -185,6 +185,9 @@ public class SASComponentInterceptor
                 sasDataStream.beginEncapsulatedArray();
                 CompoundSecMechListHelper.write( sasDataStream , compoundSecMechList );
                 tc = new TaggedComponent( TAG_CSI_SEC_MECH_LIST.value, sasDataStream.getBufferCopy() );
+
+                sasDataStream.release ();
+                sasDataStream = null;
             }
 
             info.add_ior_component_to_profile (tc, TAG_INTERNET_IOP.value);

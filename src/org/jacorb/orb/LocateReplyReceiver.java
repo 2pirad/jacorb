@@ -32,36 +32,22 @@ import org.omg.CORBA.portable.RemarshalException;
  * A special ReplyPlaceholder that receives LocateReplies.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: LocateReplyReceiver.java,v 1.3 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: LocateReplyReceiver.java,v 1.4 2003-04-29 13:07:26 nick.cross Exp $
  */
-public class LocateReplyReceiver 
+public class LocateReplyReceiver
     extends org.jacorb.orb.connection.ReplyPlaceholder
 {
     public LocateReplyReceiver()
-    {        
+    {
         super();
     }
 
     /**
      * This method blocks until a reply becomes available.
-     */    
-    public synchronized LocateReplyInputStream getReply() 
+     */
+    public synchronized LocateReplyInputStream getReply()
 	throws RemarshalException
     {
-        return (LocateReplyInputStream)super.getInputStream();
+        return (LocateReplyInputStream)getInputStream();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
