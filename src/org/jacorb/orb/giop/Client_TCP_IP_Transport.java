@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.6 2002-02-12 17:51:24 steve.osselton Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.7 2002-02-14 10:35:58 steve.osselton Exp $
  */
 
 public class Client_TCP_IP_Transport 
@@ -172,18 +172,20 @@ public class Client_TCP_IP_Transport
     protected synchronized void close( int reason )
         throws IOException
     {
-        if( connected && socket != null )
+        if (connected && socket != null)
         {
-            // Close socket output stream to avoid deadlock in some cases (Bug #81)
-
-            try
-            {
-               socket.getOutputStream().close ();
-            }
-            catch (IOException ex)
-            {
-                // Ignore
-            }
+             // Try and invoke socket.shutdownOutput via reflection (bug #81)
+ 
+             try
+             {
+                 java.lang.reflect.Method method 
+                     = (socket.getClass().getMethod ("shutdownOutput", new Class [0]));
+                 method.invoke (socket, new java.lang.Object[0]);
+             }
+             catch (Throwable ex)
+             {
+                 // If Socket does not support shutdownOutput method (i.e JDK < 1.3)
+             }
 
             socket.close ();
             
