@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.61 2003-05-21 13:10:10 nick.cross Exp $
+ * $Id: CDRInputStream.java,v 1.62 2003-05-24 10:05:57 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -864,7 +864,7 @@ public class CDRInputStream
         handle_chunking();
 
         org.omg.IOP.IOR ior = org.omg.IOP.IORHelper.read(this);
-        ParsedIOR pior = new ParsedIOR( ior );
+        ParsedIOR pior = new ParsedIOR( ior, (org.jacorb.orb.ORB)orb );
 
         if( pior.isNull() )
         {
