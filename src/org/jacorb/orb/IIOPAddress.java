@@ -2,29 +2,39 @@ package org.jacorb.orb;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.2 2003-03-31 16:02:26 andre.spiegel Exp $
+ * @version $Id: IIOPAddress.java,v 1.3 2003-04-04 14:19:21 andre.spiegel Exp $
  */
 public class IIOPAddress 
 {
-	private String host;
-	private int port;
-	
-	public IIOPAddress (String host, int port)
-	{
-		this.host = host;
-		this.port = port;
-	}
+    private String host;
+    private int port;
+    
+    public IIOPAddress (String host, int port)
+    {
+        this.host = host;
+        if (port < 0)
+            this.port = port + 65536;
+        else
+            this.port = port;
+    }
+    
+    public static IIOPAddress read (org.omg.CORBA.portable.InputStream in)
+    {
+        String host = in.read_string();
+        short  port = in.read_ushort();
+        return new IIOPAddress (host, port);
+    }
 
-	public String getHost()
-	{
-		return host;
-	}
+    public String getHost()
+    {
+        return host;
+    }
 
-	public int getPort()
-	{
-		return port;
-	}
-	
+    public int getPort()
+    {
+        return port;
+    }
+    
     public boolean equals (Object other)
     {
         if (other instanceof IIOPAddress)
@@ -36,8 +46,8 @@ public class IIOPAddress
             return false;
     }
     
-	public String toString()
-	{
-		return host + ":" + port;
-	}
+    public String toString()
+    {
+        return host + ":" + port;
+    }
 }
