@@ -27,7 +27,7 @@ import org.apache.avalon.framework.logger.*;
  * specific logging backend.
  *
  * @author Gerald Brose 
- * @version $Id: LoggerFactory.java,v 1.2 2003-12-22 22:25:09 francisco Exp $
+ * @version $Id: LoggerFactory.java,v 1.3 2004-03-03 15:25:43 gerald Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -54,5 +54,9 @@ public interface LoggerFactory
     Logger getNamedLogger(String name, String fileName, long maxFileSize) 
         throws java.io.IOException;
 
-
+    /**
+     * set the file name and max file size for logging to a file
+     */ 
+    void setDefaultLogFile(String fileName, long maxLogSize)
+        throws java.io.IOException;
 }
