@@ -28,7 +28,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.10 2001-06-13 09:19:00 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.11 2001-08-08 08:35:08 jacorb Exp $
  *
  */
 
@@ -43,7 +43,6 @@ public class ReplyInputStream
     private boolean communicationException = false;
     private boolean remarshalException = false;
     private boolean timeoutException = false;
-    private org.omg.CORBA.Object target;
     public org.omg.GIOP.MessageHeader_1_0 msg_hdr=null;
 
     public ReplyInputStream( org.omg.CORBA.ORB orb, int request_id)
@@ -59,10 +58,9 @@ public class ReplyInputStream
      * for determining the correct interceptors)
      */
 
-    public synchronized void init( byte[] buf, org.omg.CORBA.Object target )
+    public synchronized void init( byte[] buf )
     {
 	super.buffer = buf;
-	this.target = target;
 	ready = true;
 	this.notify();
     }

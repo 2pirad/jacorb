@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.16 2001-08-06 07:46:31 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.17 2001-08-08 08:35:07 jacorb Exp $
  *
  */
 
@@ -733,7 +733,7 @@ public final class Delegate
         {          
             os.close(); 
 
-            rep = (ReplyInputStream) connection.sendRequest( self,ros );
+            rep = (ReplyInputStream) connection.sendRequest( ros );
  
             // devik: if tcs was not negotiated yet, in every context
             // we will send tcs wanted. After first such request was
