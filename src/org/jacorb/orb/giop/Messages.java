@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /*
  *        JacORB - a free Java ORB
@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.14 2003-02-23 12:53:57 andre.spiegel Exp $
+ * @version $Id: Messages.java,v 1.15 2003-08-15 11:04:40 andre.spiegel Exp $
  *
  */
 

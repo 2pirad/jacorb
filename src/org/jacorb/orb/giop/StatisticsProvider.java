@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 
 /**
@@ -29,7 +29,7 @@ package org.jacorb.orb.connection;
  * works together with the SelectionStrategy.
  *
  * @author Nicolas Noffke
- * @version $Id: StatisticsProvider.java,v 1.3 2002-12-20 18:29:05 nicolas Exp $ */
+ * @version $Id: StatisticsProvider.java,v 1.4 2003-08-15 11:04:40 andre.spiegel Exp $ */
 
 public interface StatisticsProvider 
 {

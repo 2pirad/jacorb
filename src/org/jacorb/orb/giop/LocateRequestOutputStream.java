@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /*
  *        JacORB - a free Java ORB
@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateRequestOutputStream.java,v 1.9 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: LocateRequestOutputStream.java,v 1.10 2003-08-15 11:04:40 andre.spiegel Exp $
  *
  */
 

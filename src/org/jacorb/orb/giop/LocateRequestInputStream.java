@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import org.jacorb.orb.*;
 import org.omg.GIOP.*;
@@ -27,7 +27,7 @@ import org.omg.IOP.ServiceContext;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequestInputStream.java,v 1.12 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: LocateRequestInputStream.java,v 1.13 2003-08-15 11:04:40 andre.spiegel Exp $
  * 
  */
 

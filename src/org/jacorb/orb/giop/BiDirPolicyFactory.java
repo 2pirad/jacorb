@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import org.omg.CORBA.Policy;
 import org.omg.CORBA.Any;
@@ -38,7 +38,7 @@ import org.jacorb.util.Debug;
  * Created: Mon Sep  3 18:32:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirPolicyFactory.java,v 1.5 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: BiDirPolicyFactory.java,v 1.6 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class BiDirPolicyFactory 

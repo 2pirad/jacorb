@@ -17,7 +17,7 @@
  *   License along with this library; if not, write to the Free
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import java.util.*;
 
@@ -25,7 +25,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.5 2003-05-07 16:15:23 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.6 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class GIOPConnectionManager 

@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import org.jacorb.util.Debug;
 
@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 17:12:10 2002
  *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirServerReplyListener.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: NoBiDirServerReplyListener.java,v 1.7 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class NoBiDirServerReplyListener 

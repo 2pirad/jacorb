@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /*
  *        JacORB - a free Java ORB
@@ -29,7 +29,7 @@ import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.16 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ReplyInputStream.java,v 1.17 2003-08-15 11:04:40 andre.spiegel Exp $
  *
  */
 

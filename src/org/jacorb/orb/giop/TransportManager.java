@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /*
  *        JacORB - a free Java ORB
@@ -37,7 +37,7 @@ import org.jacorb.util.*;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.13 2003-06-23 19:03:17 andre.spiegel Exp $
+ * @version $Id: TransportManager.java,v 1.14 2003-08-15 11:04:40 andre.spiegel Exp $
  * */
 
 public class TransportManager

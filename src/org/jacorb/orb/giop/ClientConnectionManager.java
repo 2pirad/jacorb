@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /*
  *        JacORB - a free Java ORB
@@ -36,7 +36,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.9 2003-06-23 19:01:16 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.10 2003-08-15 11:04:40 andre.spiegel Exp $
  *
  */
 

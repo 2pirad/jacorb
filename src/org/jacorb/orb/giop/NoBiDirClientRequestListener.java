@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import org.omg.GIOP.ReplyStatusType_1_2;
 
@@ -37,7 +37,7 @@ import java.io.IOException;
  * Created: Sat Aug 18 11:47:12 2002
  *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirClientRequestListener.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: NoBiDirClientRequestListener.java,v 1.9 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class NoBiDirClientRequestListener 

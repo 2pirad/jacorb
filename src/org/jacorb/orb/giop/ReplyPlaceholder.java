@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import org.jacorb.orb.*;
 import org.jacorb.util.*;
@@ -32,7 +32,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.13 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.14 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 public abstract class ReplyPlaceholder
 {

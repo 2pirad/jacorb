@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import java.io.IOException;
 
@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.14 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.15 2003-08-15 11:04:40 andre.spiegel Exp $
  *
  */
 

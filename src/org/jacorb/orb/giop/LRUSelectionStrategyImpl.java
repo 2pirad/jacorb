@@ -18,14 +18,14 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import java.util.List;
 import java.util.Iterator;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: LRUSelectionStrategyImpl.java,v 1.3 2003-01-07 18:06:59 nicolas Exp $
+ * @version $Id: LRUSelectionStrategyImpl.java,v 1.4 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class LRUSelectionStrategyImpl

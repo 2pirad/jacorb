@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import org.omg.PortableInterceptor.*;
 import org.omg.IOP.Codec;
@@ -38,7 +38,7 @@ import org.jacorb.orb.portableInterceptor.*;
  * Created: Sun Sep  2 18:16:27 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.10 2003-05-06 14:31:45 andre.spiegel Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.11 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class BiDirConnectionServerInterceptor 

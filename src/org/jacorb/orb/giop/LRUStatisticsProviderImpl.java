@@ -18,12 +18,12 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 
 /**
  * @author Nicolas Noffke
- * @version $Id: LRUStatisticsProviderImpl.java,v 1.2 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: LRUStatisticsProviderImpl.java,v 1.3 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class LRUStatisticsProviderImpl

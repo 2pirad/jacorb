@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 /*
  *        JacORB - a free Java ORB
  *
@@ -44,7 +44,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.13 2003-04-16 14:13:11 nick.cross Exp $
+ * @version $Id: ServerRequestListener.java,v 1.14 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class ServerRequestListener

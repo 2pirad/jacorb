@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import java.util.*;
 
@@ -36,7 +36,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.37 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: ClientConnection.java,v 1.38 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class ClientConnection

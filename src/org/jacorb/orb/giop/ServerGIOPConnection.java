@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import java.io.*;
 
@@ -27,7 +27,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.9 2003-05-07 16:15:23 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.10 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection

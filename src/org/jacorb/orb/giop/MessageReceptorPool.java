@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 import org.jacorb.util.threadpool.*;
 
@@ -29,7 +29,7 @@ import org.jacorb.util.threadpool.*;
  * Created: Sat Aug 18 10:40:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.5 2003-04-01 13:38:47 nick.cross Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.6 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class MessageReceptorPool

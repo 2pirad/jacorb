@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /*
  *        JacORB - a free Java ORB
@@ -22,7 +22,7 @@ package org.jacorb.orb.connection;
 
 import java.io.*;
 import org.jacorb.orb.*;
-import org.jacorb.orb.connection.*;
+import org.jacorb.orb.giop.*;
 
 import org.omg.GIOP.*;
 import org.omg.CORBA.portable.ApplicationException;
@@ -30,7 +30,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateReplyInputStream.java,v 1.11 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: LocateReplyInputStream.java,v 1.12 2003-08-15 11:04:40 andre.spiegel Exp $
  *
  */
 

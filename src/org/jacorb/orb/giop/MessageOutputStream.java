@@ -1,4 +1,4 @@
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /*
  *        JacORB - a free Java ORB
@@ -30,7 +30,7 @@ import org.jacorb.orb.CDROutputStream;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.10 2003-04-07 09:37:35 nick.cross Exp $
+ * @version $Id: MessageOutputStream.java,v 1.11 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public class MessageOutputStream

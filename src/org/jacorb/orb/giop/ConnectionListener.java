@@ -18,7 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.orb.connection;
+package org.jacorb.orb.giop;
 
 /**
  * ConnectionListener.java
@@ -27,7 +27,7 @@ package org.jacorb.orb.connection;
  * Created: Thu Oct  4 15:56:02 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ConnectionListener.java,v 1.5 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ConnectionListener.java,v 1.6 2003-08-15 11:04:40 andre.spiegel Exp $
  */
 
 public interface ConnectionListener 
