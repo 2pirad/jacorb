@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:18:47 2001
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.1.2.1 2001-08-22 07:22:19 jacorb Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.1.2.2 2001-08-29 21:18:57 jacorb Exp $
  */
 
 public abstract class TCP_IP_Transport 
@@ -52,15 +52,7 @@ public abstract class TCP_IP_Transport
         buff_mg = BufferManager.getInstance();
     }
 
-    /**
-     * Notifies the extending class, that the TCP/IP connection
-     * closed. The extending class has to decide if the whole
-     * transport should be closed (by throwing a
-     * CloseConnectionException), or if the transport should be kept
-     * alive.  
-     */
-    protected abstract void transportClosed()
-        throws CloseConnectionException;
+    protected abstract void transportClosed();
 
     protected abstract void connect();
     protected abstract void waitUntilConnected()
@@ -89,7 +81,7 @@ public abstract class TCP_IP_Transport
                 //read timed out
                 transportClosed();
 
-                return -1;
+                throw e;
             }
 
             if( n < 0 )
@@ -97,7 +89,7 @@ public abstract class TCP_IP_Transport
                 //ended to early
                 transportClosed();
                 
-                return -1;
+                throw new CloseConnectionException();
             }  
 
             read += n;
