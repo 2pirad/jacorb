@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeCodeTypeSpec.java,v 1.4 2002-04-15 14:37:29 gerald Exp $
+ * @version $Id: TypeCodeTypeSpec.java,v 1.5 2002-04-15 15:03:21 gerald Exp $
  */
 
 import java.util.*;
@@ -45,11 +45,6 @@ public class TypeCodeTypeSpec
     public String typeName()
     {
         return "org.omg.CORBA.TypeCode";
-    }
-
-    public String signature()
-    {
-        return "L" + typeName() + ";";
     }
 
     public TypeSpec typeSpec()

@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.27 2002-04-08 10:28:48 steve.osselton Exp $
+ * @version $Id: UnionType.java,v 1.28 2002-04-15 15:03:22 gerald Exp $
  *
  */
 
@@ -138,11 +138,6 @@ class UnionType
     public void set_included(boolean i)
     {
 	included = i;
-    }
-
-    public String signature()
-    {
-	return "L" + typeName() + ";";
     }
 
     public void setSwitchType( TypeSpec s )

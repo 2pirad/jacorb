@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: CharType.java,v 1.7 2002-03-19 09:24:59 nicolas Exp $
+ * @version $Id: CharType.java,v 1.8 2002-04-15 15:03:19 gerald Exp $
  */
 
 class CharType 
@@ -90,11 +90,6 @@ class CharType
     public String holderName()
     {	
 	return "org.omg.CORBA.CharHolder";
-    }
-
-    public String signature()
-    {
-	return "C";
     }
 
     public String printReadExpression(String strname)

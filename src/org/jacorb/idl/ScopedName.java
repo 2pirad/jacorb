@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  * 
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.11 2002-04-08 10:28:48 steve.osselton Exp $
+ * @version $Id: ScopedName.java,v 1.12 2002-04-15 15:03:20 gerald Exp $
  *
  */
 
@@ -592,10 +592,6 @@ class ScopedName
 	return n;
     }
 
-//      public String signature()
-//      {
-//  	return resolvedTypeSpec().signature();
-//      }
 
     public String holderName()
     {

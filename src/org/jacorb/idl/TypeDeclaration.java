@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.8 2002-04-15 14:37:29 gerald Exp $
+ * @version $Id: TypeDeclaration.java,v 1.9 2002-04-15 15:03:21 gerald Exp $
  */
 
 import java.util.*;
@@ -57,10 +57,6 @@ class TypeDeclaration
 	return type_decl.typeName();
     }
 
-    public String signature()
-    {
-	return type_decl.signature();
-    }
 
    /**
      *	we have to be able to distinguish between explicitly typedef'd

@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.15 2002-03-19 09:25:00 nicolas Exp $
+ * @version $Id: EnumType.java,v 1.16 2002-04-15 15:03:20 gerald Exp $
  */
 
 class EnumType 
@@ -85,12 +85,6 @@ class EnumType
         }
         return typeName;
     }
-
-    public String signature()
-    {
-        return  "L" +  typeName() + ";";
-    }
-
 
     public boolean basic()
     {

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: OctetType.java,v 1.5 2002-03-19 09:25:04 nicolas Exp $
+ * @version $Id: OctetType.java,v 1.6 2002-04-15 15:03:20 gerald Exp $
  */
 
 
@@ -68,11 +68,6 @@ class OctetType
 		 
     {}
 
-    public String signature()
-    {
-	return "B";
-    }
-
 
     public String holderName()
     {
@@ -101,23 +96,6 @@ class OctetType
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

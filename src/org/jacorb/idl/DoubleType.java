@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: DoubleType.java,v 1.5 2002-03-19 09:25:00 nicolas Exp $
+ * @version $Id: DoubleType.java,v 1.6 2002-04-15 15:03:20 gerald Exp $
  */
 
 
@@ -61,11 +61,6 @@ class DoubleType
     public String holderName()
     {
         return "org.omg.CORBA.DoubleHolder";
-    }
-
-    public String signature()
-    {
-        return "D";
     }
 
     public String printReadExpression(String strname)

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.9 2002-03-19 09:24:59 nicolas Exp $
+ * @version $Id: BaseType.java,v 1.10 2002-04-15 15:03:19 gerald Exp $
  */
 
 
@@ -75,11 +75,6 @@ class BaseType
                  typeName.startsWith( "boolean" ) ||
                  typeName.startsWith( "char" ) ||
                  typeName.startsWith( "string" ) );
-    }
-
-    public String signature()
-    {
-	return type_spec.signature();
     }
 
     public void setEnclosingSymbol( IdlSymbol s )

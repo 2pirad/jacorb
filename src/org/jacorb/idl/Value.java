@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.8 2002-04-11 06:42:49 gerald Exp $
+ * @version $Id: Value.java,v 1.9 2002-04-15 15:03:22 gerald Exp $
  */
 
 import java.util.Vector;
@@ -60,10 +60,6 @@ class Value
 	return value.typeName();
     }
 
-    public String signature()
-    {
-	return value.signature();
-    }
 
     /**
      * @returns a string for an expression of type TypeCode 

@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.19 2002-03-19 09:25:06 nicolas Exp $
+ * @version $Id: StructType.java,v 1.20 2002-04-15 15:03:21 gerald Exp $
  */
 
 class StructType 
@@ -92,10 +92,6 @@ class StructType
         return typeName;
     }
 
-    public String signature()
-    {
-	return "L" + typeName() + ";";
-    }
 
     public boolean basic()
     {

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.6 2002-04-03 12:55:33 steve.osselton Exp $
+ * @version $Id: LongType.java,v 1.7 2002-04-15 15:03:20 gerald Exp $
  */
 
 class LongType 
@@ -63,10 +63,6 @@ class LongType
 	return typeName();
     }
 
-    public String signature()
-    {
-	return "I";
-    }
 
     public String holderName()
     {

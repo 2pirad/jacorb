@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ShortType.java,v 1.6 2002-03-19 09:25:06 nicolas Exp $
+ * @version $Id: ShortType.java,v 1.7 2002-04-15 15:03:21 gerald Exp $
  */
 
 class ShortType 
@@ -66,10 +66,6 @@ class ShortType
         return "org.omg.CORBA.ShortHolder";
     }
 
-    public String signature()
-    {
-        return "S";
-    }
 
     public String printReadExpression(String ps)
     {
@@ -111,23 +107,5 @@ class ShortType
             return "extract_short";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

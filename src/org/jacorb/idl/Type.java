@@ -25,7 +25,7 @@ package org.jacorb.idl;
  * mimick inheritance.
  * 
  * @author Gerald Brose
- * @version $Id: Type.java,v 1.5 2002-03-19 09:25:07 nicolas Exp $	
+ * @version $Id: Type.java,v 1.6 2002-04-15 15:03:21 gerald Exp $	
  */
 
 
@@ -33,8 +33,6 @@ public interface Type
     extends java.lang.Cloneable
 {
     public String typeName();
-    
-    public String signature();
     
     public boolean basic();
 

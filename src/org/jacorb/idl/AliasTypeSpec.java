@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.22 2002-04-15 14:37:29 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.23 2002-04-15 15:03:19 gerald Exp $
  */
 
 public class AliasTypeSpec 
@@ -68,11 +68,6 @@ public class AliasTypeSpec
     public String typeName()
     {	
 	return originalType.typeName();
-    }
-
-    public String signature()
-    {
-	throw new java.lang.Error("compiler error, should not be called");
     }
 
     public TypeSpec typeSpec()

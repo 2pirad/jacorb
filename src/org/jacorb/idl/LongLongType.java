@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongLongType.java,v 1.6 2002-03-19 09:25:02 nicolas Exp $
+ * @version $Id: LongLongType.java,v 1.7 2002-04-15 15:03:20 gerald Exp $
  */
 
 class LongLongType 
@@ -112,11 +112,6 @@ class LongLongType
             return "extract_longlong";
     }
 
-
-    public String signature()
-    {
-        return "J";
-    }
 }
 
 

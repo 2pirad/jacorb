@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.10 2002-03-19 09:25:08 nicolas Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.11 2002-04-15 15:03:22 gerald Exp $
  */
 
 class ValueBoxDecl 
@@ -70,11 +70,6 @@ class ValueBoxDecl
         if (typeName == null)
             setPrintPhaseNames();
         return typeName;
-    }
-
-    public String signature()
-    {
-	return "L" + typeName() + ";";
     }
 
     public boolean basic()

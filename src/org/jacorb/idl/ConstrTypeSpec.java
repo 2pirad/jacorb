@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose 
- * @version $Id: ConstrTypeSpec.java,v 1.8 2002-03-25 17:48:56 gerald Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.9 2002-04-15 15:03:20 gerald Exp $
  */
 
 import java.io.PrintWriter;
@@ -98,11 +98,6 @@ class ConstrTypeSpec
     public String omgPrefix()
     {
 	return c_type_spec.omg_package_prefix;
-    }
-
-    public String signature()
-    {
-	return c_type_spec.signature();
     }
 
     public TypeSpec typeSpec()
