@@ -32,7 +32,7 @@ import org.apache.avalon.framework.logger.Logger;
  * pooled to spare ressources.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractPoolable.java,v 1.5 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolable.java,v 1.6 2004-06-07 15:21:40 alphonse.bendt Exp $
  */
 
 public abstract class AbstractPoolable implements Disposable, Configurable
@@ -43,8 +43,7 @@ public abstract class AbstractPoolable implements Disposable, Configurable
 
     public void configure (Configuration conf)
     {
-        logger_ =  ((org.jacorb.config.Configuration)conf).
-            getNamedLogger( getClass().getName() );
+        logger_ = ((org.jacorb.config.Configuration)conf).getNamedLogger( getClass().getName() );
     }
 
     /**
