@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.32 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: StructType.java,v 1.33 2003-08-19 13:26:56 brose Exp $
  */
 
 class StructType
@@ -534,8 +534,32 @@ class StructType
                 ps.println( d.name() + ";" );
             }
             ps.println( "\t}" );
-
         }
+
+        // generate toStrign method for structs, see bug #336
+
+        ps.println( "\t/** convenience method, not per IDL mapping */" );
+        ps.println( "\tpublic String toString()" );
+        ps.println( "\t{" );
+
+        StringBuffer sb = new StringBuffer("struct " + className + "[ \"");
+
+        if( memberlist != null )
+        {
+            for( Enumeration e = memberlist.v.elements(); e.hasMoreElements(); )
+            {
+                Member m = (Member)e.nextElement();
+                Declarator d = m.declarator;
+                sb.append( " + " + d.name() + " + \" \"" );
+            }
+        }
+
+        sb.append(" + \" ] \"; ");
+
+        ps.println( "\t\treturn \"" + sb.toString() );
+        ps.println( "\t}" );
+
+
         ps.println( "}" );
     }
 
