@@ -48,7 +48,7 @@ import org.apache.avalon.framework.logger.Logger;
  * Under high load Messages were delivered multiple times.
  *
  * @author Alphonse Bendt
- * @version $Id: MultipleDeliveryBugTest.java,v 1.1 2003-11-26 10:27:45 alphonse.bendt Exp $
+ * @version $Id: MultipleDeliveryBugTest.java,v 1.2 2003-12-19 13:52:18 alphonse.bendt Exp $
  */
 
 public class MultipleDeliveryBugTest extends NotificationTestCase
@@ -85,7 +85,8 @@ public class MultipleDeliveryBugTest extends NotificationTestCase
         NotificationTestCaseSetup _setup =
             new NotificationTestCaseSetup(_suite);
 
-        String[] methodNames = org.jacorb.test.common.TestUtils.getTestMethods(MultipleTest.class);
+        String[] methodNames =
+            org.jacorb.test.common.TestUtils.getTestMethods(MultipleDeliveryBugTest.class);
 
         for (int x = 0; x < methodNames.length; ++x)
         {
