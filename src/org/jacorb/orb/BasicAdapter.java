@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.12 2001-10-02 13:50:50 jacorb Exp $
+ * @version $Id: BasicAdapter.java,v 1.13 2002-01-11 21:38:55 gerald Exp $
  */
 
 import java.io.*;
@@ -491,8 +491,15 @@ public class BasicAdapter
                         socket.setSoTimeout(timeout);
                     }
 
+                    if( is_ssl )
+                    {
+                        // the operation does both the check and the
+                        // switch (if necessary)
+                        ssl_socket_factory.switchToClientMode( socket );
+                    }
+
                     Transport transport = 
-                        new Server_TCP_IP_Transport( socket, is_ssl );
+                        new Server_TCP_IP_Transport( socket, is_ssl );                    
 
                     GIOPConnection connection = 
                         new GIOPConnection( transport,
