@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.34 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: StructType.java,v 1.35 2003-09-03 20:52:50 brose Exp $
  */
 
 public class StructType
@@ -169,7 +169,18 @@ public class StructType
         boolean justAnotherOne = false;
 
         if( parsed )
-            throw new RuntimeException( "Compiler error: Struct already parsed!" );
+        {
+            // there are occasions where the compiler may try to parse
+            // a struct type spec for a second time, viz if the struct is 
+            // referred to through a scoped name in another struct member.
+            // that's not a problem, but we have to skip parsing again!
+            // (Gerald: introduced together with the fix for bug #84).
+            return;
+        }
+
+        if( logger.isDebugEnabled() )
+            logger.debug( "Parsing Struct " + name );
+
         escapeName();
 
         ConstrTypeSpec ctspec = new ConstrTypeSpec( new_num() );
@@ -565,6 +576,8 @@ public class StructType
     public void print( PrintWriter ps )
     {
         setPrintPhaseNames();
+        if( ! parsed )
+            throw new ParseException (" Unparsed Struct!");
 
         /** no code generation for included definitions */
         if( included && !generateIncluded() )
