@@ -27,11 +27,9 @@ import org.jacorb.notification.CollectionsWrapper;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
 
-import org.omg.CORBA.BAD_PARAM;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PushConsumer;
-import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.CosNotifyChannelAdmin.ConnectionAlreadyActive;
 import org.omg.CosNotifyChannelAdmin.ConnectionAlreadyInactive;
 import org.omg.CosNotifyChannelAdmin.NotConnected;
@@ -39,13 +37,11 @@ import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierPOATie;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
-import org.omg.CosNotifyComm.NotifyPublishHelper;
-import org.omg.CosNotifyComm.NotifyPublishOperations;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.6 2004-03-03 12:16:26 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl
@@ -53,8 +49,6 @@ public class ProxyPushSupplierImpl
     implements ProxyPushSupplierOperations
 {
     private PushConsumer pushConsumer_;
-
-    private NotifyPublishOperations offerListener_;
 
     private boolean active_;
 
