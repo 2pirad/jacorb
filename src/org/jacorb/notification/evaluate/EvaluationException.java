@@ -30,7 +30,7 @@ import java.lang.Exception;
  * Created: Thu Sep 26 14:44:25 2002
  *
  * @author Alphonse Bendt
- * @version $Id: EvaluationException.java,v 1.4 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @version $Id: EvaluationException.java,v 1.5 2003-09-12 09:34:22 alphonse.bendt Exp $
  */
 
 public class EvaluationException extends Exception
@@ -44,6 +44,10 @@ public class EvaluationException extends Exception
     public EvaluationException( String description )
     {
         super( description );
+    }
+
+    public EvaluationException( Exception other ) {
+        super(other.getMessage());
     }
 
 } // EvaluationException
