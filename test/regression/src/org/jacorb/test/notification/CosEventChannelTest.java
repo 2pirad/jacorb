@@ -17,7 +17,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
  *  CosEvent Interfaces.
  *
  * @author Alphonse Bendt
- * @version $Id: CosEventChannelTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: CosEventChannelTest.java,v 1.2 2003-07-03 14:03:06 alphonse.bendt Exp $
  */
 
 public class CosEventChannelTest extends NotificationTestCase {
@@ -157,8 +157,7 @@ public class CosEventChannelTest extends NotificationTestCase {
  	_suite = new TestSuite("Basic CosEvent EventChannel Tests");
 
 	NotificationTestCaseSetup _setup =
-	    new NotificationTestCaseSetup( _suite,
-					   "org.jacorb.notification.EventChannelFactoryImpl");
+	    new NotificationTestCaseSetup( _suite );
 
 	String[] methodNames = org.jacorb.test.common.TestUtils.getTestMethods(CosEventChannelTest.class);
 

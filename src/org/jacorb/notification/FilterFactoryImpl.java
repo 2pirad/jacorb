@@ -34,6 +34,7 @@ import org.omg.PortableServer.POAHelper;
 import org.apache.log.Priority;
 import java.io.IOException;
 import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
+import org.omg.CosNotifyFilter.FilterFactory;
 
 /**
  * FilterFactoryImpl.java
@@ -42,7 +43,7 @@ import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
  * Created: Sat Oct 12 17:25:43 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.7 2003-07-03 14:03:06 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable {
@@ -50,17 +51,23 @@ public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable {
     public static String CONSTRAINT_GRAMMAR = "EXTENDED_TCL";
 
     protected ApplicationContext applicationContext_;
+    protected boolean isApplicationContextCreatedHere_;
+
+    private FilterFactory thisRef_;
 
     public FilterFactoryImpl() throws InvalidName, IOException, AdapterInactive {
-	super();
+	super();	
+
+	EventChannelFactoryImpl.setLogLevel("org.jacorb.notification", Priority.NONE);
 
 	//	EventChannelFactoryImpl.setLogFile("filterImpl.log", "org.jacorb.notification", Priority.DEBUG);
 
 	final ORB _orb = ORB.init(new String[0], null);
 	POA _poa = POAHelper.narrow(_orb.resolve_initial_references("RootPOA"));
 	applicationContext_ = new ApplicationContext(_orb, _poa, true);
+	isApplicationContextCreatedHere_ = true;
 
-	_this(_orb);
+	getFilterFactory();
 
 	_poa.the_POAManager().activate();
 
@@ -77,6 +84,7 @@ public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable {
 	super();
 
 	applicationContext_ = applicationContext;
+	isApplicationContextCreatedHere_ = false;
     }
 
     public Filter create_filter(String grammar) throws InvalidGrammar {
@@ -100,6 +108,22 @@ public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable {
     }
 
     public void dispose() {
+	if (isApplicationContextCreatedHere_) {
+	    applicationContext_.getOrb().shutdown(true);
+	    applicationContext_.dispose();
+	}
+
+    }
+
+    public FilterFactory getFilterFactory() {
+	if (thisRef_ == null) {
+	    synchronized(this) {
+		if (thisRef_ == null) {
+		    thisRef_ = _this(applicationContext_.getOrb());
+		}
+	    }
+	}
+	return thisRef_;
     }
 
 }

@@ -81,7 +81,7 @@ import org.omg.PortableServer.POAHelper;
  * Created: Thu Oct 03 23:54:41 2002
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.7 2003-07-03 14:03:06 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements Disposable
@@ -376,6 +376,10 @@ public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements D
 
     public String getIOR() {
 	return ior_;
+    }
+
+    public EventChannelFactory getEventChannelFactory() {
+	return thisFactory_;
     }
 
     void throwPersistentNotSupported( String property ) throws UnsupportedQoS
