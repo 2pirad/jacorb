@@ -37,7 +37,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CallbackManager.java,v 1.1 2005-02-14 00:04:35 alphonse.bendt Exp $
+ * @version $Id: CallbackManager.java,v 1.2 2005-03-31 20:16:47 alphonse.bendt Exp $
  */
 public class CallbackManager extends EventTypeSet implements Disposable
 {
@@ -69,7 +69,7 @@ public class CallbackManager extends EventTypeSet implements Disposable
 
         if (logger_.isInfoEnabled())
         {
-            boolean success = removed != null;
+            boolean success = (removed != null);
             logger_.info("detach_callback: ID=" + id + " Success=" + success);
         }
     }
