@@ -61,7 +61,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.88 2003-10-08 05:05:38 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.89 2003-10-24 16:13:20 andre.spiegel Exp $
  *
  */
 
@@ -580,7 +580,7 @@ public final class Delegate
         if (p != null)
             return ((org.omg.Messaging.SyncScopePolicy)p).synchronization();
         else
-            return ((org.omg.Messaging.SYNC_NONE.value));
+            return ((org.omg.Messaging.SYNC_WITH_TRANSPORT.value));
     }
 
     /**
