@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.3 2002-11-04 18:56:58 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.4 2002-11-04 18:58:55 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.*;
@@ -82,6 +82,15 @@ public class GIOPConnectionTest
 
         public void setIdle()
         {
+        }
+
+        public void setBusy()
+        {
+        }
+
+        public boolean isIdle()
+        {
+            return false;
         }
     
         public boolean isSSL()
