@@ -64,7 +64,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.9 2003-11-26 17:19:23 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.10 2003-11-26 18:58:45 david.robison Exp $
  */
 
 public class SASClientInterceptor
@@ -326,7 +326,7 @@ public class SASClientInterceptor
         if (atlasProfile == null) return new AuthorizationElement[0];
         String cacheID = new String(atlasProfile.the_cache_id);
         String locator = atlasProfile.the_locator.the_url();
-        locator = URLDecoder.decode(locator);
+        if (locator != null) locator = URLDecoder.decode(locator);
 
         // see if the tokens are in the ATLAS cache
         synchronized (atlasCache)

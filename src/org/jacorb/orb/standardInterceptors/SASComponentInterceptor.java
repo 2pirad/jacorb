@@ -59,7 +59,7 @@ import org.omg.PortableInterceptor.IORInterceptor;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.12 2003-11-26 17:19:09 david.robison Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.13 2003-11-26 18:58:12 david.robison Exp $
  */
 
 public class SASComponentInterceptor
@@ -149,7 +149,8 @@ public class SASComponentInterceptor
                 short asTargetRequires = targetRequires;
 
                 // the SAS_ContextSec
-                String atlasURL = URLDecoder.decode(org.jacorb.util.Environment.getProperty("jacorb.security.sas.atlas.url"));
+				String atlasURL = org.jacorb.util.Environment.getProperty("jacorb.security.sas.atlas.url");
+				if (atlasURL != null) atlasURL = URLDecoder.decode(atlasURL);
                 String atlasCache = org.jacorb.util.Environment.getProperty("jacorb.security.sas.atlas.cacheid");
                 ServiceConfiguration[] serviceConfiguration = null;
                 if (atlasURL == null)
