@@ -29,7 +29,6 @@ import org.jacorb.orb.util.CorbaLoc;
 
 import org.apache.avalon.framework.logger.Logger;
 
-import org.jacorb.util.Environment;
 import org.jacorb.util.ObjectUtil;
 import org.omg.CONV_FRAME.CodeSetComponentInfo;
 import org.omg.CONV_FRAME.CodeSetComponentInfoHelper;
@@ -42,7 +41,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.60.2.1 2004-03-23 17:19:10 gerald Exp $
+ * @version $Id: ParsedIOR.java,v 1.60.2.2 2004-03-25 15:55:08 gerald Exp $
  */
 
 public class ParsedIOR

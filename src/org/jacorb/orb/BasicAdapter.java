@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.41.4.2 2004-03-24 19:05:37 gerald Exp $
+ * @version $Id: BasicAdapter.java,v 1.41.4.3 2004-03-25 15:55:08 gerald Exp $
  */
 
 public class BasicAdapter
@@ -115,10 +115,12 @@ public class BasicAdapter
 
                     ssl_socket_factory = 
                         (SSLServerSocketFactory)constr.newInstance( new Object[]{ orb });
+
+                    ((Configurable)ssl_socket_factory).configure(configuration);
                 }
                 catch (Exception e)
                 {
-                    logger.warn(e.getMessage());
+                    logger.warn("Exception",e);
 
                     throw new org.omg.CORBA.INITIALIZE( "SSL support is on, but the ssl server socket factory can't be instanciated (see trace)!" );
                 }

@@ -26,26 +26,49 @@ import java.security.Provider;
  * This is the GSS-API Sercurity Provider Interface (SPI) Provider for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: GSSUPProvider.java,v 1.7 2003-11-25 18:40:25 david.robison Exp $
+ * @version $Id: GSSUPProvider.java,v 1.7.4.1 2004-03-25 15:55:08 gerald Exp $
  */
 
-public class GSSUPProvider extends Provider
+public class GSSUPProvider 
+    extends Provider
 {
-
     //private static InitialContextToken defaultSubject = new InitialContextToken();
-    protected static org.omg.CORBA.ORB orb = null;
-    protected static org.omg.IOP.Codec codec = null;
+    private org.omg.CORBA.ORB orb = null;
+    private org.omg.IOP.Codec codec = null;
 
     /**
      * Returns the default GSSManager implementation.
      *
      */
-    public GSSUPProvider()
+    public GSSUPProvider(org.omg.CORBA.ORB orb)
     {
-            super("GSSUP", 1.0, "JacORB GSSUP provider v1.0");
-            GSSUPMechFactory.myProvider = this;
-            this.put("GssApiMechanism.2.23.130.1.1.1", "org.jacorb.security.sas.GSSUPMechFactory");
+        super("GSSUP", 1.0, "JacORB GSSUP provider v1.0");
+        GSSUPMechFactory.myProvider = this;
+        this.put("GssApiMechanism.2.23.130.1.1.1", 
+                 "org.jacorb.security.sas.GSSUPMechFactory");
+        this.orb = orb;
     }
+   
+    public org.omg.CORBA.ORB getORB()
+    {
+        return orb;
+    }
+
+    public void setORB(org.omg.CORBA.ORB orb)
+    {
+        this.orb = orb;
+    }
+    
+    public org.omg.IOP.Codec getCodec()
+    {
+        return codec;
+    }
+
+    public void setCodec(org.omg.IOP.Codec codec)
+    {
+        this.codec = codec;
+    }
+    
 
     /*
     public static void setDefaultSubject(String username, String password, String target)

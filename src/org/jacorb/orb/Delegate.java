@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.104.2.3 2004-03-25 12:07:02 gerald Exp $
+ * @version $Id: Delegate.java,v 1.104.2.4 2004-03-25 15:55:08 gerald Exp $
  *
  */
 
@@ -275,7 +275,7 @@ public final class Delegate
                               ( int ) _pior.getEffectiveProfile().version().minor );
 
                     LocateReplyReceiver receiver =
-                        new LocateReplyReceiver();
+                        new LocateReplyReceiver(orb);
 
                     connection.sendRequest( lros,
                                             receiver,

@@ -27,6 +27,7 @@ import org.apache.avalon.framework.logger.*;
 import java.io.*;
 import java.util.*;
 
+import org.jacorb.orb.ORB;
 import org.jacorb.util.ObjectUtil;
 
 /**
@@ -48,7 +49,7 @@ import org.jacorb.util.ObjectUtil;
  *
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.1.2.2 2004-03-23 16:32:18 gerald Exp $
+ * @version $Id: Configuration.java,v 1.1.2.3 2004-03-25 15:55:08 gerald Exp $
  */
 
 public class Configuration
@@ -59,6 +60,7 @@ public class Configuration
 
     private Configuration config;
     private String configName; 
+    private ORB orb = null;
 
     /** root logger instance for this configuration */
     private Logger logger = null;
@@ -76,13 +78,13 @@ public class Configuration
      * properties from the file <name>.properties
      */
 
-    Configuration(String name)
-        throws ConfigurationException
-    {
-        super(name);
-        init(name, null);
-        initLogging();
-    }
+//     Configuration(String name)
+//         throws ConfigurationException
+//     {
+//         super(name);
+//         init(name, null);
+//         initLogging();
+//     }
 
 
     /**
@@ -90,10 +92,11 @@ public class Configuration
      * into ORB.init()
      */
 
-    public Configuration(String name, Properties orbProperties)
+    public Configuration(String name, Properties orbProperties, ORB orb)
         throws ConfigurationException
     {
         super(name);
+        this.orb = orb;
         init(name, orbProperties);
         initLogging();
     }
@@ -347,6 +350,16 @@ public class Configuration
             logger = loggerFactory.getNamedRootLogger("jacorb" );
         }
     }
+
+    /**
+     * @return the ORB for which this configuration was created
+     */
+
+    public ORB getORB()
+    {
+        return orb;
+    }
+
 
     /**
      * @param name the name of the logger, which also functions

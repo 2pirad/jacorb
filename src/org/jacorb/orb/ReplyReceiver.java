@@ -53,7 +53,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.19.4.1 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: ReplyReceiver.java,v 1.19.4.2 2004-03-25 15:55:08 gerald Exp $
  */
 
 public class ReplyReceiver 
@@ -75,7 +75,6 @@ public class ReplyReceiver
 
     /** configuration properties */
     private boolean retry_on_failure = false;
-
 
 
     public ReplyReceiver( org.jacorb.orb.Delegate        delegate,

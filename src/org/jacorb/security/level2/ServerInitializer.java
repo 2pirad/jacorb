@@ -21,15 +21,15 @@
 package org.jacorb.security.level2;
 
 import org.omg.SecurityLevel2.Current;
-import org.jacorb.util.Debug;
+
 /**
  *
  * @author Nicolas Noffke
- * $Id: ServerInitializer.java,v 1.8 2003-12-16 08:42:12 gerald Exp $
+ * $Id: ServerInitializer.java,v 1.8.4.1 2004-03-25 15:55:08 gerald Exp $
  */
 
 public class ServerInitializer 
-  extends org.omg.CORBA.LocalObject 
+    extends org.omg.CORBA.LocalObject 
     implements org.omg.PortableInterceptor.ORBInitializer
 {
 
@@ -53,7 +53,6 @@ public class ServerInitializer
         }
         catch (Exception e)
         {
-            Debug.output(1, e);
         }
     }
 
