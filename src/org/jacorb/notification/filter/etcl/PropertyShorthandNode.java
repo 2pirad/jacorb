@@ -29,12 +29,11 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PropertyShorthandNode.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: PropertyShorthandNode.java,v 1.5 2004-06-03 23:11:55 alphonse.bendt Exp $
  */
 
 public class PropertyShorthandNode extends AbstractTCLNode
 {
-
     String value_;
 
     ETCLComponentName shorthandVariableHeader_;
@@ -108,6 +107,10 @@ public class PropertyShorthandNode extends AbstractTCLNode
 
             if (_res == null) {
                 _res = extractDefaultAnyValue(context);
+            }
+
+            if (_res == null) {
+                throw new EvaluationException("the shorthand property $" + value_ + " does not exist");
             }
         }
 
