@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.7 2002-01-09 14:56:09 spiegel Exp $
+ * @version $Id: ValueDecl.java,v 1.8 2002-03-01 09:58:27 steve.osselton Exp $
  */
 class ValueDecl 
     extends Value
@@ -339,7 +339,7 @@ class ValueDecl
     private void printReadMethod (PrintWriter out)
     {
         out.println ("\tpublic void _read " + 
-                     "(org.omg.CORBA.portable.InputStream os)");
+                     "(final org.omg.CORBA.portable.InputStream os)");
         out.println ("\t{");
         for (Iterator i = stateMembers.v.iterator(); i.hasNext();)
             out.println ("\t\t" + ((StateMember)i.next()).readStatement("os"));
@@ -420,7 +420,7 @@ class ValueDecl
         out.println ("\timplements org.omg.CORBA.portable.Streamable");
         out.println ("{");
         out.println ("\tpublic " + javaName() + " value;");
-        out.println ("\tpublic " + name + "Holder() {}");
+        out.println ("\tpublic " + name + "Holder () {}");
         out.println ("\tpublic " + name + "Holder (final " 
                      + javaName() + " initial)");
         out.println ("\t{"); 
@@ -436,9 +436,9 @@ class ValueDecl
         out.println ("\t{");
         out.println ("\t\t" + javaName() + "Helper.write (os, value);");
         out.println ("\t}");
-        out.println ("\tpublic org.omg.CORBA.TypeCode _type()");
+        out.println ("\tpublic org.omg.CORBA.TypeCode _type ()");
         out.println ("\t{");
-        out.println ("\t\treturn value._type();");
+        out.println ("\t\treturn value._type ();");
         out.println ("\t}");
         out.println ("}");
         out.close();

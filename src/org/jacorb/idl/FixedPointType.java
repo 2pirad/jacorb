@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.7 2001-06-13 09:54:49 jacorb Exp $
+ * @version $Id: FixedPointType.java,v 1.8 2002-03-01 09:58:26 steve.osselton Exp $
  */
 
 class FixedPointType 
@@ -96,7 +96,7 @@ class FixedPointType
 	if( !pack_name.equals(""))
 	    ps.println("package " + pack_name + ";" );
 
-	ps.println("public class " + className + "Helper");
+	ps.println("public final class " + className + "Helper");
 	ps.println("{");
 	ps.println("\tprivate static org.omg.CORBA.TypeCode _type = " + getTypeCodeExpression() + ";");
 
@@ -123,7 +123,7 @@ class FixedPointType
 
 	/** read */
 
-	ps.println("\tpublic static java.math.BigDecimal read(org.omg.CORBA.portable.InputStream in)");
+	ps.println("\tpublic static java.math.BigDecimal read (final org.omg.CORBA.portable.InputStream in)");
 	ps.println("\t{");
 	ps.println("\t\tjava.math.BigDecimal result = in.read_fixed();");
 	ps.println("\t\treturn result.movePointLeft(" + scale + ");");
@@ -131,7 +131,7 @@ class FixedPointType
 
 	/** write */
 
-	ps.println("\tpublic static void write(org.omg.CORBA.portable.OutputStream out, java.math.BigDecimal s)");
+	ps.println("\tpublic static void write (final org.omg.CORBA.portable.OutputStream out, final java.math.BigDecimal s)");
 	ps.println("\t{");
 
 	StringBuffer mb = new StringBuffer("1");

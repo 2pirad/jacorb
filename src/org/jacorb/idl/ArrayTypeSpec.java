@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.8 2002-02-19 10:36:53 steve.osselton Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.9 2002-03-01 09:58:26 steve.osselton Exp $
  *
  */
 
@@ -354,34 +354,34 @@ class ArrayTypeSpec
 	
 	String type = typeName();
 	
-	ps.println("public class " + className + "Holder");
+	ps.println("public final class " + className + "Holder");
 	ps.println("\timplements org.omg.CORBA.portable.Streamable");
 	
 	ps.println("{");
 	ps.println("\tpublic " + type + " value;");
-	ps.println("\tpublic " + className + "Holder()");
+	ps.println("\tpublic " + className + "Holder ()");
 	ps.println("\t{");
 	ps.println("\t}");
 
-	ps.println("\tpublic " + className+ "Holder(" + type +" initial)\n\t{");
+	ps.println("\tpublic " + className+ "Holder (final " + type +" initial)\n\t{");
 	ps.println("\t\tvalue = initial;");
 	ps.println("\t}");
 
-	ps.println("\tpublic org.omg.CORBA.TypeCode _type()");
+	ps.println("\tpublic org.omg.CORBA.TypeCode _type ()");
 	ps.println("\t{");
-	ps.println("\t\treturn " + className + "Helper.type();");
+	ps.println("\t\treturn " + className + "Helper.type ();");
 	ps.println("\t}");
 
 	TypeSpec m = type_spec;
 	
-	ps.println("\tpublic void _read(org.omg.CORBA.portable.InputStream _in)");
+	ps.println("\tpublic void _read (final org.omg.CORBA.portable.InputStream _in)");
 	ps.println("\t{");
-	ps.println("\t\tvalue = " + className + "Helper.read(_in);");
+	ps.println("\t\tvalue = " + className + "Helper.read (_in);");
 	ps.println("\t}");
 	
-	ps.println("\tpublic void _write(org.omg.CORBA.portable.OutputStream _out)");
+	ps.println("\tpublic void _write (final org.omg.CORBA.portable.OutputStream _out)");
 	ps.println("\t{");
-	ps.println("\t\t" + className + "Helper.write(_out,value);");
+	ps.println("\t\t" + className + "Helper.write (_out,value);");
 	ps.println("\t}");
 
 	ps.println("}");	
@@ -395,7 +395,7 @@ class ArrayTypeSpec
 
 	String type = typeName();
 
-	ps.println("public class " + className + "Helper");
+	ps.println("public final class " + className + "Helper");
 	ps.println("{");
 
 	ps.println("\tprivate static org.omg.CORBA.TypeCode _type = "+getTypeCodeExpression()+";");
@@ -409,7 +409,7 @@ class ArrayTypeSpec
 	/* read */
 
 	ps.println("\tpublic static " + type + 
-                   " read(org.omg.CORBA.portable.InputStream _in)");
+                   " read (final org.omg.CORBA.portable.InputStream _in)");
 	ps.println("\t{");
 
 	ps.print("\t\t" + type + " result = new " + 
@@ -438,7 +438,7 @@ class ArrayTypeSpec
 
 	/* write */
 
-	ps.println("\tpublic static void write(org.omg.CORBA.portable.OutputStream out, " + type + " s)");
+	ps.println("\tpublic static void write (final org.omg.CORBA.portable.OutputStream out, final " + type + " s)");
 	ps.println("\t{");
 	if( declarator.dimensions()[0] != 0 )
 	{
