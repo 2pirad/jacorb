@@ -31,7 +31,7 @@ import org.omg.CosNotifyFilter.MappingFilter;
  * these Classes during processing of an event.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterStage.java,v 1.3 2003-12-03 11:31:29 alphonse.bendt Exp $
+ * @version $Id: FilterStage.java,v 1.4 2004-01-16 17:14:02 alphonse.bendt Exp $
  */
 
 public interface FilterStage
@@ -53,9 +53,9 @@ public interface FilterStage
     List getFilters();
 
     /**
-     * check if this FilterStage has a EventConsumer associcated.
+     * check if this FilterStage has a MessageConsumer associcated.
      */
-    boolean hasEventConsumer();
+    boolean hasMessageConsumer();
 
     /**
      * check if this DistributorNode has OR Semantic enabled.
@@ -65,7 +65,7 @@ public interface FilterStage
     /**
      * get the associated DeliverTarget or null.
      */
-    EventConsumer getEventConsumer();
+    MessageConsumer getMessageConsumer();
 
     /**
      * check if this FilterStage has a LifetimeFilter attached
