@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.10 2001-06-13 09:54:50 jacorb Exp $
+ * @version $Id: StructType.java,v 1.11 2001-11-08 17:10:19 spiegel Exp $
  */
 
 class StructType 
@@ -104,7 +104,7 @@ class StructType
 
     public void set_memberlist( MemberList m )
     {
-	m.setStruct(this);
+	m.setContainingType (this);
 	memberlist = m;
 	memberlist.setPackage( name );
 	if( memberlist != null )
