@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.47 2002-05-13 08:38:45 gerald Exp $
+ * $Id: CDRInputStream.java,v 1.48 2002-05-28 07:55:02 nicolas Exp $
  */
 
 public class CDRInputStream
@@ -352,35 +352,17 @@ public class CDRInputStream
 
     public final char read_char ()
     {
-        if (codeSet == CodeSet.ISO8859_1)
-        {
-	    index++; 
-	    return (char)(0xff & buffer[pos++]);	       	
-        }
-        else
-        {
-            throw new org.omg.CORBA.MARSHAL
-                ("The char type only allows single-byte codesets, but the selected one is: "
-                 + CodeSet.csName (codeSet));
-        }
+        index++; 
+        return (char)(0xff & buffer[pos++]);	       	
     }
 
     public final void read_char_array
     (final char[] value, final int offset, final int length)
     {
-        if (codeSet == CodeSet.ISO8859_1)
+        for (int j = offset; j < offset + length; j++)
         {
-            for (int j = offset; j < offset + length; j++)
-            {
-                index++; 
-                value[j] = (char) (0xff & buffer[pos++]);
-            }
-        }
-        else
-        {
-            throw new org.omg.CORBA.MARSHAL
-                ("The char type only allows single-byte codesets, but the selected one is: "
-                 + CodeSet.csName (codeSet));
+            index++; 
+            value[j] = (char) (0xff & buffer[pos++]);
         }
     }
 
@@ -626,13 +608,6 @@ public class CDRInputStream
 	
     public final String read_string()
     {
-        if( codeSet != CodeSet.ISO8859_1 )
-        {
-            throw new org.omg.CORBA.MARSHAL( "The char type only allows single-byte codesets, but the selected one is: " + 
-                                             CodeSet.csName( codeSet ) );
-            
-        }
-
 	int remainder = 4 - (index % 4);
 	if( remainder != 4 )
 	{
