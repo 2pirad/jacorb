@@ -11,7 +11,7 @@ import org.jacorb.util.*;
  * transparent.
  *
  * @author Nicolas Noffke
- * @version $Id: Client.java,v 1.4 2002-09-11 20:22:43 david.robison Exp $
+ * @version $Id: Client.java,v 1.5 2002-09-12 15:44:31 david.robison Exp $
  */
 
 public class Client
@@ -76,6 +76,8 @@ public class Client
             SASDemo demo = SASDemoHelper.narrow( obj );
 
             //call single operation
+            demo.printSAS();
+            demo.printSAS();
             demo.printSAS();
 
             System.out.println( "Call to server succeeded" );
