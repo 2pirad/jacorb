@@ -8,7 +8,7 @@ import java.util.*;
  * An implementation of the interface SharedData.
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 
 public class SharedDataImpl 
@@ -202,9 +202,11 @@ public class SharedDataImpl
     // member buffer
 
   
-    /** returns an object member which has been copied into the buffer
-     *  via  setMemberBuffer.  The buffer  is initially empty.  If the
-     *  buffer is empty getMemberBuffer returns null.
+    /** 
+     * returns an object member which has been copied into the buffer
+     * via  setMemberBuffer.  The buffer  is initially empty.  If the
+     * buffer is empty getMemberBuffer returns null.
+     *
      * @param memberName  a string buffer is used  as an out parameter
      *  to  provide  the  previously  used name  of  the  member.  The
      * memberName is "" if the buffer is empty.  Because memberName is

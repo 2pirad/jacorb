@@ -1,4 +1,3 @@
-
 package org.jacorb.orb.domain;  
 
 import java.io.*;  
@@ -14,7 +13,7 @@ import org.jacorb.util.Debug;
  * "ParentRules" conflict resolution policy.
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @see org.jacorb.orb.domain.ParentRulesPolicy
  */
 
@@ -76,7 +75,6 @@ public class DomainServer
                          + ior_filename);
             try 
             {
-
                 FileOutputStream out = new FileOutputStream(args[0]);
                 PrintWriter pw = new PrintWriter(out);
                 pw.println(orb.object_to_string(domain));
@@ -127,10 +125,6 @@ public class DomainServer
         orb.run();
     }
 } // DomainServer
-
-
-
-
 
 
 

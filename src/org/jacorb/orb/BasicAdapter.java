@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.4 2001-03-19 11:08:23 brose Exp $
+ * @version $Id: BasicAdapter.java,v 1.5 2001-03-26 07:53:10 jacorb Exp $
  */
 
 import java.io.*;
@@ -494,7 +494,9 @@ public class BasicAdapter
         private org.jacorb.orb.ORB orb;
         private POA rootPOA;
         private boolean done = false;
-  	private static final byte[] HTTPPostHeader = {(byte) 'P', (byte) 'O', (byte) 'S', (byte) 'T'};
+  	private static final byte[] HTTPPostHeader = 
+           {(byte) 'P', (byte) 'O', (byte) 'S', (byte) 'T'};
+
 	private static final int HEADER_SIZE = 4;
         private boolean is_ssl; // bnv
 

@@ -3,26 +3,27 @@ package org.jacorb.orb.domain.gui;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.*;
 import java.awt.Component;
+
 import org.jacorb.util.Debug;
 import org.jacorb.orb.domain.*;
 
 /**
  * This class renders nodes of the policy list.
  * @author Herbert Kiefer
- * @version $Revision: 1.3 $
+ * @version $Id: PolicyListCellRenderer.java,v 1.4 2001-03-26 07:53:12 jacorb Exp $
  */
-
 
 public class PolicyListCellRenderer 
     extends DefaultTreeCellRenderer 
 {
     private Icon metaPolicyIcon;
+
     public PolicyListCellRenderer() 
     {
         // the file MetaPolicy.gif must reside in 
         // CLASSPATH/jacorb/orb/domain/gui/MetaPolicy.gif
         java.net.URL imageURL = 
-            ClassLoader.getSystemResource("jacorb/orb/domain/gui/MetaPolicy.gif");
+            ClassLoader.getSystemResource("org/jacorb/orb/domain/gui/MetaPolicy.gif");
         // if (imageURL != null)
         //  Debug.output(Debug.DOMAIN | Debug.INFORMATION, imageURL.toString());
         // else Debug.output(Debug.DOMAIN | Debug.INFORMATION, "image URL is null");
@@ -80,8 +81,6 @@ public class PolicyListCellRenderer
     }
 
 } // PolicyListCellRenderer
-
-
 
 
 
