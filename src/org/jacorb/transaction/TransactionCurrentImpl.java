@@ -2,7 +2,7 @@ package org.jacorb.transaction;
 
 import org.omg.CosTransactions.*;
 import org.omg.CosNaming.*;
-import org.omg.IOP_N.*;
+import org.omg.IOP.*;
 import org.jacorb.orb.ORB;
 import org.omg.CORBA.Any;
 import java.util.Hashtable;
@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * maps to the methods in the control. 
  *
  * @author Nicolas Noffke
- * @version $Id: TransactionCurrentImpl.java,v 1.5 2001-06-25 11:42:27 noffke Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.6 2001-11-19 09:44:43 jacorb Exp $
  */
 
 public class TransactionCurrentImpl 

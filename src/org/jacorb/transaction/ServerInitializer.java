@@ -2,7 +2,7 @@ package org.jacorb.transaction;
 
 import org.omg.PortableInterceptor.*;
 import org.jacorb.orb.*;
-import org.omg.IOP_N.*;
+import org.omg.IOP.*;
 /**
  * This class registers the ServerContextTransferInterceptor
  * with the ORB. For that purpose, a slot is allocated
@@ -10,7 +10,7 @@ import org.omg.IOP_N.*;
  * via the static attribute
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInitializer.java,v 1.3 2001-03-19 11:10:19 brose Exp $
+ * @version $Id: ServerInitializer.java,v 1.4 2001-11-19 09:44:42 jacorb Exp $
  */
 
 public class ServerInitializer 

@@ -1,7 +1,7 @@
 package org.jacorb.transaction;
 
 import org.omg.PortableInterceptor.*;
-import org.omg.IOP_N.Codec;
+import org.omg.IOP.Codec;
 import org.omg.IOP.ServiceContext;
 import org.omg.IOP.TransactionService;
 
@@ -11,7 +11,7 @@ import org.omg.IOP.TransactionService;
  * outgoing message.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientContextTransferInterceptor.java,v 1.3 2001-03-19 11:10:16 brose Exp $
+ * @version $Id: ClientContextTransferInterceptor.java,v 1.4 2001-11-19 09:44:42 jacorb Exp $
  */
 
 public class ClientContextTransferInterceptor
@@ -33,6 +33,10 @@ public class ClientContextTransferInterceptor
     public String name() 
     {
         return "ClientContextTransferInterceptor";
+    }
+
+    public void destroy()
+    {
     }
 
     /**
