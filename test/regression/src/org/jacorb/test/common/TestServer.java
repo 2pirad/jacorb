@@ -44,7 +44,7 @@ import org.jacorb.util.Debug;
  * example).
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer.java,v 1.2 2003-05-15 11:45:18 nick.cross Exp $
+ * @version $Id: TestServer.java,v 1.3 2003-07-28 08:23:57 nick.cross Exp $
  */
 public class TestServer
 {
@@ -83,7 +83,7 @@ public class TestServer
         catch( Exception e )
         {
             Debug.output( 1, e );
-            System.out.println( "ERROR: " + e );
+            Debug.output( 1, "ERROR: " + e );
         }
     }
 }
