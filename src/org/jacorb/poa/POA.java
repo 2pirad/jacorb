@@ -43,7 +43,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.45 2004-02-23 13:30:07 simon.mcqueen Exp $
+ * @version $Id: POA.java,v 1.46 2004-03-13 16:24:08 alphonse.bendt Exp $
  */
 
 public class POA
@@ -1379,7 +1379,7 @@ public class POA
 
             /* annouce */
             if (logger.isInfoEnabled())
-                logger.info(logPrefix + "destroyed");
+                logger.info(logPrefix + " destroyed");
 
             monitor.changeState("destroyed");
 
