@@ -16,7 +16,7 @@ import org.jacorb.orb.util.CorbaLoc;
  * Created: Thu Jul 17 14:16:43 2003
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryTest.java,v 1.1 2003-07-17 17:23:53 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryTest.java,v 1.2 2003-07-18 18:45:16 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryTest extends TestCase {
@@ -25,7 +25,7 @@ public class EventChannelFactoryTest extends TestCase {
     ORB orb;
 
     public void setUp() throws Exception {
-	factory_ = new EventChannelFactoryImpl();
+	factory_ = EventChannelFactoryImpl.newFactory();
 	orb = ORB.init(new String[0], null);
     }
 

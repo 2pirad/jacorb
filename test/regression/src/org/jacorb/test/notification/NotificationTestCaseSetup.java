@@ -36,7 +36,7 @@ import junit.extensions.TestSetup;
  * NotificationTestCaseSetup.java
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCaseSetup.java,v 1.2 2003-07-03 14:03:06 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCaseSetup.java,v 1.3 2003-07-18 18:45:16 alphonse.bendt Exp $
  */
 
 public class NotificationTestCaseSetup extends TestSetup {
@@ -62,7 +62,7 @@ public class NotificationTestCaseSetup extends TestSetup {
 	orb_ = ORB.init(new String[0], null);
 	poa_ = POAHelper.narrow(orb_.resolve_initial_references("RootPOA"));
 	testUtils_ = new TestUtils(orb_);
-	eventChannelServant_ = new EventChannelFactoryImpl();
+	eventChannelServant_ = EventChannelFactoryImpl.newFactory();
     }
 
     public void tearDown() throws Exception {
