@@ -10,7 +10,7 @@ import jacorb.orb.domain.*;
  * Created: Wed Jul 12 17:02:17 2000
  *
  * @author Nicolas Noffke
- * $Id: DomainUtil.java,v 1.1 2001-03-17 18:07:29 brose Exp $
+ * $Id: DomainUtil.java,v 1.1.1.1 2001-03-17 18:07:29 brose Exp $
  */
 
 public class DomainUtil  {

@@ -15,7 +15,7 @@ import org.jacorb.util.Environment;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerTable.java,v 1.1 2001-03-17 18:08:24 brose Exp $
+ * $Id: ServerTable.java,v 1.1.1.1 2001-03-17 18:08:24 brose Exp $
  */
 
 public class ServerTable implements Serializable {

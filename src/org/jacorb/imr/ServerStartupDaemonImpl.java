@@ -6,7 +6,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerStartupDaemonImpl.java,v 1.1 2001-03-17 18:08:24 brose Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.1.1.1 2001-03-17 18:08:24 brose Exp $
  *
  */
 

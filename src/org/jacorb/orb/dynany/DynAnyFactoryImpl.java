@@ -26,7 +26,7 @@ import org.omg.CORBA.TCKind;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: DynAnyFactoryImpl.java,v 1.1 2001-03-17 18:08:40 brose Exp $
+ * @version $Id: DynAnyFactoryImpl.java,v 1.1.1.1 2001-03-17 18:08:40 brose Exp $
  * 
  */
 

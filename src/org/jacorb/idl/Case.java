@@ -24,7 +24,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.1 2001-03-17 18:08:18 brose Exp $
+ * @version $Id: Case.java,v 1.1.1.1 2001-03-17 18:08:18 brose Exp $
  */
 
 class Case 

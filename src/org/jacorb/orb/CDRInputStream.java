@@ -29,7 +29,7 @@ import org.jacorb.orb.connection.*;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.1 2001-03-17 18:08:31 brose Exp $
+ * $Id: CDRInputStream.java,v 1.1.1.1 2001-03-17 18:08:31 brose Exp $
  */
 
 public class CDRInputStream

@@ -30,10 +30,10 @@ import java.util.Vector;
  * CORBA DynArray
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynArray.java,v 1.1 2001-03-17 18:08:40 brose Exp $
+ * $Id: DynArray.java,v 1.1.1.1 2001-03-17 18:08:40 brose Exp $
  * $Log: DynArray.java,v $
- * Revision 1.1  2001-03-17 18:08:40  brose
- * Initial revision
+ * Revision 1.1.1.1  2001-03-17 18:08:40  brose
+ *
  *
  * Revision 1.5  2000/03/30 13:55:49  noffke
  * added portable intercetor support

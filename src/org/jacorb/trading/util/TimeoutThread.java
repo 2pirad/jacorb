@@ -8,7 +8,7 @@ import java.util.Hashtable;
  * Created: Sat Feb  5 11:45:40 2000
  *
  * @author Nicolas Noffke
- * @version $Id: TimeoutThread.java,v 1.1 2001-03-17 18:09:03 brose Exp $
+ * @version $Id: TimeoutThread.java,v 1.1.1.1 2001-03-17 18:09:03 brose Exp $
  */
 
 public class TimeoutThread extends Thread {

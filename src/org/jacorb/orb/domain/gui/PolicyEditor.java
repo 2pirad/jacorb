@@ -7,7 +7,7 @@ package org.jacorb.orb.domain.gui;
  * retrieved via the operation "getPolicyTypeResponsibleFor".
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.1.1.1 $ 
 */
 
 public interface PolicyEditor

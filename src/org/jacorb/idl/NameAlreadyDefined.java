@@ -21,7 +21,7 @@
 /**
  * The classes for the IDL parse tree
  * @author Gerald Brose
- * @version $Id: NameAlreadyDefined.java,v 1.1 2001-03-17 18:08:20 brose Exp $
+ * @version $Id: NameAlreadyDefined.java,v 1.1.1.1 2001-03-17 18:08:20 brose Exp $
  */
 
 package org.jacorb.idl;

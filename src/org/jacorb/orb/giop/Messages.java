@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.1 2001-03-17 18:08:33 brose Exp $
+ * @version $Id: Messages.java,v 1.1.1.1 2001-03-17 18:08:33 brose Exp $
  *
  */
 

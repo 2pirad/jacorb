@@ -39,7 +39,7 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.1 2001-03-17 18:08:51 brose Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.1.1.1 2001-03-17 18:08:51 brose Exp $
  */
 
 public class ServerInvocationInterceptor

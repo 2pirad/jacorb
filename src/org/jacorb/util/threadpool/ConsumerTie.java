@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:44:26 2000
  *
  * @author Nicolas Noffke
- * $Id: ConsumerTie.java,v 1.1 2001-03-17 18:09:04 brose Exp $
+ * $Id: ConsumerTie.java,v 1.1.1.1 2001-03-17 18:09:04 brose Exp $
  */
 import org.jacorb.util.Debug;
 

@@ -6,7 +6,7 @@ import java.util.Hashtable;
  * The implementation of the "CHILD_RULES" strategy for conflict resolution.
  * ChildRulesPolicy.java
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class ChildRulesPolicy extends ManagementPolicyImpl

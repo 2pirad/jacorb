@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.1 2001-03-17 18:08:31 brose Exp $ 
+ * $Id: Any.java,v 1.1.1.1 2001-03-17 18:08:31 brose Exp $ 
  * 
  */
 

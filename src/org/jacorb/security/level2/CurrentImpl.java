@@ -32,7 +32,7 @@ import org.jacorb.util.*;
 /**
  *
  * @author Nicolas Noffke, Gerald Brose, André Benvenuti
- * @version $Id: CurrentImpl.java,v 1.1 2001-03-17 18:08:50 brose Exp $
+ * @version $Id: CurrentImpl.java,v 1.1.1.1 2001-03-17 18:08:50 brose Exp $
  *
  */
 

@@ -4,7 +4,7 @@ package demo.domain.printer;
  * Created: Fri Sep  8 19:11:26 2000
  * A dummy implementation of the IDL interface Printer
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class PrinterImpl extends PrinterPOA 

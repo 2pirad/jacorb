@@ -35,7 +35,7 @@ import java.util.Enumeration;
  * DII requests
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.1 2001-03-17 18:08:34 brose Exp $
+ * @version $Id: Request.java,v 1.1.1.1 2001-03-17 18:08:34 brose Exp $
  */
 
 public class Request 

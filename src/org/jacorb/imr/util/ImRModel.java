@@ -15,7 +15,7 @@ import javax.swing.table.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImRModel.java,v 1.1 2001-03-17 18:08:24 brose Exp $
+ * $Id: ImRModel.java,v 1.1.1.1 2001-03-17 18:08:24 brose Exp $
  */
 
 public class ImRModel  {

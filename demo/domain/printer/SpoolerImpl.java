@@ -9,7 +9,7 @@ import jacorb.orb.domain.*;
  * domain service for the target printer.
  * It uses this policy to calculate the price for the print job.
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class SpoolerImpl extends SpoolerPOA 

@@ -17,7 +17,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.1.1.1 2001-03-17 18:08:42 brose Exp $
  */
 
 public class ServerRequestInfoImpl 

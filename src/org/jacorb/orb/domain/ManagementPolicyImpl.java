@@ -4,7 +4,7 @@ package org.jacorb.orb.domain;
  * Created: Tue Feb 29 14:27:21 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class ManagementPolicyImpl 

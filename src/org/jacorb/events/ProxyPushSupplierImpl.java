@@ -25,7 +25,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: ProxyPushSupplierImpl.java,v 1.1 2001-03-17 18:08:17 brose Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.1.1.1 2001-03-17 18:08:17 brose Exp $
  */
 
 public class ProxyPushSupplierImpl 

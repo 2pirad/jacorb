@@ -7,7 +7,7 @@ package org.jacorb.orb.domain;
  * Created: Wed Mar  8 13:33:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class FirstConflictResolutionPolicy extends ManagementPolicyImpl

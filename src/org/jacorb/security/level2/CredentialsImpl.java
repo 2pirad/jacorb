@@ -32,7 +32,7 @@ import java.math.BigInteger;
 /**
  *  JacORB implementation of security Credentials
  *
- *  $Id: CredentialsImpl.java,v 1.1 2001-03-17 18:08:50 brose Exp $
+ *  $Id: CredentialsImpl.java,v 1.1.1.1 2001-03-17 18:08:50 brose Exp $
  *
  */
 

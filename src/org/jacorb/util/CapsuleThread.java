@@ -12,7 +12,7 @@ package org.jacorb.util;
  * class.
  *
  * @author Nicolas Noffke
- * $Id: CapsuleThread.java,v 1.1 2001-03-17 18:09:04 brose Exp $
+ * $Id: CapsuleThread.java,v 1.1.1.1 2001-03-17 18:09:04 brose Exp $
  */
 import java.util.*;
 import java.net.*;

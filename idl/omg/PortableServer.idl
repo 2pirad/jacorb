@@ -1,6 +1,6 @@
 // CORBA V2.2
 // PORTABLE OBJECT ADAPTER, Chapter 9
-// $Id: PortableServer.idl,v 1.1 2001-03-17 18:08:13 brose Exp $
+// $Id: PortableServer.idl,v 1.1.1.1 2001-03-17 18:08:13 brose Exp $
 
 #ifndef _MYPOA_IDL
 #define _MYPOA_IDL

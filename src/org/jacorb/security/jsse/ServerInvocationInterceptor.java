@@ -16,7 +16,7 @@ import org.jacorb.orb.dsi.ServerRequest;
 
 /**
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.1 2001-03-17 18:08:49 brose Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.1.1.1 2001-03-17 18:08:49 brose Exp $
  */
 
 public class ServerInvocationInterceptor

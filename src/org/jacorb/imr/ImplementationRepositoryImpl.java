@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.1 2001-03-17 18:08:23 brose Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.1.1.1 2001-03-17 18:08:23 brose Exp $
  */
 
 public class ImplementationRepositoryImpl 

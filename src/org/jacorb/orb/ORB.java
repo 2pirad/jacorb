@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.1 2001-03-17 18:08:31 brose Exp $
+ * @version $Id: ORB.java,v 1.1.1.1 2001-03-17 18:08:31 brose Exp $
  */
 
 public final class ORB

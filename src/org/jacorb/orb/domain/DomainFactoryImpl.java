@@ -4,7 +4,7 @@ import org.jacorb.util.Debug;
 /**
  * The implemenation of the IDL-interface DomainFactory. 
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class DomainFactoryImpl 

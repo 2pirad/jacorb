@@ -14,7 +14,7 @@ import jacorb.orb.domain.*;
  * Created: Mon Jul 24 14:47:07 2000
  *
  * @author Nicolas Noffke
- * $Id: FooRelayServerImpl.java,v 1.1 2001-03-17 18:07:42 brose Exp $
+ * $Id: FooRelayServerImpl.java,v 1.1.1.1 2001-03-17 18:07:42 brose Exp $
  */
 
 public class FooRelayServerImpl 

@@ -26,7 +26,7 @@ import org.jacorb.security.util.*;
  * from a Java key store
  *
  * @author Nicolas Noffke
- * $Id: SwingedPAImpl.java,v 1.1 2001-03-17 18:08:50 brose Exp $
+ * $Id: SwingedPAImpl.java,v 1.1.1.1 2001-03-17 18:08:50 brose Exp $
  */
 
 public class SwingedPAImpl

@@ -25,7 +25,7 @@ import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.1 2001-03-17 18:08:32 brose Exp $
+ * @version $Id: ORBSingleton.java,v 1.1.1.1 2001-03-17 18:08:32 brose Exp $
  */
 
 public class ORBSingleton

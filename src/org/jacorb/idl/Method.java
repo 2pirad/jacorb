@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Method.java,v 1.1 2001-03-17 18:08:20 brose Exp $
+ * @version $Id: Method.java,v 1.1.1.1 2001-03-17 18:08:20 brose Exp $
  *
  * This class is used to represent accessor operations
  */

@@ -23,7 +23,7 @@ package org.jacorb.security.ssl;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.1 2001-03-17 18:08:51 brose Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.1.1.1 2001-03-17 18:08:51 brose Exp $
  * 
  * We follow the design of socket factories in package javax.net 
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we 

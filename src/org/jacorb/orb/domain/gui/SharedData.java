@@ -10,7 +10,7 @@ import org.jacorb.orb.domain.*;
  * - a simple frame reference count mechanism
  * - a property policy called "policy editors"
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public interface SharedData

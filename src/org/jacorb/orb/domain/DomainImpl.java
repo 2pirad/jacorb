@@ -11,7 +11,7 @@ import org.jacorb.poa.POA;
  * Implementation of IDL-interface org.jacorb.orb.domain.Domain.
  * 
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class DomainImpl 

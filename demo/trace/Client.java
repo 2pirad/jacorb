@@ -9,7 +9,7 @@ import org.omg.CosNaming.*;
  * Created: Mon Jul 24 14:58:02 2000
  *
  * @author Nicolas Noffke
- * $Id: Client.java,v 1.1 2001-03-17 18:07:42 brose Exp $
+ * $Id: Client.java,v 1.1.1.1 2001-03-17 18:07:42 brose Exp $
  */
 
 public class Client {

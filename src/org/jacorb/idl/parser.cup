@@ -12,7 +12,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  * 
- * $Id: parser.cup,v 1.1 2001-03-17 18:08:23 brose Exp $
+ * $Id: parser.cup,v 1.1.1.1 2001-03-17 18:08:23 brose Exp $
  *
  */
 

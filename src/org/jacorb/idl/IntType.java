@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IntType.java,v 1.1 2001-03-17 18:08:19 brose Exp $
+ * @version $Id: IntType.java,v 1.1.1.1 2001-03-17 18:08:19 brose Exp $
  */
 
 class IntType 

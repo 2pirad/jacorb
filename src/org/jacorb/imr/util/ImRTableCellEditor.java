@@ -8,7 +8,7 @@ import java.awt.Component;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImRTableCellEditor.java,v 1.1 2001-03-17 18:08:24 brose Exp $
+ * $Id: ImRTableCellEditor.java,v 1.1.1.1 2001-03-17 18:08:24 brose Exp $
  */
 
 public class ImRTableCellEditor extends DefaultCellEditor {

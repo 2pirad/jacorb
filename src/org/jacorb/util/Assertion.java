@@ -4,7 +4,7 @@ package org.jacorb.util;
  * AssertionViolation.java
  *
  * @author 
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class Assertion

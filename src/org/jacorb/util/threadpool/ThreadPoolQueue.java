@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:18:43 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPoolQueue.java,v 1.1 2001-03-17 18:09:05 brose Exp $
+ * $Id: ThreadPoolQueue.java,v 1.1.1.1 2001-03-17 18:09:05 brose Exp $
  */
 
 public interface ThreadPoolQueue

@@ -11,7 +11,7 @@ import java.util.Vector;
  * See PI Spec p. 6-55ff
  *
  * @author Nicolas Noffke
- * @version $Id: PICurrentImpl.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: PICurrentImpl.java,v 1.1.1.1 2001-03-17 18:08:42 brose Exp $
  */
 
 public class PICurrentImpl extends org.jacorb.orb.LocalityConstrainedObject

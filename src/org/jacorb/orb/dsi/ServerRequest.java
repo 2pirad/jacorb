@@ -28,7 +28,7 @@ import org.jacorb.orb.portableInterceptor.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.1 2001-03-17 18:08:40 brose Exp $
+ * @version $Id: ServerRequest.java,v 1.1.1.1 2001-03-17 18:08:40 brose Exp $
  */
 
 public class ServerRequest 

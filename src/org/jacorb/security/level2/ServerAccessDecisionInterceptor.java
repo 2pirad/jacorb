@@ -12,7 +12,7 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.1 2001-03-17 18:08:50 brose Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.1.1.1 2001-03-17 18:08:50 brose Exp $
  */
 
 public class ServerAccessDecisionInterceptor 

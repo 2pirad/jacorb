@@ -34,7 +34,7 @@ import org.omg.CosNaming.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.1 2001-03-17 18:08:32 brose Exp $
+ * @version $Id: ParsedIOR.java,v 1.1.1.1 2001-03-17 18:08:32 brose Exp $
  */
 
 public class ParsedIOR 

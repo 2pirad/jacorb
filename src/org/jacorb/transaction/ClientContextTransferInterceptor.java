@@ -11,7 +11,7 @@ import org.omg.IOP.TransactionService;
  * outgoing message.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientContextTransferInterceptor.java,v 1.1 2001-03-17 18:09:03 brose Exp $
+ * @version $Id: ClientContextTransferInterceptor.java,v 1.1.1.1 2001-03-17 18:09:03 brose Exp $
  */
 
 public class ClientContextTransferInterceptor

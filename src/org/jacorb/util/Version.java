@@ -26,7 +26,7 @@ import java.io.*;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: Version.java,v 1.1 2001-03-17 18:09:04 brose Exp $
+ * @version $Id: Version.java,v 1.1.1.1 2001-03-17 18:09:04 brose Exp $
  */
 
 public final class Version

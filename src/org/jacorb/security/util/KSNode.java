@@ -22,7 +22,7 @@ package org.jacorb.security.util;
 
 /**
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: KSNode.java,v 1.1 2001-03-17 18:08:51 brose Exp $
+ *	@version $Id: KSNode.java,v 1.1.1.1 2001-03-17 18:08:51 brose Exp $
  */
 
 import javax.swing.tree.*;

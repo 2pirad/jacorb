@@ -9,7 +9,7 @@ import org.jacorb.util.Debug;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: InterceptorManager.java,v 1.1.1.1 2001-03-17 18:08:42 brose Exp $
  */
 
 public class InterceptorManager  

@@ -7,7 +7,7 @@ package org.jacorb.security.level2;
  * Created: Mon Sep  4 16:32:39 2000
  *
  * @author Nicolas Noffke
- * @version $Id: SecAttributeManager.java,v 1.1 2001-03-17 18:08:50 brose Exp $
+ * @version $Id: SecAttributeManager.java,v 1.1.1.1 2001-03-17 18:08:50 brose Exp $
  */
 
 import java.util.Hashtable;

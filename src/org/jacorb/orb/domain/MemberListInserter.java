@@ -16,7 +16,7 @@ import org.jacorb.util.Debug;
  * Created: Fri Aug 11 13:05:39 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class MemberListInserter extends java.lang.Thread 

@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: XorExpr.java,v 1.1 2001-03-17 18:08:22 brose Exp $
+ * @version $Id: XorExpr.java,v 1.1.1.1 2001-03-17 18:08:22 brose Exp $
  */
 
 class XorExpr 

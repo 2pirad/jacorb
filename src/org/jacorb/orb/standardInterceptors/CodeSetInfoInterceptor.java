@@ -9,7 +9,7 @@ import org.jacorb.util.Debug;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.1.1.1 2001-03-17 18:08:42 brose Exp $
  */
 
 public class CodeSetInfoInterceptor 

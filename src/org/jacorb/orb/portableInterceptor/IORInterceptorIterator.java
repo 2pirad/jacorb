@@ -11,7 +11,7 @@ import org.jacorb.util.Debug;
  * Created: Mon Apr 17 09:53:33 2000
  *
  * @author Nicolas Noffke
- * $Id: IORInterceptorIterator.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * $Id: IORInterceptorIterator.java,v 1.1.1.1 2001-03-17 18:08:42 brose Exp $
  */
 
 public class IORInterceptorIterator 

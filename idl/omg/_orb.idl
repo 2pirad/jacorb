@@ -4,7 +4,7 @@
  * generated from this file, but it is not suitable to be
  * included in user-defined IDL files!
  *
- * $Id: _orb.idl,v 1.1 2001-03-17 18:08:13 brose Exp $
+ * $Id: _orb.idl,v 1.1.1.1 2001-03-17 18:08:13 brose Exp $
  */
 
 #ifndef _MYORB_IDL

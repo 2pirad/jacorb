@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.1 2001-03-17 18:08:18 brose Exp $
+ * @version $Id: ConstExpr.java,v 1.1.1.1 2001-03-17 18:08:18 brose Exp $
  */
 
 class ConstExpr 

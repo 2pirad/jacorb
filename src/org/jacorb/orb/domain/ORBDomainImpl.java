@@ -10,7 +10,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 13 11:10:27 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  */
 
 public class ORBDomainImpl

@@ -20,7 +20,7 @@ import org.jacorb.security.level2.*;
  * from a Java key store
  *
  * @author Nicolas Noffke
- * $Id: PrincipalAuthenticatorImpl.java,v 1.1 2001-03-17 18:08:49 brose Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.1.1.1 2001-03-17 18:08:49 brose Exp $
  */
 
 public class PrincipalAuthenticatorImpl

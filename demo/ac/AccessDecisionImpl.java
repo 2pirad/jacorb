@@ -18,7 +18,7 @@ import jacorb.security.level2.*;
  *
  * Created: Tue Jun 13 10:54:41 2000
  *
- * $Id: AccessDecisionImpl.java,v 1.1 2001-03-17 18:07:28 brose Exp $
+ * $Id: AccessDecisionImpl.java,v 1.1.1.1 2001-03-17 18:07:28 brose Exp $
  */
 
 public class AccessDecisionImpl

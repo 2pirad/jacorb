@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  * "ParentRules" conflict resolution policy.
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.1.1.1 $
  * @see org.jacorb.orb.domain.ParentRulesPolicy
  */
 

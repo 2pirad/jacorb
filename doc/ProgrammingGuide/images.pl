@@ -13,7 +13,7 @@ $key = q/Revision:1.43;MSF=1.6;LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG
  WIDTH="128" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
  SRC="img1.gif"
- ALT="$Revision: 1.1 $">|; 
+ ALT="$Revision: 1.1.1.1 $">|; 
 
 $key = q/geq2;MSF=1.6;LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG

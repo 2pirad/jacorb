@@ -34,7 +34,7 @@ import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.1 2001-03-17 18:08:26 brose Exp $
+ * @version $Id: InterfaceDef.java,v 1.1.1.1 2001-03-17 18:08:26 brose Exp $
  */
 
 public class InterfaceDef 

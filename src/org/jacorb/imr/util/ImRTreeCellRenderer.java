@@ -11,8 +11,8 @@ import org.jacorb.imr.*;
  * @author Nicolas Noffke
  * 
  * $Log: ImRTreeCellRenderer.java,v $
- * Revision 1.1  2001-03-17 18:08:24  brose
- * Initial revision
+ * Revision 1.1.1.1  2001-03-17 18:08:24  brose
+ *
  *
  * Revision 1.4  1999/11/25 16:05:49  brose
  * cosmetics

@@ -13,8 +13,8 @@
 
 /*
  * $Log: ImportAttrib.java,v $
- * Revision 1.1  2001-03-17 18:09:01  brose
- * Initial revision
+ * Revision 1.1.1.1  2001-03-17 18:09:01  brose
+ *
  *
  * Revision 1.4  1999/11/25 16:08:15  brose
  * cosmetics

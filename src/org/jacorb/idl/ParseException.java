@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParseException.java,v 1.1 2001-03-17 18:08:21 brose Exp $
+ * @version $Id: ParseException.java,v 1.1.1.1 2001-03-17 18:08:21 brose Exp $
  *
  * Thrown by the IDL compiler when it encounters fatal errors
  */

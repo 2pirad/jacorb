@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  * @author Gerald Brose
  *
- * @version $Id: Scope.java,v 1.1 2001-03-17 18:08:21 brose Exp $
+ * @version $Id: Scope.java,v 1.1.1.1 2001-03-17 18:08:21 brose Exp $
  */
 
 public interface Scope

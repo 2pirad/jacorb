@@ -36,7 +36,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.1.1.1 2001-03-17 18:08:42 brose Exp $
  */
 
 public class ORBInitInfoImpl 

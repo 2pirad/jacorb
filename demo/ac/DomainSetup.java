@@ -13,7 +13,7 @@ import java.io.*;
  * Created: Wed Jul 12 14:22:22 2000
  *
  * @author Nicolas Noffke
- * @version $Id: DomainSetup.java,v 1.1 2001-03-17 18:07:28 brose Exp $
+ * @version $Id: DomainSetup.java,v 1.1.1.1 2001-03-17 18:07:28 brose Exp $
  */
 
 public class DomainSetup 

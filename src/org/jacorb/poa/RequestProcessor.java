@@ -45,7 +45,7 @@ import org.omg.PortableInterceptor.*;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.1 2001-03-17 18:08:44 brose Exp $
+ * @version $Id: RequestProcessor.java,v 1.1.1.1 2001-03-17 18:08:44 brose Exp $
  */
 public class RequestProcessor 
     extends Thread 

@@ -3,7 +3,7 @@
   It has been edited in a few places to accomodate
   the OMG IDL Java language mapping and DynAnys
 
-  $Id: Corba.idl,v 1.1 2001-03-17 18:08:10 brose Exp $	
+  $Id: Corba.idl,v 1.1.1.1 2001-03-17 18:08:10 brose Exp $	
 
 
 */

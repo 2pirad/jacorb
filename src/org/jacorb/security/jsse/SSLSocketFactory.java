@@ -23,7 +23,7 @@ package org.jacorb.security.jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.1 2001-03-17 18:08:49 brose Exp $
+ * $Id: SSLSocketFactory.java,v 1.1.1.1 2001-03-17 18:08:49 brose Exp $
  */
 
 import org.jacorb.security.level2.*;

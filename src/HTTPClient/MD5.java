@@ -1,5 +1,5 @@
 /*
- * $Header: /cvs/JacORB/src/HTTPClient/Attic/MD5.java,v 1.1 2001-03-17 18:09:08 brose Exp $
+ * $Header: /cvs/JacORB/src/HTTPClient/Attic/MD5.java,v 1.1.1.1 2001-03-17 18:09:08 brose Exp $
  *
  * MD5 in Java JDK Beta-2
  * written Santeri Paavolainen, Helsinki Finland 1996
@@ -34,8 +34,8 @@
  *
  *
  * $Log: MD5.java,v $
- * Revision 1.1  2001-03-17 18:09:08  brose
- * Initial revision
+ * Revision 1.1.1.1  2001-03-17 18:09:08  brose
+ *
  *
  * Revision 1.1  2000/07/17 17:07:01  semu
  * Utility package for HTTP requests.

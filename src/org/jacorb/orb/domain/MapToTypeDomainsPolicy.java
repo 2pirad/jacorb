@@ -18,7 +18,7 @@ import java.util.Hashtable;
  * Created: Sat Apr 22 14:10:24 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $ */
+ * @version $Revision: 1.1.1.1 $ */
 
 public class MapToTypeDomainsPolicy 
     extends ManagementPolicyImpl

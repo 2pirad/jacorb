@@ -21,7 +21,7 @@ package org.jacorb.idl;
  */
 
 /**
- * @version $Id: ElementSpec.java,v 1.1 2001-03-17 18:08:19 brose Exp $
+ * @version $Id: ElementSpec.java,v 1.1.1.1 2001-03-17 18:08:19 brose Exp $
  */ 
 
 class ElementSpec  

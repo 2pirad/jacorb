@@ -32,7 +32,7 @@ import org.jacorb.ir.gui.typesystem.*;
 
 /**
  * @author (c) Joerg von Frantzius, Gerald Brose, FU Berlin
- * @version $Id: IRBrowser.java,v 1.1 2001-03-17 18:08:27 brose Exp $
+ * @version $Id: IRBrowser.java,v 1.1.1.1 2001-03-17 18:08:27 brose Exp $
  */
 
 class IRBrowser 

@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.1 2001-03-17 18:08:31 brose Exp $
+ * @version $Id: BasicAdapter.java,v 1.1.1.1 2001-03-17 18:08:31 brose Exp $
  */
 
 import java.io.*;
