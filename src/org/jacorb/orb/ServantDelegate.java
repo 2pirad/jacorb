@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.20 2004-02-04 23:48:40 francisco Exp $
+ * $Id: ServantDelegate.java,v 1.21 2004-03-04 16:38:59 david.robison Exp $
  */
 
 public class ServantDelegate
@@ -179,7 +179,7 @@ public class ServantDelegate
     public boolean non_existent(org.omg.PortableServer.Servant self)
     {
         check();
-        org.jacorb.util.Debug.output(2,"ServantDelegate: non_existent: return false");
+        //org.jacorb.util.Debug.output(2,"ServantDelegate: non_existent: return false");
         return false;
     }
 
