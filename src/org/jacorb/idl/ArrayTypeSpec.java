@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.5 2001-03-30 09:11:13 jacorb Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.6 2001-04-10 09:32:47 jacorb Exp $
  *
  */
 
@@ -186,7 +186,8 @@ class ArrayTypeSpec
 	dims = declarator.dimensions();
 	if( dims.length > 1 )
 	{
-	    type_spec = new ArrayTypeSpec( new_num(), type_spec, declarator, pack_name, 1 );
+	    type_spec =
+                new ArrayTypeSpec( new_num(), type_spec, declarator, pack_name, 1 );
 	}
 	else if( type_spec.typeSpec() instanceof ScopedName )
 	{
@@ -219,7 +220,8 @@ class ArrayTypeSpec
     
     public String getTypeCodeExpression()
     {
-	String originalType =  "org.omg.CORBA.ORB.init().create_array_tc("+ dims[my_dim] + "," 
+	String originalType = 
+            "org.omg.CORBA.ORB.init().create_array_tc("+ dims[my_dim] + "," 
 	    + elementTypeSpec().getTypeCodeExpression() +")";
 
 	return originalType;

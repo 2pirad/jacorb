@@ -20,14 +20,15 @@
 
 package org.jacorb.idl;
 
-/**
- * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.4 2001-03-29 14:02:44 jacorb Exp $
- */
-
 import java.util.Vector;
 import java.util.Enumeration;
 import java.io.*;
+
+/**
+ * @author Gerald Brose
+ * @version $Id: TypeSpec.java,v 1.5 2001-04-10 09:32:48 jacorb Exp $
+ */
+
 
 public class TypeSpec
     extends IdlSymbol
@@ -213,21 +214,6 @@ public class TypeSpec
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

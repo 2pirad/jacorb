@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Method.java,v 1.3 2001-03-19 11:07:44 brose Exp $
+ * @version $Id: Method.java,v 1.4 2001-04-10 09:32:48 jacorb Exp $
  *
  * This class is used to represent accessor operations
  */
@@ -76,9 +76,9 @@ class Method
 
     public void printSignature(PrintWriter ps)
     {
-	ps.print("\tpublic ");
+	ps.print("\t");
 	if( pseudo )
-	    ps.print( " abstract ");
+	    ps.print( "abstract ");
 
 	if( resultType != null )
 	{

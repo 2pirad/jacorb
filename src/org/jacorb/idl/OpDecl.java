@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.6 2001-04-04 14:54:57 jacorb Exp $
+ * @version $Id: OpDecl.java,v 1.7 2001-04-10 09:32:48 jacorb Exp $
  */
 
 import java.util.*;
@@ -507,7 +507,7 @@ class OpDecl
 
     public void printSignature(PrintWriter ps)
     {
-	ps.print("\tpublic " + opTypeSpec.toString() + " " + name + "(");
+	ps.print("\t" + opTypeSpec.toString() + " " + name + "(");
 
 	Enumeration e = paramDecls.elements();
 	if(e.hasMoreElements())
