@@ -36,7 +36,7 @@ import java.util.Enumeration;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.15 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: Request.java,v 1.16 2004-06-09 05:34:28 andre.spiegel Exp $
  */
 
 public class Request
@@ -250,9 +250,9 @@ public class Request
 
                     if (info != null)
                     {
-                        info.result = result_value.value();
+                        info.setResult (result_value.value());
                         InterceptorManager manager = orb.getInterceptorManager();
-                        info.current = manager.getCurrent();
+                        info.setCurrent (manager.getCurrent());
 
                         try{
                             deleg.invokeInterceptors(info,
