@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.37 2003-10-28 12:15:21 nick.cross Exp $
+ * @version $Id: POA.java,v 1.38 2003-10-30 13:22:05 brose Exp $
  */
 
 public class POA
@@ -1384,8 +1384,8 @@ public class POA
     public Servant reference_to_servant(org.omg.CORBA.Object reference)
         throws ObjectNotActive, WrongAdapter, WrongPolicy
     {
-        checkDestructionApparent ();
-        checkNotLocal (reference);
+        checkDestructionApparent();
+        checkNotLocal(reference);
 
         if (!isRetain() && !isUseDefaultServant())
             throw new WrongPolicy();
@@ -1393,7 +1393,8 @@ public class POA
         byte[] objectId = POAUtil.extractOID(reference);
 
         /* not spec (isSystemId) */
-        if (isSystemId() && !previouslyGeneratedObjectId(objectId)) {
+        if (isSystemId() && !previouslyGeneratedObjectId(objectId)) 
+        {
             if (logTrace.test(0))
                 logTrace.printLog(objectId, "reference_to_servant: oid not previously generated!");
             throw new WrongAdapter();
@@ -1410,11 +1411,14 @@ public class POA
         }
 
         Servant servant = null;
-        /* is active servant */
-        if (isRetain() && (servant = aom.getServant(objectId)) != null) {
-            return servant;
 
-        } else if (useDefaultServant()) {
+        /* is active servant */
+        if (isRetain() && (servant = aom.getServant(objectId)) != null) 
+        {
+            return servant;
+        } 
+        else if (useDefaultServant()) 
+        {
             return defaultServant;
         }
 
@@ -1886,14 +1890,14 @@ public class POA
         return (org.omg.CORBA.Policy) all_policies.get(new Integer(type));
     }
 
-    public void addLocalRequest ()
+    public void addLocalRequest()
     {
-        requestController.addLocalRequest ();
+        requestController.addLocalRequest();
     }
 
-    public void removeLocalRequest ()
+    public void removeLocalRequest()
     {
-        requestController.removeLocalRequest ();
+        requestController.removeLocalRequest();
     }
 
     public int getNumberOfObjects ()
