@@ -30,10 +30,8 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  * Visitor for TCL Trees. Does some Restructuration of a TCL Tree.
  *
- * Created: Wed Sep 18 02:07:17 2002
- *
  * @author Alphonse Bendt
- * @version $Id: TCLCleanUp.java,v 1.10 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: TCLCleanUp.java,v 1.11 2003-12-16 15:05:35 alphonse.bendt Exp $
  */
 
 public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenTypes
@@ -49,18 +47,18 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
         catch ( VisitorException e )
         {
             logger_.fatalError("error during fix", e);
+            throw new RuntimeException(e.getMessage());
         }
-
     }
 
     public void visitComponentPosition( ComponentPositionOperator componentPositionOperator )
-    throws VisitorException
+        throws VisitorException
     {
         // fixCompPos(componentPositionOperator);
     }
 
     public void visitComponent( ComponentName component )
-    throws VisitorException
+        throws VisitorException
     {
         // component.left().acceptInOrder(this);
 
@@ -68,7 +66,7 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
     }
 
     public void visitUnionPosition( UnionPositionOperator op )
-    throws VisitorException
+        throws VisitorException
     {
         fixUnionPosition( op );
         // fixCompPos(op);
@@ -128,5 +126,4 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
             }
         }
     }
-
 }
