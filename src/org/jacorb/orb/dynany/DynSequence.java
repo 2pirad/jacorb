@@ -30,7 +30,7 @@ import java.util.Vector;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.6 2001-09-07 12:32:42 jacorb Exp $
+ * @version $Id: DynSequence.java,v 1.7 2001-09-07 14:05:51 jacorb Exp $
  *
  */
 
@@ -301,7 +301,7 @@ public final class DynSequence
         return false;
     }
 
-   public boolean seek(int index)    
+    public boolean seek(int index)    
     {
         if( index < 0 )
         {
@@ -310,7 +310,7 @@ public final class DynSequence
         }
         if( index < length )
         {
-            pos = limit;
+            pos = index;
             return true;
         }
         pos = -1;
