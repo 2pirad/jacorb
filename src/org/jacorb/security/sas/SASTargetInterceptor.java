@@ -60,7 +60,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  * This is the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInterceptor.java,v 1.18 2004-02-06 15:09:58 david.robison Exp $
+ * @version $Id: SASTargetInterceptor.java,v 1.19 2004-02-11 14:00:17 david.robison Exp $
  */
 
 public class SASTargetInterceptor
@@ -280,7 +280,10 @@ public class SASTargetInterceptor
         {
             logger.warn("Could not parse service context for operation " + ri.operation() + ": " + e);
         }
-        if (contextBody == null && (sasValues.targetRequires & org.omg.CSIIOP.EstablishTrustInClient.value) != 0) {
+        if (contextBody == null && 
+           (sasValues.targetRequires & org.omg.CSIIOP.EstablishTrustInClient.value) != 0 &&
+           !ri.operation().equals("_non_existent") &&
+           !ri.operation().equals("_is_a")) {
             logger.error("Did not parse service context for operation " + ri.operation());
             throw new org.omg.CORBA.NO_PERMISSION("No SAS service context found", MinorCodes.SAS_TSS_FAILURE, CompletionStatus.COMPLETED_NO);
         }
