@@ -37,18 +37,19 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.11 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: JacIDL.java,v 1.12 2003-03-31 07:49:47 brose Exp $
  */
-public class JacIDL extends MatchingTask
-{
 
+public class JacIDL 
+    extends MatchingTask
+{
     private File _destdir;
     private File _srcdir;
     private Path _includepath;
-    private String _packageprefix;
 
     private int _debuglevel;
     private boolean _generateir;
+    private boolean _omgprefix;
     private boolean _generateincluded;
     private boolean _parseonly;
     //    private boolean _globalimport;
@@ -73,7 +74,6 @@ public class JacIDL extends MatchingTask
         parser.include_state = false;
         _destdir = new File( "." );
         _srcdir = new File( "." );
-        _packageprefix = null;
         _parseonly = false;
         //        _globalimport = false;
         _generateir = false;
@@ -115,15 +115,6 @@ public class JacIDL extends MatchingTask
         _includepath = path;
     }
 
-    /**
-     * Set the prefix to prepend to the package names.
-     * @param prefix the prefix
-     */
-    public void setPackageprefix( String prefix )
-    {
-
-        _packageprefix = prefix;
-    }
 
     /**
      * Set the debug level.
@@ -147,6 +138,15 @@ public class JacIDL extends MatchingTask
     {
 
         _generateir = flag;
+    }
+
+    /**
+     * Set the flag to use the omg package prefix
+     * @param flag the flag
+     */
+    public void setOmgprefix( boolean flag )
+    {
+        _omgprefix = flag;
     }
 
     /**
@@ -324,10 +324,10 @@ public class JacIDL extends MatchingTask
             GlobalInputStream.setIncludePath( _includepath.toString() );
         }
 
-        // package prefix
-        if( _packageprefix != null && _packageprefix.length() > 0 )
+        // omg package prefix
+        if( _omgprefix )
         {
-            parser.package_prefix = _packageprefix;
+            parser.package_prefix = "org.omg";
         }
 
         // setup input file lists
