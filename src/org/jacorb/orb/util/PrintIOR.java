@@ -36,7 +36,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.22 2003-05-06 14:36:48 andre.spiegel Exp $
+ * @version $Id: PrintIOR.java,v 1.23 2003-06-20 15:09:10 andre.spiegel Exp $
  */
 
 public class PrintIOR
@@ -124,7 +124,7 @@ public class PrintIOR
                                (int)p.version().major + "." +
                                (int)p.version().minor);
 
-            System.out.println("\tHost\t:\t" + p.getAddress().getHost());
+            System.out.println("\tHost\t:\t" + p.getAddress().getIP());
             int port = p.getAddress().getPort();
             if( port < 0 )
                 port += 65536;
