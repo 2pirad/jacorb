@@ -31,7 +31,7 @@ import org.omg.GIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.14 2002-05-06 13:44:26 gerald Exp $
+ * @version $Id: ServerRequest.java,v 1.15 2002-05-27 07:19:02 gerald Exp $
  */
 
 public class ServerRequest 
@@ -44,6 +44,7 @@ public class ServerRequest
     
     private int status = ReplyStatusType_1_2._NO_EXCEPTION;
     private byte[] oid;
+    private byte[] object_key;
     private org.omg.CORBA.Object reference = null;
     private String[] rest_of_name = null;
 
@@ -69,8 +70,9 @@ public class ServerRequest
 	this.orb = orb;
 	this.in = in;
 	connection = _connection;
+        object_key = orb.mapObjectKey( in.req_hdr.target.object_key() );
 
-	oid = org.jacorb.poa.util.POAUtil.extractOID( in.req_hdr.target.object_key() );
+	oid = org.jacorb.poa.util.POAUtil.extractOID( object_key );
     }
 
     /* 
@@ -474,8 +476,8 @@ public class ServerRequest
     }
 
     public byte[] objectKey()
-    {
-	return in.req_hdr.target.object_key();
+    {        
+	return object_key;
     }
 
     public org.omg.IOP.ServiceContext[] getServiceContext()
