@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.17 2003-04-27 12:39:03 andre.spiegel Exp $
+ * @version $Id: Transport.java,v 1.18 2003-05-05 09:44:16 andre.spiegel Exp $
  */
 
 public interface Transport 
@@ -58,13 +58,6 @@ public interface Transport
     boolean is_connected();
 
     org.omg.ETF.Profile get_server_profile(); 
-
-    // Non-ETF methods below this line
-
-    /**
-     * Set the transport listener used for upcalls.
-     */
-    public void setTransportListener( TransportListener listener );
 
 }// Transport
 
