@@ -25,33 +25,33 @@ import java.util.Iterator;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: LFUSelectionStrategyImpl.java,v 1.3 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: LFUSelectionStrategyImpl.java,v 1.4 2003-01-07 18:06:59 nicolas Exp $
  */
 
 public class LFUSelectionStrategyImpl
     implements SelectionStrategy
 {
-    public Transport selectForClose( List transports )
+    public ServerGIOPConnection selectForClose( List connections )
     {
-        Transport least_used = null;
+        ServerGIOPConnection least_used = null;
         double least_usage = Double.MAX_VALUE;
 
-        for( Iterator it = transports.iterator();
+        for( Iterator it = connections.iterator();
              it.hasNext();
              )
         {
-            Transport t = (Transport) it.next();
+            ServerGIOPConnection conn = (ServerGIOPConnection) it.next();
             
-            if( t.isIdle() )
+            if( ! conn.hasPendingMessages() )
             {
                 LFUStatisticsProviderImpl sp = (LFUStatisticsProviderImpl)
-                    t.getStatisticsProvider();
+                    conn.getStatisticsProvider();
 
                 double frequency = sp.getFrequency();
 
                 if( frequency < least_usage )
                 {
-                    least_used = t;
+                    least_used = conn;
                     least_usage = frequency;
                 }
             }

@@ -37,7 +37,7 @@ import org.jacorb.orb.portableInterceptor.*;
  * Created: Sun Sep  2 18:16:27 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.7 2003-01-07 18:06:59 nicolas Exp $
  */
 
 public class BiDirConnectionServerInterceptor 
@@ -48,7 +48,7 @@ public class BiDirConnectionServerInterceptor
     private ORB orb = null;
     private Codec codec = null;
 
-    private ConnectionManager conn_mg = null;
+    private ClientConnectionManager conn_mg = null;
 
     public BiDirConnectionServerInterceptor( ORB orb,
                                              Codec codec )
@@ -56,7 +56,7 @@ public class BiDirConnectionServerInterceptor
         this.orb = orb;
         this.codec = codec;
 
-        conn_mg = orb.getConnectionManager();
+        conn_mg = orb.getClientConnectionManager();
     }
 
     public String name()

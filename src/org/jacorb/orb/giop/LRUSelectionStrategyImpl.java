@@ -25,31 +25,31 @@ import java.util.Iterator;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: LRUSelectionStrategyImpl.java,v 1.2 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: LRUSelectionStrategyImpl.java,v 1.3 2003-01-07 18:06:59 nicolas Exp $
  */
 
 public class LRUSelectionStrategyImpl
     implements SelectionStrategy
 {
-    public Transport selectForClose( List transports )
+    public ServerGIOPConnection selectForClose( List connections )
     {
-        Transport oldest = null;
+        ServerGIOPConnection oldest = null;
         long last_usage = Long.MAX_VALUE;
 
-        for( Iterator it = transports.iterator();
+        for( Iterator it = connections.iterator();
              it.hasNext();
              )
         {
-            Transport t = (Transport) it.next();
+            ServerGIOPConnection conn = (ServerGIOPConnection) it.next();
             
-            if( t.isIdle() )
+            if( ! conn.hasPendingMessages() )
             {
                 LRUStatisticsProviderImpl sp = (LRUStatisticsProviderImpl)
-                    t.getStatisticsProvider();
+                    conn.getStatisticsProvider();
   
                 if( sp.getLastUsage() < last_usage )
                 {
-                    oldest = t;
+                    oldest = conn;
                     last_usage = sp.getLastUsage();
                 }
             }

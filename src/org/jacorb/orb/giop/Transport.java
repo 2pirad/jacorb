@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: Transport.java,v 1.9 2003-01-07 18:06:59 nicolas Exp $
  */
 
 public interface Transport 
@@ -73,7 +73,14 @@ public interface Transport
     /**
      * Close this transport (and free resources).  
      */
-    public void close()
+    public void closeCompletely()
+        throws IOException;
+
+    /**
+     * Close only the underlying network connection. Everything else
+     * stays in place and the network connection can be reopened.  
+     */
+    public void closeAllowReopen()
         throws IOException;
     
     /**
@@ -103,7 +110,6 @@ public interface Transport
      * Get the statistics provider for transport usage statistics.
      */
     public StatisticsProvider getStatisticsProvider();
-
 }// Transport
 
 
