@@ -30,7 +30,7 @@ import java.util.Vector;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.7 2001-09-07 14:05:51 jacorb Exp $
+ * @version $Id: DynSequence.java,v 1.8 2001-10-01 07:34:31 jacorb Exp $
  *
  */
 
@@ -59,7 +59,7 @@ public final class DynSequence
             this.orb = org.omg.CORBA.ORB.init();
             this.dynFactory = dynFactory;
 
-            elementType = type.content_type();
+            elementType = ((org.jacorb.orb.TypeCode)type().content_type()).originalType();
             limit = type.length();
             length = 0;
             members = new Vector();
@@ -71,7 +71,7 @@ public final class DynSequence
         org.jacorb.util.Debug.assert( elementType != null, "DynSequence.set_length, elementType null");
     }
 
-    public void from_any(org.omg.CORBA.Any value) 
+    public void from_any( org.omg.CORBA.Any value ) 
         throws InvalidValue, TypeMismatch
     {
         if( ! type().equivalent( value.type() ))
@@ -112,7 +112,7 @@ public final class DynSequence
                 throw new InvalidValue();
 
             members = new Vector(length);
-            elementType = type().content_type();
+            elementType = ((org.jacorb.orb.TypeCode)type().content_type()).originalType();
 
             for( int i = 0 ; i < length; i++ )
             {
@@ -167,7 +167,8 @@ public final class DynSequence
             pos = -1;
         }
 
-        org.jacorb.util.Debug.assert( elementType != null, "DynSequence.set_length, elementType null");
+        org.jacorb.util.Debug.assert( elementType != null, 
+                                      "DynSequence.set_length, elementType null");
 
         if( len > length )
         {

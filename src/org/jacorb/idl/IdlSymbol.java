@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.7 2001-09-07 12:40:15 jacorb Exp $
+ * @version $Id: IdlSymbol.java,v 1.8 2001-10-01 07:34:46 jacorb Exp $
  */
 
 class IdlSymbol 
@@ -94,6 +94,11 @@ class IdlSymbol
     public str_token get_token()
     {
 	return token;
+    }
+
+    public String name()
+    {
+	return name;
     }
 
     /**

@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.23 2001-09-07 12:35:37 jacorb Exp $
+ * @version $Id: ORB.java,v 1.24 2001-10-01 07:34:30 jacorb Exp $
  */
 
 public final class ORB
@@ -153,7 +153,7 @@ public final class ORB
         }
         
         org.jacorb.orb.Delegate d = new Delegate(this, pior );
-        o = d.getReference();
+        o = d.getReference( null );
         if( Environment.cacheReferences() )
         {
             Debug.output(5,"Caching reference for key " + key);
@@ -1400,8 +1400,18 @@ public final class ORB
         if( str == null )
             return null;
 
-        ParsedIOR pior = new ParsedIOR( str );
-        if( pior.isNull() )
+        ParsedIOR pior = null;
+
+        try
+        {
+            pior = new ParsedIOR( str );
+        }
+        catch( Exception e)
+        {
+            org.jacorb.util.Debug.output( 2, e );
+        }
+
+        if( pior == null || pior.isNull() )
             return null;
         else
         {

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: StringType.java,v 1.4 2001-04-05 09:21:00 jacorb Exp $
+ * @version $Id: StringType.java,v 1.5 2001-10-01 07:34:46 jacorb Exp $
  */
 
 class StringType 
@@ -71,7 +71,8 @@ class StringType
     public void setEnclosingSymbol( IdlSymbol s )
     {
 	if( enclosing_symbol != null && enclosing_symbol != s )
-	    throw new RuntimeException("Compiler Error: trying to reassign container for " + name );
+	    throw new RuntimeException("Compiler Error: trying to reassign container for " 
+                                       + name );
 	enclosing_symbol = s;
     }
 

@@ -27,7 +27,7 @@ package org.jacorb.idl;
  *  field str_val.
  *
  * @see java_cup.runtime.str_token
- * @version $Id: str_token.java,v 1.4 2001-03-27 12:01:22 noffke Exp $
+ * @version $Id: str_token.java,v 1.5 2001-10-01 07:34:48 jacorb Exp $
  * @author  Gerald Brose
  */
 
@@ -43,7 +43,8 @@ public class str_token
     public String fileName = "";
 
     /** Full constructor. */
-    public str_token(int term_num, String v, PositionInfo p, String _fileName )
+    public str_token( int term_num, String v, 
+                      PositionInfo p, String _fileName )
     {
 	/* super class does most of the work */
 	super(term_num);

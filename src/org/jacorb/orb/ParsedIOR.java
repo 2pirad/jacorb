@@ -35,7 +35,7 @@ import org.omg.CosNaming.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.7 2001-08-08 16:23:14 jacorb Exp $
+ * @version $Id: ParsedIOR.java,v 1.8 2001-10-01 07:34:30 jacorb Exp $
  */
 
 public class ParsedIOR 
@@ -565,15 +565,18 @@ public class ParsedIOR
 
 	    try
 	    {
-		NamingContextExt n = NamingContextExtHelper.narrow( orb.string_to_object(corbaloc));
-		org.omg.CORBA.Object target = n.resolve_str( name );
-		IOR ior = ((Delegate)((org.omg.CORBA.portable.ObjectImpl)target)._get_delegate()).getIOR();
+		NamingContextExt n =
+                    NamingContextExtHelper.narrow( orb.string_to_object(corbaloc));
+		org.omg.CORBA.Object target = 
+                    n.resolve_str( name );
+		IOR ior = 
+                    ((Delegate)((org.omg.CORBA.portable.ObjectImpl)target)._get_delegate()).getIOR();
 		decode(ior);
 	    }
 	    catch( Exception e )
 	    {
 		org.jacorb.util.Debug.output(4, e );
-		throw new RuntimeException("Invalid object reference: " + object_reference);
+		throw new RuntimeException("Invalid object reference: " + corbaloc );
 	    }
 	}
 	else
