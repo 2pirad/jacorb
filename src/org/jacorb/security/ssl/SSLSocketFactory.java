@@ -23,7 +23,7 @@ package org.jacorb.security.ssl;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.8 2001-07-03 12:31:13 noffke Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.9 2001-07-03 16:03:01 noffke Exp $
  * 
  * We follow the design of socket factories in package javax.net 
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we 
@@ -197,7 +197,7 @@ public class SSLSocketFactory
             }
         }
 
-        // ctx.setDebugStream( System.out );
+        //default_context.setDebugStream( System.out );
 
         return default_context;
     }
