@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.10 2002-05-06 07:27:51 gerald Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.11 2002-05-27 08:41:31 gerald Exp $
  */
 
 public class Client_TCP_IP_Transport 
@@ -51,7 +51,8 @@ public class Client_TCP_IP_Transport
 
     private boolean closed = false;
     private boolean connected = false;
-    
+
+
     public Client_TCP_IP_Transport( String target_host,
                                     int target_port,
                                     SocketFactory socket_factory )
@@ -65,7 +66,7 @@ public class Client_TCP_IP_Transport
         //get the client-side timeout property value
         String prop = 
             Environment.getProperty( "jacorb.connection.client_timeout" );
-        
+
         if( prop != null )
         {
             try
@@ -106,7 +107,7 @@ public class Client_TCP_IP_Transport
     {
         if( ! connected )
         {
-            Debug.output(1,"Trying to connect to " + 
+            Debug.output(3, "Trying to connect to " + 
                          connection_info );
             
             int retries = Environment.noOfRetries();
@@ -134,7 +135,7 @@ public class Client_TCP_IP_Transport
                     out_stream = 
                         new BufferedOutputStream( socket.getOutputStream());
 
-                    Debug.output( 2, "Succeeded to connect to " +
+                    Debug.output( 1, "Connected to " +
                                   connection_info +
                                   ( socket_factory.isSSL( socket ) ? " via SSL" : "" ));
 
@@ -146,8 +147,8 @@ public class Client_TCP_IP_Transport
                 } 
                 catch ( IOException c ) 
                 { 
-                    Debug.output(1,"Retrying to connect to " + 
-                                 connection_info );
+                    Debug.output( 1, "Retrying to connect to " + 
+                                     connection_info );
                     try 
                     {
                         Thread.sleep( Environment.retryInterval() );
