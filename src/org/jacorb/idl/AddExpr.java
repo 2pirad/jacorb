@@ -24,13 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.9 2002-04-17 08:49:02 gerald Exp $
+ * @version $Id: AddExpr.java,v 1.10 2002-05-14 07:31:30 gerald Exp $
  */
 
 class AddExpr
-        extends IdlSymbol
+    extends IdlSymbol
 {
-
     public AddExpr add_expr = null;
     public String operator;
     public MultExpr mult_expr;
