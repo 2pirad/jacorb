@@ -94,7 +94,7 @@ import org.apache.avalon.framework.logger.Logger;
  * reference of that event channel.<br>
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.32 2004-03-03 12:32:50 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.33 2004-03-17 22:43:14 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl
@@ -139,8 +139,6 @@ public class EventChannelFactoryImpl
     private FilterFactoryImpl defaultFilterFactoryServant_;
 
     private ApplicationContext applicationContext_;
-
-    private ChannelContext channelContextTemplate_;
 
     private SynchronizedInt eventChannelIDPool_;
 
