@@ -4,21 +4,20 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.9 2001-11-13 08:52:37 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.10 2001-11-20 11:05:57 nicolas Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
 	<property name="dirs.base" value="${basedir}"/>
 	<property name="classdir" value="${dirs.base}/classes"/>
 	<property name="src" value="${dirs.base}/src"/>
-	<available classname="iaik.x509.X509Certificate" property="iaik.present" />
-	<available classname="javax.net.ssl.SSLSocketFactory" property="jsse.present" />
-	<available classname="javax.swing.JTree" property="swing.present" />
-	<available classname="java.util.Collection"
-	property="java2.present"/>
+	<available classname="iaik.x509.X509Certificate" 
+                   property="iaik.present" />
+	<available classname="javax.net.ssl.SSLSocketFactory" 
+                   property="jsse.present" />
    </target>
 
-   <target name="all" depends="init,leveltwo,ssl,util">
+   <target name="all" depends="init,leveltwo,principal_authenticator,ssl,util">
 
    </target>
 
@@ -29,20 +28,25 @@
 
    <!-- -->
 
-   <target name="leveltwo">
+   <target name="leveltwo" depends="init">
 	<javac srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/security/level2/*.java"
+               excludes="org/jacorb/security/level2/PrincipalAuthenticatorImpl.java"
+        />
+   </target>
+
+   <target name="principal_authenticator" depends="init" if="iaik.present">
+	<javac srcdir="${src}"
+               destdir="${classdir}"
+               includes="org/jacorb/security/level2/PrincipalAuthenticator.java"
         />
    </target>
 
    <!-- -->
 
-   <target name="util" depends="init,check1" if="swing.present">
-   </target>
-
-   <target name="check1" if="iaik.present">
-	<javac srcdir="${src}"
+   <target name="util" depends="init" if="iaik.present">
+           <javac srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/security/util/*.java"
         />
