@@ -22,14 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatPtType.java,v 1.6 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: FloatPtType.java,v 1.6.2.1 2002-07-17 13:11:36 gerald Exp $
  */
 
 
 class FloatPtType
-        extends BaseType
+    extends BaseType
 {
-
     public FloatPtType( int num )
     {
         super( num );
@@ -40,23 +39,5 @@ class FloatPtType
         return type_spec.holderName();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

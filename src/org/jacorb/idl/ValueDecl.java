@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.23.2.2 2002-07-17 13:08:05 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.23.2.3 2002-07-17 13:11:37 gerald Exp $
  */
 
 class ValueDecl
@@ -98,8 +98,6 @@ class ValueDecl
 
     public void setPackage( String s )
     {
-        Environment.output( 4, "** ValueDecl setPackage " + s );
-
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
             pack_name = s + "." + pack_name;

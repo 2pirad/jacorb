@@ -26,13 +26,12 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: InitDecl.java,v 1.2 2002-04-17 08:49:06 gerald Exp $
+ * @version $Id: InitDecl.java,v 1.2.2.1 2002-07-17 13:11:36 gerald Exp $
  */
 
 class InitDecl
-        extends Declaration
+    extends Declaration
 {
-
     public Vector paramDecls;
     public IdlSymbol myValue;
 
@@ -69,7 +68,6 @@ class InitDecl
     public void parse()
     {
         myValue = enclosing_symbol;
-
 
         try
         {

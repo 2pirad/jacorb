@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.33 2002-07-08 09:18:41 gerald Exp $
+ * @version $Id: Interface.java,v 1.33.2.1 2002-07-17 13:11:36 gerald Exp $
  */
 
 import java.io.File;
@@ -63,6 +63,8 @@ class Interface
 
     public void setPackage( String s )
     {
+        Environment.output( 4, "** Interface setPackage " + s );
+
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
             pack_name = new String( s + "." + pack_name );

@@ -22,14 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Declaration.java,v 1.6 2002-04-17 08:49:04 gerald Exp $
+ * @version $Id: Declaration.java,v 1.6.2.1 2002-07-17 13:11:36 gerald Exp $
  */
 
 
 class Declaration
-        extends IdlSymbol
+    extends IdlSymbol
 {
-
     public Declaration( int num )
     {
         super( num );
