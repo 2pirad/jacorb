@@ -36,6 +36,8 @@ import org.jacorb.poa.util.POAUtil;
 
 import org.apache.avalon.framework.logger.*;
 
+import org.omg.CORBA.BAD_PARAM;
+import org.omg.CORBA.BAD_QOS;
 import org.omg.CORBA.TypeCode;
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CORBA.ORBPackage.InvalidName;
@@ -50,7 +52,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.108 2003-12-17 14:09:34 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.109 2003-12-18 11:12:23 nick.cross Exp $
  */
 
 public final class ORB
@@ -880,15 +882,15 @@ public final class ORB
             }
             catch( NumberFormatException nfe )
             {
-                throw new Error( "Unable to create integer from string >>" +
-                                 port_str + "<<. " +
-                                 "(check property \"jacorb.ior_proxy_port\")" );
+                throw new BAD_QOS( "Unable to create integer from string >>" +
+                                   port_str + "<<. " +
+                                   "(check property \"jacorb.ior_proxy_port\")" );
             }
 
             if( port < 0 )
             {
-                throw new Error( "Negative port numbers are not allowed! " +
-                                 "(check property \"jacorb.ior_proxy_port\")" );
+                throw new BAD_QOS( "Negative port numbers are not allowed! " +
+                                   "(check property \"jacorb.ior_proxy_port\")" );
             }
 
             if (logger.isInfoEnabled())
@@ -1698,9 +1700,9 @@ public final class ORB
         if (delegate instanceof org.jacorb.orb.Delegate)
             return delegate.toString();
         else
-            throw new Error("Argument has a delegate whose class is "
-                            + delegate.getClass().getName()
-                            + ", a org.jacorb.orb.Delegate was expected");
+            throw new BAD_PARAM("Argument has a delegate whose class is "
+                                + delegate.getClass().getName()
+                                + ", a org.jacorb.orb.Delegate was expected");
     }
 
     public void perform_work ()

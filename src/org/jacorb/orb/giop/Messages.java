@@ -20,17 +20,15 @@ package org.jacorb.orb.giop;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.io.*;
-import org.omg.GIOP.*;
-import org.jacorb.orb.*;
+import org.omg.CORBA.BAD_PARAM;
+import org.omg.GIOP.MsgType_1_1;
 import org.omg.IOP.ServiceContext;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.16 2003-10-28 14:48:12 nick.cross Exp $
+ * @version $Id: Messages.java,v 1.17 2003-12-18 11:15:20 nick.cross Exp $
  *
  */
-
 public class Messages
 {
     /**
@@ -143,8 +141,8 @@ public class Messages
             }
             else
             {
-                throw new Error( "Messages of type " +
-                                 msg_type + " don't have request ids" );
+                throw new BAD_PARAM
+                    ("Messages of type " + msg_type + " don't have request ids");
             }
         }
         else if( giop_minor == 0 || giop_minor == 1 )
@@ -188,8 +186,8 @@ public class Messages
             }
             else
             {
-                throw new Error( "Messages of type " +
-                                 msg_type + " don't have request ids" );
+                throw new BAD_PARAM
+                    ("Messages of type " + msg_type + " don't have request ids");
             }
         }
 

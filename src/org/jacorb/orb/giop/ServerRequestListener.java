@@ -45,7 +45,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.15 2003-12-18 09:28:37 nick.cross Exp $
+ * @version $Id: ServerRequestListener.java,v 1.16 2003-12-18 11:15:20 nick.cross Exp $
  */
 
 public class ServerRequestListener
@@ -267,7 +267,7 @@ public class ServerRequestListener
 
             if( tmp_poa == null )
             {
-                throw new Error("request POA null!");
+                throw new org.omg.CORBA.INTERNAL("Request POA null!");
             }
             else
             {

@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.Vector;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORBConstants;
+import org.omg.CORBA.MARSHAL;
 import org.omg.IOP.ServiceContext;
 import org.omg.IOP.ServiceContextHelper;
 
@@ -34,7 +35,7 @@ import org.omg.IOP.ServiceContextHelper;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.17 2003-10-28 14:48:12 nick.cross Exp $
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.18 2003-12-18 11:13:13 nick.cross Exp $
  */
 
 public class ServiceContextTransportingOutputStream
@@ -287,7 +288,7 @@ public class ServiceContextTransportingOutputStream
                 }
                 default :
                 {
-                    throw new Error( "Unknown GIOP minor: " + giop_minor );
+                    throw new MARSHAL( "Unknown GIOP minor: " + giop_minor );
                 }
             }
         }

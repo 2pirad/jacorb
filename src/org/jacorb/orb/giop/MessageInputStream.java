@@ -1,3 +1,5 @@
+package org.jacorb.orb.giop;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,9 +20,8 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.giop;
-
 import org.jacorb.orb.CDRInputStream;
+import org.omg.CORBA.MARSHAL;
 
 /**
  * MessageInputStream.java
@@ -29,24 +30,24 @@ import org.jacorb.orb.CDRInputStream;
  * Created: Sat Aug 18 21:07:07 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageInputStream.java,v 1.6 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: MessageInputStream.java,v 1.7 2003-12-18 11:15:20 nick.cross Exp $
  */
 
-public class MessageInputStream 
-    extends CDRInputStream 
+public class MessageInputStream
+    extends CDRInputStream
 {
-	
+
     public int msg_size = -1;
-    
+
     public MessageInputStream( org.omg.CORBA.ORB orb, byte[] buffer)
     {
         super( orb, buffer );
 
         //check major version
         if( Messages.getGIOPMajor( buffer ) != 1 )
-	{
-            throw new Error( "Unknown GIOP major version: " + 
-                             Messages.getGIOPMajor( buffer ));
+        {
+            throw new MARSHAL
+                ("Unknown GIOP major version: " + Messages.getGIOPMajor(buffer));
         }
 
         //although the attribute is renamed, this should work for 1.0
@@ -54,15 +55,10 @@ public class MessageInputStream
         setLittleEndian( Messages.isLittleEndian( buffer ));
 
         setGIOPMinor( Messages.getGIOPMinor( buffer ) );
-        
+
         msg_size = Messages.getMsgSize( buffer );
 
         //skip the message header. Its attributes are read directly
-        skip( Messages.MSG_HEADER_SIZE );	    
-    }    
+        skip( Messages.MSG_HEADER_SIZE );
+    }
 }// MessageInputStream
-
-
-
-
-

@@ -20,12 +20,13 @@ package org.jacorb.orb.giop;
  */
 
 import java.io.*;
+import org.omg.CORBA.MARSHAL;
 import org.omg.GIOP.*;
 import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateReplyOutputStream.java,v 1.14 2003-12-17 16:43:05 nick.cross Exp $
+ * @version $Id: LocateReplyOutputStream.java,v 1.15 2003-12-18 11:15:20 nick.cross Exp $
  *
  */
 
@@ -77,7 +78,7 @@ public class LocateReplyOutputStream
             }
             default :
             {
-                throw new Error( "Unknown GIOP minor: " + giop_minor );
+                throw new MARSHAL( "Unknown GIOP minor: " + giop_minor );
             }
         }
     }
