@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.13 2001-05-02 11:51:38 noffke Exp $
+ * @version $Id: Environment.java,v 1.14 2001-05-10 12:46:30 noffke Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -74,7 +74,7 @@ public class Environment
 
     /** domain-specific */
 
-    private static int                  _verbosity = 0;
+    private static int                  _verbosity = 2;
 
     private static boolean              _locate_on_bind = false;
     private static boolean              _use_imr = false;
