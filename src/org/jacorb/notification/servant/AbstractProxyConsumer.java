@@ -58,7 +58,7 @@ import org.jacorb.notification.conf.Default;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.8 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.9 2004-06-18 23:04:51 alphonse.bendt Exp $
  */
 
 abstract class AbstractProxyConsumer
@@ -305,10 +305,11 @@ abstract class AbstractProxyConsumer
                                         logger_.error("invalid event type", e);
                                     }
                                 }
+                            catch (Exception e) {
+                                logger_.error("subscription change failed", e);
+                            }
                         }
                     };
-
-
                 subscriptionManager_.addListener(proxySubscriptionListener_);
             }
         }
@@ -383,8 +384,6 @@ abstract class AbstractProxyConsumer
 
         _servant.configure (((org.jacorb.orb.ORB)admin.getORB()).
                             getConfiguration());
-
-
 
         return _servant;
     }
