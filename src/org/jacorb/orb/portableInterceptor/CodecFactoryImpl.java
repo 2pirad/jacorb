@@ -33,31 +33,29 @@ import org.omg.CORBA.ORB;
  * See PI Spec p.10-80
  *
  * @author Nicolas Noffke
- * @version $Id: CodecFactoryImpl.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: CodecFactoryImpl.java,v 1.9 2004-02-09 17:01:52 gerald Exp $
  */
 
-public class CodecFactoryImpl extends org.omg.CORBA.LocalObject 
-  implements CodecFactory {
-
-  private ORB orb = null;
+public class CodecFactoryImpl 
+    extends org.omg.CORBA.LocalObject 
+    implements CodecFactory 
+{
+    private ORB orb = null;
   
-  public CodecFactoryImpl(ORB orb) {
-    this.orb = orb;
-  }
+    public CodecFactoryImpl(ORB orb) 
+    {
+        this.orb = orb;
+    }
 
-  // implementation of org.omg.IOP.CodecFactoryOperations interface
-  public Codec create_codec(Encoding enc) throws UnknownEncoding {
-    if (enc.format == ENCODING_CDR_ENCAPS.value)
-      if (enc.major_version == 1)
-	if (enc.minor_version == 0)
-	  return new Codec_CDR_1_0_Impl(orb);
-	else
-	  throw new UnknownEncoding();
-      else
-	throw new UnknownEncoding();
-    else
-      throw new UnknownEncoding();
-  }  
+    /**
+     * implementation of org.omg.IOP.CodecFactoryOperations interface
+     */
+
+    public Codec create_codec(Encoding enc) 
+        throws UnknownEncoding 
+    {
+        return new CodecImpl( orb, enc );
+    }  
 } // CodecFactoryImpl
 
 
