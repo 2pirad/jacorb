@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.18 2001-11-09 08:54:45 jacorb Exp $
+ * @version $Id: Interface.java,v 1.19 2001-11-26 15:52:35 gerald Exp $
  */
 
 import java.util.*;
@@ -384,7 +384,7 @@ class Interface
                 ScopedName sn = (ScopedName)e.nextElement();
                 if( sn.resolvedName().indexOf('.') < 0 )
                 {
-                    ps.print("import " + sn + ";");
+                    ps.println("import " + sn + "Operations;");
                 }
             }
         }
