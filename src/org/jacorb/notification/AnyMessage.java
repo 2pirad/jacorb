@@ -46,11 +46,13 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.6 2004-02-08 14:22:11 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.7 2004-02-09 16:17:26 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
 {
+    public static final String TYPE_NAME = "%ANY";
+
     public static final int DEFAULT_PRIORITY = 0;
 
     private static final Property[] sFilterableData;
@@ -58,10 +60,10 @@ public class AnyMessage extends AbstractMessage
     private static final EventHeader sEventHeader;
 
     private static final String sAnyKey =
-        FilterUtils.calcConstraintKey( "", "%ANY" );
+        FilterUtils.calcConstraintKey( "", TYPE_NAME );
 
     static {
-        EventType _eventType = new EventType( "", "%ANY" );
+        EventType _eventType = new EventType( "", TYPE_NAME );
         FixedEventHeader _fixedHeader = new FixedEventHeader( _eventType, "" );
         Property[] _variableHeader = new Property[ 0 ];
         sEventHeader = new EventHeader( _fixedHeader, _variableHeader );
