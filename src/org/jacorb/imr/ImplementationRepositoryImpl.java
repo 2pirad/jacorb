@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.38 2003-04-02 14:45:41 nick.cross Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.39 2003-04-14 15:37:42 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1303,6 +1303,7 @@ public class ImplementationRepositoryImpl
        (String host, int port, byte []object_key)
     {
         ClientConnectionManager   cm           = null;
+        IIOPAddress               address      = null;
         ClientConnection          connection   = null;
         LocateRequestOutputStream lros         = null;
         LocateReplyReceiver       receiver     = null;
@@ -1310,7 +1311,12 @@ public class ImplementationRepositoryImpl
         boolean                   result       = false;
 
         cm = ((org.jacorb.orb.ORB)orb).getClientConnectionManager ();
-        connection = cm.getConnection (host + ':' + port, false);
+        address = new IIOPAddress (host, port);
+        connection = cm.getConnection 
+        (
+            new InternetIOPProfile (address, object_key),
+            false
+        );
 
         Debug.output(Debug.IMR | Debug.DEBUG1,
                      "Pinging " + host + " / " + port);
