@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.jacorb.util.Environment;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.12 2002-10-17 19:35:01 david.robison Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.13 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class IORInterceptorInitializer

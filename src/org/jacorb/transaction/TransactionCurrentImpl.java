@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -34,7 +34,7 @@ import java.util.*;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: TransactionCurrentImpl.java,v 1.13 2002-10-05 13:59:41 andre.spiegel Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.14 2002-12-20 18:29:06 nicolas Exp $
  *
  * Changes made by Vladimir Mencl <vladimir.mencl@mff.cuni.cz> (2002/07/15)
  *

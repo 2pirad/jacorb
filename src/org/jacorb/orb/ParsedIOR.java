@@ -4,7 +4,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -40,7 +40,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.41 2002-11-26 13:25:38 nicolas Exp $
+ * @version $Id: ParsedIOR.java,v 1.42 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class ParsedIOR

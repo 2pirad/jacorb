@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -40,7 +40,7 @@ import org.jacorb.orb.connection.*;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.5 2002-11-21 11:08:07 andre.spiegel Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
  */
 public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
 {

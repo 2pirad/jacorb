@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.10 2002-10-05 13:59:41 andre.spiegel Exp $
+ * @version $Id: SymbolList.java,v 1.11 2002-12-20 18:29:04 nicolas Exp $
  */
 
 class SymbolList

@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose, Sebastian Mueller.
+ *   Copyright (C) 1997-2003  Gerald Brose, Sebastian Mueller.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.*;
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.11 2002-04-09 14:43:49 steve.osselton Exp $
+ * @version $Id: ClientConnection.java,v 1.12 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public final class ClientConnection 

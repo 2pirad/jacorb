@@ -3,7 +3,7 @@ package org.jacorb.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import java.io.*;
 /**
  *
  * @author Gerald Brose
- * @version $Id: Debug.java,v 1.10 2002-10-14 16:53:09 steve.osselton Exp $
+ * @version $Id: Debug.java,v 1.11 2002-12-20 18:29:06 nicolas Exp $
  */
 
 public final class Debug

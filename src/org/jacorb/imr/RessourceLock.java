@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -28,7 +28,7 @@ import org.jacorb.util.Debug;
  *
  * @author Nicolas Noffke
  * 
- * $Id: RessourceLock.java,v 1.5 2002-07-01 07:54:16 nicolas Exp $
+ * $Id: RessourceLock.java,v 1.6 2002-12-20 18:29:04 nicolas Exp $
  *
  */
 

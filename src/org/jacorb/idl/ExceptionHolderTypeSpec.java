@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderTypeSpec.java,v 1.2 2002-11-04 17:26:40 andre.spiegel Exp $
+ * @version $Id: ExceptionHolderTypeSpec.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
  */
 
 import java.io.PrintWriter;

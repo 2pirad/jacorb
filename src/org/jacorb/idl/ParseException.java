@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParseException.java,v 1.6 2002-04-17 08:49:11 gerald Exp $
+ * @version $Id: ParseException.java,v 1.7 2002-12-20 18:29:04 nicolas Exp $
  *
  * Thrown by the IDL compiler when it encounters fatal errors
  */

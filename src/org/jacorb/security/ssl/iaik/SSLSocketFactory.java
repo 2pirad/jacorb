@@ -2,7 +2,7 @@
 /*
  *        Written for JacORB - a free Java ORB
  *
- *   Copyright (C) 2000-2002 Gerald Brose
+ *   Copyright (C) 2000-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -23,7 +23,7 @@ package org.jacorb.security.ssl.iaik;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.5 2002-07-01 07:54:17 nicolas Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
  * 
  * We follow the design of socket factories in package javax.net 
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we 

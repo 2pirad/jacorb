@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -35,7 +35,7 @@ import org.jacorb.notification.evaluate.EvaluationException;
  * Created: Thu Oct 24 11:31:29 2002
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ImplicitOperator.java,v 1.2 2002-12-20 18:14:29 nicolas Exp $
+ * @version $Id: ImplicitOperator.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
  */
 
 public interface ImplicitOperator {

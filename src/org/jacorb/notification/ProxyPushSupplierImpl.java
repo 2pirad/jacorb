@@ -3,7 +3,7 @@ package org.jacorb.notification;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -64,7 +64,7 @@ import java.util.Collections;
  *    section 2.1.5 "Disconnection Behavior" on page 2-4.
  *
  * @author Jeff Carlson, Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: ProxyPushSupplierImpl.java,v 1.1 2002-12-03 23:23:02 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.2 2002-12-20 18:29:04 nicolas Exp $
  */
 public class ProxyPushSupplierImpl 
     extends ProxyBase 

@@ -3,7 +3,7 @@ package org.jacorb.orb.dynany;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose, FU Berlin.
+ *   Copyright (C) 1997-2003  Gerald Brose, FU Berlin.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.16 2002-06-25 08:01:28 gerald Exp $
+ * $Id: DynUnion.java,v 1.17 2002-12-20 18:29:05 nicolas Exp $
  *
  */
 

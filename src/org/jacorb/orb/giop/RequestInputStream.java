@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import org.omg.IOP.ServiceContext;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.12 2002-04-08 17:42:28 nicolas Exp $
+ * @version $Id: RequestInputStream.java,v 1.13 2002-12-20 18:29:05 nicolas Exp $
  * 
  */
 

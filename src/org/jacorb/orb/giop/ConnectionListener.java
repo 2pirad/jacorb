@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ package org.jacorb.orb.connection;
  * Created: Thu Oct  4 15:56:02 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ConnectionListener.java,v 1.4 2002-11-13 13:50:29 nicolas Exp $
+ * @version $Id: ConnectionListener.java,v 1.5 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public interface ConnectionListener 

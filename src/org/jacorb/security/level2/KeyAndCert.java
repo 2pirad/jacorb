@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ package org.jacorb.security.level2;
  * Created: Mon Sep  4 16:33:49 2000
  *
  * @author Nicolas Noffke
- * @version $Id: KeyAndCert.java,v 1.7 2002-07-01 07:54:17 nicolas Exp $
+ * @version $Id: KeyAndCert.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
  */
 
 import java.security.PrivateKey;

@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -38,7 +38,7 @@ import org.jacorb.util.Debug;
  * Created: Mon Sep  3 18:32:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirPolicyFactory.java,v 1.4 2002-03-19 09:25:22 nicolas Exp $
+ * @version $Id: BiDirPolicyFactory.java,v 1.5 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class BiDirPolicyFactory 

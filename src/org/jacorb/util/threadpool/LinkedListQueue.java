@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ package org.jacorb.util.threadpool;
  * Created: Thu Dec 21 11:35:52 2000
  *
  * @author Nicolas Noffke
- * $Id: LinkedListQueue.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $
+ * $Id: LinkedListQueue.java,v 1.7 2002-12-20 18:29:06 nicolas Exp $
  */
 import java.util.*;
 

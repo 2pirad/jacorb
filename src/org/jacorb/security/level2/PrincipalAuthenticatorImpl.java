@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -40,7 +40,7 @@ import org.jacorb.security.util.*;
  * from a Java key store
  *
  * @author Gerald Brose
- * $Id: PrincipalAuthenticatorImpl.java,v 1.12 2002-07-01 07:54:17 nicolas Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.13 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class PrincipalAuthenticatorImpl

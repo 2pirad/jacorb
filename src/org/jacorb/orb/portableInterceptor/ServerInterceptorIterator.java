@@ -3,7 +3,7 @@ package org.jacorb.orb.portableInterceptor;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose, Nicolas Noffke
+ *   Copyright (C) 1997-2003  Gerald Brose, Nicolas Noffke
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ import org.jacorb.util.Debug;
  * ServerRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInterceptorIterator.java,v 1.6 2002-03-19 09:25:34 nicolas Exp $
+ * @version $Id: ServerInterceptorIterator.java,v 1.7 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class ServerInterceptorIterator

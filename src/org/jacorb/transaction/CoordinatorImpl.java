@@ -3,7 +3,7 @@ package org.jacorb.transaction;
 /*
  *        JacORB transaction service - a free TS for JacORB
  *
- *   Copyright (C) 1999-2002  LogicLand group Alex Sinishin.
+ *   Copyright (C) 1999-2003  LogicLand group Alex Sinishin.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -33,7 +33,7 @@ import java.util.*;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: CoordinatorImpl.java,v 1.6 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: CoordinatorImpl.java,v 1.7 2002-12-20 18:29:06 nicolas Exp $
  *
  * Changes made by Vladimir Mencl <vladimir.mencl@mff.cuni.cz> (2002/07/15)
  *

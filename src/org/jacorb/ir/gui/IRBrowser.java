@@ -3,7 +3,7 @@ package org.jacorb.ir.gui;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.jacorb.ir.gui.typesystem.*;
 
 /**
  * @author (c) Joerg von Frantzius, Gerald Brose, FU Berlin
- * @version $Id: IRBrowser.java,v 1.5 2002-03-19 09:25:15 nicolas Exp $
+ * @version $Id: IRBrowser.java,v 1.6 2002-12-20 18:29:04 nicolas Exp $
  */
 
 class IRBrowser 

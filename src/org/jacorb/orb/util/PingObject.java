@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -21,7 +21,7 @@
 package org.jacorb.orb.util;
 
 /**
- * @version $Id: PingObject.java,v 1.5 2002-03-19 09:25:35 nicolas Exp $
+ * @version $Id: PingObject.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
  */
 
 import org.jacorb.orb.ParsedIOR;

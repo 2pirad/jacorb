@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -35,7 +35,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.11 2002-11-21 11:28:49 andre.spiegel Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.12 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class ClientRequestInfoImpl

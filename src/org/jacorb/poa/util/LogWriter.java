@@ -3,7 +3,7 @@ package org.jacorb.poa.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -34,7 +34,7 @@ import java.io.*;
  * after that the logs will passed to the second LogTrace object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: LogWriter.java,v 1.5 2002-05-08 14:47:00 gerald Exp $
+ * @version $Id: LogWriter.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class LogWriter 

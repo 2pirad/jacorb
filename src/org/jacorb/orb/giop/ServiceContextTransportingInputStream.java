@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ package org.jacorb.orb.connection;
  * Created: Sat Aug 18 21:07:07 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingInputStream.java,v 1.3 2002-03-19 09:25:27 nicolas Exp $
+ * @version $Id: ServiceContextTransportingInputStream.java,v 1.4 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class ServiceContextTransportingInputStream 

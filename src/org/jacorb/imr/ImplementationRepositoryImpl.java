@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.33 2002-11-27 13:52:58 nicolas Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.34 2002-12-20 18:29:04 nicolas Exp $
  */
 
 public class ImplementationRepositoryImpl

@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002 Gerald Brose.
+ *   Copyright (C) 1997-2003 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.31 2002-07-08 09:18:41 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.32 2002-12-20 18:29:04 nicolas Exp $
  */
 
 public class AliasTypeSpec

@@ -3,7 +3,7 @@ package org.jacorb.poa.policy;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ package org.jacorb.poa.policy;
  * This class implements the id assignment policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: IdAssignmentPolicy.java,v 1.7 2002-05-08 14:46:59 gerald Exp $
+ * @version $Id: IdAssignmentPolicy.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class IdAssignmentPolicy 

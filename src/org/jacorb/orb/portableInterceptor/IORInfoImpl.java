@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -33,7 +33,7 @@ import java.util.*;
  * See PI Spec p.7-64f
  *
  * @author Nicolas Noffke
- * @version $Id: IORInfoImpl.java,v 1.8 2002-10-05 13:59:41 andre.spiegel Exp $
+ * @version $Id: IORInfoImpl.java,v 1.9 2002-12-20 18:29:05 nicolas Exp $
  */
 
 public class IORInfoImpl extends org.omg.CORBA.LocalObject 

@@ -2,7 +2,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -38,7 +38,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.12 2002-10-05 13:59:41 andre.spiegel Exp $ 
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.13 2002-12-20 18:29:05 nicolas Exp $ 
  */
 
 public class ServiceContextTransportingOutputStream 

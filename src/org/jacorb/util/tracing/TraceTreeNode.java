@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -28,7 +28,7 @@ import java.util.*;
  * Created: Tue Jul 25 13:06:22 2000
  *
  * @author Nicolas Noffke
- * $Id: TraceTreeNode.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $
+ * $Id: TraceTreeNode.java,v 1.7 2002-12-20 18:29:06 nicolas Exp $
  */
 
 public class TraceTreeNode

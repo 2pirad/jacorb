@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ package org.jacorb.util;
  * Created: Fri Mar  3 16:58:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 
 public class AssertionViolation 

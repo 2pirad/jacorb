@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2002 Gerald Brose
+ *   Copyright (C) 1999-2003 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -35,7 +35,7 @@ import java.util.*;
  * Created on 21. Juni 2000, 11:52
  *
  * @author  Nicolas Noffke
- * $Id: CAD.java,v 1.6 2002-10-06 11:02:16 andre.spiegel Exp $
+ * $Id: CAD.java,v 1.7 2002-12-20 18:29:06 nicolas Exp $
  */
 public class CAD extends javax.swing.JFrame 
 {

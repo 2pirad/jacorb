@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.13 2002-05-17 13:36:46 simon.mcqueen Exp $
+ * @version $Id: FixedPointType.java,v 1.14 2002-12-20 18:29:04 nicolas Exp $
  */
 
 class FixedPointType

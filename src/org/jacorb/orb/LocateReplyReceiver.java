@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * A special ReplyPlaceholder that receives LocateReplies.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: LocateReplyReceiver.java,v 1.2 2002-11-04 18:05:22 andre.spiegel Exp $
+ * @version $Id: LocateReplyReceiver.java,v 1.3 2002-12-20 18:29:05 nicolas Exp $
  */
 public class LocateReplyReceiver 
     extends org.jacorb.orb.connection.ReplyPlaceholder

@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2002  Gerald Brose.
+ *   Copyright (C) 1997-2003  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -24,7 +24,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBody.java,v 1.2 2002-04-17 08:49:16 gerald Exp $
+ * @version $Id: ValueBody.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
  */
 
 class ValueBody
