@@ -20,7 +20,7 @@ package org.jacorb.security.sas;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.util.Debug;
+import org.apache.avalon.framework.logger.Logger;
 import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
@@ -30,13 +30,16 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInitializer.java,v 1.4 2003-08-27 16:58:05 david.robison Exp $
+ * @version $Id: SASClientInitializer.java,v 1.5 2003-11-25 18:40:25 david.robison Exp $
  */
 
 public class SASClientInitializer
         extends org.omg.CORBA.LocalObject
         implements ORBInitializer
 {
+	/** the logger used by the naming service implementation */
+	private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
+
     private static SASClientInterceptor interceptor = null;
     /**
     * This method registers the interceptors.
@@ -52,11 +55,11 @@ public class SASClientInitializer
         }
         catch (DuplicateName duplicateName)
         {
-            Debug.output( Debug.SECURITY | Debug.IMPORTANT, duplicateName);
+            logger.error("DuplicateName", duplicateName);
         }
         catch (UnknownEncoding unknownEncoding)
         {
-            Debug.output( Debug.SECURITY | Debug.IMPORTANT, unknownEncoding);
+            logger.error("UnknownEncoding", unknownEncoding);
         }
     }
 

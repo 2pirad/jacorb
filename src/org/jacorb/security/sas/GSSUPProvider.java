@@ -21,13 +21,12 @@ package org.jacorb.security.sas;
  */
 
 import java.security.Provider;
-import org.omg.GSSUP.*;
 
 /**
  * This is the GSS-API Sercurity Provider Interface (SPI) Provider for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: GSSUPProvider.java,v 1.6 2003-10-29 12:00:30 simon.mcqueen Exp $
+ * @version $Id: GSSUPProvider.java,v 1.7 2003-11-25 18:40:25 david.robison Exp $
  */
 
 public class GSSUPProvider extends Provider

@@ -20,15 +20,22 @@ package org.jacorb.security.sas;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import sun.security.jgss.spi.*;
-import org.ietf.jgss.*;
-import java.security.*;
+import java.security.Provider;
+
+import org.ietf.jgss.GSSException;
+import org.ietf.jgss.GSSName;
+import org.ietf.jgss.Oid;
+
+import sun.security.jgss.spi.GSSContextSpi;
+import sun.security.jgss.spi.GSSCredentialSpi;
+import sun.security.jgss.spi.GSSNameSpi;
+import sun.security.jgss.spi.MechanismFactory;
 
 /**
  * This is the GSS-API Sercurity Provider Interface (SPI) Facotry GSSUP GSSManager
  *
  * @author David Robison
- * @version $Id: GSSUPMechFactory.java,v 1.4 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: GSSUPMechFactory.java,v 1.5 2003-11-25 18:40:25 david.robison Exp $
  */
 
 public final class GSSUPMechFactory implements MechanismFactory

@@ -20,28 +20,27 @@ package org.jacorb.security.sas;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.io.*;
-import org.omg.PortableInterceptor.*;
-import org.omg.PortableInterceptor.ORBInitInfoPackage.*;
-import org.omg.SecurityReplaceable.*;
-import org.omg.Security.*;
-import org.jacorb.util.*;
-import org.omg.IOP.*;
-import org.omg.IOP.CodecFactoryPackage.*;
-
-import org.jacorb.util.Environment;
+import org.apache.avalon.framework.logger.Logger;
+import org.omg.IOP.ENCODING_CDR_ENCAPS;
+import org.omg.IOP.Encoding;
+import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
+import org.omg.PortableInterceptor.ORBInitInfo;
+import org.omg.PortableInterceptor.ORBInitializer;
 
 /**
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: GSSUPProviderInitializer.java,v 1.3 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: GSSUPProviderInitializer.java,v 1.4 2003-11-25 18:40:25 david.robison Exp $
  */
 
 public class GSSUPProviderInitializer
         extends org.omg.CORBA.LocalObject
         implements ORBInitializer
 {
+	/** the logger used by the naming service implementation */
+	private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
+
     /**
     * This method registers the interceptors.
     */
@@ -58,7 +57,7 @@ public class GSSUPProviderInitializer
         }
         catch (UnknownEncoding unknownEncoding)
         {
-            Debug.output( Debug.SECURITY | Debug.IMPORTANT, unknownEncoding);
+            logger.error("UnknownEncoding", unknownEncoding);
         }
     }
 
