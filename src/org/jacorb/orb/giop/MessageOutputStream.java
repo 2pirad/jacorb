@@ -36,7 +36,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.4 2002-03-19 09:25:25 nicolas Exp $ 
+ * @version $Id: MessageOutputStream.java,v 1.5 2002-04-04 10:47:28 semu Exp $ 
  */
 
 public class MessageOutputStream 
@@ -79,7 +79,7 @@ public class MessageOutputStream
         skip( Messages.MSG_HEADER_SIZE );
     }
 
-    protected void insertMsgSize( int size )
+    public void insertMsgSize( int size )
     {
         byte[] buffer = getInternalBuffer();
         
@@ -90,7 +90,7 @@ public class MessageOutputStream
         buffer[11] = (byte) (size        & 0xFF);
     }
 
-    protected void insertMsgSize()
+    public void insertMsgSize()
     {
         insertMsgSize( size() - Messages.MSG_HEADER_SIZE );
     }

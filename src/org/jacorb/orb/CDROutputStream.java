@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.47 2002-04-03 09:17:16 steve.osselton Exp $
+ * @version     $Id: CDROutputStream.java,v 1.48 2002-04-04 10:47:27 semu Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -549,6 +549,20 @@ public class CDROutputStream
         buffer = b;
         
         reset();
+    }
+    
+    //for appligator
+    public void setBufferWithoutReset( byte[] b )
+    {
+        bufMgr.returnBuffer( buffer );
+
+        buffer = b;
+    }
+    
+    //for appligator
+    public void setSize( int size)
+    {
+		pos = size;
     }
 
     /**************************************************

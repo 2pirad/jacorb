@@ -29,12 +29,15 @@ import org.jacorb.orb.CDRInputStream;
  * Created: Sat Aug 18 21:07:07 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageInputStream.java,v 1.3 2002-03-19 09:25:25 nicolas Exp $
+ * @version $Id: MessageInputStream.java,v 1.4 2002-04-04 10:47:28 semu Exp $
  */
 
 public class MessageInputStream 
     extends CDRInputStream 
 {
+	
+    public int msg_size = -1;
+    
     public MessageInputStream( org.omg.CORBA.ORB orb, byte[] buffer)
     {
         super( orb, buffer );
@@ -51,6 +54,8 @@ public class MessageInputStream
         setLittleEndian( Messages.isLittleEndian( buffer ));
 
         setGIOPMinor( Messages.getGIOPMinor( buffer ) );
+        
+        msg_size = Messages.getMsgSize( buffer );
 
         //skip the message header. Its attributes are read directly
         skip( Messages.MSG_HEADER_SIZE );	    
