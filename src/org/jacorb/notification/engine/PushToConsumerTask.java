@@ -1,3 +1,5 @@
+package org.jacorb.notification.engine;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,17 +20,51 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification;
+
+import org.jacorb.notification.interfaces.EventConsumer;
 
 /**
  *
- *
- * Created: Tue Nov 05 14:46:54 2002
- *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version
+ * @author Alphonse Bendt
+ * @version $Id: PushToConsumerTask.java,v 1.1 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
-public interface TransmitEventCapable {
-    public void transmit_event2(NotificationEvent event);
-}// PushCapable
+public class PushToConsumerTask extends TaskBase
+{
+
+    private EventConsumer target_;
+
+    public void reset()
+    {
+        target_ = null;
+        super.reset();
+    }
+
+    EventConsumer getEventConsumer()
+    {
+        return target_;
+    }
+
+    void setEventConsumer( EventConsumer dest )
+    {
+        target_ = dest;
+    }
+
+    public void doWork()
+    {
+        if ( logger_.isDebugEnabled() )
+        {
+            logger_.debug( "push to " + target_ );
+        }
+
+        target_.deliverEvent( event_ );
+
+        setStatus( DONE );
+    }
+
+    public void release()
+    {
+        super.release();
+    }
+
+}

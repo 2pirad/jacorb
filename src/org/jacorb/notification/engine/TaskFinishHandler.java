@@ -21,7 +21,17 @@ package org.jacorb.notification.engine;
  *
  */
 
-interface TaskCoordinator {
-    public void workDone(Task task);
-    public void handleError(Task task, Throwable t);
+/**
+ *
+ *
+ * Created: Tue Feb 11 21:53:54 2003
+ *
+ * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
+ * @version $Id: TaskFinishHandler.java,v 1.1 2003-04-12 21:04:53 alphonse.bendt Exp $
+ */
+
+interface TaskFinishHandler {
+
+    void handleTaskFinished(Task task);
+
 }

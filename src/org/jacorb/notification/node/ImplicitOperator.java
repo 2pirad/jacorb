@@ -1,3 +1,5 @@
+package org.jacorb.notification.node;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,15 +20,10 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification.node;
 
 import org.omg.CORBA.Any;
 import org.jacorb.notification.evaluate.DynamicEvaluator;
 import org.jacorb.notification.evaluate.EvaluationException;
-
-/*
- *        JacORB - a free Java ORB
- */
 
 /**
  * Operator.java
@@ -35,7 +32,7 @@ import org.jacorb.notification.evaluate.EvaluationException;
  * Created: Thu Oct 24 11:31:29 2002
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ImplicitOperator.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ImplicitOperator.java,v 1.4 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
 public interface ImplicitOperator {

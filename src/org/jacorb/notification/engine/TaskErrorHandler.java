@@ -1,4 +1,4 @@
-package org.jacorb.notification.interfaces;
+package org.jacorb.notification.engine;
 
 /*
  *        JacORB - a free Java ORB
@@ -22,21 +22,17 @@ package org.jacorb.notification.interfaces;
  */
 
 /**
- * Abstraction of a disposable Object.
+ * TaskErrorHandler.java
  *
- * Created: Sat Nov 30 19:05:03 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: Disposable.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * Created: Tue Feb 11 21:53:54 2003
+ *
+ * @author Alphonse Bendt
+ * @version $Id: TaskErrorHandler.java,v 1.1 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
-public interface Disposable {
+public interface TaskErrorHandler {
 
-    /**
-     * Dispose this Object. Free all associated Ressources allocated
-     * by this Object. The Object may not be used after a call to
-     * dispose unless it has been recylced in a proper way.
-     */
-    void dispose();
+    void handleTaskError(Task task, Throwable t);
 
-}
+}// TaskErrorHandler

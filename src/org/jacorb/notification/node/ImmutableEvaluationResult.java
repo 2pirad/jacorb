@@ -28,40 +28,48 @@ package org.jacorb.notification.node;
  * Created: Thu Jan 02 15:48:45 2003
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ImmutableEvaluationResult.java,v 1.1 2003-01-14 11:46:07 alphonse.bendt Exp $
+ * @version $Id: ImmutableEvaluationResult.java,v 1.2 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
-public class ImmutableEvaluationResult extends EvaluationResult {
-
-    static void unsupported() {
-	throw new UnsupportedOperationException();
+public class ImmutableEvaluationResult extends EvaluationResult
+{
+    static void unsupported()
+    {
+        throw new UnsupportedOperationException();
     }
 
-    public void reset() {
-	unsupported();
+    public void reset()
+    {
+        unsupported();
     }
 
-    public void setString(String s) {
-	unsupported();
+    public void setString( String s )
+    {
+        unsupported();
     }
 
-    public void setFloat(float f) {
-	unsupported();
+    public void setFloat( float f )
+    {
+        unsupported();
     }
 
-    public void setFloat(Double d) {
-	unsupported();
+    public void setFloat( Double d )
+    {
+        unsupported();
     }
 
-    public void setInt(int i) {
-	unsupported();
+    public void setInt( int i )
+    {
+        unsupported();
     }
 
-    public void setInt(Double i) {
-	unsupported();
+    public void setInt( Double i )
+    {
+        unsupported();
     }
 
-    public void setBool(boolean b) {
-	unsupported();
+    public void setBool( boolean b )
+    {
+        unsupported();
     }
 }

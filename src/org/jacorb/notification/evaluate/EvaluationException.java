@@ -1,3 +1,5 @@
+package org.jacorb.notification.evaluate;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,11 +20,8 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification.evaluate;
 
 import java.lang.Exception;
-
-
 
 /**
  * EvaluationException.java
@@ -30,16 +29,21 @@ import java.lang.Exception;
  *
  * Created: Thu Sep 26 14:44:25 2002
  *
- * @author <a href="mailto:a.bendt@berlin.de">Alphonse Bendt</a>
- * @version
+ * @author Alphonse Bendt
+ * @version $Id: EvaluationException.java,v 1.4 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
-public class EvaluationException extends Exception {
-    public EvaluationException() {
-	super();
+public class EvaluationException extends Exception
+{
+
+    public EvaluationException()
+    {
+        super();
     }
 
-    public EvaluationException(String description) {
-	super(description);
+    public EvaluationException( String description )
+    {
+        super( description );
     }
-}// EvaluationException
+
+} // EvaluationException

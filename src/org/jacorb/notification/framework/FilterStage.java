@@ -1,3 +1,5 @@
+package org.jacorb.notification.interfaces;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,25 +20,50 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification.engine;
 
 import java.util.List;
-import org.jacorb.notification.TransmitEventCapable;
 
 /**
- * Destination.java
- *
+ * Abstraction of a ProxyConsumer, SupplierAdmin, ConsumerAdmin,
+ * ProxySupplier. This Interface allows to use the mentioned Classes
+ * in an uniform way.
  *
  * Created: Thu Nov 14 20:37:21 2002
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version
+ * @version $Id: FilterStage.java,v 1.1 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
-public interface Destination {
+public interface FilterStage {
 
-    List getSubsequentDestinations();
+    /**
+     * check if this DistributorNode has been disposed.
+     */
+    boolean isDisposed();
+
+    /**
+     * get FilterStages following this Node.
+     */
+    List getSubsequentFilterStages();
+
+    /**
+     * get Filter associated to this FilterStage.
+     */
     List getFilters();
-    TransmitEventCapable getEventSink();
+
+    /**
+     * check if this FilterStage has a EventConsumer associcated.
+     */
+    boolean hasEventConsumer();
+
+    /**
+     * check if this DistributorNode has OR Semantic enabled.
+     */
+    boolean hasOrSemantic();
+
+    /**
+     * get the associated DeliverTarget or null.
+     */
+    EventConsumer getEventConsumer();
 
 }// Destination

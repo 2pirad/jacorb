@@ -35,14 +35,14 @@ import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 
 /** 
  * A simple node to represent a Number 
- * @version $Id: NumberValue.java,v 1.4 2003-01-14 11:46:07 alphonse.bendt Exp $
+ * @version $Id: NumberValue.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
 public class NumberValue extends TCLNode {
     private Double  number_;
     EvaluationResult result_;
 
-    Double getNumber() {
+    public Double getNumber() {
 	return number_;
     }
 
@@ -52,18 +52,17 @@ public class NumberValue extends TCLNode {
 
     public NumberValue(Token tok) {
 	super(tok);
+
 	EvaluationResult _r = new EvaluationResult();
 	number_ = new Double(tok.getText());
 
-	debug("init(" + tok + ")");
-
-	switch(getType()) {
+	int t = getType();
+	
+	switch(t) {
 	case NUMBER:
 	    _r.setInt(number_);
 	    break;
 	case NUM_FLOAT:
-	    // fallthrough
-	case COMP_POS:
 	    _r.setFloat(number_);
 	    break;
 	default:

@@ -1,3 +1,5 @@
+package org.jacorb.notification;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,11 +20,6 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification;
-
-/*
- *        JacORB - a free Java ORB
- */
 
 /**
  * EventTypeIdentifier.java
@@ -30,8 +27,8 @@ package org.jacorb.notification;
  *
  * Created: Tue Oct 22 20:20:00 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: EventTypeIdentifier.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
+ * @author Alphonse Bendt
+ * @version $Id: EventTypeIdentifier.java,v 1.4 2003-04-12 21:04:54 alphonse.bendt Exp $
  */
 
 interface EventTypeIdentifier {

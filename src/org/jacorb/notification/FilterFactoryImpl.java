@@ -1,3 +1,5 @@
+package org.jacorb.notification;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,7 +20,6 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification;
 
 import org.omg.CosNotifyFilter.FilterFactoryPOA;
 import org.omg.CosNotifyFilter.Filter;
@@ -36,18 +37,14 @@ import org.jacorb.notification.evaluate.DynamicEvaluator;
 import org.omg.DynamicAny.DynAnyFactoryHelper;
 import org.omg.CORBA.ORBPackage.InvalidName;
 
-/*
- *        JacORB - a free Java ORB
- */
-
 /**
  * FilterFactoryImpl.java
  *
  *
  * Created: Sat Oct 12 17:25:43 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: FilterFactoryImpl.java,v 1.4 2003-01-14 11:46:07 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: FilterFactoryImpl.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA {
@@ -55,43 +52,21 @@ public class FilterFactoryImpl extends FilterFactoryPOA {
     public static String CONSTRAINT_GRAMMAR = "EXTENDED_TCL";
     
     protected ORB orb_;
-    protected POA poa_;
-
-    protected DynAnyFactory dynAnyFactory_;
-    protected ResultExtractor resultExtractor_;
-    protected DynamicEvaluator dynamicEvaluator_;
     protected ApplicationContext applicationContext_;
 
     public FilterFactoryImpl(ApplicationContext applicationContext) throws InvalidName {
 	super();
 	orb_ = applicationContext.getOrb();
-	poa_ = applicationContext.getPoa();
 	applicationContext_ = applicationContext;
-
-	dynAnyFactory_ = DynAnyFactoryHelper.narrow(orb_.resolve_initial_references("DynAnyFactory"));
-	resultExtractor_ = new ResultExtractor(dynAnyFactory_);
-	dynamicEvaluator_ = new DynamicEvaluator(orb_, dynAnyFactory_);
-    }
-    
-    public FilterFactoryImpl(ApplicationContext appContext, DynAnyFactory dynAnyFactory) {
-	super();
-
-	orb_ = appContext.getOrb();
-	poa_ = appContext.getPoa();
-	applicationContext_ = appContext;
-	dynAnyFactory_ = dynAnyFactory;
-	resultExtractor_ = new ResultExtractor(dynAnyFactory_);
-	dynamicEvaluator_ = new DynamicEvaluator(orb_, dynAnyFactory_);
     }
 
     public Filter create_filter(String grammar) throws InvalidGrammar {
 	if (CONSTRAINT_GRAMMAR.equals(grammar)) {
 	    Filter _filter;
+
 	    FilterImpl _filterServant = new FilterImpl(CONSTRAINT_GRAMMAR, 
-						       applicationContext_, 
-						       dynAnyFactory_, 
-						       resultExtractor_, 
-						       dynamicEvaluator_);
+						       applicationContext_);
+
 	    _filterServant.init();
 	    _filter = _filterServant._this(orb_);
 	    
