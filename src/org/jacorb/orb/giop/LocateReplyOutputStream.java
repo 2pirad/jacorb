@@ -25,26 +25,26 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateReplyOutputStream.java,v 1.13 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: LocateReplyOutputStream.java,v 1.14 2003-12-17 16:43:05 nick.cross Exp $
  *
  */
 
 public class LocateReplyOutputStream
     extends MessageOutputStream
 {
-    public LocateReplyOutputStream ( int request_id, 
-				     int status, 
+    public LocateReplyOutputStream ( int request_id,
+                                     int status,
                                      int giop_minor )
     {
         super();
         setGIOPMinor( giop_minor );
-        
+
         writeGIOPMsgHeader( MsgType_1_1._LocateReply, giop_minor );
 
         switch( giop_minor )
         {
             case 0 :
-            { 
+            {
                 // GIOP 1.0 Reply == GIOP 1.1 Reply, fall through
             }
             case 1 :
@@ -56,20 +56,20 @@ public class LocateReplyOutputStream
                 //stream
 
                 //GIOP 1.1
-                LocateReplyHeader_1_0 repl_hdr = 
-                    new LocateReplyHeader_1_0( request_id,
-                                               LocateStatusType_1_0.from_int( status ));
+                LocateReplyHeader_1_0 repl_hdr =
+                new LocateReplyHeader_1_0( request_id,
+                                           LocateStatusType_1_0.from_int( status ));
 
                 LocateReplyHeader_1_0Helper.write( this, repl_hdr );
-               
+
                 break;
             }
             case 2 :
             {
                 //GIOP 1.2
-                LocateReplyHeader_1_2 repl_hdr = 
-                    new LocateReplyHeader_1_2( request_id,
-                                               LocateStatusType_1_2.from_int( status ));
+                LocateReplyHeader_1_2 repl_hdr =
+                new LocateReplyHeader_1_2( request_id,
+                                           LocateStatusType_1_2.from_int( status ));
 
                 LocateReplyHeader_1_2Helper.write( this, repl_hdr );
 
@@ -82,9 +82,3 @@ public class LocateReplyOutputStream
         }
     }
 }
-
-
-
-
-
-
