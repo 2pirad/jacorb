@@ -43,7 +43,7 @@ import EDU.oswego.cs.dl.util.concurrent.ThreadFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.12 2004-01-29 14:19:59 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.13 2004-02-08 14:19:52 alphonse.bendt Exp $
  */
 
 public class TaskProcessor implements Disposable
@@ -135,7 +135,7 @@ public class TaskProcessor implements Disposable
                               + " will be processed now");
             }
 
-            processEventInternal( message_ );
+            processMessageInternal( message_ );
         }
     }
 
@@ -348,6 +348,7 @@ public class TaskProcessor implements Disposable
         if ( mesg.hasStopTime() )
         {
             logger_.debug("Message has StopTime");
+
             if ( mesg.getStopTime().getTime() <= System.currentTimeMillis() )
             {
                 fireEventDiscarded( mesg );
@@ -377,15 +378,18 @@ public class TaskProcessor implements Disposable
         }
         else
         {
-            processEventInternal( mesg );
+            processMessageInternal( mesg );
         }
     }
+
 
     /**
      * process a Message. create FilterTask and schedule it.
      */
-    protected void processEventInternal( Message event )
+    protected void processMessageInternal( Message event )
     {
+        logger_.debug("processMessageInternal");
+
         AbstractFilterTask _task = taskFactory_.newFilterProxyConsumerTask( event );
 
         try
