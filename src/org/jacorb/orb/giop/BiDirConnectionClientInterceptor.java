@@ -30,7 +30,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionClientInterceptor.java,v 1.2 2001-10-02 13:50:52 jacorb Exp $
+ * @version $Id: BiDirConnectionClientInterceptor.java,v 1.3 2001-11-09 15:09:26 jacorb Exp $
  */
 
 public class BiDirConnectionClientInterceptor
@@ -82,20 +82,19 @@ public class BiDirConnectionClientInterceptor
                 {
                     points = new ListenPoint[]{ lp };
                 }
-            
+
                 BiDirIIOPServiceContext b = 
                     new BiDirIIOPServiceContext( points );
                 org.omg.CORBA.Any any = orb.create_any();
                 BiDirIIOPServiceContextHelper.insert( any, b );
                 
-                try
-                {
-                    bidir_ctx = new ServiceContext( BI_DIR_IIOP.value,
-                                                    codec.encode( any ));
-                }
-                catch( org.omg.IOP_N.CodecPackage.InvalidTypeForEncoding itfe )
-                {
-                }
+                CDROutputStream cdr_out = new CDROutputStream();
+
+                cdr_out.beginEncapsulatedArray();
+                BiDirIIOPServiceContextHelper.write( cdr_out, b );
+
+                bidir_ctx = new ServiceContext( BI_DIR_IIOP.value,
+                                                cdr_out.getBufferCopy() );
             }
             
             ri.add_request_service_context( bidir_ctx, true );
