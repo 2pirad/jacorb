@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  *
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.18 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ConstDecl.java,v 1.19 2003-03-03 08:22:01 gerald Exp $
  */
 
 import java.io.File;
@@ -31,11 +31,11 @@ import java.io.PrintWriter;
 import java.util.*;
 
 class ConstDecl
-        extends Declaration
+    extends Declaration
 {
-
     private static Hashtable values = new Hashtable();
     private static Hashtable declarations = new Hashtable();
+
     private ScopedName t = new ScopedName( new_num() );
     private int pos_int_const = 0;
     private boolean int_const_set = false;
@@ -92,8 +92,9 @@ class ConstDecl
         const_type.parse();
         const_expr.parse();
         t.typeName = name;
-        values.put( t.resolvedName() + ( contained() ? "" : ".value" ),
-                const_expr.value() );
+        values.put( t.resolvedName() + 
+                    ( contained() ? "" : ".value" ),
+                    const_expr.value() );
         declarations.put( t.resolvedName(), this );
     }
 

@@ -24,11 +24,11 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.10 2003-02-21 15:46:42 nick.cross Exp $
+ * @version $Id: Case.java,v 1.11 2003-03-03 08:22:01 gerald Exp $
  */
 
 class Case
-        extends IdlSymbol
+    extends IdlSymbol
 {
 
     /** the labels for this case */

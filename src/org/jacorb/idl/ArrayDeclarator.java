@@ -22,14 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.10 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.11 2003-03-03 08:22:01 gerald Exp $
  */
 
 import java.io.PrintWriter;
 import java.util.*;
 
 class ArrayDeclarator
-        extends Declarator
+    extends Declarator
 {
 
     public SymbolList fixed_array_size_list;

@@ -24,11 +24,11 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.11 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ConstExpr.java,v 1.12 2003-03-03 08:22:01 gerald Exp $
  */
 
 class ConstExpr
-        extends IdlSymbol
+    extends IdlSymbol
 {
 
     public OrExpr or_expr;

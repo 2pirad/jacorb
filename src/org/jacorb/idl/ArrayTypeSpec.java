@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.16 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.17 2003-03-03 08:22:01 gerald Exp $
  *
  */
 
@@ -84,7 +84,7 @@ class ArrayTypeSpec
         if( dims.length > my_dim + 1 )
         {
             type_spec =
-                    new ArrayTypeSpec( new_num(), elem, ad, pack_name, my_dim + 1 );
+                new ArrayTypeSpec( new_num(), elem, ad, pack_name, my_dim + 1 );
         }
         else
             type_spec = elem;

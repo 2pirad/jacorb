@@ -24,13 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrimaryExpr.java,v 1.12 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: PrimaryExpr.java,v 1.13 2003-03-03 08:22:01 gerald Exp $
  */
 
 class PrimaryExpr
-        extends IdlSymbol
+    extends IdlSymbol
 {
-
     public IdlSymbol symbol;
 
     private boolean contained = false;

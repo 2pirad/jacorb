@@ -22,11 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: PosIntConst.java,v 1.6 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: PosIntConst.java,v 1.7 2003-03-03 08:22:01 gerald Exp $
  */
 
 class PosIntConst
-        extends IdlSymbol
+    extends IdlSymbol
 {
 
     public ConstExpr const_expr;
@@ -43,6 +43,7 @@ class PosIntConst
 
     public int value()
     {
+        
         return const_expr.pos_int_const();
     }
 
