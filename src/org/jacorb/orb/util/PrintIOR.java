@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.7 2001-11-02 16:05:54 jacorb Exp $
+ * @version $Id: PrintIOR.java,v 1.8 2001-12-14 12:35:25 spiegel Exp $
  */
 
 public class PrintIOR 
@@ -167,6 +167,11 @@ public class PrintIOR
                     } 
                 }
             }
+	    String codebase = pior.getCodebaseComponent();
+	    if( codebase != null )
+            {
+		System.out.println("\tJava Codebase Component:\n\t\t" + codebase);		
+	    }
             System.out.print("\n");
         }
          orb.shutdown(true);
