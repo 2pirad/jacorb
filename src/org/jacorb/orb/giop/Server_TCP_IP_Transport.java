@@ -32,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:56:32 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.4 2002-03-06 14:33:52 gerald Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.5 2002-03-15 13:51:59 gerald Exp $
  */
 
 public class Server_TCP_IP_Transport 
@@ -50,6 +50,7 @@ public class Server_TCP_IP_Transport
         super();
 
         this.socket = socket;
+        socket.setTcpNoDelay( true );
         this.is_ssl = is_ssl;
 
         in_stream = new BufferedInputStream(socket.getInputStream());
