@@ -17,7 +17,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.6 2001-10-02 13:51:04 jacorb Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.7 2002-01-11 21:37:45 gerald Exp $
  */
 
 public class ServerRequestInfoImpl 
@@ -128,14 +128,17 @@ public class ServerRequestInfoImpl
 
     public Any result() 
     {
-        if (caller_op != ServerInterceptorIterator.SEND_REPLY)
+        if ( caller_op != ServerInterceptorIterator.SEND_REPLY )
             throw new BAD_INV_ORDER("The attribute \"result\" is currently invalid!", 
                                     10, CompletionStatus.COMPLETED_MAYBE);
 
         Any result = null;
-        try{
+        try
+        {
             result = request.result();
-        }catch(Exception e){
+        }
+        catch(Exception e)
+        {
             Debug.output(Debug.INFORMATION | Debug.INTERCEPTOR, e);
         }
 
