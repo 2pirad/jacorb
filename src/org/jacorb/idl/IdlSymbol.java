@@ -28,7 +28,7 @@ import java.util.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.19 2002-10-05 13:59:41 andre.spiegel Exp $
+ * @version $Id: IdlSymbol.java,v 1.20 2002-11-04 18:43:56 andre.spiegel Exp $
  */
 
 class IdlSymbol
@@ -112,7 +112,8 @@ class IdlSymbol
     public void escapeName()
     {
         if( !name.startsWith( "_" ) &&
-                lexer.strictJavaEscapeCheck( name ) )
+            !pack_name.startsWith( "org.omg" ) &&
+            lexer.strictJavaEscapeCheck( name ) )
         {
             name = "_" + name;
         }
