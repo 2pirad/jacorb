@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.43 2002-10-06 11:02:16 andre.spiegel Exp $
+ * @version $Id: Environment.java,v 1.44 2002-10-09 11:02:14 steve.osselton Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -115,7 +115,6 @@ public class Environment
     private static int                  _queue_max = 100;
 
     /** IIOP proxy/appligator */
-    private static String               _proxy_server=null;
     private static boolean              _use_appligator_for_applets = true;
     private static boolean              _use_appligator_for_applications = false;
     private static Hashtable            _use_httptunneling_for = new Hashtable();
@@ -378,8 +377,6 @@ public class Environment
             _indirection_encoding_disable = (o.equalsIgnoreCase("on")? true : false);
         else    if( varName.equals("_queue_max"))
             _queue_max = Integer.parseInt(o);
-        else if( varName.equals("_proxy_server"))
-            _proxy_server = o;
         else if( varName.equals("_use_appligator_for_applets"))
             _use_appligator_for_applets = (o.equalsIgnoreCase("off")? false : true );
         else if( varName.equals("_use_appligator_for_applications"))
@@ -465,7 +462,6 @@ public class Environment
         readValue("_thread_pool_max","thread_pool_max",poaPrefix+"thread_pool_max");
         readValue("_thread_pool_min","thread_pool_min",poaPrefix+"thread_pool_min");
         readValue("_queue_max","queue_max",poaPrefix+"queue_max");
-        readValue("_proxy_server","proxy",jacorbPrefix+"ProxyServerURL");
         readValue("_use_appligator_for_applets", jacorbPrefix+"use_appligator_for_applets", null);
         readValue("_use_appligator_for_applications", jacorbPrefix+"use_appligator_for_applications", null);
         readValue("_use_httptunneling_for",jacorbPrefix+"use_httptunneling_for", null);
@@ -508,8 +504,6 @@ public class Environment
         return _verbosity;
     }
 
-    public static final String proxyURL() { return _proxy_server; }
-
     public static final byte[] implName()
     {
         return _impl_name;
@@ -531,11 +525,6 @@ public class Environment
     {
 	Object o=_use_httptunneling_for.get(ipaddr);
 	return (o!=null);
-    }
-
-    public static void setProxyURL(String url)
-    {
-        _proxy_server=url;
     }
 
 
