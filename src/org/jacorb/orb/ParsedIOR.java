@@ -41,7 +41,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.57 2003-11-07 14:15:53 francisco Exp $
+ * @version $Id: ParsedIOR.java,v 1.58 2003-12-30 14:37:56 andre.spiegel Exp $
  */
 
 public class ParsedIOR
@@ -90,18 +90,18 @@ public class ParsedIOR
             )
         );
 
-        Vector taggedProfileVector = new Vector();
+        List taggedProfileList = new ArrayList();
         TaggedProfileHolder tp = new TaggedProfileHolder();
         TaggedComponentSeqHolder tcs = new TaggedComponentSeqHolder();
         tcs.value = components.asArray();
 
         profile.marshal(tp, tcs);
-        taggedProfileVector.addElement(tp.value);
+        taggedProfileList.add(tp.value);
 
         // copy the profiles into the IOR
 
-        TaggedProfile[] tps = new TaggedProfile[taggedProfileVector.size()];
-        taggedProfileVector.copyInto(tps);
+        TaggedProfile[] tps = new TaggedProfile[taggedProfileList.size()];
+        taggedProfileList.toArray(tps);
 
         return new IOR(repId, tps);
     }
