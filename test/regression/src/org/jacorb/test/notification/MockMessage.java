@@ -36,13 +36,17 @@ import java.util.Date;
 
 import junit.framework.Assert;
 import org.omg.CosNotifyFilter.Filter;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MockMessage.java,v 1.3 2004-02-13 18:48:38 alphonse.bendt Exp $
+ * @version $Id: MockMessage.java,v 1.4 2004-03-17 23:15:28 alphonse.bendt Exp $
  */
 
 public class MockMessage extends AbstractMessage {
+
+    CallerResolver callerResolver = new CallerResolver();
 
     int type;
     int priority;
@@ -52,7 +56,11 @@ public class MockMessage extends AbstractMessage {
     String name_;
 
     int refCount_;
+    int refsExpected_;
+    int referenceCalled_;
     int maxRef_;
+
+    List refAdders = new ArrayList();
 
     public MockMessage() {
         super();
@@ -125,8 +133,12 @@ public class MockMessage extends AbstractMessage {
     }
 
     public void validateRefCounter() {
-        Assert.assertTrue("referenced: " + referenced_, referenced_ == 0);
+        Assert.assertTrue("referenced: " + referenced_ + " callers: " + refAdders, referenced_ == 0);
+        if (refsExpected_ != 0) {
+            Assert.assertTrue("refs expected: " + refsExpected_, refsExpected_ == referenceCalled_);
+        }
     }
+
 
     public int getPriority()
     {
@@ -168,6 +180,10 @@ public class MockMessage extends AbstractMessage {
     public synchronized void addReference()
     {
         super.addReference();
+
+        refAdders.add(callerResolver.makeStackTrace());
+
+        referenceCalled_++;
         refCount_++;
 
         if (maxRef_ > 0 && refCount_ > maxRef_) {
@@ -190,6 +206,10 @@ public class MockMessage extends AbstractMessage {
 
     public void setMaxRef(int max) {
         maxRef_ = max;
+    }
+
+    public void setExpectedRef(int refsExpected) {
+        refsExpected_ = refsExpected;
     }
 
 }

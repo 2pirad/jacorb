@@ -22,7 +22,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactoryTest.java,v 1.1 2004-02-08 14:27:05 alphonse.bendt Exp $
+ * @version $Id: MessageFactoryTest.java,v 1.2 2004-03-17 23:15:28 alphonse.bendt Exp $
  */
 
 public class MessageFactoryTest extends TestCase {
@@ -64,6 +64,9 @@ public class MessageFactoryTest extends TestCase {
     public void testNewEventAny() throws Exception {
         Message _notifyEvent = messageFactory_.newMessage(testPerson_);
         assertNotNull(_notifyEvent);
+
+        System.out.println(_notifyEvent);
+
     }
 
 

@@ -44,10 +44,11 @@ import org.omg.TimeBase.UtcTHelper;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimeoutTest.java,v 1.7 2004-02-13 18:48:38 alphonse.bendt Exp $
+ * @version $Id: TimeoutTest.java,v 1.8 2004-03-17 23:15:28 alphonse.bendt Exp $
  */
 
 public class TimeoutTest extends NotificationTestCase
@@ -195,7 +196,7 @@ public class TimeoutTest extends NotificationTestCase
         NotificationTestCaseSetup _setup =
             new NotificationTestCaseSetup(_suite);
 
-        String[] methodNames = org.jacorb.test.common.TestUtils.getTestMethods(TimeoutTest.class, "testSendEvent");
+        String[] methodNames = TestUtils.getTestMethods(TimeoutTest.class, "testSendEvent");
 
         for (int x = 0; x < methodNames.length; ++x)
         {

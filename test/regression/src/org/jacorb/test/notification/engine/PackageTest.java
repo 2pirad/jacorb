@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
  * Created: Mon Apr  7 15:20:03 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.2 2004-03-17 23:15:28 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -47,6 +47,8 @@ public class PackageTest extends TestCase {
 
         _suite.addTest(ReleaseTasksTest.suite());
         _suite.addTest(PushToConsumerTest.suite());
+        _suite.addTest(PushOperationTest.suite());
+        _suite.addTest(WaitRetryStrategyTest.suite());
 
         return _suite;
     }
