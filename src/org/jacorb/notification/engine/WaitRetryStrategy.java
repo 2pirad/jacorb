@@ -24,7 +24,7 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WaitRetryStrategy.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: WaitRetryStrategy.java,v 1.3 2004-08-17 13:49:30 alphonse.bendt Exp $
  */
 
 public class WaitRetryStrategy extends RetryStrategy
@@ -73,8 +73,8 @@ public class WaitRetryStrategy extends RetryStrategy
     }
 
 
-    public void retry() throws RetryException {
-        while (shouldRetry()) {
+    protected void retryInternal() throws RetryException {
+        while (isRetryAllowed()) {
             try {
                 pushOperation_.invokePush();
 

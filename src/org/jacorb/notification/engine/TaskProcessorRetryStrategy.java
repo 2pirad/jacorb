@@ -24,11 +24,11 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.5 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.6 2004-08-17 13:49:30 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategy extends RetryStrategy
 {
-    Runnable retryPushOperation_ = new Runnable()
+    private Runnable retryPushOperation_ = new Runnable()
     {
         public void run()
         {
@@ -52,7 +52,7 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
         }
     };
 
-    Runnable enableMessageConsumer_ = new Runnable()
+    private Runnable enableMessageConsumer_ = new Runnable()
     {
         public void run()
         {
@@ -68,13 +68,13 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
         }
     };
 
-    TaskProcessor taskProcessor_;
+    private final TaskProcessor taskProcessor_;
 
     /**
      * specify how long a ProxySupplier should be disabled in case
      * delivering messages to its Consumer fails.
      */
-    private long backoutInterval_;
+    private final long backoutInterval_;
 
     public TaskProcessorRetryStrategy(MessageConsumer mc,
                                       PushOperation op,
@@ -86,12 +86,12 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
     }
 
 
-    public long getTimeToWait() {
+    protected long getTimeToWait() {
         return 0;
     }
 
 
-    public void retry() throws RetryException
+    protected void retryInternal() throws RetryException
     {
         messageConsumer_.disableDelivery();
 
