@@ -32,7 +32,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.7 2002-11-04 18:07:59 andre.spiegel Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.8 2002-11-21 11:10:34 andre.spiegel Exp $
  */
 public abstract class ReplyPlaceholder 
 {
@@ -148,7 +148,7 @@ public abstract class ReplyPlaceholder
 
         if( timeoutException )
         {
-            throw new org.omg.CORBA.IMP_LIMIT("Client timeout reached.");
+            throw new org.omg.CORBA.TIMEOUT ("client timeout reached");
         }
                 
         return in;
