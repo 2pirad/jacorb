@@ -55,7 +55,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.9 2004-03-17 08:16:46 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.10 2004-03-17 22:44:14 alphonse.bendt Exp $
  */
 
 class StructuredEventMessage extends AbstractMessage
@@ -85,7 +85,7 @@ class StructuredEventMessage extends AbstractMessage
 
     ////////////////////////////////////////
 
-    public void setStructuredEventValue( StructuredEvent event,
+    public synchronized void setStructuredEventValue( StructuredEvent event,
                                          boolean startTimeSupported,
                                          boolean timeOutSupported)
     {
@@ -99,7 +99,7 @@ class StructuredEventMessage extends AbstractMessage
     }
 
 
-    public void reset()
+    public synchronized void reset()
     {
         super.reset();
 
@@ -129,7 +129,7 @@ class StructuredEventMessage extends AbstractMessage
     }
 
 
-    public StructuredEvent toStructuredEvent()
+    public synchronized StructuredEvent toStructuredEvent()
     {
         return structuredEventValue_;
     }
@@ -145,7 +145,7 @@ class StructuredEventMessage extends AbstractMessage
                                                   ComponentName root,
                                                   String v) throws EvaluationException {
             Any _any =
-                context.getDynamicEvaluator().evaluatePropertyList(structuredEventValue_.filterable_data, v);
+                context.getDynamicEvaluator().evaluatePropertyList(toStructuredEvent().filterable_data, v);
 
             return EvaluationResult.fromAny(_any);
     }
@@ -158,7 +158,7 @@ class StructuredEventMessage extends AbstractMessage
 
 
         Any _any =
-            context.getDynamicEvaluator().evaluatePropertyList(structuredEventValue_.header.variable_header, v);
+            context.getDynamicEvaluator().evaluatePropertyList(toStructuredEvent().header.variable_header, v);
 
         return EvaluationResult.fromAny(_any);
     }
@@ -245,6 +245,6 @@ class StructuredEventMessage extends AbstractMessage
 
 
     public String toString() {
-        return structuredEventValue_.toString();
+        return toStructuredEvent().toString();
     }
 }
