@@ -22,18 +22,20 @@ package org.jacorb.notification.queue;
  */
 
 import java.util.Comparator;
+
 import org.jacorb.notification.interfaces.Message;
 
 /**
- * QueueUtil.java
- *
- *
  * @author Alphonse Bendt
- * @version $Id: QueueUtil.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: QueueUtil.java,v 1.2 2004-01-17 01:20:07 alphonse.bendt Exp $
  */
 
 class QueueUtil
 {
+
+    private QueueUtil() {}
+
+    ////////////////////////////////////////
 
     static final Message[] NOTIFICATION_EVENT_ARRAY_TEMPLATE =
         new Message[ 0 ];
