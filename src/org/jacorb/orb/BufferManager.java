@@ -29,7 +29,7 @@ import org.jacorb.util.*;
  * allocations and deallocations and the overall memory footprint.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.6 2001-10-02 13:50:50 jacorb Exp $ 
+ * @version $Id: BufferManager.java,v 1.7 2002-01-11 21:45:06 gerald Exp $ 
 */
 
 public class BufferManager
@@ -126,7 +126,10 @@ public class BufferManager
 	    Object o = v.firstElement();
 	    v.removeElementAt(0);
 
-	    return (byte [])o;
+            byte[] result = (byte [])o;
+            // clear buffer contents
+            java.util.Arrays.fill( result, (byte)0 );
+	    return result;
 	}
 	else
 	{
