@@ -35,7 +35,7 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelFactoryImpl.java,v 1.2 2004-06-18 23:11:18 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelFactoryImpl.java,v 1.3 2004-06-22 08:09:48 alphonse.bendt Exp $
  */
 
 public class TypedEventChannelFactoryImpl
@@ -103,7 +103,7 @@ public class TypedEventChannelFactoryImpl
         } catch (Exception e) {
             logger_.fatalError("No InterfaceRepository available!. Typed Notification Channels will not work without an InterfaceRepository", e);
 
-            throw new RuntimeException();
+            throw new RuntimeException("No Interface Repository available");
         }
     }
 
