@@ -35,7 +35,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.11 2002-04-02 19:31:44 francisco Exp $
+ * @version $Id: PrintIOR.java,v 1.12 2002-05-14 15:55:13 francisco Exp $
  */
 
 public class PrintIOR 
@@ -306,6 +306,7 @@ public class PrintIOR
             new CDRInputStream( (org.omg.CORBA.ORB)null, 
                                 taggedComponent.component_data );
 
+        is.openEncapsulatedArray();
         String codebase = is.read_string();
 
         System.out.println( "\t\tCodebase: " + codebase );

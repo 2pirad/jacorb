@@ -39,7 +39,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.28 2002-04-18 12:27:54 steve.osselton Exp $
+ * @version $Id: ParsedIOR.java,v 1.29 2002-05-14 15:55:13 francisco Exp $
  */
 
 public class ParsedIOR 
@@ -351,6 +351,7 @@ public class ParsedIOR
 	    CDRInputStream is =
 		new CDRInputStream( orb, 
                                    taggedComponents[i].component_data);
+	    is.openEncapsulatedArray();
 	    return is.read_string();
 	}
         return null;
