@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.15 2003-04-26 17:31:22 andre.spiegel Exp $
+ * @version $Id: Transport.java,v 1.16 2003-04-27 07:37:16 andre.spiegel Exp $
  */
 
 public interface Transport 
@@ -82,18 +82,6 @@ public interface Transport
      */
     public void turnOnFinalTimeout();
     
-    /**
-     * Wait until the connection is established. This is called from
-     * getMessage() so the connection may be opened up not until the
-     * first message is sent (instead of opening it up when the
-     * transport is created).
-     *
-     * @return true if connection ready, false if connection closed.
-     */
-    public boolean waitUntilConnected();
-
-    
-   
 }// Transport
 
 
