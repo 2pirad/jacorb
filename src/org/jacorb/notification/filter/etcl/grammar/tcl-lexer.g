@@ -1,4 +1,4 @@
-// $Id: tcl-lexer.g,v 1.2 2004-06-02 21:55:13 alphonse.bendt Exp $
+// $Id: tcl-lexer.g,v 1.3 2004-06-25 09:20:03 alphonse.bendt Exp $
 
 header {
 package org.jacorb.notification.filter.etcl;
@@ -185,8 +185,10 @@ protected OTHER
      ;
 
 // these may appear within text but not within identifiers
+// according to OMG Trader Constraint Language all ASCII chars 
+// that are not ALPHA, DIGIT or SPECIAL
 protected OTHER_TEXT
-    : ('.')
+    : ('.'|'!'|'"'|'#'|'$'|'%'|'&'|'('|')'|'*'|'+'|','|'-'|';'|'<'|'>'|'='|'?'|'@'|'['|']'|'^'|'`'|'{'|'|'|'}'|'~') 
     ;
 
 protected SPECIAL
