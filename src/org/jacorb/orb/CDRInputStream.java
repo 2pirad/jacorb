@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.67 2003-10-20 16:28:22 simon.mcqueen Exp $
+ * $Id: CDRInputStream.java,v 1.68 2003-10-28 04:22:47 francisco Exp $
  */
 
 public class CDRInputStream
@@ -2287,7 +2287,12 @@ public class CDRInputStream
 
     public java.io.Serializable read_value(java.io.Serializable value)
     {
-        return read_value( value.getClass()); // GB: is that okay?
+        if (value instanceof org.omg.CORBA.portable.Streamable)
+        {
+            ((org.omg.CORBA.portable.Streamable)value)._read(this);
+            return value;
+        }
+        return read_value(value.getClass()); // GB: is that okay?
     }
 
     /**
@@ -2298,7 +2303,7 @@ public class CDRInputStream
     public java.io.Serializable read_value (final java.lang.Class clz)
     {
         int tag = read_long();
-	int start_offset = pos - 4;
+        int start_offset = pos - 4;
 
         if (tag == 0xffffffff)
         {
