@@ -48,7 +48,7 @@ import java.util.*;
  * ReplyHandler. 
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.8 2003-01-07 10:01:47 andre.spiegel Exp $
+ * @version $Id: ReplyReceiver.java,v 1.9 2003-01-07 18:05:38 nicolas Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -70,10 +70,9 @@ public class ReplyReceiver extends ReplyPlaceholder
                           String                         operation,
                           org.omg.TimeBase.UtcT          replyEndTime,
                           ClientInterceptorHandler       interceptors,
-                          org.omg.Messaging.ReplyHandler replyHandler,
-                          boolean remarshalOnCF )
+                          org.omg.Messaging.ReplyHandler replyHandler )
     {        
-        super( remarshalOnCF );
+        super();
 
         this.delegate         = delegate;
         this.operation        = operation;
