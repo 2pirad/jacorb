@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.4 2001-03-27 12:01:24 noffke Exp $ 
+ * $Id: Any.java,v 1.5 2001-03-29 15:36:25 jacorb Exp $ 
  * 
  */
 
@@ -344,14 +344,14 @@ public final class Any
     public void insert_string(String s)
     { 
         value = s;
-        if( typeCode.kind().value() == org.omg.CORBA.TCKind._tk_null )
+        // if( typeCode.kind().value() == org.omg.CORBA.TCKind._tk_null )
             typeCode = orb.create_string_tc( s.length() );
     }
 
     public void insert_wstring(String s)
     {
         value = s;
-        if( typeCode.kind().value() == org.omg.CORBA.TCKind._tk_null )
+        // if( typeCode.kind().value() == org.omg.CORBA.TCKind._tk_null )
             typeCode = orb.create_wstring_tc( s.length() );
     }
 
