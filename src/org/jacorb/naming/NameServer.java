@@ -41,7 +41,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.27 2003-12-16 09:11:28 gerald Exp $
+ *  @version $Id: NameServer.java,v 1.28 2004-02-18 14:50:01 gerald Exp $
  */
 
 
@@ -54,11 +54,9 @@ public class NameServer
     /** the specific logger for this component */
     private static Logger logger = Debug.getNamedLogger("jacorb.naming");
 
-
     /**
      * The servant manager (servant activator) for the name server POA
      */
-
 
     static class NameServantActivatorImpl
         extends _ServantActivatorLocalBase
@@ -115,6 +113,7 @@ public class NameServer
                 logger.error("Could not read object from file, class not found!");
                 System.exit(1);
             }
+
             if( n == null )
             {
                 n = new NamingContextImpl();
@@ -218,11 +217,13 @@ public class NameServer
                         {
                         }
                         if( idx +1 < args.length && args[idx +1].equals("imr_register") )
+                        {
                             //#ifjdk 1.2
                             imr_register = true;
                         //#else
                         //# throw new RuntimeException ("Sorry, imr_register not supported in this release");
                         //#endif
+                        }
                     }
                     else
                         usage();
@@ -230,7 +231,7 @@ public class NameServer
             }
 
             java.util.Properties props = new java.util.Properties();
-            props.put("jacorb.implname","StandardNS");
+            props.put("jacorb.implname", "StandardNS");
 
             /*
              * by setting the following property, the ORB will

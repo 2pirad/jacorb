@@ -37,7 +37,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  *
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.22 2004-02-05 15:57:12 nick.cross Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.23 2004-02-18 14:50:01 gerald Exp $
  *
  */
 
@@ -578,14 +578,14 @@ public class NamingContextImpl
             if( result == null )
                 result = (org.omg.CORBA.Object)names.get(n);
 
-			if (result == null)
-				throw new NotFound(NotFoundReason.missing_node, n.components());
-
-			if (! Environment.isPropertyOn ("jacorb.naming.noping") &&
-                            result._non_existent())
-                        {
-                            throw new NotFound(NotFoundReason.missing_node, n.components());
-                        }
+            if (result == null)
+                throw new NotFound(NotFoundReason.missing_node, n.components());
+            
+            if (! Environment.isPropertyOn ("jacorb.naming.noping") &&
+                result._non_existent())
+            {
+                throw new NotFound(NotFoundReason.missing_node, n.components());
+            }
 
             return result;
         }
