@@ -31,7 +31,7 @@ import org.jacorb.notification.filter.EvaluationResult;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtils.java,v 1.1.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: MessageUtils.java,v 1.1.2.2 2004-04-07 14:54:27 alphonse.bendt Exp $
  */
 
 public class MessageUtils
@@ -105,8 +105,6 @@ public class MessageUtils
                                 break;
 
                             case AbstractTCLNode.IDENTIFIER:
-//                                 logger_.debug( "evaluate struct by identifier" );
-
                                 String _identifer = ((IdentValue) _currentOperator).getIdentifier();
 
                                 _result =
@@ -117,8 +115,6 @@ public class MessageUtils
                                 break;
 
                             case AbstractTCLNode.NUMBER:
-//                                 logger_.debug( "evaluate struct by position" );
-
                                 int _pos = ((NumberValue) _currentOperator).getNumber().intValue();
 
                                 _result =
