@@ -84,7 +84,7 @@ import org.apache.log.Logger;
  * reference of that event channel.<br>
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.18 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.19 2003-08-26 15:25:23 david.robison Exp $
  */
 
 public class EventChannelFactoryImpl
@@ -182,7 +182,7 @@ public class EventChannelFactoryImpl
 
                    );
 
-        t.setDaemon( true );
+        t.setDaemon( false );
         t.start();
 
         ior_ = _orb.object_to_string( notificationPOA_.id_to_reference( oid ) );
@@ -586,7 +586,7 @@ public class EventChannelFactoryImpl
 
                    );
 
-        t.setDaemon( true );
+        t.setDaemon( false );
         t.start();
 
         ior_ = _orb.object_to_string( notificationPOA_.id_to_reference( oid ) );
