@@ -47,7 +47,7 @@ import java.util.*;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.15 2003-12-09 18:18:23 nicolas Exp $
+ * @version $Id: ReplyReceiver.java,v 1.16 2003-12-10 17:09:32 nicolas Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -90,9 +90,7 @@ public class ReplyReceiver extends ReplyPlaceholder
             timer = null;
         }
         
-        //default to "off" is handled internally by Environment.isPropertyOn()
-        retry_on_failure =
-            Environment.isPropertyOn("jacorb.connection.client.retry_on_failure");
+        retry_on_failure = Environment.retryOnFailure();
     }
 
     public synchronized void replyReceived ( MessageInputStream in )
