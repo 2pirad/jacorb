@@ -33,7 +33,7 @@ import org.jacorb.orb.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.21 2003-04-27 07:40:05 andre.spiegel Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.22 2003-04-27 12:42:32 andre.spiegel Exp $
  */
 
 public class Server_TCP_IP_Transport
@@ -44,11 +44,10 @@ public class Server_TCP_IP_Transport
 
     public Server_TCP_IP_Transport( Socket socket,
                                     boolean is_ssl,
-                                    StatisticsProvider statistics_provider,
                                     TransportManager transport_manager )
         throws IOException
     {
-        super( statistics_provider, transport_manager );
+        super( transport_manager );
 
         this.socket = socket;
         //        socket.setTcpNoDelay( true );
