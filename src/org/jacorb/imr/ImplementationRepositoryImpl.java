@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.3 2001-03-19 11:07:58 brose Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.4 2001-03-21 10:29:04 noffke Exp $
  */
 
 public class ImplementationRepositoryImpl 
@@ -694,10 +694,17 @@ public class ImplementationRepositoryImpl
                                      "ImR: will restart " + server.name);
 
                         _host.startServer(server.command, orb);
-                    } catch (ServerStartupFailed ssf){
-                        throw ssf;
-	  
-                    } catch (Exception _e){
+                    } 
+                    catch (ServerStartupFailed ssf)
+                    {
+                        server.setNotRestarting();
+
+                        throw ssf;	
+                    } 
+                    catch (Exception _e)
+                    {
+                        server.setNotRestarting();
+
                         Debug.output(Debug.IMR | Debug.INFORMATION, _e);
 			    
                         // sth wrong with daemon, remove from table

@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  *
  * @author Nicolas Noffke
  *
- * @version $Id: ImRServerInfo.java,v 1.3 2001-03-19 11:07:58 brose Exp $
+ * @version $Id: ImRServerInfo.java,v 1.4 2001-03-21 10:29:52 noffke Exp $
  *
  */
 
@@ -173,12 +173,10 @@ public class ImRServerInfo  implements java.io.Serializable{
 	return _restart;
     }
 
+    public void setNotRestarting()
+    {
+        restarting = false;
+    }
+
 } // ImRServerInfo
-
-
-
-
-
-
-
 
