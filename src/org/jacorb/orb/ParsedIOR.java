@@ -1,3 +1,4 @@
+
 package org.jacorb.orb;
 
 /*
@@ -39,7 +40,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.38 2002-10-11 08:53:11 andre.spiegel Exp $
+ * @version $Id: ParsedIOR.java,v 1.39 2002-10-15 13:08:09 nick.cross Exp $
  */
 
 public class ParsedIOR
@@ -808,7 +809,7 @@ public class ParsedIOR
         {
             ior = createObjectIOR( address.host,
                                    (short) address.port,
-                                   corbaLoc.getKey(),
+                                   orb.mapObjectKey (corbaLoc.getKey ()),
                                    address.minor );
         }
         else if( address.protocol_identifier.equals("ssliop") )
@@ -883,7 +884,7 @@ public class ParsedIOR
 
             ior =  createObjectIOR( address.host,
                                     (short) address.port,
-                                    corbaLoc.getKey(),
+                                    orb.mapObjectKey (corbaLoc.getKey ()),
                                     address.minor,
                                     new TaggedComponent[]{ssl_c});
         }
