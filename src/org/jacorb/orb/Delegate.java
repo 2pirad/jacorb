@@ -43,7 +43,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.49 2002-05-28 07:40:24 gerald Exp $
+ * @version $Id: Delegate.java,v 1.50 2002-05-28 09:55:53 jason.courage Exp $
  *
  */
 
@@ -1451,15 +1451,16 @@ public final class Delegate
 
                     return so;
                 }
-                catch ( Throwable e )
-                {
-                    Debug.output( 2, e );
-                }
-
+            }
+            catch ( Throwable e )
+            {
+                Debug.output( 2, e );
             }
 
-            return null;
         }
+
+        return null;
+    }
 
         /**
          * used only by ORB.getConnection ( Delegate ) when diverting
