@@ -48,7 +48,7 @@ import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MappingFilterImpl.java,v 1.11 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: MappingFilterImpl.java,v 1.12 2004-06-18 23:11:18 alphonse.bendt Exp $
  */
 
 public class MappingFilterImpl extends MappingFilterPOA implements Disposable
@@ -86,7 +86,7 @@ public class MappingFilterImpl extends MappingFilterPOA implements Disposable
 
 //     private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
-    private FilterImpl filterImpl_;
+    private AbstractFilter filterImpl_;
 
     private Any defaultValue_;
 
@@ -97,7 +97,7 @@ public class MappingFilterImpl extends MappingFilterPOA implements Disposable
     ////////////////////////////////////////
 
     public MappingFilterImpl( ApplicationContext context,
-                              FilterImpl filterImpl,
+                              AbstractFilter filterImpl,
                               Any defaultValue )
     {
         filterImpl_ = filterImpl;

@@ -42,7 +42,7 @@ import org.omg.CORBA.NamedValue;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.12 2004-06-08 13:20:46 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.13 2004-06-18 23:11:18 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable, Configurable
@@ -62,7 +62,6 @@ public class MessageFactory implements Disposable, Configurable
                 obj.setObjectPool( this );
             }
         };
-
 
     private AbstractObjectPool anyMessagePool_ =
         new AbstractObjectPool("AnyMessagePool")
