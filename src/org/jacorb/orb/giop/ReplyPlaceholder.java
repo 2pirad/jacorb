@@ -31,7 +31,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.19 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.20 2004-05-19 11:25:47 andre.spiegel Exp $
  */
 public abstract class ReplyPlaceholder
 {
@@ -52,11 +52,6 @@ public abstract class ReplyPlaceholder
     {
         timeout = 
             orb.getConfiguration().getAttributeAsInteger("jacorb.connection.client.pending_reply_timeout", 0);
-    }
-
-
-    public ReplyPlaceholder()
-    {
     }
 
     public synchronized void replyReceived( MessageInputStream in )
