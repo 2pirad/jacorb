@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.19 2003-08-15 11:28:22 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.19.4.1 2004-04-14 13:10:24 phil.mesnier Exp $
  */
 
 import org.jacorb.orb.giop.*;
@@ -23,8 +23,18 @@ import org.jacorb.orb.*;
 
 import junit.framework.*;
 
+import org.jacorb.config.Configuration;
+
 public class GIOPConnectionTest extends TestCase
 {
+
+    Configuration config;
+
+    public void setUp() throws Exception
+    {
+        config = new Configuration ("jacorb",null,null);
+    }
+
     public static junit.framework.TestSuite suite()
     {
         TestSuite suite = new TestSuite ("GIOPConnection Test");
@@ -281,6 +291,13 @@ public class GIOPConnectionTest extends TestCase
 
         GIOPConnectionManager giopconn_mg =
             new GIOPConnectionManager();
+        try
+        {
+            giopconn_mg.configure (config);
+        }
+        catch (Exception e)
+        {
+        }
 
         ServerGIOPConnection conn =
             giopconn_mg.createServerGIOPConnection( null,
@@ -352,6 +369,13 @@ public class GIOPConnectionTest extends TestCase
 
         GIOPConnectionManager giopconn_mg =
             new GIOPConnectionManager();
+        try
+        {
+            giopconn_mg.configure (config);
+        }
+        catch (Exception e)
+        {
+        }
 
         GIOPConnection conn =
             giopconn_mg.createServerGIOPConnection( null,
@@ -464,6 +488,13 @@ public class GIOPConnectionTest extends TestCase
 
         GIOPConnectionManager giopconn_mg =
             new GIOPConnectionManager();
+        try
+        {
+            giopconn_mg.configure (config);
+        }
+        catch (Exception e)
+        {
+        }
 
         GIOPConnection conn =
             giopconn_mg.createServerGIOPConnection( null,
@@ -537,6 +568,13 @@ public class GIOPConnectionTest extends TestCase
 
         GIOPConnectionManager giopconn_mg =
             new GIOPConnectionManager();
+        try
+        {
+            giopconn_mg.configure (config);
+        }
+        catch (Exception e)
+        {
+        }
 
         GIOPConnection conn =
             giopconn_mg.createServerGIOPConnection( null,
