@@ -29,18 +29,17 @@ import org.jacorb.notification.servant.AbstractProxyConsumerI;
 import org.jacorb.notification.util.AbstractObjectPool;
 
 import org.omg.CORBA.Any;
-import org.omg.CosNotification.StructuredEvent;
 import org.omg.CORBA.TypeCode;
+import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.6 2004-02-08 14:26:14 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.7 2004-02-09 16:19:33 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable
 {
-    public static final String ANY_TYPE_NAME = "%ANY";
 
     ////////////////////////////////////////
 
@@ -120,7 +119,7 @@ public class MessageFactory implements Disposable
     {
         String _typeName = structuredEvent.header.fixed_header.event_type.type_name;
 
-        if (ANY_TYPE_NAME.equals(_typeName)) {
+        if (AnyMessage.TYPE_NAME.equals(_typeName)) {
             // received an Any wrapped inside a StructuredEvent
             // see Spec. 2-11
             return newMessage(structuredEvent.remainder_of_body, consumer);
@@ -163,7 +162,7 @@ public class MessageFactory implements Disposable
     {
         String _typeName = structuredEvent.header.fixed_header.event_type.type_name;
 
-        if (ANY_TYPE_NAME.equals(_typeName)) {
+        if (AnyMessage.TYPE_NAME.equals(_typeName)) {
             return newMessage(structuredEvent.remainder_of_body);
         } else {
             StructuredEventMessage _mesg =
