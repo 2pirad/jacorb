@@ -24,7 +24,7 @@ import junit.framework.*;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: AllTest.java,v 1.1 2003-08-13 16:38:49 andre.spiegel Exp $
+ * @version $Id: AllTest.java,v 1.2 2003-08-13 16:46:19 andre.spiegel Exp $
  */
 public class AllTest extends TestCase
 {
@@ -37,6 +37,7 @@ public class AllTest extends TestCase
    {
       TestSuite suite = new TestSuite ("All bugs");
 
+      suite.addTest (org.jacorb.test.bugs.bug272.TestCase.suite());
       suite.addTest (org.jacorb.test.bugs.bug351.TestCase.suite());
 
       return suite;
