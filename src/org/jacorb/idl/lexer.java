@@ -45,7 +45,7 @@ import java.util.Stack;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.23 2002-04-17 08:49:17 gerald Exp $
+ * @version $Id: lexer.java,v 1.24 2002-05-08 12:43:49 gerald Exp $
  * @author Gerald Brose
  *
  */
@@ -792,11 +792,6 @@ public class lexer
                     advance(); // skip ' '
                     String id = get_string();
                     // do something with it
-                }
-                else if( name.equals( "local" ) )
-                {
-                    /* proprietary pragma of the JacORB IDL compiler */
-                    // parser.setLocalityContraint();
                 }
                 else if( name.equals( "inhibit_code_generation" ) )
                 {

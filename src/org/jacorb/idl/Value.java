@@ -22,15 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.10 2002-04-17 08:49:16 gerald Exp $
+ * @version $Id: Value.java,v 1.11 2002-05-08 12:43:49 gerald Exp $
  */
 
 import java.io.PrintWriter;
 
 class Value
-        extends TypeDeclaration
+    extends TypeDeclaration
 {
-
     private Value value;
 
     public Value( int num )

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.11 2002-05-07 12:57:30 gerald Exp $
+ * @version $Id: TypeDeclaration.java,v 1.12 2002-05-08 12:43:48 gerald Exp $
  */
 
 import java.io.PrintWriter;
@@ -84,7 +84,7 @@ class TypeDeclaration
      */
     public String getTypeCodeExpression( Set knownTypes )
     {
-        if( type_decl instanceof ValueDecl )
+        if( type_decl instanceof Value )
             return type_decl.getTypeCodeExpression( knownTypes );
         else
             return type_decl.getTypeCodeExpression();

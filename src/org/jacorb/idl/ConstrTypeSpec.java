@@ -22,15 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.10 2002-04-17 08:49:04 gerald Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.11 2002-05-08 12:43:48 gerald Exp $
  */
 
 import java.io.PrintWriter;
 
 class ConstrTypeSpec
-        extends TypeSpec
+    extends TypeSpec
 {
-
     public TypeDeclaration c_type_spec;
     private boolean parsed = false;
 
