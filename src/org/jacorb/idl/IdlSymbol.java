@@ -30,11 +30,11 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.34 2004-01-15 12:38:18 nick.cross Exp $
+ * @version $Id: IdlSymbol.java,v 1.35 2004-01-30 13:40:31 gerald Exp $
  */
 
 public class IdlSymbol
-    extends java_cup.runtime.symbol
+    extends org.jacorb.idl.runtime.symbol
 {
     private static int num = 10000;
     public String pack_name = "";

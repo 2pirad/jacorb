@@ -26,16 +26,15 @@ package org.jacorb.idl;
  *  as attributes.  It maintains that value in the public
  *  field str_val.
  *
- * @see java_cup.runtime.long_token
- * @version $Id: fixed_token.java,v 1.9 2003-09-09 14:25:18 brose Exp $
+ * @see org.jacorb.idl.runtime.long_token
+ * @version $Id: fixed_token.java,v 1.10 2004-01-30 13:40:31 gerald Exp $
  * @author  Gerald Brose
  */
 
 public class fixed_token
-        extends java_cup.runtime.long_token
-        implements java.io.Serializable
+    extends org.jacorb.idl.runtime.long_token
+    implements java.io.Serializable
 {
-
     public java.math.BigDecimal fixed_val;
 
     /**
