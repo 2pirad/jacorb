@@ -7,7 +7,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.24 2002-04-12 16:42:15 jason.courage Exp $ -->
+   <!-- $Id: build.xml,v 1.25 2002-04-19 14:34:09 jason.courage Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -109,6 +109,15 @@
       />
       <copy file="${src}/java_mapping/CORBA/ORBPackage/InvalidNameHelper.java"
          tofile="${src}/generated/org/omg/CORBA/ORBPackage/InvalidNameHelper.java"
+      />
+      <copy file="${src}/java_mapping/CORBA/ORBPackage/ObjectIdHelper.java"
+         tofile="${src}/generated/org/omg/CORBA/ORBPackage/ObjectIdHelper.java"
+      />
+      <copy file="${src}/java_mapping/CORBA/ORBPackage/ObjectIdListHelper.java"
+         tofile="${src}/generated/org/omg/CORBA/ORBPackage/ObjectIdListHelper.java"
+      />
+      <copy file="${src}/java_mapping/CORBA/ORBPackage/ObjectIdListHolder.java"
+         tofile="${src}/generated/org/omg/CORBA/ORBPackage/ObjectIdListHolder.java"
       />
       <copy file="${src}/java_mapping/CORBA/FixedHolder.java"
               tofile="${src}/generated/org/omg/CORBA/FixedHolder.java"
