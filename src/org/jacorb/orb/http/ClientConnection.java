@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.*;
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.5 2001-03-28 10:07:06 jacorb Exp $
+ * @version $Id: ClientConnection.java,v 1.6 2001-06-13 09:19:00 jacorb Exp $
  */
 
 public final class ClientConnection 
@@ -75,7 +75,7 @@ public final class ClientConnection
 	{
 	    ReplyInputStream client =
 		(ReplyInputStream)replies.get(keys.nextElement());
-	    client.cancel();
+	    client.cancel( false );
 	    lost_replies++;
 	}
 

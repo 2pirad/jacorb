@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ConnectionManager.java,v 1.8 2001-06-12 12:27:47 jacorb Exp $
+ * @version $Id: ConnectionManager.java,v 1.9 2001-06-13 09:18:59 jacorb Exp $
  *
  */
 
@@ -146,7 +146,7 @@ public class ConnectionManager
         }
         catch( java.net.UnknownHostException uhe )
         {
-            throw new org.omg.CORBA.COMM_FAILURE("Unknown host " + host);
+            throw new org.omg.CORBA.TRANSIENT("Unknown host " + host);
         }
 
         /* look for an existing connection */
@@ -280,7 +280,7 @@ public class ConnectionManager
             }
         }
         if( retries < 0 )
-            throw new org.omg.CORBA.COMM_FAILURE("Retries exceeded, couldn't connect to " + 
+            throw new org.omg.CORBA.TRANSIENT("Retries exceeded, couldn't connect to " + 
                                                  host_and_port);
         return e;
     }
@@ -352,7 +352,7 @@ public class ConnectionManager
         }
         catch( java.net.UnknownHostException uhe )
         {
-            throw new org.omg.CORBA.COMM_FAILURE("Unknown host " + host);
+            throw new org.omg.CORBA.TRANSIENT("Unknown host " + host);
         }
 
         return host_and_port;

@@ -28,7 +28,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.9 2001-03-30 14:36:23 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.10 2001-06-13 09:19:00 jacorb Exp $
  *
  */
 
@@ -42,6 +42,7 @@ public class ReplyInputStream
     private boolean ready = false;
     private boolean communicationException = false;
     private boolean remarshalException = false;
+    private boolean timeoutException = false;
     private org.omg.CORBA.Object target;
     public org.omg.GIOP.MessageHeader_1_0 msg_hdr=null;
 
@@ -98,12 +99,14 @@ public class ReplyInputStream
      * of a communication error
      */
 
-    public synchronized void cancel()
+    public synchronized void cancel( boolean timeout )
     {
+	timeoutException = timeout;
 	communicationException = true;
 	ready = true;
 	this.notify();
     }
+
 
     public synchronized void retry()
     {
@@ -148,7 +151,10 @@ public class ReplyInputStream
 	}	
         else if( communicationException )
 	{
-	    throw new org.omg.CORBA.COMM_FAILURE();
+            if( timeoutException )
+                throw new org.omg.CORBA.IMP_LIMIT("Client timeout reached.");
+            else
+                throw new org.omg.CORBA.COMM_FAILURE();
 	}
 
 	wakeup();
