@@ -45,7 +45,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.11 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.12 2004-01-29 14:09:29 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage
@@ -492,7 +492,7 @@ public abstract class AbstractMessage
 
         if (logger_.isDebugEnabled())
         {
-            logger_.debug("extractValue2: " + _completePath);
+            logger_.debug("extractValue: " + _completePath);
             logger_.debug("runtimeVariable=" + runtimeVariable);
         }
 
