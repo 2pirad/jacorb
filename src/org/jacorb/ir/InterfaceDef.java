@@ -39,7 +39,7 @@ import org.omg.CORBA.ConstantDescription;
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.10 2002-03-19 09:25:13 nicolas Exp $
+ * @version $Id: InterfaceDef.java,v 1.11 2002-05-06 14:39:13 gerald Exp $
  */
 
 public class InterfaceDef 
@@ -56,6 +56,9 @@ public class InterfaceDef
     private org.omg.CORBA.TypeCode               typeCode;
     private OperationDef[]                       op_defs;
     private org.omg.CORBA.OperationDescription[] operations;
+
+    // to be done !!
+    private boolean is_abstract = false;
 
     private AttributeDef[]                       att_defs;
     private org.omg.CORBA.AttributeDescription[] attributes;
@@ -607,9 +610,15 @@ public class InterfaceDef
             Debug.myAssert( attributes != null, "attributes null!");
             
             fullDescription =
-                new FullInterfaceDescription( name, id, def_in, version, 
-                                              operations, attributes, base_names, 
-                                              typeCode, false );
+                new FullInterfaceDescription( name, 
+                                              id, 
+                                              def_in, 
+                                              version, 
+                                              is_abstract,
+                                              operations, 
+                                              attributes, 
+                                              base_names, 
+                                              typeCode );
         }
         return fullDescription;
     }
