@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.5 2001-05-31 08:04:13 jacorb Exp $
+ * @version $Id: Literal.java,v 1.6 2001-05-31 08:50:18 jacorb Exp $
  */
 
 class Literal 
@@ -49,13 +49,14 @@ class Literal
     public void parse()
     {
         TypeSpec ts = declared_in.const_type.symbol.typeSpec();
-        Environment.output( 2, "Literal: ts " + ts.getClass().getName() +
-                            " token " + token.getClass().getName() );
-        if( ts instanceof FloatType && 
-            token instanceof java_cup.runtime.int_token
-            )
+        if( ts instanceof FloatPtType )
         {
-            throw new ParseException("Excpecting float/double constant, found integral type!");
+            Environment.output( 2, "Literal: ts " + 
+                                ts.getClass().getName() + " token: " +
+                                token + " " + token.sym );
+
+            if( ! (token instanceof java_cup.runtime.float_token  ))
+                parser.error("Expecting float/double constant, found integral type!" );
         }
     }
 
