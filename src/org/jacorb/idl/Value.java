@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.16 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Value.java,v 1.17 2003-09-12 09:44:53 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -141,7 +141,7 @@ public class Value
 
     public void accept( IDLTreeVisitor visitor )
     {
-        visitor.visitValue( this );
+        value.accept( visitor );
     }
 
 
