@@ -10,7 +10,7 @@ import org.jacorb.orb.domain.*;
  * domain service for the target printer.
  * It uses this policy to calculate the price for the print job.
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class SpoolerImpl 
@@ -21,7 +21,7 @@ public class SpoolerImpl
     public SpoolerImpl() 
     {} 
   
-    public int getPriceOfPrintJob( demo.domain.printer.Printer printer, 
+    public int getPriceOfPrintJob( demo.domain.printer.ThePrinter printer, 
                                    java.lang.String data)
     {
         // get price policy of  printer object
@@ -47,7 +47,7 @@ public class SpoolerImpl
         }
     }
 	
-    public int doPrintJob(demo.domain.printer.Printer printer, 
+    public int doPrintJob(demo.domain.printer.ThePrinter printer, 
                           java.lang.String data)
     {
         printer.printFile(data);
