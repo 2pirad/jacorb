@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
  * Created: Sat Oct 12 17:25:43 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.13 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.14 2003-12-11 16:56:43 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable
@@ -155,18 +155,12 @@ public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable
         }
     }
 
-    public FilterFactory getFilterFactory()
+    public synchronized FilterFactory getFilterFactory()
     {
         if ( thisRef_ == null )
-        {
-            synchronized ( this )
             {
-                if ( thisRef_ == null )
-                {
-                    thisRef_ = _this( applicationContext_.getOrb() );
-                }
+                thisRef_ = _this( applicationContext_.getOrb() );
             }
-        }
 
         return thisRef_;
     }
