@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.15 2002-03-19 09:25:32 nicolas Exp $
+ * $Id: DynUnion.java,v 1.16 2002-06-25 08:01:28 gerald Exp $
  *
  */
 
@@ -96,8 +96,6 @@ public final class DynUnion
          }
 
          select_member();
-         org.jacorb.util.Debug.output( 3, "DynUnion.ctor(), member == null? " + 
-                                       ( member == null ));
       }
       catch( org.omg.CORBA.TypeCodePackage.BadKind bk )
       {
