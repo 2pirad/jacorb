@@ -26,13 +26,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * PackageTest.java
- *
- *
- * Created: Mon Apr  7 15:20:03 2003
- *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.8 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.9 2004-02-11 12:07:26 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
