@@ -15,7 +15,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.6 2001-10-02 13:51:04 jacorb Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.7 2001-12-21 10:32:52 nicolas Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -144,9 +144,9 @@ public class ClientRequestInfoImpl
 
     public org.omg.CORBA.Object forward_reference() 
     {
-        if (! (caller_op != ClientInterceptorIterator.RECEIVE_OTHER) ||
+        if( (caller_op != ClientInterceptorIterator.RECEIVE_OTHER) ||
             ((reply_status != LOCATION_FORWARD_PERMANENT.value) &&
-             (reply_status != LOCATION_FORWARD.value)))
+             (reply_status != LOCATION_FORWARD.value)) )
             throw new BAD_INV_ORDER("The attribute \"forward_reference\" is currently " + 
                                     "invalid!", 10, CompletionStatus.COMPLETED_MAYBE);
 
