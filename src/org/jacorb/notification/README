@@ -7,19 +7,15 @@ to download the library gnu.regexp from
 http://www.cacas.org/java/gnu/regexp
 and make it available in the classpath
 
-compile with
-ant -Dnotification.build.jdk12=true to build a JDK1.2 compliant
-version.
-
 to start the Notification Service run bin/ntfy or bin/ntfy.bat. This
 script starts a EventChannelFactory and prints the IOR to the
 console. 
 
 any comments/suggestions to the JacORB Developer Mailing List
 
-jacorb-developer@lists.spline.inf.fu-berlin.de
+mailto:jacorb-developer@lists.spline.inf.fu-berlin.de or visit
 http://lists.spline.inf.fu-berlin.de/mailman/listinfo/jacorb-developer
 
 Alphonse Bendt
 
-$Id: README,v 1.6 2003-07-16 15:21:54 alphonse.bendt Exp $
+$Id: README,v 1.7 2003-07-17 15:36:01 alphonse.bendt Exp $
