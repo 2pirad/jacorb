@@ -37,7 +37,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.6 2002-03-19 09:25:24 nicolas Exp $
+ * @version $Id: GIOPConnection.java,v 1.7 2002-04-08 17:42:28 nicolas Exp $
  */
 
 public final class GIOPConnection 
@@ -209,7 +209,8 @@ public final class GIOPConnection
                 ReplyOutputStream out = 
                     new ReplyOutputStream( Messages.getRequestId( message ),
                                            ReplyStatusType_1_2.SYSTEM_EXCEPTION,
-                                           giop_minor );
+                                           giop_minor,
+					   false );//no locate reply
                 
                 SystemExceptionHelper.write( out, 
                       new NO_IMPLEMENT( 0, CompletionStatus.COMPLETED_NO ));

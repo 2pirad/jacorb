@@ -30,7 +30,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateReplyInputStream.java,v 1.9 2002-03-19 09:25:24 nicolas Exp $
+ * @version $Id: LocateReplyInputStream.java,v 1.10 2002-04-08 17:42:28 nicolas Exp $
  *
  */
 
@@ -57,7 +57,7 @@ public class LocateReplyInputStream
             }
             case 1 : 
             {
-                /*
+
                 //GIOP 1.1
                 LocateReplyHeader_1_0 hdr = 
                     LocateReplyHeader_1_0Helper.read( this );
@@ -66,7 +66,6 @@ public class LocateReplyInputStream
                     new LocateReplyHeader_1_2( hdr.request_id,
                                                LocateStatusType_1_2.from_int( hdr.locate_status.value() ));
                 break;
-                */
             }
             case 2 : 
             {

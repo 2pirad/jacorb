@@ -37,7 +37,7 @@ import java.io.IOException;
  * Created: Sat Aug 18 11:47:12 2002
  *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirClientRequestListener.java,v 1.4 2002-03-19 09:25:26 nicolas Exp $
+ * @version $Id: NoBiDirClientRequestListener.java,v 1.5 2002-04-08 17:42:28 nicolas Exp $
  */
 
 public class NoBiDirClientRequestListener 
@@ -88,7 +88,8 @@ public class NoBiDirClientRequestListener
         ReplyOutputStream out = 
             new ReplyOutputStream( Messages.getRequestId( request ),
                                    ReplyStatusType_1_2.SYSTEM_EXCEPTION,
-                                   giop_minor );
+                                   giop_minor,
+				   false );//no locate reply
         
         SystemExceptionHelper.write( out, 
               new INV_POLICY( 0, CompletionStatus.COMPLETED_NO ));

@@ -31,7 +31,7 @@ import org.omg.GIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.12 2002-04-04 10:47:28 semu Exp $
+ * @version $Id: ServerRequest.java,v 1.13 2002-04-08 17:42:29 nicolas Exp $
  */
 
 public class ServerRequest 
@@ -292,7 +292,8 @@ public class ServerRequest
                         new ReplyOutputStream(
                                  requestId(), 
                                  ReplyStatusType_1_2.from_int(status),
-                                 in.getGIOPMinor() );
+                                 in.getGIOPMinor(),
+				 in.isLocateRequest());
 		}
 
 		/* 
@@ -378,7 +379,8 @@ public class ServerRequest
 	out = 
             new ReplyOutputStream(requestId(),
                                   ReplyStatusType_1_2.NO_EXCEPTION,
-                                  in.getGIOPMinor() );
+                                  in.getGIOPMinor(),
+				  in.isLocateRequest() );
 
 	return out;
     }
@@ -392,7 +394,8 @@ public class ServerRequest
 	out = 
             new ReplyOutputStream(requestId(),
                                   ReplyStatusType_1_2.USER_EXCEPTION,
-                                  in.getGIOPMinor() );
+                                  in.getGIOPMinor(),
+				  in.isLocateRequest() );
 
 	return out;
     }
@@ -412,7 +415,8 @@ public class ServerRequest
 
 	out = new ReplyOutputStream(requestId(),
                                     ReplyStatusType_1_2.SYSTEM_EXCEPTION,
-                                    in.getGIOPMinor() );
+                                    in.getGIOPMinor(),
+				    in.isLocateRequest() );
 	sys_ex = s;
     }
 
@@ -424,7 +428,8 @@ public class ServerRequest
 
 	out = new ReplyOutputStream(requestId(),
                                     ReplyStatusType_1_2.LOCATION_FORWARD,
-                                    in.getGIOPMinor() );
+                                    in.getGIOPMinor(),
+				    in.isLocateRequest() );
 	location_forward = r;
     }
 
@@ -530,7 +535,8 @@ public class ServerRequest
             out = 
                 new ReplyOutputStream(requestId(),
                                       ReplyStatusType_1_2.NO_EXCEPTION,
-                                      in.getGIOPMinor() );
+                                      in.getGIOPMinor(),
+				      in.isLocateRequest() );
 
         return out;
     }

@@ -27,7 +27,7 @@ import org.omg.IOP.ServiceContext;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.11 2002-03-19 09:25:27 nicolas Exp $
+ * @version $Id: RequestInputStream.java,v 1.12 2002-04-08 17:42:28 nicolas Exp $
  * 
  */
 
@@ -37,8 +37,10 @@ public class RequestInputStream
     private static byte[] reserved = new byte[3];
     private static ServiceContext[] ctx = new ServiceContext[0];
 
-    public RequestHeader_1_2 req_hdr = null;
+    private boolean is_locate_request = false;
 
+    public RequestHeader_1_2 req_hdr = null;
+    
     public RequestInputStream( org.omg.CORBA.ORB orb, byte[] buf )
     {
 	super( orb,  buf );
@@ -100,7 +102,6 @@ public class RequestInputStream
         }
         else if( Messages.getMsgType( buffer ) == MsgType_1_1._LocateRequest )
         {
-            /*
             switch( giop_minor )
             { 
                 case 0 : 
@@ -146,7 +147,8 @@ public class RequestInputStream
                     throw new Error( "Unknown GIOP minor version: " + giop_minor );
                 }
             }
-            */
+
+	    is_locate_request = true;
         }
         else
         {
@@ -165,6 +167,11 @@ public class RequestInputStream
         }
         
         return null;
+    }
+
+    public boolean isLocateRequest()
+    {
+	return is_locate_request;
     }
 
     public void finalize()
