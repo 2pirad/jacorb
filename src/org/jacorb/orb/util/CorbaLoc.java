@@ -22,7 +22,7 @@ package org.jacorb.orb.util;
 
 /**
  * @author Gerald Brose
- * @version $Id: CorbaLoc.java,v 1.12 2003-10-27 08:40:46 andre.spiegel Exp $
+ * @version $Id: CorbaLoc.java,v 1.13 2003-12-17 13:54:34 nick.cross Exp $
  */
 
 
@@ -120,7 +120,7 @@ public class CorbaLoc
         String sb;
         if( addr.indexOf('/') == -1 )
         {
-            sb = new String( addr.substring( addr.indexOf(':')+1 ) );
+            sb = addr.substring( addr.indexOf(':')+1 );
             if (addr.startsWith("corbaloc:rir:"))
             {
                 is_rir = true;
@@ -135,7 +135,7 @@ public class CorbaLoc
         }
         else
         {
-            sb = new String( addr.substring( addr.indexOf(':')+1, addr.indexOf('/') ) );
+            sb = addr.substring( addr.indexOf(':')+1, addr.indexOf('/') );
             keyString = addr.substring(  addr.indexOf('/')+1 );
             key = parseKey( keyString );
         }
@@ -180,7 +180,7 @@ public class CorbaLoc
         }
 
         Profile result = null;
-        if (orb == null 
+        if (orb == null
             && (colon == 0
                 || addr.startsWith("iiop:")
                 || addr.startsWith("ssliop:")))
