@@ -41,7 +41,7 @@ import org.jacorb.util.Environment;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.7 2003-07-16 00:07:01 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.8 2003-07-20 09:39:54 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl
@@ -115,14 +115,16 @@ public class ProxyPullConsumerImpl
 
     private void init( ChannelContext channelContext )
     {
-	
+	pollInterval_ = Constants.DEFAULT_PROXY_POLL_INTERVALL;
+
 	if (Environment.getProperty(Properties.PULL_CONSUMER_POLLINTERVALL) != null) {
 	    try {
 		pollInterval_ = 
 		    Long.parseLong(Environment.getProperty(Properties.PULL_CONSUMER_POLLINTERVALL));
 	    } catch (NumberFormatException e) {
-		logger_.error("Invalid Number Format for Property " + Properties.PULL_CONSUMER_POLLINTERVALL, e);
-		pollInterval_ = Constants.DEFAULT_PROXY_POLL_INTERVALL;
+		logger_.error("Invalid Number Format for Property " 
+			      + Properties.PULL_CONSUMER_POLLINTERVALL, e);
+
 	    }
 	}
 
@@ -130,18 +132,18 @@ public class ProxyPullConsumerImpl
 
         runQueueThis_ = new Runnable()
 	    {
-                            public void run()
-                            {
-                                try
-				    {
-                                    engine_.scheduleTimedPullTask( ProxyPullConsumerImpl.this );
-                                }
-                                catch ( InterruptedException ie )
-				    {}
-				
-                            }
+		public void run()
+		{
+		    try
+			{
+			    engine_.scheduleTimedPullTask( ProxyPullConsumerImpl.this );
+			}
+		    catch ( InterruptedException ie )
+			{}
+		    
+		}
 	    };
-
+	
         connected_ = false;
         subsequentDestinations_ = CollectionsWrapper.singletonList( myAdmin_ );
     }

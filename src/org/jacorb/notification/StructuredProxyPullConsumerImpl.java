@@ -51,7 +51,7 @@ import org.jacorb.util.Environment;
  * StructuredProxyPullConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.8 2003-07-16 00:07:01 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.9 2003-07-20 09:39:54 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullConsumerImpl 
@@ -83,6 +83,7 @@ public class StructuredProxyPullConsumerImpl
                qosProperties,
                key );
 
+	pollInterval_ = Constants.DEFAULT_PROXY_POLL_INTERVALL;
 
 	if (Environment.getProperty(Properties.PULL_CONSUMER_POLLINTERVALL) != null) {
 	    try {
@@ -90,7 +91,6 @@ public class StructuredProxyPullConsumerImpl
 		    Long.parseLong(Environment.getProperty(Properties.PULL_CONSUMER_POLLINTERVALL));
 	    } catch (NumberFormatException e) {
 		logger_.error("Invalid Number Format for Property " + Properties.PULL_CONSUMER_POLLINTERVALL, e);
-		pollInterval_ = Constants.DEFAULT_PROXY_POLL_INTERVALL;
 	    }
 	}
 
