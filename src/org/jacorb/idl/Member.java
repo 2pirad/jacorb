@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.6.6.1 2001-10-30 11:40:38 spiegel Exp $
+ * @version $Id: Member.java,v 1.6.6.2 2001-11-02 16:12:28 spiegel Exp $
  *
  */
 
@@ -70,18 +70,29 @@ class Member
 	containingType = t;
     }
 
-    /** must be set by MemberList before parsing */
-
+    /** 
+     * must be set by MemberList before parsing 
+     */
     public void setExtendVector(Vector v)
     {
 	extendVector = v;
     }
 
     /**
+     * Creates a new Member that is similar to this one, 
+     * but only for declarator d.
+     */
+    public Member extractMember (Declarator d)
+    {
+        Member result = new Member (new_num());
+        result.declarator = d;
+        return result;
+    }
+
+    /**
      *	Parsing members means creating new members for definitions
      *   with more than one declarator. 
      */
-
     public void parse() 	
     {
 	boolean clone_and_parse = true;
@@ -142,9 +153,7 @@ class Member
 	    // we define the declarator's name as a type name indirectly
 	    // through the cloned type specs.
 
-	    Member m = new Member( new_num() );
-	    m.declarator = d;
-
+	    Member m = extractMember (d);
  
 	    TypeSpec ts = type_spec.typeSpec();
 
