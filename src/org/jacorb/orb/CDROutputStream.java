@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.27 2001-12-07 10:14:26 gerald Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.26.2.1 2001-12-14 10:12:21 spiegel Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -80,6 +80,13 @@ public class CDROutputStream
      * stored as a java.lang.Integer.  
      */
     private Map repIdMap = new HashMap();
+
+    /**
+     * Maps all codebase strings that have already been written to this
+     * stream to their position within the buffer.  The position is
+     * stored as a java.lang.Integer.  
+     */
+    private Map codebaseMap = new HashMap();
 
     private final static String null_ior_str = 
         "IOR:00000000000000010000000000000000";
@@ -949,12 +956,13 @@ public class CDROutputStream
         */
 
         int start_pos = pos+1;
-        int _kind = ((TypeCode)value)._kind();
+        int _kind = value.kind().value();
         int _mc; // member count
 
         try
         {
-            if( ((TypeCode)value).is_recursive() &&
+            if( (value instanceof org.jacorb.orb.TypeCode) &&
+                ((org.jacorb.orb.TypeCode)value).is_recursive() &&
                 tcMap.containsKey( value.id()) )
             {
                 writeRecursiveTypeCode( value, tcMap );
@@ -999,10 +1007,10 @@ public class CDROutputStream
                     }
                     else
                     {         
+                        write_long( _kind  );
                         tcMap.put( value.id(), new Integer( start_pos ) );
                         recursiveTCMap.put(  value.id(), value );
 
-                        write_long( _kind  );
                         beginEncapsulation();
                         write_string(value.id());
                         write_string(value.name());
@@ -1023,9 +1031,6 @@ public class CDROutputStream
                     }
                     else
                     {
-                        tcMap.put( value.id(), new Integer( start_pos ) );
-                        recursiveTCMap.put(  value.id(), value );
-
                         write_long( _kind  );
                         beginEncapsulation();
                         write_string( value.id());
@@ -1105,7 +1110,6 @@ public class CDROutputStream
                     }
                     else
                     {
-                        tcMap.put( value.id(), new Integer( start_pos ) );
                         recursiveTCMap.put( value.id(), value );
                         write_long( _kind  );
                         beginEncapsulation();
@@ -1123,10 +1127,9 @@ public class CDROutputStream
                     }
                     else
                     {
+                        write_long( _kind  );
                         tcMap.put( value.id(), new Integer( start_pos ) );
                         recursiveTCMap.put( value.id(), value );
-
-                        write_long( _kind  );
                         beginEncapsulation();
                         write_string(value.id());
                         write_string(value.name());
@@ -1151,21 +1154,18 @@ public class CDROutputStream
                     }
                     break;
                 case TCKind._tk_value_box: 
-                    if( tcMap.containsKey( value.id()) )
-                    {
-                        writeRecursiveTypeCode( value, tcMap );
-                    }
-                    else
-                    {
-                        tcMap.put( value.id(), new Integer( start_pos ) );
-                        recursiveTCMap.put( value.id(), value );
-                        write_long( _kind  );
-                        beginEncapsulation();
-                        write_string(value.id());
-                        write_string(value.name());
-                        write_TypeCode( value.content_type(), tcMap);
-                        endEncapsulation();
-                    }
+                    write_long( _kind  );
+                    beginEncapsulation();
+                    write_string(value.id());
+                    write_string(value.name());
+                    write_TypeCode( value.content_type(), tcMap);
+                    endEncapsulation();
+                    break;
+                case TCKind._tk_abstract_interface: 
+                    beginEncapsulation();
+                    write_string(value.id());
+                    write_string(value.name());
+                    endEncapsulation();
                     break;
                 default: 
                     throw new RuntimeException("Cannot handle TypeCode, kind: " + _kind);
@@ -1718,6 +1718,65 @@ public class CDROutputStream
     }
 
     /**
+     * Writes `codebase' to this stream, perhaps via indirection.
+     */
+    private void write_codebase (String codebase)
+    {
+        Integer index = (Integer)codebaseMap.get (codebase);
+        if (index == null)
+        {
+            // a new codebase -- write it
+            codebaseMap.put (codebase, new Integer(pos));
+            write_string (codebase);
+        }
+        else
+        {
+            // a previously written codebase -- make an indirection
+            write_long (0xffffffff);
+            write_long (index.intValue() - pos);
+        }
+    }
+
+    /**
+     * Writes to this stream a value header with the specified `repository_id'
+     * and no codebase string.
+     */
+    private void write_value_header (String repository_id)
+    {
+        if (repository_id != null) 
+        {
+            write_long (0x7fffff02);
+            write_repository_id (repository_id);
+        }
+        else
+            write_long (0x7fffff00);
+    }
+
+    /**
+     * Writes to this stream a value header with the specified `repository_id'.
+     * and `codebase' string.
+     */
+    private void write_value_header (String repository_id, String codebase)
+    { 
+	if (codebase != null) 
+	{
+	    if (repository_id != null) 
+	    {
+		write_long (0x7fffff03);
+		write_codebase(codebase);
+		write_repository_id (repository_id);
+	    }
+	    else 
+	    {
+		write_long (0x7fffff01);
+		write_codebase(codebase);
+	    }
+	}
+	else
+	    write_value_header (repository_id);
+    }
+
+    /**
      * This method does the actual work of writing `value' to this 
      * stream.  If `repository_id' is non-null, then it is used as
      * the type information for `value' (possibly via indirection).
@@ -1730,24 +1789,45 @@ public class CDROutputStream
                                        String repository_id) 
     {
         valueMap.put (value, new Integer(pos));
-        if (repository_id != null) 
-        {
-            write_long (0x7fffff02);
-            write_repository_id (repository_id);
-        }
-        else
-            write_long (0x7fffff00);
 
         if (value.getClass() == String.class) 
+	{
             // special handling for strings required according to spec
+	    write_value_header(repository_id);
 	    write_wstring((String)value);
+	}
         else if (value instanceof org.omg.CORBA.portable.StreamableValue)
+	{
+	    write_value_header(repository_id);
             ((org.omg.CORBA.portable.StreamableValue)value)._write (this);
-        else
+	}
+        else 
+        {
+	    String codebase = 
+		javax.rmi.CORBA.Util.getCodebase(value.getClass());
+	    write_value_header(repository_id, codebase);
             ValueHandler.writeValue (this, value);
-
+	}
     }
+
+    /**
+     * Writes an abstract interface to this stream. The abstract interface is
+     * written as a union with a boolean discriminator, which is true if the
+     * union contains a CORBA object reference, or false if the union contains
+     * a value. 
+     */
+    public void write_abstract_interface(java.lang.Object object) 
+    {
+	if (object instanceof org.omg.CORBA.Object) 
+	{
+	    write_boolean(true);
+	    write_Object((org.omg.CORBA.Object)object);
+	}
+	else
+	{
+	    write_boolean(false);
+	    write_value((java.io.Serializable)object);
+	}
+    }
+
 }
-
-
-
