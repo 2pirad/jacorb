@@ -3,7 +3,7 @@
   It has been edited in a few places to accomodate
   the OMG IDL Java language mapping and DynAnys
 
-  $Id: Corba.idl,v 1.1 2001-03-17 18:08:10 brose Exp $	
+  $Id: Corba.idl,v 1.2 2001-03-23 15:17:26 noffke Exp $	
 
 
 */
@@ -916,7 +916,6 @@ module CORBA
 	void deactivate_obj (in Object obj);
     };
 }; // CORBA module
-
 
 #endif
 #undef Status
