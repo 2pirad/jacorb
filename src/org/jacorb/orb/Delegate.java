@@ -43,7 +43,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.47 2002-05-27 13:52:45 jason.courage Exp $
+ * @version $Id: Delegate.java,v 1.48 2002-05-28 07:22:45 gerald Exp $
  *
  */
 
@@ -144,9 +144,11 @@ public final class Delegate
     }
 
     //special constructor for appligator
-    public Delegate (org.jacorb.orb.ORB orb, String object_reference, boolean _donotcheckexceptions)
+    public Delegate( org.jacorb.orb.ORB orb, 
+                     String object_reference, 
+                     boolean _donotcheckexceptions)
     {
-        this(orb, object_reference);
+        this( orb, object_reference );
         doNotCheckExceptions = _donotcheckexceptions; 
     }
 
