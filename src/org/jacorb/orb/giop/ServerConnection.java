@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ package org.jacorb.orb.connection;
  * vice versa<p>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerConnection.java,v 1.3 2001-03-19 11:08:32 brose Exp $
+ * @version $Id: ServerConnection.java,v 1.4 2001-03-27 12:01:26 noffke Exp $
  *
  */
 

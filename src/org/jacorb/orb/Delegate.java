@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.5 2001-03-23 18:40:48 noffke Exp $
+ * @version $Id: Delegate.java,v 1.6 2001-03-27 12:01:24 noffke Exp $
  *
  */
 

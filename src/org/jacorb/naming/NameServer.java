@@ -3,7 +3,7 @@ package org.jacorb.naming;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  *	The name server application
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: NameServer.java,v 1.3 2001-03-19 11:08:18 brose Exp $
+ *	@version $Id: NameServer.java,v 1.4 2001-03-27 12:01:23 noffke Exp $
  */
 
 

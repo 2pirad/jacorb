@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -23,7 +23,7 @@ package org.jacorb.orb.connection;
 /**
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnection.java,v 1.3 2001-03-19 11:08:29 brose Exp $
+ * @version $Id: ClientConnection.java,v 1.4 2001-03-27 12:01:25 noffke Exp $
  *
  */
 
@@ -494,6 +494,7 @@ public class ClientConnection
 		for( Enumeration e = replies.elements(); e.hasMoreElements();)
 		{
                     Debug.output(1,"WARNING: there were outstanding requests when reconnect succeeded! (Lost now)");
+                    
 		    ((ReplyInputStream) e.nextElement()).cancel();
 		}
 		return;

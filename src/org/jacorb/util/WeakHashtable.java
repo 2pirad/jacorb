@@ -3,7 +3,7 @@ package org.jacorb.util;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -29,7 +29,7 @@ import java.lang.ref.*;
  * Created: Thu Nov  2 13:16:34 2000
  *
  * @author Nicolas Noffke
- * $Id: WeakHashtable.java,v 1.3 2001-03-19 11:10:29 brose Exp $
+ * $Id: WeakHashtable.java,v 1.4 2001-03-27 12:01:51 noffke Exp $
  */
 
 public class WeakHashtable 
