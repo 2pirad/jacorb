@@ -38,7 +38,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.46 2004-02-04 09:11:32 gerald Exp $
+ * @version $Id: ClientConnection.java,v 1.47 2004-02-04 13:35:50 gerald Exp $
  */
 
 public class ClientConnection
@@ -280,12 +280,16 @@ public class ClientConnection
         }
     }
 
+    /**
+     * called from Delegate/ConnectionManagement etc.
+     */
+
     public void close()
     {
         connection.close();
     }
 
-    /*
+    /**
      * Operations from ReplyListener
      */
 
@@ -378,9 +382,11 @@ public class ClientConnection
     }
 
 
-    /*
+    /**
      * Operations from ConnectionListener
+     * used for upcalls from GIOPConnection
      */
+
     public void connectionClosed()
     {
         if( ! client_initiated )
@@ -395,6 +401,11 @@ public class ClientConnection
 
         streamClosed();
     }
+
+    /**
+     * the transport has been
+     * removed underneath the GIOP layer
+     */ 
 
     public void streamClosed()
     {
