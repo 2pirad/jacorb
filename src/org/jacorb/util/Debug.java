@@ -26,7 +26,7 @@ import java.io.*;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: Debug.java,v 1.6 2001-11-15 12:20:19 jacorb Exp $
+ * @version $Id: Debug.java,v 1.7 2001-11-16 16:13:16 jacorb Exp $
  */
 
 public final class Debug
@@ -275,15 +275,15 @@ public final class Debug
         }
     }
 
-    /** throws an assertion violation exception if the boolean expression
+    /** throws an myAssertion violation exception if the boolean expression
      *  is not satisfied.
      *  @param expression the expression to be checked
-     *  @param msg_level the message level of the assertion
+     *  @param msg_level the message level of the myAssertion
      *  @param msg the message to be printed
      *  @exception AssertionViolation 
      */
 
-    public static void assert(int msg_level, boolean expression, String msg)
+    public static void myAssert(int msg_level, boolean expression, String msg)
     {
         if( canOutput( msg_level ))
         {
@@ -292,9 +292,9 @@ public final class Debug
         }
     }
 
-    public static void assert(boolean expression, String msg)
+    public static void myAssert(boolean expression, String msg)
     {
-        assert( 1, expression, msg );
+        myAssert( 1, expression, msg );
     }
 
       

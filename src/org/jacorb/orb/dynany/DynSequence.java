@@ -30,7 +30,7 @@ import java.util.Vector;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.9 2001-11-09 08:12:39 jacorb Exp $
+ * @version $Id: DynSequence.java,v 1.10 2001-11-16 16:13:15 jacorb Exp $
  *
  */
 
@@ -68,7 +68,7 @@ public final class DynSequence
         {
             bk.printStackTrace();
         }
-        org.jacorb.util.Debug.assert( elementType != null, "DynSequence.set_length, elementType null");
+        org.jacorb.util.Debug.myAssert( elementType != null, "DynSequence.set_length, elementType null");
     }
 
     public void from_any( org.omg.CORBA.Any value ) 
@@ -127,7 +127,7 @@ public final class DynSequence
             // should not happen anymore
             bk.printStackTrace();
         }
-        org.jacorb.util.Debug.assert( elementType != null, "DynSequence.set_length, elementType null");
+        org.jacorb.util.Debug.myAssert( elementType != null, "DynSequence.set_length, elementType null");
     }
 
 
@@ -194,7 +194,7 @@ public final class DynSequence
             pos = -1;
         }
 
-        org.jacorb.util.Debug.assert( elementType != null, 
+        org.jacorb.util.Debug.myAssert( elementType != null, 
                                       "DynSequence.set_length, elementType null");
 
         if( len > length )

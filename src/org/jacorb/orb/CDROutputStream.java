@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.21 2001-11-16 09:00:14 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.22 2001-11-16 16:13:11 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -1250,7 +1250,7 @@ public class CDROutputStream
                                     CDRInputStream in, 
                                     Hashtable tcMap)
     {
-        Debug.assert( tc != null, "Illegal null pointer for TypeCode");
+        Debug.myAssert( tc != null, "Illegal null pointer for TypeCode");
         int kind = ((TypeCode)tc)._kind();
  
         //int kind = tc.kind().value();

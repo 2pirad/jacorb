@@ -41,7 +41,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.12 2001-11-09 08:30:11 jacorb Exp $
+ * @version $Id: POA.java,v 1.13 2001-11-16 16:13:15 jacorb Exp $
  */
 
 public class POA 
@@ -1910,7 +1910,7 @@ public class POA
         {
             orb_domain
                 = DomainHelper.narrow( orb.resolve_initial_references("LocalDomainService"));
-            // Debug.assert(1, orb_domain != null, "POA.doInitialDomainMapping: orb_domain is null");
+            // Debug.myAssert(1, orb_domain != null, "POA.doInitialDomainMapping: orb_domain is null");
         }
         catch (org.omg.CORBA.ORBPackage.InvalidName invalid)
         {

@@ -18,7 +18,7 @@ import java.util.Hashtable;
  * Created: Sat Apr 22 14:10:24 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.4 $ */
+ * @version $Revision: 1.5 $ */
 
 public class MapToTypeDomainsPolicy 
     extends ManagementPolicyImpl
@@ -167,7 +167,7 @@ public class MapToTypeDomainsPolicy
      */
     public InitialMapPolicyPOATie getTie() 
     { 
-        org.jacorb.util.Debug.assert(1, 
+        org.jacorb.util.Debug.myAssert(1, 
                                  _tie != null,
                                  "MapToTypeDomainsPolicy.getTie: tie is not set !");
         return _tie; 

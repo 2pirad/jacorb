@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.24 2001-11-16 08:59:59 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.25 2001-11-16 16:13:10 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -816,7 +816,7 @@ public class CDRInputStream
             String recursiveId = 
                 (String)tcMap.get( new Integer( pos -4-1 + negative_offset ) );
 
-            Debug.assert( recursiveId != null,
+            Debug.myAssert( recursiveId != null,
                           "No recursive TypeCode! (pos: " + 
                           (pos-4-1+negative_offset) + ")");
 

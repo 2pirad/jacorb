@@ -11,7 +11,7 @@ import org.jacorb.util.Debug;
  * Created: Wed Aug 16 10:36:21 2000
  *
  * @author Herbert Kiefer
- * @version $Id: ODMCache.java,v 1.3 2001-03-19 11:08:39 brose Exp $
+ * @version $Id: ODMCache.java,v 1.4 2001-11-16 16:13:13 jacorb Exp $
  */
 
 public class ODMCache  
@@ -57,7 +57,7 @@ public class ODMCache
                     {
                         entry.domainArray[i]= DomainHelper.narrow
                             ((org.omg.CORBA.Object)domainEnum.nextElement());
-                        Debug.assert(0, entry.domainArray[i] != null, 
+                        Debug.myAssert(0, entry.domainArray[i] != null, 
                                      "OMDCache.read: result " + i + 
                                      " is null.");
                         i++;

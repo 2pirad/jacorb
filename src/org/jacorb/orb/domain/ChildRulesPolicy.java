@@ -6,7 +6,7 @@ import java.util.Hashtable;
  * The implementation of the "CHILD_RULES" strategy for conflict resolution.
  * ChildRulesPolicy.java
  * @author Herbert Kiefer
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 
 public class ChildRulesPolicy extends ManagementPolicyImpl
@@ -31,7 +31,7 @@ public class ChildRulesPolicy extends ManagementPolicyImpl
 public org.omg.CORBA.Policy resolveConflict(Domain[] overlappingDMs, 
 					    int overlapType)
   {
-    org.jacorb.util.Debug.assert(1, overlappingDMs.length > 0,"SimpleConflictResolutionPolicy:"
+    org.jacorb.util.Debug.myAssert(1, overlappingDMs.length > 0,"SimpleConflictResolutionPolicy:"
 			     +" list of overlapping domain managers is empty");
     if (overlappingDMs.length == 2)
       { // two conflicting domains may be a frequent case, fasten it

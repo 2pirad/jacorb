@@ -15,7 +15,7 @@ import org.jacorb.util.Debug;
  * Created: Thu Apr 20 12:06:43 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 
 public class MapToDefaultDomainsPolicy
@@ -45,7 +45,7 @@ public class MapToDefaultDomainsPolicy
 
     public Domain getDefaultDomain()                        
     {
-        Debug.assert(1, _default_domains != null, 
+        Debug.myAssert(1, _default_domains != null, 
                      "default domains are invalid (== null)");
         return   _default_domains[0]; 
     }
