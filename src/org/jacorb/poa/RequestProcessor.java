@@ -49,7 +49,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.16 2003-01-07 10:07:14 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.17 2003-02-23 12:58:51 andre.spiegel Exp $
  */
 
 public class RequestProcessor 
@@ -425,9 +425,7 @@ public class RequestProcessor
         }
 
         //org.jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req pre invoke");
-
-        Time.waitFor (request.getRequestStartTime());
-        
+  
         // TODO: The exception replies below should also trigger interceptors.
         // Requires some re-arranging of the entire method.
         if (Time.hasPassed (request.getRequestEndTime()))
@@ -444,7 +442,8 @@ public class RequestProcessor
                                             0, CompletionStatus.COMPLETED_NO));
             return;
         }
-                                                
+
+        Time.waitFor (request.getRequestStartTime());
 
         if (servantManager != null)
         {
@@ -625,13 +624,23 @@ public class RequestProcessor
             
             if (controller.getLogTrace().test(2))
                 controller.getLogTrace().printLog(request, "process request");
+
+            if (request.syncScope() == org.omg.Messaging.SYNC_WITH_SERVER.value)
+            {
+                controller.returnResult (request);
+                process();
+            }
+            else
+            {
+                process();
+                controller.returnResult (request);
+            }
                         
-            process();
-                    
             // return the request to the request controller
             if (controller.getLogTrace().test(3))
                 controller.getLogTrace().printLog(request, "ends with request processing");
-            controller.returnResult(request);
+
+            controller.finish  (request);
                         
             start = false;
             clear();
