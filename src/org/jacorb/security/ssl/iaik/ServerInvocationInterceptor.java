@@ -3,7 +3,7 @@ package org.jacorb.security.ssl.iaik;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 2000  Benvenuti André.
+ *   Copyright (C) 2000-2001 Nicolas Noffke, Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -40,7 +40,7 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.2 2001-10-02 13:51:11 jacorb Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.3 2001-11-09 08:59:29 jacorb Exp $
  */
 
 public class ServerInvocationInterceptor

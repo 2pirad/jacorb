@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.27 2001-10-02 13:51:14 jacorb Exp $
+ * @version $Id: Environment.java,v 1.28 2001-11-09 08:56:01 jacorb Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -550,6 +550,7 @@ public class Environment
      * "on". Otherwise (i.e. value "off", or property not set), false
      * is returned.  
      */
+
     public static boolean isPropertyOn( String key ) 
     { 
         String s = _props.getProperty( key, "off" ); 
