@@ -37,7 +37,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.8 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.9 2002-08-13 10:02:03 steve.osselton Exp $
  */
 
 public class ServerRequestInfoImpl 
@@ -179,7 +179,7 @@ public class ServerRequestInfoImpl
             throw new BAD_INV_ORDER("The attribute \"reply_status\" is currently invalid!",
                                     10, CompletionStatus.COMPLETED_MAYBE);
 
-        return (short) request.status().value();
+        return reply_status;
     }
 
     public org.omg.CORBA.Object forward_reference() {
