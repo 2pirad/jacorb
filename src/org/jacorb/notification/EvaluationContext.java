@@ -39,12 +39,11 @@ import org.omg.DynamicAny.DynAnyFactory;
  * Created: Sat Nov 30 16:02:34 2002
  *
  * @author Alphonse Bendt
- * @version $Id: EvaluationContext.java,v 1.7 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: EvaluationContext.java,v 1.8 2003-09-12 09:26:51 alphonse.bendt Exp $
  */
 
 public class EvaluationContext extends AbstractPoolable {
 
-    private DynAnyFactory dynAnyFactory_;
     private DynamicEvaluator dynamicEvaluator_;
     private ResultExtractor resultExtractor_;
     private Message event_;
@@ -67,10 +66,6 @@ public class EvaluationContext extends AbstractPoolable {
 
     public void setResultExtractor(ResultExtractor r) {
         resultExtractor_ = r;
-    }
-
-    public void setDynAnyFactory(DynAnyFactory d) {
-        dynAnyFactory_ = d;
     }
 
     public DynamicEvaluator getDynamicEvaluator() {
