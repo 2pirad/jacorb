@@ -17,7 +17,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.7 2003-10-27 09:01:28 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.8 2003-11-03 21:33:44 andre.spiegel Exp $
  */
 public class IIOPProfile extends _ProfileLocalBase
                          implements Cloneable
@@ -106,6 +106,7 @@ public class IIOPProfile extends _ProfileLocalBase
         if( sep > -1)
         {
             String ver_str =  addr.substring(0,sep);
+            addr = addr.substring(sep+1);
             sep = ver_str.indexOf('.');
             if( sep != -1 )
             {
@@ -119,7 +120,6 @@ public class IIOPProfile extends _ProfileLocalBase
                     throw new IllegalArgumentException(errorstr);
                 }
             }
-            addr = addr.substring(sep+1);
         }
         version = new org.omg.GIOP.Version ((byte)major,(byte)minor);
 
