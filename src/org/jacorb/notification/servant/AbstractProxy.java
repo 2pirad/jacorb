@@ -65,7 +65,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.11 2004-05-09 20:01:36 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.12 2004-06-22 08:12:42 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy
@@ -398,6 +398,10 @@ public abstract class AbstractProxy
 
         //////////////////////////////
 
+        removeListener();
+
+        //////////////////////////////
+
         remove_all_filters();
 
         //////////////////////////////
@@ -572,4 +576,6 @@ public abstract class AbstractProxy
 
         dispose();
     }
+
+    protected abstract void removeListener();
 }
