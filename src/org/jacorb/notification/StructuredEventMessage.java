@@ -55,7 +55,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.10.2.1 2004-04-07 14:55:39 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.10.2.2 2004-04-08 13:14:13 alphonse.bendt Exp $
  */
 
 class StructuredEventMessage extends AbstractMessage
@@ -86,8 +86,8 @@ class StructuredEventMessage extends AbstractMessage
     ////////////////////////////////////////
 
     public synchronized void setStructuredEventValue( StructuredEvent event,
-                                         boolean startTimeSupported,
-                                         boolean timeOutSupported)
+                                                      boolean startTimeSupported,
+                                                      boolean timeOutSupported)
     {
         structuredEventValue_ = event;
 
