@@ -13,12 +13,13 @@ import junit.framework.Test;
  *  CosEvent Interfaces.
  *
  * @author Alphonse Bendt
- * @version $Id: CosEventChannelTest.java,v 1.7.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
+ * @version $Id: CosEventChannelTest.java,v 1.7.2.3 2004-05-09 17:39:27 alphonse.bendt Exp $
  */
 
 public class CosEventChannelTest extends NotificationTestCase
 {
     EventChannel channel_;
+
     Any testData_;
 
     public void setUp() throws Exception
@@ -49,6 +50,7 @@ public class CosEventChannelTest extends NotificationTestCase
         assertTrue(_receiver.isEventHandled());
     }
 
+
     public void testPushPull() throws Exception
     {
         CosEventPullReceiver _receiver = new CosEventPullReceiver(this);
@@ -70,6 +72,7 @@ public class CosEventChannelTest extends NotificationTestCase
         assertTrue(_receiver.isEventHandled());
     }
 
+
     public void testPullPush() throws Exception
     {
         CosEventPushReceiver _receiver = new CosEventPushReceiver(this);
@@ -90,6 +93,7 @@ public class CosEventChannelTest extends NotificationTestCase
         assertTrue(_receiver.isEventHandled());
     }
 
+
     public void testPullPull() throws Exception
     {
         CosEventPullReceiver _receiver = new CosEventPullReceiver(this);
@@ -105,6 +109,7 @@ public class CosEventChannelTest extends NotificationTestCase
 
         assertTrue(_receiver.isEventHandled());
     }
+
 
     public void testDestroyChannelDisconnectsClients() throws Exception
     {

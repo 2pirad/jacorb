@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.10.2.1 2004-04-08 11:47:37 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.10.2.2 2004-05-09 17:39:27 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -59,6 +59,9 @@ public class PackageTest extends TestCase {
         _suite.addTest(CollectionsWrapperTest.suite());
         _suite.addTest(PropertyValidatorTest.suite());
         _suite.addTest(OfferManagerTest.suite());
+        _suite.addTest(AnyMessageTest.suite());
+        _suite.addTest(StructuredEventMessageTest.suite());
+        _suite.addTest(TypedEventMessageTest.suite());
 
         return _suite;
     }

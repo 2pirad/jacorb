@@ -21,32 +21,29 @@ package org.jacorb.test.notification.engine;
  *
  */
 
+import org.jacorb.notification.engine.DefaultTaskProcessor;
 import org.jacorb.notification.engine.PushToConsumerTask;
-import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.test.notification.MockMessage;
+import org.jacorb.test.notification.NotificationTestCase;
+import org.jacorb.test.notification.NotificationTestCaseSetup;
 
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
 
 import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTest.java,v 1.11.2.2 2004-04-08 16:07:42 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTest.java,v 1.11.2.3 2004-05-09 17:39:27 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTest extends NotificationTestCase
 {
-    TaskProcessor taskProcessor_;
+    DefaultTaskProcessor taskProcessor_;
 
     public void setUp() throws Exception
     {
-        taskProcessor_ = new TaskProcessor();
+        taskProcessor_ = new DefaultTaskProcessor();
 
         taskProcessor_.configure( getConfiguration() );
     }

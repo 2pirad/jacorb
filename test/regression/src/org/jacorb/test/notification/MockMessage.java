@@ -38,10 +38,11 @@ import java.util.Date;
 import java.util.List;
 
 import junit.framework.Assert;
+import org.omg.CosNotification.Property;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MockMessage.java,v 1.4.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: MockMessage.java,v 1.4.2.2 2004-05-09 17:39:27 alphonse.bendt Exp $
  */
 
 public class MockMessage extends AbstractMessage {
@@ -86,6 +87,10 @@ public class MockMessage extends AbstractMessage {
 
     public Any toAny() {
         return any;
+    }
+
+    public Property[] toTypedEvent() {
+        return null;
     }
 
     public void setAny(Any a) {
