@@ -33,22 +33,26 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.1 2004-01-16 17:16:06 alphonse.bendt Exp $
+ * @version $Id: TaskExecutor.java,v 1.2 2004-01-17 01:16:54 alphonse.bendt Exp $
  */
 
 public class TaskExecutor implements Executor, Disposable
 {
-
     private static TaskExecutor DIRECT_EXECUTOR = new TaskExecutor("Direct", 0);
+
+    private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
+
+    private Executor executor_;
+
+    private LinkedQueue channel_;
+
+    ////////////////////////////////////////
 
     public static TaskExecutor getDefaultExecutor() {
         return DIRECT_EXECUTOR;
     }
 
-    Logger logger_ = Debug.getNamedLogger( getClass().getName() );
-
-    private Executor executor_;
-    private LinkedQueue channel_;
+    ////////////////////////////////////////
 
     public TaskExecutor( final String name, int numberOfThreads )
     {
@@ -93,6 +97,8 @@ public class TaskExecutor implements Executor, Disposable
                 logger_.info( "Created ThreadPool " + name + " with Size " + numberOfThreads );
             }
     }
+
+    ////////////////////////////////////////
 
     public boolean isTaskQueued()
     {
