@@ -27,7 +27,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterStageListManager.java,v 1.5 2004-07-12 11:19:56 alphonse.bendt Exp $
+ * @version $Id: FilterStageListManager.java,v 1.6 2005-02-14 00:11:54 alphonse.bendt Exp $
  */
 
 abstract public class FilterStageListManager {
@@ -38,7 +38,7 @@ abstract public class FilterStageListManager {
 
     ////////////////////////////////////////
 
-    private Object lock_ = new Object();
+    private final Object lock_ = new Object();
 
     private java.util.List checkedList_ = Collections.EMPTY_LIST;
 

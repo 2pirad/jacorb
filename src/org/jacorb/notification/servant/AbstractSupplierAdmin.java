@@ -20,12 +20,24 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.notification.MessageFactory;
+import org.jacorb.notification.OfferManager;
+import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.interfaces.FilterStageSource;
+import org.omg.CORBA.ORB;
+import org.omg.PortableServer.POA;
+
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractSupplierAdmin.java,v 1.1 2004-05-11 12:14:56 alphonse.bendt Exp $
+ * @version $Id: AbstractSupplierAdmin.java,v 1.2 2005-02-14 00:11:54 alphonse.bendt Exp $
  */
 public abstract class AbstractSupplierAdmin extends AbstractAdmin {
     public abstract void setSubsequentFilterStageSource(FilterStageSource source);
+
+    protected AbstractSupplierAdmin(IEventChannel channelRef, ORB orb, POA poa, Configuration config, MessageFactory messageFactory, OfferManager offerManager, SubscriptionManager subscriptionManager)
+    {
+        super(channelRef, orb, poa, config, messageFactory, offerManager, subscriptionManager);
+    }
 }

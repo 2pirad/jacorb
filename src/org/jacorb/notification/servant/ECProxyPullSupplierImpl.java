@@ -20,28 +20,38 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.notification.OfferManager;
+import org.jacorb.notification.SubscriptionManager;
+import org.jacorb.notification.engine.TaskProcessor;
+import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventChannelAdmin.ProxyPullSupplierHelper;
 import org.omg.CosEventChannelAdmin.ProxyPullSupplierOperations;
 import org.omg.CosEventChannelAdmin.ProxyPullSupplierPOATie;
 import org.omg.CosEventComm.PullConsumer;
+import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullSupplierImpl.java,v 1.6 2004-07-12 11:19:56 alphonse.bendt Exp $
+ * @version $Id: ECProxyPullSupplierImpl.java,v 1.7 2005-02-14 00:11:54 alphonse.bendt Exp $
  */
 
-public class ECProxyPullSupplierImpl
-    extends ProxyPullSupplierImpl
-    implements ProxyPullSupplierOperations
+public class ECProxyPullSupplierImpl extends ProxyPullSupplierImpl implements
+        ProxyPullSupplierOperations
 {
-    public void connect_pull_consumer(PullConsumer pullConsumer)
-        throws AlreadyConnected
+    public ECProxyPullSupplierImpl(IAdmin admin, ORB orb, POA poa, Configuration conf,
+            TaskProcessor taskProcessor) throws ConfigurationException
+    {
+        super(admin, orb, poa, conf, taskProcessor, OfferManager.NULL_MANAGER, SubscriptionManager.NULL_MANAGER);
+    }
+
+    public void connect_pull_consumer(PullConsumer pullConsumer) throws AlreadyConnected
     {
         connect_any_pull_consumer(pullConsumer);
     }
-
 
     public synchronized Servant getServant()
     {
