@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.31 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ORBSingleton.java,v 1.32 2003-03-22 01:46:50 francisco Exp $
  */
 
 public class ORBSingleton
@@ -490,7 +490,14 @@ public class ORBSingleton
                                                                String name)
     {
        checkTCRepositoryId( id );
-       checkTCName (name, true);
+
+       // Please do not uncomment the line below:
+       //checkTCName (name, true)
+       //
+       // Reason: Sun's ValueHandler calls create_abstract_interface_tc()
+       // passing an empty string as the name parameter. checkTCName()
+       // then throws `org.omg.CORBA.BAD_PARAM: Illegal blank IDL name'.
+
        return new org.jacorb.orb.TypeCode (org.omg.CORBA.TCKind._tk_abstract_interface,
                                            id,
                                            name);
