@@ -36,7 +36,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.42 2003-12-27 16:00:36 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.43 2004-01-06 16:29:07 nick.cross Exp $
  */
 
 public class ClientConnection
@@ -106,7 +106,7 @@ public class ClientConnection
     /**
      * Get the profile that was used for registering with the
      * ClientConnectionManager. In case of BiDirIIOP it is NOT equal
-     * to the transports profile.  
+     * to the transports profile.
      */
     public org.omg.ETF.Profile getRegisteredProfile()
     {
@@ -222,7 +222,6 @@ public class ClientConnection
 
         if (client_count == 0 )
         {
-            close();
             result = true;
         }
         return result;

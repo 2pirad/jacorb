@@ -36,7 +36,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.15 2003-12-19 18:54:55 nicolas Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.16 2004-01-06 16:29:07 nick.cross Exp $
  *
  */
 
@@ -155,13 +155,15 @@ public class ClientConnectionManager
         // hasNoMoreClients now merged into decClients.
         if ( c.decClients() )
         {
+            c.close();
+
             connections.remove (c.getRegisteredProfile());
         }
     }
 
     /**
      * Only used by ClientConnection to unregister server-side of
-     * BiDir connection.  
+     * BiDir connection.
      */
     public synchronized void removeConnection(ClientConnection c)
     {
