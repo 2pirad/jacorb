@@ -31,7 +31,7 @@ import org.jacorb.util.*;
  * This is the GSS-API Sercurity Provider Interface (SPI) for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: GSSUPNameSpi.java,v 1.2 2002-09-11 19:20:03 david.robison Exp $
+ * @version $Id: GSSUPNameSpi.java,v 1.3 2002-10-17 19:35:54 david.robison Exp $
  */
 
 public final class GSSUPNameSpi implements GSSNameSpi
@@ -72,6 +72,23 @@ public final class GSSUPNameSpi implements GSSNameSpi
     public static byte[] encode(String username, String password, String target_name)
     {
         InitialContextToken subject = new InitialContextToken(username.getBytes(), password.getBytes(), target_name.getBytes());
+        Any any = GSSUPProvider.orb.create_any();
+        InitialContextTokenHelper.insert( any, subject );
+        byte[] out = new byte[0];
+        try
+        {
+            out = GSSUPProvider.codec.encode( any );
+        }
+        catch (Exception e)
+        {
+            Debug.output(1, "Error encoding for GSSNameSpi: " + e);
+        }
+        return out;
+    }
+
+    public static byte[] encode(String username, char[] password, String target_name)
+    {
+        InitialContextToken subject = new InitialContextToken(username.getBytes(), (new String(password)).getBytes(), target_name.getBytes());
         Any any = GSSUPProvider.orb.create_any();
         InitialContextTokenHelper.insert( any, subject );
         byte[] out = new byte[0];
