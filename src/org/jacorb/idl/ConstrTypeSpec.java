@@ -22,10 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.11 2002-05-08 12:43:48 gerald Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.12 2002-10-06 10:44:59 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
+import java.util.*;
 
 class ConstrTypeSpec
     extends TypeSpec
@@ -122,7 +123,7 @@ class ConstrTypeSpec
     }
 
 
-    public String getTypeCodeExpression( java.util.Set knownTypeSpecs )
+    public String getTypeCodeExpression( Set knownTypeSpecs )
     {
         return c_type_spec.getTypeCodeExpression( knownTypeSpecs );
     }

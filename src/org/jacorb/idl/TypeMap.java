@@ -22,14 +22,15 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.12 2002-04-17 08:49:15 gerald Exp $
+ * @version $Id: TypeMap.java,v 1.13 2002-10-06 10:44:59 andre.spiegel Exp $
  */
 
+import java.util.*;
 
 class TypeMap
 {
 
-    static java.util.Hashtable typemap = new java.util.Hashtable( 5000 );
+    static Hashtable typemap = new Hashtable( 5000 );
 
 
     public static void init()
