@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.29 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.30 2005-03-28 19:58:29 brose Exp $
  *
  */
 
@@ -184,7 +184,7 @@ public class ArrayTypeSpec
             if (!typedefd)
                 NameTable.define(full_name(), "type");
 
-            if (!NameTable.defined(typeName(), "type"))
+            if (!NameTable.isDefined(typeName(), "type"))
                 NameTable.define(typeName(), "type");
         }
         catch (NameAlreadyDefined n)

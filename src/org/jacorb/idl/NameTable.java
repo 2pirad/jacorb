@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.22 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: NameTable.java,v 1.23 2005-03-28 19:58:29 brose Exp $
  *
  */
 
@@ -355,7 +355,7 @@ class NameTable
                                                             anc );
                     }
 
-                    if( !defined( key ) )
+                    if( !isDefined( key ) )
                         throw new RuntimeException( "CompilerError!" );
                 }
             }
@@ -378,12 +378,12 @@ class NameTable
      * check whether name is already defined
      */
 
-    public static boolean defined( String name )
+    public static boolean isDefined( String name )
     {
         return ( h.containsKey( name ) );
     }
 
-    public static boolean defined( String name, String kind )
+    public static boolean isDefined( String name, String kind )
     {
         if( !h.containsKey( name ) )
         {

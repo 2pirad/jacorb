@@ -29,7 +29,7 @@ import java.util.*;
  * ReplyHandler).
  * 
  * @author Andre Spiegel
- * $Id: ReplyHandler.java,v 1.6 2004-05-06 12:39:58 nicolas Exp $
+ * $Id: ReplyHandler.java,v 1.7 2005-03-28 19:58:29 brose Exp $
  */
 public class ReplyHandler extends Interface
 {
@@ -176,7 +176,7 @@ public class ReplyHandler extends Interface
         
     public void parse()
     {
-        if (!NameTable.defined ("org.omg.Messaging.ReplyHandler"))
+        if (!NameTable.isDefined ("org.omg.Messaging.ReplyHandler"))
         {
             try
             {
