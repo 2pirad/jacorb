@@ -46,7 +46,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.8 2004-03-17 08:11:12 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.9 2004-03-17 22:42:42 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
@@ -91,13 +91,13 @@ public class AnyMessage extends AbstractMessage
 
     ////////////////////////////////////////
 
-    public void setAny( Any any )
+    public synchronized void setAny( Any any )
     {
         anyValue_ = any;
     }
 
 
-    public void reset()
+    public synchronized void reset()
     {
         super.reset();
 
@@ -112,7 +112,7 @@ public class AnyMessage extends AbstractMessage
     }
 
 
-    public Any toAny()
+    public synchronized Any toAny()
     {
         return anyValue_;
     }
@@ -213,6 +213,6 @@ public class AnyMessage extends AbstractMessage
 
 
     public String toString() {
-        return anyValue_.toString();
+        return toAny().toString();
     }
 }
