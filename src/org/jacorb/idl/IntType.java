@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IntType.java,v 1.4 2001-04-05 09:20:59 jacorb Exp $
+ * @version $Id: IntType.java,v 1.5 2001-06-22 10:56:15 jacorb Exp $
  */
 
 class IntType 
@@ -44,21 +44,6 @@ class IntType
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

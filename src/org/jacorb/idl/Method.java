@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -18,12 +18,11 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */	
 
-
 package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Method.java,v 1.4 2001-04-10 09:32:48 jacorb Exp $
+ * @version $Id: Method.java,v 1.5 2001-06-22 10:56:16 jacorb Exp $
  *
  * This class is used to represent accessor operations
  */
@@ -319,21 +318,6 @@ class Method
 
 
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

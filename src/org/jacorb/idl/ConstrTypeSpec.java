@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose 
- * @version $Id: ConstrTypeSpec.java,v 1.4 2001-03-27 12:01:17 noffke Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.5 2001-06-22 10:56:15 jacorb Exp $
  */
 
 import java.io.PrintWriter;
@@ -174,22 +174,6 @@ class ConstrTypeSpec
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
