@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.35 2002-10-15 12:32:39 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.36 2002-10-17 19:34:22 david.robison Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -14,7 +14,7 @@
    <!-- top-level targets  -->
 
    <target name="all"
-      depends="corba,names,security,events,transactions,concurrency,collections,trading" />
+      depends="corba,names,security,events,transactions,concurrency,collections,trading,notification" />
 
    <target name="services"
       depends="events,trading,collections,transactions,concurrency" />
