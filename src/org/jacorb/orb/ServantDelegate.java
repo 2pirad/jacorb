@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.16 2003-09-30 14:55:44 nick.cross Exp $
+ * $Id: ServantDelegate.java,v 1.17 2003-10-17 12:04:02 simon.mcqueen Exp $
  */
 
 public class ServantDelegate
@@ -121,6 +121,15 @@ public class ServantDelegate
         catch(NoContext e)
         {
             throw new org.omg.CORBA.OBJ_ADAPTER(e.toString());
+        }
+        catch(NoSuchMethodError nsme)
+        {
+            // We most likely get this if the Sun JDK definition of Current is getting picked up rather than ours.
+            // It has (at present - SDK 1.4.2) no get_servant() method.
+            // Give the user a hint as to how this can be fixed.
+            org.jacorb.util.Debug.output(1, "ERROR: NoSuchMethodError - re-run specifying jacorb.jar " 
+                                             + "with -Xbootclasspath/p: option to avoid use of (incorrect) SDK implementation class.");
+            throw nsme;
         }
     }
 
