@@ -28,7 +28,7 @@ import org.omg.GIOP.*;
 import org.omg.IOP.*;
 
 import org.jacorb.orb.CDROutputStream;
-import org.jacorb.orb.ContextID;
+import org.jacorb.orb.ORBConstants;
 import org.jacorb.util.Debug;
 
 /**
@@ -38,7 +38,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.10 2002-05-07 12:57:31 gerald Exp $ 
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.11 2002-05-08 08:48:46 jason.courage Exp $ 
  */
 
 public class ServiceContextTransportingOutputStream 
@@ -71,7 +71,7 @@ public class ServiceContextTransportingOutputStream
     //byte boundary.
 
     private static ServiceContext padding_ctx =
-        new ServiceContext (ContextID.SERVICE_PADDING_CONTEXT, new byte[0]);
+        new ServiceContext (ORBConstants.SERVICE_PADDING_CONTEXT, new byte[0]);
 
     private Vector contexts = null;
 
