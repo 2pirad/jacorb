@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.27 2001-11-20 10:20:26 spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.28 2001-11-21 16:05:01 gerald Exp $
  */
 
 public class CDRInputStream
@@ -579,7 +579,7 @@ public class CDRInputStream
 	char[] buf = new char[ size ];
         for( int i = 0; i < size; i++ )
         {
-            buf[ i ] = (char) buffer[ pos++ ];
+            buf[ i ] = (char)(0xff & buffer[pos++]);
         }
         
         index += size;
