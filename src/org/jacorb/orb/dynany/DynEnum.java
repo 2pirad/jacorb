@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynEnum.java,v 1.7 2001-10-12 14:40:26 jacorb Exp $
+ * $Id: DynEnum.java,v 1.8 2001-11-09 08:12:39 jacorb Exp $
  */
 
 public final class DynEnum
@@ -109,7 +109,11 @@ public final class DynEnum
 	    bk.printStackTrace();
 	}
     }
-   
+
+    /**
+     * @overrides  equal() in DynAny
+     */
+
     public boolean equal( org.omg.DynamicAny.DynAny dyn_any )
     {
         if( !type().equal( dyn_any.type()))

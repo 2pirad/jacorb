@@ -33,7 +33,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.8 2001-10-12 14:38:17 jacorb Exp $
+ * $Id: DynUnion.java,v 1.9 2001-11-09 08:12:40 jacorb Exp $
  *
  */
 
@@ -204,6 +204,43 @@ public final class DynUnion
 	out_any.read_value( new CDRInputStream( orb, os.getBufferCopy()), type());
 	return out_any;
     }
+
+
+
+    /**
+     * @overrides  equal() in DynAny
+     */
+
+    public boolean equal( org.omg.DynamicAny.DynAny dyn_any )
+    {
+        if( !type().equal( dyn_any.type())  )
+            return false;
+
+        org.omg.DynamicAny.DynUnion other =  DynUnionHelper.narrow( dyn_any );
+
+        if( ! get_discriminator().equal( other.get_discriminator()))
+            return false;
+
+        if( !has_no_active_member() ) 
+        {
+            // other must have the same here because we know the 
+            // discriminators are equal
+
+            try
+            {
+                if( ! member.equal( other.member()))
+                    return false;
+            }
+            catch( Exception e )
+            {
+                // should not happen
+                e.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+
 
     /** 
      * @return the current discriminator value
