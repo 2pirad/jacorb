@@ -45,7 +45,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.47 2002-10-15 12:55:00 steve.osselton Exp $
+ * @version $Id: Environment.java,v 1.48 2002-10-16 17:02:38 steve.osselton Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -452,7 +452,7 @@ public class Environment
         readValue("_retry_interval","retry_interval",jacorbPrefix+"retry_interval");
         readValue("_cache_entry_lifetime","_cache_entry_lifetime",jacorbPrefix+"domain.cache_entry.lifetime");
         readValue("_outbuf_size","outbuf_size",jacorbPrefix+"outbuf_size");
-        readValue("_max_managedbufsize","maxManagedBufSize",jacorbPrefix+"maxManagedBufSize");
+        readValue("_max_managed_bufsize","maxManagedBufSize",jacorbPrefix+"maxManagedBufSize");
         readValue("_orb_domain_filename","ds",jacorbPrefix+"orb_domain.filename");
         readValue("_default_domains","ds",jacorbPrefix+"poa.default_domains");
 
