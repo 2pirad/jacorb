@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.94 2003-07-14 09:26:12 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.95 2003-08-11 13:17:04 nick.cross Exp $
  */
 
 public final class ORB
@@ -776,6 +776,9 @@ public final class ORB
         {
             getImR();
 
+            // The double call to patchPrimaryAddress ensures that either the
+            // actual imr address or the environment values are patched into the
+            // address, giving precedence to the latter.
             profile.patchPrimaryAddress (imr.getImRHost(), imr.getImRPort());
             profile.patchPrimaryAddress (Environment.imrProxyHost(),
                                          Environment.imrProxyPort());
@@ -1640,6 +1643,7 @@ public final class ORB
     public ValueFactory lookup_value_factory (String id)
     {
         ValueFactory result = (ValueFactory)valueFactories.get (id);
+
         if (result == null)
         {
             if (id.startsWith ("IDL"))
