@@ -2,7 +2,7 @@ package org.jacorb.orb;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.1 2003-03-31 15:46:57 andre.spiegel Exp $
+ * @version $Id: IIOPAddress.java,v 1.2 2003-03-31 16:02:26 andre.spiegel Exp $
  */
 public class IIOPAddress 
 {
@@ -25,6 +25,17 @@ public class IIOPAddress
 		return port;
 	}
 	
+    public boolean equals (Object other)
+    {
+        if (other instanceof IIOPAddress)
+        {
+            IIOPAddress x = (IIOPAddress)other;
+            return this.host.equals (x.host) && this.port == x.port;
+        }
+        else
+            return false;
+    }
+    
 	public String toString()
 	{
 		return host + ":" + port;
