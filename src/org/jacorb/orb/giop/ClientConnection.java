@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.35 2003-04-04 14:28:52 andre.spiegel Exp $
+ * @version $Id: ClientConnection.java,v 1.36 2003-04-14 15:21:24 andre.spiegel Exp $
  */
 
 public class ClientConnection
@@ -382,6 +382,13 @@ public class ClientConnection
         }
         
         gracefulStreamClose = false;
+    }
+    
+    public org.omg.ETF.Profile get_server_profile()
+    {
+        Client_TCP_IP_Transport t 
+            = (Client_TCP_IP_Transport)connection.getTransport();
+        return t.get_server_profile();
     }
 
     public long cacheSASContext(byte[] client_authentication_token)
