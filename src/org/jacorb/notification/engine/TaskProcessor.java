@@ -43,7 +43,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.16 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.17 2004-03-03 12:19:21 alphonse.bendt Exp $
  */
 
 public class TaskProcessor implements Disposable
@@ -447,15 +447,19 @@ public class TaskProcessor implements Disposable
      * deliverPendingEvents on the specified MessageConsumer
      */
     public void scheduleTimedPushTask( MessageConsumer consumer )
-    throws InterruptedException
+        throws InterruptedException
     {
-        TimerDeliverTask _task = new TimerDeliverTask(this,
-                                 taskFactory_);
+        if (!consumer.isDisposed()) {
+            TimerDeliverTask _task = new TimerDeliverTask(this,
+                                                      taskFactory_);
 
-        _task.setMessageConsumer( consumer );
+            _task.setMessageConsumer( consumer );
 
 
-        _task.schedule();
+            _task.schedule();
+        } else {
+            logger_.info("MessageConsumer is disposed");
+        }
     }
 
 
