@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.27 2002-10-05 13:59:41 andre.spiegel Exp $
+ * @version $Id: lexer.java,v 1.28 2002-11-24 23:04:55 steve.osselton Exp $
  * @author Gerald Brose
  *
  */
@@ -311,6 +311,7 @@ public class lexer
         java_keywords.put( "getClass", "" );
         java_keywords.put( "hashCode", "" );
         java_keywords.put( "notify", "" );
+        java_keywords.put( "notifyAll", "" );
         java_keywords.put( "toString", "" );
         java_keywords.put( "wait", "" );
 
