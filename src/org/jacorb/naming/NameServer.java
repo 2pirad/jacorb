@@ -36,7 +36,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.19 2003-08-15 15:36:55 nick.cross Exp $
+ *  @version $Id: NameServer.java,v 1.20 2003-08-15 15:49:52 nick.cross Exp $
  */
 
 
@@ -227,10 +227,14 @@ public class NameServer
                       "StandardNS/NameServer-POA/_root");
 
             /*
-             * set a connection time out : after 30 secs. idle time,
+             * set a connection time out : after 10 secs. idle time,
              * the adapter will close connections
              */
-            props.put( "jacorb.connection.server_timeout", "10000" );
+            if( Environment.getIntPropertyWithDefault( "jacorb.connection.server_timeout", -1 ) < 0 )
+            {
+                Debug.output( 3, "Default server_timeout to 10000" );
+                props.put( "jacorb.connection.server_timeout", "10000" );
+            }
 
             // If port not set on command line see if configured
 
