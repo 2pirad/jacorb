@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.50 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.51 2004-05-18 08:55:29 nicolas Exp $
  */
 
 public class ClientConnection
@@ -321,7 +321,8 @@ public class ClientConnection
         {
             if (logger.isWarnEnabled())
             {
-                logger.warn("Received an unknown reply");
+                logger.warn("Received reply for unknown request id: " +
+                    key);
             }
         }
     }
@@ -352,7 +353,8 @@ public class ClientConnection
         {
             if (logger.isWarnEnabled())
             {
-                logger.warn("Received an unknown reply");
+                logger.warn("Received reply for unknown request id: " +
+                    key);
             }
         }
     }
