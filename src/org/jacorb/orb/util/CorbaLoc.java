@@ -22,7 +22,7 @@ package org.jacorb.orb.util;
 
 /**
  * @author Gerald Brose
- * @version $Id: CorbaLoc.java,v 1.4 2001-03-27 12:01:27 noffke Exp $
+ * @version $Id: CorbaLoc.java,v 1.5 2002-03-04 18:29:03 nicolas Exp $
  */
 
 import org.jacorb.orb.ParsedIOR;
@@ -113,8 +113,11 @@ public class CorbaLoc
 	    return result;
 	}
 	else if ( addr.indexOf(':') == 0 ||
-		  addr.startsWith("iiop:") ) 
+		  addr.startsWith("iiop:") ||
+                  addr.startsWith("ssliop:")) 
 	{
+            result.protocol_identifier = addr.substring( 0, addr.indexOf(':') );
+
 	    String version_and_host = addr.substring( addr.indexOf(':')+1);
 	    if( version_and_host.length() == 0)
 		throw new IllegalArgumentException("Illegal IIOP protocol format in object address format: " + addr);
