@@ -28,6 +28,7 @@ import org.jacorb.notification.parser.TCLParser;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
+import org.apache.log.Hierarchy;
 
 /**
  *
@@ -35,7 +36,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * Created: Thu Apr 10 12:08:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: TypeNameShorthandNode.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: TypeNameShorthandNode.java,v 1.5 2003-09-12 09:31:42 alphonse.bendt Exp $
  */
 
 public class TypeNameShorthandNode extends ComponentName
@@ -53,6 +54,10 @@ public class TypeNameShorthandNode extends ComponentName
         }
         catch ( Exception e )
         {
+            Hierarchy
+                .getDefaultHierarchy()
+                .getLoggerFor(TypeNameShorthandNode.class.getName())
+                .fatalError("No exception should ever occur at this point", e);
         }
     }
 

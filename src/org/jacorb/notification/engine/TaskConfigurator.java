@@ -40,7 +40,7 @@ import org.jacorb.notification.Constants;
  * TaskConfigurator.java
  *
  * @author Alphonse Bendt
- * @version $Id: TaskConfigurator.java,v 1.9 2003-08-28 16:04:37 alphonse.bendt Exp $
+ * @version $Id: TaskConfigurator.java,v 1.10 2003-09-12 09:33:10 alphonse.bendt Exp $
  */
 
 public class TaskConfigurator implements Disposable
@@ -305,10 +305,13 @@ public class TaskConfigurator implements Disposable
                     // above the EventConsumer still
                     // throws an exception we'll assume its totally
                     // messed up and dispose it.
-                    logger_.fatalError("a disabled EventConsumer should never throw an exception during deliverEvent", e);
+                    logger_.error("a disabled EventConsumer should not throw "
+                                  + " an exception during deliverEvent", e);
                     try {
                         _consumer.dispose();
-                    } catch (Exception ex) {}
+                    } catch (Exception ex) {
+                        logger_.debug("Error disposing Consumer", ex);
+                    }
                 }
             }
         }

@@ -34,7 +34,7 @@ import antlr.TokenStreamException;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: PropertyShorthandNode.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: PropertyShorthandNode.java,v 1.4 2003-09-12 09:31:42 alphonse.bendt Exp $
  */
 
 public class PropertyShorthandNode extends AbstractTCLNode
@@ -86,12 +86,17 @@ public class PropertyShorthandNode extends AbstractTCLNode
         EvaluationResult _res = null;
 
         try {
-        _res = _event.extractVariableHeader(context, shorthandVariableHeader_, value_);
+            _res = _event.extractVariableHeader(context,
+                                                shorthandVariableHeader_,
+                                                value_);
+
         } catch (EvaluationException e) {}
 
         if (_res == null) {
             try {
-                _res = _event.extractFilterableData(context, shorthandFilterableData_, value_);
+                _res = _event.extractFilterableData(context,
+                                                    shorthandFilterableData_,
+                                                    value_);
             } catch (EvaluationException e) {}
 
             if (_res == null) {

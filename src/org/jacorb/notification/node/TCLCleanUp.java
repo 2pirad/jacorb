@@ -21,11 +21,11 @@ package org.jacorb.notification.node;
  *
  */
 
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
 import org.jacorb.notification.parser.TCLParserTokenTypes;
 
 import antlr.collections.AST;
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
 
 /**
  * Visitor for TCL Trees. Does some Restructuration of a TCL Tree.
@@ -33,7 +33,7 @@ import antlr.collections.AST;
  * Created: Wed Sep 18 02:07:17 2002
  *
  * @author Alphonse Bendt
- * @version $Id: TCLCleanUp.java,v 1.8 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: TCLCleanUp.java,v 1.9 2003-09-12 09:31:42 alphonse.bendt Exp $
  */
 
 public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenTypes
@@ -46,26 +46,29 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
         {
             node.acceptPostOrder( this );
         }
-        catch ( VisitorException ve )
-        {}
+        catch ( VisitorException e )
+        {
+            logger_.fatalError("error during fix", e);
+        }
 
     }
 
     public void visitComponentPosition( ComponentPositionOperator componentPositionOperator )
-    throws VisitorException
+        throws VisitorException
     {
         // fixCompPos(componentPositionOperator);
     }
 
     public void visitComponent( ComponentName component )
-    throws VisitorException
+        throws VisitorException
     {
         // component.left().acceptInOrder(this);
 
         insertComponentName( component );
     }
 
-    public void visitUnionPosition( UnionPositionOperator op ) throws VisitorException
+    public void visitUnionPosition( UnionPositionOperator op )
+        throws VisitorException
     {
         fixUnionPosition( op );
         // fixCompPos(op);
@@ -77,9 +80,11 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
      */
     void insertComponentName( ComponentName comp )
     {
-        StringBuffer _name = new StringBuffer( comp.toString() );
+        StringBuffer _name =
+            new StringBuffer( comp.toString() );
 
-        AbstractTCLNode _cursor = ( AbstractTCLNode ) comp.left();
+        AbstractTCLNode _cursor =
+            ( AbstractTCLNode ) comp.left();
 
         while ( _cursor != null )
         {
@@ -109,10 +114,11 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
                 node.setPosition( _position );
                 node.setNextSibling( _nextSibling.getNextSibling() );
 
+                // fallthrough
             case PLUS:
-
+                // fallthrough
             case MINUS:
-
+                // fallthrough
             case STRING:
                 break;
 
@@ -123,4 +129,4 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
         }
     }
 
-} // TCLCleanUp
+}

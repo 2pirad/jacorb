@@ -22,12 +22,14 @@ package org.jacorb.notification.node;
  */
 
 import org.jacorb.notification.EvaluationContext;
-import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.evaluate.EvaluationException;
+import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.parser.TCLParser;
+
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
+import org.apache.log.Hierarchy;
 
 /**
  *
@@ -35,7 +37,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * Created: Thu Apr 10 12:08:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: EventNameShorthandNode.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: EventNameShorthandNode.java,v 1.4 2003-09-12 09:31:42 alphonse.bendt Exp $
  */
 
 public class EventNameShorthandNode extends ComponentName {
@@ -44,13 +46,15 @@ public class EventNameShorthandNode extends ComponentName {
     static final String COMP_NAME = "$.header.fixed_header.event_name";
     public static final String SHORT_NAME = "event_name";
 
-
     static {
         try {
             expandedPath_ = TCLParser.parse( COMP_NAME );
             expandedPath_.acceptInOrder( new TCLCleanUp() );
         } catch (Exception e) {
-
+            Hierarchy
+                .getDefaultHierarchy()
+                .getLoggerFor(EventNameShorthandNode.class.getName())
+                .fatalError("No exception should ever occur at this point", e);
         }
     }
 
