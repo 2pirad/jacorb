@@ -26,7 +26,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTask.java,v 1.11 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: AbstractTask.java,v 1.12 2004-08-17 13:44:22 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTask
@@ -185,4 +185,10 @@ public abstract class AbstractTask
     }
 
     abstract public void schedule() throws InterruptedException;
+    
+    public void dispose() {
+        super.dispose();
+        
+        reset();
+    }
 }
