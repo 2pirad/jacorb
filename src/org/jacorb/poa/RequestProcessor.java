@@ -49,7 +49,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.7 2001-10-04 14:17:52 jacorb Exp $
+ * @version $Id: RequestProcessor.java,v 1.8 2001-10-08 14:56:02 jacorb Exp $
  */
 
 public class RequestProcessor 
@@ -585,9 +585,10 @@ public class RequestProcessor
             controller.returnResult(request);
                         
             start = false;
+            clear();
+
             // give back the processor into the pool
             poolManager.releaseProcessor(this);
-            clear();
         }
     }
 
