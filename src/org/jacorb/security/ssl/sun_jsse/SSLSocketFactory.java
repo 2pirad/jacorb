@@ -22,7 +22,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.10 2003-12-16 08:42:12 gerald Exp $
+ * $Id: SSLSocketFactory.java,v 1.11 2004-02-24 13:18:31 simon.mcqueen Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -61,7 +61,7 @@ public class SSLSocketFactory
 	if( factory == null )
 	{
 	    if (logger.isErrorEnabled())
-                logger.error("Unable to create ServerSocketFactory!" );
+                logger.error("Unable to create SSLSocketFactory!" );
 	}
 	
 	change_roles = 
