@@ -26,7 +26,7 @@ import org.jacorb.notification.EventChannelFactoryImpl;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: WhiteBoardFactory.java,v 1.3 2003-11-16 14:20:12 alphonse.bendt Exp $
+ * @version $Id: WhiteBoardFactory.java,v 1.3.4.1 2004-04-02 05:28:49 phil.mesnier Exp $
  */
 
 public class WhiteBoardFactory extends IFactoryPOA implements IFactoryOperations {
