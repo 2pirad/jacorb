@@ -45,7 +45,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.50 2002-12-20 18:29:06 nicolas Exp $
+ * @version $Id: Environment.java,v 1.51 2003-04-01 12:58:09 nick.cross Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -170,7 +170,7 @@ public class Environment
              * load config files from the default ClassLoader's classpath
              *
              * supported by Per Bockman (pebo@enea.se)
-             */ 
+             */
             //#ifjdk 1.2
             try
             {
@@ -426,6 +426,12 @@ public class Environment
                 }
             }
 
+            // If log file already set force append (prevent file corruption)
+            if (_log_file_out != null)
+            {
+                append = true;
+            }
+
             try
             {
                 _log_file_out = new PrintWriter
@@ -576,7 +582,7 @@ public class Environment
     }
 
     /**
-     * This will return true iff the properties value is
+     * This will return true if the properties value is
      * "on". Otherwise (i.e. value "off", or property not set), false
      * is returned.
      */
@@ -663,15 +669,15 @@ public class Environment
 
     /**
      * Create an object from the give property. The classes default
-     * constructor will be used.  
+     * constructor will be used.
      *
-     * @returns null or an object of the class of the keys value 
+     * @returns null or an object of the class of the keys value
      * @throws Error if reflection fails.
      */
     public static Object getObjectProperty( String key )
     {
         String s = _props.getProperty( key );
-        
+
         if( s != null && s.length() > 0 )
         {
             try
