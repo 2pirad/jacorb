@@ -66,7 +66,7 @@ import org.apache.log.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PerformanceTest.java,v 1.3 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: PerformanceTest.java,v 1.4 2004-02-14 15:15:45 alphonse.bendt Exp $
  */
 
 public class PerformanceTest extends NotificationTestCase {
@@ -154,7 +154,7 @@ public class PerformanceTest extends NotificationTestCase {
                    ).start();
     }
 
-    public void tearDown() {
+    public void tearDown() throws Exception {
         super.tearDown();
 
         try {
