@@ -31,7 +31,7 @@ import java.util.*;
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: Current.java,v 1.17 2003-12-30 14:40:25 andre.spiegel Exp $
+ * @version $Id: Current.java,v 1.18 2003-12-30 15:21:03 andre.spiegel Exp $
  */
 
 public class Current
@@ -39,8 +39,8 @@ public class Current
   //    extends org.omg.CORBA.LocalObject
   //    implements org.omg.PortableServer.Current
 {
-    private Hashtable threadTable = new Hashtable();
-    // Thread -> vector of InvocationContext elements (Stack)
+    private Map threadTable = new HashMap();
+    // Thread -> list of InvocationContext elements (Stack)
 
     private Current()
     {
