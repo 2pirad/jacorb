@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.16 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: TypeSpec.java,v 1.16.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 
@@ -77,6 +77,8 @@ public class TypeSpec
 
     public boolean basic()
     {
+        if( type_spec == null )
+            System.err.println("Error, typespec null " + getClass().getName() );
         return type_spec.basic();
     }
 

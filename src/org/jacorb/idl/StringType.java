@@ -22,13 +22,12 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: StringType.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: StringType.java,v 1.9.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
-class StringType
-        extends TemplateTypeSpec
+public class StringType
+    extends TemplateTypeSpec
 {
-
     public ConstExpr max = null;
     private int length = 0;
     private boolean wide = false;

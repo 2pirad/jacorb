@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.27 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: SequenceType.java,v 1.27.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 public class SequenceType
@@ -43,7 +43,7 @@ public class SequenceType
     private boolean recursive = false;
 
     public ConstExpr max = null;
-    public int length = 0;
+    int length = 0;
 
     public SequenceType( int num )
     {
@@ -99,6 +99,15 @@ public class SequenceType
         type_spec.setPackage( s );
         if( max != null )
             max.setPackage( s );
+    }
+
+    /**
+     * @overrides length() in VectorType
+     */
+
+    public int length()
+    {
+        return length;
     }
 
 

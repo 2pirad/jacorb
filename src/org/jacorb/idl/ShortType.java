@@ -22,11 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ShortType.java,v 1.10 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ShortType.java,v 1.10.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 class ShortType
-        extends IntType
+    extends IntType
 {
 
     public ShortType( int num )

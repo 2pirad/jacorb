@@ -25,13 +25,12 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AttrDecl.java,v 1.13 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: AttrDecl.java,v 1.13.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 class AttrDecl
-        extends Declaration
+    extends Declaration
 {
-
     public boolean readOnly;
     public TypeSpec param_type_spec;
     public SymbolList declarators;
@@ -121,9 +120,4 @@ class AttrDecl
 
 
 }
-
-
-
-
-
 

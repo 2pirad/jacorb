@@ -22,12 +22,12 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.14 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Value.java,v 1.14.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 import java.io.PrintWriter;
 
-class Value
+public class Value
     extends TypeDeclaration
 {
     private Value value;
@@ -134,6 +134,16 @@ class Value
     {
         return value.printWriteStatement( var_name, streamname );
     }
+
+    /**
+     * @overrides accept in TypeDeclaration
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitValue( this );
+    }
+
 
 }
 

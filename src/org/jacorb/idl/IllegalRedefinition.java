@@ -22,14 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IllegalRedefinition.java,v 1.5 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: IllegalRedefinition.java,v 1.5.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 
 class IllegalRedefinition
-        extends NameAlreadyDefined
+    extends NameAlreadyDefined
 {
-
     public String oldDef;
     public String newDef;
 

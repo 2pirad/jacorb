@@ -25,11 +25,11 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.19 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.19.2.1 2003-08-27 13:34:01 brose Exp $
  *
  */
 
-class ArrayTypeSpec
+public class ArrayTypeSpec
     extends VectorType
 {
     ArrayDeclarator declarator = null;
@@ -235,7 +235,11 @@ class ArrayTypeSpec
 
     }
 
-    int length()
+    /**
+     * @overrides length() in VectorType
+     */
+
+    public int length()
     {
         return dims[ my_dim ];
     }

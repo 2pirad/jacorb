@@ -22,14 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.11 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.11.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 
-class SimpleDeclarator
-        extends Declarator
+public class SimpleDeclarator
+    extends Declarator
 {
-
     public SimpleDeclarator( int num )
     {
         super( num );

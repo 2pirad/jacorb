@@ -22,13 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.17 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: TypeDeclaration.java,v 1.17.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 import java.io.PrintWriter;
 import java.util.*;
 
-class TypeDeclaration
+public class TypeDeclaration
     extends Declaration
 {
     boolean typedefd = false;
@@ -162,6 +162,27 @@ class TypeDeclaration
     {
         return type_decl.printWriteStatement( var_name, streamname );
     }
+
+//      public String id()
+//      {
+//          System.out.println("TypeDecl.id() called in class " + getClass().getName() + " from: ");
+//          new RuntimeException().printStackTrace();
+
+//          if( type_decl != null )
+//              return type_decl.id();
+//          else
+//              return super.id();
+//      }
+
+    /**
+     * @overrides accept in Declaration
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        type_decl.accept( visitor );
+    }
+
 
 }
 

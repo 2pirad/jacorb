@@ -26,13 +26,12 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Spec.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Spec.java,v 1.9.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
-class Spec
-        extends IdlSymbol
+public class Spec
+    extends IdlSymbol
 {
-
     public Vector definitions;
 
     public Spec( int num )
@@ -65,6 +64,17 @@ class Spec
         while( e.hasMoreElements() )
             ( (IdlSymbol)e.nextElement() ).print( ps );
     }
+
+    /**
+     * @overrides accept in IdlSymbol
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitSpec( this );
+    }
+
+
 }
 
 

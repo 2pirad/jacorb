@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.10 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Module.java,v 1.10.2.1 2003-08-27 13:34:01 brose Exp $
  */
 
 import java.io.File;
@@ -35,11 +35,10 @@ import java.io.PrintWriter;
  * Note: a module's name is its package name!
  */
 
-class Module
-        extends Declaration
-        implements Scope
+public class Module
+    extends Declaration
+    implements Scope
 {
-
     public Definitions spec;
 
     private ScopeData scopeData;
@@ -163,6 +162,21 @@ class Module
     {
         return unreplacedName;
     }
+
+    public Definitions getDefinitions()
+    {
+        return spec;
+    }
+
+    /**
+     * @overrides accept in IdlSymbol
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitModule( this );
+    }
+
 
 }
 
