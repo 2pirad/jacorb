@@ -29,7 +29,7 @@ import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.11.2.6 2001-09-21 07:53:22 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.11.2.7 2001-10-01 07:12:05 jacorb Exp $
  *
  */
 
@@ -56,17 +56,15 @@ public class ReplyInputStream
             }
             case 1 : 
             {
-                /*
                 //GIOP 1.1
                 ReplyHeader_1_0 hdr = 
                     ReplyHeader_1_0Helper.read( this );
 
                 rep_hdr = 
                     new ReplyHeader_1_2( hdr.request_id,
-                                         ReplyStatusType.from_int( hdr.reply_status.value() ),
+                                         ReplyStatusType_1_2.from_int( hdr.reply_status.value() ),
                                          hdr.service_context );
                 break;
-                */
             }
             case 2 : 
             {

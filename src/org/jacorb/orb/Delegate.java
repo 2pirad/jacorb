@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.17.2.6 2001-09-27 11:43:01 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.17.2.7 2001-10-01 07:12:03 jacorb Exp $
  *
  */
 
@@ -910,7 +910,6 @@ public final class Delegate
                 }
               
                 /* retrieve the forwarded IOR and bind to it */
-                Debug.output( 3, "LocationForward" );
 
                 //make other threads, that have unreturned replies, wait
                 pending_replies_sync.lockBarrier();
@@ -1133,11 +1132,16 @@ public final class Delegate
         {
             try
             {       
-                org.omg.CORBA.portable.OutputStream os = request(self, "_non_existent", true);
+                org.omg.CORBA.portable.OutputStream os = 
+                    request(self, "_non_existent", true);
+
                 org.omg.CORBA.portable.InputStream is = invoke( self, os );
+
                 return is.read_boolean();
             }
-            catch ( RemarshalException r ){}
+            catch ( RemarshalException r )
+            {
+            }
             catch( Exception n )        
             {
                 return true;

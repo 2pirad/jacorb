@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.8.4.6 2001-09-21 07:53:23 jacorb Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.8.4.7 2001-10-01 07:12:05 jacorb Exp $
  *
  */
 
@@ -62,23 +62,20 @@ public class ReplyOutputStream
             }
             case 1 :
             {
-                //this currently doesn't work because GIOP.idl only
-                //allows either ReplyStatusType_1_0 or
-                //ReplyStatusType_1_2, but not both. The only solution
-                //would be to go low-level and write directly to the
-                //stream
+                //Technically, GIOP.idl only allows either
+                //ReplyStatusType_1_0 or ReplyStatusType_1_2, but not
+                //both. We go around this by compiling GIOP.idl two
+                //times
 
-                /*
                 //GIOP 1.1
                 ReplyHeader_1_0 repl_hdr = 
-                    new ReplyHeader_1_0( ctx,
+                    new ReplyHeader_1_0( alignment_ctx,
                                          request_id,
                                          ReplyStatusType_1_0.from_int( reply_status.value() ));
 
-                ReplyHeader_1_0Helper.write( out, repl_hdr );
+                ReplyHeader_1_0Helper.write( this, repl_hdr );
                
                 break;
-                */
             }
             case 2 :
             {

@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.15.2.7 2001-09-27 11:43:02 jacorb Exp $ 
+ * @version $Id: ClientConnection.java,v 1.15.2.8 2001-10-01 07:12:04 jacorb Exp $ 
  */
 
 public class ClientConnection 
@@ -94,6 +94,18 @@ public class ClientConnection
         }
 
         CodeSetComponentInfo info = pior.getCodeSetComponentInfo();
+
+        if( info == null )
+        {
+            Debug.output( 2, "No CodeSetComponentInfo present in IOR. Will use default CodeSets" );
+            
+            //If we can't find matching codesets, we still mark the
+            //GIOPConnection as negotiated, so the following requests
+            //will not always try to select a codeset again.
+            connection.markTCSNegotiated();
+
+            return null;
+        }
         
         int tcs = CodeSet.selectTCS( info );
         int tcsw = CodeSet.selectTCSW( info );
@@ -300,7 +312,7 @@ public class ClientConnection
             {
                 ReplyPlaceholder placeholder =
                     (ReplyPlaceholder) replies.remove( keys.nextElement() );
-                
+               
                 placeholder.cancel();
             }
         }        
