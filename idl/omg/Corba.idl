@@ -6,7 +6,7 @@
  * 
  * DO NOT INCLUDE THIS FILE, INCLUDE <orb.idl> instead!
  *
- * $Id: Corba.idl,v 1.9 2004-02-02 08:56:54 gerald Exp $
+ * $Id: Corba.idl,v 1.10 2004-02-11 07:19:50 gerald Exp $
  */
 
 #ifndef _MYORB_IDL
@@ -31,7 +31,7 @@ module CORBA
     typedef sequence <PolicyType> PolicyTypeSeq;
     exception InvalidPolicies { sequence <unsigned short> indices; };
 
-    interface DomainManager
+    local interface DomainManager
     {
 	Policy get_domain_policy(in PolicyType policy_type);
     };
@@ -62,7 +62,7 @@ module CORBA
 
     enum SetOverrideType {SET_OVERRIDE, ADD_OVERRIDE};
 
-    interface PolicyManager 
+    local interface PolicyManager 
     {
         PolicyList get_policy_overrides(in PolicyTypeSeq ts);
 
@@ -71,9 +71,9 @@ module CORBA
                                   ) raises (InvalidPolicies);
     };
 
-    interface Current {}; // dummy
+    local interface Current {}; // dummy
 
-    interface PolicyCurrent : PolicyManager, Current {
+    local interface PolicyCurrent : PolicyManager, Current {
     };
 
 
