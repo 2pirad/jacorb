@@ -30,7 +30,7 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractBoundedEventQueue.java,v 1.3 2003-12-03 11:34:10 alphonse.bendt Exp $
+ * @version $Id: AbstractBoundedEventQueue.java,v 1.4 2004-01-23 19:23:03 alphonse.bendt Exp $
  */
 
 abstract public class AbstractBoundedEventQueue implements EventQueue
@@ -163,7 +163,6 @@ abstract public class AbstractBoundedEventQueue implements EventQueue
     {
         synchronized ( lock_ )
         {
-
             while ( getSize() >= capacity_ )
             {
                 Message _e = overflowStrategy_.removeElementFromQueue( this );
