@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definitions.java,v 1.10 2003-09-03 09:29:18 brose Exp $
+ * @version $Id: Definitions.java,v 1.11 2003-09-09 14:25:18 brose Exp $
  */
 
 public class Definitions
@@ -92,5 +92,6 @@ public class Definitions
         visitor.visitDefinitions( this );
     }
 }
+
 
 

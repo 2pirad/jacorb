@@ -25,7 +25,7 @@ package org.jacorb.idl;
  * mimick inheritance.
  *
  * @author Gerald Brose
- * @version $Id: Type.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Type.java,v 1.10 2003-09-09 14:25:18 brose Exp $
  */
 
 
@@ -48,6 +48,7 @@ public interface Type
     public String printWriteStatement( String var_name, String streamname );
 
 }
+
 
 
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.17 2003-09-01 15:32:37 brose Exp $
+ * @version $Id: TypeMap.java,v 1.18 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.util.*;
@@ -131,3 +131,4 @@ class TypeMap
 
 
 }
+

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * 
- * @version $Id: ElementSpec.java,v 1.16 2003-09-03 14:51:45 brose Exp $
+ * @version $Id: ElementSpec.java,v 1.17 2003-09-09 14:25:18 brose Exp $
  */
 
 class ElementSpec
@@ -41,7 +41,7 @@ class ElementSpec
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         t.setPackage( s );
@@ -156,3 +156,4 @@ class ElementSpec
 
 
 }
+

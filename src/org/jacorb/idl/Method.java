@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Method.java,v 1.16 2003-09-03 09:26:58 brose Exp $
+ * @version $Id: Method.java,v 1.17 2003-09-09 14:25:18 brose Exp $
  *
  * This class is used to represent accessor operations
  */
@@ -349,3 +349,4 @@ public class Method
 
 
 }
+

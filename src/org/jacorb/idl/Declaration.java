@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Declaration.java,v 1.10 2003-09-03 09:35:05 brose Exp $
+ * @version $Id: Declaration.java,v 1.11 2003-09-09 14:25:18 brose Exp $
  */
 
 
@@ -46,6 +46,7 @@ public class Declaration
 
 
 }
+
 
 
 

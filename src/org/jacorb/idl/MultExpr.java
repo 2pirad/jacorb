@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.12 2003-04-01 15:19:26 nick.cross Exp $
+ * @version $Id: MultExpr.java,v 1.13 2003-09-09 14:25:18 brose Exp $
  */
 
 class MultExpr
@@ -60,7 +60,7 @@ class MultExpr
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         if( mult_expr != null )
@@ -121,3 +121,4 @@ class MultExpr
     }
 
 }
+

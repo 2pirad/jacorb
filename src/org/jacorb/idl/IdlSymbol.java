@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.30 2003-09-09 12:38:47 brose Exp $
+ * @version $Id: IdlSymbol.java,v 1.31 2003-09-09 14:25:18 brose Exp $
  */
 
 public class IdlSymbol
@@ -646,3 +646,4 @@ public class IdlSymbol
     }
 
 }
+

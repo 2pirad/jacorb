@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ShortType.java,v 1.11 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: ShortType.java,v 1.12 2003-09-09 14:25:18 brose Exp $
  */
 
 class ShortType
@@ -130,6 +130,7 @@ class ShortType
             return "extract_short";
     }
 }
+
 
 
 

@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: Declarator.java,v 1.8 2003-09-03 10:08:46 brose Exp $
+ * @version $Id: Declarator.java,v 1.9 2003-09-09 14:25:18 brose Exp $
  */
 
 public class Declarator
@@ -92,5 +92,6 @@ public class Declarator
         return d.getEnclosingSymbol();
     }
 }
+
 
 

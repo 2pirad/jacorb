@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.29 2003-09-03 20:56:09 brose Exp $
+ * @version $Id: SequenceType.java,v 1.30 2003-09-09 14:25:18 brose Exp $
  */
 
 public class SequenceType
@@ -93,7 +93,7 @@ public class SequenceType
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         type_spec.setPackage( s );
@@ -564,3 +564,4 @@ public class SequenceType
 
 
 }
+

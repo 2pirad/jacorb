@@ -29,7 +29,7 @@ import java.util.*;
  * ReplyHandler).
  * 
  * @author Andre Spiegel
- * $Id: ReplyHandler.java,v 1.4 2003-03-04 08:38:55 gerald Exp $
+ * $Id: ReplyHandler.java,v 1.5 2003-09-09 14:25:18 brose Exp $
  */
 public class ReplyHandler extends Interface
 {
@@ -216,5 +216,6 @@ public class ReplyHandler extends Interface
             
 
 }
+
 
 

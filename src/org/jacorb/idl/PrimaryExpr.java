@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrimaryExpr.java,v 1.15 2003-09-09 13:54:35 brose Exp $
+ * @version $Id: PrimaryExpr.java,v 1.16 2003-09-09 14:25:18 brose Exp $
  */
 
 class PrimaryExpr
@@ -73,7 +73,7 @@ class PrimaryExpr
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -134,5 +134,6 @@ class PrimaryExpr
         return symbol.get_token();
     }
 }
+
 
 

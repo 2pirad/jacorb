@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  *
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.23 2003-09-09 14:00:49 brose Exp $
+ * @version $Id: ConstDecl.java,v 1.24 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.File;
@@ -304,3 +304,4 @@ class ConstDecl extends Declaration
         }
     }
 }
+

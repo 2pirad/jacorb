@@ -24,7 +24,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.13 2003-09-03 21:02:34 brose Exp $
+ * @version $Id: Case.java,v 1.14 2003-09-09 14:25:18 brose Exp $
  */
 
 class Case
@@ -54,7 +54,7 @@ class Case
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -279,5 +279,4 @@ class Case
 
 
 }
-
 

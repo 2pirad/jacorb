@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.14 2003-08-18 12:17:59 nick.cross Exp $
+ * @version $Id: JacIDL.java,v 1.15 2003-09-09 14:25:18 brose Exp $
  */
 
 public class JacIDL
@@ -448,3 +448,4 @@ public class JacIDL
         }
     }
 }
+

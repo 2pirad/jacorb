@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.30 2003-08-31 13:18:30 andre.spiegel Exp $
+ * @version $Id: ValueDecl.java,v 1.31 2003-09-09 14:25:18 brose Exp $
  */
 
 class ValueDecl
@@ -804,3 +804,4 @@ class ValueDecl
     }
 
 }
+

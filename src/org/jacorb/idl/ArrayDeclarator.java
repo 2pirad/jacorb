@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.13 2003-09-03 21:00:31 brose Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.14 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -61,7 +61,7 @@ class ArrayDeclarator
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -151,6 +151,7 @@ class ArrayDeclarator
     }
 
 }
+
 
 
 

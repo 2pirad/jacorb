@@ -20,7 +20,7 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: MemberList.java,v 1.14 2003-09-03 10:12:09 brose Exp $
+ * @version $Id: MemberList.java,v 1.15 2003-09-09 14:25:18 brose Exp $
  *
  */
 
@@ -94,6 +94,7 @@ public class MemberList
     }
 
 }
+
 
 
 

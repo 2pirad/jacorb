@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnaryExpr.java,v 1.11 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: UnaryExpr.java,v 1.12 2003-09-09 14:25:18 brose Exp $
  */
 
 class UnaryExpr
@@ -54,7 +54,7 @@ class UnaryExpr
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         primary_expr.setPackage( s );
@@ -96,6 +96,7 @@ class UnaryExpr
 
 
 }
+
 
 
 

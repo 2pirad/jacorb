@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.11 2003-09-03 09:34:36 brose Exp $
+ * @version $Id: Module.java,v 1.12 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.File;
@@ -179,6 +179,7 @@ public class Module
 
 
 }
+
 
 
 

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.37 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.38 2003-09-09 14:25:18 brose Exp $
  */
 
 public class AliasTypeSpec
@@ -105,7 +105,7 @@ public class AliasTypeSpec
     {
         //s = parser.pack_replace(s);
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         pack_name = parser.pack_replace( pack_name );
@@ -493,3 +493,4 @@ public class AliasTypeSpec
 
 
 }
+

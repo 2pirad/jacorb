@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * Represents IDL base types
  *
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.16 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: BaseType.java,v 1.17 2003-09-09 14:25:18 brose Exp $
  */
 
 
@@ -150,3 +150,4 @@ class BaseType
 
 
 }
+

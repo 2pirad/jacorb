@@ -29,7 +29,7 @@ package org.jacorb.idl;
  * including file) 
  *
  * @author Gerald Brose
- * @version $Id: PositionInfo.java,v 1.7 2003-09-03 20:59:27 brose Exp $
+ * @version $Id: PositionInfo.java,v 1.8 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.File;
@@ -63,6 +63,7 @@ public class PositionInfo
     }
 
 }
+
 
 
 

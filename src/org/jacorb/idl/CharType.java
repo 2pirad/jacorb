@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: CharType.java,v 1.13 2003-09-04 15:28:09 nicolas Exp $
+ * @version $Id: CharType.java,v 1.14 2003-09-09 14:25:18 brose Exp $
  */
 
 class CharType
@@ -132,5 +132,6 @@ class CharType
         return !wide;
     }
 }
+
 
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeCodeTypeSpec.java,v 1.8 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: TypeCodeTypeSpec.java,v 1.9 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -104,6 +104,7 @@ public class TypeCodeTypeSpec
     }
 
 }
+
 
 
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.18 2003-09-03 09:38:21 brose Exp $
+ * @version $Id: TypeDeclaration.java,v 1.19 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -205,5 +205,6 @@ public class TypeDeclaration
 
 
 }
+
 
 

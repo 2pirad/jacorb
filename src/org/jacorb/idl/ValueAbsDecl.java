@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.12 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.13 2003-09-09 14:25:18 brose Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
@@ -50,7 +50,7 @@ class ValueAbsDecl
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -357,3 +357,4 @@ class ValueAbsDecl
         }
     }
 }
+

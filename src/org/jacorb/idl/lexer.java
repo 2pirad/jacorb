@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.41 2003-09-09 13:45:15 brose Exp $
+ * @version $Id: lexer.java,v 1.42 2003-09-09 14:25:18 brose Exp $
  * @author Gerald Brose
  *
  */
@@ -1975,3 +1975,4 @@ public class lexer
         return result;
     }
 }
+

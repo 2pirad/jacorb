@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedArraySize.java,v 1.9 2003-09-03 21:01:11 brose Exp $
+ * @version $Id: FixedArraySize.java,v 1.10 2003-09-09 14:25:18 brose Exp $
  */
 
 class FixedArraySize
@@ -50,12 +50,13 @@ class FixedArraySize
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         pos_int_const.setPackage( s );
     }
 }
+
 
 
 

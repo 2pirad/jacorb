@@ -25,7 +25,7 @@ package org.jacorb.idl;
  * sequence bounds declarations.
  *
  * @author Gerald Brose
- * @version $Id: PosIntConst.java,v 1.10 2003-09-03 20:51:55 brose Exp $
+ * @version $Id: PosIntConst.java,v 1.11 2003-09-09 14:25:18 brose Exp $
  */
 
 class PosIntConst
@@ -72,12 +72,13 @@ class PosIntConst
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         const_expr.setPackage( s );
     }
 }
+
 
 
 

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * Represents IDL long long and unsigned long long types
  *
  * @author Gerald Brose
- * @version $Id: LongLongType.java,v 1.12 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: LongLongType.java,v 1.13 2003-09-09 14:25:18 brose Exp $
  */
 
 class LongLongType
@@ -137,5 +137,6 @@ class LongLongType
             return "extract_longlong";
     }
 }
+
 
 

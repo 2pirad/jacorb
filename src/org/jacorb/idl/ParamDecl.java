@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.17 2003-09-03 20:57:20 brose Exp $
+ * @version $Id: ParamDecl.java,v 1.18 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -74,7 +74,7 @@ public class ParamDecl
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         paramTypeSpec.setPackage( s );
@@ -152,5 +152,6 @@ public class ParamDecl
 
 
 }
+
 
 

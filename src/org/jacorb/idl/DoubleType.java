@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: DoubleType.java,v 1.10 2003-09-08 14:22:16 brose Exp $
+ * @version $Id: DoubleType.java,v 1.11 2003-09-09 14:25:18 brose Exp $
  */
 
 
@@ -92,6 +92,7 @@ class DoubleType
     }
 
 }
+
 
 
 

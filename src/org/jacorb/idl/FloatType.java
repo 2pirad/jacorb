@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatType.java,v 1.10 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: FloatType.java,v 1.11 2003-09-09 14:25:18 brose Exp $
  */
 
 class FloatType
@@ -103,6 +103,7 @@ class FloatType
         return "extract_float";
     }
 }
+
 
 
 

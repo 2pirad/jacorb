@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.12 2003-09-03 10:09:30 brose Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.13 2003-09-09 14:25:18 brose Exp $
  */
 
 
@@ -81,7 +81,7 @@ public class SimpleDeclarator
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
     }
@@ -101,6 +101,7 @@ public class SimpleDeclarator
         return name;
     }
 }
+
 
 
 

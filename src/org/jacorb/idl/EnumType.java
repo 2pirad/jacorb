@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.24 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: EnumType.java,v 1.25 2003-09-09 14:25:18 brose Exp $
  */
 
 public class EnumType
@@ -95,7 +95,7 @@ public class EnumType
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
     }
@@ -460,3 +460,4 @@ public class EnumType
     }
 
 }
+

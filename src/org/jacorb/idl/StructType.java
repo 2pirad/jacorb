@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.35 2003-09-03 20:52:50 brose Exp $
+ * @version $Id: StructType.java,v 1.36 2003-09-09 14:25:18 brose Exp $
  */
 
 public class StructType
@@ -138,7 +138,7 @@ public class StructType
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -642,3 +642,4 @@ public class StructType
 
 
 }
+

@@ -34,7 +34,7 @@ import org.apache.log.*;
  * IDL compiler option "-backend <classname>"
  *
  * @author Gerald Brose, XTRADYNE Technologies.
- * @version $Id: IDLTreeVisitor.java,v 1.2 2003-09-03 10:21:01 brose Exp $ 
+ * @version $Id: IDLTreeVisitor.java,v 1.3 2003-09-09 14:25:18 brose Exp $ 
  */
 
 public interface IDLTreeVisitor
@@ -93,3 +93,4 @@ public interface IDLTreeVisitor
     void visitConstrTypeSpec( ConstrTypeSpec typeDecl );
 
 }
+

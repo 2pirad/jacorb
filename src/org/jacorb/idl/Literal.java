@@ -27,7 +27,7 @@ import java.math.BigInteger;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.20 2003-05-15 11:40:59 nick.cross Exp $
+ * @version $Id: Literal.java,v 1.21 2003-09-09 14:25:18 brose Exp $
  */
 
 class Literal
@@ -308,3 +308,4 @@ class Literal
         return result.toString();
     }
 }
+

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: AnyType.java,v 1.11 2003-09-03 10:16:06 brose Exp $
+ * @version $Id: AnyType.java,v 1.12 2003-09-09 14:25:18 brose Exp $
  */
 
 public class AnyType
@@ -83,6 +83,7 @@ public class AnyType
     }
 
 }
+
 
 
 

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.25 2003-09-08 14:22:16 brose Exp $
+ * @version $Id: ScopedName.java,v 1.26 2003-09-09 14:25:18 brose Exp $
  *
  */
 
@@ -504,7 +504,7 @@ public class ScopedName
         s = parser.pack_replace( s );
         set = true;
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
     }
@@ -703,3 +703,4 @@ public class ScopedName
                 ( (SwitchTypeSpec)t ).isSwitchable() );
     }
 }
+

@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Spec.java,v 1.10 2003-09-02 15:59:38 brose Exp $
+ * @version $Id: Spec.java,v 1.11 2003-09-09 14:25:18 brose Exp $
  */
 
 
@@ -77,6 +77,7 @@ public class Spec
 
 
 }
+
 
 
 

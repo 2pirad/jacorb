@@ -24,7 +24,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBody.java,v 1.4 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ValueBody.java,v 1.5 2003-09-09 14:25:18 brose Exp $
  */
 
 class ValueBody
@@ -50,6 +50,7 @@ class ValueBody
     }
 
 }
+
 
 
 

@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.14 2003-04-01 14:59:21 nick.cross Exp $
+ * @version $Id: ConstExpr.java,v 1.15 2003-09-09 14:25:18 brose Exp $
  */
 
 class ConstExpr
@@ -78,9 +78,10 @@ class ConstExpr
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         or_expr.setPackage( s );
     }
 }
+

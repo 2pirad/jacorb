@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: NativeType.java,v 1.9 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: NativeType.java,v 1.10 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -71,7 +71,7 @@ public class NativeType
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
     }
@@ -144,6 +144,7 @@ public class NativeType
 
 
 }
+
 
 
 

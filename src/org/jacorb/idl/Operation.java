@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Operation.java,v 1.13 2003-09-03 09:59:28 brose Exp $
+ * @version $Id: Operation.java,v 1.14 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -81,6 +81,7 @@ public interface Operation
     void accept( IDLTreeVisitor visitor );
 
 }
+
 
 
 

@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.32 2003-09-02 15:52:01 brose Exp $
+ * @version $Id: OpDecl.java,v 1.33 2003-09-09 14:25:18 brose Exp $
  */
 
 public class OpDecl
@@ -89,7 +89,7 @@ public class OpDecl
         s = parser.pack_replace( s );
 
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         opTypeSpec.setPackage( s );
@@ -806,3 +806,4 @@ public class OpDecl
 
 
 }
+

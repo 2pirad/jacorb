@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.13 2003-04-01 15:19:26 nick.cross Exp $
+ * @version $Id: AddExpr.java,v 1.14 2003-09-09 14:25:18 brose Exp $
  */
 
 class AddExpr
@@ -59,7 +59,7 @@ class AddExpr
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         if( add_expr != null )
@@ -118,3 +118,4 @@ class AddExpr
         return mult_expr.get_token();
     }
 }
+

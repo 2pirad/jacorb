@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.20 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.21 2003-09-09 14:25:18 brose Exp $
  */
 
 class ValueBoxDecl
@@ -89,7 +89,7 @@ class ValueBoxDecl
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -416,3 +416,4 @@ class ValueBoxDecl
         }
     }
 }
+

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.15 2003-09-03 10:21:01 brose Exp $
+ * @version $Id: Value.java,v 1.16 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -146,6 +146,7 @@ public class Value
 
 
 }
+
 
 
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definition.java,v 1.11 2003-09-03 09:29:18 brose Exp $
+ * @version $Id: Definition.java,v 1.12 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -101,6 +101,7 @@ public class Definition
 
 
 }
+
 
 
 

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.21 2003-09-03 20:53:25 brose Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.22 2003-09-09 14:25:18 brose Exp $
  *
  */
 
@@ -501,3 +501,4 @@ public class ArrayTypeSpec
 
 
 }
+

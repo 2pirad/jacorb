@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: RaisesExpr.java,v 1.13 2003-09-09 14:25:18 brose Exp $
  */
 
 class RaisesExpr
@@ -144,6 +144,7 @@ class RaisesExpr
         }
     }
 }
+
 
 
 

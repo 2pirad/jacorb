@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.13 2003-09-03 10:13:20 brose Exp $
+ * @version $Id: SymbolList.java,v 1.14 2003-09-09 14:25:18 brose Exp $
  */
 
 public class SymbolList
@@ -43,7 +43,7 @@ public class SymbolList
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
         Enumeration e = v.elements();
@@ -97,5 +97,6 @@ public class SymbolList
         return sb.toString();
     }
 }
+
 
 

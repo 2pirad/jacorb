@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InitDecl.java,v 1.7 2003-08-31 13:17:19 andre.spiegel Exp $
+ * @version $Id: InitDecl.java,v 1.8 2003-09-09 14:25:18 brose Exp $
  */
 
 class InitDecl
@@ -45,7 +45,7 @@ class InitDecl
         s = parser.pack_replace( s );
 
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -167,6 +167,7 @@ class InitDecl
 
 
 }
+
 
 
 

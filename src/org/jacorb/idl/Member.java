@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.26 2003-09-03 20:55:07 brose Exp $
+ * @version $Id: Member.java,v 1.27 2003-09-09 14:25:18 brose Exp $
  *
  */
 
@@ -55,7 +55,7 @@ public class Member
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -289,3 +289,4 @@ public class Member
         return type_spec.typeSpec();
     }
 }
+

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.17 2003-09-01 15:31:20 brose Exp $
+ * @version $Id: NameTable.java,v 1.18 2003-09-09 14:25:18 brose Exp $
  *
  */
 
@@ -399,3 +399,4 @@ class NameTable
                 _s.equals( "org.omg.CORBA.Any" ) || _s.equals( "<anon>" ) );
     }
 }
+

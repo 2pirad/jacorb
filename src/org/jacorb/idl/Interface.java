@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.47 2003-09-03 09:21:00 brose Exp $
+ * @version $Id: Interface.java,v 1.48 2003-09-09 14:25:18 brose Exp $
  */
 
 import java.io.File;
@@ -76,7 +76,7 @@ public class Interface
 
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
-            pack_name = new String( s + "." + pack_name );
+            pack_name = s + "." + pack_name;
         else
             pack_name = s;
 
@@ -1183,3 +1183,4 @@ public class Interface
 
 
 }
+
