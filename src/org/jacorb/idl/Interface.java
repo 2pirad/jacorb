@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.34.2.2 2002-09-17 22:26:18 andre.spiegel Exp $
+ * @version $Id: Interface.java,v 1.34.2.3 2002-09-26 08:16:42 andre.spiegel Exp $
  */
 
 import java.io.File;
@@ -41,6 +41,8 @@ class Interface
     private boolean is_local = false;
     private boolean is_abstract = false;
     private ScopeData scopeData;
+    
+    private ReplyHandler replyHandler = null;
 
     /* IR information that would otherwise be lost */
     private Hashtable irInfoTable = new Hashtable();
@@ -269,6 +271,13 @@ class Interface
             }
             body.parse();
             NameTable.parsed_interfaces.put( full_name(), "" );
+
+            if (parser.generate_ami_callback)
+            {
+                replyHandler = new ReplyHandler (this);
+                replyHandler.parse();
+            }
+
         }
         else if( !justAnotherOne )
         {
@@ -982,6 +991,9 @@ class Interface
 
             // print class files for interface local definitions
             body.print(null);
+            
+            if (replyHandler != null)
+                replyHandler.print (_ps);
 
             //IRMap.enter(this);
         }
