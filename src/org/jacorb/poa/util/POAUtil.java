@@ -30,7 +30,7 @@ import java.util.Calendar;
  * This class collects some useful routines for the POA.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAUtil.java,v 1.6 2001-11-09 08:32:36 jacorb Exp $
+ * @version $Id: POAUtil.java,v 1.7 2001-11-09 09:36:39 jacorb Exp $
  */
 
 public final class POAUtil 
@@ -134,12 +134,12 @@ public final class POAUtil
 
     public static String extractImplName(byte[] object_key) 
     {
-        for (int i=0; i<object_key.length; i++) 
+        for (int i = 0; i < object_key.length; i++) 
         {
-            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE) 
+            if( object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE ) 
             {
                 byte[] result = IdUtil.extract(object_key, 0, i);
-                return unmaskStr(new String(result));
+                return unmaskStr( new String(result) );
             }
         }
         throw new POAInternalError("error extracting impl name from object_key: "+
@@ -378,8 +378,5 @@ public final class POAUtil
         return new String(unmaskId(str.getBytes()));
     }
 }
-
-
-
 
 
