@@ -46,7 +46,7 @@ import junit.framework.TestSuite;
  * Expressions.
  *
  * @author Alphonse Bendt
- * @version $Id: TCLTest.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: TCLTest.java,v 1.6 2003-09-12 09:39:04 alphonse.bendt Exp $
  */
 
 public class TCLTest extends TestCase
@@ -184,7 +184,7 @@ public class TCLTest extends TestCase
         dynAnyFactory_ =
             DynAnyFactoryHelper.narrow( orb_.resolve_initial_references( "DynAnyFactory" ) );
 
-        resultExtractor_ = new ResultExtractor( dynAnyFactory_ );
+        resultExtractor_ = new ResultExtractor();
         dynamicEvaluator_ = new DynamicEvaluator( orb_, dynAnyFactory_ );
 
         Person _person = setUpPerson();

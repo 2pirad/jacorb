@@ -21,7 +21,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtilsTest.java,v 1.2 2003-08-27 20:46:50 alphonse.bendt Exp $
+ * @version $Id: MessageUtilsTest.java,v 1.3 2003-09-12 09:38:07 alphonse.bendt Exp $
  */
 
 public class MessageUtilsTest extends TestCase
@@ -48,7 +48,7 @@ public class MessageUtilsTest extends TestCase
         context_.setDynamicEvaluator( new DynamicEvaluator( appContext_.getOrb(),
                                                             DynAnyFactoryHelper.narrow( appContext_.getOrb().resolve_initial_references( "DynAnyFactory" ) ) ) );
 
-        context_.setResultExtractor( new ResultExtractor( DynAnyFactoryHelper.narrow( appContext_.getOrb().resolve_initial_references( "DynAnyFactory" ) ) ) );
+        context_.setResultExtractor( new ResultExtractor() );
 
     }
 

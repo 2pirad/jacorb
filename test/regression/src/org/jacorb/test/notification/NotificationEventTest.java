@@ -30,7 +30,7 @@ import org.apache.log.Priority;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationEventTest.java,v 1.5 2003-08-27 20:46:50 alphonse.bendt Exp $
+ * @version $Id: NotificationEventTest.java,v 1.6 2003-09-12 09:38:06 alphonse.bendt Exp $
  */
 public class NotificationEventTest extends TestCase {
 
@@ -57,7 +57,7 @@ public class NotificationEventTest extends TestCase {
             DynAnyFactoryHelper.narrow(orb_.resolve_initial_references("DynAnyFactory"));
 
         DynamicEvaluator _dynEval = new DynamicEvaluator(orb_, _dynAnyFactory);
-        ResultExtractor _resExtr = new ResultExtractor(_dynAnyFactory);
+        ResultExtractor _resExtr = new ResultExtractor();
 
         evaluationContext_ = new EvaluationContext();
         evaluationContext_.setDynamicEvaluator(_dynEval);
