@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.11 2003-04-23 09:31:59 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.12 2003-04-26 17:51:10 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.connection.*;
@@ -76,9 +76,19 @@ public class GIOPConnectionTest extends TestCase
             return b_out.toByteArray();
         }
 
+        public void connect (org.omg.ETF.Profile profile, long time_out)
+        {
+            // nothing   
+        }
+
         public boolean hasBeenClosed()
         {
             return closed;
+        }
+
+        public boolean is_connected()
+        {
+            return !closed;
         }
 
         public void write( boolean is_first, boolean is_last, 
@@ -94,7 +104,6 @@ public class GIOPConnectionTest extends TestCase
         }
     
         public void close()
-            throws IOException
         {
             closed = true;
         }
@@ -107,16 +116,6 @@ public class GIOPConnectionTest extends TestCase
         public StatisticsProvider getStatisticsProvider()
         {
             return null;
-        }
-
-        public void closeAllowReopen() throws IOException
-        {
-            closed = true;
-        }
-
-        public void closeCompletely() throws IOException
-        {
-            closed = true;
         }
 
         public void setTransportListener(TransportListener listener)
