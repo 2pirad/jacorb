@@ -36,7 +36,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.26 2003-05-05 10:03:07 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.27 2003-05-07 09:40:52 andre.spiegel Exp $
  */public class BasicAdapter
 {
     public  static SSLServerSocketFactory ssl_socket_factory = null;
@@ -473,6 +473,7 @@ import org.omg.PortableServer.POA;
 
                     GIOPConnection connection =
                         giop_connection_manager.createServerGIOPConnection(
+                            null,
                             transport,
                             request_listener,
                             reply_listener );
