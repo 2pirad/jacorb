@@ -21,13 +21,25 @@
 
 package org.jacorb.notification.engine;
 
-import org.jacorb.notification.interfaces.Disposable;
+import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RetryStrategy.java,v 1.8 2005-02-20 21:35:27 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategyFactory.java,v 1.1 2005-02-20 21:35:27 alphonse.bendt Exp $
  */
-public interface RetryStrategy extends Disposable
+public class TaskProcessorRetryStrategyFactory implements RetryStrategyFactory
 {
-    void retry() throws RetryException;
+    private final TaskProcessor taskProcessor_;
+
+    public TaskProcessorRetryStrategyFactory(TaskProcessor taskProcessor)
+    {
+        super();
+        taskProcessor_ = taskProcessor;
+    }
+
+    public RetryStrategy newRetryStrategy(MessageConsumer messageConsumer,
+            PushOperation pushOperation)
+    {
+        return new TaskProcessorRetryStrategy(messageConsumer, pushOperation, taskProcessor_);
+    }
 }

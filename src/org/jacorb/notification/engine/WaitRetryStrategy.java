@@ -24,10 +24,10 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WaitRetryStrategy.java,v 1.4 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: WaitRetryStrategy.java,v 1.5 2005-02-20 21:35:27 alphonse.bendt Exp $
  */
 
-public class WaitRetryStrategy extends RetryStrategy
+public class WaitRetryStrategy extends AbstractRetryStrategy
 {
     public static final long WAIT_TIME_DEFAULT = 1000;
 
@@ -37,22 +37,15 @@ public class WaitRetryStrategy extends RetryStrategy
 
     private long waitTimeIncrement_;
 
-    ////////////////////////////////////////
+    // //////////////////////////////////////
 
-    public WaitRetryStrategy(MessageConsumer messageConsumer,
-                             PushOperation pushOperation)
+    public WaitRetryStrategy(MessageConsumer messageConsumer, PushOperation pushOperation)
     {
-        this(messageConsumer,
-             pushOperation,
-             WAIT_TIME_DEFAULT,
-             WAIT_INCREMENT_DEFAULT);
+        this(messageConsumer, pushOperation, WAIT_TIME_DEFAULT, WAIT_INCREMENT_DEFAULT);
     }
 
-
-    public WaitRetryStrategy(MessageConsumer messageConsumer,
-                             PushOperation pushOperation,
-                             long startingWaitTime,
-                             long waitTimeIncrement)
+    public WaitRetryStrategy(MessageConsumer messageConsumer, PushOperation pushOperation,
+            long startingWaitTime, long waitTimeIncrement)
     {
         super(messageConsumer, pushOperation);
 
@@ -61,7 +54,7 @@ public class WaitRetryStrategy extends RetryStrategy
         waitTimeIncrement_ = waitTimeIncrement;
     }
 
-    ////////////////////////////////////////
+    // //////////////////////////////////////
 
     protected long getTimeToWait()
     {
@@ -72,20 +65,26 @@ public class WaitRetryStrategy extends RetryStrategy
         return _timeToWait;
     }
 
+    protected void retryInternal() throws RetryException
+    {
+        try
+        {
+            while (isRetryAllowed())
+            {
+                try
+                {
+                    pushOperation_.invokePush();
 
-    protected void retryInternal() throws RetryException {
-        while (isRetryAllowed()) {
-            try {
-                pushOperation_.invokePush();
-
-                dispose();
-                
-                return;
-            } catch (Throwable error) {
-                remoteExceptionOccured(error);
+                    return;
+                } catch (Throwable error)
+                {
+                    remoteExceptionOccured(error);
+                }
             }
+            throw new RetryException("no more retries possible");
+        } finally
+        {
+            dispose();
         }
-        throw new RetryException("no more retries possible");
     }
 }
-
