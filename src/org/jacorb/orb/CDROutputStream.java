@@ -31,7 +31,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.6 2001-03-28 08:43:39 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.7 2001-03-28 12:17:03 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -50,7 +50,7 @@ public class CDROutputStream
     private int BUF_SIZE;
     private int NET_BUF_SIZE = 1024;
 
-    private static final int MEM_BUF_SIZE = 64;
+    private static final int MEM_BUF_SIZE = 128;
     private boolean closed = false;
     private boolean released = false;
 
@@ -94,7 +94,7 @@ public class CDROutputStream
     public CDROutputStream()
     {
         bufMgr = BufferManager.getInstance();
-        buffer = new byte[MEM_BUF_SIZE]; 
+        buffer = bufMgr.getBuffer( MEM_BUF_SIZE );
    }
 
     /** 
@@ -107,7 +107,7 @@ public class CDROutputStream
     {
         this.orb = orb;
         bufMgr = BufferManager.getInstance();
-        buffer = bufMgr.getBuffer( MEM_BUF_SIZE );
+        buffer = bufMgr.getBuffer( NET_BUF_SIZE );
     }
         
 
