@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.22 2001-10-04 14:23:49 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.23 2001-10-08 14:54:37 jacorb Exp $
  *
  */
 
@@ -944,9 +944,9 @@ public final class Delegate
                 //reply returned (with whatever result)
                 synchronized( pending_replies )
                 {
-                    if( rep != null )
+                    if( placeholder != null )
                     {
-                        pending_replies.remove( rep );
+                        pending_replies.remove( placeholder );
                     }
                 }
     
