@@ -43,7 +43,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.51 2003-06-23 09:58:58 andre.spiegel Exp $
+ * @version $Id: ParsedIOR.java,v 1.52 2003-06-23 19:06:14 andre.spiegel Exp $
  */
 
 public class ParsedIOR
@@ -365,10 +365,9 @@ public class ParsedIOR
     {
         for( int i = 0; i < _ior.profiles.length; i++ )
         {
-            //Debug.output( 4, "Parsing IOR, found profile id: " +
-            //              _ior.profiles[i].tag );
+            int tag = _ior.profiles[i].tag;
 
-            switch( _ior.profiles[i].tag )
+            switch( tag )
             {
                 case TAG_MULTIPLE_COMPONENTS.value :
                 {
@@ -379,30 +378,31 @@ public class ParsedIOR
                 default:
                 {
                     org.omg.ETF.Factories f = 
-                        orb.getTransportManager().getFactories();
-                    TaggedProfileHolder tp =
-                        new TaggedProfileHolder (_ior.profiles[i]);
-                    profiles.add 
-                      (f.demarshal_profile (tp,
-                                            new TaggedComponentSeqHolder()));
+                        orb.getTransportManager().getFactories (tag);
+                    if (f != null)
+                    {
+                        TaggedProfileHolder tp =
+                            new TaggedProfileHolder (_ior.profiles[i]);
+                        profiles.add 
+                            (f.demarshal_profile 
+                                (tp,
+                                 new TaggedComponentSeqHolder()));
+                    }
+                    else
+                    {
+                        Debug.output 
+                            (4, "No transport available for profile tag "
+                                + tag);
+                    }
                     break;
                 }
             }
         }
 
-        /* Select the effective profile. We take the one with the
-           highest minor version number. */
-        if (profiles.size() > 0)
-        {
-            effectiveProfile = (IIOPProfile)profiles.get(0);
-            for (int i=1; i<profiles.size(); i++)
-            {
-                Profile p = (Profile)profiles.get(i);
-                if (p.version().minor > effectiveProfile.version().minor)
-                    effectiveProfile = (IIOPProfile)p;
-            }
-        }
-
+        effectiveProfile = orb.getTransportManager()
+                              .getProfileSelector()
+                              .selectProfile (profiles,
+                                              orb.getClientConnectionManager());
         ior = _ior;
         ior_str = getIORString();
 
