@@ -43,9 +43,13 @@ import java.io.*;
  * value of this factory's <code>defaultPriority</code> field, or via
  * configuration properties that have the same name as the requested
  * logger, plus a suffix of <code>.log.verbosity</code>.
+ * <P>
+ * The priority for all loggers that do not have a specific <name>.log.verbosity 
+ * prop defined will be set to the value of the jacorb.log.default.verbosity 
+ * property, if it's set. If not, the default is 0.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.6 2003-12-30 15:24:51 andre.spiegel Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.7 2004-01-05 13:23:59 gerald Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -65,14 +69,22 @@ public class LogKitLoggerFactory
     /**  append to a log file or overwrite ?*/
     private boolean append = false;
 
+    /** the writer for console logging */
     private Writer consoleWriter = null;
+
+    /** this target for console logging */
+    private LogTarget consoleTarget =
+       new WriterTarget(consoleWriter, logFormatter);
+
 
 
     public LogKitLoggerFactory()
     {
-        // The priority for all loggers that do not have a specific <name>.log.verbosity prop defined
-        // will be set to the value of the jacorb.log.default.verbosity prop, if it's set, 0 otherwise.
-        String defaultPriorityString = Environment.getProperty("jacorb.log.default.verbosity");
+        String defaultPriorityString = 
+            Environment.getProperty("jacorb.log.default.verbosity");
+
+        append = Environment.isPropertyOn("jacorb.logfile.append");
+
         if (defaultPriorityString != null)
         {
            try
@@ -98,6 +110,7 @@ public class LogKitLoggerFactory
         }
 
         consoleWriter = new OutputStreamWriter(System.err);
+        consoleTarget = new WriterTarget(consoleWriter, logFormatter);
     }
 
     /**
@@ -132,23 +145,22 @@ public class LogKitLoggerFactory
     }
 
     /**
-     * @param name the name of the logger, which also functions
+     * @param name - the name of the logger, which also functions
      *        as a log category
      * @return a root console logger for a logger name hierarchy
      */
 
     public Logger getNamedRootLogger(String name)
     {
-        LogTarget target = new WriterTarget(consoleWriter, logFormatter);
-        return getNamedLogger(name, target);
+        return getNamedLogger(name, consoleTarget);
     }
 
 
     /**
-     * @param name the name of the logger, which also functions
+     * @param name - the name of the logger, which also functions
      *        as a log category
-     * @param logFileName the name of the file to log to
-     * @param maxLogSize maximum size of the log file. When this size is reached
+     * @param logFileName - the name of the file to log to
+     * @param maxLogSize - maximum size of the log file. When this size is reached
      *        the log file will be rotated and a new log file created. A value of 0
      *        means the log file size is unlimited.
      *
@@ -165,7 +177,7 @@ public class LogKitLoggerFactory
             new FileOutputStream(logFileName, append);
 
         LogTarget target = null;
-        if (maxLogSize == 0 )
+        if (maxLogSize == 0)
         {
             // no log file rotation
             Writer logWriter = new OutputStreamWriter(logStream);
@@ -173,8 +185,7 @@ public class LogKitLoggerFactory
         }
         else
         {
-
-            // log file rotation
+            // use log file rotation
             target =
                 new RotatingFileTarget(append,
                                        logFormatter,
