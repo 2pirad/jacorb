@@ -28,7 +28,7 @@ import org.jacorb.notification.parser.TCLParser;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.apache.log.Hierarchy;
+import org.jacorb.util.Debug;
 
 /**
  * DomainNameShorthandNode.java
@@ -37,7 +37,7 @@ import org.apache.log.Hierarchy;
  * Created: Thu Apr 10 12:08:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: DomainNameShorthandNode.java,v 1.5 2003-09-12 09:31:42 alphonse.bendt Exp $
+ * @version $Id: DomainNameShorthandNode.java,v 1.6 2003-11-04 07:47:56 alphonse.bendt Exp $
  */
 
 public class DomainNameShorthandNode
@@ -53,10 +53,8 @@ public class DomainNameShorthandNode
             expandedPath_.acceptInOrder( new TCLCleanUp() );
         } catch (Exception e) {
 
-            Hierarchy
-                .getDefaultHierarchy()
-                .getLoggerFor(DomainNameShorthandNode.class.getName())
-                .fatalError("No exception should ever occur at this point", e);
+            Debug.getNamedLogger(DomainNameShorthandNode.class.getName())
+                .fatalError("Unexpected Exception", e);
 
         }
     }
