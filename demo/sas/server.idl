@@ -1,0 +1,12 @@
+// The IDL for the sas demo.
+// (plain and simple ;-)
+//
+// $Id: server.idl,v 1.1 2002-09-10 16:17:38 david.robison Exp $
+
+module demo{
+  module sas{
+    interface SASDemo{
+      void printSAS();
+    };
+  };
+};
