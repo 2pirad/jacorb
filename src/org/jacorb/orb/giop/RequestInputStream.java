@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2000  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import org.jacorb.orb.*;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.7 2001-03-28 10:07:05 jacorb Exp $
+ * @version $Id: RequestInputStream.java,v 1.8 2001-03-28 10:13:10 noffke Exp $
  * 
  */
 
