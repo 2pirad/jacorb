@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.57 2004-02-13 15:01:46 nick.cross Exp $
+ * @version $Id: Interface.java,v 1.58 2004-02-13 16:17:02 gerald Exp $
  */
 
 import java.io.File;
@@ -1032,7 +1032,7 @@ public class Interface
         }
         else
         {
-            // code supplied byte Nokia for J2ME compatibility
+            // code supplied byte Nokia for CLDC10 compatibility
             // avoids use of the static .class variable.
             String fullName = null;
             if(!pack_name.equals(""))
