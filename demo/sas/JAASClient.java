@@ -18,7 +18,7 @@ import com.tagish.auth.*;
  * transparent.
  *
  * @author Nicolas Noffke
- * @version $Id: JAASClient.java,v 1.1 2002-09-11 20:22:43 david.robison Exp $
+ * @version $Id: JAASClient.java,v 1.2 2002-09-12 17:45:04 david.robison Exp $
  */
 
 public class JAASClient
@@ -138,6 +138,8 @@ public class JAASClient
             SASDemo demo = SASDemoHelper.narrow( obj );
 
             //call single operation
+            demo.printSAS();
+            demo.printSAS();
             demo.printSAS();
 
             System.out.println( "Call to server succeeded" );
