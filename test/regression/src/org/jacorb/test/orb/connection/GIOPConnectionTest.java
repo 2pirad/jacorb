@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.5 2002-11-21 11:19:44 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.6 2003-01-04 10:28:16 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.*;
@@ -97,6 +97,12 @@ public class GIOPConnectionTest
         {
             return false;
         }
+        
+        public StatisticsProvider getStatisticsProvider()
+        {
+            return null;
+        }
+
     }
 
     private class DummyRequestListener
