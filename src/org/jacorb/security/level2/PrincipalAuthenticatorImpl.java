@@ -20,7 +20,7 @@ import org.jacorb.security.util.*;
  * from a Java key store
  *
  * @author Gerald Brose
- * $Id: PrincipalAuthenticatorImpl.java,v 1.10 2001-11-22 15:59:39 prism Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.11 2002-01-11 17:27:12 gerald Exp $
  */
 
 public class PrincipalAuthenticatorImpl
@@ -46,7 +46,7 @@ public class PrincipalAuthenticatorImpl
                                              OpaqueHolder auth_specific_data
                                              )
     {
-	Debug.output( 3,"starting authentication" );
+	Debug.output( 3,"JPA: starting authentication" );
 	try 
 	{	
 	    registerProvider();
@@ -148,7 +148,7 @@ public class PrincipalAuthenticatorImpl
             
             creds.value = credsImpl;
 
-            Debug.output(3,"authentication succeeded");
+            Debug.output(3,"JPA: authentication succeeded");
 
             return AuthenticationStatus.SecAuthSuccess;
 	}

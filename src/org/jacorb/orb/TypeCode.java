@@ -33,7 +33,7 @@ import java.lang.reflect.*;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.17 2001-12-14 12:26:56 spiegel Exp $    
+ * @version $Id: TypeCode.java,v 1.18 2002-01-11 17:26:48 gerald Exp $    
  */
  
 public class TypeCode 
@@ -802,7 +802,8 @@ public class TypeCode
             try
             {
                 return  idToIDL(id());   
-            } catch ( org.omg.CORBA.TypeCodePackage.BadKind bk )
+            } 
+            catch ( org.omg.CORBA.TypeCodePackage.BadKind bk )
             {}
         case   TCKind._tk_void:   return "void";
         case   TCKind._tk_string: return "string";

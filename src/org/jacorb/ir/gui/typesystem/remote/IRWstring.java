@@ -23,8 +23,8 @@ package org.jacorb.ir.gui.typesystem.remote;
 import org.omg.CORBA.*;
 
 /**
- * @author jerome Julius
- * @version $Id: IRWstring.java,v 1.1 2001-12-14 08:41:41 gerald Exp $
+ * @author Jerome Julius
+ * @version $Id: IRWstring.java,v 1.1 2002-01-11 17:28:06 gerald Exp $
  */
 
 public class IRWstring 

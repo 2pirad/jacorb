@@ -25,7 +25,7 @@ import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.5 2001-12-14 12:32:18 spiegel Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.6 2002-01-11 17:28:06 gerald Exp $    
  */
  
 public class TypeCodeUtil
@@ -126,6 +126,8 @@ public class TypeCodeUtil
                 return new TypeCode( TCKind._tk_octet );
             if( typeName.equals("char") )
                 return new TypeCode( TCKind._tk_char );
+            if( typeName.equals("wchar") )
+                return new TypeCode( TCKind._tk_wchar );
             else 
             {
                 System.err.println("- TypeCode.getTypeCode, primitive class not found " + 
@@ -178,7 +180,7 @@ public class TypeCodeUtil
                 try
                 {
                     if( idlName.equals( "java.lang.String"))
-                        return new TypeCode(TCKind._tk_string);
+                        return new TypeCode( TCKind._tk_string);
                     else if( idlName.equals( "org.omg.CORBA.Boolean"))
                         return new TypeCode(TCKind._tk_boolean);
                     else if( idlName.equals( "org.omg.CORBA.Byte"))
