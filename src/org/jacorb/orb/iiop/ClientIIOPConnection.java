@@ -51,7 +51,7 @@ import org.omg.CORBA.TRANSIENT;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.11 2004-05-03 04:57:06 andre.spiegel Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.12 2004-05-06 09:03:59 nicolas Exp $
  */
 
 public class ClientIIOPConnection
@@ -234,7 +234,8 @@ public class ClientIIOPConnection
                 IIOPAddress address = (IIOPAddress)addressIterator.next();
 
                 final SocketFactory factory = 
-                    transportManager.getSocketFactory(); /// ??? FIXME , Andre ???
+                    (use_ssl) ? transportManager.getSSLSocketFactory() :
+                    transportManager.getSocketFactory();
 
                 final String ipAddress = address.getIP();
                 final int port = (use_ssl) ? ssl_port : address.getPort();
