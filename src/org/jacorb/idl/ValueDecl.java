@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.29 2003-04-01 14:57:12 nick.cross Exp $
+ * @version $Id: ValueDecl.java,v 1.30 2003-08-31 13:18:30 andre.spiegel Exp $
  */
 
 class ValueDecl
@@ -752,6 +752,15 @@ class ValueDecl
         out.println( "((org.omg.CORBA_2_3.portable.OutputStream)os)" +
                 ".write_value (val, \"" + id() + "\");" );
         out.println( "\t}" );
+        
+        // factory methods
+        
+        for (Iterator i = factories.iterator(); i.hasNext();)
+        {
+            InitDecl d = (InitDecl)i.next();
+            d.printHelperMethod ( out, name );
+        }
+        
         out.println( "}" );
         out.close();
     }
