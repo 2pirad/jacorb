@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.15 2002-02-04 08:39:36 steve.osselton Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.16 2002-02-19 10:36:52 steve.osselton Exp $
  */
 
 public class AliasTypeSpec 
@@ -148,8 +148,6 @@ public class AliasTypeSpec
                     tName = originalType.typeName();
 
                 addImportedName( tName );
-//                  imports.put( tName, "" );
-//                  imports.put( tName + "Helper", "" );
             }        
         }
 
@@ -158,12 +156,6 @@ public class AliasTypeSpec
 	    originalType = ((ScopedName)originalType).resolvedTypeSpec();
 
             addImportedName( originalType.typeName() );
-
-//              if( originalType.typeName().indexOf( '.' ) < 0 )
-//              {
-//                  imports.put( originalType.typeName(), "" );
-//                  imports.put( originalType.typeName() + "Helper", "" );
-//              }
         }
 
 

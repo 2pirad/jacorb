@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.11 2001-12-14 14:13:12 gerald Exp $
+ * @version $Id: Member.java,v 1.12 2002-02-19 10:36:53 steve.osselton Exp $
  *
  */
 
@@ -100,21 +100,15 @@ class Member
 	if( extendVector == null )
 	    throw new RuntimeException("Compiler Error: extendVector not set!");
 
-	if( type_spec.typeSpec() instanceof ScopedName )
+	if (type_spec.typeSpec() instanceof ScopedName) 
 	{
 	    token = type_spec.typeSpec().get_token();
             String name = type_spec.typeSpec().toString();
 
-            // if(  enclosing_symbol != null )
-                enclosing_symbol.addImportedName( name );
-
-//              if( name.indexOf( '.' ) < 0 )
-//              {
-//                  enclosing_symbol.imports.put( name, "" );
-//                  enclosing_symbol.imports.put( name + "Helper", "" );
-//              }
-
 	    type_spec = ((ScopedName)type_spec.typeSpec()).resolvedTypeSpec();
+
+            enclosing_symbol.addImportedName (name, type_spec);
+
 	    clone_and_parse = false;
 	    if( type_spec instanceof ConstrTypeSpec )
 	    {

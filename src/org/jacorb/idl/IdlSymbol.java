@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.12 2002-02-08 21:21:32 gerald Exp $
+ * @version $Id: IdlSymbol.java,v 1.13 2002-02-19 10:36:53 steve.osselton Exp $
  */
 
 class IdlSymbol 
@@ -243,12 +243,23 @@ class IdlSymbol
 	}
     }
 
-    public void addImportedName( String name )
+    public void addImportedName (String name)
     {
-        if( name.indexOf( '.' ) < 0 && !BaseType.isBasicName(name))
+        addImportedName (name, null);
+    }
+
+    public void addImportedName (String name, TypeSpec type)
+    {
+        if (name.indexOf ('.') < 0 && !BaseType.isBasicName (name))
         {
-            imports.put( name, "" );
-            imports.put( name + "Helper", "" );
+            // If we have a typedef for a basic type we only want
+            // to import the helper class.
+
+            if ((type == null) || !BaseType.isBasicName (type.toString ()))
+            {
+                imports.put (name, "");
+            }
+            imports.put (name + "Helper", "");
         }
     }
 
