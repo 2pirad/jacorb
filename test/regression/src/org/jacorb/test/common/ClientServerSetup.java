@@ -73,7 +73,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.14 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: ClientServerSetup.java,v 1.15 2004-05-07 13:49:37 brose Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -130,7 +130,7 @@ public class ClientServerSetup extends TestSetup {
         clientRootPOA.the_POAManager().activate();
 
 //      StringBuffer serverexec = new StringBuffer( "java -Djacorb.implname=" );
-        StringBuffer serverexec = new StringBuffer( "jaco.bat -Djacorb.implname=" );
+        StringBuffer serverexec = new StringBuffer( "jaco -Djacorb.implname=");
         serverexec.append( servantName );
 //      serverexec.append(" -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB ");
 //      serverexec.append("-Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton ");
@@ -141,7 +141,7 @@ public class ClientServerSetup extends TestSetup {
         serverexec.append( ' ' );
         serverexec.append( getTestServerMain() );
         serverexec.append( ' ' );
-        serverexec.append( servantName );
+        serverexec.append( servantName + "\"");
 
         System.out.println( "Execing: " + serverexec.toString() );
 
