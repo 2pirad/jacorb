@@ -22,34 +22,49 @@ package org.jacorb.notification.engine;
  */
 
 import org.jacorb.notification.interfaces.TimerEventSupplier;
+
 import org.omg.CosEventComm.Disconnected;
 
 /**
- * PullFromSupplierTask.java
- *
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: PullFromSupplierTask.java,v 1.4 2004-01-16 17:21:27 alphonse.bendt Exp $
  */
 
 public class PullFromSupplierTask extends AbstractTask
 {
-
     private TimerEventSupplier target_;
+
+    ////////////////////////////////////////
+
+    PullFromSupplierTask() {
+        super();
+    }
+
+    ////////////////////////////////////////
 
     public void setTarget( TimerEventSupplier target )
     {
         target_ = target;
     }
 
+
     public void doWork() throws Disconnected
     {
         target_.runPullEvent();
-        setStatus( DONE );
+
+        dispose();
     }
+
 
     public void reset()
     {
         super.reset();
+
         target_ = null;
+    }
+
+
+    public void handleTaskError(AbstractTask task, Throwable error) {
+        logger_.fatalError("Error in Task: " + task, error);
     }
 }
