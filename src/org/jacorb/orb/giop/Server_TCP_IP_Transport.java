@@ -32,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.10 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.11 2002-10-21 07:49:54 nicolas Exp $
  */
 
 public class Server_TCP_IP_Transport
@@ -68,6 +68,14 @@ public class Server_TCP_IP_Transport
     protected void close( int reason )
         throws IOException
     {
+        // read timeouts should only close the connection, if it is
+        // idle, i.e. has no pending messages.
+        if( reason == READ_TIMED_OUT &&
+            ! isIdle() )
+        {
+            return;
+        }
+
         Debug.output( 2, "Closing TCP connection, reason " + reason );
 
         //ignore the reasons since this transport can never be

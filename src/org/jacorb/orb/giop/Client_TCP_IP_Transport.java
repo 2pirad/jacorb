@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.15 2002-08-02 17:04:19 nicolas Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.16 2002-10-21 07:49:54 nicolas Exp $
  */
 
 public class Client_TCP_IP_Transport
@@ -178,6 +178,14 @@ public class Client_TCP_IP_Transport
     protected synchronized void close( int reason )
         throws IOException
     {
+        // read timeouts should only close the connection, if it is
+        // idle, i.e. has no pending messages.
+        if( reason == READ_TIMED_OUT &&
+            ! isIdle() )
+        {
+            return;
+        }
+
         if (connected && socket != null)
         {
             // Try and invoke socket.shutdownOutput via reflection (bug #81)

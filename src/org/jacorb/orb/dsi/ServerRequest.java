@@ -31,7 +31,7 @@ import org.omg.GIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.15 2002-05-27 07:19:02 gerald Exp $
+ * @version $Id: ServerRequest.java,v 1.16 2002-10-21 07:49:54 nicolas Exp $
  */
 
 public class ServerRequest 
@@ -265,24 +265,20 @@ public class ServerRequest
     {
 	if( responseExpected() )
 	{
-		
-		//shortcut for appligator
-		if (usePreconstructedReply)
-		{
-			try{
-				connection.sendMessage( out );
-			}
-			catch ( Exception ioe )
-			{
-				Debug.output(2,ioe);
-				System.err.println("ServerRequest: Error replying to request!");
-			}
-			finally
-			{
-				return;
-			}
-
-    	 	}
+            //shortcut for appligator
+            if (usePreconstructedReply)
+            {
+                try
+                {
+                    connection.sendReply( out );
+                }
+                catch( Exception ioe )
+                {
+                    Debug.output(2,ioe);
+                }
+                
+                return;
+            }
 	
 	    Debug.output(6,"ServerRequest: reply to " + operation());
 
@@ -358,12 +354,11 @@ public class ServerRequest
                  * or exceptions. 
                  */
 
-		connection.sendMessage( out );
+		connection.sendReply( out );
 	    }
 	    catch ( Exception ioe )
 	    {
 		Debug.output(2,ioe);
-		System.err.println("ServerRequest: Error replying to request!");
 	    }
 	}
     }

@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.5 2002-06-25 07:35:05 nicolas Exp $
+ * @version $Id: Transport.java,v 1.6 2002-10-21 07:49:54 nicolas Exp $
  */
 
 public interface Transport 
@@ -80,6 +80,24 @@ public interface Transport
      * Test, if the transport is using SSL.
      */
     public boolean isSSL();
+
+    /**
+     * Tell this transport that no messages are pending, i.e. it may
+     * be closed on a read timeout.  
+     */
+    public void setIdle();
+
+    /**
+     * Tell this transport that messages are pending on this
+     * transport, i.e. it must not be closed on a read timeout.  
+     */
+    public void setBusy();
+
+    /**
+     * Test, if this transport has pending messages. If not, closing
+     * on a read timeout is o.k.  
+     */
+    public boolean isIdle();
 }// Transport
 
 

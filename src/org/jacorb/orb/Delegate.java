@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.61 2002-10-15 11:40:36 steve.osselton Exp $
+ * @version $Id: Delegate.java,v 1.62 2002-10-21 07:49:54 nicolas Exp $
  *
  */
 
@@ -229,7 +229,8 @@ public final class Delegate
 
                     connection.sendRequest( lros,
                                             place_holder,
-                                            lros.getRequestId() );
+                                            lros.getRequestId(),
+                                            true ); //response expected
 
 
                     LocateReplyInputStream lris =
@@ -795,7 +796,8 @@ public final class Delegate
                         //exactly this connection
                         connection.sendRequest( ros,
                                                 placeholder,
-                                                ros.requestId() );
+                                                ros.requestId(),
+                                                true ); // response expected
                     }
                     else
                     {
@@ -809,7 +811,8 @@ public final class Delegate
             }
             else
             {
-                connection.sendRequest( ros );
+                connection.sendRequest( ros,
+                                        false ); // no response expected
             }
 
         }

@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.18 2002-07-08 10:05:50 gerald Exp $
+ * @version $Id: BasicAdapter.java,v 1.19 2002-10-21 07:49:54 nicolas Exp $
  */
 
 import java.io.*;
@@ -53,7 +53,6 @@ public class BasicAdapter
     }
 
     /** the number of outstanding replies. */
-    private  int pendingReplies = 0;
 
     private  org.jacorb.orb.ORB orb; 
     private  POA rootPOA; 
@@ -170,11 +169,6 @@ public class BasicAdapter
         return request_listener;
     }
 
-    public void replyPending()
-    {
-        pendingReplies++;
-    }
-
     public int getPort()
     {
         return listener.getPort();
@@ -278,7 +272,6 @@ public class BasicAdapter
 
     public synchronized void return_result(org.jacorb.orb.dsi.ServerRequest request)
     {
-        pendingReplies--;
         request.reply();
     }
 

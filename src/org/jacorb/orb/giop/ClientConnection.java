@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.28 2002-09-12 15:44:58 david.robison Exp $
+ * @version $Id: ClientConnection.java,v 1.29 2002-10-21 07:49:54 nicolas Exp $
  */
 
 public class ClientConnection
@@ -206,7 +206,8 @@ public class ClientConnection
      */
     public void sendRequest( MessageOutputStream os,
                              ReplyPlaceholder placeholder,
-                             int request_id )
+                             int request_id,
+                             boolean response_expected )
     {
         Integer key = new Integer( request_id );
 
@@ -215,14 +216,15 @@ public class ClientConnection
             replies.put( key, placeholder );
         }
 
-        sendRequest( os );
+        sendRequest( os, response_expected );
     }
 
-    public void sendRequest( MessageOutputStream os )
+    public void sendRequest( MessageOutputStream os,
+                             boolean response_expected )
     {
         try
         {
-            connection.sendMessage (os);
+            connection.sendRequest( os, response_expected );
         }
         catch (java.io.IOException e)
         {
