@@ -36,7 +36,7 @@ import javax.net.*;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.16 2004-11-02 08:09:37 simon.mcqueen Exp $
+ * $Id: SSLSocketFactory.java,v 1.17 2004-11-18 16:53:02 nicolas Exp $
  */
 
 public class SSLSocketFactory 
@@ -175,14 +175,12 @@ public class SSLSocketFactory
 
     public boolean isSSL ( java.net.Socket s )
     { 
-        return ( s instanceof SSLSocket); 
+        return (s instanceof SSLSocket); 
     }
 
     private SocketFactory createSocketFactory() 
         throws IOException, java.security.GeneralSecurityException
     {
-        //Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
-
         KeyManagerFactory kmf = null;
         KeyStore key_store = null;
 
