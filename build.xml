@@ -4,7 +4,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.14 2001-12-21 14:47:28 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.15 2002-02-05 16:10:08 jason.courage Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init">
@@ -179,7 +179,9 @@
       <delete dir="${classdir}/org"/>
       <delete dir="${classdir}/java_cup"/>
       <delete dir="${classdir}/HTTPClient"/>
-      <delete dir="${src}/generated"/>
+      <delete dir="${src}/generated/CosEventChannelAdmin"/>
+      <delete dir="${src}/generated/CosEventComm"/>
+      <delete dir="${src}/generated/org"/>
    </target>
 
    <target name="realclean" depends="clean" description="Clean the checkout including generated jars">
