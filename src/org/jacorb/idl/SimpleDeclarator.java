@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.14 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.15 2003-12-10 09:24:31 gerald Exp $
  */
 
 
@@ -53,6 +53,7 @@ public class SimpleDeclarator
 
     public void parse()
     {
+        // add sloppy_declarator behavior here....
         try
         {
             NameTable.define( full_name(), "declarator" );
