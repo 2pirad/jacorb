@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: AnyType.java,v 1.12 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: AnyType.java,v 1.13 2003-09-12 08:59:23 brose Exp $
  */
 
 public class AnyType
@@ -42,6 +42,16 @@ public class AnyType
     {
         return "org.omg.CORBA.Any";
     }
+
+    /**
+     * @overrides getIDLTypeName in TypeSpec
+     */
+
+    public String getIDLTypeName()
+    {
+        return "any";
+    }
+
 
     public TypeSpec typeSpec()
     {
