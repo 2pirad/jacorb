@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.34 2003-08-15 11:18:00 andre.spiegel Exp $
+ * @version $Id: POA.java,v 1.35 2003-08-18 04:45:45 francisco Exp $
  */
 
 public class POA
@@ -1389,7 +1389,8 @@ public class POA
 
         ByteArrayKey oid = new ByteArrayKey (objectId);
 
-        if (aom.isDeactivating (oid) || requestController.isDeactivating (oid))
+        if ( ( aom != null && aom.isDeactivating (oid) ) 
+             || requestController.isDeactivating (oid))
         {
             if (logTrace.test(0))
                 logTrace.printLog(objectId, "cannot process request, because object is already in the deactivation process");
