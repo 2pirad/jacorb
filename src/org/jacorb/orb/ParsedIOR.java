@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.15 2001-11-14 12:40:22 jacorb Exp $
+ * @version $Id: ParsedIOR.java,v 1.16 2001-12-11 10:46:32 gerald Exp $
  */
 
 public class ParsedIOR 
@@ -319,10 +319,14 @@ public class ParsedIOR
         // EstablishTrustInTarget and EstablishTrustInClient is
         // handled at the socket factory layer.
 
-        if( ssl != null && //server knows about ssl
+        if( ssl != null &&                                               // server knows about ssl
             Environment.isPropertyOn( "jacorb.security.support_ssl" ) && //we support ssl
-            ( ((Environment.getIntProperty( "jacorb.security.ssl.client.required_options", 16 ) & 0x60) != 0) || //we require ssl
-              ((ssl.target_requires & 0x60) != 0))) //server requires ssl
+            ( ((Environment.getIntProperty( "jacorb.security.ssl.client.required_options", 16 ) & 0x60) != 0) ||
+                                                     // we require ssl
+              ((ssl.target_requires & 0x60) != 0) || // server requires client auth.
+              ((ssl.target_requires & 0x02) != 0) || // server requires integrity
+              ((ssl.target_requires & 0x04) != 0)    // server requires confidentiality
+              ))
         {
             use_ssl = true; 
             port = ssl.port; 
