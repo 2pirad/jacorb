@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: AddExpr.java,v 1.13 2003-04-01 15:19:26 nick.cross Exp $
  */
 
 class AddExpr
@@ -108,7 +108,7 @@ class AddExpr
         String x = "";
         if( add_expr != null )
         {
-            x = add_expr + operator;
+            x = add_expr.toString () + ' ' + operator + ' ';
         }
         return x + mult_expr;
     }
@@ -118,9 +118,3 @@ class AddExpr
         return mult_expr.get_token();
     }
 }
-
-
-
-
-
-

@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.11 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: MultExpr.java,v 1.12 2003-04-01 15:19:26 nick.cross Exp $
  */
 
 class MultExpr
@@ -110,7 +110,7 @@ class MultExpr
         String x = "";
         if( mult_expr != null )
         {
-            x = mult_expr + operator;
+            x = mult_expr.toString () + ' ' + operator + ' ';
         }
         return x + unary_expr.toString();
     }
@@ -121,11 +121,3 @@ class MultExpr
     }
 
 }
-
-
-
-
-
-
-
-
