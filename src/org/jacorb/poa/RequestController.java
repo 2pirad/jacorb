@@ -41,7 +41,7 @@ import java.util.Enumeration;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.11 2002-06-12 14:33:43 reimo Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.12 2002-06-21 15:07:49 steve.osselton Exp $
  */
 public class RequestController 
     extends Thread 
@@ -51,6 +51,7 @@ public class RequestController
     private RequestQueue 		requestQueue;
     private AOM 			aom;
     private RPPoolManager		poolManager;
+    private int                         localRequests = 0;
 
     /*  a  singleton   for  all  POA's  in  one   virtual  machine  if
        SINGLE_THREAD_MODEL is in use */
@@ -548,25 +549,35 @@ public class RequestController
     synchronized void waitForShutdown() 
     {		
         waitForShutdownCalled = true;
-		
-        while (waitForShutdownCalled && !activeRequestTable.isEmpty()) 
+
+        while
+        (
+            (waitForShutdownCalled && ! activeRequestTable.isEmpty ())
+            || (localRequests != 0)
+        )
         {
-            try 
+            try
             {
-            	if (logTrace.test(6))
+                if (logTrace.test (6))
+                {
                     logTrace.printLog("somebody waits for shutdown and there are active processors");
-                wait();
-            } 
-            catch (InterruptedException e) 
+                }
+                wait ();
+            }
+            catch (InterruptedException e)
             {
             }
         }
     }    
+
+    synchronized void addLocalRequest ()
+    {
+        localRequests++;
+    }
+
+    synchronized void removeLocalRequest ()
+    {
+        localRequests--;
+        notifyAll ();
+    }
 }
-
-
-
-
-
-
-

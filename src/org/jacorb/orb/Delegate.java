@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.55 2002-06-21 14:42:05 steve.osselton Exp $
+ * @version $Id: Delegate.java,v 1.56 2002-06-21 15:07:49 steve.osselton Exp $
  *
  */
 
@@ -1361,6 +1361,10 @@ public final class Delegate
     public void servant_postinvoke( org.omg.CORBA.Object self, ServantObject servant )
     {
         orb.getPOACurrent()._removeContext( Thread.currentThread() );
+        if (poa != null)
+        {
+            poa.removeLocalRequest ();
+        }
     }
 
     /**
@@ -1379,6 +1383,7 @@ public final class Delegate
 
         if (poa != null)
         {
+            poa.addLocalRequest ();
             try
             {
                 ServantObject so = new ServantObject();

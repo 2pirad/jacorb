@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.26 2002-06-17 15:58:19 steve.osselton Exp $
+ * @version $Id: POA.java,v 1.27 2002-06-21 15:07:49 steve.osselton Exp $
  */
 
 public class POA
@@ -1845,4 +1845,13 @@ public class POA
         return (org.omg.CORBA.Policy) all_policies.get(new Integer(type));
     }
 
+    public void addLocalRequest ()
+    {
+        requestController.addLocalRequest ();
+    }
+
+    public void removeLocalRequest ()
+    {
+        requestController.removeLocalRequest ();
+    }
 }
