@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.9 2001-06-08 15:34:49 jacorb Exp $
+ * @version $Id: SequenceType.java,v 1.10 2001-06-13 09:54:50 jacorb Exp $
  */
 
 
@@ -558,11 +558,9 @@ public class SequenceType
 		{
 		    if( !dir.mkdirs())
 		    {
-			System.err.println("Unable to create " + path );
-			System.exit(1);
+                        org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );
 		    }
 		}
-
 
 		String fname = className + "Holder.java";
 		PrintWriter ps = new PrintWriter(new java.io.FileWriter(new File(dir,fname)));

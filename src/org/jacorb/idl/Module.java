@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.5 2001-06-11 08:39:55 jacorb Exp $
+ * @version $Id: Module.java,v 1.6 2001-06-13 09:54:49 jacorb Exp $
  */
 
 import java.util.*;
@@ -131,8 +131,7 @@ class Module
                 {
                     if( !dir.mkdirs())
                     {
-                        System.err.println("Unable to create " + path );
-                        System.exit(1);
+                        org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );
                     }
                 }
                 

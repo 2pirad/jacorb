@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.5 2001-05-29 11:40:06 jacorb Exp $
+ * @version $Id: IdlSymbol.java,v 1.6 2001-06-13 09:54:49 jacorb Exp $
  */
 
 class IdlSymbol 
@@ -330,9 +330,8 @@ class IdlSymbol
                     ScopeData sd = ((Scope)enc).getScopeData();
                     if( sd == null )
                     {
-                        System.err.println("ScopeDate null for " + name + " " +
-                                           this.getClass().getName());
-                        System.exit(1);
+                        org.jacorb.idl.parser.fatal_error( "ScopeDate null for " + name + " " +
+                                                           this.getClass().getName(), null );
                     }
                     Hashtable h = sd.versionMap;
 

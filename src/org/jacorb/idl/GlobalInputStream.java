@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /*
  * @author Gerald Brose
- * @version $Id: GlobalInputStream.java,v 1.3 2001-03-19 11:07:41 brose Exp $
+ * @version $Id: GlobalInputStream.java,v 1.4 2001-06-13 09:54:49 jacorb Exp $
  *
  */
 
@@ -162,8 +162,8 @@ public class GlobalInputStream
 	{
 	    if( path_names == null )
 	    {
-		System.err.println("File " + fname + " not found in include path");
-		System.exit(1);
+                org.jacorb.idl.parser.fatal_error( "File " + fname + 
+                                                   " not found in include path", null);
 	    }
 	    else
 	    {
@@ -179,8 +179,9 @@ public class GlobalInputStream
 		    {}
 		}
 	    }
-	    System.err.println("File " + fname + " not found in include path");
-	    System.exit(1);
+
+            org.jacorb.idl.parser.fatal_error( "File " + fname + 
+                                               " not found in include path", null);
 	    return null;
 	}
     }

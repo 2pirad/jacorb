@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.6 2001-04-10 09:32:47 jacorb Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.7 2001-06-13 09:54:48 jacorb Exp $
  *
  */
 
@@ -483,8 +483,7 @@ class ArrayTypeSpec
 		{
 		    if( !dir.mkdirs())
 		    {
-			System.err.println("Unable to create " + path );
-			System.exit(1);
+                        org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );
 		    }
 		}
 		

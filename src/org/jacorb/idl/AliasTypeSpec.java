@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.9 2001-06-11 08:39:55 jacorb Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.10 2001-06-13 09:54:48 jacorb Exp $
  */
 
 public class AliasTypeSpec 
@@ -208,8 +208,7 @@ public class AliasTypeSpec
             {
 		if( !dir.mkdirs())
 		{
-		    System.err.println("Unable to create " + path );
-		    System.exit(1);
+                    org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );
 		}
             }
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.15 2001-06-11 08:47:35 jacorb Exp $
+ * @version $Id: Interface.java,v 1.16 2001-06-13 09:54:49 jacorb Exp $
  */
 
 import java.util.*;
@@ -799,8 +799,7 @@ class Interface
                 {
                     if( !dir.mkdirs())
                     {
-                        System.err.println("Unable to create " + path );
-                        System.exit(1);
+                        org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );
                     }
                 }
                 

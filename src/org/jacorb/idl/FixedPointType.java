@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.6 2001-05-31 11:54:57 jacorb Exp $
+ * @version $Id: FixedPointType.java,v 1.7 2001-06-13 09:54:49 jacorb Exp $
  */
 
 class FixedPointType 
@@ -175,8 +175,7 @@ class FixedPointType
 	    {
 		if( !dir.mkdirs())
 		{
-		    System.err.println("Unable to create " + path );
-		    System.exit(1);
+                    org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );
 		}
 	    }       
 	    

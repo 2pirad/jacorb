@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.8 2001-05-29 11:40:06 jacorb Exp $
+ * @version $Id: EnumType.java,v 1.9 2001-06-13 09:54:48 jacorb Exp $
  */
 
 class EnumType 
@@ -368,8 +368,7 @@ class EnumType
             {
                 if( !dir.mkdirs())
                 {
-                    System.err.println("Unable to create " + path );
-                    System.exit(1);
+                    org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );	
                 }
             }
         

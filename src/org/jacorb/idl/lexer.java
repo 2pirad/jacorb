@@ -46,7 +46,7 @@ import java_cup.runtime.float_token;
  *  
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.9 2001-06-08 15:34:49 jacorb Exp $
+ * @version $Id: lexer.java,v 1.10 2001-06-13 09:54:50 jacorb Exp $
  * @author Gerald Brose
  * 
  */
@@ -323,10 +323,9 @@ public class lexer
         }
         catch (Exception e)
         {
-            System.err.println("Cannot read from file " + 
-                               GlobalInputStream.currentFile().getAbsolutePath() + 
-                               ", please check file name.");
-            System.exit(1);
+            org.jacorb.idl.parser.fatal_error( "Cannot read from file " + 
+                                               GlobalInputStream.currentFile().getAbsolutePath() + 
+                                               ", please check file name.", null);
         }
 
         if (next_char == EOF_CHAR) 

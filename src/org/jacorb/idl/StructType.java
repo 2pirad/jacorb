@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.9 2001-06-11 08:39:56 jacorb Exp $
+ * @version $Id: StructType.java,v 1.10 2001-06-13 09:54:50 jacorb Exp $
  */
 
 class StructType 
@@ -499,8 +499,7 @@ class StructType
 	    if( !dir.exists() )
 		if( !dir.mkdirs())
 		{
-		    System.err.println("Unable to create " + path );
-		    System.exit(1);
+                    org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );	
 		}
 
 	    /** print the mapped java class */

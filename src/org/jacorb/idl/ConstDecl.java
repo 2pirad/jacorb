@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.7 2001-05-31 08:04:12 jacorb Exp $
+ * @version $Id: ConstDecl.java,v 1.8 2001-06-13 09:54:48 jacorb Exp $
  */
 
 import java.util.Vector;
@@ -191,8 +191,7 @@ class ConstDecl
 	    {
 		if( !dir.mkdirs())
 		{
-		    System.err.println("Unable to create " + path );
-		    System.exit(1);
+                    org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null ); 
 		}
 	    }
 

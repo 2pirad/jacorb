@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.3 2001-03-29 12:54:23 jacorb Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.4 2001-06-13 09:54:50 jacorb Exp $
  */
 
 class ValueBoxDecl 
@@ -306,8 +306,7 @@ class ValueBoxDecl
 	    if( !dir.exists() )
 		if( !dir.mkdirs())
 		{
-		    System.err.println("Unable to create " + path );
-		    System.exit(1);
+                    org.jacorb.idl.parser.fatal_error( "Unable to create " + path, null );
 		}
 
 	    /** print the mapped java class */

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.7 2001-06-11 08:39:56 jacorb Exp $
+ * @version $Id: TypeMap.java,v 1.8 2001-06-13 09:54:50 jacorb Exp $
  */
 
 import java.util.*;
@@ -99,9 +99,8 @@ class TypeMap
 	    catch ( NameAlreadyDefined nad )
 	    {
 		// serious error, should never happen
-		System.err.println("TypeMap.replaceForwardDeclaration, serious error!");
 		nad.printStackTrace();
-		System.exit(1);
+                org.jacorb.idl.parser.fatal_error( "TypeMap.replaceForwardDeclaration, serious error!", null);
 	    }
 	}
 	else
