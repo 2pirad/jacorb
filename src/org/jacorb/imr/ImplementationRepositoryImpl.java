@@ -50,7 +50,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.43 2003-05-07 16:17:06 andre.spiegel Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.44 2003-05-24 10:11:07 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1251,8 +1251,8 @@ public class ImplementationRepositoryImpl
                 socket.setSoTimeout( timeout );
 
                 org.omg.ETF.Connection transport =
-                    transport_manager.createServerTransport( socket,
-                                                             false ); //no ssl
+                    new ServerIIOPConnection (socket, 
+                                              false); // no SSL
 
                 GIOPConnection connection =
                     new ClientGIOPConnection( transport.get_server_profile(),
@@ -1531,8 +1531,8 @@ public class ImplementationRepositoryImpl
 		// when trying to contact the server too early.
 
 		org.omg.CORBA.Object _object =
-                orb.string_to_object(
-                    (new ParsedIOR( _ior )).getIORString());
+            orb.string_to_object
+              ((new ParsedIOR( _ior, (org.jacorb.orb.ORB)orb )).getIORString());
 
 		// Sort of busy waiting here, no other way possible
 		for( int _i = 0; _i < object_activation_retries; _i++ )
