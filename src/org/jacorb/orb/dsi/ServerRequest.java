@@ -28,7 +28,7 @@ import org.jacorb.orb.portableInterceptor.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.7 2001-05-01 08:13:39 jacorb Exp $
+ * @version $Id: ServerRequest.java,v 1.8 2001-06-12 12:27:47 jacorb Exp $
  */
 
 public class ServerRequest 
@@ -75,9 +75,11 @@ public class ServerRequest
 	this.orb = orb;
 	in = new RequestInputStream( orb,_buf);
 	connection = _connection;
-        in.setCodeSet( connection.TCS, connection.TCSW );
 
-	oid = org.jacorb.poa.util.POAUtil.extractOID( in.req_hdr.object_key);
+        if( connection.isTCSNegotiated() )
+            in.setCodeSet( connection.TCS, connection.TCSW );
+
+	oid = org.jacorb.poa.util.POAUtil.extractOID( in.req_hdr.object_key );
     }
 
     /** if this request could not be delivered directly to the

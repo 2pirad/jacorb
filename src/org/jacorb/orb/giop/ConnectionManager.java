@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ConnectionManager.java,v 1.7 2001-04-18 08:13:48 noffke Exp $
+ * @version $Id: ConnectionManager.java,v 1.8 2001-06-12 12:27:47 jacorb Exp $
  *
  */
 
@@ -250,7 +250,7 @@ public class ConnectionManager
                 {
                     try
                     {
-                        s.setSoTimeout(Integer.parseInt(prop));
+                        s.setSoTimeout( Integer.parseInt(prop) );
                     } 
                     catch ( java.lang.NumberFormatException nfe )
                     {

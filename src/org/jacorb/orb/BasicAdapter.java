@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.8 2001-04-05 09:52:18 noffke Exp $
+ * @version $Id: BasicAdapter.java,v 1.9 2001-06-12 12:27:46 jacorb Exp $
  */
 
 import java.io.*;
@@ -711,10 +711,10 @@ public class BasicAdapter
                                 orb.getBasicAdapter().replyPending();
                                 
                                 // devik: look for codeset context if not negotiated yet
-                                if(!connection.isTCSNegotiated())
+                                if( !connection.isTCSNegotiated() )
                                 {
                                     // look for codeset service context
-                                    connection.setServerCodeSet(request.getServiceContext());
+                                    connection.setServerCodeSet( request.getServiceContext() );
                                 }
                                 
                                 deliverRequest( request );
