@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.18 2002-03-01 09:58:25 steve.osselton Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.19 2002-03-04 18:05:56 steve.osselton Exp $
  */
 
 public class AliasTypeSpec 
@@ -409,10 +409,6 @@ public class AliasTypeSpec
                    getTypeCodeExpression()+";");
 
 	String type = originalType.typeName();
-
-	ps.println("\tpublic " + className + "Helper ()");
-	ps.println("\t{");
-	ps.println("\t}");
 
 	ps.println("\tpublic static void insert (final org.omg.CORBA.Any any, final " + type + " s)");
 	ps.println("\t{");

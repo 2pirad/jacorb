@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.17 2002-03-01 09:58:26 steve.osselton Exp $
+ * @version $Id: StructType.java,v 1.18 2002-03-04 18:05:57 steve.osselton Exp $
  */
 
 class StructType 
@@ -310,10 +310,6 @@ class StructType
 	ps.println("\tprivate static org.omg.CORBA.TypeCode _type = "+getTypeCodeExpression()+";");
 
 	String type = typeName();
-
-	ps.println("\tpublic " + className + "Helper ()");
-	ps.println("\t{");
-	ps.println("\t}");
 
 	TypeSpec.printHelperClassMethods(className, ps, type);
 

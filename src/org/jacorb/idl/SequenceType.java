@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.13 2002-03-01 09:58:26 steve.osselton Exp $
+ * @version $Id: SequenceType.java,v 1.14 2002-03-04 18:05:57 steve.osselton Exp $
  */
 
 
@@ -464,10 +464,6 @@ public class SequenceType
 	ps.println("public final class " + className + "Helper");
 	ps.println("{");
 	ps.println("\tprivate static org.omg.CORBA.TypeCode _type = " + getTypeCodeExpression() + ";");
-
-	ps.println("\tpublic " + className + "Helper ()");
-	ps.println("\t{");
-	ps.println("\t}");
 
 	TypeSpec.printHelperClassMethods(className, ps, type);
 	printIdMethod(ps); // from IdlSymbol

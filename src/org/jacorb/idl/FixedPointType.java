@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.8 2002-03-01 09:58:26 steve.osselton Exp $
+ * @version $Id: FixedPointType.java,v 1.9 2002-03-04 18:05:56 steve.osselton Exp $
  */
 
 class FixedPointType 
@@ -99,10 +99,6 @@ class FixedPointType
 	ps.println("public final class " + className + "Helper");
 	ps.println("{");
 	ps.println("\tprivate static org.omg.CORBA.TypeCode _type = " + getTypeCodeExpression() + ";");
-
-	ps.println("\tpublic " + className + "Helper ()");
-	ps.println("\t{");
-	ps.println("\t}");
 
 	ps.println("\tpublic static void insert(org.omg.CORBA.Any any, java.math.BigDecimal s)");
 	ps.println("\t{");

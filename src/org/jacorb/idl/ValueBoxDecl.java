@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.8 2002-03-01 09:58:27 steve.osselton Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.9 2002-03-04 18:05:57 steve.osselton Exp $
  */
 
 class ValueBoxDecl 
@@ -245,10 +245,6 @@ class ValueBoxDecl
 	ps.println("\tprivate static org.omg.CORBA.TypeCode _type = "+getTypeCodeExpression()+";");
 
         String type = typeName();
-
-	ps.println("\tpublic " + className + "Helper ()");
-	ps.println("\t{");
-	ps.println("\t}");
 
 	TypeSpec.printHelperClassMethods(className, ps, type);
 

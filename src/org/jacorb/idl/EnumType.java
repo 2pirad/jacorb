@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.13 2002-03-01 09:58:26 steve.osselton Exp $
+ * @version $Id: EnumType.java,v 1.14 2002-03-04 18:05:56 steve.osselton Exp $
  */
 
 class EnumType 
@@ -271,10 +271,6 @@ class EnumType
         ps.println("{");
 
         ps.println("\tprivate static org.omg.CORBA.TypeCode _type = "+getTypeCodeExpression()+";");
-
-        ps.println("\tpublic " + className + "Helper ()");
-        ps.println("\t{");
-        ps.println("\t}");
 
         String type = typeName();
         TypeSpec.printHelperClassMethods(className, ps, type);

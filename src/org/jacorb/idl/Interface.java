@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.21 2002-03-01 09:58:26 steve.osselton Exp $
+ * @version $Id: Interface.java,v 1.22 2002-03-04 18:05:57 steve.osselton Exp $
  */
 
 import java.util.*;
@@ -472,22 +472,17 @@ class Interface
         ps.println("public final class " + className + "Helper");
         ps.println("{");
 
-        ps.println("\tpublic " + className + "Helper()");
+        ps.println("\tpublic static void insert (final org.omg.CORBA.Any any, final " + typeName() + " s)");
         ps.println("\t{");
+        ps.println("\t\tany.insert_Object (s);");
         ps.println("\t}");
 
-
-        ps.println("\tpublic static void insert(org.omg.CORBA.Any any, " + typeName() + " s)");
+        ps.println("\tpublic static " + typeName() + " extract (final org.omg.CORBA.Any any)");
         ps.println("\t{");
-        ps.println("\t\tany.insert_Object(s);");
+        ps.println("\t\treturn narrow (any.extract_Object ());");
         ps.println("\t}");
 
-        ps.println("\tpublic static " + typeName() + " extract(org.omg.CORBA.Any any)");
-        ps.println("\t{");
-        ps.println("\t\treturn narrow(any.extract_Object());");
-        ps.println("\t}");
-
-        ps.println("\tpublic static org.omg.CORBA.TypeCode type()");
+        ps.println("\tpublic static org.omg.CORBA.TypeCode type ()");
         ps.println("\t{");
 
 

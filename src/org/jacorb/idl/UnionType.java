@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.24 2002-03-01 09:58:27 steve.osselton Exp $
+ * @version $Id: UnionType.java,v 1.25 2002-03-04 18:05:57 steve.osselton Exp $
  *
  */
 
@@ -669,10 +669,6 @@ class UnionType
 	ps.println("\tprivate static org.omg.CORBA.TypeCode _type;");
 	
 	String _type = typeName();
-
-	ps.println("\tpublic " + className + "Helper ()");
-	ps.println("\t{");
-	ps.println("\t}");
 
 	ps.println("\tpublic static void insert (org.omg.CORBA.Any any, " + _type + " s)");
 	ps.println("\t{");
