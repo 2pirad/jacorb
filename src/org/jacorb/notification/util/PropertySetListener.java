@@ -1,4 +1,4 @@
-package org.jacorb.notification.servant;
+package org.jacorb.notification.util;
 
 /*
  *        JacORB - a free Java ORB
@@ -26,7 +26,7 @@ import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PropertySetListener.java,v 1.1 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: PropertySetListener.java,v 1.1 2004-03-03 12:09:01 alphonse.bendt Exp $
  */
 
 public interface PropertySetListener {
