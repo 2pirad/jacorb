@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.4 2001-05-01 08:13:37 jacorb Exp $
+ * @version $Id: ParamDecl.java,v 1.5 2002-01-04 16:43:41 gerald Exp $
  */
 
 import java.util.Vector;
@@ -84,12 +84,21 @@ class ParamDecl
 
     public String printWriteStatement( String ps)
     {
-	if( paramAttribute != 1 )
-	    return paramTypeSpec.printWriteStatement(simple_declarator.toString() + ".value", ps);
-	else
-	    return paramTypeSpec.printWriteStatement(simple_declarator.toString(),ps);
+        return printWriteStatement(simple_declarator.toString() , ps);
     }
 
+    public String printWriteStatement( String name, String ps)
+    {
+	if( paramAttribute != 1 )
+	    return paramTypeSpec.typeSpec().printWriteStatement( name + ".value", ps);
+	else
+	    return paramTypeSpec.typeSpec().printWriteStatement( name ,ps);
+    }
+
+    public String printReadExpression( String ps)
+    {
+	    return paramTypeSpec.typeSpec().printReadExpression( ps );
+    }
 
 }
 
