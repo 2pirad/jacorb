@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.18 2002-02-20 14:05:14 steve.osselton Exp $
+ * @version $Id: ORBSingleton.java,v 1.19 2002-02-20 16:33:41 jason.courage Exp $
  */
 
 public class ORBSingleton
@@ -328,7 +328,9 @@ public class ORBSingleton
                                          id, 
                                          name, 
                                          members);
-        tc.resolveRecursion( tc );
+
+        // resolve any recursive references to this TypeCode in its members
+        tc.resolveRecursion();
         return tc;
     }
 
@@ -415,7 +417,9 @@ public class ORBSingleton
                                         name,
                                         discriminator_type, 
                                         members);
-        tc.resolveRecursion( tc );
+
+        // resolve any recursive references to this TypeCode in its members
+        tc.resolveRecursion();
         return tc;
     }
 
