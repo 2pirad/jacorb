@@ -25,7 +25,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.3 2003-04-27 12:56:00 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.4 2003-05-07 09:34:43 andre.spiegel Exp $
  */
 
 public class GIOPConnectionManager 
@@ -83,6 +83,7 @@ public class GIOPConnectionManager
     
 
     public ServerGIOPConnection createServerGIOPConnection( 
+        org.omg.ETF.Profile profile,
         Transport transport,
         RequestListener request_listener,
         ReplyListener reply_listener )
@@ -127,7 +128,8 @@ public class GIOPConnectionManager
         }
 
         ServerGIOPConnection connection =
-            new ServerGIOPConnection( transport,
+            new ServerGIOPConnection( profile,
+                                      transport,
                                       request_listener,
                                       reply_listener,
                                       getStatisticsProvider(),
@@ -151,11 +153,13 @@ public class GIOPConnectionManager
     } 
 
     public GIOPConnection createClientGIOPConnection( 
+        org.omg.ETF.Profile profile,
         Transport transport,
         RequestListener request_listener,
         ReplyListener reply_listener )
     {
-        return new ClientGIOPConnection( transport,
+        return new ClientGIOPConnection( profile,
+                                         transport,
                                          request_listener,
                                          reply_listener,
                                          null );
