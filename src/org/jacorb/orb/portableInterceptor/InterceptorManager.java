@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.8 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: InterceptorManager.java,v 1.9 2002-10-11 08:54:06 andre.spiegel Exp $
  */
 
 public class InterceptorManager  
@@ -38,7 +38,11 @@ public class InterceptorManager
     private Interceptor[] server_req_interceptors = null;
     private Interceptor[] ior_interceptors = null;
 
-    private WeakHashMap currents = null;
+    //#ifjdk 1.2
+        private WeakHashMap currents = null;
+    //#else
+    //# private HashMap currents = null;
+    //#endif
     private org.omg.CORBA.ORB orb = null;
     private int current_slots = 0;
 
@@ -125,7 +129,11 @@ public class InterceptorManager
         this.orb = orb;
         current_slots = slot_count;
 
-        currents = new WeakHashMap();
+        //#ifjdk 1.2
+            currents = new WeakHashMap();
+        //#else
+        //# currents = new HashMap();
+        //#endif
     }
 
     /**

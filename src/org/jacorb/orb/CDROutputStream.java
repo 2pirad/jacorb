@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.64 2002-09-24 17:16:28 steve.osselton Exp $
+ * @version $Id: CDROutputStream.java,v 1.65 2002-10-11 08:50:52 andre.spiegel Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -934,7 +934,11 @@ public class CDROutputStream
 
     public final void write_fixed (final java.math.BigDecimal value)
     {
-        String v = value.unscaledValue().toString ();
+        //#ifjdk 1.2
+            String v = value.unscaledValue().toString ();
+        //#else
+        //# String v = value.movePointRight(value.scale()).toString();
+        //#endif
         byte [] representation;
         int b, c;
 

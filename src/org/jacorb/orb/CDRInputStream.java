@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.50 2002-09-19 08:03:51 nicolas Exp $
+ * $Id: CDRInputStream.java,v 1.51 2002-10-11 08:50:10 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1867,7 +1867,11 @@ public class CDRInputStream
                     org.jacorb.ir.RepositoryID.className (repository_ids[r]);
 
                 Class c = null;
-                ClassLoader ctxcl = Thread.currentThread().getContextClassLoader();
+                //#ifjdk 1.2
+                    ClassLoader ctxcl = Thread.currentThread().getContextClassLoader();
+                //#else
+                //# ClassLoader ctxcl = null;
+                //#endif
                 try 
                 {
                     if (ctxcl != null)

@@ -39,7 +39,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.37 2002-09-13 15:35:02 david.robison Exp $
+ * @version $Id: ParsedIOR.java,v 1.38 2002-10-11 08:53:11 andre.spiegel Exp $
  */
 
 public class ParsedIOR
@@ -1135,7 +1135,11 @@ public class ParsedIOR
             ClassLoader cl = getClass().getClassLoader ();
             if (cl == null)
             {
-                cl = ClassLoader.getSystemClassLoader ();
+                //#ifjdk 1.2
+                    cl = ClassLoader.getSystemClassLoader ();
+                //#else
+                //# throw new RuntimeException ("couldn't find class loader");
+                //#endif
             }
 
             URL url = cl.getResource (resourceName);
