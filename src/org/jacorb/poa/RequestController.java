@@ -39,7 +39,7 @@ import java.util.*;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.25 2003-12-30 14:41:54 andre.spiegel Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.26 2003-12-30 15:22:35 andre.spiegel Exp $
  */
 public final class RequestController
     extends Thread
@@ -60,7 +60,7 @@ public final class RequestController
     private Logger                    logger;
 
     // stores all active requests
-    private Hashtable 			activeRequestTable;
+    private Map 			activeRequestTable;
     // RequestProcessor -> oid
     // for synchronisation with the object deactiviation process
     private List			deactivationList = new ArrayList();
@@ -99,7 +99,8 @@ public final class RequestController
 
         requestQueue = new RequestQueue(this, logger);
         activeRequestTable =
-            poa.isSingleThreadModel() ? new Hashtable(1) : new Hashtable(Environment.threadPoolMax());
+            poa.isSingleThreadModel() ? new HashMap(1) 
+                                      : new HashMap(Environment.threadPoolMax());
         getPoolManager();
 
         if( priorityProp != null )
@@ -559,7 +560,7 @@ public final class RequestController
 
         ByteArrayKey oidbak = new ByteArrayKey( oid );
 
-        while (activeRequestTable.contains(oidbak))
+        while (activeRequestTable.containsValue(oidbak))
         {
             try
             {
