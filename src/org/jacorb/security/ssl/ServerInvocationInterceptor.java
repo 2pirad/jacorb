@@ -39,7 +39,7 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.3 2001-03-19 11:09:25 brose Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.4 2001-03-29 14:02:45 jacorb Exp $
  */
 
 public class ServerInvocationInterceptor
@@ -64,7 +64,7 @@ public class ServerInvocationInterceptor
 
     public String name()
     {
-        return "ServerInvocationInterceptor";
+        return "1_ServerInvocationInterceptor";
     }
 
     public void receive_request( ServerRequestInfo ri )

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.3 2001-03-19 11:07:54 brose Exp $
+ * @version $Id: TypeSpec.java,v 1.4 2001-03-29 14:02:44 jacorb Exp $
  */
 
 import java.util.Vector;
@@ -189,27 +189,27 @@ public class TypeSpec
 	ps.println("\t\treturn _type;");
 	ps.println("\t}");
 	
-	ps.println("\tpublic String get_id()");
-	ps.println("\t{");
-	ps.println("\t\treturn id();");
-	ps.println("\t}");
-
-	ps.println("\tpublic org.omg.CORBA.TypeCode get_type()");
-	ps.println("\t{");
-	ps.println("\t\treturn type();");
-	ps.println("\t}");
-
-	// what are these good for??
-
-	ps.println("\tpublic void write_Object(org.omg.CORBA.portable.OutputStream out, java.lang.Object obj)");
-	ps.println("\t{");
-	ps.println("\t\t throw new RuntimeException(\" not implemented\");");
-	ps.println("\t}");
-	
-	ps.println("\tpublic java.lang.Object read_Object(org.omg.CORBA.portable.InputStream in)");
-	ps.println("\t{");
-	ps.println("\t\t throw new RuntimeException(\" not implemented\");");
-	ps.println("\t}");
+//  	ps.println("\tpublic String get_id()");
+//  	ps.println("\t{");
+//  	ps.println("\t\treturn id();");
+//  	ps.println("\t}");
+//  
+//  	ps.println("\tpublic org.omg.CORBA.TypeCode get_type()");
+//  	ps.println("\t{");
+//  	ps.println("\t\treturn type();");
+//  	ps.println("\t}");
+//  
+//  	// what are these good for??
+//  
+//  	ps.println("\tpublic void write_Object(org.omg.CORBA.portable.OutputStream out, java.lang.Object obj)");
+//  	ps.println("\t{");
+//  	ps.println("\t\t throw new RuntimeException(\" not implemented\");");
+//  	ps.println("\t}");
+//  	
+//  	ps.println("\tpublic java.lang.Object read_Object(org.omg.CORBA.portable.InputStream in)");
+//  	ps.println("\t{");
+//  	ps.println("\t\t throw new RuntimeException(\" not implemented\");");
+//  	ps.println("\t}");
     }
 
 }
