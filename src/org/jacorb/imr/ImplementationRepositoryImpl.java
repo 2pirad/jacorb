@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.17 2001-11-15 17:38:25 jacorb Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.18 2001-11-19 09:41:39 jacorb Exp $
  */
 
 public class ImplementationRepositoryImpl 
@@ -660,7 +660,7 @@ public class ImplementationRepositoryImpl
 	    System.out.println("Please check " + _backup_file.getAbsolutePath());
 	}
         
-        System.setProperty( "jacorb.implName", "the_ImR" );
+        System.setProperty( "jacorb.implname", "the_ImR" );
 
 	orb = org.omg.CORBA.ORB.init(args,null);
 
