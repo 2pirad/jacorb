@@ -24,7 +24,7 @@ package org.jacorb.notification.engine;
 /**
  *
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTask.java,v 1.6 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTask.java,v 1.7 2004-01-29 14:18:16 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTask extends AbstractDeliverTask
@@ -55,6 +55,7 @@ public class PushToConsumerTask extends AbstractDeliverTask
 
         dispose();
     }
+
 
     public String toString() {
         return "[PushToConsumerTask#" + id_ + "]";
