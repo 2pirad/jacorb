@@ -29,7 +29,7 @@ import java.lang.ref.*;
  * Created: Thu Nov  2 13:16:34 2000
  *
  * @author Nicolas Noffke
- * $Id: WeakHashtable.java,v 1.5 2002-03-19 09:25:54 nicolas Exp $
+ * $Id: WeakHashtable.java,v 1.6 2002-10-06 11:02:16 andre.spiegel Exp $
  */
 
 public class WeakHashtable 
@@ -69,7 +69,7 @@ public class WeakHashtable
     }
 
     /**
-     * @overrides elements() in java.util.Hashtable
+     * @overrides elements() in Hashtable
      */
 
     public Enumeration elements()

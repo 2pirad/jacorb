@@ -22,7 +22,7 @@ package org.jacorb.orb;
 
 /**
  * @author Gerald Brose, FU Berlin 
- * @version $Id: NVList.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $	
+ * @version $Id: NVList.java,v 1.7 2002-10-06 11:02:16 andre.spiegel Exp $	
  */
 
 import java.util.*;
@@ -36,13 +36,13 @@ public class NVList
     NVList(org.omg.CORBA.ORB orb)
     {
 	this.orb = orb;
-	list = new java.util.Vector();
+	list = new Vector();
     }
 
     NVList(org.omg.CORBA.ORB orb, int count)
     {
 	this.orb = orb;
-	list = new java.util.Vector(count);
+	list = new Vector(count);
     }
 
     public int count()

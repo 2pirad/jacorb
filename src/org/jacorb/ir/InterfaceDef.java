@@ -39,7 +39,7 @@ import org.omg.CORBA.ConstantDescription;
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.12 2002-05-07 12:44:37 gerald Exp $
+ * @version $Id: InterfaceDef.java,v 1.13 2002-10-06 11:02:16 andre.spiegel Exp $
  */
 
 public class InterfaceDef 
@@ -73,7 +73,7 @@ public class InterfaceDef
     private Hashtable		                 containedLocals = new Hashtable();
 
     /** CORBA references to contained objects */
-    private java.util.Hashtable	                 contained = new java.util.Hashtable();
+    private Hashtable	                         contained = new Hashtable();
 
     /* reference to my container as a contained object */
     private org.omg.CORBA.Contained              myContainer;

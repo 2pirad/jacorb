@@ -43,7 +43,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KeyStoreUtil.java,v 1.6 2002-07-01 07:54:17 nicolas Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.7 2002-10-06 11:02:16 andre.spiegel Exp $
  */
 
 public class KeyStoreUtil
@@ -308,7 +308,7 @@ public class KeyStoreUtil
 	if(! ks.isKeyEntry(alias))
 	   return null;
 
-	java.util.Vector vector = new java.util.Vector();
+	Vector vector = new Vector();
 
 	java.security.cert.Certificate[] chain = 
 	    (java.security.cert.Certificate[])ks.getCertificateChain( alias );

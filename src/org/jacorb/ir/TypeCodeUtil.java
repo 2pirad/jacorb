@@ -23,14 +23,16 @@ package org.jacorb.ir;
 import org.omg.CORBA.TCKind;
 import org.jacorb.orb.TypeCode;
 
+import java.util.*;
+
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.8 2002-07-08 09:39:18 gerald Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.9 2002-10-06 11:02:16 andre.spiegel Exp $    
  */
  
 public class TypeCodeUtil
 {
-    private static java.util.Hashtable cache = new java.util.Hashtable();
+    private static Hashtable cache = new Hashtable();
 
     static 
     {

@@ -28,7 +28,7 @@ import javax.swing.tree.*;
 
 /**
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: ContextNode.java,v 1.6 2002-06-25 08:02:03 gerald Exp $
+ *  @version $Id: ContextNode.java,v 1.7 2002-10-06 11:02:16 andre.spiegel Exp $
  */
 
 public class ContextNode
@@ -179,7 +179,7 @@ public class ContextNode
             // Delete those child nodes that were not found in the
             // list
 	
-	    java.util.Vector removeList = new java.util.Vector();
+	    Vector removeList = new Vector();
 	    for (int i=0;i<childCount;i++)
 	    {
 		DefaultMutableTreeNode node=(DefaultMutableTreeNode) 

@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.42 2002-09-23 07:50:55 steve.osselton Exp $
+ * @version $Id: Environment.java,v 1.43 2002-10-06 11:02:16 andre.spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -58,7 +58,7 @@ public class Environment
 {
     private static String propertiesFile1       = ".jacorb_properties";
     private static String propertiesFile2       = "jacorb.properties";
-    private static java.util.Vector propertiesFiles = new java.util.Vector();
+    private static Vector propertiesFiles       = new Vector();
     private static String jacorbPrefix          = "jacorb.";
     private static String poaPrefix             = jacorbPrefix + "poa.";
 

@@ -22,7 +22,7 @@ package org.jacorb.orb.dii;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ExceptionList.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $
+ * @version $Id: ExceptionList.java,v 1.7 2002-10-06 11:02:16 andre.spiegel Exp $
  */
 
 import java.util.*;
@@ -30,7 +30,7 @@ import java.util.*;
 public class ExceptionList 
 	extends org.omg.CORBA.ExceptionList 
 {
-	private Vector list = new java.util.Vector();
+	private Vector list = new Vector();
 
 	public int count()
 	{
