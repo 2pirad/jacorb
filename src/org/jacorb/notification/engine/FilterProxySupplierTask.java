@@ -36,7 +36,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.3 2003-08-28 16:00:10 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.4 2003-09-12 09:32:47 alphonse.bendt Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask
@@ -80,8 +80,6 @@ public class FilterProxySupplierTask extends AbstractFilterTask
     MessageFactory notificationEventFactory_;
 
     AlternateMessageMap changedMessages_ = new AlternateMessageMap();
-
-    private boolean skip_;
 
     /**
      * Initialize this FilterOutgoingTask with the Configuration of
