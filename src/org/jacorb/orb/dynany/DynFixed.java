@@ -32,7 +32,7 @@ import java.math.BigDecimal;
  * Written by Jason Courage
  *
  * @author Jason Courage, PrismTech Ltd, March 2002 
- * $Id: DynFixed.java,v 1.2 2002-03-28 16:25:26 jason.courage Exp $
+ * $Id: DynFixed.java,v 1.3 2002-05-06 14:36:10 gerald Exp $
  *
  */
 
@@ -154,12 +154,13 @@ public final class DynFixed
          {
             throw new InvalidValue();
          }
+         anyRepresentation.insert_fixed( fixed_value, tc );
       }
       catch ( org.omg.CORBA.TypeCodePackage.BadKind bk )
       {
+          bk.printStackTrace();
          // should never happen
       }
-      anyRepresentation.insert_fixed( fixed_value );
       return( ! truncate );
    }
    
