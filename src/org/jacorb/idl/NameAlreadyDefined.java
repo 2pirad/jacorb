@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -21,7 +21,7 @@
 /**
  * The classes for the IDL parse tree
  * @author Gerald Brose
- * @version $Id: NameAlreadyDefined.java,v 1.5 2002-04-17 08:49:10 gerald Exp $
+ * @version $Id: NameAlreadyDefined.java,v 1.6 2002-07-01 07:54:16 nicolas Exp $
  */
 
 package org.jacorb.idl;

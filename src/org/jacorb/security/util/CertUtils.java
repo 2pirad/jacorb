@@ -3,7 +3,7 @@ package org.jacorb.security.util;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 2000  Gerald Brose.
+ *   Copyright (C) 2000-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -42,7 +42,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing certificates
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: CertUtils.java,v 1.6 2002-03-19 09:25:43 nicolas Exp $
+ * @version $Id: CertUtils.java,v 1.7 2002-07-01 07:54:17 nicolas Exp $
  */
 
 public class CertUtils

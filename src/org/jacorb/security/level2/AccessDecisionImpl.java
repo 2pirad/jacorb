@@ -1,10 +1,29 @@
+/*
+ *        JacORB - a free Java ORB
+ *
+ *   Copyright (C) 1999-2002 Gerald Brose
+ *
+ *   This library is free software; you can redistribute it and/or
+ *   modify it under the terms of the GNU Library General Public
+ *   License as published by the Free Software Foundation; either
+ *   version 2 of the License, or (at your option) any later version.
+ *
+ *   This library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *   Library General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this library; if not, write to the Free
+ *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
+ */
 package org.jacorb.security.level2;
 
 import org.omg.CORBA.*;
 import org.omg.Security.*;
 import org.omg.SecurityLevel2.*;
 
-import org.jacorb.orb.domain.*;
 import org.jacorb.util.Debug;
 
 import java.util.*;
@@ -16,7 +35,7 @@ import java.lang.reflect.*;
  *
  * Created: Tue Jun 13 10:54:41 2000
  *
- * $Id: AccessDecisionImpl.java,v 1.6 2002-03-19 09:25:39 nicolas Exp $
+ * $Id: AccessDecisionImpl.java,v 1.7 2002-07-01 07:54:17 nicolas Exp $
  */
 
 public class AccessDecisionImpl
@@ -48,6 +67,10 @@ public class AccessDecisionImpl
     }  
 
 } // AccessDecisionImpl
+
+
+
+
 
 
 

@@ -3,7 +3,7 @@ package org.jacorb.security.level2;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-99  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.jacorb.util.*;
 /**
  *
  * @author Nicolas Noffke, Gerald Brose, Andrý Benvenuti
- * @version $Id: CurrentImpl.java,v 1.10 2002-01-18 18:09:34 nicolas Exp $
+ * @version $Id: CurrentImpl.java,v 1.11 2002-07-01 07:54:17 nicolas Exp $
  *
  */
 

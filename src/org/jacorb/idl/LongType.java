@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-200  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.8 2002-04-17 08:49:09 gerald Exp $
+ * @version $Id: LongType.java,v 1.9 2002-07-01 07:54:16 nicolas Exp $
  */
 
 class LongType

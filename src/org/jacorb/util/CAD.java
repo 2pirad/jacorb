@@ -1,3 +1,23 @@
+/*
+ *        JacORB - a free Java ORB
+ *
+ *   Copyright (C) 1999-2002 Gerald Brose
+ *
+ *   This library is free software; you can redistribute it and/or
+ *   modify it under the terms of the GNU Library General Public
+ *   License as published by the Free Software Foundation; either
+ *   version 2 of the License, or (at your option) any later version.
+ *
+ *   This library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *   Library General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this library; if not, write to the Free
+ *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
+ */
 package org.jacorb.util;
 
 import javax.swing.*;
@@ -15,7 +35,7 @@ import java.util.*;
  * Created on 21. Juni 2000, 11:52
  *
  * @author  Nicolas Noffke
- * $Id: CAD.java,v 1.4 2002-03-19 09:25:50 nicolas Exp $
+ * $Id: CAD.java,v 1.5 2002-07-01 07:54:17 nicolas Exp $
  */
 public class CAD extends javax.swing.JFrame 
 {

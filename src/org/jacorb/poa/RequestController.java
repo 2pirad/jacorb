@@ -3,7 +3,7 @@ package org.jacorb.poa;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -41,7 +41,7 @@ import java.util.Enumeration;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.13 2002-06-24 07:28:37 nicolas Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.14 2002-07-01 07:54:16 nicolas Exp $
  */
 public class RequestController 
     extends Thread 

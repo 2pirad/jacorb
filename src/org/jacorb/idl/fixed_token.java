@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ package org.jacorb.idl;
  *  field str_val.
  *
  * @see java_cup.runtime.long_token
- * @version $Id: fixed_token.java,v 1.5 2002-04-17 08:49:17 gerald Exp $
+ * @version $Id: fixed_token.java,v 1.6 2002-07-01 07:54:16 nicolas Exp $
  * @author  Gerald Brose
  */
 

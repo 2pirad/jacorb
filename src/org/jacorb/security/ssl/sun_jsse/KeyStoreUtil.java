@@ -3,7 +3,7 @@ package org.jacorb.security.ssl.sun_jsse;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 2000  Gerald Brose.
+ *   Copyright (C) 2000-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -30,7 +30,7 @@ import org.jacorb.util.Debug;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KeyStoreUtil.java,v 1.3 2002-03-19 09:25:41 nicolas Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.4 2002-07-01 07:54:17 nicolas Exp $
  */
 
 public class KeyStoreUtil
