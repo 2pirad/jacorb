@@ -1,5 +1,7 @@
 package org.jacorb.util;
 
+import java.util.StringTokenizer;
+
 /*
  *        JacORB  - a free Java ORB
  *
@@ -24,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ObjectUtil.java,v 1.8 2002-04-22 14:11:36 jason.courage Exp $
+ * @version $Id: ObjectUtil.java,v 1.9 2002-11-12 08:39:46 steve.osselton Exp $
  */
 
 public class ObjectUtil
@@ -39,7 +41,7 @@ public class ObjectUtil
         {
             java.net.URL u = new java.net.URL(url);
             String line  = null;
-            java.io.BufferedReader in;	    
+            java.io.BufferedReader in;      
 
             in = new java.io.BufferedReader(new java.io.InputStreamReader(u.openStream()) ); 
             line = in.readLine();
@@ -50,12 +52,50 @@ public class ObjectUtil
         catch ( Exception e )
         { 
             Debug.output( 1, "ERROR: Could not read from URL " + url );
-            Debug.output( 5, e );	    
+            Debug.output( 5, e );           
         }
 
         return null;
+    }
+
+ /**
+   * Converts a repository id of the form "IDL:A.B.C/X/Y/Z:1.0"
+   * into a java class name of the form "C.B.A.X.Y.Z"
+   */
+
+    public static final String reposIdToClassName (String id)
+    {
+        String name;
+        StringBuffer buf = new StringBuffer (id);
+
+        // Strip trailing version ":1.0"
+
+        buf.delete (id.lastIndexOf (':'), id.length ());
+
+        // Strip leading "IDL:"
+
+        buf.delete (0, 4);
+
+        // name is now in the form A.B.C/X/Y/Z
+
+        name = buf.toString ();
+        int slash = name.indexOf ('/');
+  
+        if (slash != -1)
+        {
+            String reverse = name.substring (0, slash); // "A.B.C"
+            String rest = name.substring (slash).replace ('/','.'); // ".X.Y.Z"
+  
+            StringTokenizer dots = new StringTokenizer (reverse, ".");
+            String correct = dots.nextToken ();
+            while (dots.hasMoreTokens ())
+            {
+               correct = dots.nextToken() + '.' + correct; // prepend
+            }
+            name = correct + rest;
+        }
+
+        return name;
    }
-
 }
-
 
