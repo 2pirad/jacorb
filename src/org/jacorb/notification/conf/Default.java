@@ -26,7 +26,7 @@ import org.jacorb.notification.util.WeakCacheWildcardMap;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Default.java,v 1.7 2005-02-20 21:48:43 alphonse.bendt Exp $
+ * @version $Id: Default.java,v 1.8 2005-03-31 20:08:48 alphonse.bendt Exp $
  */
 
 public interface Default
@@ -88,4 +88,11 @@ public interface Default
     String WILDCARDMAP_DEFAULT = WeakCacheWildcardMap.class.getName();
 
     String DEFAULT_RETRY_STRATEGY_FACTORY = TaskProcessorRetryStrategyFactory.class.getName();
+
+    /**
+     * 0 means no limit
+     */
+    long DEFAULT_DEAD_FILTER_INTERVAL = 0;
+
+    boolean DEFAULT_USE_GC = false;
 }
