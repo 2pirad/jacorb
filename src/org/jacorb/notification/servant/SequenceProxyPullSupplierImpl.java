@@ -43,7 +43,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.6.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullSupplierImpl
@@ -61,15 +61,6 @@ public class SequenceProxyPullSupplierImpl
     ////////////////////////////////////////
 
     private SequencePullConsumer sequencePullConsumer_;
-
-    ////////////////////////////////////////
-
-    public SequenceProxyPullSupplierImpl( AbstractAdmin myAdminServant,
-                                          ChannelContext channelContext)
-    {
-        super( myAdminServant,
-               channelContext );
-    }
 
     ////////////////////////////////////////
 

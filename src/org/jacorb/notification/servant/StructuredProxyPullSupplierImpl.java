@@ -46,12 +46,12 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.6.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullSupplierImpl
-            extends AbstractProxySupplier
-            implements StructuredProxyPullSupplierOperations
+    extends AbstractProxySupplier
+    implements StructuredProxyPullSupplierOperations
 {
     /**
      * undefined StructuredEvent that is returned on unsuccessful pull operations.
@@ -77,16 +77,6 @@ public class StructuredProxyPullSupplierImpl
     private StructuredPullConsumer structuredPullConsumer_;
 
     ////////////////////////////////////////
-
-    public StructuredProxyPullSupplierImpl( AbstractAdmin myAdminServant,
-                                            ChannelContext channelContext)
-    {
-        super( myAdminServant,
-               channelContext );
-    }
-
-    ////////////////////////////////////////
-
 
     public ProxyType MyType() {
         return ProxyType.PULL_STRUCTURED;

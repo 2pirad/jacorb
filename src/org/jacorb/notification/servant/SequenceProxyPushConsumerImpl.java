@@ -36,7 +36,7 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.6.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl
@@ -44,15 +44,6 @@ public class SequenceProxyPushConsumerImpl
     implements SequenceProxyPushConsumerOperations
 {
     private SequencePushSupplier sequencePushSupplier_;
-
-    ////////////////////////////////////////
-
-    public SequenceProxyPushConsumerImpl( AbstractAdmin supplierAdmin,
-                                          ChannelContext channelContext)
-    {
-        super( supplierAdmin,
-               channelContext);
-    }
 
     ////////////////////////////////////////
 

@@ -38,7 +38,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.6.2.1 2004-04-01 00:00:28 phil.mesnier Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.6.2.2 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -46,15 +46,6 @@ public class ProxyPushConsumerImpl
     implements ProxyPushConsumerOperations
 {
     private PushSupplier pushSupplier_;
-
-    ////////////////////////////////////////
-
-    ProxyPushConsumerImpl( AbstractAdmin myAdminServant,
-                           ChannelContext channelContext)
-    {
-        super( myAdminServant,
-               channelContext);
-    }
 
     ////////////////////////////////////////
 
@@ -90,7 +81,7 @@ public class ProxyPushConsumerImpl
         logger_.debug("push Any into the Channel");
 
         Message _mesg =
-            messageFactory_.newMessage( event, this );
+            getMessageFactory().newMessage( event, this );
 
         checkMessageProperties(_mesg);
 

@@ -32,7 +32,7 @@ import EDU.oswego.cs.dl.util.concurrent.Heap;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BoundedPriorityEventQueue.java,v 1.4 2004-01-23 19:26:49 alphonse.bendt Exp $
+ * @version $Id: BoundedPriorityEventQueue.java,v 1.4.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
@@ -98,7 +98,13 @@ public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
 
         HeapEntry _oldest = (HeapEntry)_all.remove(0);
 
-        Heap _newHeap = new Heap(_all.size(), QueueUtil.DESCENDING_PRIORITY_COMPARATOR);
+        int _capacity = _all.size();
+
+        if (_capacity <= 0) {
+            _capacity = 5;
+        }
+
+        Heap _newHeap = new Heap(_capacity, QueueUtil.DESCENDING_PRIORITY_COMPARATOR);
 
         Iterator i = _all.iterator();
 

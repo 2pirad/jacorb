@@ -25,19 +25,18 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 /**
- * @version $Id: JDK14PatternWrapper.java,v 1.4.4.1 2004-04-07 14:50:56 alphonse.bendt Exp $
+ * @version $Id: JDK14PatternWrapper.java,v 1.4.4.2 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class JDK14PatternWrapper extends PatternWrapper
 {
     private Pattern pattern_;
 
-    public JDK14PatternWrapper() {}
-
     public void compile( String patternString )
     {
         pattern_ = java.util.regex.Pattern.compile( patternString );
     }
+
 
     public int match( String text )
     {
@@ -52,6 +51,7 @@ public class JDK14PatternWrapper extends PatternWrapper
             return 0;
         }
     }
+
 
     public String toString()
     {

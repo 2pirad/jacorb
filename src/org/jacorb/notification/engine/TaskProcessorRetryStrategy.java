@@ -25,7 +25,7 @@ import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.1.2.2 2004-04-07 14:54:50 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.1.2.3 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategy extends RetryStrategy
 {
@@ -65,7 +65,6 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
             }
             catch (InterruptedException e)
             {
-//                 logger_.error("Interrupted", e);
             }
         }
     };
@@ -96,6 +95,7 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
     public void retry() throws RetryException
     {
         messageConsumer_.disableDelivery();
+
         taskProcessor_.executeTaskAfterDelay(backoutInterval_,
                                              enableMessageConsumer_);
     }

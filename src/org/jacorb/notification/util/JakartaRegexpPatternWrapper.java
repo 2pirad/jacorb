@@ -24,33 +24,31 @@ import org.apache.regexp.RESyntaxException;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JakartaRegexpPatternWrapper.java,v 1.1.2.1 2004-04-07 14:50:56 alphonse.bendt Exp $
+ * @version $Id: JakartaRegexpPatternWrapper.java,v 1.1.2.2 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
-public class JakartaRegexpPatternWrapper extends PatternWrapper {
-
+public class JakartaRegexpPatternWrapper extends PatternWrapper
+{
     private org.apache.regexp.RE pattern_;
 
-    public JakartaRegexpPatternWrapper() {
-        super();
-    }
-
-
-    public void compile(String patternString) {
+    public void compile(String patternString)
+    {
         try
-            {
-                pattern_ = new org.apache.regexp.RE( "(" + patternString + ")" );
-            }
+        {
+            pattern_ = new org.apache.regexp.RE( "(" + patternString + ")" );
+        }
         catch ( RESyntaxException e )
-            {
-                throw new RuntimeException( e.getMessage() );
-            }
+        {
+            throw new RuntimeException( e.getMessage() );
+        }
     }
 
 
-    public int match(String string) {
+    public int match(String string)
+    {
         boolean _matched = pattern_.match(string);
 
-        if (!_matched) {
+        if (!_matched)
+        {
             return 0;
         }
 
@@ -58,7 +56,8 @@ public class JakartaRegexpPatternWrapper extends PatternWrapper {
     }
 
 
-    public String toString() {
+    public String toString()
+    {
         return pattern_.toString();
     }
 }

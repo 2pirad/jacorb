@@ -1,4 +1,4 @@
-package org.jacorb.notification.engine;
+package org.jacorb.notification;
 
 /*
  *        JacORB - a free Java ORB
@@ -20,13 +20,13 @@ package org.jacorb.notification.engine;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.interfaces.Disposable;
-import org.omg.CosEventComm.Disconnected;
+import org.omg.CosNotifyChannelAdmin.EventChannel;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushOperation.java,v 1.1.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
+ * @version $Id: EventChannelDependency.java,v 1.1.2.1 2004-05-09 17:38:45 alphonse.bendt Exp $
  */
-public interface PushOperation extends Disposable {
-    void invokePush() throws Disconnected;
+
+public interface EventChannelDependency {
+    void setEventChannel(EventChannel eventChannel);
 }

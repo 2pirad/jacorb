@@ -41,7 +41,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.7 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.7.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl
@@ -49,15 +49,6 @@ public class ProxyPushSupplierImpl
     implements ProxyPushSupplierOperations
 {
     private PushConsumer pushConsumer_;
-
-    ////////////////////////////////////////
-
-    ProxyPushSupplierImpl(AbstractAdmin myAdminServant,
-                          ChannelContext channelContext)
-    {
-        super(myAdminServant,
-              channelContext);
-    }
 
     ////////////////////////////////////////
 
@@ -90,11 +81,9 @@ public class ProxyPushSupplierImpl
                         logger_.debug("pushConsumer.push(Any)");
 
                         pushConsumer_.push(message.toAny());
-
-                        message.dispose();
                     } catch (Throwable e) {
                         PushAnyOperation _failedOperation =
-                            new PushAnyOperation(pushConsumer_, message);
+                            new PushAnyOperation(pushConsumer_, (Message)message.clone());
 
                         handleFailedPushOperation(_failedOperation, e);
                     }

@@ -36,7 +36,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.6.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl
@@ -44,15 +44,6 @@ public class SequenceProxyPullConsumerImpl
     implements SequenceProxyPullConsumerOperations
 {
     private SequencePullSupplier sequencePullSupplier_;
-
-    ////////////////////////////////////////
-
-    public SequenceProxyPullConsumerImpl( AbstractAdmin admin,
-                                          ChannelContext channelContext)
-    {
-        super( admin,
-               channelContext);
-    }
 
     ////////////////////////////////////////
 
@@ -107,7 +98,7 @@ public class SequenceProxyPullConsumerImpl
             for ( int x = 0; x < _events.length; ++x )
             {
                 Message msg =
-                    messageFactory_.newMessage( _events[ x ], this );
+                    getMessageFactory().newMessage( _events[ x ], this );
 
                 getTaskProcessor().processMessage( msg );
             }

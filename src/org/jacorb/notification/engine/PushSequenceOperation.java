@@ -26,22 +26,25 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushSequenceOperation.java,v 1.1 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: PushSequenceOperation.java,v 1.1.2.1 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
-public class PushSequenceOperation extends PushOperation {
+public class PushSequenceOperation implements PushOperation {
 
     private SequencePushConsumer sequencePushConsumer_;
+
     private StructuredEvent[] structuredEvents_;
 
     public PushSequenceOperation(SequencePushConsumer pushConsumer,
                                  StructuredEvent[] structuredEvents) {
-        super();
-
         sequencePushConsumer_ = pushConsumer;
         structuredEvents_ = structuredEvents;
     }
 
     public void invokePush() throws Disconnected {
         sequencePushConsumer_.push_structured_events(structuredEvents_);
+    }
+
+    public void dispose() {
+        // nothing to do
     }
 }

@@ -45,7 +45,7 @@ import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.6.2.2 2004-04-07 14:53:53 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.6.2.3 2004-05-09 17:38:44 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl
@@ -93,11 +93,9 @@ public class ProxyPullConsumerImpl
 
     ////////////////////////////////////////
 
-    ProxyPullConsumerImpl(AbstractAdmin adminServant,
-                          ChannelContext channelContext)
+    public ProxyPullConsumerImpl()
     {
-        super( adminServant,
-               channelContext);
+        super();
 
         configureTimerCallback();
     }
@@ -199,7 +197,7 @@ public class ProxyPullConsumerImpl
                 ++successfulPullCounter_;
 
                 Message _message =
-                    messageFactory_.newMessage( event, this );
+                    getMessageFactory().newMessage( event, this );
 
                 checkMessageProperties(_message);
 
