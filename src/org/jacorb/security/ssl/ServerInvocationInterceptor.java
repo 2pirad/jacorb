@@ -40,7 +40,7 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.6 2001-04-03 16:02:32 jacorb Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.7 2001-06-21 15:11:43 noffke Exp $
  */
 
 public class ServerInvocationInterceptor
@@ -113,10 +113,15 @@ public class ServerInvocationInterceptor
 
         SSLSocket sslSocket = (SSLSocket) connection.getSocket();
             
-
-
         KeyAndCert kac = new KeyAndCert( null, 
                                          sslSocket.getPeerCertificateChain() );
+
+        if( kac.chain == null )
+        {
+            Debug.output( 2, "Client sent no certificate chain!" );
+            
+            return;
+        }
 
         SecAttribute [] atts = new SecAttribute[] {
             attrib_mgr.createAttribute( kac, type ) } ;
