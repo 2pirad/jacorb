@@ -41,7 +41,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.50 2002-03-13 18:16:52 steve.osselton Exp $
+ * @version $Id: ORB.java,v 1.51 2002-03-18 10:03:18 jason.courage Exp $
  */
 
 public final class ORB
@@ -1241,10 +1241,9 @@ public final class ORB
         if( versionProperty != null &&
             versionProperty.equals("on") )
         {
-            System.out.println("\tJacORB V " + versionString + 
+            System.out.println("\tJacORB V " + versionString +
                                ", www.jacorb.org");
-            System.out.println("\t(C) Gerald Brose, FU Berlin, " + 
-                               dateString );
+            System.out.println("\t(C) Gerald Brose, FU Berlin, " + dateString);
         }
 
 //          Hashtable initrefs = Environment.getProperties("ORBInitRef");
