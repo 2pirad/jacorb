@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.31 2002-10-23 14:17:53 nicolas Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.32 2002-11-04 18:12:21 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1249,7 +1249,7 @@ public class ImplementationRepositoryImpl
         ConnectionManager         cm           = null;
         ClientConnection          connection   = null;
         LocateRequestOutputStream lros         = null;
-        ReplyPlaceholder          place_holder = null;
+        LocateReplyReceiver       receiver     = null;
         LocateReplyInputStream    lris         = null;
         boolean                   result       = false;
 
@@ -1261,15 +1261,15 @@ public class ImplementationRepositoryImpl
         try
         {
             lros = new LocateRequestOutputStream (object_key, connection.getId(), 2);
-            place_holder = new ReplyPlaceholder ();
+            receiver = new LocateReplyReceiver ();
 
             connection.sendRequest(
                 lros,
-                place_holder,
+                receiver,
                 lros.getRequestId (),
                 true ); // response expected
 
-            lris = (LocateReplyInputStream) place_holder.getInputStream ();
+            lris = receiver.getReply();
 
             switch (lris.rep_hdr.locate_status.value ())
             {
