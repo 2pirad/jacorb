@@ -41,7 +41,7 @@ import java.util.Date;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Message.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: Message.java,v 1.2 2003-11-26 10:34:18 alphonse.bendt Exp $
  */
 
 public interface Message extends Disposable
@@ -55,6 +55,8 @@ public interface Message extends Disposable
     public static final int TYPE_TYPED = 2;
 
     public void setMessageStateListener(MessageStateListener listener);
+
+    public MessageStateListener removeMessageStateListener();
 
     public String getConstraintKey();
 
