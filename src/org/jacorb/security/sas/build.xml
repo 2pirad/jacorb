@@ -4,19 +4,20 @@
 
   <!-- ==================================================== -->
   <!--                 iaik build file                      -->
-  <!-- $Id: build.xml,v 1.2 2002-09-11 21:27:57 david.robison Exp $ -->
+  <!-- $Id: build.xml,v 1.3 2002-09-12 12:26:26 david.robison Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
 	<property name="dirs.base" value="${basedir}"/>
 	<property name="classdir" value="${dirs.base}/classes"/>
 	<property name="src" value="${dirs.base}/src"/>
+      <available classname="org.itef.jgss.GSSManager" property="jgss.present" />       
       <available classname="com.tagish.auth.Utils" property="jaas.modules.present" />       
    </target>
 
    <target name="all" depends="init,compile,jaas" />
 
-   <target name="compile">
+   <target name="compile" if="jgss.present">
 	<javac srcdir="${dirs.base}"
               destdir="${classdir}"
 	        includes="org/jacorb/security/sas/*.java"

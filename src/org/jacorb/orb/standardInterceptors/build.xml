@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--      JacORB Standard Interceptors build file         -->
-  <!-- $Id: build.xml,v 1.4 2002-03-12 11:32:47 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2002-09-12 12:26:13 david.robison Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -16,13 +16,31 @@
 	<property name="idlflags" 
                 value="-I${include}/omg -I${include}/jacorb -d
 	${src}/generated"/>
-   </target>
+      <available classname="org.itef.jgss.GSSManager" property="jgss.present" />       
+  </target>
 
    <target name="all" depends="init">
 	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
 	       includes="jacorb/orb/standardInterceptors/*.java"
 	       />
+   </target>
+
+   <target name="all" depends="init,compile,jggs" />
+
+   <target name="compile">
+	<javac debug="${debug}" srcdir="${src}"
+               destdir="${classdir}"
+	        includes="jacorb/orb/standardInterceptors/*.java"
+		  excludes="jacorb/orb/standardInterceptors/SAS*.java"
+	        />
+   </target>
+
+   <target name="jgss" if="jgss.present">
+	<javac debug="${debug}" srcdir="${src}"
+               destdir="${classdir}"
+	       includes="jacorb/orb/standardInterceptors/SAS*.java"
+	        />
    </target>
 
    <target name="clean">
