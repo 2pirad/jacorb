@@ -22,7 +22,7 @@ package org.jacorb.orb.connection;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: AbstractConnection.java,v 1.4 2001-03-27 12:01:25 noffke Exp $
+ * @version $Id: AbstractConnection.java,v 1.5 2001-03-28 08:43:39 jacorb Exp $
  *
  */
 
@@ -159,7 +159,7 @@ public abstract class AbstractConnection
 		org.omg.CONV_FRAME.CodeSetComponentInfoHelper.read(is);
 		
 	    // char data, try UTF8 and ISO8859_1
-	    TCS = selectCodeSet(inf.ForCharData,CodeSet.UTF8);
+	    TCS = selectCodeSet(inf.ForCharData, CodeSet.UTF8);
 	    if( TCS == 0 ) 
 		TCS = CodeSet.ISO8859_1;
 			
