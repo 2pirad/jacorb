@@ -29,7 +29,7 @@ import java.util.Enumeration;
  * The compiler backend for the IDL/Java mapping
  *
  * @author Copyright (c) 1999-2003, Gerald Brose
- * @version $Id: JavaMappingGeneratingVisitor.java,v 1.1 2003-09-03 10:28:54 brose Exp $
+ * @version $Id: JavaMappingGeneratingVisitor.java,v 1.2 2003-09-03 10:33:41 brose Exp $
  *
  */
 
@@ -42,17 +42,16 @@ public class JavaMappingGeneratingVisitor
 
     public JavaMappingGeneratingVisitor()
     {
-        dictionaryFactory = new XDictionaryFactory();
     }
 
     /**
-     * entry point for the visitor, recreates internal dictionary
-     * objects
+     * entry point for the code generation, called from
+     * the parser.
+     *
      */
 
     public void visitSpec( Spec spec )
     {
-
 
         Enumeration e = spec.definitions.elements();
         while( e.hasMoreElements() )
@@ -60,12 +59,8 @@ public class JavaMappingGeneratingVisitor
             IdlSymbol s = (IdlSymbol)e.nextElement();
             s.accept( this );
         }
-        
-        /** output  */
-        
-        PrintStream ps = new PrintStream( System.out );
-
-        
+                
+        // PrintStream ps = new PrintStream( System.out );       
     }
 
     public void visitDefinitions( Definitions defs )
@@ -102,6 +97,8 @@ public class JavaMappingGeneratingVisitor
         if( interfce.body == null )
             return;
 
+        // list super interfaces
+        String[] superInts = interfce.get_ids();
 
         for( int i = 1; i < superInts.length; i++ )
         {
@@ -109,11 +106,8 @@ public class JavaMappingGeneratingVisitor
             
         }
 
-
-
         if( interfce.body != null )
             interfce.body.accept( this );
-
 
     }
 
