@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.6.6.2 2001-11-02 16:12:28 spiegel Exp $
+ * @version $Id: Member.java,v 1.6.6.3 2001-11-07 12:10:15 spiegel Exp $
  *
  */
 
@@ -244,6 +244,11 @@ class Member
             ps.print( prefix + type_spec.toString() + " " + declarator.toString() + " = \"\";" ); 
         else
             ps.print( prefix + type_spec.toString() + " " + declarator.toString() + ";" ); 
+    }
+
+    public TypeSpec typeSpec()
+    {
+        return type_spec.typeSpec();
     }
 }
 
