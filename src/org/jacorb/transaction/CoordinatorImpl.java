@@ -33,7 +33,7 @@ import java.util.*;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: CoordinatorImpl.java,v 1.5 2002-07-15 16:45:27 gerald Exp $
+ * @version $Id: CoordinatorImpl.java,v 1.4.2.1 2002-07-15 16:58:22 gerald Exp $
  *
  * Changes made by Vladimir Mencl <vladimir.mencl@mff.cuni.cz> (2002/07/15)
  *
