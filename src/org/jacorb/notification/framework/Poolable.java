@@ -1,4 +1,4 @@
-package org.jacorb.notification.framework;
+package org.jacorb.notification.interfaces;
 
 /*
  *        JacORB - a free Java ORB
@@ -24,17 +24,42 @@ package org.jacorb.notification.framework;
 import org.jacorb.notification.util.ObjectPoolBase;
 
 /**
- * Poolable.java
- *
+ * Interface to indicate that a Object can be pooled. Objects can be
+ * pooled to spare ressources.
  *
  * Created: Sat Jan 04 17:01:16 2003
  *
  * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version
+ * @version $Id: Poolable.java,v 1.2 2003-04-12 21:04:53 alphonse.bendt Exp $
  */
 
-public interface Poolable {
-    public void release();
-    public void setObjectPool(ObjectPoolBase pool);
-    public void reset();
+public abstract class Poolable {
+
+    private ObjectPoolBase objectPool_;
+
+    /**
+     * The call to this Method indicates that this Object is not
+     * needed by the user anymore. After a call to
+     * <code>release</code> the Object can be returned to its
+     * ObjectPool. It's forbidden to use the Object
+     * after release has been called as this may cause unexpected behaviour.
+     */
+    public void release() {
+	objectPool_.returnObject(this);
+    }
+
+    /**
+     * Set the ObjectPool that administers this instance.
+     */
+    public void setObjectPool(ObjectPoolBase pool) {
+	    objectPool_ = pool;
+    }
+
+    /**
+     * Reset the Object to an initial state. Subclasses should
+     * override this method appropiately to reset the instance to an
+     * initial state.
+     */
+    public abstract void reset();
+
 }// Poolable
