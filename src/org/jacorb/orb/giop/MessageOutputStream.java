@@ -36,7 +36,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.5 2002-04-04 10:47:28 semu Exp $ 
+ * @version $Id: MessageOutputStream.java,v 1.6 2002-05-06 07:27:51 gerald Exp $ 
  */
 
 public class MessageOutputStream 
@@ -89,6 +89,7 @@ public class MessageOutputStream
         buffer[10] = (byte)((size >>  8) & 0xFF);
         buffer[11] = (byte) (size        & 0xFF);
     }
+
 
     public void insertMsgSize()
     {

@@ -38,7 +38,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.8 2002-05-01 11:08:56 steve.osselton Exp $ 
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.9 2002-05-06 07:27:52 gerald Exp $ 
  */
 
 public class ServiceContextTransportingOutputStream 
@@ -57,7 +57,7 @@ public class ServiceContextTransportingOutputStream
     // service_context array is the last attribute of the
     // [Request|Reply]Header, and the body is per spec aligned to an 8
     // byte boundary.
-    protected static ServiceContext[] service_context = new ServiceContext[0];
+     static ServiceContext[] service_context = new ServiceContext[0];
 
     //The end of the GIOP message header. Only valid if 
     //header_padding != 0
@@ -117,6 +117,7 @@ public class ServiceContextTransportingOutputStream
     {
         return size() > getBodyBegin();
     }
+
 
     public void insertMsgSize()
     {

@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.6 2002-03-19 09:25:28 nicolas Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.7 2002-05-06 07:27:52 gerald Exp $
  */
 
 public abstract class TCP_IP_Transport 
@@ -96,13 +96,14 @@ public abstract class TCP_IP_Transport
      * decide if it wishes to close the connection finally by throwing
      * a CloseConnectionException.  
      */
-    protected abstract void close( int reason )
-        throws IOException;
-       
 
-    /*
+    protected abstract void close( int reason )
+        throws IOException;       
+
+    /**
      * This is called from GIOPConnection.
      */
+
     public void close()
         throws IOException
     {
@@ -118,9 +119,10 @@ public abstract class TCP_IP_Transport
      *
      * @return the actual number of bytes that were read.  
      */
-    private int readToBuffer( byte[] buffer, 
-                              int start_pos,
-                              int length )
+
+    private final int readToBuffer( byte[] buffer, 
+                                    int start_pos,
+                                    int length )
         throws IOException
     {
         int read = 0;
@@ -137,21 +139,18 @@ public abstract class TCP_IP_Transport
             }
             catch( InterruptedIOException e )
             {
-                close( READ_TIMED_OUT );
-                
+                close( READ_TIMED_OUT );                
                 throw new TimeOutException( "Socket read timed out" );
             }
             catch( SocketException se )
             {
-                close( STREAM_CLOSED );
-                
+                close( STREAM_CLOSED );                
                 throw new StreamClosedException( "Socket stream closed" );
             }
                 
             if( n < 0 )
             {
-                close( STREAM_CLOSED );
-                
+                close( STREAM_CLOSED );                
                 throw new StreamClosedException( "Socket stream closed" );
             }  
 
@@ -194,12 +193,12 @@ public abstract class TCP_IP_Transport
         {
             //TODO: resynching?
             
-            Debug.output( 1, "ERROR: Failed to read GIOP message header" );
-            Debug.output( 1, (Messages.MSG_HEADER_SIZE - read) + 
-                          " Bytes less than the expected " +
-                          Messages.MSG_HEADER_SIZE + " Bytes" );
-            Debug.output( 3, "TCP_IP_GIOPTransport.getMessage()",
-                          msg_header, 0, read );
+//              Debug.output( 1, "ERROR: Failed to read GIOP message header" );
+//              Debug.output( 1, (Messages.MSG_HEADER_SIZE - read) + 
+//                            " Bytes less than the expected " +
+//                            Messages.MSG_HEADER_SIZE + " Bytes" );
+//              Debug.output( 3, "TCP_IP_GIOPTransport.getMessage()",
+//                            msg_header, 0, read );
 
             return null;          
         }
@@ -259,9 +258,9 @@ public abstract class TCP_IP_Transport
         }
         else
         {
-                Debug.output( 1, "ERROR: Failed to read GIOP message" );
-                Debug.output( 1, "Magic start doesn't match" );
-                Debug.output( 3, "TCP_IP_GIOPTransport.getMessage()",
+            Debug.output( 1, "ERROR: Failed to read GIOP message" );
+            Debug.output( 1, "Magic start doesn't match" );
+            Debug.output( 3, "TCP_IP_GIOPTransport.getMessage()",
                               msg_header );
 
             return null;
@@ -281,6 +280,7 @@ public abstract class TCP_IP_Transport
             b_out.write( message, start, size );
         }
     }
+
     
     public void flush()
         throws IOException
@@ -296,7 +296,9 @@ public abstract class TCP_IP_Transport
 
         out_stream.flush();
     }
-}// TCP_IP_Transport
+
+}
+// TCP_IP_Transport
 
 
 
