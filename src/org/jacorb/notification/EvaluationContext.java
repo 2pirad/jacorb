@@ -21,15 +21,15 @@ package org.jacorb.notification;
  *
  */
 
-import org.omg.CORBA.ORB;
-import org.omg.DynamicAny.DynAnyFactory;
+import java.util.Hashtable;
+import java.util.Map;
+
 import org.jacorb.notification.evaluate.DynamicEvaluator;
 import org.jacorb.notification.evaluate.ResultExtractor;
 import org.jacorb.notification.interfaces.Poolable;
-import java.util.Map;
-import java.util.Hashtable;
 import org.jacorb.notification.node.EvaluationResult;
 import org.omg.CORBA.Any;
+import org.omg.DynamicAny.DynAnyFactory;
 
 /**
  * EvaluationContext.java
@@ -38,7 +38,7 @@ import org.omg.CORBA.Any;
  * Created: Sat Nov 30 16:02:34 2002
  *
  * @author Alphonse Bendt
- * @version $Id: EvaluationContext.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $ 
+ * @version $Id: EvaluationContext.java,v 1.6 2003-08-02 07:52:37 alphonse.bendt Exp $ 
  */
 
 public class EvaluationContext extends Poolable {
