@@ -43,7 +43,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.17 2004-03-03 12:19:21 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.18 2004-03-03 12:59:10 alphonse.bendt Exp $
  */
 
 public class TaskProcessor implements Disposable
@@ -444,7 +444,9 @@ public class TaskProcessor implements Disposable
      * Some MessageConsumers (namely SequenceProxyPushSuppliers) need to
      * push Messages regularely to its
      * connected Consumer. Schedule a Task to call
-     * deliverPendingEvents on the specified MessageConsumer
+     * deliverPendingEvents on the specified MessageConsumer.
+     * Also used after a disabled MessageConsumer is enabled again to
+     * push the pending Messages.
      */
     public void scheduleTimedPushTask( MessageConsumer consumer )
         throws InterruptedException
