@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.37 2004-02-02 15:35:26 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.38 2004-02-23 20:35:16 david.robison Exp $
  */
 
 public class ValueDecl
@@ -92,7 +92,7 @@ public class ValueDecl
         inheritanceSpec = spec;
     }
 
-    public ValueInheritanceSpec setInheritanceSpec()
+    public ValueInheritanceSpec getInheritanceSpec()
     {
         return inheritanceSpec;
     }
