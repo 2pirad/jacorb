@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * Contains static methods to handle CORBA time values.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: Time.java,v 1.5 2003-01-07 09:57:36 andre.spiegel Exp $
+ * @version $Id: Time.java,v 1.6 2003-12-16 09:11:28 gerald Exp $
  */
 public class Time
 {
@@ -185,9 +185,7 @@ public class Time
                     }
                     catch (InterruptedException e)
                     {
-                        Debug.output 
-                            (Debug.ORB_MISC | Debug.IMPORTANT,
-                            "interrupted while waiting on timer");
+                        Debug.output( 4, "interrupted while waiting on timer");
                     }
                 }
             }

@@ -28,7 +28,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:44:26 2000
  *
  * @author Nicolas Noffke
- * $Id: ConsumerTie.java,v 1.6 2002-12-20 18:29:06 nicolas Exp $
+ * $Id: ConsumerTie.java,v 1.7 2003-12-16 09:11:28 gerald Exp $
  */
 
 import org.jacorb.util.Debug;
@@ -71,7 +71,7 @@ public  class ConsumerTie
         }
         catch( Exception e )
         {
-            Debug.output( Debug.IMPORTANT | Debug.TOOLS, e );
+            Debug.output(3, e );
             return;
         }
     }

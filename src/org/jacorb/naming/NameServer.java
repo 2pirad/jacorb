@@ -30,7 +30,7 @@ import org.omg.CosNaming.NamingContextPackage.*;
 import org.jacorb.orb.*;
 import org.jacorb.util.*;
 
-import org.apache.avalon.framework.logger.*;
+import org.apache.avalon.framework.logger.Logger;
 
 
 //#ifjdk 1.2
@@ -41,7 +41,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.26 2003-11-03 11:39:54 andre.spiegel Exp $
+ *  @version $Id: NameServer.java,v 1.27 2003-12-16 09:11:28 gerald Exp $
  */
 
 
@@ -85,7 +85,9 @@ public class NameServer
                 File f = new File( filePrefix + oidStr );
                 if( f.exists() )
                 {
-                    logger.debug("Reading in  context state from file");
+                    if( logger.isDebugEnabled())
+                        logger.debug("Reading in context state from file");
+
                     FileInputStream f_in = new FileInputStream(f);
 
                     if( f_in.available() > 0 )
@@ -97,12 +99,16 @@ public class NameServer
                     f_in.close();
                 }
                 else
-                    logger.debug("No naming context state, starting empty");
+                {
+                    if( logger.isDebugEnabled())
+                        logger.debug("No naming context state, starting empty");
+                }
 
             }
             catch( IOException io )
             {
-                logger.debug("File seems corrupt, starting empty");
+                if( logger.isDebugEnabled())
+                    logger.debug("File seems corrupt, starting empty");
             }
             catch( java.lang.ClassNotFoundException c )
             {

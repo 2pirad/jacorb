@@ -31,7 +31,7 @@ import java.util.*;
  * Created: Fri Jun  9 15:09:01 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPool.java,v 1.8 2003-04-29 13:06:27 nick.cross Exp $
+ * $Id: ThreadPool.java,v 1.9 2003-12-16 09:11:28 gerald Exp $
  */
 public class ThreadPool
 {
@@ -126,7 +126,7 @@ public class ThreadPool
             }
             catch( InterruptedException e )
             {
-                Debug.output( Debug.IMPORTANT | Debug.TOOLS, e );
+                Debug.output( 3, e );
             }
         }
 
