@@ -42,7 +42,7 @@ import org.omg.CORBA.NamedValue;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.11 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.12 2004-06-08 13:20:46 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable, Configurable
@@ -152,8 +152,8 @@ public class MessageFactory implements Disposable, Configurable
             _mesg.setFilterStage( consumer.getFirstStage() );
 
             _mesg.setStructuredEvent( structuredEvent ,
-                                           consumer.isStartTimeSupported(),
-                                           consumer.isTimeOutSupported());
+                                      consumer.isStartTimeSupported(),
+                                      consumer.isTimeOutSupported());
 
             return _mesg.getHandle();
         }
