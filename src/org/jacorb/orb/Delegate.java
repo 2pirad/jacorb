@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.71 2003-02-23 12:52:02 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.72 2003-02-27 19:40:26 andre.spiegel Exp $
  *
  */
 
@@ -798,6 +798,16 @@ public final class Delegate
                                                ros.getReplyEndTime(),
                                                interceptors,
                                                replyHandler );
+                                             
+                // Store the receiver in pending_replies, so in the
+                // case of a LocationForward a RemarshalException can
+                // be thrown to *all* waiting threads.                               
+
+                synchronized ( pending_replies )
+                {
+                    pending_replies.add ( receiver );                                              
+                }
+                                               
                 synchronized ( bind_sync )
                 {
                     if ( ros.getConnection() == connection )
