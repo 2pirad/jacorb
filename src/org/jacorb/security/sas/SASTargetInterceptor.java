@@ -59,7 +59,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  * This is the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInterceptor.java,v 1.12 2004-01-28 19:50:03 david.robison Exp $
+ * @version $Id: SASTargetInterceptor.java,v 1.13 2004-01-30 09:14:36 nicolas Exp $
  */
 
 public class SASTargetInterceptor
@@ -89,7 +89,7 @@ public class SASTargetInterceptor
         codec = info.codec_factory().create_codec(encoding);
         orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB ();
 
-		useSsl = Boolean.getBoolean(org.jacorb.util.Environment.getProperty( "jacorb.security.sas.tss.requires_sas", "false" ));
+		useSsl = Boolean.valueOf(org.jacorb.util.Environment.getProperty( "jacorb.security.sas.tss.requires_sas", "false" )).booleanValue();
 
         String contextClass = org.jacorb.util.Environment.getProperty("jacorb.security.sas.contextClass");
         if (contextClass != null) {
