@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.19 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: NameTable.java,v 1.20 2003-10-30 09:03:23 brose Exp $
  *
  */
 
@@ -183,7 +183,8 @@ class NameTable
         h.put( name, kind );
 
         /* block identifiers that only differ in case */
-        h.put( name.toUpperCase(), "dummy" );
+        if( org.jacorb.idl.parser.strict_names )
+            h.put( name.toUpperCase(), "dummy" );
 
         if( kind.equals( "operation" ) )
             operationSources.put( name, name.substring( 0, name.lastIndexOf( "." ) ) );
