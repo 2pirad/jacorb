@@ -22,14 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.11 2002-04-17 08:49:03 gerald Exp $
+ * @version $Id: BaseType.java,v 1.12 2002-07-08 09:18:41 gerald Exp $
  */
 
 
 import java.io.PrintWriter;
 
 class BaseType
-        extends SimpleTypeSpec
+    extends SimpleTypeSpec
 {
 
     public BaseType( int num )
@@ -69,14 +69,14 @@ class BaseType
     public static boolean isBasicName( String typeName )
     {
         return ( typeName.startsWith( "long" ) ||
-                typeName.startsWith( "int" ) ||
-                typeName.startsWith( "short" ) ||
-                typeName.startsWith( "float" ) ||
-                typeName.startsWith( "double" ) ||
-                typeName.startsWith( "byte" ) ||
-                typeName.startsWith( "boolean" ) ||
-                typeName.startsWith( "char" ) ||
-                typeName.startsWith( "string" ) );
+                 typeName.startsWith( "int" ) ||
+                 typeName.startsWith( "short" ) ||
+                 typeName.startsWith( "float" ) ||
+                 typeName.startsWith( "double" ) ||
+                 typeName.startsWith( "byte" ) ||
+                 typeName.startsWith( "boolean" ) ||
+                 typeName.startsWith( "char" ) ||
+                 typeName.startsWith( "string" ) );
     }
 
     public void setEnclosingSymbol( IdlSymbol s )

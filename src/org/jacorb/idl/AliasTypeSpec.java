@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.30 2002-06-03 20:12:17 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.31 2002-07-08 09:18:41 gerald Exp $
  */
 
 public class AliasTypeSpec
@@ -129,9 +129,9 @@ public class AliasTypeSpec
         }
 
         if( originalType instanceof ConstrTypeSpec ||
-                originalType instanceof FixedPointType ||
-                originalType instanceof SequenceType ||
-                originalType instanceof ArrayTypeSpec )
+            originalType instanceof FixedPointType ||
+            originalType instanceof SequenceType ||
+            originalType instanceof ArrayTypeSpec )
         {
             originalType.parse();
             if( originalType.typeName().indexOf( '.' ) < 0 )

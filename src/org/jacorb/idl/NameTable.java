@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.11 2002-04-17 08:49:10 gerald Exp $
+ * @version $Id: NameTable.java,v 1.12 2002-07-08 09:18:41 gerald Exp $
  *
  */
 
@@ -437,28 +437,28 @@ class NameTable
     }
 
 
-    static Enumeration getGlobalTypes()
-    {
-        Vector v = new Vector();
+//      static Enumeration getGlobalTypes()
+//      {
+//          Vector v = new Vector();
 
-        for( Enumeration e = h.keys(); e.hasMoreElements(); )
-        {
-            String str = (String)e.nextElement();
-            if( str.indexOf( '.' ) == -1 && !baseType( str ) &&
-                    ( ( (String)h.get( str ) ).startsWith( "type" ) ||
-                    ( (String)h.get( str ) ).equals( "interface" ) )
-            )
-            {
-                v.addElement( str );
-            }
-            else
-            {
-                Environment.output( 4, "Not a global type: " + str );
-            }
-        }
+//          for( Enumeration e = h.keys(); e.hasMoreElements(); )
+//          {
+//              String str = (String)e.nextElement();
+//              if( str.indexOf( '.' ) == -1 && !baseType( str ) &&
+//                      ( ( (String)h.get( str ) ).startsWith( "type" ) ||
+//                      ( (String)h.get( str ) ).equals( "interface" ) )
+//              )
+//              {
+//                  v.addElement( str );
+//              }
+//              else
+//              {
+//                  Environment.output( 4, "Not a global type: " + str );
+//              }
+//          }
 
-        return v.elements();
-    }
+//          return v.elements();
+//      }
 
 
     /**

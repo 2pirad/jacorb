@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.32 2002-06-25 08:03:18 gerald Exp $
+ * @version $Id: Interface.java,v 1.33 2002-07-08 09:18:41 gerald Exp $
  */
 
 import java.io.File;
@@ -670,7 +670,6 @@ class Interface
             ps.println( "package " + pack_name + ";\n" );
 
         printImport( ps );
-
         printClassComment( classname, ps );
 
         ps.println( "public class _" + classname + "Stub" );

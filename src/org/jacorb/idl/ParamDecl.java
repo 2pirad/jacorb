@@ -22,15 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.7 2002-04-17 08:49:11 gerald Exp $
+ * @version $Id: ParamDecl.java,v 1.8 2002-07-08 09:18:41 gerald Exp $
  */
 
 import java.io.PrintWriter;
 
 class ParamDecl
-        extends IdlSymbol
+    extends IdlSymbol
 {
-
     public int paramAttribute;
     public TypeSpec paramTypeSpec;
     public SimpleDeclarator simple_declarator;
@@ -56,10 +55,10 @@ class ParamDecl
         while( paramTypeSpec.typeSpec() instanceof ScopedName )
         {
             TypeSpec ts = ( (ScopedName)paramTypeSpec.typeSpec() ).resolvedTypeSpec();
-
             if( ts != null )
                 paramTypeSpec = ts;
         }
+        //simple_declarator.print(ps);
     }
 
     public void print( PrintWriter ps )
