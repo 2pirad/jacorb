@@ -53,7 +53,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.22 2004-06-19 12:10:31 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.23 2004-06-30 23:06:23 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl
@@ -163,9 +163,14 @@ public class FilterFactoryImpl
 
                 availableFilters_.put(_grammar, _constructor);
             } catch (ClassNotFoundException e) {
-                throw new ConfigurationException(key + ": class " + _clazzName + " is unknown");
+                throw new ConfigurationException("Property "
+                                                 + key
+                                                 + ": class "
+                                                 + _clazzName
+                                                 + " is unknown");
             } catch (NoSuchMethodException e) {
-                throw new ConfigurationException(key
+                throw new ConfigurationException("Property "
+                                                 + key
                                                  + ": does the c'tor of class "
                                                  + _clazzName
                                                  + " accept param ApplicationContext ?");
