@@ -73,7 +73,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.4 2003-01-16 17:27:09 nicolas Exp $
+ * @version $Id: ClientServerSetup.java,v 1.5 2003-03-31 11:25:57 andre.spiegel Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -125,7 +125,7 @@ public class ClientServerSetup extends TestSetup {
             "jaco -Djacorb.verbosity=0 "
             + "-Djacorb.orb.print_version=off "
             + propsToCommandLineArgs( serverOrbProperties )
-            + "-classpath " 
+            + " -classpath " 
             + System.getProperty ("java.class.path")
             + " org.jacorb.test.common.TestServer "
             + servantName );
