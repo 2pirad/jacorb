@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.71 2003-10-30 10:13:29 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.72 2003-11-05 12:43:27 francisco Exp $
  */
 
 public class CDRInputStream
@@ -2526,7 +2526,7 @@ public class CDRInputStream
                             catch (NoSuchMethodException e)
                             {
                                 throw new org.omg.CORBA.MARSHAL(
-                                    "No write method in helper class "
+                                    "No read method in helper class "
                                     + helperClassName + ": " + e);
                             }
                         }
