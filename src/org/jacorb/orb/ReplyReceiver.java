@@ -47,7 +47,7 @@ import java.util.*;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.12 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: ReplyReceiver.java,v 1.13 2003-05-21 13:03:24 nick.cross Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -82,6 +82,7 @@ public class ReplyReceiver extends ReplyPlaceholder
         if (replyEndTime != null)
         {
             timer = new Timer (replyEndTime);
+            timer.setName( "ReplyReceiver Timer" );
             timer.start();
         }
         else
