@@ -36,7 +36,7 @@ import java.util.List;
  * @author Alphonse Bendt
  * @author Marc Heide
  *
- * @version $Id: CollectionsWrapper.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: CollectionsWrapper.java,v 1.5 2003-12-11 16:48:09 alphonse.bendt Exp $
  */
 
 public class CollectionsWrapper
@@ -95,9 +95,15 @@ public class CollectionsWrapper
 
         public boolean contains( Object object )
         {
-            if ( object == null && singletonElement_ == null )
-            {
-                return true;
+            if (singletonElement_ == null) {
+                if ( object == null )
+                    {
+                        return true;
+                    }
+                else
+                    {
+                        return false;
+                    }
             }
 
             return object.equals( singletonElement_ );
