@@ -55,7 +55,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.8 2004-03-03 12:20:37 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.9 2004-03-17 08:16:46 alphonse.bendt Exp $
  */
 
 class StructuredEventMessage extends AbstractMessage
@@ -241,5 +241,10 @@ class StructuredEventMessage extends AbstractMessage
 
     public boolean match(MappingFilter filter, AnyHolder value) throws UnsupportedFilterableData {
         return filter.match_structured(toStructuredEvent(), value);
+    }
+
+
+    public String toString() {
+        return structuredEventValue_.toString();
     }
 }
