@@ -26,14 +26,13 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.8 2002-05-15 14:34:46 nick.cross Exp $
+ * @version $Id: SymbolList.java,v 1.9 2002-05-30 10:54:58 nick.cross Exp $
  */
 
 class SymbolList
         extends IdlSymbol
 {
-
-    public Vector v;
+    Vector v;
 
     public SymbolList( int num )
     {

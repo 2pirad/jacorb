@@ -25,14 +25,13 @@ package org.jacorb.idl;
  * constant type
  *
  * @author Gerald Brose
- * @version $Id: ConstType.java,v 1.7 2002-04-17 08:49:04 gerald Exp $
+ * @version $Id: ConstType.java,v 1.8 2002-05-30 10:54:58 nick.cross Exp $
  */
 
 class ConstType
         extends IdlSymbol
 {
-
-    public TypeSpec symbol;
+    TypeSpec symbol;
 
     public ConstType( int num )
     {

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.12 2002-05-08 12:43:48 gerald Exp $
+ * @version $Id: TypeDeclaration.java,v 1.13 2002-05-30 10:54:58 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
@@ -31,7 +31,7 @@ import java.util.Set;
 class TypeDeclaration
     extends Declaration
 {
-    protected boolean typedefd = false;
+    boolean typedefd = false;
 
     public TypeDeclaration type_decl;
 
@@ -163,4 +163,3 @@ class TypeDeclaration
     }
 
 }
-
