@@ -47,7 +47,7 @@ import java.io.*;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.70 2003-12-22 09:00:55 gerald Exp $
+ * @version $Id: Environment.java,v 1.71 2003-12-30 15:24:16 andre.spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -124,8 +124,8 @@ public class Environment
     private static byte[]               _server_id = null;
 
     /* properties with a given prefix */
-    private static Hashtable untrimmedPrefixProps = new Hashtable();
-    private static Hashtable trimmedPrefixProps = new Hashtable();
+    private static Map untrimmedPrefixProps = new HashMap();
+    private static Map trimmedPrefixProps = new HashMap();
 
     private static SimpleDateFormat dateFormatter;
     private static SimpleDateFormat timeFormatter;
