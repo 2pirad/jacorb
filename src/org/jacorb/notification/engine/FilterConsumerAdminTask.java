@@ -32,7 +32,7 @@ import org.jacorb.notification.interfaces.FilterStage;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.3 2003-08-28 16:00:10 alphonse.bendt Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask
@@ -98,7 +98,7 @@ public class FilterConsumerAdminTask extends AbstractFilterTask
             {
 
                 _filterForCurrentFilterStageMatched =
-                    event_.match( arrayCurrentFilterStage_[ x ] );
+                    message_.match( arrayCurrentFilterStage_[ x ] );
 
             }
 
