@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.10 2002-07-05 06:47:33 steve.osselton Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.11 2002-07-08 09:40:21 gerald Exp $
  *
  */
 
@@ -462,7 +462,6 @@ public class NamingContextImpl
             catch ( Exception ue )
             {
                 ue.printStackTrace();
-                System.exit(1);
             }
                         
             bi.value = BindingIteratorHelper.narrow(o);
