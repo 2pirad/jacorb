@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--             util build file                          -->
-  <!-- $Id: build.xml,v 1.3 2002-10-15 12:32:39 nick.cross Exp $  -->
+  <!-- $Id: build.xml,v 1.4 2003-08-15 12:27:00 nick.cross Exp $  -->
   <!-- ==================================================== -->
 
    &common;
@@ -41,6 +41,6 @@
 
 
    <target name="clean">
-      <delete file="ValueHandler.java"/>
+      <delete file="src/org/jacorb/util/ValueHandler.java"/>
    </target>
 </project>
