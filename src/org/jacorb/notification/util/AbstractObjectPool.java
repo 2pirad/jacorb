@@ -38,7 +38,7 @@ import org.apache.avalon.framework.logger.Logger;
  * returned to its pool!
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractObjectPool.java,v 1.4 2004-01-16 17:16:48 alphonse.bendt Exp $
+ * @version $Id: AbstractObjectPool.java,v 1.5 2004-01-23 20:03:02 alphonse.bendt Exp $
  */
 
 public abstract class AbstractObjectPool implements Runnable, Disposable
@@ -272,16 +272,6 @@ public abstract class AbstractObjectPool implements Runnable, Disposable
     public void dispose()
     {
         deregisterPool( this );
-
-        if (logger_.isInfoEnabled() ) {
-            logger_.info(name_
-                         + " Stats: instanceCount="
-                         + instanceCount_
-                         + ", lend="
-                         + lendCount_
-                         + ", return="
-                         + returnCount_ );
-        }
     }
 
     /**
