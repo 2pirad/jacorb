@@ -40,8 +40,8 @@ import org.omg.CORBA.BAD_QOS;
  * <li>default file in JRE/lib
  * <li>default file in user.home
  * <li>default file on classpath
- * <li>command line properties
  * <li>additional custom properties files (custom.props)
+ * <li>command line properties
  * </ol>
  * <break>
  * ORB.init() parameters are set using the addProperties() method and
@@ -49,7 +49,7 @@ import org.omg.CORBA.BAD_QOS;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.73 2004-01-03 10:23:21 andre.spiegel Exp $
+ * @version $Id: Environment.java,v 1.74 2004-01-05 13:20:44 gerald Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -223,9 +223,6 @@ public class Environment
                 // ignore
             }
 
-            // load system properties (including command line properties)
-            configurationProperties.putAll( System.getProperties() );
-
             // load additional properties from custom properties files
             String customPropertyFileNames = System.getProperty("custom.props");
 
@@ -247,6 +244,9 @@ public class Environment
                     //ignore
                 }
             }
+
+            // load system properties (including command line properties)
+            configurationProperties.putAll( System.getProperties() );
 
             //read prop values to set fields of this class
             readValues();
