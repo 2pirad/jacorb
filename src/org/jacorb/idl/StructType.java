@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.38 2003-10-24 19:27:18 brose Exp $
+ * @version $Id: StructType.java,v 1.39 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class StructType
@@ -274,7 +274,7 @@ public class StructType
     }
 
     /**
-     * @returns a string for an expression of type TypeCode that
+     * @return a string for an expression of type TypeCode that
      * describes this type
      */
 

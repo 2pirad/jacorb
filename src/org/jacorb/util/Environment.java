@@ -45,7 +45,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.59 2003-08-17 23:34:44 andre.spiegel Exp $
+ * @version $Id: Environment.java,v 1.60 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -736,7 +736,7 @@ public class Environment
      * Create an object from the give property. The classes default
      * constructor will be used.
      *
-     * @returns null or an object of the class of the keys value
+     * @return null or an object of the class of the keys value
      * @throws Error if reflection fails.
      */
     public static Object getObjectProperty( String key )

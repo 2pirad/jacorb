@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.23 2003-10-24 20:07:46 brose Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.24 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class ValueBoxDecl
@@ -174,7 +174,7 @@ public class ValueBoxDecl
     }
 
     /**
-     * @returns a string for an expression of type TypeCode that
+     * @return a string for an expression of type TypeCode that
      * describes this type
      *
      * @overrides getTypeCodeExpression(Set knownTypes) in

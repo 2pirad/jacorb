@@ -40,7 +40,7 @@ import org.omg.CORBA.ConstantDescription;
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.16 2003-04-01 11:25:18 nick.cross Exp $
+ * @version $Id: InterfaceDef.java,v 1.17 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class InterfaceDef
@@ -516,7 +516,7 @@ public class InterfaceDef
     }
 
     /**
-     * @returns  an array containing interface definitions of the superclass and
+     * @return  an array containing interface definitions of the superclass and
      * the interfaces extended by this class. Has length 0 if this class
      * is Object.
      */

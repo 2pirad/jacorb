@@ -26,7 +26,7 @@ package org.jacorb.security.util;
  * TrustNodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KSEntryTree.java,v 1.6 2002-12-20 18:29:06 nicolas Exp $
+ * @version $Id: KSEntryTree.java,v 1.7 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 import java.awt.*;
@@ -101,7 +101,7 @@ public class KSEntryTree
     
     /**
      * @param alias - the key alias
-     * @returns the KeyNode representing the key entry for the alias, null if not found
+     * @return the KeyNode representing the key entry for the alias, null if not found
      */
 
     public KeyNode getKeyNode(String alias)

@@ -36,7 +36,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.21 2003-08-18 05:03:29 francisco Exp $
+ *  @version $Id: NameServer.java,v 1.22 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 
@@ -64,7 +64,7 @@ public class NameServer
         }
 
         /**
-         * @returns - a servant initialized from a file
+         * @return - a servant initialized from a file
          */
 
         public Servant incarnate( byte[] oid, POA adapter )

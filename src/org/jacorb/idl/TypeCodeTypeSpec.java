@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeCodeTypeSpec.java,v 1.9 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: TypeCodeTypeSpec.java,v 1.10 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -75,7 +75,7 @@ public class TypeCodeTypeSpec
     }
 
     /**
-     * @returns a string for an expression of type TypeCode
+     * @return a string for an expression of type TypeCode
      * 			that describes this type
      */
 

@@ -23,7 +23,7 @@ package org.jacorb.security.ssl.iaik;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.8 2003-08-15 11:18:17 andre.spiegel Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.9 2003-10-28 17:04:41 simon.mcqueen Exp $
  *
  * We follow the design of socket factories in package javax.net
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we
@@ -214,7 +214,7 @@ public class SSLSocketFactory
      * The minimum quality of service for these defaults requires
      * confidentiality protection and server authentication.
      *
-     * @returns:
+     * @return:
      *	array of the cipher suites enabled by default
      */
 
@@ -232,7 +232,7 @@ public class SSLSocketFactory
      * requirements for those defaults.
      * Such cipher suites are useful in specialized applications.
      *
-     * @returns:
+     * @return:
      * 	an array of cipher suite names
      */
     public String[] getSupportedCipherSuites()

@@ -29,7 +29,7 @@ import java.util.Enumeration;
  * The compiler backend for the IDL/Java mapping
  *
  * @author Copyright (c) 1999-2003, Gerald Brose
- * @version $Id: JavaMappingGeneratingVisitor.java,v 1.2 2003-09-03 10:33:41 brose Exp $
+ * @version $Id: JavaMappingGeneratingVisitor.java,v 1.3 2003-10-28 17:04:41 simon.mcqueen Exp $
  *
  */
 
@@ -286,7 +286,7 @@ public class JavaMappingGeneratingVisitor
 
     /**
      * Type ids
-     * @returns a string describing a type
+     * @return a string describing a type
      */ 
 
     private String typeSpecDesignator( TypeSpec ts )

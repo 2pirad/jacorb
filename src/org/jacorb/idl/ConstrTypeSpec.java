@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.17 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.18 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -92,7 +92,7 @@ public class ConstrTypeSpec
     }
 
     /**
-     * @returns "org.omg." if the symbol has been declare inside a
+     * @return "org.omg." if the symbol has been declare inside a
      * scope with a pragma prefix of "omg.org"
      */
 
@@ -129,7 +129,7 @@ public class ConstrTypeSpec
     }
 
     /**
-     * @returns a string for an expression of type TypeCode
+     * @return a string for an expression of type TypeCode
      * 			that describes this type
      */
     public String getTypeCodeExpression()

@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.31 2003-10-24 19:52:30 brose Exp $
+ * @version $Id: SequenceType.java,v 1.32 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class SequenceType
@@ -121,7 +121,7 @@ public class SequenceType
     }
 
     /**
-     * @returns a string for an expression of type TypeCode that describes this type
+     * @return a string for an expression of type TypeCode that describes this type
      */
 
     public String getTypeCodeExpression()

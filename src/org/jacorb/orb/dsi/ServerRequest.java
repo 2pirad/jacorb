@@ -38,7 +38,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.23 2003-10-24 16:34:21 andre.spiegel Exp $
+ * @version $Id: ServerRequest.java,v 1.24 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class ServerRequest
@@ -465,7 +465,7 @@ public class ServerRequest
     }
 
     /**
-     * @returns the InputStream. This operation sets the
+     * @return the InputStream. This operation sets the
      * request be stream-based, ie. all attempts to extract
      * data using DII-based operations will throw exceptions
      * For internal access to the stream use get_in()

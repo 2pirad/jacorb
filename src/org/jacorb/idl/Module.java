@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.13 2003-10-24 19:50:19 brose Exp $
+ * @version $Id: Module.java,v 1.14 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 import java.io.File;
@@ -156,7 +156,7 @@ public class Module
     }
 
     /**
-     * @returns the original, unreplaced module name
+     * @return the original, unreplaced module name
      * (needed to build a repositoryID that is untouched by
      * the compiler option -i2jpackage
      */

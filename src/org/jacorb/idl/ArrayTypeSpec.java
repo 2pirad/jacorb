@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.23 2003-10-24 19:39:22 brose Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.24 2003-10-28 17:04:41 simon.mcqueen Exp $
  *
  */
 
@@ -202,7 +202,7 @@ public class ArrayTypeSpec
     }
 
     /**
-     * @returns a string for an expression of type TypeCode that
+     * @return a string for an expression of type TypeCode that
      * describes this type
      *
      * Array and sequence types always have this expression inlined in

@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.18 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: TypeSpec.java,v 1.19 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 
@@ -96,7 +96,7 @@ public class TypeSpec
     }
 
     /**
-     * @returns true if this is a basic type
+     * @return true if this is a basic type
      */
 
     public boolean basic()
@@ -142,7 +142,7 @@ public class TypeSpec
     }
 
     /**
-     * @returns a string for an expression of type TypeCode
+     * @return a string for an expression of type TypeCode
      * 			that describes this type
      */
     public String getTypeCodeExpression()

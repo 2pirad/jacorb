@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Value.java,v 1.17 2003-09-12 09:44:53 brose Exp $
+ * @version $Id: Value.java,v 1.18 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -60,7 +60,7 @@ public class Value
 
 
     /**
-     * @returns a string for an expression of type TypeCode
+     * @return a string for an expression of type TypeCode
      * 			that describes this type
      */
 

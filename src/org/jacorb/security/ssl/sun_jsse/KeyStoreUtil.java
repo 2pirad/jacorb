@@ -30,13 +30,13 @@ import org.jacorb.util.Debug;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KeyStoreUtil.java,v 1.5 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.6 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class KeyStoreUtil
 {
     /**
-     * @returns - a fully loaded and operational KeyStore
+     * @return - a fully loaded and operational KeyStore
      * @param file_name - a keystore file name to be loaded
      * @param storepass - the password for managing the keystore
      */

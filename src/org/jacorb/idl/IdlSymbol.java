@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.31 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: IdlSymbol.java,v 1.32 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class IdlSymbol
@@ -217,7 +217,7 @@ public class IdlSymbol
     }
 
     /**
-     * @returns fully scoped IDL identifier
+     * @return fully scoped IDL identifier
      */
 
     String full_name()
@@ -236,7 +236,7 @@ public class IdlSymbol
     }
 
     /**
-     * @returns fully scoped Java identifier, only used in
+     * @return fully scoped Java identifier, only used in
      * code generation phase
      */
 
@@ -258,7 +258,7 @@ public class IdlSymbol
     }
 
     /**
-     * @returns "org.omg." if the symbol has been declared inside a
+     * @return "org.omg." if the symbol has been declared inside a
      * scope with a pragma prefix of "omg.org".
      */
 

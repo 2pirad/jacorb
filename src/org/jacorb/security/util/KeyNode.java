@@ -24,7 +24,7 @@ package org.jacorb.security.util;
  * This class represents key store entries
  *
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: KeyNode.java,v 1.6 2002-12-20 18:29:06 nicolas Exp $
+ *	@version $Id: KeyNode.java,v 1.7 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 import java.security.*;
@@ -252,7 +252,7 @@ public class KeyNode
     }
 
     /**
-     * @returns true if successful
+     * @return true if successful
      */
 
     public void removeFromParent()

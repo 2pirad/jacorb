@@ -24,13 +24,13 @@ import java.util.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ObjectUtil.java,v 1.12 2003-04-08 13:37:07 nick.cross Exp $
+ * @version $Id: ObjectUtil.java,v 1.13 2003-10-28 17:04:41 simon.mcqueen Exp $
  */
 
 public class ObjectUtil
 {
     /**
-     * @returns the contents of the resource as a string, or null
+     * @return the contents of the resource as a string, or null
      * if the contents of the resource could not be located using url
      */
     public static final String readURL( String url )

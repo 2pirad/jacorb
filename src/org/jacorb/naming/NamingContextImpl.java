@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.16 2003-10-27 09:04:22 andre.spiegel Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.17 2003-10-28 17:04:41 simon.mcqueen Exp $
  *
  */
 
@@ -354,7 +354,7 @@ public class NamingContextImpl
     }
 
     /** 
-     *  @returns numer of bindings in this context
+     *  @return numer of bindings in this context
      */ 
 
     public int how_many()

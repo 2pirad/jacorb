@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.26 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ScopedName.java,v 1.27 2003-10-28 17:04:41 simon.mcqueen Exp $
  *
  */
 
@@ -294,7 +294,7 @@ public class ScopedName
      * resolves a qualified name s by replacing it by a fully
      * qualified one, (watch out for typedef'd names!)
      *
-     * @returns a fully qualified IDL identifier
+     * @return a fully qualified IDL identifier
      */
 
     private String resolvedName( String pack_name, String s )
@@ -588,7 +588,7 @@ public class ScopedName
 
 
     /**
-     * @returns the fully qualified and resolved name in an intermediate
+     * @return the fully qualified and resolved name in an intermediate
      * format, i.e. with "Package" suffixes but without potential "omg.org"
      * scopes
      */
@@ -633,7 +633,7 @@ public class ScopedName
     }
 
     /**
-     * @returns a string for an expression of type TypeCode that describes this type
+     * @return a string for an expression of type TypeCode that describes this type
      */
 
     public String getTypeCodeExpression()
