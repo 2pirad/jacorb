@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.39 2002-05-27 08:18:36 gerald Exp $
+ * @version $Id: Environment.java,v 1.40 2002-05-27 08:54:10 jason.courage Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -77,6 +77,7 @@ public class Environment
 
     private static boolean              _locate_on_bind = false;
     private static boolean              _use_imr = false;
+    private static boolean              _use_imr_endpoint = true;
     private static boolean              _cache_references = false;
     private static PrintWriter          _log_file_out = null;
 
@@ -353,6 +354,8 @@ public class Environment
             _monitoring_on = (o.equalsIgnoreCase("on")? true : false);
         else  if( varName.equals("_use_imr"))
             _use_imr =  (o.equalsIgnoreCase("on")? true : false);
+        else  if( varName.equals("_use_imr_endpoint"))
+            _use_imr_endpoint =  (o.equalsIgnoreCase("on")? true : false);
         else  if( varName.equals("_use_domain"))
             _use_domain =  (o.equalsIgnoreCase("on")? true : false);
         else  if( varName.equals("_mount_orb_domain"))
@@ -443,6 +446,7 @@ public class Environment
 
         readValue("_monitoring_on","monitoring",poaPrefix+"monitoring");
         readValue("_use_imr","use_imr",jacorbPrefix+"use_imr");
+        readValue("_use_imr_endpoint","use_imr_endpoint",jacorbPrefix+"use_imr_endpoint");
         readValue("_use_domain","use_domain",jacorbPrefix+"use_domain");
         readValue("_mount_orb_domain","_mount_orb_domain", jacorbPrefix+"orb_domain.mount");
         readValue("_thread_pool_max","thread_pool_max",poaPrefix+"thread_pool_max");
@@ -473,6 +477,7 @@ public class Environment
     public static final long   LifetimeOfCacheEntry() { return _cache_entry_lifetime; }
     
     public static final boolean useImR()    { return _use_imr;    }
+    public static final boolean useImREndpoint()    { return _use_imr_endpoint;    }
     public static final boolean useDomain()      { return _use_domain; }
     public static final boolean mountORBDomain() { return _mount_orb_domain; }
         
