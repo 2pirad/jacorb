@@ -6,17 +6,29 @@
 
   <!-- ==================================================== -->
   <!--             dns lookup build file                    -->
-  <!-- $Id: build.xml,v 1.6 2004-05-07 12:08:37 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.7 2004-05-07 12:24:14 brose Exp $ -->
   <!-- ==================================================== -->
 
    &common;
 
-   <target name="all" depends="init,dns"/>
+   <target name="xbill-test">
+      <available classname="org.xbill.DNS.dns" property="xbill.available" />
+   </target>
+
+   <target name="all" depends="init,xbill-test,dns,xbill-delegate"/>
+
 
    <target name="dns">
       <antcall target="jacorb-javac">
          <param name="javac-includes" 
                 value="org/jacorb/orb/dns/DNSLookup.java,org/jacorb/orb/dns/DNSLookupDelegate.java,org/jacorb/orb/dns/JdkDelegateImpl.java"/>
+      </antcall>
+   </target>
+
+
+   <target name="xbill-delegate" if="xbill.available">
+      <antcall target="jacorb-javac">
+         <param name="javac-includes" value="org/jacorb/orb/dns/XbillDelegateImpl.java"/>
       </antcall>
    </target>
 
