@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: CharType.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: CharType.java,v 1.13 2003-09-04 15:28:09 nicolas Exp $
  */
 
 class CharType
@@ -59,7 +59,7 @@ class CharType
         return "char";
     }
 
-    public String idlTypeName()
+    public String getIDLTypeName()
     {
         return ( wide ? "wchar" : "char" );
     }

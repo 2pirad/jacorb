@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: StringType.java,v 1.10 2003-09-03 09:44:09 brose Exp $
+ * @version $Id: StringType.java,v 1.11 2003-09-04 15:28:09 nicolas Exp $
  */
 
 public class StringType
@@ -60,6 +60,11 @@ public class StringType
     public String typeName()
     {
         return "java.lang.String";
+    }
+
+    public String getIDLTypeName()
+    {
+        return ( wide ? "wstring" : "string" );
     }
 
     public TypeSpec typeSpec()
