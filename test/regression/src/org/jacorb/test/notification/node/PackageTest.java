@@ -26,8 +26,12 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
+ * PackageTest.java
+ *
+ *
+ *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2.4.1 2004-04-28 13:09:59 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.2.4.2 2004-04-28 13:13:16 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
