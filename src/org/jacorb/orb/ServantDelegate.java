@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.11 2002-05-27 08:40:53 gerald Exp $
+ * $Id: ServantDelegate.java,v 1.12 2002-06-18 11:47:05 steve.osselton Exp $
  */
 
 public class ServantDelegate
@@ -71,9 +71,10 @@ public class ServantDelegate
 	}     
 	catch (org.omg.CORBA.OBJ_ADAPTER e) 
 	{       
-	    // This means we don't have a context for our POACurrent.       
-	    // Use the Servant's default POA instead.       
-	    poa = default_POA(self);  
+           // Use servants default POA. Operation may be re-implemented
+           // by servant implementation.
+
+            poa = self._default_POA ();
 	}
 
 	if (poa == null) 
