@@ -24,25 +24,26 @@ import junit.framework.*;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: AllTest.java,v 1.5 2003-10-05 16:46:49 brose Exp $
+ * @version $Id: AllTest.java,v 1.6 2003-10-10 13:31:37 andre.spiegel Exp $
  */
 
 public class AllTest extends TestCase
 {
-   public AllTest( String name )
+   public AllTest(String name)
    {
-      super( name );
+      super(name);
    }
 
    public static Test suite()
    {
       TestSuite suite = new TestSuite("All bugs");
 
-      suite.addTest( org.jacorb.test.bugs.bug228.TestCase.suite() );
-      suite.addTest( org.jacorb.test.bugs.bug272.TestCase.suite() );
-      suite.addTest( org.jacorb.test.bugs.bug344.TestCase.suite() );
-      suite.addTest( org.jacorb.test.bugs.bug351.TestCase.suite() );
-      suite.addTest( org.jacorb.test.bugs.bug384.TestCase.suite() );
+      suite.addTest(org.jacorb.test.bugs.bug228.TestCase.suite());
+      suite.addTest(org.jacorb.test.bugs.bug272.TestCase.suite());
+      suite.addTest(org.jacorb.test.bugs.bug344.TestCase.suite());
+      suite.addTest(org.jacorb.test.bugs.bug351.TestCase.suite());
+      suite.addTest(org.jacorb.test.bugs.bug384.TestCase.suite());
+      suite.addTest(org.jacorb.test.bugs.bug387.TestCase.suite());
 
       return suite;
    }
