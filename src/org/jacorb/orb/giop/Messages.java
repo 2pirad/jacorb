@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.13 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: Messages.java,v 1.14 2003-02-23 12:53:57 andre.spiegel Exp $
  *
  */
 
@@ -233,7 +233,7 @@ public class Messages
     
     public static final boolean responseExpected( byte flags )
     {
-        return (0x03 & flags) == 0x03;
+        return flags == (byte)0x01 || flags == (byte)0x03;
     }
     
     public static final byte responseFlags( boolean response_expected )
