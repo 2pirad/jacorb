@@ -35,7 +35,7 @@ import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.7 2004-02-09 16:19:33 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.8 2004-02-13 18:31:20 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable
@@ -48,9 +48,7 @@ public class MessageFactory implements Disposable
         {
             public Object newInstance()
             {
-                AbstractPoolable _p =
-                    new AnyMessage();
-                return _p;
+                return new AnyMessage();
             }
 
             public void activateObject( Object o )
@@ -66,8 +64,7 @@ public class MessageFactory implements Disposable
         {
             public Object newInstance()
             {
-                AbstractPoolable _p = new StructuredEventMessage();
-                return _p;
+                return new StructuredEventMessage();
             }
 
             public void activateObject( Object o )
@@ -82,12 +79,14 @@ public class MessageFactory implements Disposable
     public void init()
     {
         anyMessagePool_.init();
+
         structuredEventMessagePool_.init();
     }
 
     public void dispose()
     {
         structuredEventMessagePool_.dispose();
+
         anyMessagePool_.dispose();
     }
 
@@ -98,9 +97,7 @@ public class MessageFactory implements Disposable
     public Message newMessage( Any any,
                                AbstractProxyConsumerI consumer )
     {
-        TypeCode _typeCode = any.type();
-
-        if (StructuredEventHelper.type().equals(_typeCode)) {
+        if (StructuredEventHelper.type().equals(any.type())) {
             // received a StructuredEvent wrapped inside an Any
             // see Spec. 2-11
             return newMessage(StructuredEventHelper.extract(any), consumer);
@@ -143,9 +140,7 @@ public class MessageFactory implements Disposable
 
     public Message newMessage( Any any )
     {
-        TypeCode _typeCode = any.type();
-
-        if (StructuredEventHelper.type().equals(_typeCode)) {
+        if (StructuredEventHelper.type().equals(any.type())) {
             return newMessage(StructuredEventHelper.extract(any));
         } else {
             AnyMessage _mesg =
