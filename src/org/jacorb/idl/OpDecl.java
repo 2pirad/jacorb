@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.29 2003-05-15 11:32:10 nick.cross Exp $
+ * @version $Id: OpDecl.java,v 1.30 2003-08-15 13:46:02 nick.cross Exp $
  */
 
 class OpDecl
@@ -240,7 +240,8 @@ class OpDecl
 
     public void printMethod( PrintWriter ps,
                              String classname,
-                             boolean is_local )
+                             boolean is_local,
+                             boolean is_abstract)
     {
         /* in some cases generated name have an underscore prepended for the
            mapped java name. On the wire, we must use the original name */
@@ -357,8 +358,16 @@ class OpDecl
         ps.println( "\t\t\tif( _so == null )" );
         ps.println( "\t\t\t\tthrow new org.omg.CORBA.UNKNOWN(\"local invocations not supported!\");" );
 
-        ps.println( "\t\t\t" + classname + "Operations _localServant = (" +
-                classname + "Operations)_so.servant;" );
+        if( is_abstract )
+        {
+            ps.println( "\t\t\t" + classname + " _localServant = (" +
+                        classname + ")_so.servant;" );
+        }
+        else
+        {
+            ps.println( "\t\t\t" + classname + "Operations _localServant = (" +
+                        classname + "Operations)_so.servant;" );
+        }
 
         if( opAttribute == 0 &&
                 !( opTypeSpec.typeSpec() instanceof VoidTypeSpec ) )

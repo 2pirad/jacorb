@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Method.java,v 1.13 2003-05-15 10:51:26 nick.cross Exp $
+ * @version $Id: Method.java,v 1.14 2003-08-15 13:46:02 nick.cross Exp $
  *
  * This class is used to represent accessor operations
  */
@@ -100,7 +100,7 @@ class Method
     }
 
 
-    public void printMethod( PrintWriter ps, String classname, boolean is_local )
+    public void printMethod( PrintWriter ps, String classname, boolean is_local, boolean is_abstract )
     {
         ps.print( "\tpublic " );
 
