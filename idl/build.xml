@@ -7,7 +7,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.28 2002-05-06 14:43:35 gerald Exp $ -->
+   <!-- $Id: build.xml,v 1.29 2002-05-07 12:45:12 gerald Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -85,7 +85,7 @@
       
       <mkdir dir="${src}/generated/org"/> 
 
-      <copy todir="${src}/generated" overwrite="yes">
+      <copy todir="${src}/generated">
          <!-- <fileset dir="${src}/omg-99-10-27"> -->
          <fileset dir="${src}/omg-02-01-02">
              <include name="**/*.java"/>
