@@ -33,7 +33,7 @@ import org.jacorb.poa.util.StringPair;
  * This class manages a queue of ServerRequest objects.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestQueue.java,v 1.15.2.1 2004-03-23 16:47:00 gerald Exp $
+ * @version $Id: RequestQueue.java,v 1.15.2.2 2004-04-01 00:03:21 phil.mesnier Exp $
  */
 public class RequestQueue
     implements Configurable
@@ -60,7 +60,7 @@ public class RequestQueue
     {
         this.controller = controller;
     }
-   
+
     public void configure(Configuration myConfiguration)
         throws ConfigurationException
     {
@@ -68,7 +68,7 @@ public class RequestQueue
         logger = configuration.getNamedLogger("jacorb.poa.queue");
         queueMax = configuration.getAttributeAsInteger("jacorb.poa.queue_max", 100);
         queueMin = configuration.getAttributeAsInteger("jacorb.poa.queue_min", 10);
-        queueWait = configuration.getAttributeAsBoolean("jacorb.poa.queue_wait");
+        queueWait = configuration.getAttributeAsBoolean("jacorb.poa.queue_wait",false);
     }
 
     /**
