@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.35 2003-01-10 17:40:48 nicolas Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.36 2003-01-13 09:04:47 nicolas Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1204,9 +1204,9 @@ public class ImplementationRepositoryImpl
                                                              false ); //no ssl
                 
                 GIOPConnection connection =
-                    new GIOPConnection( transport,
-                                        request_listener,
-                                        reply_listener );
+                    new ClientGIOPConnection( transport,
+                                              request_listener,
+                                              reply_listener );
                 
                 receptor_pool.connectionCreated( connection );
             }
