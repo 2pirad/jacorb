@@ -41,14 +41,12 @@ import org.omg.CosNotifyChannelAdmin.ProxySupplierHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullSupplierPOATie;
-import org.omg.CosNotifyComm.NotifyPublishHelper;
-import org.omg.CosNotifyComm.NotifyPublishOperations;
 import org.omg.CosNotifyComm.StructuredPullConsumer;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullSupplierImpl
@@ -78,8 +76,6 @@ public class StructuredProxyPullSupplierImpl
      */
     private StructuredPullConsumer structuredPullConsumer_;
 
-    private NotifyPublishOperations offerListener_;
-
     ////////////////////////////////////////
 
     public StructuredProxyPullSupplierImpl( AbstractAdmin myAdminServant,
@@ -101,21 +97,14 @@ public class StructuredProxyPullSupplierImpl
         structuredPullConsumer_ = consumer;
 
         connectClient(consumer);
-
-        try
-        {
-            offerListener_ = NotifyPublishHelper.narrow(consumer);
-        }
-        catch (Throwable t)
-        {
-            logger_.info("disable offer_change for StructuredPullConsumer");
-        }
     }
 
 
     public StructuredEvent pull_structured_event()
         throws Disconnected
     {
+        assertConnectedOrThrowDisconnected();
+
         Message _message = null;
 
         try
@@ -141,6 +130,8 @@ public class StructuredProxyPullSupplierImpl
     public StructuredEvent try_pull_structured_event( BooleanHolder hasEvent )
         throws Disconnected
     {
+        assertConnectedOrThrowDisconnected();
+
         Message _notificationEvent =
             getMessageNoBlock();
 
@@ -238,11 +229,5 @@ public class StructuredProxyPullSupplierImpl
     public org.omg.CORBA.Object activate()
     {
         return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
-    }
-
-
-    NotifyPublishOperations getOfferListener()
-    {
-        return offerListener_;
     }
 }

@@ -38,7 +38,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -46,8 +46,6 @@ public class ProxyPushConsumerImpl
     implements ProxyPushConsumerOperations
 {
     private PushSupplier pushSupplier_;
-
-    private NotifySubscribeOperations subscriptionListener_;
 
     ////////////////////////////////////////
 
@@ -86,6 +84,8 @@ public class ProxyPushConsumerImpl
      */
     public void push( Any event ) throws Disconnected
     {
+        assertConnectedOrThrowDisconnected();
+
         logger_.debug("push Any into the Channel");
 
         Message _mesg =
@@ -107,10 +107,6 @@ public class ProxyPushConsumerImpl
         pushSupplier_ = pushSupplier;
 
         connectClient(pushSupplier);
-
-        try {
-            subscriptionListener_ = NotifySubscribeHelper.narrow(pushSupplier_);
-        } catch (Throwable t) {}
     }
 
 
@@ -129,10 +125,4 @@ public class ProxyPushConsumerImpl
     {
         return ProxyConsumerHelper.narrow( getServant()._this_object(getORB()) );
     }
-
-
-    NotifySubscribeOperations getSubscriptionListener() {
-        return subscriptionListener_;
-    }
-
 }

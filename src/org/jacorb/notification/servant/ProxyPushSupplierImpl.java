@@ -45,7 +45,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl
@@ -55,8 +55,6 @@ public class ProxyPushSupplierImpl
     private PushConsumer pushConsumer_;
 
     private NotifyPublishOperations offerListener_;
-
-    private boolean enabled_;
 
     private boolean active_;
 
@@ -69,8 +67,6 @@ public class ProxyPushSupplierImpl
               channelContext);
 
         setProxyType(ProxyType.PUSH_ANY);
-
-        enabled_ = true;
     }
 
     ////////////////////////////////////////
@@ -84,15 +80,19 @@ public class ProxyPushSupplierImpl
     protected void disconnectClient()
     {
         pushConsumer_.disconnect_push_consumer();
+
         pushConsumer_ = null;
     }
 
 
+    /**
+     * TODO check error handling when push fails
+     */
     public void deliverMessage(Message event) throws Disconnected
     {
         if (isConnected())
         {
-            if (active_ && enabled_)
+            if (active_ && isEnabled())
                 {
                     pushConsumer_.push(event.toAny());
 
@@ -120,10 +120,6 @@ public class ProxyPushSupplierImpl
         connectClient(pushConsumer);
 
         active_ = true;
-
-        try {
-            offerListener_ = NotifyPublishHelper.narrow(pushConsumer);
-        } catch (Throwable t) {}
     }
 
 
@@ -149,7 +145,6 @@ public class ProxyPushSupplierImpl
         throws NotConnected,
                ConnectionAlreadyInactive
     {
-
         assertConnected();
 
         if (!active_)
@@ -200,22 +195,8 @@ public class ProxyPushSupplierImpl
         try {
             deliverPendingMessages();
         } catch (Disconnected e) {
-            logger_.fatalError("illegal state: PushConsumer think it's disconnected. ProxyPushSupplier think it's connected", e);
-
-            dispose();
+            handleDisconnected(e);
         }
-    }
-
-
-    synchronized public void enableDelivery()
-    {
-        enabled_ = true;
-    }
-
-
-    synchronized public void disableDelivery()
-    {
-        enabled_ = false;
     }
 
 
@@ -232,10 +213,5 @@ public class ProxyPushSupplierImpl
     public org.omg.CORBA.Object activate()
     {
         return ProxyPushSupplierHelper.narrow( getServant()._this_object(getORB()) );
-    }
-
-
-    NotifyPublishOperations getOfferListener() {
-        return offerListener_;
     }
 }

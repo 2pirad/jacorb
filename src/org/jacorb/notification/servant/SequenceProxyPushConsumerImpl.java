@@ -36,7 +36,7 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.4 2004-02-13 18:30:16 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl
@@ -44,8 +44,6 @@ public class SequenceProxyPushConsumerImpl
     implements SequenceProxyPushConsumerOperations
 {
     private SequencePushSupplier sequencePushSupplier_;
-
-    private NotifySubscribeOperations subscriptionListener_;
 
     ////////////////////////////////////////
 
@@ -75,19 +73,14 @@ public class SequenceProxyPushConsumerImpl
         sequencePushSupplier_ = supplier;
 
         connectClient(supplier);
-
-        try {
-            subscriptionListener_ = NotifySubscribeHelper.narrow(sequencePushSupplier_);
-        } catch (Throwable t) {
-            logger_.info("disable subcription_change for SequencePushSupplier");
-        }
-
     }
 
 
     public void push_structured_events( StructuredEvent[] events )
         throws Disconnected
     {
+        assertConnectedOrThrowDisconnected();
+
         for ( int x = 0; x < events.length; ++x )
         {
             push_structured_event( events[ x ] );
@@ -109,10 +102,5 @@ public class SequenceProxyPushConsumerImpl
         }
 
         return thisServant_;
-    }
-
-
-    NotifySubscribeOperations getSubscriptionListener() {
-        return subscriptionListener_;
     }
 }

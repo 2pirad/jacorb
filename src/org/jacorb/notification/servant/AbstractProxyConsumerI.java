@@ -1,9 +1,5 @@
 package org.jacorb.notification.servant;
 
-import org.jacorb.notification.interfaces.FilterStage;
-
-
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -24,9 +20,11 @@ import org.jacorb.notification.interfaces.FilterStage;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import org.jacorb.notification.interfaces.FilterStage;
+
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumerI.java,v 1.1 2004-01-29 14:22:57 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumerI.java,v 1.2 2004-02-20 12:41:54 alphonse.bendt Exp $
  */
 
 public interface AbstractProxyConsumerI {

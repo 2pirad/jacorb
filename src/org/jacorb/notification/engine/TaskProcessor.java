@@ -28,7 +28,7 @@ import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.notification.interfaces.TimerEventSupplier;
+import org.jacorb.notification.interfaces.MessageSupplier;
 import org.jacorb.notification.servant.AbstractProxySupplier;
 import org.jacorb.notification.util.TaskExecutor;
 import org.jacorb.util.Debug;
@@ -43,7 +43,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.15 2004-02-13 18:21:58 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.16 2004-02-20 12:41:54 alphonse.bendt Exp $
  */
 
 public class TaskProcessor implements Disposable
@@ -428,7 +428,7 @@ public class TaskProcessor implements Disposable
      * This method queues a Task to run runPullEvent on the specified
      * TimerEventSupplier
      */
-    public void scheduleTimedPullTask( TimerEventSupplier dest )
+    public void scheduleTimedPullTask( MessageSupplier dest )
         throws InterruptedException
     {
         PullFromSupplierTask _task = new PullFromSupplierTask(pullTaskExecutor_);
