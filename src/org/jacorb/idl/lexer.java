@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.39 2003-09-09 12:37:54 brose Exp $
+ * @version $Id: lexer.java,v 1.40 2003-09-09 13:17:50 brose Exp $
  * @author Gerald Brose
  *
  */
@@ -985,7 +985,7 @@ public class lexer
         if( text != null )
         {
             char[] next = {(char)next_char, (char)next_char2};
-            GlobalInputStream.insert( text +  next ) );
+            GlobalInputStream.insert( text +  next );
             advance(); // restore lookahead
             advance(); // restore lookahead
             return null;
