@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.67 2002-05-29 07:55:52 gerald Exp $
+ * @version $Id: ORB.java,v 1.68 2002-06-07 07:20:04 gerald Exp $
  */
 
 public final class ORB
@@ -1305,7 +1305,7 @@ public final class ORB
         {
             System.out.println("\tJacORB V " + versionString +
                                ", www.jacorb.org");
-            System.out.println("\t(C) Gerald Brose, FU Berlin/Xtradyne Technologies, " + 
+            System.out.println("\t(C) Gerald Brose, FU Berlin/XTRADYNE Technologies, " + 
                                dateString);
         }
 
