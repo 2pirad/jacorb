@@ -49,7 +49,7 @@ import org.omg.CORBA.BAD_QOS;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.80 2004-02-03 20:57:01 francisco Exp $
+ * @version $Id: Environment.java,v 1.81 2004-03-03 08:59:50 simon.mcqueen Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -70,10 +70,10 @@ public class Environment
     private static final String poaPrefix             = jacorbPrefix + "poa.";
 
     /** root logger instance for JacORB */
-    private static LoggerFactory loggerFactory = null;
-
-    /**  logger factory used to create loggers */
     private static Logger logger = null;
+    
+    /**  logger factory used to create loggers */
+    private static LoggerFactory loggerFactory = null;
 
     /**  default class name for logger factory */
     private static final String loggerFactoryClzName = "org.jacorb.util.LogKitLoggerFactory";
