@@ -41,7 +41,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.48 2002-02-25 18:17:59 nicolas Exp $
+ * @version $Id: ORB.java,v 1.49 2002-03-07 16:52:39 spiegel Exp $
  */
 
 public final class ORB
@@ -292,7 +292,8 @@ public final class ORB
             byte[] objectId = 
                 org.jacorb.poa.util.POAUtil.extractOID( ref );
 
-            if( ! tmp_poa.previouslyGeneratedObjectId( objectId ))
+            if( tmp_poa.isSystemId() 
+               && ! tmp_poa.previouslyGeneratedObjectId( objectId ))
             {
                 Debug.output(3, "ORB.findPOA: not a previously generated object key.");
                 return null;
