@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.73 2002-09-12 07:46:48 steve.osselton Exp $
+ * @version $Id: ORB.java,v 1.74 2002-09-19 08:33:25 nicolas Exp $
  */
 
 public final class ORB
@@ -1922,7 +1922,7 @@ public final class ORB
 
     public byte[] mapObjectKey( byte[] originalKey )
     {
-        if( Environment.doMapObjectKeys() )
+        if( objectKeyMap.size() != 0 )
         {
             String s = new String( originalKey );
             Object o = objectKeyMap.get( s );
