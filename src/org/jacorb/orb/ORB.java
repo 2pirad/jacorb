@@ -42,7 +42,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.72 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: ORB.java,v 1.73 2002-09-12 07:46:48 steve.osselton Exp $
  */
 
 public final class ORB
@@ -110,7 +110,7 @@ public final class ORB
     private ImRAccess imr = null;
     private int persistentPOACount;
 
-    public static final String orb_id = "jacorb:" + org.jacorb.util.Version.shortVersion;
+    public static final String orb_id = "jacorb:" + org.jacorb.util.Version.version;
 
     /* outstanding dii requests awaiting completion */
     private Set requests = Collections.synchronizedSet( new HashSet() );
