@@ -68,7 +68,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.6 2004-08-13 12:15:33 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.7 2004-08-19 09:21:38 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory
@@ -370,8 +370,8 @@ public abstract class AbstractChannelFactory
 
             defaultFilterFactoryServant_.configure (config_);
 
-            defaultFilterFactory_ =
-                defaultFilterFactoryServant_._this( orb_ );
+            defaultFilterFactoryServant_.preActivate();
+            defaultFilterFactory_ = FilterFactoryHelper.narrow(defaultFilterFactoryServant_.activate());
 
             filterFactoryStarted_.set(true);
         }
