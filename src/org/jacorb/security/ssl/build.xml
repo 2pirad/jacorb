@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--               ssl build file                         -->
-  <!-- $Id: build.xml,v 1.6 2003-10-30 14:14:57 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.6.4.1 2004-03-30 16:18:02 gerald Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -25,7 +25,7 @@
    </target>
 
 
-   <target name="sun_jsse" if="sun_jsse.present">
+   <target name="sun_jsse" if="sun_jsse.present" unless="iaik.present">
       <ant antfile="${src}/org/jacorb/security/ssl/sun_jsse/build.xml" dir="${basedir}"/>
    </target>
 </project>
