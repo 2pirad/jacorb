@@ -35,7 +35,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.10 2002-11-04 18:08:34 andre.spiegel Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.11 2002-11-21 11:28:49 andre.spiegel Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -335,7 +335,7 @@ public class ClientRequestInfoImpl
                                  CompletionStatus.COMPLETED_MAYBE);
         try
         {
-            return delegate.get_policy_no_intercept(target, type);
+            return delegate.get_policy (target, type);
         }
         catch(INV_POLICY _e)
         {
