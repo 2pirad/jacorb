@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.27 2002-06-21 13:52:37 nick.cross Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.28 2002-07-05 17:30:27 nicolas Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1013,7 +1013,7 @@ public class ImplementationRepositoryImpl
 
 		address = InetAddress.getLocalHost().toString();
 
-		if( address.indexOf("/") > 0 )
+		if( address.indexOf("/") >= 0 )
 		    address = address.substring(address.indexOf("/") + 1);
 
 		port = server_socket.getLocalPort();
