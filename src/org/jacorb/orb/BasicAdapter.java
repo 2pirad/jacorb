@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.44 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: BasicAdapter.java,v 1.45 2005-02-09 09:52:28 andre.spiegel Exp $
  */
 
 public class BasicAdapter
@@ -133,7 +133,7 @@ public class BasicAdapter
 
         }
 
-        receptor_pool = MessageReceptorPool.getInstance();
+        receptor_pool = MessageReceptorPool.getInstance(myConfiguration);
 
         request_listener = new ServerRequestListener( orb, rootPOA );
         request_listener.configure( configuration );
