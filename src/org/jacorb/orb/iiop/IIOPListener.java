@@ -39,7 +39,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.16 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: IIOPListener.java,v 1.17 2004-05-06 09:41:04 nicolas Exp $
  */
 public class IIOPListener 
     extends _ListenerLocalBase
@@ -636,13 +636,6 @@ public class IIOPListener
                 throw new org.omg.CORBA.INITIALIZE
                                            ("Could not create SSL server socket");
             }
-        }
-
-        public void setup(Socket socket)
-            throws IOException
-        {
-            super.setup(socket);
-            getSSLServerSocketFactory().switchToClientMode (socket);
         }
 
         protected void deliverConnection(Socket socket)
