@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.8 2001-11-09 08:54:45 jacorb Exp $
+ * @version $Id: InterfaceBody.java,v 1.9 2001-11-26 15:39:03 gerald Exp $
  */
 
 class InterfaceBody 
@@ -170,6 +170,10 @@ class InterfaceBody
 
     public void parse() 	 
     {
+        escapeName();
+
+        Environment.output(4, "Interface Body parse " + full_name());
+
 	if( inheritance_spec != null )
 	{
 	    Object o = null;
@@ -201,11 +205,14 @@ class InterfaceBody
 	{
 	    internal_parse();
 	    parser.remove_pending( full_name() );
+        Environment.output(4, "Interface Body done parsing " + full_name());
 	}
     }
 
     public void internal_parse() 	 
     {
+        Environment.output(4, "Interface Body internal_parse " + full_name());
+
 	if( inheritance_spec != null )
         {
             try
