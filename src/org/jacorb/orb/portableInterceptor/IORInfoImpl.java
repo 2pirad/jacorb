@@ -38,7 +38,7 @@ import java.util.*;
  * See PI Spec p.7-64f
  *
  * @author Nicolas Noffke
- * @version $Id: IORInfoImpl.java,v 1.11 2003-12-16 13:36:18 andre.spiegel Exp $
+ * @version $Id: IORInfoImpl.java,v 1.12 2004-01-05 14:40:08 gerald Exp $
  */
 
 public class IORInfoImpl extends org.omg.CORBA.LocalObject 
@@ -169,7 +169,7 @@ public class IORInfoImpl extends org.omg.CORBA.LocalObject
      * @param tag        tag of profile, e.g. TAG_INTERNET_IOP.value
      * @param position   position in IOR
      * @return           profile
-     * @excception       ArrayIndexOutOfBoundsException if position is
+     * @exception       ArrayIndexOutOfBoundsException if position is
      *                   out of range
      */
     public org.omg.ETF.Profile get_profile(int tag, int position)
