@@ -20,16 +20,15 @@ package org.jacorb.test.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.notification.servant.AbstractAdmin;
-
 import java.util.List;
 
+import org.jacorb.notification.interfaces.MessageConsumer;
+import org.jacorb.notification.servant.AbstractAdmin;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MockAdmin.java,v 1.2 2004-05-11 12:14:55 alphonse.bendt Exp $
+ * @version $Id: MockAdmin.java,v 1.3 2004-08-01 17:55:27 alphonse.bendt Exp $
  */
 public class MockAdmin extends AbstractAdmin {
 

@@ -20,23 +20,20 @@ package org.jacorb.test.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.TypedEventMessage;
+import junit.framework.Test;
 
+import org.jacorb.notification.TypedEventMessage;
+import org.jacorb.test.notification.typed.CoffeeHelper;
 import org.omg.CORBA.Any;
-import org.omg.CORBA.TCKind;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.EventTypeHelper;
 import org.omg.CosNotification.Property;
-import org.omg.CosNotification.StructuredEvent;
-import org.omg.DynamicAny.DynAnyFactoryHelper;
-
-import junit.framework.Test;
 import org.omg.CosNotification.PropertySeqHelper;
-import org.jacorb.test.notification.typed.CoffeeHelper;
+import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventMessageTest.java,v 1.3 2004-05-11 12:14:55 alphonse.bendt Exp $
+ * @version $Id: TypedEventMessageTest.java,v 1.4 2004-08-01 17:55:27 alphonse.bendt Exp $
  */
 public class TypedEventMessageTest extends NotificationTestCase {
 

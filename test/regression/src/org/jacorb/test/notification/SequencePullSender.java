@@ -1,5 +1,7 @@
 package org.jacorb.test.notification;
 
+import junit.framework.Assert;
+
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.ORB;
@@ -22,7 +24,7 @@ import org.omg.CosNotifyComm.SequencePullSupplierPOATie;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequencePullSender.java,v 1.5 2004-02-10 11:06:55 alphonse.bendt Exp $
+ * @version $Id: SequencePullSender.java,v 1.6 2004-08-01 17:55:27 alphonse.bendt Exp $
  */
 
 public class SequencePullSender
@@ -128,7 +130,7 @@ public class SequencePullSender
         IntHolder _proxyId = new IntHolder();
         pullConsumer_ = SequenceProxyPullConsumerHelper.narrow(_supplierAdmin.obtain_notification_pull_consumer(ClientType.SEQUENCE_EVENT, _proxyId));
 
-        testCase_.assertEquals(ProxyType._PULL_SEQUENCE,
+        Assert.assertEquals(ProxyType._PULL_SEQUENCE,
                                pullConsumer_.MyType().value());
 
         pullConsumer_.connect_sequence_pull_supplier(SequencePullSupplierHelper.narrow(_senderTie._this(orb_)));

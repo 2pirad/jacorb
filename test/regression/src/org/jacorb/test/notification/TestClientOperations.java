@@ -1,17 +1,15 @@
 package org.jacorb.test.notification;
 
-import org.omg.CORBA.ORB;
-import org.omg.PortableServer.POA;
-import org.omg.CosNotifyChannelAdmin.EventChannel;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventChannelAdmin.TypeError;
 import org.omg.CosNotifyChannelAdmin.AdminLimitExceeded;
-import org.omg.CosNotifyFilter.FilterNotFound;
 import org.omg.CosNotifyChannelAdmin.AdminNotFound;
+import org.omg.CosNotifyChannelAdmin.EventChannel;
+import org.omg.CosNotifyFilter.FilterNotFound;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TestClientOperations.java,v 1.3 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: TestClientOperations.java,v 1.4 2004-08-01 17:55:27 alphonse.bendt Exp $
  */
 
 public interface TestClientOperations {

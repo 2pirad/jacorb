@@ -1,10 +1,7 @@
 package org.jacorb.test.notification.mocks;
 
-import org.omg.CosNotifyComm.NotifySubscribeOperations;
-import org.omg.CosEventComm.PushSupplierOperations;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
-import org.omg.CosNotifyComm.PushSupplier;
 import org.omg.CosNotifyComm.PushSupplierPOA;
 
 
@@ -31,7 +28,7 @@ import org.omg.CosNotifyComm.PushSupplierPOA;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MockPushSupplier.java,v 1.2 2004-05-09 19:37:25 alphonse.bendt Exp $
+ * @version $Id: MockPushSupplier.java,v 1.3 2004-08-01 17:55:28 alphonse.bendt Exp $
  */
 
 public class MockPushSupplier extends PushSupplierPOA {

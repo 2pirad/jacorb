@@ -20,16 +20,15 @@ package org.jacorb.test.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import junit.framework.Test;
+
 import org.jacorb.notification.AnyMessage;
 import org.jacorb.notification.NoTranslationException;
-
 import org.omg.CosNotification.Property;
-
-import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessageTest.java,v 1.2 2004-05-09 19:37:25 alphonse.bendt Exp $
+ * @version $Id: AnyMessageTest.java,v 1.3 2004-08-01 17:55:27 alphonse.bendt Exp $
  */
 public class AnyMessageTest extends NotificationTestCase {
 

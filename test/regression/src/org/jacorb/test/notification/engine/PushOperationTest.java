@@ -20,17 +20,16 @@ package org.jacorb.test.notification.engine;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.jacorb.notification.engine.PushOperation;
+
+import org.jacorb.notification.engine.MessagePushOperation;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.test.notification.MockMessage;
-import org.jacorb.notification.engine.MessagePushOperation;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushOperationTest.java,v 1.2 2004-05-09 19:37:25 alphonse.bendt Exp $
+ * @version $Id: PushOperationTest.java,v 1.3 2004-08-01 17:55:28 alphonse.bendt Exp $
  */
 public class PushOperationTest extends TestCase {
 

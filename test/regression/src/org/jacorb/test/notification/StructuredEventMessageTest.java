@@ -20,18 +20,16 @@ package org.jacorb.test.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.AbstractMessage;
-import org.jacorb.notification.StructuredEventMessage;
+import junit.framework.Test;
 
+import org.jacorb.notification.NoTranslationException;
+import org.jacorb.notification.StructuredEventMessage;
 import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 
-import junit.framework.Test;
-import org.jacorb.notification.*;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessageTest.java,v 1.2 2004-05-09 19:37:25 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessageTest.java,v 1.3 2004-08-01 17:55:27 alphonse.bendt Exp $
  */
 public class StructuredEventMessageTest extends NotificationTestCase {
 

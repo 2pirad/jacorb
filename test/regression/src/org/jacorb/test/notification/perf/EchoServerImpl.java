@@ -22,11 +22,8 @@ package org.jacorb.test.notification.perf;
  */
 
 import org.jacorb.test.notification.EchoServerPOA;
-
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
@@ -37,7 +34,7 @@ import org.omg.PortableServer.POAHelper;
  * Created: Mon Apr  7 15:38:18 2003
  *
  * @author Alphonse Bendt
- * @version $Id: EchoServerImpl.java,v 1.1 2003-08-28 16:44:26 alphonse.bendt Exp $
+ * @version $Id: EchoServerImpl.java,v 1.2 2004-08-01 17:55:28 alphonse.bendt Exp $
  */
 
 public class EchoServerImpl extends EchoServerPOA
