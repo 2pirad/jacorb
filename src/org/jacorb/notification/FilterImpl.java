@@ -130,7 +130,7 @@ import org.apache.avalon.framework.logger.Logger;
  * administration of this callback list by unique identifier. <br>
  *
  * @author Alphonse Bendt
- * @version $Id: FilterImpl.java,v 1.16 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: FilterImpl.java,v 1.17 2004-01-29 14:14:00 alphonse.bendt Exp $
  */
 
 public class FilterImpl extends FilterPOA implements Disposable
@@ -303,8 +303,7 @@ public class FilterImpl extends FilterPOA implements Disposable
                             _entry.getEventTypeIdentifier( _y );
 
                         List _listOfConstraintEvaluator =
-                            ( List ) wildcardMap_.
-                            getNoExpansion( _eventTypeIdentifier );
+                            ( List ) wildcardMap_.getNoExpansion( _eventTypeIdentifier.getConstraintKey() );
 
                         if ( _listOfConstraintEvaluator == null )
                         {
@@ -403,7 +402,7 @@ public class FilterImpl extends FilterPOA implements Disposable
                             _deletedEntry.getEventTypeIdentifier( _y );
 
                         List _listOfConstraintEvaluator =
-                            ( List ) wildcardMap_.getNoExpansion( _eventTypeIdentifier );
+                            ( List ) wildcardMap_.getNoExpansion( _eventTypeIdentifier.getConstraintKey() );
 
                         Iterator _i = _listOfConstraintEvaluator.iterator();
 
@@ -438,7 +437,7 @@ public class FilterImpl extends FilterPOA implements Disposable
                             _entry.getEventTypeIdentifier( _y );
 
                         List _listOfConstraintEvaluator =
-                            ( List ) wildcardMap_.getNoExpansion( _eventTypeIdentifier );
+                            ( List ) wildcardMap_.getNoExpansion( _eventTypeIdentifier.getConstraintKey() );
 
                         //    if (_listOfConstraintEvaluator == null) {
                         //        _listOfConstraintEvaluator = new LinkedList();

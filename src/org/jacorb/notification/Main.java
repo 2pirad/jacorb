@@ -26,7 +26,7 @@ import org.tanukisoftware.wrapper.WrapperManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Main.java,v 1.6 2004-01-16 17:05:59 alphonse.bendt Exp $
+ * @version $Id: Main.java,v 1.7 2004-01-29 14:14:00 alphonse.bendt Exp $
  */
 
 public class Main implements WrapperListener
@@ -52,6 +52,7 @@ public class Main implements WrapperListener
         catch ( Exception e )
         {
             e.printStackTrace();
+
             return new Integer( 1 );
         }
     }
@@ -69,7 +70,6 @@ public class Main implements WrapperListener
 
                 public void shutdownComplete()
                 {}
-
             };
 
         application_.shutdown( cb );

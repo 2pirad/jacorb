@@ -55,7 +55,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.5 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.6 2004-01-29 14:14:00 alphonse.bendt Exp $
  */
 
 class StructuredEventMessage extends AbstractMessage
@@ -85,7 +85,9 @@ class StructuredEventMessage extends AbstractMessage
 
     ////////////////////////////////////////
 
-    public void setStructuredEventValue( StructuredEvent event )
+    public void setStructuredEventValue( StructuredEvent event ,
+                                         boolean startTimeSupported,
+                                         boolean timeOutSupported)
     {
         structuredEventValue_ = event;
 
@@ -93,7 +95,7 @@ class StructuredEventMessage extends AbstractMessage
             FilterUtils.calcConstraintKey( structuredEventValue_.header.fixed_header.event_type.domain_name,
                                             structuredEventValue_.header.fixed_header.event_type.type_name );
 
-        parseQosSettings();
+        parseQosSettings(startTimeSupported, timeOutSupported);
     }
 
 
@@ -162,15 +164,15 @@ class StructuredEventMessage extends AbstractMessage
     }
 
 
-    private void parseQosSettings() {
+    private void parseQosSettings(boolean startTimeSupported, boolean timeoutSupported) {
         Property[] props = toStructuredEvent().header.variable_header;
 
         for (int x=0; x < props.length; ++x) {
-            if (StartTime.value.equals(props[x].name)) {
+            if (startTimeSupported && StartTime.value.equals(props[x].name)) {
                 startTime_ = new Date(unixTime(UtcTHelper.extract(props[x].value)));
             } else if (StopTime.value.equals(props[x].name)) {
                 stopTime_ = new Date(unixTime(UtcTHelper.extract(props[x].value)));
-            } else if (Timeout.value.equals(props[x].name)) {
+            } else if (timeoutSupported && Timeout.value.equals(props[x].name)) {
                 setTimeout(TimeTHelper.extract(props[x].value));
             } else if (Priority.value.equals(props[x].name)) {
                 priority_ = props[x].value.extract_short();
@@ -250,8 +252,9 @@ class StructuredEventMessage extends AbstractMessage
             }
             catch ( UnsupportedFilterableData e )
             {
+                // no problem
                 // error means false
-                logger_.error("unsupported filterable data", e);
+                logger_.info("unsupported filterable data. match result defaults to false.", e);
             }
         }
 

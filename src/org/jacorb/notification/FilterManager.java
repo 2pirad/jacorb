@@ -45,7 +45,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.6 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: FilterManager.java,v 1.7 2004-01-29 14:14:00 alphonse.bendt Exp $
  */
 
 public class FilterManager
@@ -257,7 +257,7 @@ class FilterCallback extends NotifySubscribePOA implements Disposable {
         try {
             filter_.detach_callback(callbackId_);
         } catch (CallbackNotFound e) {
-
+            logger_.error("error during detach", e);
         }
     }
 
@@ -267,8 +267,8 @@ class FilterCallback extends NotifySubscribePOA implements Disposable {
         throws InvalidEventType {
 
         subscriptionChangeListener_.subscriptionChangedForFilter(filterId,
-                                                                eventTypeArray,
-                                                                eventTypeArray1);
+                                                                 eventTypeArray,
+                                                                 eventTypeArray1);
     }
 
 
