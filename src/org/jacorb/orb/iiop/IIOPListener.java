@@ -38,7 +38,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.5 2003-05-24 09:51:32 andre.spiegel Exp $
+ * @version $Id: IIOPListener.java,v 1.6 2003-06-20 15:14:43 andre.spiegel Exp $
  */
 public class IIOPListener extends _ListenerLocalBase
 {
@@ -296,7 +296,7 @@ public class IIOPListener extends _ListenerLocalBase
         {
             // only an SSL acceptor exists: make a dummy primary address
             // (port number zero)
-            String host = sslAcceptor.getLocalAddress().getHost();
+            String host = sslAcceptor.getLocalAddress().getIP();
             result = new IIOPProfile (new IIOPAddress (host, 0), null);
         }
         else
