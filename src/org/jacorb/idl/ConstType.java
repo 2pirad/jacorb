@@ -26,7 +26,7 @@ import java.io.*;
  * constant type
  * 
  * @author Gerald Brose
- * @version $Id: ConstType.java,v 1.4 2001-03-27 12:01:17 noffke Exp $
+ * @version $Id: ConstType.java,v 1.5 2002-02-26 12:07:06 steve.osselton Exp $
  */
 
 class ConstType 
@@ -65,12 +65,4 @@ class ConstType
     {
         return symbol.toString();
     }
-
 }
-
-
-
-
-
-
-

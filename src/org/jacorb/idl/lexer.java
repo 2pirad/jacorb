@@ -23,6 +23,7 @@ package org.jacorb.idl;
 import java.util.*;
 import java_cup.runtime.token;
 import java_cup.runtime.int_token;
+import java_cup.runtime.long_token;
 import java_cup.runtime.char_token;
 import java_cup.runtime.float_token;
 
@@ -46,7 +47,7 @@ import java_cup.runtime.float_token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.15 2002-02-21 15:08:42 nick.cross Exp $
+ * @version $Id: lexer.java,v 1.16 2002-02-26 12:07:06 steve.osselton Exp $
  * @author Gerald Brose
  *
  */
@@ -1234,11 +1235,24 @@ public class lexer
 
                     }
 
-                    if( fraction == null )
+                    if (fraction == null)
                     {
-                        /* integer */
-                        return new int_token( sym.NUMBER,
-                                              Integer.parseInt( value.toString()));
+                        /* integer or long */
+
+                        token tok;
+
+                        try
+                        {
+                            tok = new int_token (sym.NUMBER,
+                                Integer.parseInt (value.toString()));
+                        }
+                        catch (NumberFormatException ex)
+                        {
+                            tok = new long_token (sym.LONG_NUMBER,
+                                Long.parseLong (value.toString()));
+                        }
+
+                        return tok;
                     }
                     else
                     {

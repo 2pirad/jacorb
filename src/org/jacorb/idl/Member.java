@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.12 2002-02-19 10:36:53 steve.osselton Exp $
+ * @version $Id: Member.java,v 1.13 2002-02-26 12:07:06 steve.osselton Exp $
  *
  */
 
@@ -106,7 +106,6 @@ class Member
             String name = type_spec.typeSpec().toString();
 
 	    type_spec = ((ScopedName)type_spec.typeSpec()).resolvedTypeSpec();
-
             enclosing_symbol.addImportedName (name, type_spec);
 
 	    clone_and_parse = false;
@@ -260,7 +259,3 @@ class Member
         return type_spec.typeSpec();
     }
 }
-
-
-
-
