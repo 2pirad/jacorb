@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.49 2002-09-11 14:06:21 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.50 2002-09-19 08:03:51 nicolas Exp $
  */
 
 public class CDRInputStream
@@ -1192,7 +1192,12 @@ public class CDRInputStream
             int size = _read4int( littleEndian, buffer, pos);
             index += 4; 
             pos += 4;
-            
+
+            if( size == 0 )
+            {
+                return "";
+            }
+
             char[] buf = new char[ size ];
             
             int i = 0;

@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.61 2002-08-13 10:07:03 steve.osselton Exp $
+ * @version $Id: CDROutputStream.java,v 1.62 2002-09-19 08:03:51 nicolas Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -856,7 +856,7 @@ public class CDROutputStream
         index += 4;                 // reserve for length indicator
 
         //the byte order marker
-        if( giop_minor == 2 && use_BOM )
+        if( giop_minor == 2 && use_BOM && s.length() > 0)
         {
             //big endian encoding
             buffer[ pos++ ] = (byte) 0xFE;
