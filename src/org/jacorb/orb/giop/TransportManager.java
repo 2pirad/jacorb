@@ -34,7 +34,7 @@ import org.jacorb.util.*;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.6 2003-01-07 18:06:59 nicolas Exp $
+ * @version $Id: TransportManager.java,v 1.7 2003-04-14 15:28:01 andre.spiegel Exp $
  * */
 
 public class TransportManager
@@ -99,25 +99,14 @@ public class TransportManager
         }
     }
 
-    public Transport createClientTransport( String target_host,
-                                            int target_port,
+    public Transport createClientTransport( InternetIOPProfile target_profile,
                                             boolean use_ssl )
     {
-        SocketFactory sf = null;
-        
-        if( use_ssl )
-        {
-            sf = ssl_socket_factory;
-        }
-        else
-        {
-            sf = socket_factory;
-        }
-
         Transport transport =
-            new Client_TCP_IP_Transport( target_host,
-                                         target_port,
-                                         sf,
+            new Client_TCP_IP_Transport( target_profile,
+                                         use_ssl,
+                                         use_ssl ? ssl_socket_factory
+                                                 : socket_factory,
                                          null,
                                          this );
 
