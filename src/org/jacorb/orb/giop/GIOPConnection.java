@@ -40,12 +40,13 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.29 2003-05-05 10:01:02 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.30 2003-05-07 09:33:36 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
     extends java.io.OutputStream
 {
+    protected org.omg.ETF.Profile profile = null;
     protected Transport transport = null;
 
     private RequestListener request_listener = null;
@@ -99,11 +100,13 @@ public abstract class GIOPConnection
     
     protected StatisticsProvider statistics_provider = null;
 
-    public GIOPConnection( Transport transport,
+    public GIOPConnection( org.omg.ETF.Profile profile,
+                           Transport transport,
                            RequestListener request_listener,
                            ReplyListener reply_listener,
                            StatisticsProvider statistics_provider )
     {
+        this.profile = profile;
         this.transport = transport;
         this.request_listener = request_listener;
         this.reply_listener = reply_listener;
@@ -665,7 +668,7 @@ public abstract class GIOPConnection
         {
             synchronized (connect_sync)
             {
-                transport.connect (null, 0);
+                transport.connect (profile, 0);
                 connect_sync.notifyAll();
             }
         }
