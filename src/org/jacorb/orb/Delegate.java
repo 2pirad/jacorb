@@ -49,7 +49,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.97 2004-01-03 10:32:53 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.98 2004-01-03 20:00:51 andre.spiegel Exp $
  *
  */
 
@@ -1597,25 +1597,6 @@ public final class Delegate
         {
             policy_overrides.put( new Integer( policies[ i ].policy_type() ), policies[ i ] );
         }
-
-        // The code below is wrong because it replaces the ParsedIOR
-        // with one that always points to the local POA.  I don't see
-        // why we must recreate the ParsedIOR at all.  Code commented
-        // out to fix bug 408.
-
-//        ParsedIOR pior = getParsedIOR();
-//        org.omg.IOP.IOR ior = orb.createIOR( pior.getIOR().type_id,
-//                                             pior.get_object_key(),
-//                                             poa != null
-//                                             ? !poa.isPersistent()
-//                                             : false,
-//                                             poa,
-//                                             policy_overrides );
-//
-//        synchronized ( bind_sync )
-//        {
-//            _pior = new ParsedIOR( ior, orb );
-//        }
 
         return self;
     }
