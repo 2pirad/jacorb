@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import org.jacorb.config.Configuration;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.16.2.2 2004-03-29 10:11:24 gerald Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.16.2.3 2004-03-30 09:43:45 gerald Exp $
  */
 
 public class IORInterceptorInitializer
@@ -60,18 +60,18 @@ public class IORInterceptorInitializer
             ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB();
             config = orb.getConfiguration();
 
-            String supportedOptions = 
-                config.getAttribute("jacorb.security.ssl.server.supported_options",null);
-            String requiredOptions = 
-                config.getAttribute("jacorb.security.ssl.server.required_options", null);
+//             String supportedOptions = 
+//                 config.getAttribute("jacorb.security.ssl.server.supported_options",null);
+//             String requiredOptions = 
+//                 config.getAttribute("jacorb.security.ssl.server.required_options", null);
 
-            if( config.getAttribute("jacorb.security.support_ssl","off").equals("on") &&
-                supportedOptions != null &&
-                requiredOptions != null
-                )
-            {
-                info.add_ior_interceptor(new SSLComponentInterceptor(orb));
-            }
+//             if( config.getAttribute("jacorb.security.support_ssl","off").equals("on") &&
+//                 supportedOptions != null &&
+//                 requiredOptions != null
+//                 )
+//             {
+//                 info.add_ior_interceptor(new SSLComponentInterceptor(orb));
+//             }
 
             int giop_minor =
                 config.getAttributeAsInteger("jacorb.giop_minor_version",2);
