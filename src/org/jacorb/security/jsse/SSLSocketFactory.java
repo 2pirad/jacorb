@@ -23,7 +23,7 @@ package org.jacorb.security.jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.3 2001-03-19 11:09:16 brose Exp $
+ * $Id: SSLSocketFactory.java,v 1.4 2001-07-16 08:23:26 noffke Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -33,6 +33,7 @@ import org.jacorb.util.*;
 import java.net.*;
 import java.io.*;
 import javax.net.ssl.*;
+import javax.net.*;
 import java.security.*;
 
 import com.sun.net.ssl.*;
@@ -40,71 +41,92 @@ import com.sun.net.ssl.*;
 public class SSLSocketFactory 
     implements org.jacorb.orb.factory.SocketFactory 
 {    
-    private boolean isRoleChange; // rt
-
-    private CurrentImpl securityCurrent = null;
+    private SocketFactory factory = null;
     
     public SSLSocketFactory( org.jacorb.orb.ORB orb ) 
     {
-	isRoleChange = Environment.changeSSLRoles();
+	factory = createSocketFactory();
 
-        try
-        {
-            securityCurrent = (CurrentImpl)
-                orb.resolve_initial_references("SecurityCurrent");
-        }
-        catch ( Exception e )
-        {
-            Debug.output( 2, e );
-        }        
+	if( factory == null )
+	{
+	    Debug.output( 1, "ERROR: Unable to create ServerSocketFactory!" );
+	}
     }
-
 
     public Socket createSocket( String host, 
                                 int port )
 	throws IOException, UnknownHostException
     {       
-        try
-        {
-            KeyAndCert[] kac = securityCurrent.getSSLCredentials();
-
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance( "SunX509" );
-
-            SSLContext ctx = SSLContext.getInstance( "TLS" );
-            ctx.init( new KeyManager[]{ new X509KeyManagerImpl( kac ) },
-                      tmf.getTrustManagers(), 
-                      null );
-            
-            javax.net.ssl.SSLSocketFactory factory = ctx.getSocketFactory();
-            
-            SSLSocket sock = (SSLSocket) factory.createSocket( host, port );
-
-            // rt: switch to server mode
-            if (isRoleChange) 
-            {
-                org.jacorb.util.Debug.output(1, "SSLSocket switch to server mode...");
-                sock.setUseClientMode( false );
-            }
-		
-            return sock;
-
-        }
-        catch( Exception e )
-        {
-            Debug.output( 1, e );
-        }
-
-        return null;
+	return factory.createSocket( host, port );    
     }
 
     public boolean isSSL ( java.net.Socket s )
     { 
         return ( s instanceof SSLSocket); 
     }
+
+    private SocketFactory createSocketFactory() 
+    {
+	try 
+	{
+	    // set up key manager to do server authentication
+	    KeyManagerFactory kmf = KeyManagerFactory.getInstance( "SunX509" );
+	    KeyStore key_store = KeyStore.getInstance( "JKS" );
+
+            String keystore_location = Environment.keyStore();
+            if( keystore_location == null ) 
+            {
+                System.out.print( "Please enter key store file name: " );
+                keystore_location = 
+                    (new BufferedReader(new InputStreamReader(System.in))).readLine();
+            }
+
+            String keystore_passphrase = 
+                Environment.getProperty( "jacorb.security.keystore_password" );
+            if( keystore_passphrase == null ) 
+            {
+                System.out.print( "Please enter store pass phrase: " );
+                keystore_passphrase= 
+                    (new BufferedReader(new InputStreamReader(System.in))).readLine();
+            }
+
+            String alias = Environment.defaultUser();
+            if( alias == null ) 
+            {
+                System.out.print( "Please enter alias  name: " );
+                alias = 
+                    (new BufferedReader(new InputStreamReader(System.in))).readLine();
+            }
+
+            String password = Environment.defaultPassword();
+            if ( password == null ) 
+            {
+                System.out.print( "Please enter password: " );
+                password = 
+                    (new BufferedReader(new InputStreamReader(System.in))).readLine();
+            }
+
+            key_store.load( new FileInputStream( keystore_location ),
+                            keystore_passphrase.toCharArray() );
+
+            kmf.init( key_store, keystore_passphrase.toCharArray() );
+
+            TrustManagerFactory tmf = 
+		TrustManagerFactory.getInstance( "SunX509" );
+	    tmf.init( key_store );
+
+            SSLContext ctx = SSLContext.getInstance( "TLS" );
+            ctx.init( kmf.getKeyManagers(), 
+		      tmf.getTrustManagers(), 
+		      null );
+
+            return ctx.getSocketFactory();
+	} 
+	catch( Exception e ) 
+	{
+	    Debug.output( 1, e );
+	}
+
+	return null;
+    }
 }
-
-
-
-
-
-
