@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.70 2003-10-24 19:30:33 brose Exp $
+ * $Id: parser.cup,v 1.71 2003-11-11 23:00:12 andre.spiegel Exp $
  */
 
 action code
@@ -1184,6 +1184,7 @@ value_box_dcl ::=
                 {:
                         RESULT.name = i.str_val;
                         RESULT.typeSpec = ts;
+                        RESULT.set_token(i);
                 :}
         ;
 
