@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB idl build file                     -->
-  <!-- $Id: build.xml,v 1.11 2001-12-14 12:23:04 spiegel Exp $ -->
+  <!-- $Id: build.xml,v 1.12 2001-12-17 14:09:14 gerald Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -229,6 +229,13 @@
                includes="org/omg/DynamicAny/**"
         />
    </target>
+
+   <target name="messaging" depends="init">
+	<java classname="org.jacorb.idl.parser" classpath="${classpath}" fork="yes">
+	      <arg line="${idlflags}  ${include}/omg/Messaging.idl"/>
+	</java>
+   </target>
+
 
    <!-- ==================================================== -->
    <!--                   OMG Object services                -->
