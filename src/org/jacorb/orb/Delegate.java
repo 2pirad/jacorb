@@ -43,7 +43,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.46 2002-05-27 10:53:02 jason.courage Exp $
+ * @version $Id: Delegate.java,v 1.47 2002-05-27 13:52:45 jason.courage Exp $
  *
  */
 
@@ -824,11 +824,12 @@ public final class Delegate
                             Debug.output(2, "Delegate: failed to contact ImR");
                             throw cfe;
                         }
-                        String imrAddr = imr.getImRHost() + ":" + imr.getImRPort();
 
                         //create a corbaloc URL to use to contact the server
                         StringBuffer corbaloc = new StringBuffer( "corbaloc:iiop:" );
-                        corbaloc.append( imrAddr );
+                        corbaloc.append( imr.getImRHost() );
+                        corbaloc.append( ":" );
+                        corbaloc.append( imr.getImRPort() );
                         corbaloc.append( "/" );
                         corbaloc.append( CorbaLoc.parseKey( object_key ) );
 
