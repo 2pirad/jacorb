@@ -24,7 +24,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ObjectUtil.java,v 1.13.4.1 2004-03-22 14:18:00 gerald Exp $
+ * @version $Id: ObjectUtil.java,v 1.13.4.2 2004-03-23 16:43:12 gerald Exp $
  */
 
 public class ObjectUtil
@@ -34,7 +34,7 @@ public class ObjectUtil
      * if the contents of the resource could not be located using url
      */
     public static final String readURL( String url )
-        throws IOException
+        throws java.io.IOException
     {
         java.net.URL u = new java.net.URL(url);
         String line  = null;
