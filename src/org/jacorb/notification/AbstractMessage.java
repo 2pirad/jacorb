@@ -45,7 +45,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.23 2004-07-12 11:21:19 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.24 2004-08-13 12:14:49 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage
@@ -524,6 +524,9 @@ public abstract class AbstractMessage
             context.storeResult( _completePath, _ret);
         }
 
+        if (_ret == null) {
+            throw new EvaluationException("Could not resolve " + _completePath);
+        }
         return _ret;
     }
 
@@ -582,6 +585,10 @@ public abstract class AbstractMessage
             }
         }
 
+        if (_ret == null) {
+            throw new EvaluationException("Could not resolve " + _completeExpr);
+        }
+        
         return _ret;
     }
 
