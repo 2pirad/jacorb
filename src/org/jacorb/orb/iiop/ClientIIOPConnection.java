@@ -41,7 +41,7 @@ import org.omg.CSIIOP.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.3 2003-08-15 11:17:49 andre.spiegel Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.4 2003-10-16 12:28:27 steve.osselton Exp $
  */
 
 public class ClientIIOPConnection
@@ -63,7 +63,7 @@ public class ClientIIOPConnection
 
         //get the client-side timeout property value
         String prop =
-            Environment.getProperty( "jacorb.connection.client_idle_timeout" );
+            Environment.getProperty( "jacorb.connection.client.idle_timeout" );
 
         if( prop != null )
         {
@@ -75,7 +75,7 @@ public class ClientIIOPConnection
             {
                 Debug.output( 1, "Unable to create int from string >" +
                               prop + '<' );
-                Debug.output( 1, "Please check property \"jacorb.connection.client_idle_timeout\"" );
+                Debug.output( 1, "Please check property \"jacorb.connection.client.idle_timeout\"" );
             }
         }
     }
