@@ -42,15 +42,15 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.38 2001-11-20 10:19:04 spiegel Exp $
+ * @version $Id: ORB.java,v 1.39 2001-11-20 13:37:41 gerald Exp $
  */
 
 public final class ORB
     extends ORBSingleton
     implements org.jacorb.poa.POAListener
 {
-    private static final String versionString = "1.4 beta 1";
-    private static final String dateString = "9 Nov 2001";
+    private static final String versionString = "1.4 beta 2";
+    private static final String dateString = "20 Nov 2001";
 
     /** "initial" references */
     private Hashtable initial_references = new Hashtable();
