@@ -52,7 +52,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.109 2003-12-18 11:12:23 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.110 2003-12-30 14:37:23 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -238,7 +238,7 @@ public final class ORB
     org.jacorb.poa.POA findPOA( org.jacorb.orb.Delegate d,
                                 org.omg.CORBA.Object ref )
     {
-        Vector scopes;
+        List scopes;
         String res;
         String refImplName = null;
 
