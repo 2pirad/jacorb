@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.15 2002-10-05 13:59:41 andre.spiegel Exp $
+ * @version $Id: InterfaceBody.java,v 1.16 2002-11-04 17:47:57 andre.spiegel Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -169,6 +169,11 @@ class InterfaceBody
 
         for( Enumeration e = v.elements(); e.hasMoreElements(); )
             ( (IdlSymbol)e.nextElement() ).setPackage( s );
+    }
+
+    public void addDefinition (Declaration d)
+    {
+        this.v.add (new Definition (d));
     }
 
     public void parse()
@@ -329,21 +334,13 @@ class InterfaceBody
                     }
                 }
             }
-            if( my_interface.inheritanceSpec.v.size() > 0 )
+            for (Iterator i = my_interface.inheritanceSpec.v.iterator(); 
+                 i.hasNext(); )
             {
-                for( Enumeration e = my_interface.inheritanceSpec.v.elements(); e.hasMoreElements(); )
+                TypeSpec ts = ((ScopedName)i.next()).resolvedTypeSpec();
+                if (ts instanceof ConstrTypeSpec)
                 {
-                    ScopedName sn = ( (ScopedName)e.nextElement() );
-                    Interface base = null;
-                    try
-                    {
-                        base = (Interface)( (ConstrTypeSpec)sn.resolvedTypeSpec() ).c_type_spec;
-                    }
-                    catch( Exception ex )
-                    {
-                        ex.printStackTrace();
-                        parser.fatal_error( "Cannot find base interface " + sn, token );
-                    }
+                    Interface base = (Interface)((ConstrTypeSpec)ts).c_type_spec;
                     Operation[] base_ops = base.getBody().getMethods();
                     for( int j = 0; j < base_ops.length; j++ )
                     {
@@ -368,15 +365,19 @@ class InterfaceBody
                                   boolean is_local )
     {
         Operation[] ops = getMethods();
-        if( ops.length > 0 )
+        for( int i = 0; i < ops.length; i++ )
+            ops[ i ].printMethod( ps, classname, is_local );
+        
+        if ( parser.generate_ami_callback && 
+             !(my_interface instanceof ReplyHandler) )
         {
             for( int i = 0; i < ops.length; i++ )
-                ops[ i ].printMethod( ps, classname, is_local );
+                ops[ i ].print_sendc_Method( ps, classname );
         }
     }
 
 
-    /** print methods to the stub file */
+    /** print methods to the skeleton file */
 
     public void printDelegatedMethods( PrintWriter ps )
     {
