@@ -23,12 +23,11 @@ package org.jacorb.idl;
 /**
  * @author Gerald Brose
  *
- * @version $Id: Scope.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Scope.java,v 1.10 2003-04-01 14:06:40 nick.cross Exp $
  */
 
 public interface Scope
 {
-
     public void setScopeData( ScopeData data );
 
     public ScopeData getScopeData();
@@ -37,23 +36,3 @@ public interface Scope
 
     public String name();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
