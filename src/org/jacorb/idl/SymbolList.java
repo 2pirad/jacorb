@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.4 2001-03-27 12:01:21 noffke Exp $
+ * @version $Id: SymbolList.java,v 1.5 2002-02-07 09:15:49 gerald Exp $
  */
 
 class SymbolList 
@@ -87,11 +87,5 @@ class SymbolList
         return sb.toString();
     }
 }
-
-
-
-
-
-
 
 
