@@ -22,7 +22,7 @@ package org.jacorb.orb.connection;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequest.java,v 1.6.4.1 2001-08-08 14:51:55 jacorb Exp $
+ * @version $Id: LocateRequest.java,v 1.6.4.2 2001-08-10 17:47:13 jacorb Exp $
  */
 
 import java.io.*;
@@ -37,7 +37,7 @@ public class LocateRequest
                           ServerConnection _connection )
     {
 	super( orb, _connection );
-	in = new LocateRequestInputStream( orb, _buf);
+	in = new LocateRequestInputStream( orb, _buf );
 	oid = org.jacorb.poa.util.POAUtil.extractOID( in.req_hdr.target.object_key());
     }
 
@@ -53,7 +53,7 @@ public class LocateRequest
 
     public byte[] objectKey()
     {
-	return ((LocateRequestInputStream)in).locate_req_hdr.object_key;
+	return ((LocateRequestInputStream)in).locate_req_hdr.target.object_key();
     }
 
     public void reply()
@@ -65,7 +65,8 @@ public class LocateRequest
 		out = 
                     new ReplyOutputStream( new org.omg.IOP.ServiceContext[0],
                                            requestId(), 
-                                           org.omg.GIOP.ReplyStatusType_1_0.from_int(status));
+                                           org.omg.GIOP.ReplyStatusType_1_2.from_int(status),
+                                           in.getGIOPMinor() );
 	    }
 
 	    /* DSI-based servers set results and user exceptions using anys, so 
@@ -110,7 +111,11 @@ public class LocateRequest
 	    {
 		reply_status = org.omg.GIOP.LocateStatusType_1_0._OBJECT_HERE;
 	    }
-	    connection.sendLocateReply( requestId(), reply_status , null );	    
+
+	    connection.sendLocateReply( requestId(), 
+                                        reply_status , 
+                                        null, 
+                                        in.getGIOPMinor() );	    
 	}
 	catch ( Exception ioe )
 	{

@@ -36,7 +36,7 @@ import org.jacorb.util.*;
  * vice versa<p>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerConnection.java,v 1.7.4.1 2001-08-08 14:51:57 jacorb Exp $
+ * @version $Id: ServerConnection.java,v 1.7.4.2 2001-08-10 17:47:15 jacorb Exp $
  *
  */
 
@@ -55,7 +55,7 @@ public class ServerConnection
     protected boolean littleEndian;
     protected boolean isSSL;
     protected Socket mysock = null;
-    private byte[] header = new byte[ Messages.MSG_HEADER_SIZE ];
+    private byte[] header = new byte[ Messages.MSG_HEADER_SIZE];
     
     /** 
      * dummy constructor
@@ -316,6 +316,7 @@ public class ServerConnection
 	    Debug.output( 0, "Unknown message header type detected by " + 
                           Thread.currentThread().getName() + 
                           ", discarding ", header );
+            System.exit( -1 );
 	    return null;
 	}
     }
@@ -353,14 +354,18 @@ public class ServerConnection
 
     public void sendLocateReply( int request_id, 
                                  int status, 
-                                 org.omg.CORBA.Object arg ) 
+                                 org.omg.CORBA.Object arg,
+                                 int giop_minor ) 
 	throws org.omg.CORBA.COMM_FAILURE 
     {
 	synchronized( writeLock )
 	{
 	    try
 	    {
-		out_stream.write( Messages.locateReplyMessage( request_id, status, arg ));
+		out_stream.write( Messages.locateReplyMessage( request_id, 
+                                                               status, 
+                                                               arg,
+                                                               giop_minor ));
 		out_stream.flush();
 	    } 
 	    catch ( Exception e )

@@ -26,34 +26,63 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateRequestOutputStream.java,v 1.6.4.1 2001-08-08 14:51:55 jacorb Exp $
+ * @version $Id: LocateRequestOutputStream.java,v 1.6.4.2 2001-08-10 17:47:13 jacorb Exp $
  *
  */
 
 public class LocateRequestOutputStream
     extends org.jacorb.orb.CDROutputStream
 {
-    private org.omg.GIOP.LocateRequestHeader_1_0 req_hdr;
+    private int request_id = -1;
 
-    public LocateRequestOutputStream( byte[] object_key, int request_id )
+    public LocateRequestOutputStream( byte[] object_key, 
+                                      int request_id,
+                                      int giop_minor )
     {
-        req_hdr = new org.omg.GIOP.LocateRequestHeader_1_0( request_id, object_key);
-        writeHeader();
-    }
+        this.request_id = request_id;
+        
+        writeGIOPMsgHeader( MsgType_1_1._LocateRequest, giop_minor );
 
-    private void writeHeader()
-    {
-        writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_1._LocateRequest );
-        org.omg.GIOP.LocateRequestHeader_1_0Helper.write( this, req_hdr );
-        insertMsgSize();
+        switch( giop_minor )
+        {
+            case 0 :
+            { 
+                // GIOP 1.0 == GIOP 1.1, fall through
+            }
+            case 1 :
+            {
+                //GIOP 1.1
+                LocateRequestHeader_1_0 req_hdr = 
+                    new LocateRequestHeader_1_0( request_id, object_key );               
+                
+                LocateRequestHeader_1_0Helper.write( this, req_hdr );
+
+                break;
+            }
+            case 2 :
+            {
+                //GIOP 1.2
+                TargetAddress addr = new TargetAddress();
+                addr.object_key( object_key );
+
+                LocateRequestHeader_1_2 req_hdr = 
+                    new LocateRequestHeader_1_2( request_id, addr );
+
+                LocateRequestHeader_1_2Helper.write( this, req_hdr );
+
+                break;
+            }
+            default :
+            {
+                throw new Error( "Unknown GIOP minor: " + giop_minor );
+            }
+        }
     }
 
     public int requestId()
     {
-	return req_hdr.request_id;
+	return request_id;
     }
-
-
 }
 
 
