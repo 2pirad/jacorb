@@ -21,9 +21,8 @@ package org.jacorb.notification.evaluate;
  *
  */
 
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
 import org.jacorb.notification.node.EvaluationResult;
+
 import org.omg.CORBA.Any;
 import org.omg.CORBA.TCKind;
 import org.omg.DynamicAny.DynAnyFactory;
@@ -31,26 +30,22 @@ import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
+
 /**
  * ResultExtractor.java
  *
  *
  * @author Alphonse Bendt
- * @version $Id: ResultExtractor.java,v 1.8 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ResultExtractor.java,v 1.9 2003-09-12 09:34:53 alphonse.bendt Exp $
  */
 
 public class ResultExtractor
 {
 
-    private DynAnyFactory dynAnyFactory_;
-
     private Logger logger_ =
         Hierarchy.getDefaultHierarchy().getLoggerFor( getClass().getName() );
-
-    public ResultExtractor( DynAnyFactory factory )
-    {
-        dynAnyFactory_ = factory;
-    }
 
     public EvaluationResult extractFromAny( Any any )
     {
