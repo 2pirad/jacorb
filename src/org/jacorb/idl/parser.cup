@@ -12,7 +12,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  * 
- * $Id: parser.cup,v 1.7 2001-03-29 11:43:41 jacorb Exp $
+ * $Id: parser.cup,v 1.8 2001-03-29 11:53:59 jacorb Exp $
  *
  */
 
@@ -894,6 +894,10 @@ value ::=
 
 value_box_dcl ::= 
         VALUETYPE ID:i type_spec:ts
+                {: 
+                        RESULT.name = i;
+                        RESULT.typeSpec = ts;
+                :}
         ;
 
 value_abs_dcl ::=
