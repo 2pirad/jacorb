@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.16 2002-05-12 13:37:28 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.17 2002-05-14 07:30:52 gerald Exp $
  */
 
 class ValueDecl
@@ -340,7 +340,8 @@ class ValueDecl
     public String printWriteStatement( String var_name, String streamname )
     {
         return "((org.omg.CORBA_2_3.portable.OutputStream)" + streamname + ")"
-                + ".write_value (" + var_name + ", \"" + id() + "\");";
+                + ".write_value (" + var_name + " );";
+        //                + ".write_value (" + var_name + ", \"" + id() + "\");";
     }
 
     public String printReadExpression( String streamname )
