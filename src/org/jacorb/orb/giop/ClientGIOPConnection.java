@@ -26,7 +26,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.2 2003-04-24 10:07:56 andre.spiegel Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.3 2003-04-27 12:50:59 andre.spiegel Exp $
  */
 
 public class ClientGIOPConnection 
@@ -34,9 +34,10 @@ public class ClientGIOPConnection
 {
     public ClientGIOPConnection( Transport transport,
                                  RequestListener request_listener,
-                                 ReplyListener reply_listener )
+                                 ReplyListener reply_listener,
+                                 StatisticsProvider statistics_provider )
     {
-        super( transport, request_listener, reply_listener );
+        super( transport, request_listener, reply_listener, statistics_provider );
     }
     
 
