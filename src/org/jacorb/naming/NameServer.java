@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  *	The name server application
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: NameServer.java,v 1.13 2002-07-05 07:05:51 steve.osselton Exp $
+ *	@version $Id: NameServer.java,v 1.14 2002-08-13 07:29:24 nicolas Exp $
  */
 
 
@@ -217,7 +217,7 @@ public class NameServer
              */
 
   	    props.put("jacorb.orb.objectKeyMap.NameService",
-                        "%01StandardNS/NameServer%2DPOA/_root");
+                  "StandardNS/NameServer-POA/_root");
 
 	    /* 
              * set a connection time out : after 30 secs. idle time,
