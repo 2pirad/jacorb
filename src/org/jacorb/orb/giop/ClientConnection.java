@@ -36,7 +36,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.38 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: ClientConnection.java,v 1.39 2003-10-28 13:48:59 nick.cross Exp $
  */
 
 public class ClientConnection
@@ -187,20 +187,31 @@ public class ClientConnection
         return id;
     }
 
-    public void incClients()
+    public synchronized void incClients()
     {
         client_count++;
     }
 
-    public void decClients()
+    /**
+     * This method decrements the number of clients. If the number reaches
+     * zero it also calls close.
+     *
+     * @return a <code>boolean</code> value, true if client_count is zero.
+     */
+    public synchronized boolean decClients()
     {
+        boolean result = false;
+
         client_count--;
+
+        if (client_count == 0 )
+        {
+            close();
+            result = true;
+        }
+        return result;
     }
 
-    public boolean hasNoMoreClients()
-    {
-        return client_count == 0;
-    }
 
     public boolean isClientInitiated()
     {
