@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.5 2001-03-30 15:49:35 jacorb Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.6 2001-09-07 12:45:01 jacorb Exp $
  *
  */
 
@@ -664,8 +664,8 @@ public class NamingContextImpl
         }
         
         /** 
-         * Recreate tables. For serialization, object references have been transformed
-         * into strings
+         * Recreate tables. For serialization, object references 
+         * have been transformed into strings
          */
 
         for( Enumeration e = contexts.keys(); e.hasMoreElements();)

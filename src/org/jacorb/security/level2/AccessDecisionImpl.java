@@ -16,7 +16,7 @@ import java.lang.reflect.*;
  *
  * Created: Tue Jun 13 10:54:41 2000
  *
- * $Id: AccessDecisionImpl.java,v 1.3 2001-03-19 11:09:17 brose Exp $
+ * $Id: AccessDecisionImpl.java,v 1.4 2001-09-07 12:42:44 jacorb Exp $
  */
 
 public class AccessDecisionImpl
@@ -44,7 +44,7 @@ public class AccessDecisionImpl
 
         // do something to find out...
         
-        return false;       
+        return true;       
     }  
 
 } // AccessDecisionImpl

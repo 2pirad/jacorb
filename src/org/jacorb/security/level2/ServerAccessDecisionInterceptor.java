@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.6 2001-08-08 14:51:58 jacorb Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.7 2001-09-07 12:42:44 jacorb Exp $
  */
 
 public class ServerAccessDecisionInterceptor 
@@ -73,9 +73,7 @@ public class ServerAccessDecisionInterceptor
     public void receive_request(ServerRequestInfo ri)
         throws ForwardRequest
     {
-
-        //System.out.println("Call to: " + ri.target_most_derived_interface() );
- 
+        //Debug.output(1,"Call to: " + ri.target_most_derived_interface() );
 
         if (special_operations.containsKey(ri.operation()))
         {
