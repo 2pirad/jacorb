@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.17.2.7 2001-10-01 07:12:03 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.17.2.8 2001-10-01 14:57:56 jacorb Exp $
  *
  */
 
@@ -181,12 +181,17 @@ public final class Delegate
             // bnv: consults SSL tagged component
             ssl = ParsedIOR.getSSLTaggedComponent( pb );    
 
-            if( ssl != null &&
-                ( Environment.enforceSSL() ||
-                  ( Environment.supportSSL() && 
-                    (ssl.target_requires > 1) )))
+            // SSL usage is decided the following way: At least one
+            // side must require it. Therfore, we first check if it is
+            // supported by both sides, and then if it is required by
+            // at least one side. The distinction between
+            // EstablishTrustInTarget and EstablishTrustInClient is
+            // handled at the socket factory layer.
+            if( ssl != null && //server knows about ssl
+                Environment.isPropertyOn( "jacorb.security.support_ssl" ) && //we support ssl
+                ( ((Environment.getIntProperty( "jacorb.security.ssl.client.required_options", 16 ) & 0x60) != 0) || //we require ssl
+                  ((ssl.target_requires & 0x60) != 0))) //server requires ssl
             {
-                //      for policy expected serverside
                 uses_ssl = true; 
                 port = ssl.port; 
             }                

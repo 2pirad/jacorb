@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.5.4.4 2001-08-22 07:22:14 jacorb Exp $
+ * @version $Id: Messages.java,v 1.5.4.5 2001-10-01 14:57:58 jacorb Exp $
  *
  */
 
@@ -161,7 +161,8 @@ public class Messages
             }
             else
             {
-                throw new Error( "This message type doesn't have a request id" );
+                throw new Error( "Messages of type " +
+                                 msg_type + " don't have request ids" );
             }
         }
         else if( giop_minor == 0 || giop_minor == 1 )
@@ -203,7 +204,8 @@ public class Messages
             }
             else
             {
-                throw new Error( "This message type doesn't have a request id" );
+                throw new Error( "Messages of type " +
+                                 msg_type + " don't have request ids" );
             }
         } 
         

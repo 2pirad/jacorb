@@ -32,7 +32,7 @@ import org.jacorb.util.*;
 /**
  *
  * @author Nicolas Noffke, Gerald Brose, André Benvenuti
- * @version $Id: CurrentImpl.java,v 1.5 2001-07-29 17:22:56 jacorb Exp $
+ * @version $Id: CurrentImpl.java,v 1.5.2.1 2001-10-01 14:58:00 jacorb Exp $
  *
  */
 
@@ -67,16 +67,15 @@ public class CurrentImpl
         //build access decision
         try
         {
-            Class ad_class = Class.forName
-                (Environment.getProperty("jacorb.security.access_decision"));
+            Class ad_class = 
+                Class.forName(Environment.getProperty("jacorb.security.access_decision"));
 
             access_decision = (AccessDecision) ad_class.newInstance();
         }
         catch (Exception e)
         {
             Debug.output(Debug.SECURITY | Debug.IMPORTANT,
-                         "Class " + Environment.getProperty
-                         ("jacorb.security.access_decision") +
+                         "Class " + Environment.getProperty("jacorb.security.access_decision") +
                          " not found!");
 	    Debug.output( Debug.SECURITY | Debug.IMPORTANT,
 			  "Please check property \"jacorb.security.access_decision\"" );
@@ -89,16 +88,6 @@ public class CurrentImpl
 
     public void init()
     {
-	/*
-        byte value = (byte) Environment.supportedBySSL();
-
-        if( Environment.supportSSL() &&
-            ( value & 0x60 ) != 0 ) 
-        {
-            authenticate();
-        }
-	*/
-	
 	authenticate();
     }
 
@@ -200,8 +189,10 @@ public class CurrentImpl
         principalAuthenticator = 
             (PrincipalAuthenticator) authenticators.get( 0 );
 
-        String security_name = org.jacorb.util.Environment.defaultUser();
-        String password = org.jacorb.util.Environment.defaultPassword();
+        String security_name = 
+            Environment.getProperty( "jacorb.security.default_user" );
+        String password = 
+            Environment.getProperty( "jacorb.security.default_password" );
         byte[] pwd = (password == null)? null : password.getBytes();
 
         Vector own_creds = new Vector();

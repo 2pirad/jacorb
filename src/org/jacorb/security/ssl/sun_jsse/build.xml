@@ -1,27 +1,22 @@
 <?xml version="1.0"?>
 
-<project name="security" default="all" basedir="../../../../..">
+<project name="sun_jsse" default="all" basedir="../../../../../..">
 
   <!-- ==================================================== -->
   <!--                 jsse build file                      -->
-  <!-- $Id: build.xml,v 1.1 2001-08-03 11:28:51 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.1.2.1 2001-10-01 14:58:09 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
 	<property name="dirs.base" value="${basedir}"/>
 	<property name="classdir" value="${dirs.base}/classes"/>
 	<property name="src" value="${dirs.base}/src"/>
-	<available classname="javax.net.ssl.SSLSocketFactory" property="jsse.present" />
    </target>
 
-   <target name="all" depends="init,jsse">
-
-   </target>
-
-   <target name="jsse" if="jsse.present">
-	   <javac srcdir="${src}"
-               destdir="${classdir}"
-	       includes="org/jacorb/security/jsse/*.java"
+   <target name="all" depends="init">
+           <javac srcdir="${src}"
+                  destdir="${classdir}"
+                  includes="org/jacorb/security/ssl/sun_jsse/*.java"
         />
    </target>
 </project>

@@ -32,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:56:32 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.1.2.3 2001-10-01 07:12:06 jacorb Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.1.2.4 2001-10-01 14:57:59 jacorb Exp $
  */
 
 public class Server_TCP_IP_Transport 
@@ -61,6 +61,11 @@ public class Server_TCP_IP_Transport
         Debug.output( 2, "Opened new server-side TCP/IP transport to " +
                       connection_info );
 
+    }
+
+    public Socket getSocket()
+    {
+        return socket;
     }
 
     protected void close( int reason )

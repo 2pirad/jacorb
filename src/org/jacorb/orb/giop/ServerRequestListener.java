@@ -44,7 +44,7 @@ import org.omg.CONV_FRAME.CodeSetContext;
  * Created: Sun Aug 12 22:26:25 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.1.2.4 2001-09-27 11:43:03 jacorb Exp $
+ * @version $Id: ServerRequestListener.java,v 1.1.2.5 2001-10-01 14:57:58 jacorb Exp $
  */
 
 public class ServerRequestListener 
@@ -52,26 +52,40 @@ public class ServerRequestListener
 {
     private ORB orb = null;
     private POA rootPOA = null;
+    private boolean require_ssl = false;
 
     public ServerRequestListener( org.omg.CORBA.ORB orb, 
                                   org.omg.PortableServer.POA rootPOA )
     {
         this.orb = (ORB) orb;
         this.rootPOA = (POA) rootPOA;
+        
+        if( Environment.isPropertyOn( "jacorb.security.support_ssl" ))
+        {
+            int required =
+                Environment.getIntProperty( "jacorb.security.ssl.server.required_options" );
+         
+            //if we require EstablishTrustInTarget or
+            //EstablishTrustInClient, SSL must be used.
+            require_ssl = 
+                Environment.isPropertyOn( "jacorb.security.support_ssl" ) &&
+                (required & 0x60) != 0;
+        }
     }
     
     public void requestReceived( byte[] request,
                                  GIOPConnection connection )
     {
-        if( Environment.enforceSSL() && 
-            ! connection.isSSL()) 
+
+        RequestInputStream in = 
+            new RequestInputStream( orb, request );
+
+        if( require_ssl && ! connection.isSSL() ) 
         {
-            int giop_minor = Messages.getGIOPMinor( request );
-            
             ReplyOutputStream out = 
-                new ReplyOutputStream( Messages.getRequestId( request ),
+                new ReplyOutputStream( in.req_hdr.request_id,
                                        ReplyStatusType_1_2.SYSTEM_EXCEPTION,
-                                       giop_minor );
+                                       in.getGIOPMinor() );
         
             SystemExceptionHelper.write( out, 
                   new NO_PERMISSION( 3, CompletionStatus.COMPLETED_NO ));
@@ -87,9 +101,6 @@ public class ServerRequestListener
             
             return;
         } 
-
-        RequestInputStream in = 
-            new RequestInputStream( orb, request );
 
         if( ! connection.isTCSNegotiated() )
         {
@@ -113,15 +124,6 @@ public class ServerRequestListener
             new ServerRequest( orb, in, connection );
 
         orb.getBasicAdapter().replyPending();
-
-        /*
-        // devik: look for codeset context if not negotiated yet
-        if( !connection.isTCSNegotiated() )
-        {
-            // look for codeset service context
-            connection.setServerCodeSet( request.getServiceContext() );
-        }
-        */
 
         deliverRequest( server_request );
     }

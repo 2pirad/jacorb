@@ -1,4 +1,4 @@
-package org.jacorb.security.jsse;
+package org.jacorb.security.ssl.sun_jsse;
 
 /*
  *        JacORB - a free Java ORB
@@ -30,7 +30,7 @@ import org.jacorb.util.Debug;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KeyStoreUtil.java,v 1.1 2001-07-30 17:11:16 jacorb Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.1.2.1 2001-10-01 14:58:07 jacorb Exp $
  */
 
 public class KeyStoreUtil
