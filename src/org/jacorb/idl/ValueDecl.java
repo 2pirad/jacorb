@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.24 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: ValueDecl.java,v 1.25 2002-10-11 08:43:06 andre.spiegel Exp $
  */
 
 class ValueDecl
@@ -326,8 +326,10 @@ class ValueDecl
                     // type modifier
                     "(short)" +
                     ( this.isCustomMarshalled()
-                    ? org.omg.CORBA.VM_CUSTOM.value
-                    : org.omg.CORBA.VM_NONE.value ) + ", " +
+                      // symbolic constants might not be defined under jdk 1.1
+                      ? 1 // org.omg.CORBA.VM_CUSTOM.value
+                      : 0 // org.omg.CORBA.VM_NONE.value 
+                    ) + ", " +
                     // concrete base type
                     "null, " +
                     // value members
@@ -347,8 +349,9 @@ class ValueDecl
     {
         TypeSpec typeSpec = m.typeSpec();
         short access = m.isPublic
-                ? org.omg.CORBA.PUBLIC_MEMBER.value
-                : org.omg.CORBA.PRIVATE_MEMBER.value;
+            // the symbolic constants might not be defined under jdk 1.1
+            ? (short)1  // org.omg.CORBA.PUBLIC_MEMBER.value
+            : (short)0; // org.omg.CORBA.PRIVATE_MEMBER.value
 
         return "new org.omg.CORBA.ValueMember (" +
                 "\"" + m.name + "\", \"" + typeSpec.id() +
