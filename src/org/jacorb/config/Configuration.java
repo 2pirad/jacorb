@@ -55,7 +55,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.7 2004-06-14 11:45:34 simon.mcqueen Exp $
+ * @version $Id: Configuration.java,v 1.8 2004-07-12 11:46:10 simon.mcqueen Exp $
  */
 
 public class Configuration
@@ -166,11 +166,12 @@ public class Configuration
        String separator = System.getProperty("file.separator");
        String home = System.getProperty("user.home");
        String lib = System.getProperty("java.home");
-       int logLevel = DEFAULT_LOG_LEVEL;
        boolean loaded = false;
 
        // 1) include system properties
        setAttributes( System.getProperties() );
+       
+       int logLevel = getAttributeAsInteger("jacorb.config.log.verbosity",DEFAULT_LOG_LEVEL);
 
        // 2) look for orb.properties       
        // look for common properties files in java.home/lib first
