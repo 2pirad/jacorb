@@ -26,12 +26,12 @@ import java.io.*;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: Version.java,v 1.5 2002-03-19 09:25:54 nicolas Exp $
+ * @version $Id: Version.java,v 1.6 2002-04-16 14:11:58 steve.osselton Exp $
  */
 
 public final class Version
 {
-    private static String version = "1.4 pre 1, September 2002";
+    private static String version = "1.4 Beta 4, March 2002";
 
     public static String get()
     {
