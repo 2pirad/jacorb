@@ -27,12 +27,14 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.9 2003-11-03 11:07:53 andre.spiegel Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.10 2003-12-09 18:07:08 nicolas Exp $
  */
 
 public class ClientGIOPConnection
     extends GIOPConnection
 {
+    private boolean ignore_pending_messages_on_timeout = false;
+
     public ClientGIOPConnection( org.omg.ETF.Profile profile,
                                  org.omg.ETF.Connection transport,
                                  RequestListener request_listener,
@@ -40,15 +42,21 @@ public class ClientGIOPConnection
                                  StatisticsProvider statistics_provider )
     {
         super( profile, transport, request_listener, reply_listener, statistics_provider );
+        
+        //default to "off" is handled internally by Environment.isPropertyOn()
+        ignore_pending_messages_on_timeout =
+            Environment.isPropertyOn("jacorb.connection.client.timeout_ignores_pending_messages");
     }
-
-
 
     public void readTimedOut()
     {
         synchronized( pendingUndecidedSync )
         {
-            if( ! hasPendingMessages() )
+            if (ignore_pending_messages_on_timeout)
+            {
+                this.streamClosed();
+            }
+            else if (! hasPendingMessages())
             {
                 closeAllowReopen();
             }
