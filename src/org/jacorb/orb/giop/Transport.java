@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.13 2003-04-23 15:07:50 andre.spiegel Exp $
+ * @version $Id: Transport.java,v 1.14 2003-04-24 09:57:13 andre.spiegel Exp $
  */
 
 public interface Transport 
@@ -51,23 +51,12 @@ public interface Transport
                
     void flush();
 
+    void close();
+
     org.omg.ETF.Profile get_server_profile(); 
 
     // Non-ETF methods below this line
 
-    /**
-     * Close this transport (and free resources).  
-     */
-    public void closeCompletely()
-        throws IOException;
-
-    /**
-     * Close only the underlying network connection. Everything else
-     * stays in place and the network connection can be reopened.  
-     */
-    public void closeAllowReopen()
-        throws IOException;
-    
     /**
      * Get the statistics provider for transport usage statistics.
      */
