@@ -20,7 +20,7 @@ package org.jacorb.orb;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
  
-import java.util.Vector;
+import java.util.*;
 import org.jacorb.util.*;
 
 /**
@@ -29,7 +29,7 @@ import org.jacorb.util.*;
  * allocations and deallocations and the overall memory footprint.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.5 2001-07-29 08:48:20 jacorb Exp $ 
+ * @version $Id: BufferManager.java,v 1.5.2.1 2001-08-15 09:14:03 jacorb Exp $ 
 */
 
 public class BufferManager
@@ -62,6 +62,7 @@ public class BufferManager
     {
         MAX = Environment.getMaxManagedBufSize();
 	bufferPool = new Vector[ MAX ];
+
 	for( int i= MAX; i > 0; )
 	    bufferPool[--i]=new Vector();	
     }
@@ -129,7 +130,8 @@ public class BufferManager
 	}
 	else
 	{
-	    return new byte[log > MIN_OFFSET ? 1<<log : 1 << MIN_OFFSET ];
+            byte[] b = new byte[log > MIN_OFFSET ? 1<<log : 1 << MIN_OFFSET ];
+            return b;
 	}
     }
 
@@ -153,7 +155,7 @@ public class BufferManager
 	    if( v.size() < THREASHOLD )
 	    {
 		v.addElement( current );
-	    }	   	    
+	    }
 	}
     }
 
