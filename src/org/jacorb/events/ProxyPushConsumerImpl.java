@@ -3,7 +3,7 @@ package org.jacorb.events;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -41,7 +41,7 @@ import org.jacorb.orb.*;
  *    section 2.1.5 "Disconnection Behavior" on page 2-4.
  *
  * @author Jeff Carlson, Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: ProxyPushConsumerImpl.java,v 1.4 2001-09-10 01:32:50 jcarlson Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.5 2001-10-07 22:17:07 jcarlson Exp $
  */
 public class ProxyPushConsumerImpl
     extends org.omg.CosEventChannelAdmin.ProxyPushConsumerPOA
