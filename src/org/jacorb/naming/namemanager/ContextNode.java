@@ -30,7 +30,7 @@ import javax.swing.tree.*;
 
 /**
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: ContextNode.java,v 1.10 2003-05-06 14:39:48 andre.spiegel Exp $
+ *  @version $Id: ContextNode.java,v 1.11 2003-06-20 15:11:07 andre.spiegel Exp $
  */
 
 public class ContextNode
@@ -247,7 +247,7 @@ public class ContextNode
 		row.addElement( last.kind);
 		row.addElement( pior.getTypeId() );
 		IIOPProfile p = (IIOPProfile)pior.getEffectiveProfile();
-		row.addElement( p.getAddress().getHost() );
+		row.addElement( p.getAddress().getIP() );
 					
 		bindingData.addElement( row );
 	    }
