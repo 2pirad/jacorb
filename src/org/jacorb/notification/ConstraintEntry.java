@@ -32,7 +32,7 @@ import org.omg.CosNotifyFilter.ConstraintInfo;
  * Created: Sun Apr 27 15:08:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ConstraintEntry.java,v 1.2 2003-08-02 07:52:02 alphonse.bendt Exp $
+ * @version $Id: ConstraintEntry.java,v 1.3 2003-08-27 20:20:44 alphonse.bendt Exp $
  */
 
 public class ConstraintEntry
@@ -65,7 +65,7 @@ public class ConstraintEntry
             et_ = et;
 
             constraintKey_ =
-                FilterUtils.calcConstraintKey( et_.domain_name, et_.type_name );
+                MessageUtils.calcConstraintKey( et_.domain_name, et_.type_name );
         }
 
         public String toString()

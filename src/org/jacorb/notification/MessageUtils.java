@@ -40,7 +40,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtils.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: MessageUtils.java,v 1.2 2003-08-27 20:19:29 alphonse.bendt Exp $
  */
 
 public class MessageUtils
@@ -211,5 +211,25 @@ public class MessageUtils
     {
         return new EvaluationException();
     }
+
+    /**
+     * Provide a Uniform Mapping from domain_name and type_name to a
+     * Key that can be used to put EventTypes into a Map.
+     * if (d1 == d2) AND (t1 == t2) => calcConstraintKey(d1, t1) ==
+     * calcConstraintKey(d2, t2).
+     *
+     * @param domain_name a <code>String</code> value
+     * @param type_name a <code>String</code> value
+     * @return an Unique Constraint Key.
+     */
+    public static String calcConstraintKey( String domain_name, String type_name )
+    {
+        StringBuffer _b = new StringBuffer( domain_name );
+        _b.append( "__%%__" );
+        _b.append( type_name );
+
+        return _b.toString();
+    }
+
 
 }
