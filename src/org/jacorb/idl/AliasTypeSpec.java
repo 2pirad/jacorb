@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.11 2001-07-24 08:12:26 jacorb Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.12 2001-09-07 12:40:15 jacorb Exp $
  */
 
 public class AliasTypeSpec 
@@ -154,9 +154,9 @@ public class AliasTypeSpec
 
     public String getTypeCodeExpression()
     {
-	return "org.omg.CORBA.ORB.init().create_alias_tc( " + 
-		full_name() + "Helper.id(),\"" + name + "\"," +
-	    originalType.getTypeCodeExpression() + ")";
+        return "org.omg.CORBA.ORB.init().create_alias_tc( " + 
+            full_name() + "Helper.id(),\"" + name + "\"," +
+            originalType.getTypeCodeExpression() + ")";
     }
 
     public String className()

@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.12 2001-06-13 09:54:50 jacorb Exp $
+ * @version $Id: UnionType.java,v 1.13 2001-09-07 12:40:15 jacorb Exp $
  *
  */
 
@@ -936,9 +936,10 @@ class UnionType
 		else if(switch_is_enum)
 		{
 		    String _t = ((ScopedName)o).typeName();
+		    ps.println("\t\t\t" + _t.substring(0, _t.lastIndexOf('.')) + "Helper.insert( label_any, " + _t + " );");	
 
-		    ps.println("\t\t\tlabel_any.insert_long(" + _t.substring(0, _t.lastIndexOf('.')+1) 
-			       + "_" + _t.substring( _t.lastIndexOf('.')+1) + ");");	
+                    //		    ps.println("\t\t\tlabel_any.insert_long(" + _t.substring(0, _t.lastIndexOf('.')+1) 
+                    //       + "_" + _t.substring( _t.lastIndexOf('.')+1) + ");");	
 		}
 		ps.print("\t\t\tmembers[" + (mi++) + "] = new org.omg.CORBA.UnionMember(\""+d.name()+"\",label_any,");
 

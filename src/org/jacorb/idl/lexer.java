@@ -46,7 +46,7 @@ import java_cup.runtime.float_token;
  *  
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.10 2001-06-13 09:54:50 jacorb Exp $
+ * @version $Id: lexer.java,v 1.11 2001-09-07 12:40:16 jacorb Exp $
  * @author Gerald Brose
  * 
  */
@@ -602,7 +602,9 @@ public class lexer
                 advance();      // skip ' '
                 boolean useIncludePath = ( next_char == '<' );
                 advance(); // skip `\"' or '<'
+
                 String fname = get_string();
+
                 if( useIncludePath && ( next_char != '>' ))
                     emit_error("Syntax error in #include directive, expecting '>'");
                 else if( !useIncludePath && ( next_char != '\"' ))

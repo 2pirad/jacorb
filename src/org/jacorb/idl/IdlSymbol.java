@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.6 2001-06-13 09:54:49 jacorb Exp $
+ * @version $Id: IdlSymbol.java,v 1.7 2001-09-07 12:40:15 jacorb Exp $
  */
 
 class IdlSymbol 
@@ -156,9 +156,9 @@ class IdlSymbol
 
     String full_name()
     {
-
 	if( name.length() == 0 ) 
 	    return null;
+
 	if( pack_name.length() > 0 )
 	{	
 	    return pack_name + "." + name;
