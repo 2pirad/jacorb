@@ -24,14 +24,14 @@ package org.jacorb.notification.engine;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterSupplierAdminTask.java,v 1.11 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: FilterSupplierAdminTask.java,v 1.12 2004-08-13 12:17:44 alphonse.bendt Exp $
  */
 
 public class FilterSupplierAdminTask extends AbstractFilterTask
 {
-    private static int COUNT = 0;
+    private static int sCount = 0;
 
-    private int id_ = ++COUNT;
+    private int id_ = ++sCount;
 
     private boolean skip_ = false;
 

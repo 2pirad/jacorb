@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskFactory.java,v 1.8 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: TaskFactory.java,v 1.9 2004-08-13 12:17:44 alphonse.bendt Exp $
  */
 
 public class TaskFactory implements Disposable,Configurable
@@ -161,6 +161,7 @@ public class TaskFactory implements Disposable,Configurable
     {
         FilterSupplierAdminTask task = newFilterSupplierAdminTask();
 
+        // TODO this really should be an assertion
         if (t.getFilterStageToBeProcessed().length != 1) {
             throw new RuntimeException();
         }

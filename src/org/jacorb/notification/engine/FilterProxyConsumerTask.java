@@ -26,13 +26,13 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTask.java,v 1.12 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: FilterProxyConsumerTask.java,v 1.13 2004-08-13 12:17:44 alphonse.bendt Exp $
  */
 
 public class FilterProxyConsumerTask extends AbstractFilterTask
 {
-    private static int COUNT = 0;
-    private int id_ = ++COUNT;
+    private static int sCount = 0;
+    private int id_ = ++sCount;
 
     private boolean orSemantic_ = false;
 

@@ -31,12 +31,12 @@ import EDU.oswego.cs.dl.util.concurrent.ThreadFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.4 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: TaskExecutor.java,v 1.5 2004-08-13 12:17:44 alphonse.bendt Exp $
  */
 
 public class TaskExecutor implements Executor, Disposable
 {
-    private static TaskExecutor DIRECT_EXECUTOR = new TaskExecutor("Direct", 0);
+    private static final TaskExecutor DIRECT_EXECUTOR = new TaskExecutor("Direct", 0);
 
     //     private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 

@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.14 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.15 2004-08-13 12:17:44 alphonse.bendt Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask
@@ -37,9 +37,9 @@ public class FilterConsumerAdminTask extends AbstractFilterTask
     private static final FilterStage[] NO_CURRENT_FILTER_STAGE =
         new FilterStage[ 0 ];
 
-    private static int COUNT = 0;
+    private static int sCount = 0;
 
-    private int id_ = ++COUNT;
+    private int id_ = ++sCount;
 
     /**
      * this List contains FilterStages (ProxySuppliers) which have a
