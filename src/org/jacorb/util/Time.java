@@ -22,12 +22,13 @@ package org.jacorb.util;
  */
 
 import org.omg.TimeBase.*;
+import org.jacorb.orb.*;
 
 /**
  * Contains static methods to handle CORBA time values.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: Time.java,v 1.3 2003-01-05 11:53:07 andre.spiegel Exp $
+ * @version $Id: Time.java,v 1.4 2003-01-06 16:14:05 andre.spiegel Exp $
  */
 public class Time
 {
@@ -138,6 +139,18 @@ public class Time
                 return timeA;
             else
                 return timeB;
+    }
+
+    /**
+     * Returns a CDR encapsulation of the given UtcT.
+     */
+    public static byte[] toCDR (UtcT time)
+    {
+        byte[] buffer = new byte[24];
+        CDROutputStream out = new CDROutputStream (buffer);
+        out.beginEncapsulatedArray();
+        UtcTHelper.write(out, time);
+        return buffer;
     }
 
 }
