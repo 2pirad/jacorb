@@ -25,11 +25,11 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.16 2003-05-15 11:41:50 nick.cross Exp $
+ * @version $Id: FixedPointType.java,v 1.16.2.1 2003-09-04 08:27:44 nicolas Exp $
  */
 
-class FixedPointType
-        extends TemplateTypeSpec
+public class FixedPointType
+    extends TemplateTypeSpec
 {
 
     public ConstExpr digit_expr = null;
