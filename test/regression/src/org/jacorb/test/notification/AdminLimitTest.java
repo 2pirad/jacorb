@@ -46,7 +46,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.16 2005-02-14 00:15:46 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.17 2005-03-31 20:11:24 alphonse.bendt Exp $
  */
 
 public class AdminLimitTest extends NotificationTestCase
@@ -93,6 +93,7 @@ public class AdminLimitTest extends NotificationTestCase
             
             public void destroy()
             {
+                // nothing to do
             }
         };
 
@@ -128,10 +129,12 @@ public class AdminLimitTest extends NotificationTestCase
 
             public void actionProxyCreated(ProxyEvent event)
             {
+                // nothing to do
             }
 
             public void actionProxyDisposed(ProxyEvent event)
             {
+                // ignore
             }
         };
 
@@ -177,6 +180,7 @@ public class AdminLimitTest extends NotificationTestCase
             fail();
         } catch (AdminLimitExceeded e)
         {
+            // expected
         }
     }
 
