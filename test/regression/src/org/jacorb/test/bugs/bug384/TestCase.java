@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
  * results for both local and non-local objects.
  * 
  * @author Gerald Brose
- * @version $Id: TestCase.java,v 1.2 2003-10-05 16:46:01 brose Exp $
+ * @version $Id: TestCase.java,v 1.3 2003-10-10 13:30:36 andre.spiegel Exp $
  */
 
 public class TestCase 
@@ -70,7 +70,7 @@ public class TestCase
 
     public static Test suite()
     {
-        TestSuite suite = new TestSuite( "bug 384, wrong is_a results" );
+        TestSuite suite = new TestSuite( "bug 384 wrong is_a results" );
 
         try
         {
