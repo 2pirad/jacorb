@@ -45,7 +45,7 @@ import java.io.*;
  * logger, plus a suffix of <code>.log.verbosity</code>.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.4 2003-12-04 14:15:49 simon.mcqueen Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.5 2003-12-19 12:02:50 nick.cross Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -222,7 +222,14 @@ public class LogKitLoggerFactory
 
         return result;
     }
-    
+
+
+    /**
+     * <code>intToPriority</code> returns the priority level for a given integer.
+     *
+     * @param priority an <code>int</code> value
+     * @return an <code>org.apache.log.Priority</code> value
+     */
     public static org.apache.log.Priority intToPriority(int priority)
     {
         switch (priority)
