@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: OrExpr.java,v 1.6 2001-05-31 08:04:13 jacorb Exp $
+ * @version $Id: OrExpr.java,v 1.7 2002-02-07 09:12:03 gerald Exp $
  */
 
 import java.util.*;
@@ -99,6 +99,12 @@ class OrExpr
 	}
 	return x + xor_expr;
     }
+
+    public str_token get_token()
+    {
+	return xor_expr.get_token();
+    }
+
 }
 
 

@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: XorExpr.java,v 1.6 2001-05-31 08:04:13 jacorb Exp $
+ * @version $Id: XorExpr.java,v 1.7 2002-02-07 09:12:04 gerald Exp $
  */
 
 class XorExpr 
@@ -96,6 +96,11 @@ class XorExpr
             x = xor_expr + "^";
         }
         return x + and_expr;
+    }
+
+    public str_token get_token()
+    {
+	return and_expr.get_token();
     }
 }
 

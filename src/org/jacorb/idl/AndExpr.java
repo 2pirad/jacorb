@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AndExpr.java,v 1.6 2001-05-31 08:04:12 jacorb Exp $
+ * @version $Id: AndExpr.java,v 1.7 2002-02-07 09:12:03 gerald Exp $
 */
 
 class AndExpr 
@@ -103,6 +103,11 @@ class AndExpr
             x = and_expr + "&";
         }
         return x + shift_expr;
+    }
+
+    public str_token get_token()
+    {
+	return shift_expr.get_token();
     }
 
 }

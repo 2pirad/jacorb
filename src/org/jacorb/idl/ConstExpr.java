@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.6 2001-05-31 08:04:12 jacorb Exp $
+ * @version $Id: ConstExpr.java,v 1.7 2002-02-07 09:12:03 gerald Exp $
  */
 
 class ConstExpr 
@@ -61,8 +61,13 @@ class ConstExpr
     {
         //        return value();
         return or_expr.toString();
-
     }
+    
+    public str_token get_token()
+    {
+	return or_expr.get_token();
+    }
+
 
     public String value() 
     {

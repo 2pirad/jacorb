@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.6 2001-05-31 08:04:13 jacorb Exp $
+ * @version $Id: MultExpr.java,v 1.7 2002-02-07 09:12:03 gerald Exp $
  */
 
 class MultExpr 
@@ -110,6 +110,12 @@ class MultExpr
         }
         return x + unary_expr.toString();
     }
+
+    public str_token get_token()
+    {
+	return unary_expr.get_token();
+    }
+
 }
 
 

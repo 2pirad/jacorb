@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrimaryExpr.java,v 1.7 2001-06-22 10:56:16 jacorb Exp $
+ * @version $Id: PrimaryExpr.java,v 1.8 2002-02-07 09:12:03 gerald Exp $
  */
 
 class PrimaryExpr 
@@ -122,6 +122,11 @@ class PrimaryExpr
         {
             return ((Literal)symbol).string;
         }
+    }
+
+    public str_token get_token()
+    {
+	return symbol.get_token();
     }
 
 
