@@ -44,7 +44,7 @@ import org.omg.CONV_FRAME.CodeSetContext;
  * Created: Sun Aug 12 22:26:25 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.1.2.5 2001-10-01 14:57:58 jacorb Exp $
+ * @version $Id: ServerRequestListener.java,v 1.1.2.6 2001-10-01 15:20:35 jacorb Exp $
  */
 
 public class ServerRequestListener 
@@ -63,7 +63,7 @@ public class ServerRequestListener
         if( Environment.isPropertyOn( "jacorb.security.support_ssl" ))
         {
             int required =
-                Environment.getIntProperty( "jacorb.security.ssl.server.required_options" );
+                Environment.getIntProperty( "jacorb.security.ssl.server.required_options", 16 );
          
             //if we require EstablishTrustInTarget or
             //EstablishTrustInClient, SSL must be used.
