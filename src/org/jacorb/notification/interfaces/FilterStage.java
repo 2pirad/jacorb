@@ -22,22 +22,21 @@ package org.jacorb.notification.interfaces;
  */
 
 import java.util.List;
+import org.omg.CosNotifyFilter.MappingFilter;
 
 /**
  * Abstraction of a ProxyConsumer, SupplierAdmin, ConsumerAdmin,
- * ProxySupplier. This Interface allows to use the mentioned Classes
- * in an uniform way.
+ * ProxySupplier. This Interface provides uniform access to use
+ * these Classes during processing of an event. 
  *
- * Created: Thu Nov 14 20:37:21 2002
- *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: FilterStage.java,v 1.1 2003-04-12 21:17:41 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: FilterStage.java,v 1.2 2003-08-02 10:28:32 alphonse.bendt Exp $
  */
 
 public interface FilterStage {
 
     /**
-     * check if this DistributorNode has been disposed.
+     * check if this FilterStage has been disposed.
      */
     boolean isDisposed();
 
@@ -66,4 +65,26 @@ public interface FilterStage {
      */
     EventConsumer getEventConsumer();
 
-}// Destination
+    /**
+     * check if this FilterStage has a LifetimeFilter attached
+     */
+    boolean hasLifetimeFilter();
+
+    /**
+     * check if this FilterStage has a PriorityFilter attached
+     */
+    boolean hasPriorityFilter();
+
+    /**
+     * access the LifetimeFilter attached to this FilterStage
+     * @return a LifetimeFilter or null if no Filter is attached
+     */
+    MappingFilter getLifetimeFilter();
+
+    /**
+     * access the PriorityFilter attached to this FilterStage
+     * @return a PriorityFilter or null if no Filter is attached
+     */
+    MappingFilter getPriorityFilter();
+
+}

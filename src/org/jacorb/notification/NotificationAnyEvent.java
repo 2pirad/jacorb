@@ -21,24 +21,32 @@ package org.jacorb.notification;
  *
  */
 
+import java.util.Iterator;
+import java.util.List;
+
+import org.jacorb.notification.evaluate.EvaluationException;
+import org.jacorb.notification.interfaces.FilterStage;
+import org.jacorb.notification.node.ComponentName;
+import org.jacorb.notification.node.EvaluationResult;
 import org.omg.CORBA.Any;
-import org.omg.CosNotification.StructuredEvent;
+import org.omg.CORBA.AnyHolder;
+import org.omg.CosNotification.EventHeader;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.FixedEventHeader;
 import org.omg.CosNotification.Property;
-import org.omg.CosNotification.EventHeader;
-import org.jacorb.notification.node.EvaluationResult;
-import org.jacorb.notification.node.ComponentName;
-import org.jacorb.notification.evaluate.EvaluationException;
+import org.omg.CosNotification.StructuredEvent;
+import org.omg.CosNotifyFilter.Filter;
+import org.omg.CosNotifyFilter.MappingFilter;
+import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * Adapt an Any to the NotificationEvent Interface.
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationAnyEvent.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: NotificationAnyEvent.java,v 1.7 2003-08-02 10:28:32 alphonse.bendt Exp $
  */
 
 public class NotificationAnyEvent extends NotificationEvent
@@ -150,5 +158,41 @@ public class NotificationAnyEvent extends NotificationEvent
 	} catch (InvalidValue e) {
 	} catch (EvaluationException e) {}
 	return null;
+    }
+
+    public boolean match(FilterStage destination) {
+	List _filterList = destination.getFilters();
+
+        if ( _filterList.isEmpty() )
+	    {
+		return true;
+	    }
+
+        Iterator _allFilters = _filterList.iterator();
+
+        while ( _allFilters.hasNext() )
+        {
+            try
+            {
+
+                Filter _filter = ( Filter )
+                                 ( ( KeyedListEntry ) _allFilters.next() ).getValue();
+
+                if ( _filter.match( toAny() ) )
+                {
+                    return true;
+                }
+            }
+            catch ( UnsupportedFilterableData ufd )
+            {
+                // error means false
+            }
+        }
+
+        return false;
+    }
+
+    public boolean match(MappingFilter filter, AnyHolder value) throws UnsupportedFilterableData {
+	return filter.match(toAny(), value);
     }
 }

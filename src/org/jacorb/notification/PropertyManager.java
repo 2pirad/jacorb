@@ -21,18 +21,17 @@ package org.jacorb.notification;
  *
  */
 
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Map;
+
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.Property;
-import java.util.Iterator;
-import java.util.Hashtable;
-import org.omg.DynamicAny.DynAnyFactory;
 import org.omg.DynamicAny.DynAny;
+import org.omg.DynamicAny.DynAnyFactory;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.apache.log.Logger;
-import org.apache.log.Hierarchy;
 
 /**
  * PropertyManager.java
@@ -41,7 +40,7 @@ import org.apache.log.Hierarchy;
  * Created: Tue Feb 04 14:47:50 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PropertyManager.java,v 1.2 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: PropertyManager.java,v 1.3 2003-08-02 10:28:32 alphonse.bendt Exp $
  */
 
 public class PropertyManager implements Cloneable {

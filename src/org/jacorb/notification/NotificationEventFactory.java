@@ -21,13 +21,12 @@ package org.jacorb.notification;
  *
  */
 
+import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Poolable;
 import org.jacorb.notification.util.ObjectPoolBase;
 import org.omg.CORBA.Any;
-import org.omg.CORBA.ORB;
 import org.omg.CosNotification.StructuredEvent;
-import org.jacorb.notification.interfaces.Disposable;
 
 /**
  * NotificationEventFactory.java
@@ -36,7 +35,7 @@ import org.jacorb.notification.interfaces.Disposable;
  * Created: Tue Nov 05 18:53:27 2002
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationEventFactory.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: NotificationEventFactory.java,v 1.7 2003-08-02 10:28:32 alphonse.bendt Exp $
  */
 
 public class NotificationEventFactory implements Disposable
@@ -137,6 +136,20 @@ public class NotificationEventFactory implements Disposable
 
         _e.setStructuredEventValue( event );
         return _e;
+    }
+
+    public NotificationEvent newEvent(NotificationEvent event) {
+	NotificationEvent _newEvent = null;
+
+	switch(event.getType()) {
+
+	case NotificationEvent.TYPE_ANY:
+	    _newEvent = newEvent(event.toAny());
+	case NotificationEvent.TYPE_STRUCTURED:
+	    _newEvent = newEvent(event.toStructuredEvent());
+	}
+	
+	return _newEvent;
     }
 
 } // NotificationEventFactory

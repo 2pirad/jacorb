@@ -21,19 +21,16 @@ package org.jacorb.notification.engine;
  *
  */
 
+import org.apache.log.Hierarchy;
+import org.apache.log.Logger;
 import org.jacorb.notification.NotificationEvent;
 import org.jacorb.notification.interfaces.Poolable;
-import org.apache.log.Logger;
-import org.apache.log.Hierarchy;
 
 /**
  * TaskBase.java
  *
- *
- * Created: Fri Jan 03 11:22:52 2003
- *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: TaskBase.java,v 1.2 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: TaskBase.java,v 1.3 2003-08-02 10:28:32 alphonse.bendt Exp $
  */
 
 public abstract class TaskBase extends Poolable implements Task {
@@ -119,11 +116,21 @@ public abstract class TaskBase extends Poolable implements Task {
      */
     public void run() {
 	try {
-	    doWork();
+
+	    if ( event_ == null || !isEventDisposed() ) {
+		doWork();
+	    }
+
+	    if ( isEventDisposed() ) {
+		logger_.debug("event has been marked disposable");
+		setStatus(DISPOSABLE);
+	    }
+
 	    coordinator_.handleTaskFinished(this);
 	} catch (Throwable t) {
 	    errorHandler_.handleTaskError(this, t);
 	}
+
     }
     
     public void reset() {
@@ -132,4 +139,14 @@ public abstract class TaskBase extends Poolable implements Task {
 	status_ = NEW;
     }
 
-}// TaskBase
+    private boolean isEventDisposed() {
+	return event_ != null && event_.isDisposable();
+    }
+    
+    protected void checkInterrupt() throws InterruptedException {
+	if (Thread.currentThread().isInterrupted() || event_.isDisposable()) {
+	    logger_.debug("Worker Thread has been interrupted");
+	    throw new InterruptedException();
+	}
+    }
+}

@@ -21,24 +21,27 @@ package org.jacorb.notification.engine;
  *
  */
 
+import org.jacorb.notification.interfaces.Poolable;
+import org.jacorb.notification.util.ObjectPoolBase;
+
 /**
- * Task.java
+ * TaskPoolBase.java
+ *
  *
  * @author Alphonse Bendt
- * @version $Id: Task.java,v 1.6 2003-08-02 10:28:32 alphonse.bendt Exp $
+ * @version $Id: TaskPoolBase.java,v 1.1 2003-08-02 10:28:32 alphonse.bendt Exp $
  */
 
-public interface Task extends Runnable {    
-
-    public static int NEW = 0;
-    public static int ERROR = 1;
-    public static int RESCHEDULE = 2;
-    public static int DONE = 3;
-    public static int DISPOSABLE = 4;
-
-    /**
-     * return the status of this Task.
-     */ 
-    int getStatus();
+abstract class TaskPoolBase extends ObjectPoolBase {
+    
+    public void passivateObject( Object o )
+    {
+	( ( Poolable ) o ).reset();
+    }
+    
+    public void activateObject( Object o )
+    {
+	( ( Poolable ) o ).setObjectPool( this );
+    }
 
 }

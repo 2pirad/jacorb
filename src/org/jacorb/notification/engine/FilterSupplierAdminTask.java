@@ -21,31 +21,61 @@ package org.jacorb.notification.engine;
  *
  */
 
-import org.jacorb.notification.interfaces.TimerEventSupplier;
-import org.omg.CosEventComm.Disconnected;
-
 /**
- * PullFromSupplierTask.java
+ * FilterSupplierAdminTask.java
+ *
  *
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.2 2003-08-02 10:28:32 alphonse.bendt Exp $
+ * @version $Id: FilterSupplierAdminTask.java,v 1.1 2003-08-02 10:28:32 alphonse.bendt Exp $
  */
 
-public class PullFromSupplierTask extends TaskBase {
+public class FilterSupplierAdminTask extends FilterTaskBase 
+{
+    boolean skip_ = false;
 
-    private TimerEventSupplier target_;
-
-    public void setTarget(TimerEventSupplier target) {
-	target_ = target;
+    public FilterSupplierAdminTask()
+    {
+	
     }
 
-    public void doWork() throws Disconnected {
-	target_.runPullEvent();
-	setStatus(DONE);
+    public void setSkip(boolean skip) {
+	skip_ = skip;
     }
 
     public void reset() {
-	super.reset();
-	target_ = null;
+	skip_ = false;
     }
+    
+    public void doWork() {
+	if (getStatus() == DISPOSABLE) {
+	    return;
+	}
+
+	boolean _forward = filter();
+	
+	setStatus( DONE );	
+    }
+    
+    private boolean filter()
+    {
+        boolean _forward = false;
+
+	// eval attached filters. as an Event passes only 1
+	// SupplierAdmin we can assume constant array size here 
+	
+	if (!skip_) {
+	    _forward = event_.match( arrayCurrentFilterStage_[ 0 ] );
+	} else {
+	    _forward = true;
+	}
+
+        if ( _forward )
+	    {
+		listOfFilterStageToBeProcessed_.addAll( arrayCurrentFilterStage_[ 0 ].getSubsequentFilterStages() );
+	    }
+	
+
+        return _forward;
+    }
+
 }
