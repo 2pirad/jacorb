@@ -10,8 +10,10 @@ import org.omg.PortableInterceptor.IORInterceptor;
 import org.jacorb.orb.IIOPAddress;
 
 /**
+ * An IOR Interceptor that adds alternate addresses to IIOP Profiles.
+ * 
  * @author Andre Spiegel
- * @version $Id: IIOPAddressInterceptor.java,v 1.1 2003-04-09 09:13:08 andre.spiegel Exp $
+ * @version $Id: IIOPAddressInterceptor.java,v 1.2 2003-12-16 13:38:20 andre.spiegel Exp $
  */
 public class IIOPAddressInterceptor
     extends LocalObject

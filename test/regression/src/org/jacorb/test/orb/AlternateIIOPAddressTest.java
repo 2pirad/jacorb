@@ -8,8 +8,10 @@ import org.jacorb.test.*;
 import org.jacorb.test.common.*;
 
 /**
+ * Tests components of type TAG_ALTERNATE_IIOP_ADDRESS within IORs.
+ * 
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddressTest.java,v 1.2 2003-04-14 15:39:51 andre.spiegel Exp $
+ * @version $Id: AlternateIIOPAddressTest.java,v 1.3 2003-12-16 13:38:32 andre.spiegel Exp $
  */
 public class AlternateIIOPAddressTest extends ClientServerTestCase
 {
