@@ -42,7 +42,7 @@ import org.omg.CSIIOP.*;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: CSSInvocationInterceptor.java,v 1.3 2002-09-12 14:37:50 david.robison Exp $
+ * @version $Id: CSSInvocationInterceptor.java,v 1.4 2002-09-12 15:45:11 david.robison Exp $
  */
 
 public class CSSInvocationInterceptor
@@ -218,8 +218,6 @@ public class CSSInvocationInterceptor
         msg.client_authentication_token = client_authentication_token;
         msg.identity_token = identity_token;
         msg.authorization_token = authorization_token;
-        //Any any1 = orb.create_any();
-        //EstablishContextHelper.insert(any1, msg);
         SASContextBody contextBody = new SASContextBody();
         contextBody.establish_msg(msg);
         Any any = orb.create_any();
