@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.CodeSet;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.9 2001-06-27 13:49:05 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.10 2001-07-29 08:48:20 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -87,7 +87,10 @@ public class CDRInputStream
 	throws java.io.IOException
     {
 	if( closed )
-	    throw new java.io.IOException("Stream already closed!");
+	{
+	    return;
+	    //throw new java.io.IOException("Stream already closed!");
+	}
 
 	encaps_stack.removeAllElements();
         //	TCTable.clear();
@@ -1152,6 +1155,17 @@ public class CDRInputStream
 	return pos;
     }
 
+    public void finalize()
+    {
+	try
+	{
+	    close();
+	}
+	catch( IOException iox )
+	{
+	    //ignore
+	}
+    }
 }
 
 

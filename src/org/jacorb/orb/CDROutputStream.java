@@ -31,7 +31,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.8 2001-05-01 08:13:38 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.9 2001-07-29 08:48:20 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -116,7 +116,7 @@ public class CDROutputStream
      *  and the character encoding sets
      */
 
-    public CDROutputStream(  byte [] buf )
+    public CDROutputStream( byte[] buf )
     {
         bufMgr = BufferManager.getInstance();
         buffer = buf;
@@ -196,7 +196,11 @@ public class CDROutputStream
     public void release()
     {
         if( released )
-            throw new java.lang.Error("Stream already released!");
+	{
+	    return;
+            //throw new Error("Stream already released!");
+	}
+	
         if( bufMgr != null )
         {
             bufMgr.returnBuffer( buffer );
@@ -1472,6 +1476,12 @@ public class CDROutputStream
     {
         return header_stream;
     }
+
+    public void finalize()
+    {
+	release();
+    }
+
 }
 
 
