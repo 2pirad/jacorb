@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.18 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.19 2003-05-15 11:41:50 nick.cross Exp $
  *
  */
 
@@ -187,7 +187,7 @@ class ArrayTypeSpec
      * describes this type
      *
      * Array and sequence types always have this expression inlined in
-     * their containing classes because arrays and sequences can be 
+     * their containing classes because arrays and sequences can be
      * locally defined (e,g, in a struct) without there being helper
      * classes (so Helper.type() is not an option )
      */
@@ -317,6 +317,9 @@ class ArrayTypeSpec
 
     private void printHolderClass( String className, PrintWriter ps )
     {
+        if( parser.checkJdk14 && pack_name.equals( "" ) )
+            parser.fatal_error
+                ( "No package defined for " + className + " - illegal in JDK1.4", token );
         if( !pack_name.equals( "" ) )
             ps.println( "package " + pack_name + ";\n" );
 
@@ -358,6 +361,9 @@ class ArrayTypeSpec
 
     private void printHelperClass( String className, PrintWriter ps )
     {
+        if( parser.checkJdk14 && pack_name.equals( "" ) )
+            parser.fatal_error
+                ( "No package defined for " + className + " - illegal in JDK1.4", token );
         if( !pack_name.equals( "" ) )
             ps.println( "package " + pack_name + ";" );
 
@@ -470,5 +476,3 @@ class ArrayTypeSpec
 
 
 }
-
-

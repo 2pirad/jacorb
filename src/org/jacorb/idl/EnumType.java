@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.22 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: EnumType.java,v 1.23 2003-05-15 11:41:50 nick.cross Exp $
  */
 
 class EnumType
@@ -132,8 +132,8 @@ class EnumType
             // are defined. Therefore, an additional mapping in
             // ScopedName is required.
 
-            String prefix = ( pack_name.length() > 0 ? 
-                              full_name().substring( 0, full_name().lastIndexOf('.')+1 ) : 
+            String prefix = ( pack_name.length() > 0 ?
+                              full_name().substring( 0, full_name().lastIndexOf('.')+1 ) :
                               "" );
             //           String prefix = ( pack_name.length() > 0 ? pack_name + "." : "" );
 
@@ -202,7 +202,7 @@ class EnumType
             return this.getRecursiveTypeCodeExpression();
         }
         else
-        {   
+        {
             return this.getTypeCodeExpression();
         }
     }
@@ -218,6 +218,9 @@ class EnumType
 
     private void printHolderClass( String className, PrintWriter ps )
     {
+        if( parser.checkJdk14 && pack_name.equals( "" ) )
+            parser.fatal_error
+                ( "No package defined for " + className + " - illegal in JDK1.4", token );
         if( !pack_name.equals( "" ) )
             ps.println( "package " + pack_name + ";" );
 
@@ -258,6 +261,9 @@ class EnumType
 
     private void printHelperClass( String className, PrintWriter ps )
     {
+        if( parser.checkJdk14 && pack_name.equals( "" ) )
+            parser.fatal_error
+                ( "No package defined for " + className + " - illegal in JDK1.4", token );
         if( !pack_name.equals( "" ) )
             ps.println( "package " + pack_name + ";" );
 
@@ -314,6 +320,9 @@ class EnumType
 
     private void printEnumClass( String className, PrintWriter pw )
     {
+        if( parser.checkJdk14 && pack_name.equals( "" ) )
+            parser.fatal_error
+                ( "No package defined for " + className + " - illegal in JDK1.4", token );
         if( !pack_name.equals( "" ) )
             pw.println( "package " + pack_name + ";" );
 
@@ -441,5 +450,3 @@ class EnumType
         return true;
     }
 }
-
-

@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.11 2003-04-01 14:56:20 nick.cross Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.12 2003-05-15 11:41:50 nick.cross Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
@@ -304,6 +304,9 @@ class ValueAbsDecl
                 PrintWriter ps =
                         new PrintWriter( new java.io.FileWriter( new File( dir, name + ".java" ) ) );
 
+                if( parser.checkJdk14 && pack_name.equals( "" ) )
+                    parser.fatal_error
+                        ( "No package defined for " + name + " - illegal in JDK1.4", token );
                 if( !pack_name.equals( "" ) )
                     ps.println( "package " + pack_name + ";\n" );
 
