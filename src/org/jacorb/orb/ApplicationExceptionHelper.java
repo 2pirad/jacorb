@@ -23,14 +23,14 @@ package org.jacorb.orb;
 import org.omg.CORBA.*;
 import org.omg.CORBA.portable.*;
 import java.lang.reflect.*;
-import org.jacorb.util.ObjectUtil;
+import org.jacorb.ir.RepositoryID;
 
 /**
  * This class provides a method for inserting an arbirtary
  * application exception into an any.
  *
  * @author Nicolas Noffke
- * @version $Id: ApplicationExceptionHelper.java,v 1.10 2002-11-12 08:40:45 steve.osselton Exp $
+ * @version $Id: ApplicationExceptionHelper.java,v 1.11 2002-11-15 10:24:55 andre.spiegel Exp $
  */
 
 public class ApplicationExceptionHelper  
@@ -48,33 +48,10 @@ public class ApplicationExceptionHelper
         IllegalAccessException,
         InvocationTargetException
     { 
-        String name = ObjectUtil.reposIdToClassName (s.getId ());
-        StringBuffer strbuf = new StringBuffer (name);;
-        Class _helper = null;
+        String name   = RepositoryID.className (s.getId(), "Helper");
 
-        // First, try for helper
-
-        try
-        {
-            _helper = Class.forName (name + "Helper");
-        }
-        catch (ClassNotFoundException cnf)
-        {
-        }
-        
-        // If not found, try for package helper
-
-        if (_helper == null)
-        {
-            strbuf.insert (name.lastIndexOf ('.'), "Package");
-            
-            name = strbuf.toString ();
-            
-            //don't try-catch here, so the exception will make this
-            //method return
-
-            _helper = Class.forName (name + "Helper");
-        }
+        // if the class is not found, let exception propagate up
+        Class _helper = Class.forName (name);
 
         //_helper must not be null from here on
         
