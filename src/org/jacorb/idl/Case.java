@@ -24,7 +24,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.9 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Case.java,v 1.10 2003-02-21 15:46:42 nick.cross Exp $
  */
 
 class Case
@@ -263,7 +263,10 @@ class Case
 
     IdlSymbol[] getLabels()
     {
-        Environment.doAssert( labels != null, "Case labels not initialized!" );
+        if (labels == null)
+        {
+            throw new RuntimeException ("Case labels not initialized!" );
+        }
         return labels;
     }
 
@@ -275,8 +278,3 @@ class Case
 
 
 }
-
-
-
-
-
