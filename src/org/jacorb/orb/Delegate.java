@@ -52,7 +52,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.103 2004-02-06 14:36:34 gerald Exp $
+ * @version $Id: Delegate.java,v 1.104 2004-02-24 14:48:55 gerald Exp $
  *
  */
 
@@ -998,6 +998,7 @@ public final class Delegate
 
                 //clean up and start fresh
                 piorOriginal = null;
+                piorLastFailed = null; // supplied byte Kevin Heifner, OCI
 
                 return true;
             }
@@ -1061,6 +1062,7 @@ public final class Delegate
 
                 //clean up and start fresh
                 piorOriginal = null;
+                piorLastFailed = null; //***
 
                 return true;
             }
