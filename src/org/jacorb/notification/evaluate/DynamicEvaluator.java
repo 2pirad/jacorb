@@ -49,7 +49,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DynamicEvaluator.java,v 1.10 2004-01-16 17:02:33 alphonse.bendt Exp $
+ * @version $Id: DynamicEvaluator.java,v 1.11 2004-01-16 17:40:28 alphonse.bendt Exp $
  */
 
 public class DynamicEvaluator
@@ -512,7 +512,6 @@ public class DynamicEvaluator
     {
         try
         {
-            ResultExtractor _resultExtractor = context.getResultExtractor();
             DynSequence _dynSequence = DynSequenceHelper.narrow( toDynAny( sequence ) );
             DynAny _currentComponent;
 
