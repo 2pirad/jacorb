@@ -60,7 +60,7 @@ import org.apache.log.Logger;
  * </pre>
  *
  * @author Alphonse Bendt
- * @version $Id: WildcardMap.java,v 1.7 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: WildcardMap.java,v 1.8 2003-09-12 09:37:11 alphonse.bendt Exp $
  */
 
 public class WildcardMap
@@ -602,10 +602,9 @@ class EntryList
     ////////////////////////////////////////
     // private methods
 
-    private class Cursor
+    private static class Cursor
     {
         int cursor;
-        int offset;
         EntryList list;
 
         public String toString()
@@ -1014,6 +1013,11 @@ class WCEntry
         }
 
         return true;
+    }
+
+    public int hashCode() {
+        return key_[start_];
+
     }
 
     public boolean equals( Object o )
