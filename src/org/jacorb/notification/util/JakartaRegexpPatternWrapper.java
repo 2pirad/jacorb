@@ -24,16 +24,11 @@ import org.apache.regexp.RESyntaxException;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JakartaRegexpPatternWrapper.java,v 1.3 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: JakartaRegexpPatternWrapper.java,v 1.4 2005-02-14 00:13:05 alphonse.bendt Exp $
  */
 public class JakartaRegexpPatternWrapper extends PatternWrapper {
 
     private org.apache.regexp.RE pattern_;
-
-    public JakartaRegexpPatternWrapper() {
-        super();
-    }
-
 
     public void compile(String patternString) {
         try

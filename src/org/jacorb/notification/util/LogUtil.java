@@ -1,5 +1,3 @@
-package org.jacorb.notification.util;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -21,37 +19,35 @@ package org.jacorb.notification.util;
  *
  */
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package org.jacorb.notification.util;
+
+import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.apache.avalon.framework.logger.LogKitLogger;
+import org.apache.avalon.framework.logger.Logger;
+import org.apache.log.Hierarchy;
+import org.jacorb.config.Configuration;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JDK14PatternWrapper.java,v 1.9 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: LogUtil.java,v 1.1 2005-02-14 00:13:05 alphonse.bendt Exp $
  */
-
-public class JDK14PatternWrapper extends PatternWrapper
+public class LogUtil
 {
-    private Pattern pattern_;
+    private static Configuration config;
 
-    public void compile(String patternString)
+    public static Logger getLogger(String name)
     {
-        pattern_ = java.util.regex.Pattern.compile(patternString);
-    }
-
-    public int match(String text)
-    {
-        Matcher _m = pattern_.matcher(text);
-
-        if (_m.find())
+        try
         {
-            return _m.end();
+            if (config == null)
+            {
+                config = Configuration.getConfiguration(null, null, false);
+            }
+            
+            return config.getNamedLogger(name);
+        } catch (ConfigurationException e)
+        {
+            return new LogKitLogger(Hierarchy.getDefaultHierarchy().getLoggerFor(name));
         }
-
-        return 0;
-    }
-
-    public String toString()
-    {
-        return pattern_.pattern();
     }
 }

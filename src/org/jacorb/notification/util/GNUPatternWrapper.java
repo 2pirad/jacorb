@@ -26,40 +26,35 @@ import gnu.regexp.REMatch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: GNUPatternWrapper.java,v 1.6 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: GNUPatternWrapper.java,v 1.7 2005-02-14 00:13:05 alphonse.bendt Exp $
  */
 
 public class GNUPatternWrapper extends PatternWrapper
 {
     private gnu.regexp.RE pattern_;
 
-    public GNUPatternWrapper() {}
-
-    public void compile( String patternString )
+    public void compile(String patternString)
     {
         try
         {
-            pattern_ = new gnu.regexp.RE( patternString );
-        }
-        catch ( REException e )
+            pattern_ = new gnu.regexp.RE(patternString);
+        } catch (REException e)
         {
-            throw new RuntimeException( e.getMessage() );
+            throw new RuntimeException(e.getMessage());
         }
     }
 
-    public int match( String text )
+    public int match(String text)
     {
-        REMatch[] _match = pattern_.getAllMatches( text );
+        REMatch[] _match = pattern_.getAllMatches(text);
 
-        if ( _match.length > 0 )
+        if (_match.length > 0)
         {
             int _last = _match.length - 1;
-            return _match[ _last ].getEndIndex();
+            return _match[_last].getEndIndex();
         }
-        else
-        {
-            return 0;
-        }
+
+        return 0;
     }
 
     public String toString()
