@@ -29,7 +29,7 @@ import org.omg.CosNotifyFilter.ConstraintInfo;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConstraintEntry.java,v 1.6 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: ConstraintEntry.java,v 1.7 2004-01-29 14:12:00 alphonse.bendt Exp $
  */
 
 public class ConstraintEntry
@@ -53,17 +53,18 @@ public class ConstraintEntry
 
     ////////////////////////////////////////
 
-    static class EventTypeWrapper implements EventTypeIdentifier
+    private static class EventTypeWrapper implements EventTypeIdentifier
     {
-        EventType et_;
         String constraintKey_;
 
         EventTypeWrapper( EventType et )
         {
-            et_ = et;
-
             constraintKey_ =
-                FilterUtils.calcConstraintKey( et_.domain_name, et_.type_name );
+                FilterUtils.calcConstraintKey( et.domain_name, et.type_name );
+        }
+
+        public String getConstraintKey() {
+            return constraintKey_;
         }
 
         public String toString()
