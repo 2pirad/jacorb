@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.12 2001-11-02 16:10:27 jacorb Exp $
+ * @version $Id: ParsedIOR.java,v 1.13 2001-11-06 17:49:20 jacorb Exp $
  */
 
 public class ParsedIOR 
@@ -342,8 +342,6 @@ public class ParsedIOR
      */
     public void decode( IOR _ior) 
     {
-	boolean iiopFound = false;
-
         Vector internetProfiles = new Vector();
         Vector multipleComponentsProfiles = new Vector();
 
@@ -379,7 +377,6 @@ public class ParsedIOR
                         Debug.output( 4, "IOP 1.1 decoded" ); 
                     }
                     
-                    iiopFound = true;
                     break;
                 }
             } 
@@ -405,8 +402,16 @@ public class ParsedIOR
 	ior = _ior;
 	ior_str = getIORString();
 
-        TaggedComponent[] iiop_components = 
-            profileBodies[ effectiveProfileBody ].components;
+        //allow IORs without IIOP components
+        TaggedComponent[] iiop_components = null;
+        if( profileBodies.length == 0 )
+        {
+            iiop_components = new TaggedComponent[0];
+        }
+        else
+        {
+            iiop_components = profileBodies[ effectiveProfileBody ].components;
+        }
 
         //retrieve the codeset component
         for( int i = 0; i < iiop_components.length; i++ )
