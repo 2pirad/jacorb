@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.32 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: POA.java,v 1.33 2003-04-01 12:51:52 nick.cross Exp $
  */
 
 public class POA
@@ -195,7 +195,7 @@ public class POA
 
         watermark = generateWatermark();
 
-        logTrace = new LogWriter("POA "+name, isSystemId());
+        logTrace = new LogWriter( "POA " + name );
 
         aom = isRetain() ? new AOM( isUniqueId(), isSingleThreadModel(), logTrace) : null;
 
@@ -208,7 +208,7 @@ public class POA
         monitor.init( this, aom,
                       requestController.getRequestQueue(),
                       requestController.getPoolManager(),
-                      "POA "+name, isSystemId(), logTrace );
+                      "POA " + name, logTrace );
 
         monitor.openMonitor();
 
@@ -1385,6 +1385,15 @@ public class POA
             if (logTrace.test(0))
                 logTrace.printLog(objectId, "reference_to_servant: oid not previously generated!");
             throw new WrongAdapter();
+        }
+
+        ByteArrayKey oid = new ByteArrayKey (objectId);
+
+        if (aom.isDeactivating (oid) || requestController.isDeactivating (oid))
+        {
+            if (logTrace.test(0))
+                logTrace.printLog(objectId, "cannot process request, because object is already in the deactivation process");
+            throw new org.omg.CORBA.OBJECT_NOT_EXIST();
         }
 
         Servant servant = null;
