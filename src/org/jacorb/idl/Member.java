@@ -22,19 +22,25 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.24 2003-04-01 15:19:26 nick.cross Exp $
+ * @version $Id: Member.java,v 1.25 2003-09-03 10:14:42 brose Exp $
  *
  */
 
 import java.io.PrintWriter;
 import java.util.*;
 
-class Member
+public class Member
     extends Declaration
 {
-    TypeSpec type_spec;
+    public TypeSpec type_spec;
 
-    public SymbolList declarators;
+    /** 
+        this list initially set by the parser but later flattened so that 
+        each member only has a single declarator. The list will be null after
+        calling parse()!
+     */
+    SymbolList declarators;
+
     public Vector extendVector;
     public TypeDeclaration containingType;
 
