@@ -39,7 +39,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.33 2002-05-29 15:07:18 nicolas Exp $
+ * @version $Id: ParsedIOR.java,v 1.33.2.1 2002-07-18 09:53:26 gerald Exp $
  */
 
 public class ParsedIOR 
@@ -486,6 +486,9 @@ public class ParsedIOR
 
     public void init()
     {
+        if( isNull() )
+            throw new org.omg.CORBA.INV_OBJREF( "Trying to use NULL reference" );
+
         ProfileBody_1_1 pb = getProfileBody();
         
         if( pb == null )
