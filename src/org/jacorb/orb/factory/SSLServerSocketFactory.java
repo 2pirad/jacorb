@@ -23,7 +23,7 @@ package org.jacorb.orb.factory;
 /* 
  * 
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.7 2004-05-06 09:41:34 nicolas Exp $
  */
 
 import java.net.*;
@@ -31,20 +31,5 @@ import java.net.*;
 public interface SSLServerSocketFactory
     extends ServerSocketFactory
 {
-    public void switchToClientMode( Socket socket );
-    
     public boolean isSSL( ServerSocket socket );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
