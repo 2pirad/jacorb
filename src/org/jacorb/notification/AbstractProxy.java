@@ -50,12 +50,13 @@ import org.omg.PortableServer.Servant;
 import org.apache.log.Hierarchy;
 import org.apache.log.Logger;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
+import org.omg.CORBA.NO_IMPLEMENT;
 
 /**
  * ProxyBase.java
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.2 2003-08-28 15:40:27 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.3 2003-09-12 09:18:11 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations,
@@ -172,25 +173,26 @@ public abstract class AbstractProxy implements FilterAdminOperations,
 
     public EventType[] obtain_subscription_types(ObtainInfoMode obtainInfoMode)
     {
-        return null;
+        throw new NO_IMPLEMENT();
     }
 
     public void validate_event_qos(Property[] qosProps,
                                    NamedPropertyRangeSeqHolder propSeqHolder)
         throws UnsupportedQoS
     {
+        throw new NO_IMPLEMENT();
     }
 
     public void validate_qos(Property[] qosProps,
                              NamedPropertyRangeSeqHolder propSeqHolder)
         throws UnsupportedQoS
     {
-        throw new UnsupportedQoS();
+        throw new NO_IMPLEMENT();
     }
 
     public void set_qos(Property[] qosProps) throws UnsupportedQoS
     {
-        throw new UnsupportedQoS();
+        throw new NO_IMPLEMENT();
     }
 
     public Property[] get_qos()
@@ -202,12 +204,14 @@ public abstract class AbstractProxy implements FilterAdminOperations,
                              EventType[] eventTypes2)
         throws InvalidEventType
     {
+        throw new NO_IMPLEMENT();
     }
 
     public void subscription_change(EventType[] eventType,
                                     EventType[] eventType2)
         throws InvalidEventType
     {
+        throw new NO_IMPLEMENT();
     }
 
     public void priority_filter(MappingFilter filter)
@@ -232,7 +236,7 @@ public abstract class AbstractProxy implements FilterAdminOperations,
 
     public EventType[] obtain_offered_types(ObtainInfoMode obtaininfomode)
     {
-        return null;
+        throw new NO_IMPLEMENT();
     }
 
     public Integer getKey()
@@ -348,6 +352,5 @@ public abstract class AbstractProxy implements FilterAdminOperations,
     public int incErrorCounter() {
         return errorCounter_.increment();
     }
-
 
 }
