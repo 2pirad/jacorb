@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.4 2001-03-27 12:01:22 noffke Exp $
+ * @version $Id: UnionType.java,v 1.5 2001-03-27 12:30:57 jacorb Exp $
  *
  */
 
@@ -995,23 +995,6 @@ class UnionType
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

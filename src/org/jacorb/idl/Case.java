@@ -24,7 +24,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.4 2001-03-27 12:01:16 noffke Exp $
+ * @version $Id: Case.java,v 1.5 2001-03-27 12:30:56 jacorb Exp $
  */
 
 class Case 
@@ -117,6 +117,7 @@ class Case
     public void parse()          
     {
         element_spec.parse();
+
         for(Enumeration e = case_label_list.v.elements(); e.hasMoreElements(); )
         {
             IdlSymbol sym = (IdlSymbol)e.nextElement();
@@ -168,7 +169,7 @@ class Case
             } 
             else 
             {           
-                                // case label const expressions refer to enum values
+                // case label const expressions refer to enum values
                 if( sym != null ) 
                 { 
                     // now, if this is not the default case label...
@@ -197,16 +198,6 @@ class Case
 
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
