@@ -14,7 +14,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  * 
- * $Id: parser.cup,v 1.35 2002-02-26 12:07:07 steve.osselton Exp $
+ * $Id: parser.cup,v 1.36 2002-02-26 12:53:33 steve.osselton Exp $
  *
  */
 
@@ -284,7 +284,6 @@ parser code
         catch( Exception e )
         {
             System.err.println( "Error: " + e.getMessage());
-            e.printStackTrace ();
             org.jacorb.idl.Environment.output( 2, e );
             usage(argv, e.getMessage());
         }
