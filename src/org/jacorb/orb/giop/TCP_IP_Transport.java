@@ -32,7 +32,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.24 2003-05-05 09:58:30 andre.spiegel Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.25 2003-05-07 09:38:10 andre.spiegel Exp $
  */
 
 public abstract class TCP_IP_Transport
@@ -46,11 +46,8 @@ public abstract class TCP_IP_Transport
     private ByteArrayOutputStream b_out = null;
     private boolean dump_incoming = false;
 
-    String connection_info;
-    Socket socket;
-
-    //used to unregister this transport
-    protected TransportManager transport_manager = null;
+    protected String connection_info;
+    protected Socket socket;
 
     private int finalTimeout = 20000;
     
@@ -61,14 +58,11 @@ public abstract class TCP_IP_Transport
         this.b_out = other.b_out;
         this.dump_incoming = other.dump_incoming;
         this.connection_info = other.connection_info;
-        this.transport_manager = other.transport_manager;
         this.finalTimeout = other.finalTimeout;
     }
 
-    public TCP_IP_Transport( TransportManager transport_manager )
+    public TCP_IP_Transport()
     {
-        this.transport_manager = transport_manager;
-
         String dump_outgoing =
             Environment.getProperty( "jacorb.debug.dump_outgoing_messages",
                                      "off" );
