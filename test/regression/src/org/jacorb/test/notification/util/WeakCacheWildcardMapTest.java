@@ -1,14 +1,7 @@
-package org.jacorb.test.notification.mocks;
-
-import junit.framework.Assert;
-import org.jacorb.notification.interfaces.Message;
-
-
-
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -23,26 +16,35 @@ import org.jacorb.notification.interfaces.Message;
  *   You should have received a copy of the GNU Library General Public
  *   License along with this library; if not, write to the Free
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
  */
+
+package org.jacorb.test.notification.util;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import org.jacorb.notification.util.WeakCacheWildcardMap;
+import org.jacorb.notification.util.WildcardMap;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MockTaskProcessor.java,v 1.2 2004-05-09 19:37:25 alphonse.bendt Exp $
+ * @version $Id: WeakCacheWildcardMapTest.java,v 1.1 2005-02-14 00:17:38 alphonse.bendt Exp $
  */
-public class MockTaskProcessor extends NullTaskProcessor {
-
-    int processMessageInvoked_;
-    int processMessageExpected_;
-
-    public void processMessage(Message message) {
-        ++processMessageInvoked_;
+public class WeakCacheWildcardMapTest extends AbstractWildcardMapTest
+{
+    public WeakCacheWildcardMapTest(String name)
+    {
+        super(name);
     }
 
-    public void expectProcessMessage(int x) {
-        processMessageExpected_ = x;
+    public WildcardMap newWildcardMap()
+    {
+        return new WeakCacheWildcardMap();
     }
 
-    public void verify() {
-        Assert.assertEquals(processMessageExpected_, processMessageInvoked_);
+    public static Test suite()
+    {
+        return new TestSuite(WeakCacheWildcardMapTest.class);
     }
 }

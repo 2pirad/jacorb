@@ -25,7 +25,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.3 2004-07-19 16:56:24 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.4 2005-02-14 00:17:38 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -35,7 +35,7 @@ public class PackageTest extends TestCase {
     }
 
     public static TestSuite suite() throws Exception {
-        TestSuite suite = new TestSuite();
+        TestSuite suite = new TestSuite("TypedEventChannel Tests");
 
         suite.addTest(TypedProxyPushConsumerImplTest.suite());
         suite.addTest(TypedProxyPushSupplierImplTest.suite());

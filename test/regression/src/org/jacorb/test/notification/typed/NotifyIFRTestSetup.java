@@ -1,9 +1,7 @@
-package org.jacorb.test.notification.util;
-
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -21,37 +19,44 @@ package org.jacorb.test.notification.util;
  *
  */
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+package org.jacorb.test.notification.typed;
 
-import org.jacorb.notification.util.CachingWildcardMap;
-import org.jacorb.notification.util.WildcardMap;
+import junit.framework.Test;
+
+import org.jacorb.test.common.IFRTestSetup;
+import org.omg.CORBA.ORB;
+import org.omg.CORBA.Repository;
+import org.omg.CORBA.RepositoryHelper;
 
 /**
  * @author Alphonse Bendt
+ * @version $Id: NotifyIFRTestSetup.java,v 1.1 2005-02-14 00:17:38 alphonse.bendt Exp $
  */
-
-public class CachingWildcardMapTest extends AbstractWildcardMapTest
+public class NotifyIFRTestSetup extends IFRTestSetup
 {
-    public WildcardMap newWildcardMap()
+    private final static ORB orb = ORB.init(new String[0], null);
+    
+    public NotifyIFRTestSetup(Test test)
     {
-        return new CachingWildcardMap();
-    }
-
-    public CachingWildcardMapTest(String name)
-    {
-        super(name);
-    }
-
-    public static Test suite()
-    {
-        return new TestSuite(CachingWildcardMapTest.class);
+        super(test);
     }
     
-    public void testCache()
+    public void setUp() throws Exception
     {
-        objectUnderTest_.put("key1", "value1");
-        assertEquals("value1", objectUnderTest_.getWithExpansion("key1")[0]);
-        assertEquals("value1", objectUnderTest_.getWithExpansion("key1")[0]);        
+        super.setUp();
+        
+        Thread.sleep(1000);
+        
+        feedToIFR("~/JacORB/test/regression/idl/TypedNotification.idl");
+    }
+    
+    public Repository getRepository() throws Exception
+    {
+        return RepositoryHelper.narrow(orb.string_to_object(getIFRRef()));
+    }
+    
+    public void tearDown() throws Exception
+    {
+        super.tearDown();
     }
 }

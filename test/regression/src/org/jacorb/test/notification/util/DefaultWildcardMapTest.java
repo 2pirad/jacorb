@@ -1,9 +1,7 @@
-package org.jacorb.test.notification.node;
-
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -21,34 +19,32 @@ package org.jacorb.test.notification.node;
  *
  */
 
-import junit.framework.TestCase;
+package org.jacorb.test.notification.util;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-/**
- * PackageTest.java
- *
- *
- *
- * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.4 2005-02-14 00:17:14 alphonse.bendt Exp $
- */
+import org.jacorb.notification.util.DefaultWildcardMap;
+import org.jacorb.notification.util.WildcardMap;
 
-public class PackageTest extends TestCase
+/**
+ * @author Alphonse Bendt
+ * @version $Id: DefaultWildcardMapTest.java,v 1.1 2005-02-14 00:17:38 alphonse.bendt Exp $
+ */
+public class DefaultWildcardMapTest extends AbstractWildcardMapTest
 {
-    public PackageTest( String name )
+    public DefaultWildcardMapTest(String name)
     {
-        super( name );
+        super(name);
     }
 
-    public static Test suite() throws Exception
+    WildcardMap newWildcardMap()
     {
-        TestSuite _suite = new TestSuite( "Tests in Package org.jacorb.test.notification.node" );
+        return new DefaultWildcardMap();
+    }
 
-        _suite.addTest( EvaluationResultTest.suite() );
-        _suite.addTest( TCLTest.suite() );
-        _suite.addTest( IdentValueTest.suite() );
-
-        return _suite;
+    public static Test suite()
+    {
+        return new TestSuite(DefaultWildcardMapTest.class);
     }
 }

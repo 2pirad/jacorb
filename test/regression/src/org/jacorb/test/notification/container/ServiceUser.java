@@ -1,9 +1,7 @@
-package org.jacorb.test.notification.node;
-
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2003 Gerald Brose
+ *   Copyright (C) 1999-2004 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -21,34 +19,15 @@ package org.jacorb.test.notification.node;
  *
  */
 
-import junit.framework.TestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+package org.jacorb.test.notification.container;
 
-/**
- * PackageTest.java
- *
- *
- *
- * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.4 2005-02-14 00:17:14 alphonse.bendt Exp $
- */
 
-public class PackageTest extends TestCase
+public class ServiceUser
 {
-    public PackageTest( String name )
+    final Service service_;
+    
+    public ServiceUser(Service service)
     {
-        super( name );
-    }
-
-    public static Test suite() throws Exception
-    {
-        TestSuite _suite = new TestSuite( "Tests in Package org.jacorb.test.notification.node" );
-
-        _suite.addTest( EvaluationResultTest.suite() );
-        _suite.addTest( TCLTest.suite() );
-        _suite.addTest( IdentValueTest.suite() );
-
-        return _suite;
+     service_ = service;   
     }
 }
