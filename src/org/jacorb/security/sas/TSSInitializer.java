@@ -36,7 +36,7 @@ import org.jacorb.util.Environment;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: TSSInitializer.java,v 1.3 2002-09-11 19:20:03 david.robison Exp $
+ * @version $Id: TSSInitializer.java,v 1.4 2002-09-13 15:34:07 david.robison Exp $
  */
 
 public class TSSInitializer
@@ -45,6 +45,7 @@ public class TSSInitializer
 {
     public static GSSManager gssManager = GSSManager.getInstance();
     public static int sourceNameSlotID = -1;
+    public static int authTokensSlotID = -1;
     public static int sasReplySlotID = -1;
 
     /**
@@ -73,6 +74,7 @@ public class TSSInitializer
         try
         {
             sourceNameSlotID = info.allocate_slot_id();
+            authTokensSlotID = info.allocate_slot_id();
             sasReplySlotID = info.allocate_slot_id();
             Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, (byte) 1, (byte) 0);
             Codec codec = info.codec_factory().create_codec(encoding);

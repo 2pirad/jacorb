@@ -10,7 +10,7 @@ import org.omg.CORBA.ORB;
 import org.ietf.jgss.*;
 import org.jacorb.util.*;
 
-import org.jacorb.security.level2.*;
+//import org.jacorb.security.level2.*;
 
 /**
  * This is the server part of the sas demo. It demonstrates
@@ -19,7 +19,7 @@ import org.jacorb.security.level2.*;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: Server.java,v 1.4 2002-09-11 20:22:43 david.robison Exp $
+ * @version $Id: Server.java,v 1.5 2002-09-13 15:33:47 david.robison Exp $
  */
 
 public class Server
