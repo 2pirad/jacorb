@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  * 
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.6 2001-05-29 11:40:07 jacorb Exp $
+ * @version $Id: ScopedName.java,v 1.7 2001-06-22 10:55:54 jacorb Exp $
  *
  */
 
@@ -257,6 +257,16 @@ class ScopedName
     {
 	if( !resolved )
 	    resolvedName = resolvedName( pack_name, typeName);
+
+        ConstDecl constDecl = ConstDecl.getDeclaration( resolvedName );
+
+        if( constDecl != null )
+        {            
+            if( !constDecl.contained() )
+            {
+                resolvedName += ".value";
+            }
+        }
 	resolved = true;
 	return resolvedName;
     }
@@ -335,7 +345,9 @@ class ScopedName
 	        if( NameTable.defined( result ))
                 {
                     String unmap2 = unMap(result);
-                    Environment.output(3, "resolve b, " + result + " was in name table, returning " + unmap2 + " suffix: " + suffix );
+                    Environment.output(3, "resolve b, " + result + 
+                                       " was in name table, returning " + 
+                                       unmap2 + " suffix: " + suffix );
                     return unmap2 + suffix ;	
 	        }
 	    }
@@ -354,8 +366,9 @@ class ScopedName
 	}
         // END MOVED
 
-	/* If the simple name was not known and we have no scopes at all,
-	   try the global scope. If the name's not found, emit an error message */
+	/* If the  simple name was not known and we  have no scopes at
+	   all, try the global scope. If the name's not found, emit an
+	   error message */
 
 	if( s_scopes.length == 0 || p_scopes.length == 0)
 	{
@@ -492,8 +505,6 @@ class ScopedName
 		return str;
 	}
     } 
-
-
 
     /** 
      * replace _name by the type name it stands for  (through
@@ -650,12 +661,16 @@ class ScopedName
     {
         String check = (String)recursionStack.pop();
         if( typeName != null && ( check == null || !check.equals( typeName )))
-            throw new RuntimeException("RecursionScope Error, expected " + typeName + ", got " + check);
+        {
+            throw new RuntimeException("RecursionScope Error, expected " + 
+                                       typeName + ", got " + check);
+        }
     }
 
     public static boolean isRecursionScope(String typeName)
     {
-        Environment.output(2 ,"Check isRecursionScope " +  typeName  + " " + recursionStack.search( typeName ));
+        Environment.output(2 ,"Check isRecursionScope " +  typeName  +
+                           " " + recursionStack.search( typeName ));
 
         return (recursionStack.search( typeName ) != -1);
     }
