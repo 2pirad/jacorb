@@ -35,7 +35,7 @@ import org.jacorb.orb.iiop.*;
  * delegates everything to the standard IIOP classes.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: WIOPFactories.java,v 1.2 2003-08-11 09:14:18 andre.spiegel Exp $
+ * @version $Id: WIOPFactories.java,v 1.3 2003-10-27 09:49:07 andre.spiegel Exp $
  */
 public class WIOPFactories extends _FactoriesLocalBase
 {
@@ -87,6 +87,11 @@ public class WIOPFactories extends _FactoriesLocalBase
     public int profile_tag()
     {
         return tag;
+    }
+
+    public Profile decode_corbaloc(String corbaloc)
+    {
+        throw new org.omg.CORBA.NO_IMPLEMENT();
     }
 
 }
