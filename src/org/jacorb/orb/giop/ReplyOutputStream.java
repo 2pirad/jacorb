@@ -27,7 +27,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.8 2001-05-01 08:13:39 jacorb Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.8.4.1 2001-08-08 14:51:56 jacorb Exp $
  *
  */
 
@@ -82,7 +82,7 @@ public class ReplyOutputStream
 
     private void writeHeader(CDROutputStream out)
     {
-        out.writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_0._Reply );
+        out.writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_1._Reply );
         org.omg.GIOP.ReplyHeader_1_0Helper.write(out, rep_hdr);
     }
 

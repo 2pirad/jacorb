@@ -30,7 +30,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateReplyInputStream.java,v 1.7 2001-03-28 10:07:04 jacorb Exp $
+ * @version $Id: LocateReplyInputStream.java,v 1.7.4.1 2001-08-08 14:51:54 jacorb Exp $
  *
  */
 
@@ -56,7 +56,7 @@ public class LocateReplyInputStream
 	    littleEndian = true;
 	    setLittleEndian(true);
 	}
-	if( buf[7] != (byte)org.omg.GIOP.MsgType_1_0._LocateReply )
+	if( buf[7] != (byte)org.omg.GIOP.MsgType_1_1._LocateReply )
 	    throw new RuntimeException("Trying to initialize ReplyInputStream from non-reply msg.!");
 
 	skip(12);

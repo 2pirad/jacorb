@@ -22,7 +22,7 @@ package org.jacorb.orb.connection;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequest.java,v 1.6 2001-03-28 10:07:05 jacorb Exp $
+ * @version $Id: LocateRequest.java,v 1.6.4.1 2001-08-08 14:51:55 jacorb Exp $
  */
 
 import java.io.*;
@@ -38,7 +38,7 @@ public class LocateRequest
     {
 	super( orb, _connection );
 	in = new LocateRequestInputStream( orb, _buf);
-	oid = org.jacorb.poa.util.POAUtil.extractOID( in.req_hdr.object_key);
+	oid = org.jacorb.poa.util.POAUtil.extractOID( in.req_hdr.target.object_key());
     }
 
     public java.lang.String operation()

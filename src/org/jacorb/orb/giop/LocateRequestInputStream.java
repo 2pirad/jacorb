@@ -23,7 +23,7 @@ package org.jacorb.orb.connection;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequestInputStream.java,v 1.7 2001-03-28 10:07:05 jacorb Exp $
+ * @version $Id: LocateRequestInputStream.java,v 1.7.4.1 2001-08-08 14:51:55 jacorb Exp $
  *
  * Hack for locate requests: turn a locate request into
  * a _non_existent() request and actually ping the object. This appears
@@ -44,18 +44,22 @@ public class LocateRequestInputStream
     public LocateRequestInputStream( org.omg.CORBA.ORB orb, byte [] buf )
     {
 	super( orb, buf, true );
-	if( buffer[7] != (byte)org.omg.GIOP.MsgType_1_0._LocateRequest )
+	if( buffer[7] != (byte)org.omg.GIOP.MsgType_1_1._LocateRequest )
 	    throw new RuntimeException("Error: not a locate request!");
 	setLittleEndian( buffer[6]!=0);
 
 	skip(12);
 	locate_req_hdr = 
             org.omg.GIOP.LocateRequestHeader_1_0Helper.read(this);	   
+        
+        org.omg.GIOP.TargetAddress addr = new org.omg.GIOP.TargetAddress();
+        addr.object_key( locate_req_hdr.object_key );
+        
 	req_hdr = 
-            new org.omg.GIOP.RequestHeader_1_0( null,
-                                                locate_req_hdr.request_id, 
-                                                true, 
-                                                locate_req_hdr.object_key, 
+            new org.omg.GIOP.RequestHeader_1_2( locate_req_hdr.request_id, 
+                                                (byte) 0x03, //response_expected 
+                                                new byte[3],
+                                                addr, 
                                                 "_non_existent", 
                                                 null ); 
     }

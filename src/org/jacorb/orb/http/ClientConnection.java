@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.*;
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.6 2001-06-13 09:19:00 jacorb Exp $
+ * @version $Id: ClientConnection.java,v 1.6.4.1 2001-08-08 14:51:57 jacorb Exp $
  */
 
 public final class ClientConnection 
@@ -81,7 +81,6 @@ public final class ClientConnection
 
 	replies.clear();
 	buffers.clear();
-	objects.clear();
 
 	if( lost_replies > 0 )
 	    org.jacorb.util.Debug.output(2,"Lost " + lost_replies + " outstanding replies");
@@ -102,9 +101,6 @@ public final class ClientConnection
         return buffers;
     }
    
-    public Hashtable get_objects(){
-        return objects;
-    }
     public Hashtable get_replies(){
         return replies;
     }
@@ -224,7 +220,6 @@ public final class ClientConnection
 		    Integer key = new Integer( os.requestId() );
 		    buffers.put( key, os );
 		    replies.put( key, rep );
-		    objects.put( key, o );
 		}
 		
 		synchronized(notifier){

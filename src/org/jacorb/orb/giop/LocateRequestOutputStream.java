@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateRequestOutputStream.java,v 1.6 2001-03-28 10:07:05 jacorb Exp $
+ * @version $Id: LocateRequestOutputStream.java,v 1.6.4.1 2001-08-08 14:51:55 jacorb Exp $
  *
  */
 
@@ -43,7 +43,7 @@ public class LocateRequestOutputStream
 
     private void writeHeader()
     {
-        writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_0._LocateRequest );
+        writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_1._LocateRequest );
         org.omg.GIOP.LocateRequestHeader_1_0Helper.write( this, req_hdr );
         insertMsgSize();
     }

@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.10 2001-03-28 12:17:12 jacorb Exp $
+ * @version $Id: RequestOutputStream.java,v 1.10.4.1 2001-08-08 14:51:56 jacorb Exp $
  *
  */
 
@@ -92,7 +92,7 @@ public class RequestOutputStream
 
     private void writeHeader(CDROutputStream out)
     {
-        out.writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_0._Request );
+        out.writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_1._Request );
         org.omg.GIOP.RequestHeader_1_0Helper.write(out, req_hdr);
     }
 

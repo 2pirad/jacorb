@@ -28,7 +28,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.11 2001-08-08 08:35:08 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.11.2.1 2001-08-08 14:51:56 jacorb Exp $
  *
  */
 
@@ -77,7 +77,7 @@ public class ReplyInputStream
 	    littleEndian = true;
 	    setLittleEndian(true);
 	}
-	if( buffer[7] != (byte)org.omg.GIOP.MsgType_1_0._Reply )
+	if( buffer[7] != (byte)org.omg.GIOP.MsgType_1_1._Reply )
 	    throw new RuntimeException("Trying to initialize ReplyInputStream from non-reply msg.!");
 
 	if (buffer[5]==1){

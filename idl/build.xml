@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB idl build file                     -->
-  <!-- $Id: build.xml,v 1.3.4.1 2001-08-08 12:27:52 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.3.4.2 2001-08-08 14:50:28 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -132,7 +132,7 @@
 
    <target name="giop" depends="init">
 	<java classname="org.jacorb.idl.parser" classpath="${classpath}" fork="yes">
-	      <arg line="${idlflags} -DGIOP_1_1 ${include}/omg/GIOP.idl"/>
+	      <arg line="${idlflags} -DGIOP_1_1 -DGIOP_1_2 ${include}/omg/GIOP.idl"/>
 	</java>
    </target>
 
