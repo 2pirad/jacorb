@@ -36,7 +36,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.13 2002-05-28 17:14:50 nicolas Exp $
+ * @version $Id: PrintIOR.java,v 1.14 2002-05-29 12:43:13 nicolas Exp $
  */
 
 public class PrintIOR 
@@ -267,7 +267,7 @@ public class PrintIOR
                 
                 if( ji < (codeSet.ForCharData.conversion_code_sets.length - 1) )
                 {
-                    System.out.println( ", " );
+                    System.out.print( ", " );
                 }
             }
 
@@ -280,7 +280,7 @@ public class PrintIOR
                 
                 if( ji < (codeSet.ForWcharData.conversion_code_sets.length - 1) )
                 {
-                    System.out.println( ", " );
+                    System.out.print( ", " );
                 }  
             } 
         }
