@@ -14,7 +14,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  *
- * $Id: parser.cup,v 1.53 2002-11-24 23:12:19 steve.osselton Exp $
+ * $Id: parser.cup,v 1.54 2003-01-11 19:58:04 gerald Exp $
  *
  */
 
@@ -34,9 +34,10 @@ parser code
     public static String currentVersion = "";
     
     // Compiles out leaving no runtime dependency on Version
-    public static final String compiler_version = org.jacorb.util.Version.longVersion;
+    public static final String compiler_version = 
+        org.jacorb.util.Version.longVersion + " Build " + "$Date: 2003-01-11 19:58:04 $";
 
-    private static final String yearString = "1997-2002";
+    private static final String yearString = "1997-2003";
 
     private static final String FINAL = " final";
     private static final String NO_FINAL = "";

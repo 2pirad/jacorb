@@ -24,13 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.16 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Literal.java,v 1.17 2003-01-11 19:58:04 gerald Exp $
  */
 
 class Literal
-        extends IdlSymbol
+    extends IdlSymbol
 {
-
     public String string;
     public boolean wide;
     public java_cup.runtime.token token;
@@ -93,7 +92,7 @@ class Literal
 
     public void print( PrintWriter ps )
     {
-        ps.print( string );
+        ps.print( escapeBackslash( string  ));
     }
 
 
