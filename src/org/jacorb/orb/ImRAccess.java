@@ -27,7 +27,7 @@ package org.jacorb.orb;
  * Created: Thu Jan 31 20:55:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ImRAccess.java,v 1.4 2003-04-01 15:45:07 nick.cross Exp $
+ * @version $Id: ImRAccess.java,v 1.5 2003-04-01 16:21:38 nick.cross Exp $
  */
 
 public interface ImRAccess
@@ -39,5 +39,5 @@ public interface ImRAccess
                              String host,
                              int port)
         throws org.omg.CORBA.INTERNAL;
-    public void setServerDown( String name )
+    public void setServerDown( String name );
 }// ImRAccess
