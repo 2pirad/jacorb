@@ -22,16 +22,15 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definition.java,v 1.10 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Definition.java,v 1.11 2003-09-03 09:29:18 brose Exp $
  */
 
 import java.io.PrintWriter;
 
 
-class Definition
-        extends IdlSymbol
+public class Definition
+    extends IdlSymbol
 {
-
     private Declaration declaration;
 
     public Definition( int num )
@@ -90,6 +89,17 @@ class Definition
     {
         declaration.parse();
     }
+
+    /**
+     * @overrides accept in IdlSymbol
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitDefinition( this );
+    }
+
+
 }
 
 
