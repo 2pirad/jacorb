@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: AdminBase.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: AdminBase.java,v 1.7 2003-08-01 20:13:17 alphonse.bendt Exp $
  */
 
 public abstract class AdminBase 
@@ -348,7 +348,14 @@ public abstract class AdminBase
             while ( _i.hasNext() )
             {
                 logger_.info( "dispose pushServant" );
-                ( ( Disposable ) _i.next() ).dispose();
+
+		try {
+		    ( ( Disposable ) _i.next() ).dispose();
+		} catch (Exception e) {
+		    logger_.warn("Error disposing a PushServant", e);
+		}
+
+		_i.remove();
             }
 
             pushServants_.clear();
@@ -360,7 +367,13 @@ public abstract class AdminBase
             while ( _i.hasNext() )
             {
                 logger_.info( "dispose pullServant" );
-                ( ( Disposable ) _i.next() ).dispose();
+
+		try {
+		    ( ( Disposable ) _i.next() ).dispose();
+		} catch (Exception e) {
+		    logger_.warn("Error disposing a PullServant", e);
+		}
+
                 _i.remove();
             }
 
