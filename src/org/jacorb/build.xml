@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB ORB build file                         -->
-  <!-- $Id: build.xml,v 1.8 2001-10-02 13:50:49 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.9 2001-11-15 18:28:10 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -56,11 +56,20 @@
                  fork="yes" 
                  classpath="${classpath}">
                  <arg line="${jidlflags} -sloppy_names"/>
+<!--
                  <arg file="${include}/jacorb/Forwarder.idl"/>
+-->
                  <arg file="${include}/jacorb/imr.idl"/>
                  <arg file="${include}/jacorb/channel.idl"/>
-                 <arg file="${include}/jacorb/DomainManagement.idl"/>
            </java>           
+
+	   <java classname="org.jacorb.idl.parser" 
+                 fork="yes" 
+                 classpath="${classpath}">
+                 <arg line="${jidlflags} -sloppy_names"/>
+                 <arg file="${include}/jacorb/DomainManagement.idl"/>                 
+           </java>           
+
    </target>
 
    <target name="utils">
