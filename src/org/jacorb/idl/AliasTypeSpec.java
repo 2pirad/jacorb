@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.25 2002-05-17 13:36:45 simon.mcqueen Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.26 2002-05-30 15:42:14 gerald Exp $
  */
 
 public class AliasTypeSpec
@@ -165,6 +165,7 @@ public class AliasTypeSpec
                 ( ts instanceof TemplateTypeSpec ||
                 ts instanceof BaseType ||
                 ts instanceof ConstrTypeSpec || // for value types
+                ts instanceof ObjectTypeSpec ||
                 ts instanceof AliasTypeSpec ||
                 ts instanceof TypeCodeTypeSpec ?
                 originalType.getTypeCodeExpression() :
