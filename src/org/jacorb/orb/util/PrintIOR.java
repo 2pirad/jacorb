@@ -50,7 +50,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.29 2004-02-05 12:28:14 david.robison Exp $
+ * @version $Id: PrintIOR.java,v 1.30 2004-02-05 13:04:00 david.robison Exp $
  */
 
 public class PrintIOR
@@ -265,12 +265,12 @@ public class PrintIOR
                 System.out.print("\t\t\tAS_ContextSec mech: " );
                 dumpHex(csmList.mechanism_list[i].as_context_mech.client_authentication_mech);
                 System.out.println();
-				System.out.print("\t\t\tAS_ContextSec target_name: " );
-				dumpHex(csmList.mechanism_list[i].as_context_mech.target_name);
-				System.out.println();
-               //}
-				System.out.println("\t\t\tSAS_ContextSec target_supports: " + csmList.mechanism_list[i].sas_context_mech.target_supports );
-				System.out.println("\t\t\tSAS_ContextSec target_requires: " + csmList.mechanism_list[i].sas_context_mech.target_requires );
+                System.out.print("\t\t\tAS_ContextSec target_name: " );
+                dumpHex(csmList.mechanism_list[i].as_context_mech.target_name);
+                System.out.println();
+                //}
+                System.out.println("\t\t\tSAS_ContextSec target_supports: " + csmList.mechanism_list[i].sas_context_mech.target_supports );
+                System.out.println("\t\t\tSAS_ContextSec target_requires: " + csmList.mechanism_list[i].sas_context_mech.target_requires );
 
                 for (int j = 0; j < csmList.mechanism_list[i].sas_context_mech.supported_naming_mechanisms.length; j++) {
                     System.out.print("\t\t\tSAS_ContextSec Naming mech: " );
