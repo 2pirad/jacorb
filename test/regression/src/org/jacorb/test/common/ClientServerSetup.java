@@ -73,7 +73,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.7 2003-05-15 11:45:18 nick.cross Exp $
+ * @version $Id: ClientServerSetup.java,v 1.8 2003-07-04 22:14:44 francisco Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -123,9 +123,10 @@ public class ClientServerSetup extends TestSetup {
                           ( clientOrb.resolve_initial_references( "RootPOA" ) );
         clientRootPOA.the_POAManager().activate();
 
-        StringBuffer serverexec = new StringBuffer( "jaco -Djacorb.implname=" );
+        StringBuffer serverexec = new StringBuffer( "java -Djacorb.implname=" );
         serverexec.append( servantName );
-        serverexec.append( ' ' );
+        serverexec.append(" -Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB ");
+        serverexec.append("-Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton ");
         serverexec.append( propsToCommandLineArgs( serverOrbProperties ) );
         serverexec.append( " -classpath " );
         serverexec.append( System.getProperty ("java.class.path") );
@@ -168,6 +169,20 @@ public class ClientServerSetup extends TestSetup {
 
     public void tearDown() throws Exception
     {
+        InputStream serverErr = serverProcess.getErrorStream();
+        if (serverErr.available() > 0)
+        {
+            System.err.println("*** Server err: ***");
+            while (serverErr.available() > 0)
+                System.err.write(serverErr.read());
+        }
+        InputStream serverOut = serverProcess.getInputStream();
+        if (serverOut.available() > 0)
+        {
+            System.err.println("*** Server out: ***");
+            while (serverOut.available() > 0)
+                System.err.write(serverOut.read());
+        }
         serverProcess.destroy();
         ior.delete();
     }
