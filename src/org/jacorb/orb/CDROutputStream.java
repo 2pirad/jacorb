@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.17 2001-11-09 15:46:28 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.18 2001-11-13 08:30:24 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -563,6 +563,7 @@ public class CDROutputStream
                     //write unaligned
                     buffer[pos++] = (byte)((c >> 8) & 0xFF);
                     buffer[pos++] = (byte) (c       & 0xFF);
+                    index += 2;
                 }
                 else
                 {
