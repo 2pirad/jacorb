@@ -37,7 +37,7 @@ import org.jacorb.orb.iiop.IIOPProfile;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.25 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.26 2004-12-11 21:21:15 andre.spiegel Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -60,11 +60,6 @@ public class ClientRequestInfoImpl
     public org.jacorb.orb.giop.ReplyInputStream reply_is = null;
 
     public org.jacorb.orb.giop.ClientConnection connection = null;
-
-    public ClientRequestInfoImpl()
-    {
-        super();
-    }
 
     public ClientRequestInfoImpl
                       ( org.jacorb.orb.ORB orb,
