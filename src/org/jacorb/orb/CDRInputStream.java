@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.CodeSet;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.9.2.5 2001-09-20 09:29:58 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.9.2.6 2001-09-21 13:50:17 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -79,7 +79,7 @@ public class CDRInputStream
 	a full ORB (not the Singleton!) must be known. If this stream 
 	is used only to demarshal base type data, the Singleton is enough
     */
-    public org.omg.CORBA.ORB orb = null;
+    private org.omg.CORBA.ORB orb = null;
  
     public CDRInputStream( org.omg.CORBA.ORB orb, byte[] buf )
     {
@@ -107,16 +107,10 @@ public class CDRInputStream
 	closed = true;
     }
 	
-    // rmic-generated generated stubs call this method.
-    // Before adding this implementation I was getting NO_IMPLEMENT 
-    // exceptions on calls to this method. After I added it I started getting
-    // NO_IMPLEMENT exceptions on calls to org.jacorb.orb.Any.insert_Value()
     public org.omg.CORBA.ORB orb ()
     {
-        if (orb != null)
-            return orb;
-	else
-	    return new ORBSingleton();
+        if (orb == null) orb = org.omg.CORBA.ORB.init();
+        return orb;
     }
 
     public void setCodeSet( int codeSet, int codeSetWide )
@@ -1243,7 +1237,10 @@ public class CDRInputStream
             return result;
         } 
         else if (tag == 0x7fffff02)
-	    // without this I was getting NPEs in read_special_value()
+            // Read value according to type information.
+            // Possible optimization: ignore type info and use factory for
+            // reading the value anyway, since the type information is 
+            // most likely redundant.
             return read_typed_value(); 
         else 
             return read_special_value (tag);
