@@ -40,7 +40,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.25 2003-04-23 15:07:07 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.26 2003-04-24 10:04:23 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -713,15 +713,7 @@ public abstract class GIOPConnection
             connection_listener.connectionClosed();
         }
 
-        try
-        {
-            transport.closeCompletely();
-        }
-        catch( IOException e )
-        {
-            //Debug.output( 1, e );
-        }
-
+        transport.close();
         do_close = true;
 
         Debug.output( 2, "GIOPConnection closed completely" );
