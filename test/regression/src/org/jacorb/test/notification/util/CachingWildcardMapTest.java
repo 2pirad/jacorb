@@ -27,13 +27,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * CachingWildcardMapTest.java
- *
- *
- * Created: Sat Apr 12 14:08:13 2003
- *
  * @author Alphonse Bendt
- * @version $Id: CachingWildcardMapTest.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: CachingWildcardMapTest.java,v 1.3.4.1 2004-04-08 16:07:42 alphonse.bendt Exp $
  */
 
 public class CachingWildcardMapTest extends WildcardMapTest {
@@ -49,9 +44,4 @@ public class CachingWildcardMapTest extends WildcardMapTest {
     public static Test suite() {
         return new TestSuite(CachingWildcardMapTest.class);
     }
-
-    public static void main(String[] args) {
-        junit.textui.TestRunner.run(suite());
-    }
-
-} // CachingWildcardMapTest
+}

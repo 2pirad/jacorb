@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WaitRetryStrategyTest.java,v 1.1 2004-03-17 23:15:28 alphonse.bendt Exp $
+ * @version $Id: WaitRetryStrategyTest.java,v 1.1.2.1 2004-04-08 16:07:42 alphonse.bendt Exp $
  */
 public class WaitRetryStrategyTest extends TestCase {
 
@@ -125,14 +125,9 @@ public class WaitRetryStrategyTest extends TestCase {
     }
 
 
-    public static TestSuite suite(){
+    public static Test suite(){
         TestSuite suite = new TestSuite(WaitRetryStrategyTest.class);
 
         return suite;
-    }
-
-
-    public static void main(String[] args) {
-        junit.textui.TestRunner.run(suite());
     }
 }

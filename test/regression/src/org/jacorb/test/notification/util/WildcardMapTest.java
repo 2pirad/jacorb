@@ -12,7 +12,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WildcardMapTest.java,v 1.7.2.1 2004-04-07 15:00:15 alphonse.bendt Exp $
+ * @version $Id: WildcardMapTest.java,v 1.7.2.2 2004-04-08 16:07:42 alphonse.bendt Exp $
  */
 
 public class WildcardMapTest extends TestCase
@@ -308,12 +308,6 @@ public class WildcardMapTest extends TestCase
         //        suite.addTest(new WildcardMapTest("performanceGet"));
 
         return suite;
-    }
-
-
-    public static void main(String[] args)
-    {
-        junit.textui.TestRunner.run(suite());
     }
 }
 

@@ -39,7 +39,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCase.java,v 1.9.2.3 2004-04-08 11:54:56 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCase.java,v 1.9.2.4 2004-04-08 16:07:42 alphonse.bendt Exp $
  */
 
 public class NotificationTestCase extends TestCase
@@ -126,19 +126,19 @@ public class NotificationTestCase extends TestCase
     }
 
 
-    protected static Test suite(Class clazz) throws Exception
+    public static Test suite(Class clazz) throws Exception
     {
         return suite("TestSuite defined in Class: " + clazz.getName(), clazz);
     }
 
 
-    protected static Test suite(String suiteName, Class clazz) throws Exception
+    public static Test suite(String suiteName, Class clazz) throws Exception
     {
         return suite(suiteName, clazz, "test");
     }
 
 
-    protected static Test suite(String suiteName, Class clazz, String testMethodPrefix) throws Exception
+    public static Test suite(String suiteName, Class clazz, String testMethodPrefix) throws Exception
     {
         TestSuite _suite = new TestSuite(suiteName);
 

@@ -30,32 +30,19 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- *  Unit Test for class ObjectPool
- *
- *
- * Created: Mon Nov 24 19:08:50 2003
- *
  * @author Alphonse Bendt
- * @version $Id: ObjectPoolTest.java,v 1.2 2004-01-16 17:37:30 alphonse.bendt Exp $
+ * @version $Id: ObjectPoolTest.java,v 1.2.2.1 2004-04-08 16:07:42 alphonse.bendt Exp $
  */
 
 public class ObjectPoolTest extends TestCase
 {
-
-    /**
-     * Creates a new <code>ObjectPoolTest</code> instance.
-     *
-     * @param name test name
-     */
     public ObjectPoolTest (String name)
     {
         super(name);
     }
 
-    /**
-     * @return a <code>TestSuite</code>
-     */
-    public static TestSuite suite()
+
+    public static Test suite()
     {
         TestSuite suite = new TestSuite(ObjectPoolTest.class);
 
@@ -88,13 +75,4 @@ public class ObjectPoolTest extends TestCase
         }
 
     }
-
-    /**
-     * Entry point
-     */
-    public static void main(String[] args)
-    {
-        junit.textui.TestRunner.run(suite());
-    }
-
 }
