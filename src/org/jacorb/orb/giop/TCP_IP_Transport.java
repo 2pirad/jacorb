@@ -32,7 +32,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.22 2003-04-27 07:38:41 andre.spiegel Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.23 2003-04-27 12:41:35 andre.spiegel Exp $
  */
 
 public abstract class TCP_IP_Transport
@@ -49,9 +49,6 @@ public abstract class TCP_IP_Transport
     String connection_info;
     Socket socket;
 
-    //the statistics provider, may stay null
-    private StatisticsProvider statistics_provider = null;
-
     //used to unregister this transport
     protected TransportManager transport_manager = null;
 
@@ -66,16 +63,13 @@ public abstract class TCP_IP_Transport
         this.b_out = other.b_out;
         this.dump_incoming = other.dump_incoming;
         this.connection_info = other.connection_info;
-        this.statistics_provider = other.statistics_provider;
         this.transport_manager = other.transport_manager;
         this.transport_listener = other.transport_listener;
         this.finalTimeout = other.finalTimeout;
     }
 
-    public TCP_IP_Transport( StatisticsProvider statistics_provider,
-                             TransportManager transport_manager )
+    public TCP_IP_Transport( TransportManager transport_manager )
     {
-        this.statistics_provider = statistics_provider;
         this.transport_manager = transport_manager;
 
         String dump_outgoing =
@@ -183,10 +177,6 @@ public abstract class TCP_IP_Transport
             throw to_COMM_FAILURE (ex);
         }
 
-        if( statistics_provider != null )
-        {
-            statistics_provider.messageChunkSent( length );
-        }
     }
 
 
@@ -207,23 +197,11 @@ public abstract class TCP_IP_Transport
             throw to_COMM_FAILURE (ex);
         }
 
-        if( statistics_provider != null )
-        {
-            statistics_provider.flushed();
-        }
     }
     
     public boolean is_connected()
     {
         return connected;
-    }
-
-    /**
-     * Get the statistics provider for transport usage statistics.
-     */
-    public StatisticsProvider getStatisticsProvider()
-    {
-        return statistics_provider;
     }
 
     public void setTransportListener( TransportListener transport_listener )
