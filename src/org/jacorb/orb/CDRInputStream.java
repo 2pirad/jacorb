@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.48 2002-05-28 07:55:02 nicolas Exp $
+ * $Id: CDRInputStream.java,v 1.49 2002-09-11 14:06:21 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1659,7 +1659,6 @@ public class CDRInputStream
     {
 	int start_offset = pos;
         int tag = read_long();
-
         if (tag == 0xffffffff)
         {
             // indirection
@@ -1959,10 +1958,11 @@ public class CDRInputStream
         {
             // a new id
             pos -= 4;
-            int index = pos;
+            index -= 4;
+            int start_offset = pos;
             String repId = read_string();
 
-            repIdMap.put (new Integer(index), repId);
+            repIdMap.put (new Integer(start_offset), repId);
             return repId;
         }
     }
