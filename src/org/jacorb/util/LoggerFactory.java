@@ -27,11 +27,11 @@ import org.apache.avalon.framework.logger.*;
  * specific logging backend.
  *
  * @author Gerald Brose 
- * @version $Id: LoggerFactory.java,v 1.1 2003-10-30 12:56:46 brose Exp $
+ * @version $Id: LoggerFactory.java,v 1.2 2003-12-22 22:25:09 francisco Exp $
  * @since JacORB 2.0 beta 3
  */
 
-interface LoggerFactory
+public interface LoggerFactory
 {
     /**
      * @return the name of the actual logging mechanism, e.g., "logkit"
