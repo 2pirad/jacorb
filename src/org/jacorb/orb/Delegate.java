@@ -57,7 +57,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.83 2003-06-30 08:45:44 nick.cross Exp $
+ * @version $Id: Delegate.java,v 1.84 2003-08-11 09:35:24 andre.spiegel Exp $
  *
  */
 
@@ -216,7 +216,11 @@ public final class Delegate
             if ( bound )
                 return ;
 
-            connection = conn_mg.getConnection (_pior.getEffectiveProfile());
+            org.omg.ETF.Profile p = _pior.getEffectiveProfile();
+            if (p == null)
+                throw new org.omg.CORBA.COMM_FAILURE ("no effective profile");
+
+            connection = conn_mg.getConnection (p);
 
             bound = true;
 
