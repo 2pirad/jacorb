@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.15 2003-09-30 14:51:44 nick.cross Exp $
+ * $Id: ServantDelegate.java,v 1.16 2003-09-30 14:55:44 nick.cross Exp $
  */
 
 public class ServantDelegate
@@ -111,6 +111,11 @@ public class ServantDelegate
         }
         try
         {
+            if( _current.get_servant() != self )
+            {
+                throw new org.omg.CORBA.OBJ_ADAPTER();
+            }
+
             return _current.get_POA();
         }
         catch(NoContext e)
