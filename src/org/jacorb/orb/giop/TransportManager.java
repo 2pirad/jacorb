@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * This class manages Transports
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.1 2002-11-26 16:45:35 nicolas Exp $
+ * @version $Id: TransportManager.java,v 1.2 2002-11-27 16:07:13 nicolas Exp $
  *
  */
 
@@ -86,7 +86,7 @@ public class TransportManager
         }
 
         //client_transports = new LinkedList(); 
-        server_transports = Collections.synchronizedList( new LinkedList() ); 
+        server_transports = new LinkedList(); 
         
         max_server_transports = 
             Environment.getIntPropertyWithDefault( "jacorb.connection.max_server_transports",
@@ -215,14 +215,20 @@ public class TransportManager
                                          provider,
                                          this );
 
-        server_transports.add( transport );
+        synchronized( server_transports )
+        {
+            server_transports.add( transport );
+        }
 
         return transport;
     }
 
     public void unregisterServerTransport( Transport transport )
     {
-        server_transports.remove( transport );
+        synchronized( server_transports )
+        {
+            server_transports.remove( transport );
+        }
     }
 }
 
