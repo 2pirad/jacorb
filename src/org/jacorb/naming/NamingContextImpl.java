@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.8 2002-05-06 14:39:27 gerald Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.9 2002-05-09 12:17:42 gerald Exp $
  *
  */
 
@@ -646,12 +646,11 @@ public class NamingContextImpl
      *
      */
 
-    void init(org.omg.CORBA.ORB orb, org.omg.PortableServer.POA poa)
+    void init(org.omg.CORBA.ORB orb, org.omg.PortableServer.POA poa )
     {
-        _this_object(orb);
-        this.poa=poa;
+        this.poa = poa;
         this.orb = orb;
-        
+
         try
         {
             this.rootPoa = 
