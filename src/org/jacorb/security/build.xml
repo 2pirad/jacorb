@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.11 2001-11-29 10:44:38 gerald Exp $ -->
+  <!-- $Id: build.xml,v 1.12 2002-02-25 20:48:11 nicolas Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -13,8 +13,6 @@
 	<property name="src" value="${dirs.base}/src"/>
 	<available classname="iaik.x509.X509Certificate" 
                    property="iaik.present" />
-	<available classname="javax.net.ssl.SSLSocketFactory" 
-                   property="jsse.present" />
    </target>
 
    <target name="all" depends="init,leveltwo,principal_authenticator,ssl,util">
