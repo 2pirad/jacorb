@@ -57,14 +57,13 @@ import org.omg.PortableServer.Servant;
 
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
-
-import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.7.2.3 2004-04-07 14:53:53 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.7.2.4 2004-04-08 13:18:28 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy
@@ -83,8 +82,8 @@ public abstract class AbstractProxy
 
     private SynchronizedBoolean connected_ = new SynchronizedBoolean(false);
 
-    protected QoSPropertySet qosSettings_ =
-        new QoSPropertySet(QoSPropertySet.PROXY_QOS);
+    protected QoSPropertySet qosSettings_;
+
 
     protected Integer id_;
 
@@ -153,6 +152,8 @@ public abstract class AbstractProxy
                               Default.DEFAULT_DISPOSE_PROXY_CALLS_DISCONNECT).
             equals ("on");
         filterManager_.configure (conf);
+
+        qosSettings_ = new QoSPropertySet(conf, QoSPropertySet.PROXY_QOS);
     }
 
     ////////////////////////////////////////

@@ -43,7 +43,7 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.10.2.2 2004-04-08 11:47:37 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.10.2.3 2004-04-08 13:18:28 alphonse.bendt Exp $
  */
 
 public class AdminLimitTest extends NotificationTestCase
@@ -54,10 +54,8 @@ public class AdminLimitTest extends NotificationTestCase
 
     public void setUp() throws Exception
     {
-        QoSPropertySet.initStatics( getConfiguration() );
-
         QoSPropertySet qosSettings_ =
-            new QoSPropertySet(QoSPropertySet.ADMIN_QOS);
+            new QoSPropertySet(getConfiguration(), QoSPropertySet.ADMIN_QOS);
 
         channelContext_ = new ChannelContext();
         channelContext_.setTaskProcessor(new TaskProcessor());

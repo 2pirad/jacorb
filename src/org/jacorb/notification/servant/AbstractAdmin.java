@@ -37,7 +37,6 @@ import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.ProxyEvent;
 import org.jacorb.notification.interfaces.ProxyEventListener;
-import org.jacorb.notification.util.AdminPropertySet;
 import org.jacorb.notification.util.QoSPropertySet;
 
 import org.omg.CORBA.OBJECT_NOT_EXIST;
@@ -60,15 +59,15 @@ import org.omg.PortableServer.Servant;
 
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
-import org.apache.avalon.framework.logger.Logger;
 import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Abstract Baseclass for Adminobjects.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.6.2.3 2004-04-07 14:53:53 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.6.2.4 2004-04-08 13:18:28 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin
@@ -114,7 +113,7 @@ public abstract class AbstractAdmin
 
     private final SynchronizedInt proxyIdPool_ = new SynchronizedInt(0);
 
-    private final QoSPropertySet qosSettings_ = new QoSPropertySet(QoSPropertySet.ADMIN_QOS);
+    private QoSPropertySet qosSettings_;
 
     private final SynchronizedBoolean disposed_ = new SynchronizedBoolean(false);
 
@@ -150,6 +149,8 @@ public abstract class AbstractAdmin
             getNamedLogger(getClass().getName());
 
         filterManager_.configure (conf);
+
+        qosSettings_  = new QoSPropertySet(conf, QoSPropertySet.ADMIN_QOS);
     }
 
     ////////////////////////////////////////
