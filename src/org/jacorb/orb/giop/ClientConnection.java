@@ -36,7 +36,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.44 2004-01-12 10:56:22 nick.cross Exp $
+ * @version $Id: ClientConnection.java,v 1.45 2004-01-28 09:30:26 nicolas Exp $
  */
 
 public class ClientConnection
@@ -101,6 +101,11 @@ public class ClientConnection
 
         replies = new HashMap();
         sasContexts = new HashMap();
+    }
+
+    public final GIOPConnection getGIOPConnection()
+    {
+        return connection;
     }
 
     /**
