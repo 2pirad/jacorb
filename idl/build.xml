@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB idl build file                     -->
-  <!-- $Id: build.xml,v 1.16 2002-03-04 16:30:34 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.17 2002-03-05 10:59:47 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -131,6 +131,7 @@
 
       <copy todir="${src}/generated">
          <fileset dir="${src}/generated/temp">
+            <include name="**/CompletionStatus*.java"/>
 		      <include name="**/*Helper.java"/>
          </fileset>
       </copy>      
