@@ -27,7 +27,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.17 2003-12-10 09:03:18 gerald Exp $
+ * @version $Id: GlobalInputStream.java,v 1.18 2003-12-15 09:44:34 gerald Exp $
  */
 
 public class GlobalInputStream
@@ -254,6 +254,7 @@ public class GlobalInputStream
 
             if (ch == -1)
             {
+                // the following line was moved here to fix bug #385
                 currentStream().close();
                 if (included)
                 {
