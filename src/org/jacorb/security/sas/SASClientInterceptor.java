@@ -65,7 +65,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.16 2004-02-11 13:34:58 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.17 2004-02-13 10:47:16 nicolas Exp $
  */
 
 public class SASClientInterceptor
@@ -198,7 +198,7 @@ public class SASClientInterceptor
         ServiceContext ctx = null;
         try
         {
-            ctx = ri.get_request_service_context(SecurityAttributeService);
+            ctx = ri.get_reply_service_context(SecurityAttributeService);
         }
         catch (BAD_PARAM e)
         {
@@ -247,7 +247,7 @@ public class SASClientInterceptor
         ServiceContext ctx = null;
         try
         {
-            ctx = ri.get_request_service_context(SecurityAttributeService);
+            ctx = ri.get_reply_service_context(SecurityAttributeService);
         }
         catch (BAD_PARAM e)
         {
