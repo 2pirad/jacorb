@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.23.2.3 2002-07-17 13:11:37 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.23.2.4 2002-07-18 13:20:13 gerald Exp $
  */
 
 class ValueDecl
@@ -174,7 +174,9 @@ class ValueDecl
 
         if (stateMembers.size () != 0)
         {
+            ScopedName.addRecursionScope( typeName() );
             stateMembers.parse();
+            ScopedName.removeRecursionScope( typeName() );
 
             for( Iterator i = operations.iterator(); i.hasNext(); )
                 ( (IdlSymbol)i.next() ).parse();
@@ -347,6 +349,7 @@ class ValueDecl
         short access = m.isPublic
                 ? org.omg.CORBA.PUBLIC_MEMBER.value
                 : org.omg.CORBA.PRIVATE_MEMBER.value;
+
         return "new org.omg.CORBA.ValueMember (" +
                 "\"" + m.name + "\", \"" + typeSpec.id() +
                 "\", \"" + name + "\", \"1.0\", " +

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.19 2002-06-03 13:42:11 gerald Exp $
+ * @version $Id: Member.java,v 1.19.2.1 2002-07-18 13:20:13 gerald Exp $
  *
  */
 
@@ -33,7 +33,8 @@ import java.util.Vector;
 class Member
     extends Declaration
 {
-    public TypeSpec type_spec;
+    TypeSpec type_spec;
+
     public SymbolList declarators;
     public Vector extendVector;
     public TypeDeclaration containingType;

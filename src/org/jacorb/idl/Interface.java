@@ -22,13 +22,12 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.33.2.1 2002-07-17 13:11:36 gerald Exp $
+ * @version $Id: Interface.java,v 1.33.2.2 2002-07-18 13:20:13 gerald Exp $
  */
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Hashtable;
+import java.util.*;
 
 class Interface
     extends TypeDeclaration
@@ -133,6 +132,19 @@ class Interface
         return "org.omg.CORBA.ORB.init().create_interface_tc( \"" +
                 id() + "\", \"" + name + "\")";
     }
+
+    public String getTypeCodeExpression( Set knownTypes )
+    {
+        if( knownTypes.contains( this ) )
+        {
+            return this.getRecursiveTypeCodeExpression();
+        }
+        else
+        {   
+            return this.getTypeCodeExpression();
+        }
+    }
+
 
     public boolean basic()
     {
