@@ -37,7 +37,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.19 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: IIOPListener.java,v 1.20 2004-10-21 14:54:08 francisco Exp $
  */
 public class IIOPListener 
     extends org.jacorb.orb.etf.ListenerBase
@@ -71,6 +71,7 @@ public class IIOPListener
     private int sslPort = 0;
     private int target_supports = 0;
     private int target_requires = 0;
+    private boolean generateSSLComponents = true;
 
     public IIOPListener()
     {
@@ -126,6 +127,10 @@ public class IIOPListener
             Integer.parseInt(
                 configuration.getAttribute("jacorb.security.ssl.server.required_options","0"),
                 16);
+
+
+        generateSSLComponents =
+            configuration.getAttribute("jacorb.security.ssl_components_added_by_ior_interceptor","off").equals("off");
 
 
         if (!isSSLRequired() || 
@@ -271,7 +276,7 @@ public class IIOPListener
             ), 
             null
         );
-        if (sslAcceptor != null)
+        if (sslAcceptor != null && generateSSLComponents)
         {
              result.addComponent (TAG_SSL_SEC_TRANS.value,
                                   createSSL(), SSLHelper.class);
