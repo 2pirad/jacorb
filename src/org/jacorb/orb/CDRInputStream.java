@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.80.2.3 2004-03-29 10:11:24 gerald Exp $
+ * $Id: CDRInputStream.java,v 1.80.2.4 2004-03-29 13:12:27 gerald Exp $
  */
 
 public class CDRInputStream
@@ -167,16 +167,22 @@ public class CDRInputStream
     public CDRInputStream(final org.omg.CORBA.ORB orb, final byte[] buf)
     {
         buffer = buf;
+        // orb may be null!
         if (orb != null)
         {
-            this.orb = orb;            
-            try
+            this.orb = orb;  
+            // orb may be the singleton!
+            if (orb instanceof org.jacorb.orb.ORB)
             {
-                configure(((org.jacorb.orb.ORB)orb).getConfiguration());
-            }
-            catch( ConfigurationException ce )
-            {
-                throw new INTERNAL("ConfigurationException: " + ce.getMessage());
+                try
+                {
+                    
+                    configure(((org.jacorb.orb.ORB)orb).getConfiguration());
+                }
+                catch( ConfigurationException ce )
+                {
+                    throw new INTERNAL("ConfigurationException: " + ce.getMessage());
+                }
             }
         }
         else
