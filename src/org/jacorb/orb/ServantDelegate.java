@@ -33,7 +33,7 @@ import org.jacorb.util.Debug;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.19 2003-12-18 14:17:41 francisco Exp $
+ * $Id: ServantDelegate.java,v 1.20 2004-02-04 23:48:40 francisco Exp $
  */
 
 public class ServantDelegate
@@ -210,7 +210,7 @@ public class ServantDelegate
         org.jacorb.util.Debug.output( 3, "ServantDelegate: is a " +
                                       repid + " ?");
 
-        String [] intf = self._all_interfaces(null, null);
+        String [] intf = self._all_interfaces(poa(self), object_id(self));
 
         for( int i = 0; i < intf.length; i++)
         {

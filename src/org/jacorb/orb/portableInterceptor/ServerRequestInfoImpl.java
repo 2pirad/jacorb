@@ -40,7 +40,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.12 2003-12-16 08:42:56 gerald Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.13 2004-02-04 23:48:40 francisco Exp $
  */
 
 public class ServerRequestInfoImpl 
@@ -87,9 +87,9 @@ public class ServerRequestInfoImpl
     public void setServant(Servant servant)
     {
         this.servant = servant;
-
-        adapter_id = ((org.jacorb.poa.POA) servant._poa()).getPOAId();   
-        String[] all_ifs = servant._all_interfaces(null, null);
+        org.jacorb.poa.POA poa = (org.jacorb.poa.POA) servant._poa();
+        adapter_id = poa.getPOAId();
+        String[] all_ifs = servant._all_interfaces(poa, servant._object_id());
         target_most_derived_interface = all_ifs[0];
     }
 
