@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.45 2004-05-05 08:01:09 brose Exp $ -->
+   <!-- $Id: build.xml,v 1.46 2004-05-25 12:38:39 alphonse.bendt Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -141,6 +141,8 @@
         <exclude name="*template*" />
       </fileset>
     </chmod>
+
+    <fixcrlf srcdir="bin" eol="dos" includes="**/*.bat" />
    </target>
 
    <!-- This target creates a jar file that contains the -->
