@@ -27,7 +27,7 @@ package org.jacorb.imr;
  * Created: Thu Jan 31 21:05:55 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ImRAccessImpl.java,v 1.4 2003-04-01 15:46:52 nick.cross Exp $
+ * @version $Id: ImRAccessImpl.java,v 1.5 2003-04-01 16:21:51 nick.cross Exp $
  */
 
 import org.jacorb.imr.RegistrationPackage.DuplicatePOAName;
@@ -66,7 +66,6 @@ public class ImRAccessImpl
 
         if (result.reg == null || result.reg._non_existent())
         {
-            Debug.output(1, "ERROR: No connection to ImplementationRepository");
             throw new INTERNAL ("Unable to resolve reference to ImR");
         }
         return result;
