@@ -31,7 +31,7 @@ import java.util.*;
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: Current.java,v 1.16 2003-09-01 16:06:57 nick.cross Exp $
+ * @version $Id: Current.java,v 1.17 2003-12-30 14:40:25 andre.spiegel Exp $
  */
 
 public class Current
@@ -53,23 +53,23 @@ public class Current
 
     public synchronized void _addContext(Thread t, InvocationContext c)
     {
-        Vector cv = (Vector) threadTable.get(t);
+        List cv = (List) threadTable.get(t);
 
         if (cv == null) {
-            cv = new Vector();
+            cv = new ArrayList();
             threadTable.put(t, cv);
         }
 
-        cv.addElement(c);
+        cv.add(c);
     }
 
     public synchronized void _removeContext(Thread t)
     {
-        Vector cv = (Vector) threadTable.get(t);
+        List cv = (List) threadTable.get(t);
 
         if (cv != null) {
 
-            cv.removeElementAt(cv.size()-1);
+            cv.remove(cv.size()-1);
 
             if (cv.size() == 0) {
                 threadTable.remove(t);
@@ -106,11 +106,11 @@ public class Current
     {
         Thread ct = Thread.currentThread();
 
-        Vector cv = (Vector) threadTable.get(ct);
+        List cv = (List)threadTable.get(ct);
 
         if (cv != null)
         {
-            InvocationContext c = (InvocationContext) cv.lastElement();
+            InvocationContext c = (InvocationContext)cv.get(cv.size()-1);
 
             if (c != null)
             {
