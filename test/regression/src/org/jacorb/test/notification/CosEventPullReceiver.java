@@ -12,7 +12,7 @@ import org.omg.CosEventComm.PullConsumerPOA;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CosEventPullReceiver.java,v 1.3 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: CosEventPullReceiver.java,v 1.4 2004-02-10 11:06:55 alphonse.bendt Exp $
  */
 
 public class CosEventPullReceiver extends PullConsumerPOA implements Runnable, TestClientOperations {
@@ -71,7 +71,7 @@ public class CosEventPullReceiver extends PullConsumerPOA implements Runnable, T
         EventChannel _channel = EventChannelHelper.narrow(channel);
         ConsumerAdmin _admin = _channel.for_consumers();
         mySupplier_ = _admin.obtain_pull_supplier();
-        mySupplier_.connect_pull_consumer(_this(testCase_.getSetup().getORB()));
+        mySupplier_.connect_pull_consumer(_this(testCase_.getORB()));
         connected_ = true;
     }
 

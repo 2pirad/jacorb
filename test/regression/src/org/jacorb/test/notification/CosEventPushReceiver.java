@@ -16,7 +16,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CosEventPushReceiver.java,v 1.4 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: CosEventPushReceiver.java,v 1.5 2004-02-10 11:06:55 alphonse.bendt Exp $
  */
 
 public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, TestClientOperations {
@@ -88,7 +88,7 @@ public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, T
         mySupplier_ = _admin.obtain_push_supplier();
         currentTest_.assertNotNull(mySupplier_);
 
-        mySupplier_.connect_push_consumer(_this(currentTest_.getSetup().getORB()));
+        mySupplier_.connect_push_consumer(_this(currentTest_.getORB()));
         connected_ = true;
     }
 

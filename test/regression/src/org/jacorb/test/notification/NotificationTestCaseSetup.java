@@ -26,16 +26,17 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
 import org.jacorb.notification.EventChannelFactoryImpl;
+import org.jacorb.util.Debug;
+
+import java.util.Properties;
 
 import junit.extensions.TestSetup;
 import junit.framework.Test;
 import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.util.Debug;
-import java.util.Properties;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCaseSetup.java,v 1.9 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCaseSetup.java,v 1.10 2004-02-10 11:06:55 alphonse.bendt Exp $
  */
 
 public class NotificationTestCaseSetup extends TestSetup {
@@ -50,22 +51,19 @@ public class NotificationTestCaseSetup extends TestSetup {
 
     ////////////////////////////////////////
 
-    public NotificationTestUtils getTestUtils() {
-        return(testUtils_);
-    }
-
     public NotificationTestCaseSetup(Test suite) throws Exception {
         super(suite);
     }
 
     ////////////////////////////////////////
 
+    public NotificationTestUtils getTestUtils() {
+        return(testUtils_);
+    }
+
+
     public void setUp() throws Exception {
         super.setUp();
-
-        Properties props = new Properties();
-
-        props.put("jacorb.implname", "Ntfy-JUnit-Test");
 
         orb_ = ORB.init(new String[0], null);
         poa_ = POAHelper.narrow(orb_.resolve_initial_references("RootPOA"));
@@ -82,25 +80,33 @@ public class NotificationTestCaseSetup extends TestSetup {
 
         orbThread_.setDaemon(true);
         orbThread_.start();
-
-        eventChannelFactory_ = EventChannelFactoryImpl.newFactory();
     }
+
 
     public void tearDown() throws Exception {
         super.tearDown();
 
-        eventChannelFactory_.dispose();
+        if (eventChannelFactory_ != null) {
+            eventChannelFactory_.dispose();
+        }
 
         orb_.shutdown(true);
     }
 
-    public EventChannelFactoryImpl getFactoryServant() {
+
+    public EventChannelFactoryImpl getFactoryServant() throws Exception {
+        if (eventChannelFactory_ == null) {
+            eventChannelFactory_ = EventChannelFactoryImpl.newFactory();
+        }
+
         return eventChannelFactory_;
     }
+
 
     public ORB getORB() {
         return orb_;
     }
+
 
     public POA getPOA() {
         return poa_;

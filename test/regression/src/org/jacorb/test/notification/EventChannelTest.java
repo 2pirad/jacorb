@@ -26,7 +26,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelTest.java,v 1.5 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: EventChannelTest.java,v 1.6 2004-02-10 11:06:55 alphonse.bendt Exp $
  */
 
 public class EventChannelTest extends NotificationTestCase {
@@ -44,17 +44,14 @@ public class EventChannelTest extends NotificationTestCase {
      * setup EventChannelFactory, FilterFactory and Any with Testdata
      */
     public void setUp() throws Exception {
+        super.setUp();
+
         testPerson_ = getTestUtils().getTestPersonAny();
 
         channel_ = getDefaultChannel();
 
         supplierAdmin_ = channel_.default_supplier_admin();
         consumerAdmin_ = channel_.default_consumer_admin();
-    }
-
-
-    public void tearDown() {
-        super.tearDown();
     }
 
 
@@ -71,8 +68,8 @@ public class EventChannelTest extends NotificationTestCase {
 
         Property[] props = new Property[2];
 
-        Any discardPolicy = getSetup().getORB().create_any();
-        Any orderPolicy = getSetup().getORB().create_any();
+        Any discardPolicy = getORB().create_any();
+        Any orderPolicy = getORB().create_any();
 
         discardPolicy.insert_short(LifoOrder.value);
         orderPolicy.insert_short(AnyOrder.value);

@@ -26,7 +26,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyPullSender.java,v 1.4 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: AnyPullSender.java,v 1.5 2004-02-10 11:06:55 alphonse.bendt Exp $
  */
 
 public class AnyPullSender extends PullSupplierPOA implements TestClientOperations
@@ -65,7 +65,7 @@ public class AnyPullSender extends PullSupplierPOA implements TestClientOperatio
         IntHolder _proxyId = new IntHolder();
         IntHolder _adminId = new IntHolder();
 
-        invalidAny_ = testCase_.getSetup().getORB().create_any();
+        invalidAny_ = testCase_.getORB().create_any();
 
         if (useOrSemantic)
         {
@@ -86,7 +86,7 @@ public class AnyPullSender extends PullSupplierPOA implements TestClientOperatio
         testCase_.assertEquals(ProxyType._PULL_ANY, myConsumer_.MyType().value());
 
 
-        myConsumer_.connect_any_pull_supplier(_this(testCase_.getSetup().getORB()));
+        myConsumer_.connect_any_pull_supplier(_this(testCase_.getORB()));
         connected_ = true;
     }
 

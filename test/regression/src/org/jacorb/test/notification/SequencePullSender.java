@@ -22,7 +22,7 @@ import org.omg.CosNotifyComm.SequencePullSupplierPOATie;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequencePullSender.java,v 1.4 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: SequencePullSender.java,v 1.5 2004-02-10 11:06:55 alphonse.bendt Exp $
  */
 
 public class SequencePullSender
@@ -122,7 +122,7 @@ public class SequencePullSender
                AlreadyConnected,
                TypeError
     {
-        orb_ = testCase_.getSetup().getORB();
+        orb_ = testCase_.getORB();
         SequencePullSupplierPOATie _senderTie = new SequencePullSupplierPOATie(this);
         SupplierAdmin _supplierAdmin = channel.default_supplier_admin();
         IntHolder _proxyId = new IntHolder();

@@ -26,7 +26,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyPullReceiver.java,v 1.4 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: AnyPullReceiver.java,v 1.5 2004-02-10 11:06:55 alphonse.bendt Exp $
  */
 
 public class AnyPullReceiver
@@ -57,8 +57,8 @@ public class AnyPullReceiver
                         boolean useOrSemantic) throws AdminNotFound, AlreadyConnected, AdminLimitExceeded
     {
 
-        orb_ = testCase_.getSetup().getORB();
-        poa_ = testCase_.getSetup().getPOA();
+        orb_ = testCase_.getORB();
+        poa_ = testCase_.getPOA();
 
         IntHolder _proxyId = new IntHolder();
         IntHolder _adminId = new IntHolder();
@@ -80,8 +80,8 @@ public class AnyPullReceiver
             ProxyPullSupplierHelper.narrow(myAdmin_.
                                            obtain_notification_pull_supplier(ClientType.ANY_EVENT, _proxyId));
 
-        testCase_.getSetup().assertEquals(ProxyType._PULL_ANY,
-                                          mySupplier_.MyType().value());
+        testCase_.assertEquals(ProxyType._PULL_ANY,
+                               mySupplier_.MyType().value());
 
 
         mySupplier_.connect_any_pull_consumer(_this(orb_));
