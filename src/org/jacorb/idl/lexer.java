@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.46 2004-01-30 13:40:31 gerald Exp $
+ * @version $Id: lexer.java,v 1.47 2004-02-13 14:01:07 nick.cross Exp $
  * @author Gerald Brose
  *
  */
@@ -1326,7 +1326,6 @@ public class lexer
                             }
                             catch( NumberFormatException ex2 )
                             {
-                                ex2.printStackTrace ();
                                 emit_error( "Invalid octal/hex value:  " + str );
                             }
                         }
@@ -1443,7 +1442,6 @@ public class lexer
                                 }
                                 catch (NumberFormatException ex3)
                                 {
-                                    ex2.printStackTrace ();
                                     emit_error( "Invalid long value:  " + str );
                                 }
                             }
