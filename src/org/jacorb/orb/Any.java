@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.19 2002-01-11 21:35:45 gerald Exp $ 
+ * $Id: Any.java,v 1.20 2002-02-19 17:23:36 jason.courage Exp $ 
  * 
  */
 
@@ -516,17 +516,40 @@ public final class Any
 
         org.omg.CORBA.ORB orb;
         String typeId = null;
-        String name = "*** don\'t know yet ***";
+        String name = "";
 
         if( value == null )
         {
             orb = org.omg.CORBA.ORB.init();
             typeId = "IDL:omg.org/CORBA/Object:1.0";
+            name = "Object";
         }
         else
         {            
             orb = ((org.omg.CORBA.portable.ObjectImpl)o)._orb();
             typeId = ((org.omg.CORBA.portable.ObjectImpl)o)._ids()[0];
+
+            // check if the repository Id is IDL format
+            if (typeId.startsWith ("IDL:"))
+            {
+               // parse the name from the repository Id string
+               try
+               {
+                  name = typeId.substring (0, typeId.lastIndexOf (':'));
+                  int start = name.lastIndexOf ('/');
+
+                  if (start == -1)
+                  {
+                     start = name.lastIndexOf (':');
+                  }
+                  name = name.substring (start + 1);
+               }
+               catch (Exception ex)
+               {
+                  name = null;
+                  ex.printStackTrace ();
+               }
+            }               
         }
         typeCode = orb.create_interface_tc( typeId , name );
     }
