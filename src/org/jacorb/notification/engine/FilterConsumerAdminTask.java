@@ -30,7 +30,7 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.9 2004-02-11 21:20:41 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.10 2004-03-17 23:04:08 alphonse.bendt Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask
@@ -114,13 +114,13 @@ public class FilterConsumerAdminTask extends AbstractFilterTask
             AbstractDeliverTask[] _listOfPushToConsumerTaskToBeScheduled = null;
 
             _listOfPushToConsumerTaskToBeScheduled =
-                taskFactory_.newPushToConsumerTask(_filterStagesWithMessageConsumer,
-                                                        copyMessage());
+                getTaskFactory().newPushToConsumerTask(_filterStagesWithMessageConsumer,
+                                                       copyMessage());
 
             AbstractDeliverTask.scheduleTasks(_listOfPushToConsumerTaskToBeScheduled);
         }
 
-        _filterTaskToBeScheduled = taskFactory_.newFilterProxySupplierTask( this );
+        _filterTaskToBeScheduled = getTaskFactory().newFilterProxySupplierTask( this );
 
         _filterTaskToBeScheduled.schedule();
 
