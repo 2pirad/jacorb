@@ -29,7 +29,7 @@ import java.io.*;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose
- * @version $Id: KeyStoreUtil.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.9 2004-11-18 17:31:02 nicolas Exp $
  */
 
 public class KeyStoreUtil
@@ -41,9 +41,11 @@ public class KeyStoreUtil
      */
 
     public static KeyStore getKeyStore( String file_name, 
-					char[] storepass )
+                                        char[] storepass )
         throws IOException, java.security.GeneralSecurityException
     {
+        InputStream in = null;
+        
         //try unchanged name first
         File f = new File( file_name );        
         if( ! f.exists() )
@@ -56,14 +58,31 @@ public class KeyStoreUtil
 
             f = new File( name );
             
-            if( ! f.exists() )
+            if(f.exists())
             {
-                throw new IOException("Unable to find keystore file" + 
-                                      (new File( file_name )).getAbsolutePath() );
+                in = new FileInputStream( f );
             }
         }
+        else
+        {
+            in = new FileInputStream( f );
+        }
 
-        FileInputStream in = new FileInputStream( f );
+        if (in == null)
+        {
+            java.net.URL url = 
+                Thread.currentThread().getContextClassLoader().getResource(file_name);
+            if (url != null)           
+            {
+                in = url.openStream();
+            }
+            else
+            {
+                throw new IOException("Unable to find keystore file " + 
+                                      file_name);
+            }        
+        }
+
         KeyStore ks = KeyStore.getInstance( "JKS" );	
         ks.load( in, storepass );
         in.close();
