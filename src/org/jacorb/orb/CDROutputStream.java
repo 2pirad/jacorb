@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.41 2002-03-12 18:28:20 steve.osselton Exp $
+ * @version     $Id: CDROutputStream.java,v 1.42 2002-03-18 17:05:21 steve.osselton Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -1584,7 +1584,8 @@ public class CDROutputStream
             {
                 try
                 {       
-                    TypeCode disc = (TypeCode)tc.discriminator_type();
+                    TypeCode disc = (TypeCode) tc.discriminator_type();
+                    disc = disc.originalType ();
                     int def_idx = tc.default_index();
                     int member_idx = -1;
 
@@ -1750,7 +1751,8 @@ public class CDROutputStream
                             break;
                         }           
                         default:
-                            throw new org.omg.CORBA.MARSHAL("Unfinished implementation for unions in anys");
+                           throw new org.omg.CORBA.MARSHAL
+                               ("Invalid union discriminator type: " + disc);
                     }
 
                     // write the member or default value, if any

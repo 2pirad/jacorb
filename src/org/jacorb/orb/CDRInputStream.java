@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.40 2002-03-18 16:52:19 spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.41 2002-03-18 17:05:21 steve.osselton Exp $
  */
 
 public class CDRInputStream
@@ -1425,7 +1425,8 @@ public class CDRInputStream
 	case TCKind._tk_union:
 	    try
 	    {
-		org.omg.CORBA.TypeCode disc = tc.discriminator_type();
+		TypeCode disc = (TypeCode) tc.discriminator_type ();
+                disc = disc.originalType ();
 		int def_idx = tc.default_index();
 		int member_idx = -1;
 		switch( disc.kind().value() )
@@ -1588,7 +1589,8 @@ public class CDRInputStream
 			break;
 		    }
 		default:
-		    throw new org.omg.CORBA.MARSHAL("Unfinished implementation for unions in anys");
+		    throw new org.omg.CORBA.MARSHAL
+                        ("Invalid union discriminator type: " + disc);
 		} // switch
 
 		if( member_idx != -1 )
