@@ -30,7 +30,7 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTask.java,v 1.4 2004-01-16 17:21:27 alphonse.bendt Exp $
+ * @version $Id: AbstractTask.java,v 1.5 2004-01-17 01:14:57 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTask
@@ -52,8 +52,8 @@ public abstract class AbstractTask
     protected AbstractTask() {
     }
 
-    protected AbstractTask(TaskExecutor executor, TaskProcessor tp, TaskFactory tf) {
-        executor_ = executor;
+    protected AbstractTask(TaskExecutor ex, TaskProcessor tp, TaskFactory tf) {
+        executor_ = ex;
         taskProcessor_ = tp;
         taskFactory_ = tf;
     }
@@ -151,7 +151,8 @@ public abstract class AbstractTask
      * run this Task on the calling Thread.
      * @exception InterruptedException if an error occurs
      */
-    public void schedule(boolean directRunAllowed) throws InterruptedException
+    public void schedule(boolean directRunAllowed)
+        throws InterruptedException
     {
         if (directRunAllowed && executor_.isTaskQueued()) {
             run();
@@ -168,7 +169,9 @@ public abstract class AbstractTask
      * @param directRunAllowed a <code>boolean</code> value
      * @exception InterruptedException if an error occurs
      */
-    public void schedule(TaskExecutor executor, boolean directRunAllowed) throws InterruptedException
+    public void schedule(TaskExecutor executor,
+                         boolean directRunAllowed)
+        throws InterruptedException
     {
         if (directRunAllowed  && executor_.isTaskQueued()) {
             run();

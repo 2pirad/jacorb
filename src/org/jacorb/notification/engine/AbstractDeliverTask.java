@@ -29,7 +29,7 @@ import org.omg.CORBA.OBJECT_NOT_EXIST;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractDeliverTask.java,v 1.2 2004-01-16 17:21:27 alphonse.bendt Exp $
+ * @version $Id: AbstractDeliverTask.java,v 1.3 2004-01-17 01:14:31 alphonse.bendt Exp $
  */
 
 public abstract class AbstractDeliverTask extends AbstractTask
@@ -54,6 +54,7 @@ public abstract class AbstractDeliverTask extends AbstractTask
         }
     }
 
+    ////////////////////////////////////////
 
     public void reset()
     {

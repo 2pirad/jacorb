@@ -29,7 +29,7 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimerDeliverTask.java,v 1.5 2004-01-16 17:21:27 alphonse.bendt Exp $
+ * @version $Id: TimerDeliverTask.java,v 1.6 2004-01-17 01:15:36 alphonse.bendt Exp $
  */
 
 public class TimerDeliverTask extends AbstractDeliverTask
@@ -38,6 +38,8 @@ public class TimerDeliverTask extends AbstractDeliverTask
     TimerDeliverTask(TaskExecutor te, TaskProcessor tp, TaskFactory tc) {
         super(te, tp, tc);
     }
+
+    ////////////////////////////////////////
 
     public void doWork() throws Disconnected, NotConnected, InterruptedException
     {

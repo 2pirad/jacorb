@@ -38,10 +38,11 @@ import org.omg.CosNotification.StructuredEvent;
 
 import EDU.oswego.cs.dl.util.concurrent.ClockDaemon;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.notification.engine.TaskProcessor.EnableMessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.9 2004-01-16 17:21:27 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.10 2004-01-17 01:15:36 alphonse.bendt Exp $
  */
 
 public class TaskProcessor implements Disposable
@@ -152,7 +153,9 @@ public class TaskProcessor implements Disposable
                 scheduleTimedPushTask(messageConsumer_);
             }
             catch (InterruptedException e)
-            {}
+            {
+                logger_.error("Interrupted", e);
+            }
         }
     }
 

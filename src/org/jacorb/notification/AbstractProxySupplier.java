@@ -42,7 +42,7 @@ import java.util.Map;
  * </ul>
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.3 2004-01-16 17:25:05 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.4 2004-01-17 01:11:56 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier
@@ -100,6 +100,8 @@ public abstract class AbstractProxySupplier
         init(appContext, qosProperties);
     }
 
+    ////////////////////////////////////////
+
     private void init(ApplicationContext appContext,
                       PropertyManager qosProperties)
         throws UnsupportedQoS
@@ -115,6 +117,7 @@ public abstract class AbstractProxySupplier
 
         logger_.info(toString() + ": set Error Threshold to : " + errorThreshold_);
     }
+
 
     public TaskExecutor getExecutor() {
         return taskExecutor_;

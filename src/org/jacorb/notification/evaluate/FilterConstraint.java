@@ -49,7 +49,7 @@ import org.apache.avalon.framework.logger.Logger;
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.5 2004-01-16 17:01:28 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.6 2004-01-17 01:16:18 alphonse.bendt Exp $
  */
 
 public class FilterConstraint
@@ -125,6 +125,7 @@ public class FilterConstraint
     public String toString()
     {
         StringBuffer _b = new StringBuffer("<FilterConstraint: ");
+
         rootNode_.printToStringBuffer(_b);
         _b.append(" >");
 
