@@ -43,7 +43,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.14 2004-02-11 21:28:31 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.15 2004-02-13 18:21:58 alphonse.bendt Exp $
  */
 
 public class TaskProcessor implements Disposable
@@ -429,7 +429,7 @@ public class TaskProcessor implements Disposable
      * TimerEventSupplier
      */
     public void scheduleTimedPullTask( TimerEventSupplier dest )
-    throws InterruptedException
+        throws InterruptedException
     {
         PullFromSupplierTask _task = new PullFromSupplierTask(pullTaskExecutor_);
 
