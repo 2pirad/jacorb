@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.28 2001-11-02 16:09:53 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.29 2001-11-09 08:23:55 jacorb Exp $
  *
  */
 
@@ -1098,11 +1098,11 @@ public final class Delegate
                 ((org.jacorb.orb.ORB)orb).findPOA( this, self );
             if( local_poa != null ) // && local_poa._localStubsSupported() )
                 poa = local_poa;
-            Debug.output(3, "Delegate.is_local found " + 
-                         ( local_poa != null ? " a " : " no ") + " local POA");
+//              Debug.output( 3, "Delegate.is_local found " + 
+//                           ( local_poa != null ? " a " : " no ") + " local POA");
         }
         resolved_locality = true;
-        Debug.output(3, "Delegate.is_local returns " + (poa != null ));
+        Debug.output( 5, "Delegate.is_local returns " + (poa != null ));
         return poa != null;
     }
 
