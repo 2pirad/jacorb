@@ -29,7 +29,7 @@ import java.io.*;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose
- * @version $Id: KeyStoreUtil.java,v 1.9 2004-11-18 17:31:02 nicolas Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.10 2004-11-24 15:45:24 nicolas Exp $
  */
 
 public class KeyStoreUtil
@@ -45,42 +45,42 @@ public class KeyStoreUtil
         throws IOException, java.security.GeneralSecurityException
     {
         InputStream in = null;
-        
-        //try unchanged name first
-        File f = new File( file_name );        
-        if( ! f.exists() )
-        {
-            //try to prepend home dir
-            String name = 
-                System.getProperty( "user.home" ) +
-                System.getProperty( "file.separator" ) +
-                file_name;
 
-            f = new File( name );
-            
-            if(f.exists())
+        java.net.URL url = 
+            Thread.currentThread().getContextClassLoader().getResource(file_name);
+        if (url != null)           
+        {
+            in = url.openStream();
+        }
+        else
+        {        
+            //try unchanged name first
+            File f = new File( file_name );        
+            if( ! f.exists() )
+            {
+                //try to prepend home dir
+                String name = 
+                    System.getProperty( "user.home" ) +
+                    System.getProperty( "file.separator" ) +
+                    file_name;
+                
+                f = new File( name );
+                
+                if(f.exists())
+                {
+                    in = new FileInputStream( f );
+                }
+            }
+            else
             {
                 in = new FileInputStream( f );
             }
         }
-        else
-        {
-            in = new FileInputStream( f );
-        }
 
         if (in == null)
         {
-            java.net.URL url = 
-                Thread.currentThread().getContextClassLoader().getResource(file_name);
-            if (url != null)           
-            {
-                in = url.openStream();
-            }
-            else
-            {
                 throw new IOException("Unable to find keystore file " + 
                                       file_name);
-            }        
         }
 
         KeyStore ks = KeyStore.getInstance( "JKS" );	
