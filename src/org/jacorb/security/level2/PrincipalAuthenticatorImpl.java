@@ -20,7 +20,7 @@ import org.jacorb.security.util.*;
  * from a Java key store
  *
  * @author Gerald Brose
- * $Id: PrincipalAuthenticatorImpl.java,v 1.5 2001-06-21 13:33:54 noffke Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.6 2001-06-25 13:25:20 noffke Exp $
  */
 
 public class PrincipalAuthenticatorImpl
@@ -115,7 +115,8 @@ public class PrincipalAuthenticatorImpl
 
             if( cert_chain == null )
             {
-                Debug.output( 0, "No keys found for alias!" );
+                Debug.output( 0, "No keys found in keystore for alias \""+
+                              loginData.alias + "\"!" );
 
                 if( Environment.getProperty( "jacorb.security.default_user" ) != null )
                 {
