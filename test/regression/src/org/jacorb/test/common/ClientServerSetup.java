@@ -73,7 +73,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.12 2003-12-23 15:09:44 francisco Exp $
+ * @version $Id: ClientServerSetup.java,v 1.13 2004-01-03 10:25:12 andre.spiegel Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -119,6 +119,10 @@ public class ClientServerSetup extends TestSetup {
 
     public void setUp() throws Exception
     {
+        // Environment needs to be reset because subsequent tests
+        // reuse the same "instance" of the static Environment class.
+        org.jacorb.util.Environment.init();
+        
         clientOrb = ORB.init (new String[0], clientOrbProperties );
         clientRootPOA = POAHelper.narrow
                           ( clientOrb.resolve_initial_references( "RootPOA" ) );
