@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.10 2002-02-26 12:07:06 steve.osselton Exp $
+ * @version $Id: ConstDecl.java,v 1.11 2002-02-26 13:13:42 steve.osselton Exp $
  */
 
 import java.util.*;
@@ -268,7 +268,7 @@ class ConstDecl
 	    else if (ts instanceof FixedPointConstType ||
                      ts instanceof FixedPointType)
 	    {
-		pw.println("new java.math.BigDecimal(" + const_expr.toString() + ");");
+		pw.println("new java.math.BigDecimal (" + const_expr.toString() + "d);");
 	    }
 	    else
             {
