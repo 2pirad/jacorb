@@ -36,7 +36,7 @@ import java.net.*;
  * references only.
  *
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose, Jeff Carlson
- * @version $Id: EventChannelImpl.java,v 1.7.2.1 2002-07-29 07:39:45 nicolas Exp $
+ * @version $Id: EventChannelImpl.java,v 1.7.2.2 2002-07-29 12:25:53 nicolas Exp $
  */
 
 public class EventChannelImpl extends JacORBEventChannelPOA
@@ -234,35 +234,33 @@ public class EventChannelImpl extends JacORBEventChannelPOA
     ProxyPullSupplierImpl pull = null;
     synchronized( pushSuppliers )
     {
-      for (int i=0, n=pushSuppliers.size(); i < n; i++ )
+      for(int i = (pushSuppliers.size() - 1); i >= 0; --i )
       {
-        push = (ProxyPushSupplierImpl)pushSuppliers.elementAt( i );
+        push = (ProxyPushSupplierImpl) pushSuppliers.elementAt( i );
         try
         {
-          push.push_to_consumer( event );
+            push.push_to_consumer( event );
         }
         catch( org.omg.CORBA.COMM_FAILURE comm )
         {
-          pushSuppliers.removeElementAt( i );
-          --i;
-          --n;
+            pushSuppliers.removeElementAt( i );
         }
       }
     }
+
     synchronized( pullSuppliers )
     {
-      for (int i=0, n=pullSuppliers.size(); i < n; i++ )
+      for (int i = (pullSuppliers.size() - 1); i >= 0; --i )
       {
         pull = (ProxyPullSupplierImpl)pullSuppliers.elementAt( i );
+
         try
         {
-          pull.push_to_supplier( event );
+            pull.push_to_supplier( event );
         }
         catch( org.omg.CORBA.COMM_FAILURE comm )
         {
-          pullSuppliers.removeElementAt( i );
-          --i;
-          --n;
+            pullSuppliers.removeElementAt( i );
         }
       }
     }
