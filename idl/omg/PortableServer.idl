@@ -1,13 +1,13 @@
 // CORBA V2.6
 // PORTABLE OBJECT ADAPTER, Chapter 9
-// $Id: PortableServer.idl,v 1.7 2002-05-08 14:49:08 gerald Exp $
+// $Id: PortableServer.idl,v 1.8 2004-02-02 08:56:54 gerald Exp $
 
 #ifndef _POA_IDL_
 #define _POA_IDL_
 
 #pragma prefix "omg.org"
 
-#include <Corba.idl>
+#include <orb.idl>
 
 module PortableServer
 {
