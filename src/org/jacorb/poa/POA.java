@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.27 2002-06-21 15:07:49 steve.osselton Exp $
+ * @version $Id: POA.java,v 1.28 2002-07-19 15:03:11 steve.osselton Exp $
  */
 
 public class POA
@@ -1853,5 +1853,10 @@ public class POA
     public void removeLocalRequest ()
     {
         requestController.removeLocalRequest ();
+    }
+
+    public int getNumberOfObjects ()
+    {
+        return aom.size ();
     }
 }
