@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.10 2001-10-02 13:50:49 jacorb Exp $ 
+ * $Id: Any.java,v 1.11 2001-10-02 14:15:28 jacorb Exp $ 
  * 
  */
 
@@ -170,7 +170,8 @@ public final class Any
                 case TCKind._tk_alias:
                     return true;
         default:
-            throw new RuntimeException("Cannot compare anys with type kind " + kind);
+            throw new RuntimeException("Cannot compare anys with type kind " 
+                                       + kind);
         }           
  
 //              return ((org.jacorb.orb.Any)a).value().equals(value()); // compare values
