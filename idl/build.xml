@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.46 2004-02-02 08:57:32 gerald Exp $ -->
+   <!-- $Id: build.xml,v 1.47 2004-02-13 12:34:33 nick.cross Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -53,8 +53,6 @@
         includepath="${idl}/omg"
          includes="omg/Corba.idl"
          destdir="${src}/generated"/>
-         <!--all="true"-->
-
 
       <delete file="${src}/generated/org/omg/CORBA/Policy.java"/>
       <delete file="${src}/generated/org/omg/CORBA/TypeCode.java"/>
@@ -670,7 +668,7 @@
    <!--                       CORBA                          -->
    <!-- ==================================================== -->
 
-   <target name="jacorb" depends="init, load-taskdef,imr, proxy,sasPolicy"/>
+   <target name="jacorb" depends="imr,proxy,sasPolicy"/>
 
    <target name="imr">
       <jacidl srcdir="${idl}/jacorb"

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.30 2004-01-15 12:38:18 nick.cross Exp $
+ * @version $Id: ScopedName.java,v 1.31 2004-02-13 12:34:33 nick.cross Exp $
  *
  */
 
@@ -594,9 +594,6 @@ public class ScopedName
         if( n.endsWith( "PackagePackage" ) || !n.startsWith( "_" ) && n.endsWith( "Package" ) )
             n = n.substring( 0, n.lastIndexOf( "Package" ) );
 
-        int i = n.indexOf( '.' );
-        if( i > 0 && parser.hasImports() )
-            n = n.substring( i + 1 );
         return n;
     }
 

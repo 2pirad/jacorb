@@ -27,7 +27,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.20 2004-01-15 12:38:18 nick.cross Exp $
+ * @version $Id: GlobalInputStream.java,v 1.21 2004-02-13 12:34:33 nick.cross Exp $
  */
 
 public class GlobalInputStream
@@ -158,8 +158,7 @@ public class GlobalInputStream
                 }
                 catch(java.io.IOException ioe)
                 {
-                    // should not happen
-                    ioe.printStackTrace();
+                    logger.error("Caught error finding file ", ioe);
                 }
 
                 if (logger.isInfoEnabled())
