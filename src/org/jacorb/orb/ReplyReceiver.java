@@ -48,7 +48,7 @@ import java.util.*;
  * ReplyHandler. 
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.4 2002-11-21 11:06:55 andre.spiegel Exp $
+ * @version $Id: ReplyReceiver.java,v 1.5 2002-12-05 17:39:04 nicolas Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -64,12 +64,17 @@ public class ReplyReceiver extends ReplyPlaceholder
     private SystemException      systemException      = null;
     private ApplicationException applicationException = null;
 
+    
+
     public ReplyReceiver( org.jacorb.orb.Delegate        delegate,
                           String                         operation,
                           org.omg.TimeBase.UtcT          roundtripTimeout,
                           ClientInterceptorHandler       interceptors,
-                          org.omg.Messaging.ReplyHandler replyHandler )
+                          org.omg.Messaging.ReplyHandler replyHandler,
+                          boolean remarshalOnCF )
     {        
+        super( remarshalOnCF );
+
         this.delegate         = delegate;
         this.operation        = operation;
         this.roundtripTimeout = roundtripTimeout;
