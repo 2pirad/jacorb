@@ -30,7 +30,7 @@ import org.jacorb.util.*;
  * Created: Sat Aug 18 10:52:45 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: MessageReceptor.java,v 1.7 2003-01-13 09:03:56 nicolas Exp $
  */
 
 public class MessageReceptor 
@@ -51,10 +51,6 @@ public class MessageReceptor
         try
         {
             ((GIOPConnection) job).receiveMessages();
-        }
-        catch( CloseConnectionException cce )
-        {
-            //ignore
         }
         catch( Exception e )
         {

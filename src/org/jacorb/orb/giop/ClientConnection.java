@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.33 2003-01-07 18:06:59 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.34 2003-01-13 09:03:56 nicolas Exp $
  */
 
 public class ClientConnection
@@ -312,15 +312,19 @@ public class ClientConnection
                                          GIOPConnection connection )
     {
         Debug.output( 2, "Received a CloseConnection message" );
-        gracefulStreamClose = true;
-        connection.closeAllowReopen();
 
-        //since this is run on the message receptor thread itself, it
-        //will not try to read again after returning, because it just
-        //closed the transport itself. Therefore, no exception goes
-        //back up into the GIOPConnection, where streamClosed() will
-        //be called. Ergo, we need to call streamClosed() ourselves.
-        streamClosed();
+        if( client_initiated )
+        {
+            gracefulStreamClose = true;
+            ((ClientGIOPConnection) connection).closeAllowReopen();
+            
+            //since this is run on the message receptor thread itself, it
+            //will not try to read again after returning, because it just
+            //closed the transport itself. Therefore, no exception goes
+            //back up into the GIOPConnection, where streamClosed() will
+            //be called. Ergo, we need to call streamClosed() ourselves.
+            streamClosed();
+        }
     }
 
 
@@ -355,7 +359,6 @@ public class ClientConnection
                 }
                 else
                 {
-                    Debug.printTrace( 2 );
                     Debug.output( 1, "ERROR: Abnormal connection termination. Lost " +
                                   replies.size() + " outstanding replie(s)!");
                 }

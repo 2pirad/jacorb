@@ -1,5 +1,3 @@
-package org.jacorb.orb.connection;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -20,19 +18,26 @@ package org.jacorb.orb.connection;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+package org.jacorb.orb.connection;
 
-public class  CloseConnectionException
-	extends java.io.IOException
+import java.io.IOException;
+
+/**
+ * TransportListener.java
+ *
+ *
+ * Created: Sun Aug 12 20:14:16 2002
+ *
+ * @author Nicolas Noffke
+ * @version $Id: TransportListener.java,v 1.1 2003-01-13 09:03:56 nicolas Exp $
+ */
+
+public interface TransportListener
 {
-    public CloseConnectionException()
-    {
-        super();
-    }
+    public void readTimedOut();
 
-    public CloseConnectionException( String s )
-    {
-        super( s );
-    }
-}
+    public void streamClosed();
+}// Transport
+
 
 

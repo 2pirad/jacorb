@@ -25,7 +25,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.1 2003-01-07 18:06:59 nicolas Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.2 2003-01-13 09:03:56 nicolas Exp $
  */
 
 public class GIOPConnectionManager 
@@ -131,9 +131,9 @@ public class GIOPConnectionManager
         RequestListener request_listener,
         ReplyListener reply_listener )
     {
-        return new GIOPConnection( transport,
-                                   request_listener,
-                                   reply_listener );
+        return new ClientGIOPConnection( transport,
+                                         request_listener,
+                                         reply_listener );
     }
 
 }// GIOPConnectionManager
