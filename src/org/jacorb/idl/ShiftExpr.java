@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ShiftExpr.java,v 1.4 2001-05-01 08:13:37 jacorb Exp $
+ * @version $Id: ShiftExpr.java,v 1.5 2001-05-29 11:40:07 jacorb Exp $
  */
 
 import java.util.*;
@@ -45,6 +45,11 @@ class ShiftExpr
             ps.print( operator );
         } 
         add_expr.print(ps);
+    }
+
+    public void setContained( boolean contained )
+    {
+        add_expr.setContained( contained );
     }
 
     public void setPackage( String s)

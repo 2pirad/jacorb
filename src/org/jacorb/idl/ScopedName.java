@@ -24,23 +24,24 @@ package org.jacorb.idl;
  * IDL scoped names
  * 
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.5 2001-03-27 12:01:20 noffke Exp $
+ * @version $Id: ScopedName.java,v 1.6 2001-05-29 11:40:07 jacorb Exp $
  *
  */
 
-import java.util.Vector;
-import java.util.Enumeration;
+import java.util.*;
 import java.io.*;
 
 class ScopedName 
     extends SimpleTypeSpec 
     implements SwitchTypeSpec 
 {
-    private static java.util.Hashtable pseudoScopes = 
-	new java.util.Hashtable();
+    private static Hashtable pseudoScopes = 
+	new Hashtable();
 
-    private static java.util.Hashtable enumMap = 
-	new java.util.Hashtable();
+    private static Hashtable enumMap = 
+	new Hashtable();
+
+    private static Stack recursionStack = new Stack();
 
     /** 
      *  Interfaces define a new scope, but since we can't do that 
@@ -637,6 +638,26 @@ class ScopedName
         sb.append( n.substring( from ));
 
         return sb.toString();
+    }
+
+    public static void addRecursionScope(String typeName)
+    {
+        Environment.output(2 ,"addRecursionScope " +  typeName  );
+        recursionStack.push( typeName );
+    }
+
+    public static void removeRecursionScope( String typeName )
+    {
+        String check = (String)recursionStack.pop();
+        if( typeName != null && ( check == null || !check.equals( typeName )))
+            throw new RuntimeException("RecursionScope Error, expected " + typeName + ", got " + check);
+    }
+
+    public static boolean isRecursionScope(String typeName)
+    {
+        Environment.output(2 ,"Check isRecursionScope " +  typeName  + " " + recursionStack.search( typeName ));
+
+        return (recursionStack.search( typeName ) != -1);
     }
 
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.5 2001-03-27 12:01:22 noffke Exp $
+ * @version $Id: TypeMap.java,v 1.6 2001-05-29 11:40:08 jacorb Exp $
  */
 
 import java.util.*;
@@ -106,6 +106,7 @@ class TypeMap
 	else
 	    throw new RuntimeException("Could not find forward declaration!");
     }
+
 
 }	
 

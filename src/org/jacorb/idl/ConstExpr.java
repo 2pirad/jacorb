@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.4 2001-05-01 08:13:36 jacorb Exp $
+ * @version $Id: ConstExpr.java,v 1.5 2001-05-29 11:40:06 jacorb Exp $
  */
 
 class ConstExpr 
@@ -38,9 +38,13 @@ class ConstExpr
     }
 
     public void parse() 
-         
     {
         or_expr.parse();
+    }
+
+    public void setContained( boolean contained )
+    {
+        or_expr.setContained( contained );
     }
 
     public void print(PrintWriter ps)

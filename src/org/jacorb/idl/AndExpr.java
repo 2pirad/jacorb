@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AndExpr.java,v 1.4 2001-05-01 08:13:36 jacorb Exp $
+ * @version $Id: AndExpr.java,v 1.5 2001-05-29 11:40:05 jacorb Exp $
 */
 
 class AndExpr 
@@ -47,6 +47,11 @@ class AndExpr
             ps.print(" & ");
         }
         shift_expr.print(ps);
+    }
+
+    public void setContained( boolean contained )
+    {
+        shift_expr.setContained( contained );
     }
 
     public void setPackage( String s)

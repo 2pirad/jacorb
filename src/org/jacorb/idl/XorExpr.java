@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: XorExpr.java,v 1.4 2001-05-01 08:13:38 jacorb Exp $
+ * @version $Id: XorExpr.java,v 1.5 2001-05-29 11:40:08 jacorb Exp $
  */
 
 class XorExpr 
@@ -45,6 +45,11 @@ class XorExpr
             ps.print(" ^ ");
         }
         and_expr.print(ps);
+    }
+
+    public void setContained( boolean contained )
+    {
+        and_expr.setContained( contained );
     }
 
     public void setPackage( String s)

@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.7 2001-04-17 07:53:04 jacorb Exp $
+ * @version $Id: EnumType.java,v 1.8 2001-05-29 11:40:06 jacorb Exp $
  */
 
 class EnumType 
@@ -49,6 +49,7 @@ class EnumType
         et.enumlist = this.enumlist;
         et.pack_name = this.pack_name;
         et.name = this.name;
+        et.token = this.token;
         et.included = this.included;
         et.enclosing_symbol = this.enclosing_symbol;
         return et;

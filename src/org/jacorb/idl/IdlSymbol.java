@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.4 2001-03-27 12:01:18 noffke Exp $
+ * @version $Id: IdlSymbol.java,v 1.5 2001-05-29 11:40:06 jacorb Exp $
  */
 
 class IdlSymbol 
@@ -42,7 +42,7 @@ class IdlSymbol
     protected boolean included = false;
     protected boolean inhibitionFlag = false;
     str_token token;
-    private String _id;
+    protected String _id;
     private String _version;
     protected IdlSymbol enclosing_symbol;
     protected String omg_package_prefix = "";
@@ -257,7 +257,6 @@ class IdlSymbol
 
         if( _id == null )
         {
-
             //	    while( enc != null && enc.getEnclosingSymbol() != null )
             while( enc != null  )
             {
@@ -309,6 +308,7 @@ class IdlSymbol
 				//		_id = org.jacorb.orb.ir.RepositoryID.toRepositoryID( full_name());
             }
         }
+        Environment.output(2, "Id for name " + name + " is " + _id );
         return _id;
     }
 	
@@ -400,8 +400,6 @@ class IdlSymbol
 
 
 }
-
-
 
 
 

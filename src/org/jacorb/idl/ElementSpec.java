@@ -21,7 +21,7 @@ package org.jacorb.idl;
  */
 
 /**
- * @version $Id: ElementSpec.java,v 1.4 2001-03-27 12:30:56 jacorb Exp $
+ * @version $Id: ElementSpec.java,v 1.5 2001-05-29 11:40:06 jacorb Exp $
  */ 
 
 class ElementSpec  
@@ -67,9 +67,20 @@ class ElementSpec
             if( t.typeSpec() instanceof SequenceType )
             {
                 TypeSpec ts = ((SequenceType)t.typeSpec()).elementTypeSpec().typeSpec();
-                if( ts.typeName().equals( containingUnion.typeName() ))
+                SequenceType seqTs = (SequenceType)t.typeSpec();
+                while( ts instanceof SequenceType )
                 {
-                    ((SequenceType)t.typeSpec()).setRecursive();
+                    seqTs = (SequenceType)ts;
+                    ts = ((SequenceType)ts.typeSpec()).elementTypeSpec().typeSpec();
+                }
+
+                System.out.println("ElementSpec: ts.typeName = " + ts.typeName() + 
+                                   " containingUnion.typeName() " + containingUnion.full_name() );
+
+                //                if( ts.typeName().equals( containingUnion.typeName() ) ||
+                if( ScopedName.isRecursionScope( ts.typeName() ) )
+                {
+                    ((SequenceType)seqTs.typeSpec()).setRecursive();
                 }
             }
 	}

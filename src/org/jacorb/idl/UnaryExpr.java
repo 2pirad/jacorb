@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnaryExpr.java,v 1.4 2001-05-01 08:13:37 jacorb Exp $
+ * @version $Id: UnaryExpr.java,v 1.5 2001-05-29 11:40:08 jacorb Exp $
  */
 
 class UnaryExpr 
@@ -43,6 +43,12 @@ class UnaryExpr
         ps.print( unary_op);
         primary_expr.print(ps);
     }
+
+    public void setContained( boolean contained )
+    {
+        primary_expr.setContained( contained );
+    }
+
     public void setPackage( String s)
     {
         s = parser.pack_replace(s);

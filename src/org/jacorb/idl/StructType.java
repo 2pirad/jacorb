@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.7 2001-04-05 09:21:00 jacorb Exp $
+ * @version $Id: StructType.java,v 1.8 2001-05-29 11:40:07 jacorb Exp $
  */
 
 class StructType 
@@ -157,6 +157,7 @@ class StructType
 	    // as the package name for the new pseudo scope!
 
 	    ScopedName.definePseudoScope( full_name());
+
 	    ConstrTypeSpec ctspec = new ConstrTypeSpec( new_num() );
 	    ctspec.c_type_spec = this;
 
@@ -170,7 +171,10 @@ class StructType
 	}
 	if( memberlist != null )
 	{
+            ScopedName.addRecursionScope( typeName()  );
+
 	    memberlist.parse();
+            ScopedName.removeRecursionScope( typeName()  );
 	}
 
 	parsed = true;
