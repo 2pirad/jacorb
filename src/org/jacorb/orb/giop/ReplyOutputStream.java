@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.11 2002-04-08 17:42:28 nicolas Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.12 2002-05-01 11:08:55 steve.osselton Exp $
  *
  */
 
@@ -67,7 +67,7 @@ public class ReplyOutputStream
 
                 //GIOP 1.1
                 ReplyHeader_1_0 repl_hdr = 
-                    new ReplyHeader_1_0( alignment_ctx,
+                    new ReplyHeader_1_0( service_context,
                                          request_id,
                                          ReplyStatusType_1_0.from_int( reply_status.value() ));
 
@@ -81,7 +81,7 @@ public class ReplyOutputStream
                 ReplyHeader_1_2 repl_hdr = 
                     new ReplyHeader_1_2( request_id,
                                          reply_status,
-                                         alignment_ctx );
+                                         service_context );
 
                 ReplyHeader_1_2Helper.write( this, repl_hdr );
 
