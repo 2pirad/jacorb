@@ -23,12 +23,13 @@ package org.jacorb.orb.dynany;
 import org.omg.CORBA.*;
 import org.omg.DynamicAny.*;
 import org.omg.DynamicAny.DynAnyPackage.*;
+import org.jacorb.orb.TypeCode;
 
 /**
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.17 2003-02-21 15:46:42 nick.cross Exp $
+ * $Id: DynAny.java,v 1.18 2003-08-22 20:20:55 francisco Exp $
  *
  */
 
@@ -55,7 +56,7 @@ public class DynAny
    {
       this.orb = org.omg.CORBA.ORB.init();
       this.dynFactory = dynFactory;
-      type = ((org.jacorb.orb.TypeCode)_type).originalType();
+      type = TypeCode.originalType( _type );
       anyRepresentation = defaultValue( type );
    }
 
@@ -103,7 +104,7 @@ public class DynAny
       if( ! value.type().equivalent( type()) )
          throw new TypeMismatch();
 
-      type = ((org.jacorb.orb.TypeCode)value.type()).originalType();
+      type = TypeCode.originalType( value.type() );
 
       try
       {

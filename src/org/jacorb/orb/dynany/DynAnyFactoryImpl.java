@@ -24,10 +24,11 @@ import java.util.*;
 import org.omg.DynamicAny.*;
 import org.omg.CORBA.TCKind;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
+import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: DynAnyFactoryImpl.java,v 1.9 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: DynAnyFactoryImpl.java,v 1.10 2003-08-22 20:20:55 francisco Exp $
  * 
  */
 
@@ -68,7 +69,7 @@ public class DynAnyFactoryImpl
     public org.omg.DynamicAny.DynAny create_dyn_any_from_type_code( org.omg.CORBA.TypeCode type ) 
 	throws InconsistentTypeCode
     {     
-        type = ((org.jacorb.orb.TypeCode)type).originalType();
+        type = TypeCode.originalType( type );
 
         try
         {

@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.64 2003-08-19 11:34:33 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.65 2003-08-22 20:20:55 francisco Exp $
  */
 
 public class CDRInputStream
@@ -1205,7 +1205,7 @@ public class CDRInputStream
                     // of label types and only the discriminator type is passed on the
                     // wire.
                     org.omg.CORBA.TypeCode orig_disc_type =
-                        ((org.jacorb.orb.TypeCode) discriminator_type).originalType();
+                        TypeCode.originalType(discriminator_type);
 
                     int default_index = read_long();
                     member_count = read_long();
@@ -1965,8 +1965,8 @@ public class CDRInputStream
             case TCKind._tk_union:
                 try
                 {
-                    TypeCode disc = (TypeCode) tc.discriminator_type ();
-                    disc = disc.originalType ();
+                    org.omg.CORBA.TypeCode disc = tc.discriminator_type ();
+                    disc = TypeCode.originalType(disc);
                     int def_idx = tc.default_index();
                     int member_idx = -1;
                     switch( disc.kind().value() )

@@ -32,7 +32,7 @@ import java.math.BigDecimal;
  * Written by Jason Courage
  *
  * @author Jason Courage, PrismTech Ltd, March 2002 
- * $Id: DynFixed.java,v 1.4 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: DynFixed.java,v 1.5 2003-08-22 20:20:55 francisco Exp $
  *
  */
 
@@ -48,8 +48,7 @@ public final class DynFixed
              org.omg.CORBA.TypeCode tc)
       throws TypeMismatch
    {
-      org.jacorb.orb.TypeCode _type = 
-         ((org.jacorb.orb.TypeCode)tc).originalType();
+      org.omg.CORBA.TypeCode _type = TypeCode.originalType( tc );
 
       if( _type.kind().value() != org.omg.CORBA.TCKind._tk_fixed )
          throw new TypeMismatch();
@@ -74,7 +73,7 @@ public final class DynFixed
       if( ! value.type().equivalent( type()) )
          throw new TypeMismatch();
 
-      type = ((org.jacorb.orb.TypeCode)value.type()).originalType();
+      type = TypeCode.originalType( value.type() );
 
       try
       {

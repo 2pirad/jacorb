@@ -31,7 +31,7 @@ import java.util.*;
  * - additional insert_void operation
  *
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.35 2003-08-19 11:32:43 andre.spiegel Exp $
+ * $Id: Any.java,v 1.36 2003-08-22 20:20:55 francisco Exp $
  *
  */
 
@@ -60,17 +60,7 @@ public final class Any
 
     public org.omg.CORBA.TypeCode originalType ()
     {
-      org.omg.CORBA.TypeCode tc = typeCode;
-      try
-      {
-         while (tc.kind().value() == org.omg.CORBA.TCKind._tk_alias)
-            tc = tc.content_type();
-      }
-      catch( org.omg.CORBA.TypeCodePackage.BadKind bk )
-      {
-         // does not happen
-      }
-      return tc;
+      return TypeCode.originalType(typeCode);
     }
 
     public void type (org.omg.CORBA.TypeCode t)

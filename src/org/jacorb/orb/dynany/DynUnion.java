@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.17 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: DynUnion.java,v 1.18 2003-08-22 20:20:55 francisco Exp $
  *
  */
 
@@ -53,8 +53,7 @@ public final class DynUnion
              org.omg.CORBA.TypeCode tc )
       throws InvalidValue, TypeMismatch
    {
-      org.jacorb.orb.TypeCode _type = 
-         ((org.jacorb.orb.TypeCode)tc).originalType();
+      org.omg.CORBA.TypeCode _type = TypeCode.originalType( tc );
 
       if( _type.kind() != org.omg.CORBA.TCKind.tk_union )
          throw new TypeMismatch();
@@ -120,7 +119,7 @@ public final class DynUnion
 
       try
       {
-         type = ((org.jacorb.orb.TypeCode)value.type()).originalType();
+         type = TypeCode.originalType( value.type() );
          super.from_any( value );
 
          limit = 2;

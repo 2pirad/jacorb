@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynEnum.java,v 1.11 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: DynEnum.java,v 1.12 2003-08-22 20:20:55 francisco Exp $
  */
 
 public final class DynEnum
@@ -43,8 +43,7 @@ public final class DynEnum
             org.omg.CORBA.TypeCode tc)
       throws InvalidValue, TypeMismatch
    {
-      org.jacorb.orb.TypeCode _type = 
-         ((org.jacorb.orb.TypeCode)tc).originalType();
+      org.omg.CORBA.TypeCode _type = TypeCode.originalType( tc );
 
       if( _type.kind().value() != org.omg.CORBA.TCKind._tk_enum )
          throw new TypeMismatch();
@@ -87,7 +86,7 @@ public final class DynEnum
       if( ! value.type().equivalent( type()) )
          throw new TypeMismatch();
 
-      type = ((org.jacorb.orb.TypeCode)value.type()).originalType();
+      type = TypeCode.originalType( value.type() );
 
       try
       {	    
