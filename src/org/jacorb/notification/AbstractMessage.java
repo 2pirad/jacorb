@@ -34,7 +34,6 @@ import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.interfaces.Message.MessageStateListener;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.AnyHolder;
 import org.omg.CORBA.ORB;
@@ -46,7 +45,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.22 2004-06-30 23:05:54 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.23 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage

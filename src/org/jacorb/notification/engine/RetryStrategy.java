@@ -20,17 +20,14 @@ package org.jacorb.notification.engine;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import org.jacorb.notification.interfaces.Disposable;
+import org.jacorb.notification.interfaces.MessageConsumer;
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CosEventComm.Disconnected;
 
-import org.jacorb.notification.interfaces.Disposable;
-import org.jacorb.notification.interfaces.MessageConsumer;
-
-import org.apache.avalon.framework.logger.Logger;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: RetryStrategy.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: RetryStrategy.java,v 1.5 2004-07-12 11:18:06 alphonse.bendt Exp $
  */
 public abstract class RetryStrategy implements Disposable
 {

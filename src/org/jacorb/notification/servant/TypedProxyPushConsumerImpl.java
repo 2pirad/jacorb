@@ -20,19 +20,22 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.jacorb.notification.interfaces.Message;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.InterfaceDef;
 import org.omg.CORBA.InterfaceDefHelper;
-import org.omg.CORBA.InterfaceDefPackage.FullInterfaceDescription;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.NVList;
-import org.omg.CORBA.ORB;
-import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CORBA.OperationDescription;
 import org.omg.CORBA.ParameterMode;
 import org.omg.CORBA.Repository;
 import org.omg.CORBA.RepositoryHelper;
 import org.omg.CORBA.ServerRequest;
+import org.omg.CORBA.InterfaceDefPackage.FullInterfaceDescription;
+import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PushSupplier;
@@ -45,14 +48,9 @@ import org.omg.PortableServer.DynamicImplementation;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
-import org.jacorb.notification.interfaces.Message;
-
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImpl.java,v 1.4 2004-06-18 23:05:33 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImpl.java,v 1.5 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImpl
     extends AbstractProxyConsumer

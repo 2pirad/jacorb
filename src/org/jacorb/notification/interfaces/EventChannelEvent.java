@@ -21,12 +21,11 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.interfaces.ApplicationEvent;
 import org.jacorb.notification.AbstractEventChannel;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelEvent.java,v 1.4 2004-05-12 11:37:24 alphonse.bendt Exp $
+ * @version $Id: EventChannelEvent.java,v 1.5 2004-07-12 11:19:03 alphonse.bendt Exp $
  */
 
 public class EventChannelEvent extends ApplicationEvent

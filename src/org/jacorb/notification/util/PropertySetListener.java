@@ -20,13 +20,14 @@ package org.jacorb.notification.util;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.List;
+
 import org.omg.CosNotification.Property;
 import org.omg.CosNotification.UnsupportedQoS;
-import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PropertySetListener.java,v 1.2 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: PropertySetListener.java,v 1.3 2004-07-12 11:20:16 alphonse.bendt Exp $
  */
 
 public interface PropertySetListener {

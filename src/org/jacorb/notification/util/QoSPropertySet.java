@@ -20,6 +20,13 @@ package org.jacorb.notification.util;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.notification.conf.Attributes;
+import org.jacorb.notification.conf.Default;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.BAD_OPERATION;
 import org.omg.CosNotification.AnyOrder;
@@ -50,18 +57,9 @@ import org.omg.CosNotification.Timeout;
 import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.TimeBase.TimeTHelper;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import org.jacorb.notification.conf.Attributes;
-import org.jacorb.notification.conf.Default;
-
-import org.apache.avalon.framework.configuration.Configuration;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: QoSPropertySet.java,v 1.5 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: QoSPropertySet.java,v 1.6 2004-07-12 11:20:16 alphonse.bendt Exp $
  */
 
 public class QoSPropertySet extends PropertySet

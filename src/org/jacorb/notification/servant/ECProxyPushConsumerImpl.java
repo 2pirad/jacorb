@@ -26,11 +26,9 @@ import org.omg.CosEventChannelAdmin.ProxyPushConsumerOperations;
 import org.omg.CosEventChannelAdmin.ProxyPushConsumerPOATie;
 import org.omg.PortableServer.Servant;
 
-import org.jacorb.notification.ChannelContext;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushConsumerImpl.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushConsumerImpl.java,v 1.5 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class ECProxyPushConsumerImpl

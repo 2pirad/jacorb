@@ -21,11 +21,10 @@ package org.jacorb.notification.filter;
  *
  */
 
-import java.lang.Exception;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EvaluationException.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: EvaluationException.java,v 1.3 2004-07-12 11:18:44 alphonse.bendt Exp $
  */
 
 public class EvaluationException extends Exception

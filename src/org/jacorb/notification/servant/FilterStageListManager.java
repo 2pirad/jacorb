@@ -20,14 +20,14 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.interfaces.FilterStage;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+import org.jacorb.notification.interfaces.FilterStage;
+
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterStageListManager.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: FilterStageListManager.java,v 1.5 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 abstract public class FilterStageListManager {

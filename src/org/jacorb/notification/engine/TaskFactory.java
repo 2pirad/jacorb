@@ -21,19 +21,15 @@ package org.jacorb.notification.engine;
  *
  */
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
 
-import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-
-import java.util.List;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskFactory.java,v 1.7 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: TaskFactory.java,v 1.8 2004-07-12 11:18:06 alphonse.bendt Exp $
  */
 
 public class TaskFactory implements Disposable,Configurable

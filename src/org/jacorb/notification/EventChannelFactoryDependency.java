@@ -20,11 +20,10 @@ package org.jacorb.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryDependency.java,v 1.3 2004-05-11 12:14:56 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryDependency.java,v 1.4 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public interface EventChannelFactoryDependency {

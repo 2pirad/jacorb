@@ -21,12 +21,12 @@ package org.jacorb.notification.engine;
  */
 
 import org.omg.CosEventComm.Disconnected;
-import org.omg.CosNotifyComm.SequencePushConsumer;
 import org.omg.CosNotification.StructuredEvent;
+import org.omg.CosNotifyComm.SequencePushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushSequenceOperation.java,v 1.3 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: PushSequenceOperation.java,v 1.4 2004-07-12 11:18:06 alphonse.bendt Exp $
  */
 public class PushSequenceOperation implements PushOperation {
 

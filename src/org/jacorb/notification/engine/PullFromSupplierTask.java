@@ -22,13 +22,11 @@ package org.jacorb.notification.engine;
  */
 
 import org.jacorb.notification.interfaces.MessageSupplier;
-import org.jacorb.notification.engine.TaskExecutor;
-
 import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.11 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: PullFromSupplierTask.java,v 1.12 2004-07-12 11:18:06 alphonse.bendt Exp $
  */
 
 public class PullFromSupplierTask extends AbstractTask

@@ -27,6 +27,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.ChannelContextDependency;
 import org.jacorb.notification.Dependant;
@@ -41,7 +44,6 @@ import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.ProxyEvent;
 import org.jacorb.notification.interfaces.ProxyEventListener;
 import org.jacorb.notification.util.QoSPropertySet;
-
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.NamedPropertyRangeSeqHolder;
@@ -61,15 +63,12 @@ import org.omg.PortableServer.Servant;
 
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Abstract Baseclass for Adminobjects.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.9 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin

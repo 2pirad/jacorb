@@ -21,12 +21,12 @@ package org.jacorb.notification.util;
  *
  */
 
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JDK14PatternWrapper.java,v 1.7 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: JDK14PatternWrapper.java,v 1.8 2004-07-12 11:20:16 alphonse.bendt Exp $
  */
 
 public class JDK14PatternWrapper extends PatternWrapper

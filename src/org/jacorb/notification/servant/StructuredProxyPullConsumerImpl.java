@@ -22,20 +22,15 @@ package org.jacorb.notification.servant;
  */
 
 
-import org.jacorb.notification.ChannelContext;
+import org.apache.avalon.framework.configuration.Configuration;
 import org.jacorb.notification.conf.Attributes;
-
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageSupplier;
-
 import org.omg.CORBA.BooleanHolder;
-import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
-import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.StructuredEvent;
-import org.omg.CosNotifyChannelAdmin.ObtainInfoMode;
 import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullConsumerOperations;
@@ -46,12 +41,10 @@ import org.omg.PortableServer.Servant;
 import EDU.oswego.cs.dl.util.concurrent.Semaphore;
 import EDU.oswego.cs.dl.util.concurrent.Sync;
 
-import org.apache.avalon.framework.configuration.Configuration;
-
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.10 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.11 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullConsumerImpl

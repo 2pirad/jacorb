@@ -21,8 +21,8 @@ package org.jacorb.notification.util;
  *
  */
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An Object that maps String Keys to Values. A WildcardMap cannot
@@ -58,7 +58,7 @@ import java.util.ArrayList;
  * </pre>
  *
  * @author Alphonse Bendt
- * @version $Id: WildcardMap.java,v 1.13 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: WildcardMap.java,v 1.14 2004-07-12 11:20:16 alphonse.bendt Exp $
  */
 
 public class WildcardMap

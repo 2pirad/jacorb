@@ -24,6 +24,9 @@ package org.jacorb.notification;
 import java.util.Hashtable;
 import java.util.Map;
 
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.notification.interfaces.Disposable;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.AnyHolder;
 import org.omg.CORBA.NO_IMPLEMENT;
@@ -40,15 +43,9 @@ import org.omg.CosNotifyFilter.MappingConstraintPair;
 import org.omg.CosNotifyFilter.MappingFilterPOA;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
-import org.jacorb.notification.interfaces.Disposable;
-
-import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.Configurable;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: MappingFilterImpl.java,v 1.12 2004-06-18 23:11:18 alphonse.bendt Exp $
+ * @version $Id: MappingFilterImpl.java,v 1.13 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class MappingFilterImpl extends MappingFilterPOA implements Disposable

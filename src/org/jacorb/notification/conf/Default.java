@@ -21,11 +21,9 @@ package org.jacorb.notification.conf;
  *
  */
 
-import org.omg.CosNotification.FifoOrder;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: Default.java,v 1.4 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: Default.java,v 1.5 2004-07-12 11:17:38 alphonse.bendt Exp $
  */
 
 public interface Default

@@ -26,7 +26,6 @@ import java.lang.reflect.Field;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
-
 import org.omg.CORBA.TCKind;
 
 import antlr.BaseAST;
@@ -37,7 +36,7 @@ import antlr.collections.AST;
  * Base Class for TCLTree Nodes.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractTCLNode.java,v 1.5 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AbstractTCLNode.java,v 1.6 2004-07-12 11:18:25 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTCLNode extends BaseAST implements TCLParserTokenTypes

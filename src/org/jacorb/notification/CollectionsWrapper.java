@@ -22,7 +22,6 @@ package org.jacorb.notification;
  */
 
 import java.io.Serializable;
-import java.lang.Class;
 import java.lang.reflect.Method;
 import java.util.AbstractList;
 import java.util.Collections;
@@ -36,7 +35,7 @@ import java.util.List;
  * @author Alphonse Bendt
  * @author Marc Heide
  *
- * @version $Id: CollectionsWrapper.java,v 1.7 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: CollectionsWrapper.java,v 1.8 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class CollectionsWrapper

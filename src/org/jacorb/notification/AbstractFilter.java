@@ -28,18 +28,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.filter.DynamicEvaluator;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
-import org.jacorb.notification.filter.PropertyDoesNotExistException;
 import org.jacorb.notification.filter.FilterConstraint;
 import org.jacorb.notification.filter.FilterUtils;
+import org.jacorb.notification.filter.PropertyDoesNotExistException;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.ManageableServant;
 import org.jacorb.notification.util.CachingWildcardMap;
 import org.jacorb.notification.util.WildcardMap;
-
 import org.omg.CORBA.Any;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.ORB;
@@ -63,9 +65,6 @@ import EDU.oswego.cs.dl.util.concurrent.ReadWriteLock;
 import EDU.oswego.cs.dl.util.concurrent.Sync;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock;
-import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * The Filter interface defines the behaviors supported by objects
@@ -137,7 +136,7 @@ import org.apache.avalon.framework.configuration.Configuration;
  *
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: AbstractFilter.java,v 1.2 2004-06-29 13:58:38 alphonse.bendt Exp $
+ * @version $Id: AbstractFilter.java,v 1.3 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public abstract class AbstractFilter

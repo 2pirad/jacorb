@@ -25,14 +25,11 @@ import org.omg.CosEventChannelAdmin.ProxyPushSupplierHelper;
 import org.omg.CosEventChannelAdmin.ProxyPushSupplierOperations;
 import org.omg.CosEventChannelAdmin.ProxyPushSupplierPOATie;
 import org.omg.CosEventComm.PushConsumer;
-import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.PortableServer.Servant;
-
-import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushSupplierImpl.java,v 1.6 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushSupplierImpl.java,v 1.7 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 public class ECProxyPushSupplierImpl
     extends ProxyPushSupplierImpl

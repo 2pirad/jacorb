@@ -26,13 +26,11 @@ import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.filter.RuntimeVariable;
 
-import org.omg.CORBA.ORB;
-
 import antlr.Token;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RuntimeVariableNode.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: RuntimeVariableNode.java,v 1.5 2004-07-12 11:18:25 alphonse.bendt Exp $
  */
 
 public class RuntimeVariableNode

@@ -21,9 +21,7 @@ package org.jacorb.notification.servant;
  *
  */
 
-import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.interfaces.Message;
-
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.StructuredEvent;
@@ -31,13 +29,12 @@ import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPushConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPushConsumerPOATie;
-import org.omg.CosNotifyComm.NotifySubscribeHelper;
 import org.omg.CosNotifyComm.StructuredPushSupplier;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.9 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl

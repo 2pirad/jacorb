@@ -21,28 +21,24 @@ package org.jacorb.notification;
  *
  */
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
 import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Disposable;
-import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.AbstractProxyConsumerI;
 import org.jacorb.notification.util.AbstractObjectPool;
-
 import org.omg.CORBA.Any;
-import org.omg.CORBA.TypeCode;
+import org.omg.CORBA.Bounds;
+import org.omg.CORBA.NVList;
+import org.omg.CORBA.NamedValue;
+import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotification.StructuredEventHelper;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.omg.CosNotification.Property;
-import org.omg.CORBA.NVList;
-import org.omg.CORBA.Bounds;
-import org.omg.CORBA.NamedValue;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.14 2004-06-26 00:12:44 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.15 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable, Configurable

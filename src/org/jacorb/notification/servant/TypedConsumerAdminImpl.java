@@ -20,6 +20,7 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import org.jacorb.notification.engine.TaskExecutor;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.UNKNOWN;
@@ -33,11 +34,9 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushSupplier;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushSupplierHelper;
 import org.omg.PortableServer.Servant;
 
-import org.jacorb.notification.engine.TaskExecutor;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedConsumerAdminImpl.java,v 1.2 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: TypedConsumerAdminImpl.java,v 1.3 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 public class TypedConsumerAdminImpl
     extends ConsumerAdminImpl

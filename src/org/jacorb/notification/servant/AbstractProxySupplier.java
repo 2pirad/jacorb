@@ -20,12 +20,16 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.List;
+
+import org.apache.avalon.framework.configuration.Configuration;
 import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.engine.PushOperation;
 import org.jacorb.notification.engine.RetryException;
 import org.jacorb.notification.engine.RetryStrategy;
+import org.jacorb.notification.engine.TaskExecutor;
 import org.jacorb.notification.engine.TaskProcessorRetryStrategy;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.Message;
@@ -35,8 +39,6 @@ import org.jacorb.notification.queue.EventQueueFactory;
 import org.jacorb.notification.queue.EventQueueFactoryDependency;
 import org.jacorb.notification.util.PropertySet;
 import org.jacorb.notification.util.PropertySetListener;
-import org.jacorb.notification.engine.TaskExecutor;
-
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CosNotification.DiscardPolicy;
@@ -55,10 +57,6 @@ import org.omg.CosNotifyComm.NotifyPublishHelper;
 import org.omg.CosNotifyComm.NotifyPublishOperations;
 import org.omg.CosNotifyComm.NotifySubscribeOperations;
 
-import java.util.List;
-
-import org.apache.avalon.framework.configuration.Configuration;
-
 /**
  * Abstract base class for ProxySuppliers.
  * This class provides following logic for the different
@@ -69,7 +67,7 @@ import org.apache.avalon.framework.configuration.Configuration;
  * </ul>
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.12 2004-06-22 08:13:18 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.13 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier

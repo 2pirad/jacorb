@@ -28,11 +28,10 @@ import EDU.oswego.cs.dl.util.concurrent.Executor;
 import EDU.oswego.cs.dl.util.concurrent.LinkedQueue;
 import EDU.oswego.cs.dl.util.concurrent.PooledExecutor;
 import EDU.oswego.cs.dl.util.concurrent.ThreadFactory;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: TaskExecutor.java,v 1.4 2004-07-12 11:18:06 alphonse.bendt Exp $
  */
 
 public class TaskExecutor implements Executor, Disposable

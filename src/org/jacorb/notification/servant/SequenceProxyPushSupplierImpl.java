@@ -23,7 +23,6 @@ package org.jacorb.notification.servant;
 
 import org.jacorb.notification.engine.PushSequenceOperation;
 import org.jacorb.notification.interfaces.Message;
-
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventChannelAdmin.TypeError;
 import org.omg.CosNotification.MaximumBatchSize;
@@ -39,7 +38,7 @@ import org.omg.TimeBase.TimeTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.9 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl

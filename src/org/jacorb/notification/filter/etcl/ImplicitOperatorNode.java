@@ -24,14 +24,13 @@ package org.jacorb.notification.filter.etcl;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
-
 import org.omg.CORBA.Any;
 
 import antlr.Token;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ImplicitOperatorNode.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ImplicitOperatorNode.java,v 1.3 2004-07-12 11:18:25 alphonse.bendt Exp $
  */
 
 public class ImplicitOperatorNode extends AbstractTCLNode {

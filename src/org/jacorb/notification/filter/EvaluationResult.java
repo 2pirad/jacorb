@@ -22,18 +22,16 @@ package org.jacorb.notification.filter;
  */
 import java.lang.reflect.Field;
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.TCKind;
 import org.omg.CORBA.TypeCodePackage.BadKind;
 import org.omg.CORBA.TypeCodePackage.Bounds;
 
-import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.Configurable;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: EvaluationResult.java,v 1.5 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: EvaluationResult.java,v 1.6 2004-07-12 11:18:44 alphonse.bendt Exp $
  */
 
 public class EvaluationResult implements Configurable

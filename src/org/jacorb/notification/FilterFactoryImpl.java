@@ -28,14 +28,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.filter.etcl.ETCLFilter;
 import org.jacorb.notification.interfaces.Disposable;
-
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
-import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CORBA.UNKNOWN;
+import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.FilterFactory;
 import org.omg.CosNotifyFilter.FilterFactoryPOA;
@@ -46,14 +49,9 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
-import org.apache.avalon.framework.logger.Logger;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.23 2004-06-30 23:06:23 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.24 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl

@@ -20,12 +20,11 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.ChannelContext;
+import org.apache.avalon.framework.configuration.Configuration;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageSupplier;
-
 import org.omg.CORBA.Any;
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
@@ -40,12 +39,9 @@ import org.omg.PortableServer.Servant;
 import EDU.oswego.cs.dl.util.concurrent.Semaphore;
 import EDU.oswego.cs.dl.util.concurrent.Sync;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.9 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl

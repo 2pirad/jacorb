@@ -29,7 +29,6 @@ import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.filter.FilterUtils;
 import org.jacorb.notification.interfaces.Message;
-
 import org.omg.CORBA.Any;
 import org.omg.CORBA.AnyHolder;
 import org.omg.CORBA.TCKind;
@@ -45,7 +44,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.11 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.12 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage

@@ -23,11 +23,14 @@ package org.jacorb.notification.servant;
 
 import java.util.List;
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.notification.ChannelContext;
+import org.jacorb.notification.Dependant;
 import org.jacorb.notification.FilterManager;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
-import org.jacorb.notification.Dependant;
-import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.engine.TaskProcessor;
@@ -35,7 +38,6 @@ import org.jacorb.notification.engine.TaskProcessorDependency;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.util.QoSPropertySet;
-
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CORBA.ORB;
@@ -59,13 +61,10 @@ import org.omg.PortableServer.Servant;
 
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.12 2004-06-22 08:12:42 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.13 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy

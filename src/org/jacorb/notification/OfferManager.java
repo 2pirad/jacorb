@@ -20,18 +20,18 @@ package org.jacorb.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.omg.CORBA.UNKNOWN;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.CosNotifyComm.NotifyPublishOperations;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: OfferManager.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: OfferManager.java,v 1.5 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class OfferManager

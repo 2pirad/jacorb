@@ -20,11 +20,8 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.interfaces.Message;
-
 import org.omg.CORBA.Any;
-import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PushSupplier;
@@ -32,13 +29,11 @@ import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyPushConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPushConsumerPOATie;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
-import org.omg.CosNotifyComm.NotifySubscribeHelper;
-import org.omg.CosNotifyComm.NotifySubscribeOperations;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.9 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl

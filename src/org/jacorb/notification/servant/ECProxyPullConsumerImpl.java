@@ -27,11 +27,9 @@ import org.omg.CosEventChannelAdmin.ProxyPullConsumerPOATie;
 import org.omg.CosEventComm.PullSupplier;
 import org.omg.PortableServer.Servant;
 
-import org.jacorb.notification.ChannelContext;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullConsumerImpl.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: ECProxyPullConsumerImpl.java,v 1.5 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class ECProxyPullConsumerImpl

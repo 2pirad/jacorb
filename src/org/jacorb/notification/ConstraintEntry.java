@@ -23,13 +23,12 @@ package org.jacorb.notification;
 
 import org.jacorb.notification.filter.FilterConstraint;
 import org.jacorb.notification.filter.FilterUtils;
-
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyFilter.ConstraintInfo;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConstraintEntry.java,v 1.9 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ConstraintEntry.java,v 1.10 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class ConstraintEntry

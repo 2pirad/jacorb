@@ -27,7 +27,6 @@ import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.filter.FilterConstraint;
 import org.jacorb.notification.filter.ParseException;
 import org.jacorb.notification.interfaces.Message;
-
 import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.CosNotifyFilter.InvalidConstraint;
 
@@ -38,7 +37,7 @@ import org.omg.CosNotifyFilter.InvalidConstraint;
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: ETCLFilterConstraint.java,v 1.1 2004-06-18 23:00:06 alphonse.bendt Exp $
+ * @version $Id: ETCLFilterConstraint.java,v 1.2 2004-07-12 11:18:25 alphonse.bendt Exp $
  */
 
 public class ETCLFilterConstraint implements FilterConstraint

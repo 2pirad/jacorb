@@ -21,10 +21,10 @@ package org.jacorb.notification.filter.etcl;
  *
  */
 
+import org.jacorb.notification.filter.ComponentName;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
-import org.jacorb.notification.filter.ComponentName;
 import org.jacorb.notification.interfaces.Message;
 
 import antlr.Token;
@@ -33,7 +33,7 @@ import antlr.Token;
  * node that represents a COMPONENT Name
  *
  * @author Alphonse Bendt
- * @version $Id: ETCLComponentName.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: ETCLComponentName.java,v 1.5 2004-07-12 11:18:25 alphonse.bendt Exp $
  */
 
 public class ETCLComponentName extends AbstractTCLNode implements ComponentName

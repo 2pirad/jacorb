@@ -21,22 +21,20 @@ package org.jacorb.notification.filter;
  *
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.jacorb.notification.AbstractMessage;
 import org.jacorb.notification.filter.etcl.ETCLComponentName;
 import org.jacorb.notification.filter.etcl.MessageUtils;
 import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Message;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import org.omg.CORBA.Any;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @todo remove the static dependeny to package filter.etcl.
  * @author Alphonse Bendt
- * @version $Id: EvaluationContext.java,v 1.5 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: EvaluationContext.java,v 1.6 2004-07-12 11:18:44 alphonse.bendt Exp $
  */
 
 public class EvaluationContext extends AbstractPoolable

@@ -23,11 +23,10 @@ package org.jacorb.notification.engine;
 
 import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTask.java,v 1.10 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AbstractTask.java,v 1.11 2004-07-12 11:18:06 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTask

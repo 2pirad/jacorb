@@ -20,6 +20,14 @@ package org.jacorb.notification.util;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.notification.conf.Attributes;
+import org.jacorb.notification.conf.Default;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.MaxConsumers;
@@ -30,20 +38,9 @@ import org.omg.CosNotification.PropertyError;
 import org.omg.CosNotification.RejectNewEvents;
 import org.omg.CosNotification.UnsupportedAdmin;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import org.jacorb.notification.conf.Attributes;
-import org.jacorb.notification.conf.Default;
-
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminPropertySet.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AdminPropertySet.java,v 1.5 2004-07-12 11:20:16 alphonse.bendt Exp $
  */
 
 public class AdminPropertySet

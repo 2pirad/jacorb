@@ -21,18 +21,17 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.util.AbstractObjectPool;
-
 import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.notification.util.AbstractObjectPool;
 
 /**
  * Interface to indicate that a Object can be pooled. Objects can be
  * pooled to spare ressources.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractPoolable.java,v 1.6 2004-06-07 15:21:40 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolable.java,v 1.7 2004-07-12 11:19:03 alphonse.bendt Exp $
  */
 
 public abstract class AbstractPoolable implements Disposable, Configurable

@@ -29,12 +29,11 @@ import java.util.Map;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.EventChannelEvent;
 import org.jacorb.notification.interfaces.EventChannelEventListener;
-
 import org.omg.CosNotifyChannelAdmin.ChannelNotFound;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ChannelManager.java,v 1.2 2004-06-18 23:11:18 alphonse.bendt Exp $
+ * @version $Id: ChannelManager.java,v 1.3 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 public class ChannelManager implements Disposable
 {

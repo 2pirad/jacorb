@@ -24,12 +24,9 @@ package org.jacorb.notification.engine;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotifyChannelAdmin.NotConnected;
 
-import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.notification.engine.TaskExecutor;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: TimerDeliverTask.java,v 1.11 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: TimerDeliverTask.java,v 1.12 2004-07-12 11:18:06 alphonse.bendt Exp $
  */
 
 public class TimerDeliverTask extends AbstractDeliverTask

@@ -22,17 +22,12 @@ package org.jacorb.notification.servant;
 
 import java.util.List;
 
-import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.CollectionsWrapper;
+import org.jacorb.notification.engine.PushAnyOperation;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.notification.engine.PushAnyOperation;
-
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.PushConsumer;
-import org.omg.CosNotifyChannelAdmin.ConnectionAlreadyActive;
-import org.omg.CosNotifyChannelAdmin.ConnectionAlreadyInactive;
-import org.omg.CosNotifyChannelAdmin.NotConnected;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierPOATie;
@@ -41,7 +36,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.9 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.10 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl

@@ -23,27 +23,22 @@ package org.jacorb.notification.servant;
 
 import java.util.List;
 
-import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.CollectionsWrapper;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
-
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.StructuredEvent;
-import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPullSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPullSupplierPOATie;
-import org.omg.CosNotifyComm.NotifyPublishHelper;
-import org.omg.CosNotifyComm.NotifyPublishOperations;
 import org.omg.CosNotifyComm.SequencePullConsumer;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.8 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.9 2004-07-12 11:19:56 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullSupplierImpl

@@ -28,6 +28,10 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.notification.interfaces.Disposable;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
@@ -38,18 +42,11 @@ import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.FilterAdminOperations;
 import org.omg.CosNotifyFilter.FilterNotFound;
 
-import org.jacorb.notification.interfaces.Disposable;
-
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.11 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: FilterManager.java,v 1.12 2004-07-12 11:21:19 alphonse.bendt Exp $
  */
 
 public class FilterManager

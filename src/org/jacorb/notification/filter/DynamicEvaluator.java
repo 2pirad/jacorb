@@ -21,6 +21,9 @@ package org.jacorb.notification.filter;
  *
  */
 
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.logger.Logger;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.TCKind;
@@ -30,26 +33,22 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
 import org.omg.CosNotification.Property;
 import org.omg.DynamicAny.DynAny;
 import org.omg.DynamicAny.DynAnyFactory;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 import org.omg.DynamicAny.DynSequence;
 import org.omg.DynamicAny.DynSequenceHelper;
 import org.omg.DynamicAny.DynStruct;
 import org.omg.DynamicAny.DynStructHelper;
 import org.omg.DynamicAny.DynUnion;
 import org.omg.DynamicAny.DynUnionHelper;
-
-import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * Provide the Basic operations needed to evaluate filter expressions
  * on Anys.
  *
  * @author Alphonse Bendt
- * @version $Id: DynamicEvaluator.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: DynamicEvaluator.java,v 1.5 2004-07-12 11:18:44 alphonse.bendt Exp $
  */
 
 public class DynamicEvaluator
