@@ -26,11 +26,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jacorb.notification.interfaces.FilterStage;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.10 2004-03-17 23:04:08 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.11 2004-04-28 12:37:28 brose Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask

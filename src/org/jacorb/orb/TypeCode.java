@@ -20,12 +20,12 @@ package org.jacorb.orb;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.util.Environment;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.*;
+
 import org.jacorb.ir.RepositoryID;
-import org.jacorb.util.Debug;
+
 import org.omg.CORBA.TCKind;
 import org.omg.CORBA.ValueMember;
 
@@ -34,7 +34,7 @@ import org.omg.CORBA.ValueMember;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.36 2003-12-18 14:48:10 nick.cross Exp $
+ * @version $Id: TypeCode.java,v 1.37 2004-04-28 12:37:28 brose Exp $
  */
 
 public class TypeCode
@@ -804,7 +804,8 @@ public class TypeCode
 
         // Member names are optional, so compact them down for transmission.
         // Check whether we are doing full compaction or not.
-        if (Environment.getCompactTypecodes () > 1 && member_name != null)
+        //        if (Environment.getCompactTypecodes() > 1 && member_name != null)
+        if ( member_name != null)
         {
             result.member_name = new String [member_name.length];
             for (int i = 0; i < result.member_name.length; i++)
@@ -844,11 +845,6 @@ public class TypeCode
         result.secondIteration = secondIteration;
 
         result.resolveRecursion ();
-
-        if( Debug.isDebugEnabled() )
-        {
-            Debug.output( "Compacting typecode " + this + " and returning " + result );
-        }
         return result;
     }
 

@@ -21,13 +21,16 @@ package org.jacorb.ir;
  */
 
 import org.omg.CORBA.TCKind;
+
 import org.jacorb.orb.TypeCode;
 
 import java.util.*;
 
+import org.apache.avalon.framework.logger.Logger;
+
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.12 2003-08-22 20:20:55 francisco Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.13 2004-04-28 12:37:28 brose Exp $    
  */
  
 public class TypeCodeUtil
@@ -65,10 +68,11 @@ public class TypeCodeUtil
      */
 
     public static org.omg.CORBA.TypeCode getTypeCode( Class c, 
-                                                      java.lang.Object o )
+                                                      java.lang.Object o,
+                                                      Logger logger )
         throws ClassNotFoundException
     {
-        return getTypeCode( c, null, o, null );
+        return getTypeCode( c, null, o, null, logger );
     }
 
     /**
@@ -79,12 +83,17 @@ public class TypeCodeUtil
     public static org.omg.CORBA.TypeCode getTypeCode( Class c, 
                                                       ClassLoader classLoader,
                                                       java.lang.Object o, 
-                                                      String idlName )
+                                                      String idlName,
+                                                      Logger logger )
         throws ClassNotFoundException
     {
         String typeName = c.getName();
-        org.jacorb.util.Debug.output(3, "TypeCodes.getTypeCode for class : " + 
-                                 typeName + " idlName: " + idlName );
+
+        if (logger.isDebugEnabled())
+        {
+            logger.debug("TypeCodes.getTypeCode for class : " + 
+                         typeName + " idlName: " + idlName);
+        }
 
         ClassLoader loader;
         if( classLoader != null )
@@ -161,8 +170,7 @@ public class TypeCodeUtil
         } 
         catch ( ClassNotFoundException ce )
         {
-            org.jacorb.util.Debug.output(3, ce );
-            System.err.println("Serious Error, can't load org.jacorb base classes!");
+            logger.fatalError("Can't load org.jacorb base classes!", ce);
             throw ce;
             //System.exit(1);
         } 
@@ -230,13 +238,13 @@ public class TypeCodeUtil
                 }
                 catch( ClassNotFoundException cnfe )
                 {
-                    org.jacorb.util.Debug.output(3, cnfe );
+                    logger.debug("Caught Exception", cnfe );
                     throw new RuntimeException("Could not create TypeCode for: " + 
                                                c.getName() + ", no helper class for " + idlName );
                 }
                 catch( Exception e )
                 {
-                    e.printStackTrace();
+                    logger.error("Caught Exception", e );
                 }
             }
 
@@ -259,7 +267,7 @@ public class TypeCodeUtil
                 }
                 catch( Exception cnfe )
                 {
-                    cnfe.printStackTrace();
+                    logger.error("Caught Exception", cnfe);
                     throw new RuntimeException("Could not create TypeCode for: " + 
                                                c.getName() );
                 }

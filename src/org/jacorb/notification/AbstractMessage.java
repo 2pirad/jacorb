@@ -34,7 +34,6 @@ import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.util.Debug;
 
 import org.omg.CORBA.Any;
 import org.omg.CORBA.AnyHolder;
@@ -47,9 +46,10 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.interfaces.Message.MessageStateListener;
 
+
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.17 2004-03-29 08:55:37 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.18 2004-04-28 12:37:28 brose Exp $
  */
 
 public abstract class AbstractMessage
@@ -58,9 +58,9 @@ public abstract class AbstractMessage
     /**
      * Instead of directly using an instance of AbstractMessage an
      * indirection via MessageHandle is used. This way the Data in
-     * AbstractMessage is kept only once. MessageHandle realizes
-     * reference counting. As the last reference is disposed the
-     * instance of AbstractMessage can be disposed.
+     * AbstractMessage is kept only once. MessageHandle uses
+     * reference counting. As the last MessageHandle is disposed the
+     * AbstractMessage containing the data can be disposed.
      * MessageHandle also allows the priority and timeout to be
      * changed on a per handle base (the underlying AbstractMessage
      * isn't affected by this)
@@ -376,9 +376,6 @@ public abstract class AbstractMessage
     }
 
     ////////////////////////////////////////
-
-    protected Logger logger_ =
-        Debug.getNamedLogger(getClass().getName());
 
     static final ORB sOrb = ORB.init();
 

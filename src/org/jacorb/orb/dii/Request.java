@@ -29,14 +29,14 @@ import org.jacorb.orb.portableInterceptor.*;
 import org.jacorb.orb.ParsedIOR;
 import org.jacorb.orb.giop.*;
 import org.jacorb.orb.*;
-import org.jacorb.util.Debug;
+
 import java.util.Enumeration;
 
 /**
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.13 2003-12-19 12:29:43 nick.cross Exp $
+ * @version $Id: Request.java,v 1.14 2004-04-28 12:37:28 brose Exp $
  */
 
 public class Request
@@ -291,11 +291,9 @@ public class Request
                     }
                     catch (org.omg.CORBA.TypeCodePackage.BadKind ex)
                     {
-                       Debug.output(5, "Unexpected BadKind exception");
                     }
                     catch (org.omg.CORBA.Bounds ex)
                     {
-                       Debug.output(5, "Unexpected Bounds exception");
                        break;
                     }
                 }

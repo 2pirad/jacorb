@@ -32,7 +32,7 @@ import org.omg.CORBA.INTERNAL;
  * Created: Thu Jan 31 21:05:55 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ImRAccessImpl.java,v 1.6 2003-12-16 08:41:27 gerald Exp $
+ * @version $Id: ImRAccessImpl.java,v 1.7 2004-04-28 12:37:27 brose Exp $
  */
 
 public class ImRAccessImpl
@@ -64,7 +64,20 @@ public class ImRAccessImpl
         {
         }
 
-        if (result.reg == null || result.reg._non_existent())
+        boolean non_exist = true;
+        if (result.reg != null)
+        {
+            try
+            {
+                non_exist = result.reg._non_existent();
+            }
+            catch (org.omg.CORBA.SystemException e)
+            {
+                non_exist = true;
+            }
+        }
+
+        if (non_exist)
         {
             throw new INTERNAL ("Unable to resolve reference to ImR");
         }

@@ -21,7 +21,6 @@
 package org.jacorb.orb.giop;
 
 import org.jacorb.orb.*;
-import org.jacorb.util.*;
 
 import org.omg.GIOP.*;
 import org.omg.CORBA.portable.RemarshalException;
@@ -32,7 +31,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.17 2004-02-12 11:08:44 gerald Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.18 2004-04-28 12:37:28 brose Exp $
  */
 public abstract class ReplyPlaceholder
 {
@@ -43,11 +42,21 @@ public abstract class ReplyPlaceholder
 
     protected MessageInputStream in = null;
 
-    protected int timeout = Environment.clientPendingReplyTimeout();
+    protected int timeout ;
+
+    /**
+     * self-configuring c'tor
+     */ 
+
+    public ReplyPlaceholder(ORB orb)
+    {
+        timeout = 
+            orb.getConfiguration().getAttributeAsInteger("jacorb.connection.client.pending_reply_timeout", 0);
+    }
+
 
     public ReplyPlaceholder()
     {
-        super();
     }
 
     public synchronized void replyReceived( MessageInputStream in )
@@ -55,9 +64,7 @@ public abstract class ReplyPlaceholder
         if( ! timeoutException )
         {
             this.in = in;
-
             ready = true;
-
             notifyAll();
         }
     }

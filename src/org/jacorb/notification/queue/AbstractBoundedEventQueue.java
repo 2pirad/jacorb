@@ -21,24 +21,19 @@ package org.jacorb.notification.queue;
  *
  */
 
-
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.util.Debug;
-
-import org.apache.avalon.framework.logger.Logger;
 
 /**
- *
  * @author Alphonse Bendt
- * @version $Id: AbstractBoundedEventQueue.java,v 1.4 2004-01-23 19:23:03 alphonse.bendt Exp $
+ * @version $Id: AbstractBoundedEventQueue.java,v 1.5 2004-04-28 12:37:28 brose Exp $
  */
 
 abstract public class AbstractBoundedEventQueue implements EventQueue
 {
-
-    protected Logger logger_ = Debug.getNamedLogger( getClass().getName() );
     private Object lock_ = new Object();
+
     private int capacity_;
+
     private EventQueueOverflowStrategy overflowStrategy_;
 
     protected AbstractBoundedEventQueue( int capacity,
@@ -174,5 +169,4 @@ abstract public class AbstractBoundedEventQueue implements EventQueue
             lock_.notifyAll();
         }
     }
-
 }

@@ -50,7 +50,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.24 2004-02-01 20:29:22 francisco Exp $
+ * @version $Id: RequestProcessor.java,v 1.25 2004-04-28 12:37:28 brose Exp $
  */
 
 public class RequestProcessor
@@ -243,7 +243,7 @@ public class RequestProcessor
                 logger.warn("rid: " + request.requestId() +
                             " opname: " + request.operation() +
                             " incarnate: throwable was thrown (" +
-                            e.getMessage() + ")");
+                            e.getMessage() + ")", e);
             }
 
             request.setSystemException(new org.omg.CORBA.OBJ_ADAPTER(e.getMessage()));

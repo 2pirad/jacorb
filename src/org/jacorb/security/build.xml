@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.16 2003-10-30 14:14:57 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.17 2004-04-28 12:37:28 brose Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -17,7 +17,8 @@
    </target>
 
 
-   <target name="all" depends="init,leveltwo,aux,ssl,sas"/>
+<!--   <target name="all" depends="init,leveltwo,aux,ssl,sas"/> -->
+   <target name="all" depends="init,leveltwo,aux,ssl"/>
 
 
    <target name="ssl">

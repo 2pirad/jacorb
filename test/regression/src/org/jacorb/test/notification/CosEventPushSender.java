@@ -8,20 +8,12 @@ import org.omg.CosEventChannelAdmin.ProxyPushConsumer;
 import org.omg.CosEventChannelAdmin.SupplierAdmin;
 import org.omg.CosEventComm.PushSupplierPOA;
 
-import org.jacorb.util.Debug;
-
-import junit.framework.TestCase;
-import org.apache.avalon.framework.logger.Logger;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: CosEventPushSender.java,v 1.5 2004-02-10 11:06:55 alphonse.bendt Exp $
+ * @version $Id: CosEventPushSender.java,v 1.6 2004-04-28 12:37:29 brose Exp $
  */
 
 public class CosEventPushSender extends PushSupplierPOA implements TestClientOperations, Runnable {
-
-    Logger logger_ = Debug.getNamedLogger(getClass().getName());
-
     boolean connected_;
     boolean sent_;
     boolean error_;
@@ -85,7 +77,6 @@ public class CosEventPushSender extends PushSupplierPOA implements TestClientOpe
             sent_ = true;
         } catch (Throwable t) {
             error_ = true;
-            logger_.fatalError("while push", t);
         }
     }
 

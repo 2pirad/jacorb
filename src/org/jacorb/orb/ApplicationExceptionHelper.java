@@ -22,28 +22,29 @@ package org.jacorb.orb;
 
 import org.omg.CORBA.*;
 import org.omg.CORBA.portable.*;
+
 import java.lang.reflect.*;
+
 import org.jacorb.ir.RepositoryID;
-import org.jacorb.util.Environment;
+import org.jacorb.util.ObjectUtil;
 
 /**
  * This class provides a method for inserting an arbirtary
  * application exception into an any.
  *
  * @author Nicolas Noffke
- * @version $Id: ApplicationExceptionHelper.java,v 1.14 2003-11-07 14:15:53 francisco Exp $
+ * @version $Id: ApplicationExceptionHelper.java,v 1.15 2004-04-28 12:37:28 brose Exp $
  */
 
 public class ApplicationExceptionHelper
 {
-
     /**
      * This method tries to insert the given ApplicationException into the
      * given any by deriving the helper name from object id. <br>
      * All exceptions are propagated upward to be handled there.
      */
 
-    public static void insert (org.omg.CORBA.Any any, ApplicationException  s)
+    public static void insert(org.omg.CORBA.Any any, ApplicationException  s)
         throws
             ClassNotFoundException,
             NoSuchMethodException,
@@ -54,20 +55,22 @@ public class ApplicationExceptionHelper
 
         // Get exception and helper names
 
-        String name = RepositoryID.className (s.getId ());
+        String name = RepositoryID.className(s.getId(), null);
         String helperName = name + "Helper";
 
         // Get various required classes
 
-        Class exClass = Environment.classForName (name);
-        Class helperClass = Environment.classForName (helperName);
+        Class exClass = ObjectUtil.classForName(name);
+        Class helperClass = ObjectUtil.classForName(helperName);
         Class anyClass = org.omg.CORBA.Any.class;
         Class isClass = org.omg.CORBA.portable.InputStream.class;
 
         // Get various required methods
 
-        Method readMeth  = helperClass.getMethod ("read", new Class[] { isClass });
-        Method insertMeth = helperClass.getMethod ("insert", new Class[] { anyClass, exClass });
+        Method readMeth  =
+            helperClass.getMethod("read", new Class[] { isClass });
+        Method insertMeth = 
+            helperClass.getMethod("insert", new Class[] { anyClass, exClass });
 
         // Do equivalent of:
         //
@@ -75,7 +78,8 @@ public class ApplicationExceptionHelper
         // UserExHelper.insert (any, userEx);
         //
 
-        userEx = readMeth.invoke (null, new java.lang.Object[] { s.getInputStream () });
-        insertMeth.invoke (null, new java.lang.Object[] {any, userEx});
+        userEx = 
+            readMeth.invoke(null, new java.lang.Object[] { s.getInputStream () });
+        insertMeth.invoke(null, new java.lang.Object[] {any, userEx});
     }
 }

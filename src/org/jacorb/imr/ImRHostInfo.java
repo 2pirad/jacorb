@@ -29,7 +29,7 @@ import org.omg.CORBA.ORB;
  *
  * @author Nicolas Noffke
  * 
- * @version $Id: ImRHostInfo.java,v 1.8 2003-12-16 08:41:27 gerald Exp $
+ * @version $Id: ImRHostInfo.java,v 1.9 2004-04-28 12:37:27 brose Exp $
  */
 
 public class ImRHostInfo 
@@ -51,9 +51,9 @@ public class ImRHostInfo
 
     public ImRHostInfo(HostInfo host) 
     {
-	this.host = host.name;
-	ssd_ref = host.ssd_ref;
-	object_string = host.ior_string;
+        this.host = host.name;
+        ssd_ref = host.ssd_ref;
+        object_string = host.ior_string;
     }
     
     /**
@@ -64,8 +64,8 @@ public class ImRHostInfo
 
     public HostInfo toHostInfo()
     {
-	// setting ref explicitely to null since it might be stale.
-	return new HostInfo(host, null, object_string);
+        // setting ref explicitely to null since it might be stale.
+        return new HostInfo(host, null, object_string);
     }
 
     /**
@@ -79,12 +79,12 @@ public class ImRHostInfo
      */
 
     public void startServer(String command, ORB orb) 
-	throws ServerStartupFailed
+        throws ServerStartupFailed
     {      
-	if (reconnect)
-	    ssd_ref = ServerStartupDaemonHelper.narrow(orb.string_to_object(object_string));
+        if (reconnect)
+            ssd_ref = ServerStartupDaemonHelper.narrow(orb.string_to_object(object_string));
 
-	ssd_ref.start_server(command);
+        ssd_ref.start_server(command);
     }
 
     /**
@@ -92,10 +92,10 @@ public class ImRHostInfo
      */
 
     private void writeObject(java.io.ObjectOutputStream out)
-	throws java.io.IOException
+        throws java.io.IOException
     {
-	reconnect = true; // all ssd_references are stale after deserialization
-	out.defaultWriteObject();
+        reconnect = true; // all ssd_references are stale after deserialization
+        out.defaultWriteObject();
     }
 } // ImRHostInfo
 

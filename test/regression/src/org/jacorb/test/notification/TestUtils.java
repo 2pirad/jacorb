@@ -10,7 +10,6 @@ import org.jacorb.notification.filter.etcl.AbstractTCLNode;
 import org.jacorb.notification.filter.etcl.TCLCleanUp;
 import org.jacorb.notification.filter.etcl.TCLParser;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.util.Debug;
 
 import org.omg.CORBA.Any;
 import org.omg.CORBA.LongSeqHelper;
@@ -24,17 +23,14 @@ import org.omg.CosNotification.StructuredEventHelper;
 import org.omg.DynamicAny.DynAnyFactory;
 
 import junit.framework.TestCase;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.7 2004-02-19 10:04:13 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.8 2004-04-28 12:37:29 brose Exp $
  */
 
 public class TestUtils {
     static StructuredEvent invalidStructuredEvent_;
-
-    static Logger logger_ = Debug.getNamedLogger(TestUtils.class.getName());
 
     ////////////////////////////////////////
 
@@ -226,8 +222,6 @@ public class TestUtils {
         _context.setDynamicEvaluator(_dynamicEvaluator);
 
         _res = _evaluator.evaluate(_context, event);
-
-        logger_.debug("Result: " + _res);
 
         testCase.assertEquals("expected "
                               + _root.toStringTree()

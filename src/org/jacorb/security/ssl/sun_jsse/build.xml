@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--                 jsse build file                      -->
-  <!-- $Id: build.xml,v 1.7 2003-10-30 14:14:57 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.8 2004-04-28 12:37:29 brose Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -20,15 +20,17 @@
 
    <target name="patch" depends="init">
            <property name="local" value="${dirs.base}/src/org/jacorb/security/ssl/sun_jsse"/>
-           <patch patchfile="${local}/ServerInvocationInterceptor.java.patch"
+<!--           <patch patchfile="${local}/ServerInvocationInterceptor.java.patch"
                   originalfile="${local}/ServerInvocationInterceptor.java"
                   backups="yes" />
+-->
            <patch patchfile="${local}/SSLSocketFactory.java.patch"
                   originalfile="${local}/SSLSocketFactory.java"
                   backups="yes" />
-           <patch patchfile="${local}/SSLServerSocketFactory.java.patch"
+<!--           <patch patchfile="${local}/SSLServerSocketFactory.java.patch"
                   originalfile="${local}/SSLServerSocketFactory.java"
                   backups="yes" />
+-->
    </target>
 
    <target name="unpatch" depends="init">

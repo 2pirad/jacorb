@@ -32,7 +32,7 @@ import antlr.Token;
 /**
  * node that represents a COMPONENT Name
  *
- * @version $Id: ETCLComponentName.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: ETCLComponentName.java,v 1.2 2004-04-28 12:37:28 brose Exp $
  */
 
 public class ETCLComponentName extends AbstractTCLNode implements ComponentName
@@ -95,10 +95,10 @@ public class ETCLComponentName extends AbstractTCLNode implements ComponentName
                                        + getNameForType(_left.getType()));
         }
 
-        if ( logger_.isDebugEnabled() )
-        {
-            logger_.debug( "Result: " + _ret );
-        }
+//         if ( logger_.isDebugEnabled() )
+//         {
+//             logger_.debug( "Result: " + _ret );
+//         }
 
         return _ret;
     }

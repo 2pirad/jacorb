@@ -31,7 +31,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.interfaces.ProxyEvent;
 import org.jacorb.notification.interfaces.ProxyEventListener;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.CORBA.IntHolder;
@@ -56,7 +56,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminTieImpl.java,v 1.6 2004-03-17 23:08:33 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminTieImpl.java,v 1.7 2004-04-28 12:37:28 brose Exp $
  */
 
 public class ConsumerAdminTieImpl

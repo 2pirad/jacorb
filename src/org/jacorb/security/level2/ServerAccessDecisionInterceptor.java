@@ -33,7 +33,7 @@ import java.util.*;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.14 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.15 2004-04-28 12:37:28 brose Exp $
  */
 
 public class ServerAccessDecisionInterceptor 
@@ -103,12 +103,12 @@ public class ServerAccessDecisionInterceptor
             //System.out.println("Ignoring op " + ri.operation());            
             return;
         }
-        else if (ri.target_most_derived_interface().
-                 startsWith("IDL:jacorb/orb/domain"))
-        {
-            //System.out.println("Ignoring call to domain object");            
-            return;
-        }
+//         else if (ri.target_most_derived_interface().
+//                  startsWith("IDL:jacorb/orb/domain"))
+//         {
+//             //System.out.println("Ignoring call to domain object");            
+//             return;
+//         }
         else
         {
             //System.out.println("(ServerAccessDecInterc.)Controlling operation: " + ri.operation());

@@ -1,4 +1,4 @@
-package org.jacorb.notification.util;
+package org.jacorb.notification.engine;
 
 /*
  *        JacORB - a free Java ORB
@@ -22,7 +22,6 @@ package org.jacorb.notification.util;
  */
 
 import org.jacorb.notification.interfaces.Disposable;
-import org.jacorb.util.Debug;
 
 import EDU.oswego.cs.dl.util.concurrent.DirectExecutor;
 import EDU.oswego.cs.dl.util.concurrent.Executor;
@@ -33,14 +32,14 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.4 2004-01-29 13:30:26 alphonse.bendt Exp $
+ * @version $Id: TaskExecutor.java,v 1.2 2004-04-28 12:37:28 brose Exp $
  */
 
 public class TaskExecutor implements Executor, Disposable
 {
     private static TaskExecutor DIRECT_EXECUTOR = new TaskExecutor("Direct", 0);
 
-    private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
+    //     private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
     private Executor executor_;
 
@@ -64,9 +63,9 @@ public class TaskExecutor implements Executor, Disposable
             {
                 executor_ = new DirectExecutor();
 
-                if (logger_.isInfoEnabled() ) {
-                    logger_.info( "Created ThreadPool " + name + ": DirectExecutor");
-                }
+                //                 if (logger_.isInfoEnabled() ) {
+                //                     logger_.info( "Created ThreadPool " + name + ": DirectExecutor");
+                //                 }
             }
         else
             {
@@ -96,9 +95,9 @@ public class TaskExecutor implements Executor, Disposable
 
                 executor_ = _executor;
 
-                if (logger_.isInfoEnabled()) {
-                    logger_.info( "Created ThreadPool " + name + ": Threads=" + numberOfThreads );
-                }
+                //                 if (logger_.isInfoEnabled()) {
+                //                     logger_.info( "Created ThreadPool " + name + ": Threads=" + numberOfThreads );
+                //                 }
             }
     }
 
@@ -128,3 +127,4 @@ public class TaskExecutor implements Executor, Disposable
         executor_.execute( r );
     }
 }
+

@@ -25,18 +25,17 @@ import org.jacorb.notification.OfferManager;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.NotifyPublishOperations;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import java.util.ArrayList;
+import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: OfferManagerTest.java,v 1.1 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: OfferManagerTest.java,v 1.2 2004-04-28 12:37:29 brose Exp $
  */
 
-public class OfferManagerTest extends TestCase {
+public class OfferManagerTest extends NotificationTestCase {
 
     public static final EventType[] EMPTY_EVENT_TYPE_ARRAY = new EventType[0];
 
@@ -47,14 +46,16 @@ public class OfferManagerTest extends TestCase {
 
     ////////////////////////////////////////
 
-    public OfferManagerTest (String name){
-        super(name);
+    public OfferManagerTest (String name, NotificationTestCaseSetup setup){
+        super(name, setup);
     }
 
     ////////////////////////////////////////
 
     public void setUp() throws Exception {
         offerManager_ = new OfferManager();
+        offerManager_.configure(getConfiguration());
+
         added_ = new ArrayList();
         removed_ = new ArrayList();
         listener_ = new NotifyPublishOperations() {
@@ -117,14 +118,7 @@ public class OfferManagerTest extends TestCase {
     }
 
 
-    public static TestSuite suite(){
-        TestSuite suite = new TestSuite(OfferManagerTest.class);
-
-        return suite;
-    }
-
-
-    public static void main(String[] args) {
-        junit.textui.TestRunner.run(suite());
+    public static Test suite() throws Exception {
+        return NotificationTestCase.suite(OfferManagerTest.class);
     }
 }

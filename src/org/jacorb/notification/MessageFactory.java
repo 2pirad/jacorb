@@ -33,12 +33,15 @@ import org.omg.CORBA.TypeCode;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotification.StructuredEventHelper;
 
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.Configurable;
+
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.8 2004-02-13 18:31:20 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.9 2004-04-28 12:37:28 brose Exp $
  */
 
-public class MessageFactory implements Disposable
+public class MessageFactory implements Disposable, Configurable
 {
 
     ////////////////////////////////////////
@@ -76,11 +79,11 @@ public class MessageFactory implements Disposable
         };
 
 
-    public void init()
+    public void configure(Configuration conf)
     {
-        anyMessagePool_.init();
+        anyMessagePool_.configure (conf);
 
-        structuredEventMessagePool_.init();
+        structuredEventMessagePool_.configure(conf);
     }
 
     public void dispose()

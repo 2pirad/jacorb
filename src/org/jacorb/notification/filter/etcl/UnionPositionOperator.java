@@ -30,7 +30,7 @@ import antlr.Token;
  * Created: Thu Sep 26 14:57:58 2002
  *
  * @author Alphonse Bendt
- * @version $Id: UnionPositionOperator.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: UnionPositionOperator.java,v 1.2 2004-04-28 12:37:28 brose Exp $
  */
 
 public class UnionPositionOperator extends AbstractTCLNode
@@ -59,11 +59,6 @@ public class UnionPositionOperator extends AbstractTCLNode
 
     public boolean isDefault()
     {
-        if ( logger_.isDebugEnabled() )
-        {
-            logger_.debug( "isDefault: " + default_ );
-        }
-
         return default_;
     }
 

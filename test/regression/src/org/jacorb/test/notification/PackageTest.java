@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.10 2004-02-25 15:26:30 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.11 2004-04-28 12:37:29 brose Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -61,9 +61,5 @@ public class PackageTest extends TestCase {
         _suite.addTest(OfferManagerTest.suite());
 
         return _suite;
-    }
-
-    public static void main(String[] args) throws Exception {
-        junit.textui.TestRunner.run(suite());
     }
 }

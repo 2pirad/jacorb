@@ -21,7 +21,7 @@
 package org.jacorb.orb.util;
 
 /**
- * @version $Id: PingObject.java,v 1.7 2004-01-12 10:05:52 nick.cross Exp $
+ * @version $Id: PingObject.java,v 1.8 2004-04-28 12:37:28 brose Exp $
  */
 
 import org.jacorb.orb.ParsedIOR;
@@ -66,7 +66,17 @@ public class PingObject
         }
         else
         {
-            if( o._non_existent())
+            boolean non_exist = true;
+            try
+            {
+                o._non_existent();
+            }
+            catch (org.omg.CORBA.SystemException e)
+            {
+                non_exist = true;
+            }
+            
+            if( non_exist )
             {
                 System.out.println("Object not reachable!");
             }

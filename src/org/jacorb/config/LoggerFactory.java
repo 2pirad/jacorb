@@ -1,4 +1,4 @@
-package org.jacorb.util;
+package org.jacorb.config;
 
 /*
  *        JacORB - a free Java ORB
@@ -21,17 +21,18 @@ package org.jacorb.util;
  */
 
 import org.apache.avalon.framework.logger.*;
+import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * Shields JacORB from details of creating Avalon loggers for a
  * specific logging backend.
  *
  * @author Gerald Brose 
- * @version $Id: LoggerFactory.java,v 1.3 2004-03-03 15:25:43 gerald Exp $
+ * @version $Id: LoggerFactory.java,v 1.2 2004-04-28 12:37:27 brose Exp $
  * @since JacORB 2.0 beta 3
  */
 
-public interface LoggerFactory
+interface LoggerFactory extends Configurable
 {
     /**
      * @return the name of the actual logging mechanism, e.g., "logkit"

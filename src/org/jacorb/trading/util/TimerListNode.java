@@ -6,7 +6,7 @@ package org.jacorb.trading.util;
  * Created: Sat Feb  5 11:41:42 2000
  *
  * @author Nicolas Noffke
- * @version $Id: TimerListNode.java,v 1.4 2002-03-19 09:25:47 nicolas Exp $
+ * @version $Id: TimerListNode.java,v 1.5 2004-04-28 12:37:29 brose Exp $
  */
 
 public class TimerListNode{
@@ -39,7 +39,6 @@ public class TimerListNode{
       try{
 	wait();
       }catch(Exception _e){
-	org.jacorb.util.Debug.output(2, _e);
       }
 	
     return next;
@@ -61,23 +60,17 @@ public class TimerListNode{
     if (do_interrupt){
       interrupt_sent = true;
       interruptee.interrupt();
-      org.jacorb.util.Debug.output(2, "interrupt for interruptee " + interruptee.toString());
     }
-    else
-      org.jacorb.util.Debug.output(2, "not interrupting " + interruptee.toString());
   }
 
   public synchronized void stopTimer(){
-    org.jacorb.util.Debug.output(2, "Timer.stop (node) for interruptee " + interruptee.toString());
 
     if (! interrupt_sent)
       do_interrupt = false;
     else
       try{
 	wait(); //wait for interrupt to come
-	org.jacorb.util.Debug.output(2, "waiting for interrupt " + interruptee.toString());
       }catch(Exception _e){
-	org.jacorb.util.Debug.output(2, _e);
       }	
   }
 } // TimerListNode

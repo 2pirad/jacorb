@@ -21,21 +21,17 @@ package org.jacorb.notification.filter.etcl;
  *
  */
 
-import org.jacorb.util.Debug;
-
 import antlr.collections.AST;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Visitor for TCL Trees. Does some Restructuration of a TCL Tree.
  *
  * @author Alphonse Bendt
- * @version $Id: TCLCleanUp.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: TCLCleanUp.java,v 1.2 2004-04-28 12:37:28 brose Exp $
  */
 
 public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenTypes
 {
-    Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
     public void fix( AbstractTCLNode node )
     {
@@ -45,7 +41,6 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
         }
         catch ( VisitorException e )
         {
-            logger_.fatalError("error during fix", e);
             throw new RuntimeException(e.getMessage());
         }
     }

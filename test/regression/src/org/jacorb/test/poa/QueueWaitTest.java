@@ -17,7 +17,7 @@ import org.omg.Messaging.*;
  * Despite a heavy request storm all requests should come through.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: QueueWaitTest.java,v 1.1 2003-08-17 23:39:06 andre.spiegel Exp $
+ * @version $Id: QueueWaitTest.java,v 1.2 2004-04-28 12:37:29 brose Exp $
  */
 public class QueueWaitTest extends CallbackTestCase
 {
@@ -198,7 +198,13 @@ public class QueueWaitTest extends CallbackTestCase
             if (h.exceptionReceived)
                 fail ("should not have raised an exception");
         }
-        try { Thread.sleep (1000); } catch (InterruptedException ex) {}
+        try 
+        { 
+            Thread.sleep (1000); 
+        } 
+        catch (InterruptedException ex) 
+        {}
+
         if (h.exceptionReceived)
             fail ("should not have raised an exception");
     }

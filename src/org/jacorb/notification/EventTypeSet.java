@@ -29,19 +29,22 @@ import java.util.TreeSet;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
 
-import org.jacorb.util.Debug;
-
 import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+
 import java.util.Collections;
 import EDU.oswego.cs.dl.util.concurrent.ReadWriteLock;
 import EDU.oswego.cs.dl.util.concurrent.FIFOReadWriteLock;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventTypeSet.java,v 1.2 2004-02-13 18:31:46 alphonse.bendt Exp $
+ * @version $Id: EventTypeSet.java,v 1.3 2004-04-28 12:37:28 brose Exp $
  */
 
-abstract class EventTypeSet {
+abstract class EventTypeSet
+    implements Configurable
+{
 
     private static class EventTypeWrapper implements Comparable {
 
@@ -103,9 +106,10 @@ abstract class EventTypeSet {
 
     ////////////////////////////////////////
 
-    private final static EventTypeWrapper[] EVENT_TYPE_WRAPPER_TEMPLATE = new EventTypeWrapper[0];
+    private final static EventTypeWrapper[] EVENT_TYPE_WRAPPER_TEMPLATE =
+        new EventTypeWrapper[0];
 
-    private Logger logger_ = Debug.getNamedLogger(getClass().getName());
+    protected Logger logger_ = null;
 
     private Set eventTypeSet_ = new TreeSet();
 
@@ -116,6 +120,11 @@ abstract class EventTypeSet {
     private boolean setModified_;
 
     ////////////////////////////////////////
+    public void configure (Configuration conf)
+    {
+        logger_ = ((org.jacorb.config.Configuration)conf).
+            getNamedLogger( getClass().getName() );
+    }
 
     protected void changeSet(EventType[] added,
                              EventType[] removed)

@@ -32,7 +32,7 @@ import java.math.BigInteger;
 /**
  *  JacORB implementation of security Credentials
  *
- *  $Id: CredentialsImpl.java,v 1.10 2003-12-19 12:24:13 nick.cross Exp $
+ *  $Id: CredentialsImpl.java,v 1.11 2004-04-28 12:37:28 brose Exp $
  *
  */
 
@@ -95,7 +95,8 @@ public class CredentialsImpl
 
     public Credentials copy()
     {
-        try{
+        try
+        {
             PipedOutputStream pipe_out = new PipedOutputStream();
             PipedInputStream pipe_in = new PipedInputStream(pipe_out);
 
@@ -112,10 +113,10 @@ public class CredentialsImpl
             pipe_out.close();
 
             //creds.authenticator = authenticator;
-
             return creds;
-        }catch (Exception e){
-            org.jacorb.util.Debug.output(3, e);
+        }
+        catch (Exception e)
+        {
         }
         return null;
     }

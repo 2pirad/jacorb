@@ -38,7 +38,7 @@ import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.ManageableServant;
 import org.jacorb.notification.util.CachingWildcardMap;
 import org.jacorb.notification.util.WildcardMap;
-import org.jacorb.util.Debug;
+//import org.jacorb.util.Debug;
 
 import org.omg.CORBA.Any;
 import org.omg.CORBA.NO_IMPLEMENT;
@@ -64,6 +64,8 @@ import EDU.oswego.cs.dl.util.concurrent.Sync;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock;
 import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
 
 /**
  * The Filter interface defines the behaviors supported by objects
@@ -135,15 +137,15 @@ import org.apache.avalon.framework.logger.Logger;
  *
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: FilterImpl.java,v 1.20 2004-02-25 15:27:24 alphonse.bendt Exp $
+ * @version $Id: FilterImpl.java,v 1.21 2004-04-28 12:37:28 brose Exp $
  */
 
 public class FilterImpl
     extends FilterPOA
     implements Disposable,
-               ManageableServant
+               ManageableServant,
+               Configurable
 {
-    static Logger logger_ = Debug.getNamedLogger( FilterImpl.class.getName() );
 
     final static RuntimeException NOT_SUPPORTED =
         new UnsupportedOperationException("this operation is not implemented yet");
@@ -195,6 +197,8 @@ public class FilterImpl
     private Filter thisRef_;
 
     private ApplicationContext applicationContext_;
+    static private Logger logger_ = null;
+    private org.jacorb.config.Configuration config_ = null;
 
     ////////////////////////////////////////
 
@@ -202,10 +206,6 @@ public class FilterImpl
                       String constraintGrammar)
     {
         super();
-
-        if (logger_.isInfoEnabled()) {
-            logger_.info("Created filter for Grammar: " + constraintGrammar);
-        }
 
         constraintGrammar_ = constraintGrammar;
 
@@ -228,6 +228,18 @@ public class FilterImpl
     }
 
     ////////////////////////////////////////
+    public void configure (Configuration conf)
+    {
+        config_ = ((org.jacorb.config.Configuration)conf);
+        logger_ = config_.getNamedLogger(getClass().getName());
+
+
+        if (logger_.isInfoEnabled()) {
+            logger_.info("Created filter for Grammar: " + constraintGrammar_);
+        }
+
+
+    }
 
     public void setORB(ORB orb) {
         orb_ = orb;
@@ -680,7 +692,7 @@ public class FilterImpl
         {
             arrayOfLists_ = arrayOfLists;
 
-            if ( logger_.isDebugEnabled() )
+            if ( logger_ != null && logger_.isDebugEnabled() )
             {
                 for ( int x = 0; x < arrayOfLists_.length; ++x )
                 {

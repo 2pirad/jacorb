@@ -21,10 +21,12 @@ package org.jacorb.security.sas;
  */
 
 import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.*;
+
 import org.jacorb.orb.standardInterceptors.SASComponentInterceptor;
 import org.jacorb.sasPolicy.ATLAS_POLICY_TYPE;
 import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
-import org.jacorb.util.Debug;
+
 import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
@@ -34,18 +36,15 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASInitializer.java,v 1.3 2004-02-05 15:57:12 nick.cross Exp $
+ * @version $Id: SASInitializer.java,v 1.4 2004-04-28 12:37:29 brose Exp $
  */
 
 public class SASInitializer
     extends org.omg.CORBA.LocalObject
     implements ORBInitializer
 {
-    /** the logger used by the naming service implementation */
-    private static Logger logger = Debug.getNamedLogger("jacorb.SAS");
-
+    private Logger logger = null;
     public static final int SecurityAttributeService = 15;
-
     public static int sasPrincipalNamePIC = (-1);
 
     /**
@@ -53,19 +52,31 @@ public class SASInitializer
      */
     public void post_init( ORBInitInfo info )
     {
+        org.jacorb.orb.ORB orb = 
+            ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl)info).getORB ();
+        logger = 
+            orb.getConfiguration().getNamedLogger("jacorb.security.SAS");
+
         // install the TSS interceptor
         try
         {
             sasPrincipalNamePIC = info.allocate_slot_id();
             info.add_server_request_interceptor(new SASTargetInterceptor(info));
         }
+        catch (ConfigurationException ce)
+        {
+            if (logger.isErrorEnabled())
+                logger.error("ConfigurationException", ce);
+        }
         catch (DuplicateName duplicateName)
         {
-            logger.error("TSS DuplicateName", duplicateName);
+            if (logger.isErrorEnabled())
+                logger.error("TSS DuplicateName", duplicateName);
         }
         catch (UnknownEncoding unknownEncoding)
         {
-            logger.error("TSS UnknownEncoding", unknownEncoding);
+            if (logger.isErrorEnabled())
+                logger.error("TSS UnknownEncoding", unknownEncoding);
         }
 
         // install the CSS interceptor
@@ -73,13 +84,20 @@ public class SASInitializer
         {
             info.add_client_request_interceptor(new SASClientInterceptor(info));
         }
+        catch (ConfigurationException ce)
+        {
+            if (logger.isErrorEnabled())
+                logger.error("ConfigurationException", ce);
+        }
         catch (DuplicateName duplicateName)
         {
-            logger.error("CSS DuplicateName", duplicateName);
+            if (logger.isErrorEnabled())
+                logger.error("CSS DuplicateName", duplicateName);
         }
         catch (UnknownEncoding unknownEncoding)
         {
-            logger.error("CSS UnknownEncoding", unknownEncoding);
+            if (logger.isErrorEnabled())
+                logger.error("CSS UnknownEncoding", unknownEncoding);
         }
 
         // install IOR interceptor
@@ -89,7 +107,8 @@ public class SASInitializer
         }
         catch (DuplicateName duplicateName)
         {
-            logger.error("IOR DuplicateName", duplicateName);
+            if (logger.isErrorEnabled())
+                logger.error("IOR DuplicateName", duplicateName);
         }
 
         // create policy factory

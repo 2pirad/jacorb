@@ -26,13 +26,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jacorb.notification.interfaces.FilterStage;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 /**
  * Abstract Base Class for FilterTask.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.7 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.8 2004-04-28 12:37:28 brose Exp $
  */
 
 abstract class AbstractFilterTask extends AbstractTask
@@ -156,7 +156,7 @@ abstract class AbstractFilterTask extends AbstractTask
 
     public void handleTaskError(AbstractTask task, Throwable error)
     {
-        logger_.fatalError( "Error while Filtering in Task:" + task, error );
+       logger_.fatalError( "Error while Filtering in Task:" + task, error );
     }
 
 

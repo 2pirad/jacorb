@@ -26,7 +26,7 @@ import org.jacorb.notification.EventChannelFactoryImpl;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: WhiteBoardFactory.java,v 1.3 2003-11-16 14:20:12 alphonse.bendt Exp $
+ * @version $Id: WhiteBoardFactory.java,v 1.4 2004-04-28 12:37:27 brose Exp $
  */
 
 public class WhiteBoardFactory extends IFactoryPOA implements IFactoryOperations {
@@ -123,7 +123,14 @@ public class WhiteBoardFactory extends IFactoryPOA implements IFactoryOperations
 
             System.out.println("Whiteboard online !");
 
-            if (_factory._non_existent()) {
+            boolean non_exist = false;
+            try {
+                non_exist = _factory._non_existent();
+            } catch (org.omg.CORBA.SystemException e) {
+                non_exist = true;
+            }
+
+            if (non_exist) {
                 System.out.println("NotificationService not available !");
                 System.exit(1);
             }

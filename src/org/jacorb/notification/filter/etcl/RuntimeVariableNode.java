@@ -32,7 +32,7 @@ import antlr.Token;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RuntimeVariableNode.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: RuntimeVariableNode.java,v 1.2 2004-04-28 12:37:28 brose Exp $
  */
 
 public class RuntimeVariableNode
@@ -52,10 +52,8 @@ public class RuntimeVariableNode
     }
 
     public EvaluationResult evaluate(EvaluationContext context)
-        throws EvaluationException {
-
-        logger_.debug("evaluate runtimevariablenode " + value_);
-
+        throws EvaluationException
+    {
         return strategy_.evaluate(context);
     }
 

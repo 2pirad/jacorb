@@ -37,7 +37,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.6 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.7 2004-04-28 12:37:28 brose Exp $
  */
 
 public class StructuredProxyPushConsumerImpl
@@ -61,14 +61,13 @@ public class StructuredProxyPushConsumerImpl
     }
 
 
-    public void push_structured_event(StructuredEvent structuredEvent) throws Disconnected {
+    public void push_structured_event(StructuredEvent structuredEvent)
+        throws Disconnected
+    {
         checkStillConnected();
-
         Message _mesg =
             messageFactory_.newMessage(structuredEvent, this);
-
         checkMessageProperties(_mesg);
-
         getTaskProcessor().processMessage(_mesg);
     }
 

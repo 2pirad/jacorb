@@ -22,13 +22,13 @@ package org.jacorb.notification.engine;
  */
 
 import org.jacorb.notification.interfaces.MessageSupplier;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.8 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: PullFromSupplierTask.java,v 1.9 2004-04-28 12:37:28 brose Exp $
  */
 
 public class PullFromSupplierTask extends AbstractTask
@@ -68,7 +68,7 @@ public class PullFromSupplierTask extends AbstractTask
 
 
     public void handleTaskError(AbstractTask task, Throwable error) {
-        logger_.fatalError("Error in Task: " + task, error);
+//         logger_.fatalError("Error in Task: " + task, error);
 
         if (error instanceof Disconnected) {
             target_.dispose();

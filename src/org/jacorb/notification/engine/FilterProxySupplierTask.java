@@ -27,14 +27,14 @@ import java.util.Map;
 
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.util.TaskExecutor;
+import org.jacorb.notification.engine.TaskExecutor;
 
 import org.omg.CORBA.AnyHolder;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.10 2004-03-17 23:13:19 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.11 2004-04-28 12:37:28 brose Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask
@@ -143,7 +143,7 @@ public class FilterProxySupplierTask extends AbstractFilterTask
                 _currentMessage.setPriority(_priorityFilterResult.value.extract_long());
             }
         } catch (UnsupportedFilterableData e) {
-            logger_.error("error evaluating PriorityFilter", e);
+//             logger_.error("error evaluating PriorityFilter", e);
         }
 
         return _currentMessage;
@@ -170,7 +170,7 @@ public class FilterProxySupplierTask extends AbstractFilterTask
             }
 
         } catch (UnsupportedFilterableData e) {
-            logger_.error("error evaluating PriorityFilter", e);
+//             logger_.error("error evaluating PriorityFilter", e);
         }
 
         return _currentEvent;

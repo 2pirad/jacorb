@@ -24,8 +24,6 @@ import org.omg.CORBA.*;
 import org.omg.Security.*;
 import org.omg.SecurityLevel2.*;
 
-import org.jacorb.util.Debug;
-
 import java.util.*;
 import java.lang.reflect.*;
 
@@ -35,7 +33,7 @@ import java.lang.reflect.*;
  *
  * Created: Tue Jun 13 10:54:41 2000
  *
- * $Id: AccessDecisionImpl.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: AccessDecisionImpl.java,v 1.9 2004-04-28 12:37:28 brose Exp $
  */
 
 public class AccessDecisionImpl

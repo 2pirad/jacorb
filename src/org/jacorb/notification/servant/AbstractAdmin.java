@@ -37,9 +37,7 @@ import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.ProxyEvent;
 import org.jacorb.notification.interfaces.ProxyEventListener;
-import org.jacorb.notification.util.AdminPropertySet;
 import org.jacorb.notification.util.QoSPropertySet;
-import org.jacorb.util.Debug;
 
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CORBA.ORB;
@@ -61,20 +59,23 @@ import org.omg.PortableServer.Servant;
 
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Abstract Baseclass for Adminobjects.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.6 2004-03-17 23:08:07 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.7 2004-04-28 12:37:28 brose Exp $
  */
 
 public abstract class AbstractAdmin
     implements QoSAdminOperations,
                FilterAdminOperations,
                FilterStage,
-               ManageableServant
+               ManageableServant,
+               Configurable
 {
     /**
      * the default InterFilterGroupOperator used.
@@ -88,8 +89,7 @@ public abstract class AbstractAdmin
 
     protected SubscriptionManager subscriptionManager_;
 
-    protected final Logger logger_ =
-        Debug.getNamedLogger( getClass().getName() );
+    protected Logger logger_ = null;
 
     protected final Object modifyProxiesLock_ = new Object();
 
@@ -113,7 +113,7 @@ public abstract class AbstractAdmin
 
     private final SynchronizedInt proxyIdPool_ = new SynchronizedInt(0);
 
-    private final QoSPropertySet qosSettings_ = new QoSPropertySet(QoSPropertySet.ADMIN_QOS);
+    private QoSPropertySet qosSettings_;
 
     private final SynchronizedBoolean disposed_ = new SynchronizedBoolean(false);
 
@@ -139,6 +139,18 @@ public abstract class AbstractAdmin
         setPOA(channelContext_.getPOA());
 
         setORB(channelContext_.getORB());
+
+        configure( ( (org.jacorb.orb.ORB)channelContext_.getORB() ).getConfiguration() );
+    }
+
+    public void configure (Configuration conf)
+    {
+        logger_ = ((org.jacorb.config.Configuration)conf).
+            getNamedLogger(getClass().getName());
+
+        filterManager_.configure (conf);
+
+        qosSettings_  = new QoSPropertySet(conf, QoSPropertySet.ADMIN_QOS);
     }
 
     ////////////////////////////////////////

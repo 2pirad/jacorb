@@ -24,14 +24,13 @@ import org.omg.PortableInterceptor.*;
 import org.omg.CORBA.UserException;
 
 import org.jacorb.orb.SystemExceptionHelper;
-import org.jacorb.util.Debug;
 
 /**
  * This class iterates over an array of
  * ServerRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInterceptorIterator.java,v 1.8 2003-12-16 08:42:56 gerald Exp $
+ * @version $Id: ServerInterceptorIterator.java,v 1.9 2004-04-28 12:37:28 brose Exp $
  */
 
 public class ServerInterceptorIterator
@@ -86,7 +85,6 @@ public class ServerInterceptorIterator
 
 	try
         {
-	    Debug.output(4,"Invoking SI " + interceptor.name());
 	    switch (op) 
             {
 	    case RECEIVE_REQUEST_SERVICE_CONTEXTS :
@@ -109,7 +107,6 @@ public class ServerInterceptorIterator
 	}
         catch (ForwardRequest _fwd)
         {
-	    Debug.output(4, _fwd);
 	    reverseDirection();
 	    op = SEND_OTHER;
 	
@@ -121,7 +118,6 @@ public class ServerInterceptorIterator
 	}
         catch (org.omg.CORBA.SystemException _sysex)
         {
-	    Debug.output(4, _sysex);
 	    reverseDirection();
 	    op = SEND_EXCEPTION;
 	    interceptor_ex = _sysex;
@@ -131,7 +127,6 @@ public class ServerInterceptorIterator
         catch (Throwable th)
         {
             th.printStackTrace();
-	    Debug.output(4,"ServerInterceptorIterator: Caught a " + th);
 	}
 
 	info.caller_op = op;

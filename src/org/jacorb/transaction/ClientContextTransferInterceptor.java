@@ -20,6 +20,7 @@
  */
 package org.jacorb.transaction;
 
+
 import org.omg.PortableInterceptor.*;
 import org.omg.IOP.Codec;
 import org.omg.IOP.ServiceContext;
@@ -31,7 +32,7 @@ import org.omg.IOP.TransactionService;
  * outgoing message.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientContextTransferInterceptor.java,v 1.8 2002-12-20 18:29:06 nicolas Exp $
+ * @version $Id: ClientContextTransferInterceptor.java,v 1.9 2004-04-28 12:37:29 brose Exp $
  */
 
 public class ClientContextTransferInterceptor
@@ -76,12 +77,11 @@ public class ClientContextTransferInterceptor
                                                         codec.encode(any));
 
                 ri.add_request_service_context(ctx, false);
-                org.jacorb.util.Debug.output(2, "Set Transaction Context");
             }
         }
         catch (Exception e)
         {
-            org.jacorb.util.Debug.output(2, e);
+
         }
     }
 

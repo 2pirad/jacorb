@@ -1,3 +1,5 @@
+package org.jacorb.orb.giop;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,10 +20,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package org.jacorb.orb.giop;
-
 import org.jacorb.util.threadpool.Consumer;
-import org.jacorb.util.*;
 
 /**
  * MessageReceptor.java
@@ -30,7 +29,7 @@ import org.jacorb.util.*;
  * Created: Sat Aug 18 10:52:45 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.8 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: MessageReceptor.java,v 1.9 2004-04-28 12:37:28 brose Exp $
  */
 
 public class MessageReceptor 
@@ -54,7 +53,6 @@ public class MessageReceptor
         }
         catch( Exception e )
         {
-            Debug.output( 3, e );
         }
     }    
 }// MessageReceptor
