@@ -44,7 +44,7 @@ import org.jacorb.util.Debug;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: BoundedFifoEventQueueTest.java,v 1.2 2003-11-03 10:32:42 alphonse.bendt Exp $
+ * @version $Id: BoundedFifoEventQueueTest.java,v 1.3 2003-11-26 10:01:25 alphonse.bendt Exp $
  */
 
 public class BoundedFifoEventQueueTest extends TestCase
@@ -156,21 +156,21 @@ public class BoundedFifoEventQueueTest extends TestCase
 
         List _events = new Vector();
 
-        _events.add(new MockMessage( "#1").getHandle());
+        _events.add(new MockMessage("#1").getHandle());
 
-        _events.add(new MockMessage( "#2").getHandle());
+        _events.add(new MockMessage("#2").getHandle());
 
-        _events.add(new MockMessage( "#3").getHandle());
+        _events.add(new MockMessage("#3").getHandle());
 
-        Message e1 = new MockMessage( "#4").getHandle();
+        Message e1 = new MockMessage("#4").getHandle();
 
-        Message e2 = new MockMessage( "#5").getHandle();
+        Message e2 = new MockMessage("#5").getHandle();
 
         _events.add(e1);
 
         _events.add(e2);
 
-        _events.add(new MockMessage( "#6").getHandle());
+        _events.add(new MockMessage("#6").getHandle());
 
         addEventsToEventQueue(strategy, _events);
 
