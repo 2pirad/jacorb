@@ -3,7 +3,7 @@
   It has been edited in a few places to accomodate
   the OMG IDL Java language mapping and DynAnys
 
-  $Id: Corba.idl,v 1.4 2001-11-15 12:19:13 jacorb Exp $	
+  $Id: Corba.idl,v 1.5 2002-02-20 14:04:23 steve.osselton Exp $	
 
 
 */
@@ -853,8 +853,8 @@ module CORBA
         string object_to_string (in Object obj);
         Object string_to_object (in string str);
 		
-        NVList create_list ( in long count );
-        NVList create_operation_list ( in OperationDef oper );
+        NVList create_list (in long count);
+        NVList create_operation_list (in Object obj);
 
         NamedValue create_named_value( in string name, in any value, 
                                        in Flags flags);

@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.17 2002-02-20 10:46:21 jason.courage Exp $
+ * @version $Id: ORBSingleton.java,v 1.18 2002-02-20 14:05:14 steve.osselton Exp $
  */
 
 public class ORBSingleton
@@ -484,6 +484,12 @@ public class ORBSingleton
 
     public org.omg.CORBA.NVList create_operation_list
         (org.omg.CORBA.OperationDef oper)
+    {
+        throw new org.omg.CORBA.NO_IMPLEMENT ("The Singleton ORB only permits factory methods");
+    }
+
+    public org.omg.CORBA.NVList create_operation_list
+        (org.omg.CORBA.Object obj)
     {
         throw new org.omg.CORBA.NO_IMPLEMENT ("The Singleton ORB only permits factory methods");
     }
