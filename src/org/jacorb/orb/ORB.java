@@ -53,7 +53,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.114 2004-02-04 09:08:30 gerald Exp $
+ * @version $Id: ORB.java,v 1.115 2004-02-06 14:37:19 gerald Exp $
  */
 
 public final class ORB
@@ -139,7 +139,7 @@ public final class ORB
     private Request request = null;
 
     /* PolicyManagement */
-    private org.omg.CORBA.PolicyManager policyManager = null;
+    private org.jacorb.orb.policies.PolicyManager policyManager = null;
 
     /* policy factories, from portable interceptor spec */
     private Map policy_factories = null;
@@ -1098,7 +1098,7 @@ public final class ORB
             }
             else if( identifier.equals("ORBPolicyManager") )
             {
-                return policyManager;
+                return getPolicyManager();
             }
             else if( identifier.equals("CodecFactory") )
             {
@@ -1118,6 +1118,10 @@ public final class ORB
         }
     }
 
+    PolicyManager getPolicyManager()
+    {
+        return policyManager;
+    }
 
     /**
      * Register a reference, that will be returned on subsequent calls
@@ -1339,9 +1343,11 @@ public final class ORB
                 }
             }
         }
+        policyManager = new PolicyManager( this );
 
         transport_manager = new TransportManager( this );
         giop_connection_manager = new GIOPConnectionManager();
+
         clientConnectionManager =
             new ClientConnectionManager( this,
                                          transport_manager,
@@ -1405,7 +1411,7 @@ public final class ORB
 
         transport_manager = new TransportManager( this );
         giop_connection_manager = new GIOPConnectionManager();
-        // policyManager = new PolicyManager( this );
+        policyManager = new PolicyManager( this );
 
         clientConnectionManager =
             new ClientConnectionManager(
