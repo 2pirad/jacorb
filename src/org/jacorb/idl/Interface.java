@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.40 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: Interface.java,v 1.41 2003-04-03 09:14:51 andre.spiegel Exp $
  */
 
 import java.io.File;
@@ -909,7 +909,7 @@ class Interface
         PrintWriter ps = openOutput( "_" + name + "LocalBase" );
         printPackage( ps );
         ps.println( "\n/**" );
-        ps.println( " * Abstract base class for implenentations of local interface " + name );
+        ps.println( " * Abstract base class for implementations of local interface " + name );
         ps.println( " * @author JacORB IDL compiler." );
         ps.println( " */" );
 
