@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.18 2002-11-26 16:45:34 nicolas Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.19 2002-12-02 09:18:05 nicolas Exp $
  */
 
 public class Client_TCP_IP_Transport
@@ -141,6 +141,8 @@ public class Client_TCP_IP_Transport
 
                     Debug.output( 1, "Connected to " +
                                   connection_info +
+                                  " from local port " +
+                                  socket.getLocalPort() +
                                   ( socket_factory.isSSL( socket ) ? " via SSL" : "" ));
 
                     connected = true;
