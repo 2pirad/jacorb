@@ -28,7 +28,7 @@ import org.omg.DynamicAny.DynAnyPackage.*;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.11 2001-11-27 15:13:22 jason.courage Exp $
+ * $Id: DynAny.java,v 1.12 2001-12-07 15:38:55 jason.courage Exp $
  *
  */
 
@@ -702,6 +702,9 @@ public class DynAny
          break;
       case TCKind._tk_wstring: 
          _any.insert_wstring("");
+         break;
+      case TCKind._tk_objref: 
+         _any.insert_Object(null);
          break;
       case TCKind._tk_TypeCode: 
          _any.insert_TypeCode( orb.get_primitive_tc( TCKind.tk_null ) );
