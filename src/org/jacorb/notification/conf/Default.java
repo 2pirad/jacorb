@@ -25,7 +25,7 @@ import org.omg.CosNotification.FifoOrder;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Default.java,v 1.1 2004-01-23 19:41:53 alphonse.bendt Exp $
+ * @version $Id: Default.java,v 1.2 2004-01-29 14:15:26 alphonse.bendt Exp $
  */
 
 public interface Default
@@ -53,5 +53,19 @@ public interface Default
     String DEFAULT_THREADPOLICY = "ThreadPool";
 
     String DEFAULT_FILTER_FACTORY = "builtin";
-}
 
+    int DEFAULT_MAX_NUMBER_SUPPLIERS = Integer.MAX_VALUE;
+
+    int DEFAULT_MAX_NUMBER_CONSUMERS = Integer.MAX_VALUE;
+
+    String DEFAULT_START_TIME_SUPPORTED = "on";
+
+    String DEFAULT_STOP_TIME_SUPPORTED = "on";
+
+    /**
+     * per default one concurrent pull operation is allowed per PullSupplier.
+     */
+    int DEFAULT_CONCURRENT_PULL_OPERATIONS_ALLOWED = 1;
+
+    String DEFAULT_DISPOSE_PROXY_CALLS_DISCONNECT = "on";
+}
