@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDef.java,v 1.13 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: TypeDef.java,v 1.14 2003-09-09 15:23:34 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -69,8 +69,13 @@ public class TypeDef
     {
         if( enclosing_symbol != null && enclosing_symbol != s )
         {
-            System.err.println( "was " + enclosing_symbol.getClass().getName() +
-                    " now: " + s.getClass().getName() );
+            if( logger.isErrorEnabled())
+            {
+                logger.error( "Typedef.setEnclosingSymbol: was " + 
+                              enclosing_symbol.getClass().getName() +
+                              " now: " + s.getClass().getName() );
+            }
+
             throw new RuntimeException( "Compiler Error: trying to reassign container for " +
                     name );
         }
@@ -89,7 +94,7 @@ public class TypeDef
             try
             {
                 AliasTypeSpec alias =
-                        new AliasTypeSpec( (TypeSpec)type_declarator.type_spec() );
+                    new AliasTypeSpec( (TypeSpec)type_declarator.type_spec() );
 
                 /* arrays need special treatment */
 
@@ -100,10 +105,11 @@ public class TypeDef
                     // we define the declarator's name as a type name indirectly
                     // through the cloned type specs.
 
-                    alias = new AliasTypeSpec( new ArrayTypeSpec(
-                            new_num(), alias.originalType(),
-                            (ArrayDeclarator)d.d, pack_name )
-                    );
+                    alias = 
+                        new AliasTypeSpec( 
+                               new ArrayTypeSpec( new_num(), alias.originalType(),
+                                                  (ArrayDeclarator)d.d, pack_name )
+                        );
                     alias.parse();
                 }
                 else
