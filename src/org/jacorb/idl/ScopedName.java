@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.20 2003-03-04 08:46:07 gerald Exp $
+ * @version $Id: ScopedName.java,v 1.21 2003-04-01 13:59:08 nick.cross Exp $
  *
  */
 
@@ -54,7 +54,7 @@ class ScopedName
         pseudoScopes.put( name, "" );
     }
 
-    private static boolean isPseudoScope( String name )
+    public static boolean isPseudoScope( String name )
     {
         return ( pseudoScopes.containsKey( name ) );
     }
@@ -698,5 +698,3 @@ class ScopedName
                 ( (SwitchTypeSpec)t ).isSwitchable() );
     }
 }
-
-
