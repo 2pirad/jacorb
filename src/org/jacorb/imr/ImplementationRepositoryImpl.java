@@ -52,7 +52,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.55 2004-05-06 16:04:10 nicolas Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.56 2005-02-09 09:54:09 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1084,7 +1084,6 @@ public class ImplementationRepositoryImpl
          */
         public SocketListener()
         {
-            receptor_pool = MessageReceptorPool.getInstance();
             request_listener = new ImRRequestListener();
             reply_listener = new NoBiDirServerReplyListener();
         }
@@ -1092,6 +1091,9 @@ public class ImplementationRepositoryImpl
         public void configure(Configuration myConfiguration)
             throws ConfigurationException
         {
+            // Moved from the constructor to facilitate logging.
+            receptor_pool = MessageReceptorPool.getInstance(myConfiguration);
+
             try
             {
                 int endpoint_port = 
