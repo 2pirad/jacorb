@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.27 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Member.java,v 1.28 2003-09-12 09:39:17 andre.spiegel Exp $
  *
  */
 
@@ -60,7 +60,8 @@ public class Member
             pack_name = s;
 
         type_spec.setPackage( s );
-        declarators.setPackage( s );
+        if ( declarators != null )
+            declarators.setPackage( s );
     }
 
     public void setEnclosingSymbol( IdlSymbol s )
