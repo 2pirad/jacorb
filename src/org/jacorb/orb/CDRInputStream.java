@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.CodeSet;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.11 2001-08-15 08:35:59 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.12 2001-08-29 11:28:40 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -1127,19 +1127,17 @@ public class CDRInputStream
 		} // switch
 
 		if( member_idx != -1 )
-		    read_value( tc.member_type(member_idx), out);
-		else
-		{
-		    if( def_idx == -1 )
-		    {
-                        Debug.output(4, " -- TC error ", buffer );
-			throw new RuntimeException("Error in Union, no member and no default!");
-		    }
+                {
+		    read_value( tc.member_type( member_idx ), out);
+                }
+		else if( def_idx != -1 )
+                {
 		    read_value( tc.member_type( def_idx ), out);
 		}
 	    } 
 	    catch ( org.omg.CORBA.TypeCodePackage.BadKind b ){} 
 	    catch ( org.omg.CORBA.TypeCodePackage.Bounds b ){}
+
 	    break;	
 	case 0xffffffff:
 	    out.write_long( read_long());
