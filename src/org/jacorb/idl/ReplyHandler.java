@@ -9,7 +9,7 @@ import java.util.*;
  * ReplyHandler).
  * 
  * @author Andre Spiegel
- * $Id: ReplyHandler.java,v 1.1.2.4 2002-10-22 15:39:52 andre.spiegel Exp $
+ * $Id: ReplyHandler.java,v 1.1.2.5 2002-10-25 19:20:48 andre.spiegel Exp $
  */
 public class ReplyHandler extends Interface
 {
@@ -156,6 +156,20 @@ public class ReplyHandler extends Interface
         
     public void parse()
     {
+        if (!NameTable.defined ("org.omg.Messaging.ReplyHandler"))
+        {
+            try
+            {
+                NameTable.define ("org.omg.Messaging.ReplyHandler", "type");
+                TypeMap.typedef ("org.omg.Messaging.ReplyHandler", 
+                                 new ReplyHandlerTypeSpec (IdlSymbol.new_num()));
+            } 
+            catch (Exception e)
+            {
+                throw new RuntimeException (e.getMessage());
+            }
+        }
+
         ConstrTypeSpec ctspec = new ConstrTypeSpec (this);
         try 
         {
