@@ -41,7 +41,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.33 2003-10-28 15:26:06 nick.cross Exp $
+ * @version $Id: GIOPConnection.java,v 1.34 2003-11-05 17:19:32 nick.cross Exp $
  */
 
 public abstract class GIOPConnection
@@ -792,7 +792,7 @@ public abstract class GIOPConnection
      */
     public boolean tryDiscard()
     {
-        if( hasPendingMessages() )
+        if( ! hasPendingMessages() )
         {
             synchronized( pendingUndecidedSync )
             {
