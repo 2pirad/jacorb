@@ -41,7 +41,7 @@ import org.omg.CSIIOP.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.1 2003-05-07 16:05:44 andre.spiegel Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.2 2003-06-20 15:13:02 andre.spiegel Exp $
  */
 
 public class ClientIIOPConnection
@@ -116,7 +116,7 @@ public class ClientIIOPConnection
             checkSSL();
             IIOPAddress address = target_profile.getAddress();
             
-            connection_info = address.getHost() + ":"
+            connection_info = address.getIP() + ":"
                               + (use_ssl ? ssl_port
                                          : address.getPort());
             
@@ -214,15 +214,15 @@ public class ClientIIOPConnection
                 {
                     result = getSSLSocketFactory().createSocket
                     (
-                        address.getHost(), ssl_port
+                        address.getIP(), ssl_port
                     );
-                    connection_info = address.getHost() + ":" + ssl_port;
+                    connection_info = address.getIP() + ":" + ssl_port;
                 }
                 else
                 {
                     result = getSocketFactory().createSocket
                     (
-                        address.getHost(), address.getPort()
+                        address.getIP(), address.getPort()
                     );
                     connection_info = address.toString();
                 }
