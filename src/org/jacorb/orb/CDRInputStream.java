@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.80.2.1 2004-03-24 19:05:37 gerald Exp $
+ * $Id: CDRInputStream.java,v 1.80.2.2 2004-03-25 12:07:02 gerald Exp $
  */
 
 public class CDRInputStream
@@ -2356,7 +2356,7 @@ public class CDRInputStream
 
         if (tag == 0x7fffff00)
         {
-            return read_untyped_value ( new String[]{ ValueHandler.getRMIRepositoryID (clz) },
+            return read_untyped_value ( new String[]{ ValueHandler.getRMIRepositoryID(clz) },
                                         start_offset, codebase);
         }
         else if (tag == 0x7fffff02)
@@ -2496,7 +2496,7 @@ public class CDRInputStream
                 // first place solves the problem."
 
                 String className =
-                org.jacorb.ir.RepositoryID.className (repository_ids[r]);
+                org.jacorb.ir.RepositoryID.className(repository_ids[r], null);
 
                 Class c = null;
                 //#ifjdk 1.2

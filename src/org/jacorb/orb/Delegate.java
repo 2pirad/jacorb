@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.104.2.2 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: Delegate.java,v 1.104.2.3 2004-03-25 12:07:02 gerald Exp $
  *
  */
 
@@ -1190,7 +1190,7 @@ public final class Delegate
             {
                 // Retrieve the local stub for the object in question. Then call the _ids method
                 // and see if any match the logical_type_id otherwise fall back to remote.
-                String classname = RepositoryID.className( ids[0], "Stub" );
+                String classname = RepositoryID.className( ids[0], "Stub", null );
                 int lastDot = classname.lastIndexOf( '.' );
                 StringBuffer scn = new StringBuffer( classname.substring( 0, lastDot + 1) );
                 scn.append( '_' );

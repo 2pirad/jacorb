@@ -44,7 +44,7 @@ import org.jacorb.util.ObjectUtil;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.9.4.2 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.9.4.3 2004-03-25 12:07:02 gerald Exp $
  */
 public class ExceptionHolderImpl 
     extends org.omg.Messaging.ExceptionHolder
@@ -174,7 +174,7 @@ public class ExceptionHolderImpl
                IllegalAccessException,
                InvocationTargetException
     {
-        String name = RepositoryID.className (id, "Helper");
+        String name = RepositoryID.className(id, "Helper", null);
 
         // if class doesn't exist, let exception propagate
         Class  helper = ObjectUtil.classForName (name);

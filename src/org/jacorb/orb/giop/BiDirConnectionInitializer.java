@@ -29,7 +29,7 @@ import org.omg.BiDirPolicy.BIDIRECTIONAL_POLICY_TYPE;
 /**
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionInitializer.java,v 1.7 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: BiDirConnectionInitializer.java,v 1.7.4.1 2004-03-25 12:07:02 gerald Exp $
  */
 
 public class BiDirConnectionInitializer 
@@ -53,7 +53,6 @@ public class BiDirConnectionInitializer
         }
         catch (Exception e)
         {
-            org.jacorb.util.Debug.output(2, e);
         }
     }
 
