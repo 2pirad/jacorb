@@ -28,10 +28,10 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.21 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.22 2003-09-12 09:43:58 brose Exp $
  */
 
-class ValueBoxDecl
+public class ValueBoxDecl
     extends Value
 {
     private boolean written = false;
@@ -415,5 +415,17 @@ class ValueBoxDecl
             i.printStackTrace();
         }
     }
+
+
+    /**
+     * @overrides accept in TypeDeclaration
+     */ 
+
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitValue( this );
+    }
+
+
 }
 
