@@ -49,7 +49,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimeoutTest.java,v 1.5 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: TimeoutTest.java,v 1.6 2004-02-09 16:26:42 alphonse.bendt Exp $
  */
 
 public class TimeoutTest extends NotificationTestCase
@@ -142,8 +142,8 @@ public class TimeoutTest extends NotificationTestCase
         StructuredPushReceiver _receiver =
             new StructuredPushReceiver(this);
 
-        _sender.connect(getSetup(), eventChannel_, false);
-        _receiver.connect(getSetup(), eventChannel_, false);
+        _sender.connect(eventChannel_, false);
+        _receiver.connect(eventChannel_, false);
 
         new Thread(_receiver).start();
         new Thread(_sender).start();

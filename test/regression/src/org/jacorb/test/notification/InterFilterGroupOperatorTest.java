@@ -61,7 +61,7 @@ import org.apache.avalon.framework.logger.Logger;
  * to AND. ProxySupplierfilter set to TRUE.
  *
  * @author Alphonse Bendt
- * @version $Id: InterFilterGroupOperatorTest.java,v 1.5 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: InterFilterGroupOperatorTest.java,v 1.6 2004-02-09 16:26:42 alphonse.bendt Exp $
  */
 public class InterFilterGroupOperatorTest extends NotificationTestCase
 {
@@ -108,8 +108,8 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
 
-        _sender.connect(getSetup(), channel_, true);
-        _receiver.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, true);
+        _receiver.connect(channel_, true);
         _sender.addProxyFilter(trueFilter_);
         _sender.addAdminFilter(falseFilter_);
 
@@ -130,8 +130,8 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
     {
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
-        _sender.connect(getSetup(), channel_, true);
-        _receiver.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, true);
+        _receiver.connect(channel_, true);
 
         _sender.addProxyFilter(falseFilter_);
         _sender.addAdminFilter(trueFilter_);
@@ -153,8 +153,8 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
     {
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
-        _sender.connect(getSetup(), channel_, false);
-        _receiver.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, false);
+        _receiver.connect(channel_, true);
 
         _sender.addProxyFilter(trueFilter_);
         _sender.addAdminFilter(falseFilter_);
@@ -176,8 +176,8 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
     {
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
-        _sender.connect(getSetup(), channel_, false);
-        _receiver.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, false);
+        _receiver.connect(channel_, true);
 
         _sender.addProxyFilter(falseFilter_);
         _sender.addAdminFilter(trueFilter_);
@@ -199,8 +199,8 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
     {
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
-        _sender.connect(getSetup(), channel_, true);
-        _receiver.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, true);
+        _receiver.connect(channel_, true);
 
         _receiver.addProxyFilter(falseFilter_);
         _receiver.addAdminFilter(trueFilter_);
@@ -222,8 +222,8 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
     {
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
-        _sender.connect(getSetup(), channel_, true);
-        _receiver.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, true);
+        _receiver.connect(channel_, true);
 
         _receiver.addProxyFilter(trueFilter_);
         _receiver.addAdminFilter(falseFilter_);
@@ -246,9 +246,9 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
 
-        _sender.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, true);
 
-        _receiver.connect(getSetup(), channel_, false);
+        _receiver.connect(channel_, false);
 
         _receiver.addProxyFilter(falseFilter_);
         _receiver.addAdminFilter(trueFilter_);
@@ -271,9 +271,9 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
         AnyPushSender _sender = new AnyPushSender(this, testPerson_);
         AnyPushReceiver _receiver = new AnyPushReceiver(this);
 
-        _sender.connect(getSetup(), channel_, true);
+        _sender.connect(channel_, true);
 
-        _receiver.connect(getSetup(), channel_, false);
+        _receiver.connect(channel_, false);
 
         _receiver.addProxyFilter(trueFilter_);
         _receiver.addAdminFilter(falseFilter_);

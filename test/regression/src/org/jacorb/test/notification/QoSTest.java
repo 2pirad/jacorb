@@ -55,7 +55,7 @@ import org.omg.CosNotification.StartTimeSupported;
  * Created: Mon Aug 11 21:21:21 2003
  *
  * @author Alphonse Bendt
- * @version $Id: QoSTest.java,v 1.4 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: QoSTest.java,v 1.5 2004-02-09 16:26:42 alphonse.bendt Exp $
  */
 
 public class QoSTest extends NotificationTestCase
@@ -183,14 +183,14 @@ public class QoSTest extends NotificationTestCase
         StructuredPushReceiver receiver =
             new StructuredPushReceiver(this, events.length);
 
-        receiver.connect(getSetup(), channel, false);
+        receiver.connect(channel, false);
 
         receiver.pushSupplier_.suspend_connection();
 
         StructuredPushSender sender =
             new StructuredPushSender(this, events, 100);
 
-        sender.connect(getSetup(), channel, false);
+        sender.connect(channel, false);
 
         // push events
         sender.run();

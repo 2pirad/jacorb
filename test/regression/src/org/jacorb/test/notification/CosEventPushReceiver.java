@@ -1,29 +1,22 @@
 package org.jacorb.test.notification;
 
-import org.omg.CosEventComm.PushConsumer;
-import org.omg.CosEventComm.PushConsumerPOA;
-import org.omg.CosEventComm.Disconnected;
 import org.omg.CORBA.Any;
-import org.omg.CORBA.ORB;
-import org.omg.PortableServer.POA;
+import org.omg.CosEventChannelAdmin.AlreadyConnected;
+import org.omg.CosEventChannelAdmin.ConsumerAdmin;
 import org.omg.CosEventChannelAdmin.EventChannel;
 import org.omg.CosEventChannelAdmin.EventChannelHelper;
-import org.omg.CosEventChannelAdmin.ConsumerAdmin;
 import org.omg.CosEventChannelAdmin.ProxyPushSupplier;
-import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventChannelAdmin.TypeError;
-import junit.framework.TestCase;
-import org.apache.avalon.framework.logger.Logger;
+import org.omg.CosEventComm.Disconnected;
+import org.omg.CosEventComm.PushConsumerPOA;
+
 import org.jacorb.util.Debug;
 
+import org.apache.avalon.framework.logger.Logger;
+
 /**
- * CosEventPushReceiver.java
- *
- *
- * Created: Fri Nov 22 18:21:29 2002
- *
  * @author Alphonse Bendt
- * @version $Id: CosEventPushReceiver.java,v 1.3 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: CosEventPushReceiver.java,v 1.4 2004-02-09 16:26:42 alphonse.bendt Exp $
  */
 
 public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, TestClientOperations {
@@ -34,9 +27,9 @@ public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, T
     boolean connected_;
     ProxyPushSupplier mySupplier_;
     Logger logger_ = Debug.getNamedLogger(getClass().getName());
-    TestCase currentTest_;
+    NotificationTestCase currentTest_;
 
-    public CosEventPushReceiver(TestCase testCase) {
+    public CosEventPushReceiver(NotificationTestCase testCase) {
         currentTest_ = testCase;
     }
 
@@ -83,8 +76,7 @@ public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, T
         return false;
     }
 
-    public void connect(NotificationTestCaseSetup setup,
-                        org.omg.CosNotifyChannelAdmin.EventChannel channel,
+    public void connect(org.omg.CosNotifyChannelAdmin.EventChannel channel,
                         boolean useOrSemantic) throws AlreadyConnected, TypeError {
 
         EventChannel _channel = EventChannelHelper.narrow(channel);
@@ -96,11 +88,11 @@ public class CosEventPushReceiver extends PushConsumerPOA implements Runnable, T
         mySupplier_ = _admin.obtain_push_supplier();
         currentTest_.assertNotNull(mySupplier_);
 
-        mySupplier_.connect_push_consumer(_this(setup.getORB()));
+        mySupplier_.connect_push_consumer(_this(currentTest_.getSetup().getORB()));
         connected_ = true;
     }
 
     public void shutdown() {
         mySupplier_.disconnect_push_supplier();
     }
-}// CosEventPushReceiver
+}

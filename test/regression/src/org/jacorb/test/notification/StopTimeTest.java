@@ -53,7 +53,7 @@ import org.omg.CORBA.BAD_QOS;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StopTimeTest.java,v 1.7 2004-02-08 14:27:41 alphonse.bendt Exp $
+ * @version $Id: StopTimeTest.java,v 1.8 2004-02-09 16:26:42 alphonse.bendt Exp $
  */
 
 public class StopTimeTest extends NotificationTestCase
@@ -147,9 +147,9 @@ public class StopTimeTest extends NotificationTestCase
         StructuredPushSender _sender = new StructuredPushSender(this, structuredEvent_);
         StructuredPushReceiver _receiver = new StructuredPushReceiver(this);
 
-        _sender.connect(getSetup(), eventChannel_, false);
+        _sender.connect(eventChannel_, false);
 
-        _receiver.connect(getSetup(), eventChannel_, false);
+        _receiver.connect(eventChannel_, false);
 
         new Thread(_receiver).start();
         new Thread(_sender).start();

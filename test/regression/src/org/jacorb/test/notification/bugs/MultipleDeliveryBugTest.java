@@ -48,7 +48,7 @@ import org.apache.avalon.framework.logger.Logger;
  * Under high load Messages were delivered multiple times.
  *
  * @author Alphonse Bendt
- * @version $Id: MultipleDeliveryBugTest.java,v 1.3 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: MultipleDeliveryBugTest.java,v 1.4 2004-02-09 16:26:42 alphonse.bendt Exp $
  */
 
 public class MultipleDeliveryBugTest extends NotificationTestCase
@@ -120,8 +120,8 @@ public class MultipleDeliveryBugTest extends NotificationTestCase
 
         _receiver.setTimeOut(testSize * 100);
 
-        _sender.connect(getSetup(), channel_, false);
-        _receiver.connect(getSetup(), channel_, false);
+        _sender.connect(channel_, false);
+        _receiver.connect(channel_, false);
 
         _receiver.start();
 

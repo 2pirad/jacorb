@@ -54,7 +54,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelHelper;
  * Created: Sun Aug 17 11:48:32 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ReleaseTasksTest.java,v 1.6 2004-01-29 14:23:26 alphonse.bendt Exp $
+ * @version $Id: ReleaseTasksTest.java,v 1.7 2004-02-09 16:26:42 alphonse.bendt Exp $
  */
 
 public class ReleaseTasksTest extends NotificationTestCase
@@ -86,10 +86,10 @@ public class ReleaseTasksTest extends NotificationTestCase
 
     public void testAllTasksAreReleased() throws Exception {
         StructuredPushReceiver pushReceiver = new StructuredPushReceiver(this);
-        pushReceiver.connect(getSetup(), eventChannel_, false);
+        pushReceiver.connect(eventChannel_, false);
 
         StructuredPullReceiver pullReceiver = new StructuredPullReceiver(this);
-        pullReceiver.connect(getSetup(), eventChannel_, false);
+        pullReceiver.connect(eventChannel_, false);
 
         final FilterStage supplierAdminMock = new MockFilterStage() {
                 public List getSubsequentFilterStages() {
