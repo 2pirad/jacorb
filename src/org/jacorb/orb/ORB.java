@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.122 2004-11-18 18:12:09 nicolas Exp $
+ * @version $Id: ORB.java,v 1.123 2004-11-24 15:41:18 nicolas Exp $
  */
 
 public final class ORB
@@ -1399,7 +1399,9 @@ public final class ORB
 
         try
         {
-            configure( org.jacorb.config.Configuration.getConfiguration(props, this));
+            configure( org.jacorb.config.Configuration.getConfiguration(props, 
+                                                                        this,
+                                                                        false)); // no applet support
         }
         catch( ConfigurationException ce )
         {
@@ -1491,7 +1493,9 @@ public final class ORB
 
         try
         {
-            configure( org.jacorb.config.Configuration.getConfiguration(props, this));
+            configure( org.jacorb.config.Configuration.getConfiguration(props, 
+                                                                        this,
+                                                                        true)); //applet support
         }
         catch( ConfigurationException ce )
         {
