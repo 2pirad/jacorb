@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.21 2001-07-23 18:50:02 jacorb Exp $
+ * @version $Id: ORB.java,v 1.22 2001-08-06 07:46:32 jacorb Exp $
  */
 
 public final class ORB
@@ -171,7 +171,7 @@ public final class ORB
 
     synchronized void _release( org.jacorb.orb.Delegate delegate )
     {
-        knownReferences.remove( delegate.pior.getIORString() );
+        knownReferences.remove( delegate.getParsedIOR().getIORString() );
     }
 
 

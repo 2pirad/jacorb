@@ -34,7 +34,7 @@ import org.omg.CosNaming.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.5 2001-07-25 17:13:32 noffke Exp $
+ * @version $Id: ParsedIOR.java,v 1.6 2001-08-06 07:46:32 jacorb Exp $
  */
 
 public class ParsedIOR 
@@ -237,12 +237,17 @@ public class ParsedIOR
 	decode( _ior );
     }
 
+    public boolean equals( Object o )
+    {
+        return o instanceof ParsedIOR &&
+            ((ParsedIOR) o).ior_str.equals( ior_str );
+    }
 
     /**
      * When multiple internet IOP tags are present, they will probably
-     * have different versions, we will use the highest version between 0 and 1.
+     * have different versions, we will use the highest version
+     * between 0 and 1.  
      */
-
     public void decode( IOR _ior) 
     {
 	boolean iiopFound = false;
