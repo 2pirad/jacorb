@@ -40,7 +40,7 @@ import org.omg.CORBA.ConstantDescription;
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.15 2003-02-21 15:46:42 nick.cross Exp $
+ * @version $Id: InterfaceDef.java,v 1.16 2003-04-01 11:25:18 nick.cross Exp $
  */
 
 public class InterfaceDef
@@ -991,7 +991,7 @@ public class InterfaceDef
 
         String def_in = null;
 
-        if( myContainer != null )
+        if( myContainer == null )
             def_in = "Global";
         else
             def_in = myContainer.id();
