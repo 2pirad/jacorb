@@ -36,7 +36,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.12 2004-08-26 08:51:23 simon.mcqueen Exp $
+ * @version $Id: IIOPProfile.java,v 1.13 2004-08-26 09:23:37 simon.mcqueen Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase
@@ -387,8 +387,8 @@ public class IIOPProfile
         {
             IIOPProfile other = (IIOPProfile)prof;
             return this.primaryAddress.equals(other.primaryAddress)
-               &&  this.getAlternateAddresses().equals(other.getAlternateAddresses()
-               &&  this.getSSLPort() == other.getSSLPort());
+               &&  this.getAlternateAddresses().equals(other.getAlternateAddresses())
+               &&  this.getSSLPort() == other.getSSLPort();
         }
         else
             return false;
