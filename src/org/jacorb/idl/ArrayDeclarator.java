@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.13 2003-09-03 21:00:31 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -31,7 +31,6 @@ import java.util.*;
 class ArrayDeclarator
     extends Declarator
 {
-
     public SymbolList fixed_array_size_list;
     private int[] dimensions = null;
 
@@ -66,7 +65,9 @@ class ArrayDeclarator
         else
             pack_name = s;
 
-        for( Enumeration e = fixed_array_size_list.v.elements(); e.hasMoreElements(); ( (FixedArraySize)e.nextElement() ).setPackage( s ) ) ;
+        for( Enumeration e = fixed_array_size_list.v.elements(); 
+             e.hasMoreElements(); 
+             ( (FixedArraySize)e.nextElement() ).setPackage( s ) ) ;
 
     }
 

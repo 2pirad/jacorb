@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /*
  * @author Gerald Brose
- * @version $Id: GlobalInputStream.java,v 1.11 2003-05-15 11:31:02 nick.cross Exp $
+ * @version $Id: GlobalInputStream.java,v 1.12 2003-09-03 20:57:39 brose Exp $
  *
  */
 
@@ -88,8 +88,8 @@ public class GlobalInputStream
         positions.push( position );
         lookahead_stack.push( new Integer( lookahead ) );
 
-        if( logger.isWarnEnabled() )
-		 logger.warn( "Including " + fname );
+        if( logger.isInfoEnabled() )
+            logger.info( "Including " + fname );
         /* files form their own scopes, so we have to open a new one here */
     }
 
@@ -177,7 +177,8 @@ public class GlobalInputStream
                     try
                     {
                         if( logger.isInfoEnabled() )
-		 logger.info( "opening " + path_names[ i ] + File.separator + fname );
+                            logger.info( "opening " + path_names[ i ] + File.separator + fname );
+
                         currentFile = new File( path_names[ i ] + File.separator + fname );
                         return new FileInputStream( currentFile );
                     }
@@ -251,8 +252,10 @@ public class GlobalInputStream
                     ch = ( (Integer)lookahead_stack.pop() ).intValue();
 
                     included = !( positions.empty() );
+
                     if( logger.isInfoEnabled() )
-		 logger.info( "returning to " + currentFile + " included: " + included );
+                        logger.info( "returning to " + currentFile + " included: " + included );
+
                     lexer.restorePosition( positionInfo );
                 }
                 else
