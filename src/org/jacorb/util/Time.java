@@ -20,7 +20,7 @@ package org.jacorb.util;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-
+ 
 import org.omg.TimeBase.*;
 import org.jacorb.orb.*;
 
@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * Contains static methods to handle CORBA time values.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: Time.java,v 1.4 2003-01-06 16:14:05 andre.spiegel Exp $
+ * @version $Id: Time.java,v 1.5 2003-01-07 09:57:36 andre.spiegel Exp $
  */
 public class Time
 {
@@ -146,11 +146,54 @@ public class Time
      */
     public static byte[] toCDR (UtcT time)
     {
-        byte[] buffer = new byte[24];
+        // TODO: make this more efficient with mere bit shifting
+        byte[] buffer = new byte[25];
         CDROutputStream out = new CDROutputStream (buffer);
         out.beginEncapsulatedArray();
         UtcTHelper.write(out, time);
         return buffer;
     }
+    
+    /**
+     * Decodes a CDR encapsulation of a UtcT.
+     */
+    public static UtcT fromCDR (byte[] buffer)
+    {
+        CDRInputStream in = new CDRInputStream (null, buffer);
+        in.openEncapsulatedArray();
+        return UtcTHelper.read (in);
+    }
+    
+    /**
+     * This method blocks until the given time has been reached.
+     * If the time is null, or it has already passed,
+     * then this method returns immediately.
+     */
+    public static void waitFor (UtcT time)
+    {
+        if (time != null)
+        {
+            long delta = Time.millisTo (time);
+            if (delta > 0)
+            {
+                Object lock = new Object();
+                synchronized (lock)
+                {
+                    try
+                    {
+                        lock.wait (delta);
+                    }
+                    catch (InterruptedException e)
+                    {
+                        Debug.output 
+                            (Debug.ORB_MISC | Debug.IMPORTANT,
+                            "interrupted while waiting on timer");
+                    }
+                }
+            }
+        }
+    }        
+
+
 
 }
