@@ -58,7 +58,7 @@ import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierPOATie;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.5 2003-07-15 13:43:32 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.6 2003-07-16 00:07:01 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl 
@@ -175,7 +175,7 @@ public class ProxyPushSupplierImpl
     }
 
     public List getSubsequentFilterStages() {
-	return JDK13CollectionsWrapper.singletonList(this);
+	return CollectionsWrapper.singletonList(this);
     }
 
     public EventConsumer getEventConsumer() {

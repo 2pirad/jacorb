@@ -41,7 +41,7 @@ import org.jacorb.util.Environment;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.6 2003-07-15 13:43:32 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.7 2003-07-16 00:07:01 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl
@@ -143,7 +143,7 @@ public class ProxyPullConsumerImpl
 	    };
 
         connected_ = false;
-        subsequentDestinations_ = JDK13CollectionsWrapper.singletonList( myAdmin_ );
+        subsequentDestinations_ = CollectionsWrapper.singletonList( myAdmin_ );
     }
 
     public void disconnect_pull_consumer()

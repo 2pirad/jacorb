@@ -36,7 +36,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.6 2003-07-15 13:43:32 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.7 2003-07-16 00:07:01 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -86,7 +86,7 @@ public class ProxyPushConsumerImpl
     {
         setProxyType( ProxyType.PUSH_ANY );
         connected = false;
-        subsequentDestinations_ = JDK13CollectionsWrapper.singletonList( myAdmin_ );
+        subsequentDestinations_ = CollectionsWrapper.singletonList( myAdmin_ );
     }
 
     public void disconnect_push_consumer()

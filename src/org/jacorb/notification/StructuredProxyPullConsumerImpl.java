@@ -51,7 +51,7 @@ import org.jacorb.util.Environment;
  * StructuredProxyPullConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.7 2003-07-15 13:43:32 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.8 2003-07-16 00:07:01 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullConsumerImpl 
@@ -113,7 +113,7 @@ public class StructuredProxyPullConsumerImpl
                         }
 
                         ;
-        subsequentDestinations_ = JDK13CollectionsWrapper.singletonList( myAdmin_ );
+        subsequentDestinations_ = CollectionsWrapper.singletonList( myAdmin_ );
     }
 
     public void disconnect_structured_pull_consumer()

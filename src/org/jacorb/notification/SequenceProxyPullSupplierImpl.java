@@ -41,7 +41,7 @@ import org.omg.CosNotifyChannelAdmin.SequenceProxyPullSupplierPOATie;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.4 2003-07-15 13:43:32 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.5 2003-07-16 00:07:01 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullSupplierImpl
@@ -156,7 +156,7 @@ public class SequenceProxyPullSupplierImpl
 
     public List getSubsequentFilterStages()
     {
-        return JDK13CollectionsWrapper.singletonList( this );
+        return CollectionsWrapper.singletonList( this );
     }
 
     public EventConsumer getEventConsumer()
