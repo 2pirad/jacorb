@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Operation.java,v 1.7 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: Operation.java,v 1.7.4.1 2002-10-22 15:40:32 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -52,6 +52,8 @@ interface Operation
     /** method code for stubs */
 
     public void printMethod( PrintWriter ps, String classname, boolean is_local );
+
+    public void print_sendc_Method( PrintWriter ps, String classname );
 
     /** method code for skeletons */
 
