@@ -9,7 +9,7 @@ import org.jacorb.util.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.5 2001-06-08 12:10:35 jacorb Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.6 2001-07-05 12:52:57 noffke Exp $
  */
 
 public class SSLComponentInterceptor 
@@ -51,6 +51,13 @@ public class SSLComponentInterceptor
                 ssl.target_supports |= 0x1;
             }
 
+            //we don't support delegation
+            //0x80 -> NoDelegation
+            ssl.target_supports |= 0x80;
+
+            //we don't care if the other side delegates,
+            //so no required options are set.
+            
             CDROutputStream sslDataStream = 
                 new org.jacorb.orb.CDROutputStream(orb);
   
