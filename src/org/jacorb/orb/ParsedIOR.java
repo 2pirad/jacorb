@@ -39,7 +39,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.32 2002-05-28 17:20:28 nicolas Exp $
+ * @version $Id: ParsedIOR.java,v 1.33 2002-05-29 15:07:18 nicolas Exp $
  */
 
 public class ParsedIOR 
@@ -629,7 +629,41 @@ public class ParsedIOR
                 orbTypeId = new Integer( is.read_long() );
             }
         }
+        
+        if( cs_info == null )
+        {
+            //no codeset info in MULTIPLE_COMPONENTS profile, so check
+            //INTERNET_IOP profile
 
+            // allow IORs without IIOP components
+            TaggedComponent[] iiop_components = null;
+            if( profileBodies.length == 0 )
+            {
+                iiop_components = new TaggedComponent[0];
+            }
+            else
+            {
+                iiop_components = 
+                    profileBodies[ effectiveProfileBody ].components;
+            }
+             
+            for( int i = 0; i < iiop_components.length; i++ )
+            {   
+                if( iiop_components[i].tag == TAG_CODE_SETS.value )
+                {
+                    is =
+                        new CDRInputStream( orb, 
+                                            iiop_components[i].component_data);
+                    
+                    is.openEncapsulatedArray();
+                    
+                    cs_info = CodeSetComponentInfoHelper.read( is );
+                    
+                    break;
+                }
+            }
+        }
+            
         // if ORB type ID isn't found yet then search IOP profile for it
         if( orbTypeId == null )
         {
