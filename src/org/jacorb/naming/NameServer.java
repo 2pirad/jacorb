@@ -36,7 +36,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.20 2003-08-15 15:49:52 nick.cross Exp $
+ *  @version $Id: NameServer.java,v 1.21 2003-08-18 05:03:29 francisco Exp $
  */
 
 
@@ -107,7 +107,7 @@ public class NameServer
                 n = new NamingContextImpl();
             }
 
-            n.init( orb, adapter);
+            n.init(adapter);
             return n;
         }
 
@@ -305,8 +305,9 @@ public class NameServer
                                            rootPOA.the_POAManager(),
                                            policies);
 
+            NamingContextImpl.init(orb, rootPOA);
             NameServer.NameServantActivatorImpl servantActivator =
-            new NameServer.NameServantActivatorImpl( orb );
+                new NameServer.NameServantActivatorImpl( orb );
 
             nsPOA.set_servant_manager( servantActivator );
             nsPOA.the_POAManager().activate();
