@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.44 2002-03-26 08:58:13 steve.osselton Exp $
+ * @version     $Id: CDROutputStream.java,v 1.45 2002-04-01 20:29:05 oci Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -1203,7 +1203,7 @@ public class CDROutputStream
                break;
             case TCKind._tk_struct: 
             case TCKind._tk_except:
-               if( tcMap.containsKey( value.id()) )
+               if( tcMap.containsKey( value.id()) && ((TypeCode)value).is_recursive ())
                {
                   writeRecursiveTypeCode( value, tcMap );
                }
@@ -1227,7 +1227,7 @@ public class CDROutputStream
                }
                break;
             case TCKind._tk_enum:
-               if( tcMap.containsKey( value.id()) )
+               if( tcMap.containsKey( value.id()) && ((TypeCode)value).is_recursive ())
                {
                   writeRecursiveTypeCode( value, tcMap );
                }
@@ -1250,7 +1250,7 @@ public class CDROutputStream
                   break;
                }
             case TCKind._tk_union:
-               if( tcMap.containsKey( value.id()) )
+               if( tcMap.containsKey( value.id()) && ((TypeCode)value).is_recursive ())
                {
                   writeRecursiveTypeCode( value, tcMap );
                }
@@ -1309,7 +1309,7 @@ public class CDROutputStream
                endEncapsulation();
                break;
             case TCKind._tk_alias: 
-               if( tcMap.containsKey( value.id()) )
+               if( tcMap.containsKey( value.id()) && ((TypeCode)value).is_recursive ())
                {
                   writeRecursiveTypeCode( value, tcMap ); 
                }
@@ -1327,7 +1327,7 @@ public class CDROutputStream
                }
                break;
             case TCKind._tk_value: 
-               if( tcMap.containsKey( value.id()) )
+               if( tcMap.containsKey( value.id()) && ((TypeCode)value).is_recursive ())
                {
                   writeRecursiveTypeCode( value, tcMap );
                }
@@ -1361,7 +1361,7 @@ public class CDROutputStream
                }
                break;
             case TCKind._tk_value_box: 
-               if( tcMap.containsKey( value.id()) )
+               if( tcMap.containsKey( value.id()) && ((TypeCode)value).is_recursive ())
                {
                   writeRecursiveTypeCode( value, tcMap );
                }
@@ -1379,7 +1379,7 @@ public class CDROutputStream
                }
                break;
             case TCKind._tk_abstract_interface: 
-               if( tcMap.containsKey( value.id()) )
+               if( tcMap.containsKey( value.id()) && ((TypeCode)value).is_recursive ())
                {
                   writeRecursiveTypeCode( value, tcMap );
                }
