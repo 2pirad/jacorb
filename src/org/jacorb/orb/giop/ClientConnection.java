@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.24 2002-04-03 09:30:29 jason.courage Exp $ 
+ * @version $Id: ClientConnection.java,v 1.25 2002-04-09 14:43:48 steve.osselton Exp $ 
  */
 
 public class ClientConnection 
@@ -213,12 +213,13 @@ public class ClientConnection
     {
         try
         {
-            connection.sendMessage( os );
+            connection.sendMessage (os);
         }
-        catch( java.io.IOException e )
+        catch (java.io.IOException e)
         {
-            Debug.output(2,e);
-            throw new org.omg.CORBA.COMM_FAILURE();
+            Debug.output (2,e);
+            throw new org.omg.CORBA.COMM_FAILURE 
+                (0, org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE);
         }		
     }
 

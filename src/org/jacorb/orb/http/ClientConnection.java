@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.*;
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.10 2002-03-19 09:25:28 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.11 2002-04-09 14:43:49 steve.osselton Exp $
  */
 
 public final class ClientConnection 
@@ -180,7 +180,8 @@ public final class ClientConnection
 	    catch ( Exception e )
 	    {
 		org.jacorb.util.Debug.output(2,e);
-		throw new org.omg.CORBA.COMM_FAILURE();
+		throw new org.omg.CORBA.COMM_FAILURE
+                    (0, org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE);
 	    }		
 	    return rep;
 	}
@@ -237,7 +238,8 @@ public final class ClientConnection
 	    catch ( Exception e )
 	    {		    
 		org.jacorb.util.Debug.output(2,e);
-		throw new org.omg.CORBA.COMM_FAILURE();
+		throw new org.omg.CORBA.COMM_FAILURE
+                    (0, org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE);
 	    }		
 	    
 	
@@ -286,7 +288,8 @@ public final class ClientConnection
 	    catch ( Exception e )
 	    {		    
 		org.jacorb.util.Debug.output(2,e);
-		throw new org.omg.CORBA.COMM_FAILURE();
+		throw new org.omg.CORBA.COMM_FAILURE
+                    (0, org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE);
 	    }			    		  
         }
     }

@@ -33,7 +33,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * Created: Sat Aug 18 21:43:19 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.4 2002-03-19 09:25:26 nicolas Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.5 2002-04-09 14:43:49 steve.osselton Exp $
  */
 
 public class ReplyPlaceholder 
@@ -137,7 +137,8 @@ public class ReplyPlaceholder
 
         if( communicationException )
 	{
-            throw new org.omg.CORBA.COMM_FAILURE();
+            throw new org.omg.CORBA.COMM_FAILURE
+                (0, org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE);
 	}
 
         if( timeoutException )

@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.8 2002-04-05 17:37:29 nicolas Exp $
+ * @version $Id: Messages.java,v 1.9 2002-04-09 14:43:48 steve.osselton Exp $
  *
  */
 
@@ -59,7 +59,12 @@ public class Messages
 	catch ( Exception e )
 	{
 	    org.jacorb.util.Debug.output(2,e);
-	    throw new org.omg.CORBA.COMM_FAILURE("Error marshalling GIOP reply");
+	    throw new org.omg.CORBA.COMM_FAILURE
+            (
+                "Error marshalling GIOP reply"
+                0,
+                org.omg.CORBA.CompletionStatus.COMPLETED_MAYBE
+            );
 	}
     }
 
