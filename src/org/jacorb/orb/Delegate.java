@@ -49,7 +49,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.98 2004-01-03 20:00:51 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.99 2004-01-06 16:29:33 nick.cross Exp $
  *
  */
 
@@ -1317,7 +1317,7 @@ public final class Delegate
             if (Time.hasPassed(requestEndTime))
                 throw new TIMEOUT("Request End Time exceeded prior to invocation",
                                   0, CompletionStatus.COMPLETED_NO);
-        }    
+        }
 
         UtcT replyEndTime     = getReplyEndTime();
         long roundtripTimeout = getRelativeRoundtripTimeout();
@@ -1328,7 +1328,7 @@ public final class Delegate
             if (Time.hasPassed(replyEndTime))
                 throw new TIMEOUT("Reply End Time exceeded prior to invocation",
                                   0, CompletionStatus.COMPLETED_NO);
-        }    
+        }
 
         synchronized ( bind_sync )
         {
@@ -1513,7 +1513,7 @@ public final class Delegate
                 }
                 else
                 {
-                    System.err.println ("Internal error: we should have gotten to this piece of code!");
+                    throw new INTERNAL("Internal error: we should not have gotten to this piece of code!");
                 }
             }
             catch( WrongPolicy e )
