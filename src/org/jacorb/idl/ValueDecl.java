@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.38 2004-02-23 20:35:16 david.robison Exp $
+ * @version $Id: ValueDecl.java,v 1.39 2004-04-24 00:57:02 andre.spiegel Exp $
  */
 
 public class ValueDecl
@@ -537,8 +537,13 @@ public class ValueDecl
                 {
                     for(; enum.hasMoreElements();)
                     {
-                        implementsBuffer.append(", " +
-                                                ((IdlSymbol)enum.nextElement()).toString() + "Operations");
+                        ScopedName sne = (ScopedName)enum.nextElement();
+                        implementsBuffer.append (", " + sne);
+                        if (Interface.abstractInterfaces == null ||
+                            !Interface.abstractInterfaces.contains (sne.toString()))
+                        {
+                            implementsBuffer.append ("Operations");
+                        }
                     }
                 }
 
