@@ -44,7 +44,7 @@ import org.jacorb.util.Debug;
  * example).
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer.java,v 1.3 2003-07-28 08:23:57 nick.cross Exp $
+ * @version $Id: TestServer.java,v 1.4 2003-08-08 16:01:35 andre.spiegel Exp $
  */
 public class TestServer
 {
@@ -67,14 +67,9 @@ public class TestServer
             // create the object reference
             org.omg.CORBA.Object obj = poa.servant_to_reference( servant );
 
-            PrintWriter pw = new PrintWriter
-               (new FileWriter (System.getProperty( "user.home" ) +
-               File.separatorChar + "jacorbJunit.ior") );
+            System.out.println ("SERVER IOR: " + orb.object_to_string(obj));
+            System.out.flush();
 
-            // Print stringified object reference to file
-            pw.println( orb.object_to_string( obj ));
-            pw.flush();
-            pw.close();
             Debug.output( 1, "Entering ORB event loop" );
 
             // wait for requests
