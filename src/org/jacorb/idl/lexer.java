@@ -47,7 +47,7 @@ import java_cup.runtime.float_token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.19 2002-03-25 17:48:17 gerald Exp $
+ * @version $Id: lexer.java,v 1.20 2002-04-03 09:56:14 steve.osselton Exp $
  * @author Gerald Brose
  *
  */
@@ -1273,17 +1273,23 @@ public class lexer
                     {
                         /* integer or long */
 
-                        token tok;
+                        token tok = null;
+                        String str = value.toString ();
 
                         try
                         {
-                            tok = new int_token (sym.NUMBER,
-                                Integer.parseInt (value.toString()));
+                            tok = new int_token (sym.NUMBER, Integer.parseInt (str));
                         }
                         catch (NumberFormatException ex)
                         {
-                            tok = new long_token (sym.LONG_NUMBER,
-                                Long.parseLong (value.toString()));
+                            try
+                            {
+                                tok = new long_token (sym.LONG_NUMBER, Long.parseLong (str));
+                            }
+                            catch (NumberFormatException ex2)
+                            {
+                               emit_error ("Invalid long value:  " + str);
+                            }
                         }
 
                         return tok;
