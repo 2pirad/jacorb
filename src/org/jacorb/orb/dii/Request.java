@@ -35,7 +35,7 @@ import java.util.Enumeration;
  * DII requests
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.4 2001-03-19 11:08:35 brose Exp $
+ * @version $Id: Request.java,v 1.5 2001-03-28 08:55:04 jacorb Exp $
  */
 
 public class Request 
@@ -70,6 +70,7 @@ public class Request
         connection = e;
         object_key = obj_key;
         operation = op;
+        exceptions = new ExceptionList();
         arguments = (NVList)orb.create_list(10);
         Any a = orb.create_any();
 
@@ -93,6 +94,7 @@ public class Request
         connection = e;
         object_key = obj_key;
         operation = op;
+        exceptions = new ExceptionList();
         arguments = (NVList)args;
         ctx = c;
         result_value = (org.jacorb.orb.NamedValue)result;
