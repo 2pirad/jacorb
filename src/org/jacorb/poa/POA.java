@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.35 2003-08-18 04:45:45 francisco Exp $
+ * @version $Id: POA.java,v 1.36 2003-09-09 09:03:23 nick.cross Exp $
  */
 
 public class POA
@@ -891,11 +891,20 @@ public class POA
     }
 
 
-    private byte[] generateObjectId() {
-        if (isPersistent()) {
+    /**
+     * <code>generateObjectId</code> creates a new ObjectId for an object.
+     *
+     * @return a <code>byte[]</code> value.
+     */
+    private synchronized byte[] generateObjectId()
+    {
+        if (isPersistent())
+        {
             return IdUtil.concat(IdUtil.createId(4), watermark);
-
-        } else {
+        }
+        else
+        {
+            // Synchonize as the increment is not an atomic operation.
             return IdUtil.concat(IdUtil.toId(objectIdCount++), watermark);
         }
     }
@@ -1389,7 +1398,7 @@ public class POA
 
         ByteArrayKey oid = new ByteArrayKey (objectId);
 
-        if ( ( aom != null && aom.isDeactivating (oid) ) 
+        if ( ( aom != null && aom.isDeactivating (oid) )
              || requestController.isDeactivating (oid))
         {
             if (logTrace.test(0))
