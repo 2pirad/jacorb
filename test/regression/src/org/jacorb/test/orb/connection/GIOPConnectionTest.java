@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.8 2003-01-08 23:49:23 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.9 2003-01-16 17:26:04 nicolas Exp $
  */
 
 import org.jacorb.orb.*;
@@ -34,6 +34,8 @@ public class GIOPConnectionTest
         private int messages_index = 0;
         private ByteArrayOutputStream b_out = new ByteArrayOutputStream();
 
+        private TransportListener listener = null;
+
         public DummyTransport( List messages )
         {
             this.messages = messages;
@@ -52,13 +54,17 @@ public class GIOPConnectionTest
         public byte[] getMessage()
             throws IOException
         {
+            System.out.println( "getMessage" );
+
             if( messages_index < messages.size() )
             {
                 return (byte[]) messages.get( messages_index++ );
             }
             else
             {
-                throw new CloseConnectionException();
+                listener.streamClosed();
+
+                return null;
             }
         }
 
@@ -80,19 +86,6 @@ public class GIOPConnectionTest
             closed = true;
         }
 
-        public void setIdle()
-        {
-        }
-
-        public void setBusy()
-        {
-        }
-
-        public boolean isIdle()
-        {
-            return false;
-        }
-    
         public boolean isSSL()
         {
             return false;
@@ -113,6 +106,14 @@ public class GIOPConnectionTest
             closed = true;
         }
 
+        public void setTransportListener(TransportListener listener)
+        {
+            this.listener = listener;
+        }
+
+        public void turnOnFinalTimeout()
+        {
+        }
     }
 
     private class DummyRequestListener
@@ -236,10 +237,14 @@ public class GIOPConnectionTest
 
         DummyReplyListener reply_listener =
             new DummyReplyListener();
-        
-        GIOPConnection conn = new GIOPConnection( transport,
-                                                  request_listener,
-                                                  reply_listener );
+
+        GIOPConnectionManager giopconn_mg =
+            new GIOPConnectionManager();
+
+        ServerGIOPConnection conn = 
+            giopconn_mg.createServerGIOPConnection( transport,
+                                                    request_listener,
+                                                    reply_listener );
 
         try
         {
@@ -301,10 +306,14 @@ public class GIOPConnectionTest
 
         DummyReplyListener reply_listener =
             new DummyReplyListener();
+
+        GIOPConnectionManager giopconn_mg =
+            new GIOPConnectionManager();
         
-        GIOPConnection conn = new GIOPConnection( transport,
-                                                  request_listener,
-                                                  reply_listener );
+        GIOPConnection conn = 
+            giopconn_mg.createServerGIOPConnection( transport,
+                                                    request_listener,
+                                                    reply_listener );
 
         try
         {
@@ -409,9 +418,13 @@ public class GIOPConnectionTest
         DummyReplyListener reply_listener =
             new DummyReplyListener();
         
-        GIOPConnection conn = new GIOPConnection( transport,
-                                                  request_listener,
-                                                  reply_listener );
+        GIOPConnectionManager giopconn_mg =
+            new GIOPConnectionManager();
+        
+        GIOPConnection conn = 
+            giopconn_mg.createServerGIOPConnection( transport,
+                                                    request_listener,
+                                                    reply_listener );
 
         try
         {
@@ -476,9 +489,13 @@ public class GIOPConnectionTest
         DummyReplyListener reply_listener =
             new DummyReplyListener();
         
-        GIOPConnection conn = new GIOPConnection( transport,
-                                                  request_listener,
-                                                  reply_listener );
+        GIOPConnectionManager giopconn_mg =
+            new GIOPConnectionManager();
+        
+        GIOPConnection conn = 
+            giopconn_mg.createServerGIOPConnection( transport,
+                                                    request_listener,
+                                                    reply_listener );
 
         try
         {
