@@ -15,7 +15,7 @@ import org.jacorb.util.Environment;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerTable.java,v 1.3 2001-03-19 11:07:59 brose Exp $
+ * $Id: ServerTable.java,v 1.4 2001-05-02 08:53:22 noffke Exp $
  */
 
 public class ServerTable implements Serializable {
@@ -72,6 +72,18 @@ public class ServerTable implements Serializable {
 	poas_lock = new RessourceLock();
 	hosts_lock = new RessourceLock();
     }
+
+    /**
+     * This method tests, if a server is known.
+     *
+     * @param name the servers name.
+     * @return true, if a server with the specified name has already been registered.
+     **/
+    public boolean hasServer( String name )
+    {
+        return servers.containsKey(name);
+    }
+
 
     /**
      * This method gets a server for a specified name.
