@@ -31,7 +31,7 @@ import java.util.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.24 2002-03-05 08:21:10 gerald Exp $ 
+ * $Id: Any.java,v 1.25 2002-03-08 10:55:57 steve.osselton Exp $ 
  * 
  */
 
@@ -711,6 +711,9 @@ public final class Any
         case TCKind._tk_char:
             insert_char( input.read_char());
             break;
+        case TCKind._tk_wchar:
+            insert_wchar( input.read_wchar());
+            break;
         case TCKind._tk_octet:
             insert_octet( input.read_octet());
             break;
@@ -804,6 +807,9 @@ public final class Any
             break;
         case TCKind._tk_char:
             output.write_char(extract_char());
+            break;
+        case TCKind._tk_wchar:
+            output.write_wchar(extract_wchar());
             break;
         case TCKind._tk_octet:
             output.write_octet(extract_octet());
