@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.25 2002-06-12 14:33:43 reimo Exp $
+ * @version $Id: POA.java,v 1.26 2002-06-17 15:58:19 steve.osselton Exp $
  */
 
 public class POA
@@ -942,31 +942,10 @@ public class POA
         return orb;
     }
 
-
-    /**
-     * Get the flag (byte) that describes the mode of the object key.
-     * This flag contains information describing the object represented
-     * by the object key. (eg, lifespan policy)
-     */
-    private byte getObjectKeyFlag()
-    {
-        byte flag = 0;
-
-        if( isPersistent() )
-        {
-            flag |= POAConstants.PERSISTENT;
-        }
-
-        return flag;
-    }
-
-
-   public byte[] getPOAId() 
+    public byte[] getPOAId() 
     {
         if (poaId == null) 
         {
-            byte flag = getObjectKeyFlag();
-
             byte[] impl_name = 
                 POAUtil.maskId( (Environment.implName() != null) ? 
                                 Environment.implName() :
@@ -979,21 +958,17 @@ public class POA
             int offset = 0;
             if (pn_length == 0)
             {
-                poaId = new byte[in_length + 1];
-                poaId[offset] = flag;
-                offset++;
-                System.arraycopy(impl_name, 0, poaId, offset, in_length);
+                poaId = new byte[in_length];
+                System.arraycopy (impl_name, 0, poaId, 0, in_length);
             }
             else
             {
-                poaId = new byte[in_length + pn_length + 2];
-                poaId[offset] = flag;
-                offset++;                
-                System.arraycopy(impl_name, 0, poaId, offset, in_length);
+                poaId = new byte[in_length + pn_length + 1];
+                System.arraycopy (impl_name, 0, poaId, 0, in_length);
                 offset += in_length;
                 poaId[offset] = POAConstants.OBJECT_KEY_SEP_BYTE;
                 offset++;                           
-                System.arraycopy(poa_name, 0, poaId, offset, pn_length);
+                System.arraycopy (poa_name, 0, poaId, offset, pn_length);
             }
         }
         return poaId;
