@@ -11,7 +11,7 @@ import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddressServerImpl.java,v 1.2 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: IIOPAddressServerImpl.java,v 1.3 2004-07-30 15:31:30 simon.mcqueen Exp $
  */
 public class IIOPAddressServerImpl extends IIOPAddressServerPOA
     implements Configurable
@@ -28,12 +28,28 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         config.setAttribute ("OAIAddr",host);
         if (port != -1)
             config.setAttribute ("OAPort", Integer.toString(port));
+        try
+        {
+            config.getORB().configure(config);
+        }
+        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
     }
 
     public void clearSocketAddress()
     {
         config.setAttribute ("OAIAddr", null);
         config.setAttribute ("OAPort", null);
+        try
+        {
+            config.getORB().configure(config);
+        }
+        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
     }
 
     public void setIORAddress(String host, int port)
@@ -41,12 +57,28 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         config.setAttribute ("jacorb.ior_proxy_host", host);
         if (port != -1)
             config.setAttribute ("jacorb.ior_proxy_port",Integer.toString(port));
+        try
+        {
+            config.getORB().configure(config);
+        }
+        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
     }
 
     public void clearIORAddress()
     {
         config.setAttribute ("jacorb.ior_proxy_host", null);
         config.setAttribute ("jacorb.ior_proxy_port", null);
+        try
+        {
+            config.getORB().configure(config);
+        }
+        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
     }
 
     public void addAlternateAddress(String host, int port)
