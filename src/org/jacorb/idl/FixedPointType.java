@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.19 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: FixedPointType.java,v 1.20 2003-09-12 09:48:56 nicolas Exp $
  */
 
 public class FixedPointType
@@ -76,6 +76,11 @@ public class FixedPointType
     public String typeName()
     {
         return "java.math.BigDecimal";
+    }
+
+    public String getIDLTypeName()
+    {
+        return "fixed";
     }
 
     public TypeSpec typeSpec()
