@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.16 2002-06-25 08:03:18 gerald Exp $
+ * @version $Id: BasicAdapter.java,v 1.17 2002-07-05 17:28:17 nicolas Exp $
  */
 
 import java.io.*;
@@ -412,7 +412,7 @@ public class BasicAdapter
             {
                 address_string = addr.toString();
 
-                if( address_string.indexOf( "/" ) > 0 )
+                if( address_string.indexOf( "/" ) >= 0 )
                 {
                     address_string = 
                         address_string.substring( 
