@@ -31,7 +31,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.26 2003-04-01 14:05:36 nick.cross Exp $
+ * @version $Id: IdlSymbol.java,v 1.27 2003-07-28 11:18:13 nick.cross Exp $
  */
 
 class IdlSymbol
@@ -163,12 +163,7 @@ class IdlSymbol
     public void setEnclosingSymbol( IdlSymbol s )
     {
         if( enclosing_symbol != null && enclosing_symbol != s )
-            throw new RuntimeException( "Compiler Error: trying to reassign container for "
-                    + name );
-
-        Environment.output( 5, "Symbol " + name + " of type " +
-                getClass().getName() + " enclosed by symbol " +
-                s.getClass().getName() );
+            throw new RuntimeException( "Compiler Error: trying to reassign container for " + name );
 
         enclosing_symbol = s;
     }
@@ -537,7 +532,7 @@ class IdlSymbol
                     ScopeData sd = ( (Scope)enc ).getScopeData();
                     if( sd == null )
                     {
-                        org.jacorb.idl.parser.fatal_error( "ScopeDate null for " + name + " " +
+                        org.jacorb.idl.parser.fatal_error( "ScopeData null for " + name + " " +
                                 this.getClass().getName(), null );
                     }
                     Hashtable h = sd.versionMap;
