@@ -36,10 +36,10 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.25 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: BasicAdapter.java,v 1.26 2003-05-05 10:03:07 andre.spiegel Exp $
  */public class BasicAdapter
 {
-    private static SSLServerSocketFactory ssl_socket_factory = null;
+    public  static SSLServerSocketFactory ssl_socket_factory = null;
     private static ServerSocketFactory socket_factory = null;
     private static SocketFactory client_socket_factory = null;
 
