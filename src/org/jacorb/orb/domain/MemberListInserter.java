@@ -16,7 +16,7 @@ import org.jacorb.util.Debug;
  * Created: Fri Aug 11 13:05:39 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 
 public class MemberListInserter extends java.lang.Thread 
@@ -26,7 +26,7 @@ public class MemberListInserter extends java.lang.Thread
 
   public MemberListInserter(DomainImpl target, org.omg.CORBA.Object memberlist[]) 
   {
-    _target= target;
+    _target=target;
     _memberlist= memberlist;
   }
 
