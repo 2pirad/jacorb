@@ -72,7 +72,7 @@ import junit.extensions.*;
  * For details, see {@link ClientServerTestCase}.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.1 2002-11-06 11:00:37 andre.spiegel Exp $
+ * @version $Id: ClientServerSetup.java,v 1.2 2003-01-04 10:37:23 andre.spiegel Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -109,7 +109,9 @@ public class ClientServerSetup extends TestSetup {
         serverProcess = Runtime.getRuntime().exec 
                           (   "jaco -Djacorb.verbosity=0 "
                             + "-Djacorb.orb.print_version=off "
-                            + "org.jacorb.test.common.TestServer "
+                            + "-classpath " 
+                                    + System.getProperty ("java.class.path")
+                            + " org.jacorb.test.common.TestServer "
                             + servantName );
         BufferedReader input = 
             new BufferedReader
