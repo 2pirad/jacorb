@@ -26,6 +26,7 @@ import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.util.Debug;
 import org.jacorb.util.Environment;
 import org.jacorb.util.ValueHandler;
+import org.jacorb.ir.RepositoryID;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.StructMember;
 import org.omg.CORBA.TCKind;
@@ -37,7 +38,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.72 2003-11-05 12:43:27 francisco Exp $
+ * $Id: CDRInputStream.java,v 1.73 2003-11-11 23:11:24 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1960,35 +1961,23 @@ public class CDRInputStream
                 }
                 break;
             case TCKind._tk_value_box:
-                int tag = read_long();
-                if (tag == 0x00000000)
+                try 
                 {
+                    String id = tc.id();
+                    org.omg.CORBA.portable.BoxedValueHelper helper =
+                                  RepositoryID.createBoxedValueHelper(id);
+                    if (helper == null)
+                        throw new RuntimeException
+                            ("No BoxedValueHelper for id " + id);
+                    java.io.Serializable value = read_value(helper);
                     ((org.omg.CORBA_2_3.portable.OutputStream)out)
-                                .write_value(null);
+                        .write_value(value, helper);
                 }
-                else if (tag == 0x7fffff00)
+                catch (org.omg.CORBA.TypeCodePackage.BadKind b)
                 {
-                    out.write_long (0x7fffff00);
-                    try
-                    {
-                        read_value(tc.content_type(), out);
-                    }
-                    catch (org.omg.CORBA.TypeCodePackage.BadKind b)
-                    {
-                        throw new RuntimeException(b.toString());
-                    }
+                    b.printStackTrace();
                 }
-                else if (tag == 0xffffffff)
-                {
-                    throw new org.omg.CORBA.NO_IMPLEMENT
-                        ("reference sharing within Anys not implemented");   
-                }
-                else
-                {
-                    throw new org.omg.CORBA.NO_IMPLEMENT
-                        ("cannot handle value tag: " + tag + " within Any");
-                }
-                break;   
+                break;
             case TCKind._tk_union:
                 try
                 {
