@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.17 2002-05-07 12:57:29 gerald Exp $
+ * @version $Id: Member.java,v 1.18 2002-05-10 15:08:30 nick.cross Exp $
  *
  */
 
@@ -109,12 +109,19 @@ class Member
             type_spec = ( (ScopedName)type_spec.typeSpec() ).resolvedTypeSpec();
             enclosing_symbol.addImportedName( name, type_spec );
 
+            if(type_spec instanceof AliasTypeSpec)
+            {
+               if (((AliasTypeSpec)type_spec.typeSpec()).originalType instanceof SequenceType)
+               {
+                  ((SequenceType)((AliasTypeSpec)type_spec.typeSpec()).originalType).setRecursive ();
+               }
+            }
+
             clone_and_parse = false;
             if( type_spec instanceof ConstrTypeSpec )
             {
                 if( ( (ConstrTypeSpec)type_spec.typeSpec() ).c_type_spec instanceof StructType )
                 {
-                    //	System.out.println("Type " + containingType.typeName() + " contains type " + ((ConstrTypeSpec)type_spec.typeSpec()).typeName());
                     if(
                             ( (ConstrTypeSpec)type_spec.typeSpec() ).c_type_spec.typeName().equals( containingType.typeName() )
                     )
