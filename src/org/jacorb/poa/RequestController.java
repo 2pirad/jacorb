@@ -39,7 +39,7 @@ import java.util.*;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.27 2004-01-02 01:50:07 andre.spiegel Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.28 2004-04-26 08:59:23 andre.spiegel Exp $
  */
 public final class RequestController
     extends Thread
@@ -206,7 +206,8 @@ public final class RequestController
             {
                 if (singletonPoolManager == null)
                 {
-                    singletonPoolManager = new RPPoolManager(orb.getPOACurrent(), 1, 1);
+                    singletonPoolManager =
+                        new RPPoolManager(orb.getPOACurrent(), 1, 1, logger);
                 }
                 poolManager = singletonPoolManager;
 
@@ -216,7 +217,8 @@ public final class RequestController
                 poolManager =
                     new RPPoolManager(orb.getPOACurrent(),
                                       Environment.threadPoolMin(),
-                                      Environment.threadPoolMax());
+                                      Environment.threadPoolMax(),
+                                      logger);
             }
         }
         return poolManager;
