@@ -29,7 +29,7 @@ import java.lang.reflect.*;
  * application exception into an any.
  *
  * @author Nicolas Noffke
- * @version $Id: ApplicationExceptionHelper.java,v 1.8 2002-07-05 17:36:39 nicolas Exp $
+ * @version $Id: ApplicationExceptionHelper.java,v 1.9 2002-10-06 16:41:59 andre.spiegel Exp $
  */
 
 public class ApplicationExceptionHelper  
@@ -52,17 +52,12 @@ public class ApplicationExceptionHelper
         org.jacorb.util.Debug.output(2, "Trying to build Helper for >>" + name + 
                                      "<< (" + s.getClass().getName() + ")");
 
-        //for some reason, StringBuffers don't have a replace method
+        // Why does this not use RepositoryID.className()?
         name = name.replace ('/', '.');
-
+        // strip "IDL:" and ":1.0"
+        name = name.substring (name.indexOf(':')+1, name.lastIndexOf(':'));
 
         StringBuffer name_strbuf = new StringBuffer( name );
-
-        //strip trailing version ":1.0"
-        name_strbuf.delete( name.lastIndexOf(':'), name.length() );
-
-        //strip leading "IDL:"
-        name_strbuf.delete( 0, name.indexOf(':') + 1);
 
         Class _helper = null;
 
