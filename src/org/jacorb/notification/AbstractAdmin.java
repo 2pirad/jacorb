@@ -61,7 +61,7 @@ import org.jacorb.util.Debug;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.3 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.4 2003-11-26 10:35:01 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin
@@ -73,7 +73,7 @@ public abstract class AbstractAdmin
      * the default InterFilterGroupOperator used.
      */
     protected static final InterFilterGroupOperator
-    DEFAULT_FILTER_GROUP_OPERATOR = InterFilterGroupOperator.AND_OP;
+        DEFAULT_FILTER_GROUP_OPERATOR = InterFilterGroupOperator.AND_OP;
 
     protected static final int NO_ID = Integer.MIN_VALUE;
 
@@ -94,7 +94,8 @@ public abstract class AbstractAdmin
     protected Map allProxies_;
     private Map servantCache_ = Collections.EMPTY_MAP;
 
-    protected Logger logger_ = Debug.getNamedLogger( getClass().getName() );
+    protected Logger logger_ =
+        Debug.getNamedLogger( getClass().getName() );
 
     protected PropertyManager qosProperties_;
     protected PropertyManager adminProperties_;
@@ -149,7 +150,8 @@ public abstract class AbstractAdmin
         applicationContext_ = aApplicationContext;
         channelContext_ = aChannelContext;
 
-        filterManager_ = new FilterManager();
+        filterManager_ =
+            new FilterManager(applicationContext_);
 
         pullServants_ = new Hashtable();
         pushServants_ = new Hashtable();
