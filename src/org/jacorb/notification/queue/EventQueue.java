@@ -25,7 +25,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventQueue.java,v 1.4 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: EventQueue.java,v 1.5 2004-08-17 13:50:16 alphonse.bendt Exp $
  */
 
 public interface EventQueue
@@ -47,12 +47,24 @@ public interface EventQueue
 
     /**
      * get up to <code>n</code> events from this queue.
+     * 
+     * @param n number of requested messages
+     * 
+     * @param wait a <code>boolean</code> value. If this parameter is
+     * set to true the queue will block until an element is
+     * available. If the parameter is set to false the queue will
+     * return null in case it is empty.
      */
     Message[] getEvents( int n, boolean wait )
         throws InterruptedException;
 
     /**
      * get all Messages from this queue.
+ 
+     * @param wait a <code>boolean</code> value. If this parameter is
+     * set to true the queue will block until an element is
+     * available. If the parameter is set to false the queue will
+     * return null in case it is empty.
      */
     Message[] getAllEvents( boolean wait )
         throws InterruptedException;
@@ -71,5 +83,4 @@ public interface EventQueue
      * access the current size of this queue.
      */
     int getSize();
-
 }
