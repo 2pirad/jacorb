@@ -23,7 +23,7 @@ package org.jacorb.notification.conf;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Configuration.java,v 1.2 2004-01-29 14:15:26 alphonse.bendt Exp $
+ * @version $Id: Configuration.java,v 1.3 2004-03-03 12:24:07 alphonse.bendt Exp $
  */
 
 public interface Configuration
@@ -79,5 +79,13 @@ public interface Configuration
     String DISPOSE_PROXY_CALLS_DISCONNECT =
         "jacorb.notification.proxy.destroy_causes_disconnect";
 
+    String LAZY_DEFAULT_ADMIN_INIT =
+        "jacorb.notification.admin.lazy_initialization";
+
+    String REJECT_NEW_EVENTS =
+        "jacorb.notification.admin.reject_new_events";
+
+    String MAX_QUEUE_LENGTH =
+        "jacorb.notification.admin.max_queue_length";
 }
 
