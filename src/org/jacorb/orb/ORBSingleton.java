@@ -25,7 +25,7 @@ import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.6 2001-06-21 13:26:50 jacorb Exp $
+ * @version $Id: ORBSingleton.java,v 1.7 2001-09-07 12:39:19 jacorb Exp $
  */
 
 public class ORBSingleton
@@ -85,7 +85,7 @@ public class ORBSingleton
 
     public org.omg.CORBA.TypeCode create_recursive_tc( String id ) 
     {
-        return new org.jacorb.orb.TypeCode(id);
+        return new org.jacorb.orb.TypeCode( id );
     }  
  
     /**
@@ -125,7 +125,7 @@ public class ORBSingleton
                                      id, 
                                      name, 
                                      members);
-        tc.resolve_recursion();
+        //        tc.resolve_recursion();
         return tc;
     }
 
@@ -139,7 +139,7 @@ public class ORBSingleton
                                      name,
                                      discriminator_type, 
                                      members);
-        tc.resolve_recursion();
+        // tc.resolve_recursion();
         return tc;
     }
 
