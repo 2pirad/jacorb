@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.16 2001-10-26 22:03:05 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.17 2001-11-02 15:46:42 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -495,8 +495,9 @@ public class CDRInputStream
             }
         }
 
-	pos += 8 * length;
-	index += 8 * length;
+        // not necessary as long as the read_long() stuff above is not inlined
+        //  	pos += 8 * length;
+        //  	index += 8 * length;
     }
 
     public final org.omg.CORBA.Object read_Object()
