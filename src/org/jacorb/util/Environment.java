@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.32 2001-12-07 10:44:34 steve.osselton Exp $
+ * @version $Id: Environment.java,v 1.31.2.1 2001-12-14 10:35:45 spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -382,30 +382,8 @@ public class Environment
         else if (_props.getProperty(jacorbPrefix+"logfile") != null)
             logFileName = _props.getProperty(jacorbPrefix+"logfile");
                     
-        if (logFileName != null && !logFileName.equals ("")) 
+        if (logFileName != null && !logFileName.equals("")) 
         {
-            // Comvert $implname postfix to implementation name
- 
-            if (logFileName.endsWith ("$implname"))
-            {
-               logFileName = logFileName.substring (0, logFileName.length () - 9);
-
-               if (_props.getProperty ("implname") != null)
-               {
-                  logFileName += _props.getProperty ("implname");
-               }
-               else if (_props.getProperty (jacorbPrefix + "implname") != null)
-               {
-                  logFileName += _props.getProperty (jacorbPrefix + "implname");
-               }
-               else
-               {
-                  // Just in case implename has not been set
-
-                  logFileName += "log";
-               }
-            }
-
             try 
             {
                 _log_file_out = new PrintWriter(new FileOutputStream(logFileName));
@@ -682,7 +660,11 @@ public class Environment
 
                 try
                 {
-                    orb_initializers.addElement(Class.forName(name).newInstance());
+		    ClassLoader cl = 
+			Thread.currentThread().getContextClassLoader();
+		    if (cl == null)
+			cl = ClassLoader.getSystemClassLoader();
+                    orb_initializers.addElement(cl.loadClass(name).newInstance());
                     Debug.output(Debug.INTERCEPTOR | Debug.DEBUG1, 
                                  "Build: " + name);
                 }
