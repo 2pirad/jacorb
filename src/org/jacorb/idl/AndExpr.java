@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AndExpr.java,v 1.8 2002-03-19 09:24:58 nicolas Exp $
+ * @version $Id: AndExpr.java,v 1.9 2002-04-17 07:17:31 gerald Exp $
 */
 
 class AndExpr 
@@ -39,6 +39,8 @@ class AndExpr
     {
         super(num);
     }
+
+
 
     public void print(PrintWriter ps )
     {
