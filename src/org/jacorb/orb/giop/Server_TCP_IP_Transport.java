@@ -33,7 +33,7 @@ import org.jacorb.orb.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.20 2003-04-26 17:35:15 andre.spiegel Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.21 2003-04-27 07:40:05 andre.spiegel Exp $
  */
 
 public class Server_TCP_IP_Transport
@@ -109,12 +109,6 @@ public class Server_TCP_IP_Transport
         }
     }
 
-    public boolean waitUntilConnected()
-    {
-        //can't reconnect
-        return true;
-    }
-
     public void connect (org.omg.ETF.Profile server_profile, long time_out)
     {
         //can't reconnect
@@ -129,4 +123,5 @@ public class Server_TCP_IP_Transport
     {
         return profile;
     }
+    
 }// Server_TCP_IP_Transport
