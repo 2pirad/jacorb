@@ -31,7 +31,7 @@ import org.omg.CORBA.TCKind;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.82 2003-10-10 13:20:20 andre.spiegel Exp $
+ * @version $Id: CDROutputStream.java,v 1.83 2003-10-20 16:28:22 simon.mcqueen Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -2039,7 +2039,7 @@ public class CDROutputStream
                     }
                     catch (org.omg.CORBA.TypeCodePackage.BadKind b)
                     {
-                        throw new RuntimeException (b);
+                        throw new RuntimeException(b.toString());
                     }
                 }
                 else if (tag == 0xffffffff)

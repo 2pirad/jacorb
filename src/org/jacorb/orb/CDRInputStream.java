@@ -37,7 +37,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.66 2003-10-10 13:16:38 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.67 2003-10-20 16:28:22 simon.mcqueen Exp $
  */
 
 public class CDRInputStream
@@ -1976,7 +1976,7 @@ public class CDRInputStream
                     }
                     catch (org.omg.CORBA.TypeCodePackage.BadKind b)
                     {
-                        throw new RuntimeException(b);
+                        throw new RuntimeException(b.toString());
                     }
                 }
                 else if (tag == 0xffffffff)
