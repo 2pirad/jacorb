@@ -33,7 +33,7 @@ import java.lang.reflect.*;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.22 2002-02-28 16:10:42 jason.courage Exp $    
+ * @version $Id: TypeCode.java,v 1.23 2002-03-01 18:14:25 jason.courage Exp $    
  */
  
 public class TypeCode 
@@ -141,8 +141,13 @@ public class TypeCode
 
     static TypeCode get_primitive_tc( int _kind )
     {
-        org.jacorb.util.Debug.myAssert( primitive_tcs[_kind] != null, 
-                                        "No primitive TypeCode for kind " + _kind );
+       if ( primitive_tcs[_kind] == null )
+       {
+           throw new org.omg.CORBA.BAD_PARAM ("No primitive TypeCode for kind " + _kind);
+       }
+
+       //org.jacorb.util.Debug.myAssert( primitive_tcs[_kind] != null, 
+       //                                "No primitive TypeCode for kind " + _kind );
         return primitive_tcs[_kind];
     }
 
