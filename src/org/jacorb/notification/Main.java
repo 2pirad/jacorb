@@ -21,7 +21,6 @@ package org.jacorb.notification;
  *
  */
 
-
 import org.tanukisoftware.wrapper.WrapperListener;
 import org.tanukisoftware.wrapper.WrapperManager;
 
@@ -30,15 +29,13 @@ import org.tanukisoftware.wrapper.WrapperManager;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: Main.java,v 1.2 2003-07-18 18:47:07 alphonse.bendt Exp $
+ * @version $Id: Main.java,v 1.3 2003-07-30 18:34:00 alphonse.bendt Exp $
  */
 
 public class Main 
     implements WrapperListener {
 
-
     private EventChannelFactoryImpl application_;
-
 
     private Main() {
 	super();
@@ -65,6 +62,9 @@ public class Main
 	    new EventChannelFactoryImpl.ShutdownCallback() {
 		public void needTime(int time) {
 		    WrapperManager.signalStopping(time);
+		}
+
+		public void shutdownComplete() {
 		}
 	    };
 	

@@ -21,18 +21,26 @@ package org.jacorb.notification.util;
  *
  */
 
+import gnu.regexp.RE;
+import gnu.regexp.REException;
+import gnu.regexp.REMatch;
+
+/**
+ * @version $Id: GNUPatternWrapper.java,v 1.3 2003-07-30 18:34:00 alphonse.bendt Exp $
+ */
+
 class GNUPatternWrapper extends PatternWrapper
 {
 
-    private gnu.regexp.RE pattern_;
+    private RE pattern_;
 
     public void compile( String patternString )
     {
         try
         {
-            pattern_ = new gnu.regexp.RE( patternString );
+            pattern_ = new RE( patternString );
         }
-        catch ( gnu.regexp.REException e )
+        catch ( REException e )
         {
             throw new RuntimeException( e.getMessage() );
         }
@@ -40,7 +48,7 @@ class GNUPatternWrapper extends PatternWrapper
 
     public int match( String text )
     {
-        gnu.regexp.REMatch[] _match = pattern_.getAllMatches( text );
+        REMatch[] _match = pattern_.getAllMatches( text );
 
         if ( _match.length > 0 )
         {
