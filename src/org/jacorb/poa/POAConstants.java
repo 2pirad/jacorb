@@ -24,7 +24,7 @@ package org.jacorb.poa;
  * This class collects all POA related constants.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAConstants.java,v 1.6 2002-04-19 10:23:21 reimo Exp $
+ * @version $Id: POAConstants.java,v 1.7 2002-05-27 08:52:17 jason.courage Exp $
  */
 public class POAConstants {
 
@@ -55,5 +55,8 @@ public class POAConstants {
 	public static int DISCARDING = 2;
 	public static int INACTIVE = 3;
 	public static int DESTROYED = 4;
+
+   /* object key bit flags */
+   public static byte PERSISTENT = 0x01;
 }
 
