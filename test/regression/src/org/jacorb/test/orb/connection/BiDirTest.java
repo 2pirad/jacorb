@@ -9,7 +9,7 @@ import org.jacorb.test.common.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: BiDirTest.java,v 1.1 2003-04-27 12:33:21 andre.spiegel Exp $
+ * @version $Id: BiDirTest.java,v 1.2 2003-08-17 10:53:44 andre.spiegel Exp $
  */
 public class BiDirTest extends ClientServerTestCase
 {
@@ -76,7 +76,7 @@ public class BiDirTest extends ClientServerTestCase
         Properties properties = new Properties();
         properties.setProperty 
             ("org.omg.PortableInterceptor.ORBInitializerClass.bidir_init",
-             "org.jacorb.orb.connection.BiDirConnectionInitializer" );
+             "org.jacorb.orb.giop.BiDirConnectionInitializer" );
         
         BiDirSetup setup = new BiDirSetup (suite, properties, properties);
 
