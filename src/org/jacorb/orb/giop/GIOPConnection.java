@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.39 2004-02-04 13:44:09 gerald Exp $
+ * @version $Id: GIOPConnection.java,v 1.40 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public abstract class GIOPConnection
@@ -61,7 +61,7 @@ public abstract class GIOPConnection
     private boolean writer_active = false;
     private Object write_sync = new Object();
 
-    private Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.giop.conn");
+    private Logger logger = Debug.getNamedLogger("jacorb.giop.conn");
 
     /*
      * Connection OSF character formats.
@@ -296,7 +296,7 @@ public abstract class GIOPConnection
 
                 if (logger.isDebugEnabled())
                 {
-                    logger.debug("TCP_IP_GIOPTransport.getMessage() with header: \n" + 
+                    logger.debug("TCP_IP_GIOPTransport.getMessage() with header: \n" +
                                  header + "\nsize : " + Messages.MSG_HEADER_SIZE );
                 }
 
@@ -345,7 +345,7 @@ public abstract class GIOPConnection
             {
                 logger.error( "Failed to read GIOP message, incorrect magic number" );
             }
-            
+
             if (logger.isDebugEnabled())
             {
                 logger.debug("GIOPConnection.getMessage()" + msg_header.value );
@@ -387,10 +387,9 @@ public abstract class GIOPConnection
                 {
                     if (logger.isErrorEnabled())
                     {
-                        logger.error( "RInvalid GIOP major version encountered: " +
+                        logger.error( "Invalid GIOP major version encountered: " +
                                      Messages.getGIOPMajor( message ) );
                     }
-
                     Debug.output( 3, "GIOPConnection.receiveMessages()", message );
 
                     continue;
@@ -582,7 +581,7 @@ public abstract class GIOPConnection
                         if (logger.isErrorEnabled())
                         {
                             logger.error( "Received a message of type " +
-                                          msg_type + 
+                                          msg_type +
                                           " with the more fragments follow bit set, but there is already an fragmented, incomplete message with the same request id " +
                                           request_id + "!" );
                         }

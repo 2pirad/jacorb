@@ -32,7 +32,7 @@ import java.util.*;
  * Created: Fri Jun  9 15:09:01 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPool.java,v 1.10 2004-02-04 09:12:22 gerald Exp $
+ * $Id: ThreadPool.java,v 1.11 2004-02-05 15:57:12 nick.cross Exp $
  */
 public class ThreadPool
 {
@@ -45,7 +45,7 @@ public class ThreadPool
     private LinkedList job_queue = null;
     private ConsumerFactory factory = null;
 
-    private Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.util.tpool");
+    private Logger logger = Debug.getNamedLogger("jacorb.util.tpool");
 
     public ThreadPool( ConsumerFactory factory )
     {
@@ -101,7 +101,7 @@ public class ThreadPool
 
         if (logger.isDebugEnabled())
         {
-            logger.debug("[" + idle_threads + "/" + total_threads + 
+            logger.debug("[" + idle_threads + "/" + total_threads +
                          "] added idle thread");
         }
 

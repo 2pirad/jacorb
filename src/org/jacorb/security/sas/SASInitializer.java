@@ -24,6 +24,7 @@ import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.standardInterceptors.SASComponentInterceptor;
 import org.jacorb.sasPolicy.ATLAS_POLICY_TYPE;
 import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
+import org.jacorb.util.Debug;
 import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
@@ -33,7 +34,7 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASInitializer.java,v 1.2 2004-02-05 14:04:54 nick.cross Exp $
+ * @version $Id: SASInitializer.java,v 1.3 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public class SASInitializer
@@ -41,7 +42,7 @@ public class SASInitializer
     implements ORBInitializer
 {
     /** the logger used by the naming service implementation */
-    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
+    private static Logger logger = Debug.getNamedLogger("jacorb.SAS");
 
     public static final int SecurityAttributeService = 15;
 

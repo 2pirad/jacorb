@@ -32,13 +32,14 @@ import org.omg.ETF.Factories;
 import org.jacorb.orb.*;
 import org.jacorb.orb.factory.*;
 import org.jacorb.orb.iiop.*;
-import org.jacorb.util.*;
+import org.jacorb.util.Debug;
+import org.jacorb.util.Environment;
 
 /**
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.17 2004-02-04 09:06:08 gerald Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.18 2004-02-05 15:57:12 nick.cross Exp $
  *
  */
 
@@ -58,7 +59,7 @@ public class ClientConnectionManager
 
     private TransportManager transport_manager = null;
     private GIOPConnectionManager giop_connection_manager = null;
-    private Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.giop");
+    private Logger logger = Debug.getNamedLogger("jacorb.giop");
 
     public ClientConnectionManager( ORB orb,
                                     TransportManager transport_manager,

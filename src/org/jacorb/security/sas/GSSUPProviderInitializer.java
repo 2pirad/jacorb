@@ -21,6 +21,7 @@ package org.jacorb.security.sas;
  */
 
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.Debug;
 import org.omg.IOP.ENCODING_CDR_ENCAPS;
 import org.omg.IOP.Encoding;
 import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
@@ -31,7 +32,7 @@ import org.omg.PortableInterceptor.ORBInitializer;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: GSSUPProviderInitializer.java,v 1.5 2004-02-05 14:04:54 nick.cross Exp $
+ * @version $Id: GSSUPProviderInitializer.java,v 1.6 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public class GSSUPProviderInitializer
@@ -39,7 +40,7 @@ public class GSSUPProviderInitializer
     implements ORBInitializer
 {
     /** the logger used by the naming service implementation */
-    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
+    private static Logger logger = Debug.getNamedLogger("jacorb.SAS");
 
     /**
      * This method registers the interceptors.

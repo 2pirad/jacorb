@@ -30,13 +30,14 @@ import org.omg.CosNaming.NamingContextExtPackage.*;
 
 import org.apache.avalon.framework.logger.Logger;
 
+import org.jacorb.util.Debug;
 import org.jacorb.util.Environment;
 
 /**
  *      The actual implementation for the CORBAService Naming
  *
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.21 2004-01-30 13:34:33 nick.cross Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.22 2004-02-05 15:57:12 nick.cross Exp $
  *
  */
 
@@ -51,7 +52,7 @@ public class NamingContextImpl
     private Hashtable contexts = new Hashtable();
 
     /** the logger used by the naming service implementation */
-    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.naming");
+    private static Logger logger = Debug.getNamedLogger("jacorb.naming");
 
     /** the POAs used */
     transient private org.omg.PortableServer.POA poa;

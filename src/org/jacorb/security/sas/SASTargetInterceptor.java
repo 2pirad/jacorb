@@ -32,6 +32,7 @@ import org.jacorb.sasPolicy.ATLAS_POLICY_TYPE;
 import org.jacorb.sasPolicy.SASPolicy;
 import org.jacorb.sasPolicy.SASPolicyValues;
 import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
+import org.jacorb.util.Debug;
 import org.jacorb.util.Environment;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.BAD_PARAM;
@@ -59,7 +60,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  * This is the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInterceptor.java,v 1.16 2004-02-05 14:04:54 nick.cross Exp $
+ * @version $Id: SASTargetInterceptor.java,v 1.17 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public class SASTargetInterceptor
@@ -67,7 +68,7 @@ public class SASTargetInterceptor
     implements ServerRequestInterceptor
 {
     /** the logger used by the naming service implementation */
-    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS.TSS");
+    private static Logger logger = Debug.getNamedLogger("jacorb.SAS.TSS");
 
     private static final String name = "SASTargetInterceptor";
     protected org.jacorb.orb.ORB orb = null;

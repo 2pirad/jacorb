@@ -28,6 +28,7 @@ import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.MinorCodes;
 import org.jacorb.orb.giop.ClientConnection;
 import org.jacorb.orb.portableInterceptor.ClientRequestInfoImpl;
+import org.jacorb.util.Debug;
 import org.omg.ATLAS.ATLASProfile;
 import org.omg.ATLAS.ATLASProfileHelper;
 import org.omg.ATLAS.AuthTokenData;
@@ -64,7 +65,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.14 2004-02-05 14:04:54 nick.cross Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.15 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public class SASClientInterceptor
@@ -77,7 +78,7 @@ public class SASClientInterceptor
     protected String name = null;
 
     /** the logger used by the naming service implementation */
-    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS.CSS");
+    private static Logger logger = Debug.getNamedLogger("jacorb.SAS.CSS");
 
     protected byte[] contextToken = new byte[0];
     protected boolean useStateful = true;

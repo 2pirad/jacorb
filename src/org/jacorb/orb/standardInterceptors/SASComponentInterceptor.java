@@ -32,6 +32,7 @@ import org.jacorb.sasPolicy.SASPolicy;
 import org.jacorb.sasPolicy.SASPolicyValues;
 import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
 import org.jacorb.security.sas.ISASContext;
+import org.jacorb.util.Debug;
 import org.omg.ATLAS.ATLASLocator;
 import org.omg.ATLAS.ATLASProfile;
 import org.omg.ATLAS.ATLASProfileHelper;
@@ -59,7 +60,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.17 2004-02-05 10:19:11 nick.cross Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.18 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public class SASComponentInterceptor
@@ -67,7 +68,7 @@ public class SASComponentInterceptor
     implements IORInterceptor
 {
     /** the logger used by the naming service implementation */
-    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS.IOR");
+    private static Logger logger = Debug.getNamedLogger("jacorb.SAS.IOR");
 
     private ORB orb = null;
     private Codec codec = null;

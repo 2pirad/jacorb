@@ -25,7 +25,8 @@ import java.io.*;
 
 import org.apache.avalon.framework.logger.Logger;
 
-import org.jacorb.util.*;
+import org.jacorb.util.Debug;
+import org.jacorb.util.Environment;
 
 /**
  * IIOPConnection.java
@@ -34,7 +35,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.4 2004-02-04 09:04:08 gerald Exp $
+ * @version $Id: IIOPConnection.java,v 1.5 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public abstract class IIOPConnection extends org.omg.ETF._ConnectionLocalBase
@@ -51,7 +52,7 @@ public abstract class IIOPConnection extends org.omg.ETF._ConnectionLocalBase
     protected Socket socket;
 
     private int finalTimeout = 20000;
-    private Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.iiop.conn");
+    private Logger logger = Debug.getNamedLogger("jacorb.iiop.conn");
 
     public IIOPConnection (IIOPConnection other)
     {

@@ -38,7 +38,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.47 2004-02-04 13:35:50 gerald Exp $
+ * @version $Id: ClientConnection.java,v 1.48 2004-02-05 15:57:12 nick.cross Exp $
  */
 
 public class ClientConnection
@@ -75,7 +75,7 @@ public class ClientConnection
     //the transports profile.
     private org.omg.ETF.Profile registeredProfile = null;
 
-    private Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.giop");
+    private Logger logger = Debug.getNamedLogger("jacorb.giop");
 
 
     public ClientConnection( GIOPConnection connection,
@@ -405,7 +405,7 @@ public class ClientConnection
     /**
      * the transport has been
      * removed underneath the GIOP layer
-     */ 
+     */
 
     public void streamClosed()
     {
