@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.6 2003-01-04 10:28:16 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.7 2003-01-05 11:54:12 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.*;
@@ -185,7 +185,9 @@ public class GIOPConnectionTest
                                      0,           //request id
                                      "foo",       //operation
                                      true,        //response expected
-                                     null,        //roundtrip timeout
+                                     null,        //request start time
+                                     null,        //request end time
+                                     null,        //reply start time
                                      new byte[1], //object key
                                      2            // giop minor
                                      );
@@ -265,7 +267,9 @@ public class GIOPConnectionTest
                                      0,           //request id
                                      "foo",       //operation
                                      true,        //response expected
-                                     null,        //roundtrip timeout
+                                     null,        //request start time
+                                     null,        //request end time
+                                     null,        //reply end time
                                      new byte[1], //object key
                                      0            // giop minor
                                      );
@@ -437,7 +441,9 @@ public class GIOPConnectionTest
                                      0,           //request id
                                      "foo",       //operation
                                      true,        //response expected
-                                     null,        //roundtrip timeout
+                                     null,        //request start time
+                                     null,        //request end time
+                                     null,        //reply end time
                                      new byte[1], //object key
                                      1            // giop minor
                                      );
