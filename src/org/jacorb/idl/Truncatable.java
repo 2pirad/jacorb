@@ -23,10 +23,10 @@ package org.jacorb.idl;
 /**
  * @author Gerald Brose
  *
- * A trivila holder for scoped names that appear as truncatable ancestors
+ * A trivial holder for scoped names that appear as truncatable ancestors
  * in a value type's inheritance spec.
  *
- * @version $Id: Truncatable.java,v 1.1 2002-04-15 16:15:50 gerald Exp $
+ * @version $Id: Truncatable.java,v 1.2 2002-04-15 16:16:21 gerald Exp $
  */
 
 class Truncatable 
@@ -39,3 +39,5 @@ class Truncatable
         super(num);
     }
 }
+
+

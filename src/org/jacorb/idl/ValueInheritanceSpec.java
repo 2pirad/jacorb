@@ -25,16 +25,22 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueInheritanceSpec.java,v 1.3 2002-04-11 16:01:39 gerald Exp $
+ * @version $Id: ValueInheritanceSpec.java,v 1.4 2002-04-15 16:16:51 gerald Exp $
  */
 
-class  ValueInheritanceSpec  
+class ValueInheritanceSpec  
     extends SymbolList 
 {
-    public Vector v;
-    public Vector supports;
+    /** the value types (both abstract and stateful) inherited by this
+        value type */
+    public Vector v; 
 
-    public boolean truncatable = false;
+    /** the IDL interfaces inherited ("supported") by this value type */
+    public Vector supports; 
+
+    /** if the value type this belongs to is truncatable to the single
+        stateful ancestor value type */
+    public Truncatable truncatable = null;
 
     public ValueInheritanceSpec(int num)
     {
@@ -45,12 +51,22 @@ class  ValueInheritanceSpec
 
     public String[] getTruncatableIds()
     {
-        if( ! truncatable )
+        if( truncatable == null )
             return new String[0];
         else
         {
-            return new String[]{ ((ScopedName)v.elementAt(0)).toString() };
+            return new String[]{ truncatable.scopedName.toString() };
         }
+    }
+
+    public Enumeration getValueTypes()
+    {
+        return v.elements();
+    }
+
+    public Enumeration getSupportedInterfaces()
+    {
+        return supports.elements();
     }
 
     public void setPackage( String s)

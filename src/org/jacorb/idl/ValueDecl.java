@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.12 2002-04-11 16:01:38 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.13 2002-04-15 16:16:50 gerald Exp $
  */
 class ValueDecl 
     extends Value
@@ -143,6 +143,31 @@ class ValueDecl
                 for (Enumeration e = ((AttrDecl)sym).getOperations();
                      e.hasMoreElements();)
                     operations.add (e.nextElement());
+            }
+        }
+
+        // check inheritance rules
+        Enumeration e = inheritanceSpec.getValueTypes();
+        if( e.hasMoreElements() )
+        {
+            boolean stateful_ancestor = false;
+            for( ; e.hasMoreElements(); )
+            {
+                try
+                {
+                    ScopedName name = (ScopedName)e.nextElement();
+                    ConstrTypeSpec ts = (ConstrTypeSpec)name.resolvedTypeSpec();
+                    if( ts.declaration() instanceof Interface )
+                    {
+                        continue;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    // ex.printStackTrace();
+                    parser.fatal_error("Illegal inheritance spec: " + 
+                                       inheritanceSpec, token );
+                }                        
             }
         }
 
@@ -312,13 +337,33 @@ class ValueDecl
         printClassComment (out);
 
         out.println ("public abstract class " + name);
-        if (this.isCustomMarshalled())
-            out.println ("\timplements org.omg.CORBA.portable.CustomValue");
+
+        
+        Enumeration e = inheritanceSpec.getValueTypes();
+        if( e.hasMoreElements()  )
+        {                
+            out.print("\textends ");
+            for( ; e.hasMoreElements(); )
+            {
+                out.print(((IdlSymbol)e.nextElement()).toString() + " ");
+            }
+            out.println ();
+        }
+
+        if( this.isCustomMarshalled() )
+            out.print("\timplements org.omg.CORBA.portable.CustomValue");
         else
-            out.println ("\timplements org.omg.CORBA.portable.StreamableValue");
-        if( inheritanceSpec != null )
-        {    
-            
+            out.print("\timplements org.omg.CORBA.portable.StreamableValue");
+        out.println ();
+
+        e = inheritanceSpec.getSupportedInterfaces();
+        if( e.hasMoreElements() )
+        {                
+            for(; e.hasMoreElements(); )
+            {
+                out.print(", " + ((IdlSymbol)e.nextElement()).toString() );
+            }
+            out.println ();
         }
 
         out.println ("{");
