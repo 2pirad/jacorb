@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.5 2001-04-05 09:20:59 jacorb Exp $
+ * @version $Id: BaseType.java,v 1.6 2001-11-16 10:56:02 spiegel Exp $
  */
 
 
@@ -104,31 +104,14 @@ class BaseType
 	return type_spec.typeName();
     }
 
+    public String id()
+    {
+        return "IDL:*primitive*:1.0";
+    }
+
     public void print(PrintWriter ps) 
     {
     }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
