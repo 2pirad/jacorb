@@ -122,7 +122,7 @@ import EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock;
  * 
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: AbstractFilter.java,v 1.1 2005-02-14 00:04:35 alphonse.bendt Exp $
+ * @version $Id: AbstractFilter.java,v 1.2 2005-03-25 08:38:41 alphonse.bendt Exp $
  */
 
 public abstract class AbstractFilter extends FilterPOA implements Disposable, ManageableServant,
@@ -686,8 +686,13 @@ public abstract class AbstractFilter extends FilterPOA implements Disposable, Ma
             }
             else
             {
-                current_ = ((List) arrayOfLists_[currentListIdx_]).iterator();
+                switchIterator();
             }
+        }
+
+        private void switchIterator()
+        {
+            current_ = ((List) arrayOfLists_[currentListIdx_]).iterator();
         }
 
         public boolean hasNext()
@@ -706,7 +711,9 @@ public abstract class AbstractFilter extends FilterPOA implements Disposable, Ma
 
             if (!current_.hasNext() && currentListIdx_ < arrayOfLists_.length - 1)
             {
-                current_ = ((List) arrayOfLists_[++currentListIdx_]).iterator();
+                ++currentListIdx_;
+                
+                switchIterator();
             }
 
             return _ret;
