@@ -23,7 +23,7 @@ package org.jacorb.security.ssl;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.3 2001-03-19 11:09:25 brose Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.4 2001-04-18 08:12:01 noffke Exp $
  * 
  * We follow the design of socket factories in package javax.net 
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we 
@@ -99,7 +99,7 @@ public class SSLSocketFactory
         // rt: switch to server mode
         if (isRoleChange) 
         {
-            org.jacorb.util.Debug.output(1, "SSLSocket switch to server mode...");
+            Debug.output(1, "SSLSocket switch to server mode...");
 	    sock.setUseClientMode( false );
 	}
 		
@@ -163,6 +163,8 @@ public class SSLSocketFactory
 
         //ctx.setDebugStream( System.out );
 
+        //ctx.setEnabledCipherSuites( CipherSuite.CS_RSA_WITH_NULL );
+
         return ctx;
     }
     
@@ -194,10 +196,10 @@ public class SSLSocketFactory
      * @returns:
      * 	an array of cipher suite names
      */
-    public java.lang.String[] getSupportedCipherSuites()
+    public String[] getSupportedCipherSuites()
     {
-	CipherSuite [] suites = CipherSuite.getDefault ();
-	java.lang.String lst [] = new java.lang.String[ suites.length ];
+	CipherSuite [] suites = CipherSuite.getDefault();
+	java.lang.String lst [] = new String[ suites.length ];
 	for ( int i = 0; i < lst.length; i++ )
 	    lst [ i ] = suites[ i ].toString ();
 	return lst;
