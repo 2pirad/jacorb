@@ -50,7 +50,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.23 2004-01-06 14:54:26 nick.cross Exp $
+ * @version $Id: RequestProcessor.java,v 1.24 2004-02-01 20:29:22 francisco Exp $
  */
 
 public class RequestProcessor
@@ -684,20 +684,20 @@ public class RequestProcessor
         {
             synchronized (this)
             {
-                try
+                while (! start)
                 {
-                    while( ! start )
+                    try
                     {
                         wait(); /* waits for the next task */
-
-                        if(terminate)
-                        {
-                            return;
-                        }
                     }
-                }
-                catch (InterruptedException e)
-                {
+                    catch (InterruptedException e)
+                    {
+                    }
+                    
+                    if (terminate)
+                    {
+                        return;
+                    }
                 }
             }
 
