@@ -1,5 +1,3 @@
-package org.jacorb.orb.connection;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -20,19 +18,33 @@ package org.jacorb.orb.connection;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+package org.jacorb.orb.connection;
 
-public class TimeOutException
-	extends java.io.IOException
+/**
+ * ReplyListener.java
+ *
+ *
+ * Created: Sun Aug 12 22:01:01 2001
+ *
+ * @author Nicolas Noffke
+ * @version $Id: ReplyListener.java,v 1.2 2001-10-02 13:50:58 jacorb Exp $
+ */
+
+public interface ReplyListener 
 {
-    public TimeOutException()
-    {
-        super();
-    }
+    public void replyReceived( byte[] reply,
+                               GIOPConnection connection );
+        
+    public void locateReplyReceived( byte[] reply,
+                                     GIOPConnection connection );
 
-    public TimeOutException( String s )
-    {
-        super( s );
-    }
-}
+    public void closeConnectionReceived( byte[] close_conn,
+                                         GIOPConnection connection );
+    
+    public void fragmentReceived( byte[] fragment,
+                                  GIOPConnection connection );
+
+    public void connectionClosed();
+}// ReplyListener
 
 

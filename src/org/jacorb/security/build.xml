@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.6 2001-08-03 11:28:26 jacorb Exp $ -->
+  <!-- $Id: build.xml,v 1.7 2001-10-02 13:51:05 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -19,19 +19,12 @@
 	   <echo message="security.build: src ${src}"/>
    </target>
 
-   <target name="all" depends="init,leveltwo,ssl,jsse,util">
+   <target name="all" depends="init,leveltwo,ssl,util">
 
    </target>
 
-   <target name="ssl" if="iaik.present">
-	   <javac srcdir="${src}"
-               destdir="${classdir}"
-	       includes="org/jacorb/security/ssl/*.java"
-        />
-   </target>
-
-   <target name="jsse">
-           <ant antfile="${src}/org/jacorb/security/jsse/build.xml" dir="${basedir}"/>
+   <target name="ssl">
+           <ant antfile="${src}/org/jacorb/security/ssl/build.xml" dir="${basedir}"/>
    </target>
 
 

@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:09:01 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPool.java,v 1.3 2001-03-19 11:10:32 brose Exp $
+ * $Id: ThreadPool.java,v 1.4 2001-10-02 13:51:14 jacorb Exp $
  */
 import org.jacorb.util.Debug;
 
@@ -115,7 +115,9 @@ public class ThreadPool
                       "(Pool)[" + idle_threads + "/" + total_threads + 
                       "] creating new thread" );
 
-        (new Thread( new ConsumerTie( this, factory.create() ))).start();
+        Thread t = new Thread( new ConsumerTie( this, factory.create() ));
+        t.setDaemon( true );
+        t.start();
 
         total_threads++;
     }

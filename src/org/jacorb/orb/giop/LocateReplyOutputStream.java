@@ -25,33 +25,71 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateReplyOutputStream.java,v 1.8 2001-03-28 10:07:05 jacorb Exp $
+ * @version $Id: LocateReplyOutputStream.java,v 1.9 2001-10-02 13:50:55 jacorb Exp $
  *
  */
 
 public class LocateReplyOutputStream
-    extends ReplyOutputStream
+    extends MessageOutputStream
 {
-    private org.omg.GIOP.LocateReplyHeader_1_0 locate_rep_hdr;
-
     public LocateReplyOutputStream ( int request_id, 
 				     int status, 
-                                     org.omg.CORBA.Object arg )
+                                     org.omg.CORBA.Object arg,
+                                     int giop_minor )
     {
-	locate_rep_hdr = 
-            new org.omg.GIOP.LocateReplyHeader_1_0( request_id, 
-                                                    org.omg.GIOP.LocateStatusType_1_0.from_int(status));
-
-        writeGIOPMsgHeader( (byte)org.omg.GIOP.MsgType_1_0._LocateReply );
-	org.omg.GIOP.LocateReplyHeader_1_0Helper.write(this, locate_rep_hdr);
+        super();
+        setGIOPMinor( giop_minor );
         
-	if( status == org.omg.GIOP.LocateStatusType_1_0._OBJECT_FORWARD )
+        writeGIOPMsgHeader( MsgType_1_1._LocateReply, giop_minor );
+
+        switch( giop_minor )
+        {
+            case 0 :
+            { 
+                // GIOP 1.0 Reply == GIOP 1.1 Reply, fall through
+            }
+            case 1 :
+            {
+                //this currently doesn't work because GIOP.idl only
+                //allows either LocateStatusType_1_0 or
+                //LocateStatusType_1_2, but not both. The only solution
+                //would be to go low-level and write directly to the
+                //stream
+
+                /*
+                //GIOP 1.1
+                LocateReplyHeader_1_0 repl_hdr = 
+                    new LocateReplyHeader_1_0( request_id,
+                                               LocateStatusType_1_0.from_int( status ));
+
+                LocateReplyHeader_1_0Helper.write( out, repl_hdr );
+               
+                break;
+                */
+            }
+            case 2 :
+            {
+                //GIOP 1.2
+                LocateReplyHeader_1_2 repl_hdr = 
+                    new LocateReplyHeader_1_2( request_id,
+                                               LocateStatusType_1_2.from_int( status ));
+
+                LocateReplyHeader_1_2Helper.write( this, repl_hdr );
+
+                break;
+            }
+            default :
+            {
+                throw new Error( "Unknown GIOP minor: " + giop_minor );
+            }
+        }
+        
+	if( status == LocateStatusType_1_2._OBJECT_FORWARD || 
+            status == LocateStatusType_1_2._OBJECT_FORWARD_PERM )
 	{
 	    write_Object( arg );
 	} 
     }
-
-
 }
 
 

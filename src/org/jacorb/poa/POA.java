@@ -41,7 +41,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.7 2001-09-07 12:45:02 jacorb Exp $
+ * @version $Id: POA.java,v 1.8 2001-10-02 13:51:05 jacorb Exp $
  */
 
 public class POA 
@@ -182,6 +182,19 @@ public class POA
                       (org.omg.BiDirPolicy.BidirectionalPolicy) policies[i];
                     break;
                 }
+            }
+        }
+
+        //check if BiDir policy tell us to use BiDirGIOP (for the
+        //whole ORB)
+        if( bidirectionalPolicy != null )
+        {
+            org.jacorb.orb.connection.BiDirPolicy bdp = 
+                (org.jacorb.orb.connection.BiDirPolicy) bidirectionalPolicy;
+            
+            if( bdp.useBiDirGIOP() )
+            {
+                _orb.turnOnBiDirGIOP();
             }
         }
         
