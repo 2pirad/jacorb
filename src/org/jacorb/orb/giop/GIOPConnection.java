@@ -26,7 +26,6 @@ import java.util.*;
 import org.omg.GIOP.*;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.CompletionStatus;
-import org.omg.CSI.EstablishContext;
 
 import org.jacorb.orb.SystemExceptionHelper;
 import org.jacorb.orb.BufferManager;
@@ -40,7 +39,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.21 2003-01-13 09:03:56 nicolas Exp $
+ * @version $Id: GIOPConnection.java,v 1.22 2003-02-23 12:53:01 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection

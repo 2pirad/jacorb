@@ -32,7 +32,6 @@ import org.omg.CORBA.SystemException;
 import org.omg.CORBA.portable.RemarshalException;
 import org.omg.CORBA.portable.ApplicationException;
 import org.omg.CORBA.portable.InvokeHandler;
-import org.omg.CORBA.portable.ResponseHandler;
 import org.omg.CORBA.portable.ServantObject;
 
 import java.util.*;
@@ -48,7 +47,7 @@ import java.util.*;
  * ReplyHandler. 
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.9 2003-01-07 18:05:38 nicolas Exp $
+ * @version $Id: ReplyReceiver.java,v 1.10 2003-02-23 12:52:34 andre.spiegel Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
