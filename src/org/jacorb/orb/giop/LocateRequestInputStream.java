@@ -27,7 +27,7 @@ import org.omg.GIOP.*;
 /**
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequestInputStream.java,v 1.14 2004-01-02 12:13:25 nick.cross Exp $
+ * @version $Id: LocateRequestInputStream.java,v 1.15 2004-02-05 11:15:30 simon.mcqueen Exp $
  *
  */
 
@@ -68,7 +68,6 @@ public class LocateRequestInputStream
                     req_hdr =
                         LocateRequestHeader_1_2Helper.read( this );
 
-                    ParsedIOR.unfiyTargetAddress( req_hdr.target );
 
                     break;
                 }

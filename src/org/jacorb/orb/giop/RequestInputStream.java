@@ -28,7 +28,7 @@ import org.omg.IOP.ServiceContext;
 /**
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.16 2003-12-18 11:15:20 nick.cross Exp $
+ * @version $Id: RequestInputStream.java,v 1.17 2004-02-05 11:15:30 simon.mcqueen Exp $
  *
  */
 
@@ -89,7 +89,6 @@ public class RequestInputStream
                 {
                     //GIOP 1.2
                     req_hdr = RequestHeader_1_2Helper.read( this );
-                    ParsedIOR.unfiyTargetAddress( req_hdr.target );
 
                     skipHeaderPadding();
 
@@ -132,7 +131,6 @@ public class RequestInputStream
                     LocateRequestHeader_1_2 locate_req_hdr =
                         LocateRequestHeader_1_2Helper.read( this );
 
-                    ParsedIOR.unfiyTargetAddress( locate_req_hdr.target );
                     req_hdr =
                         new RequestHeader_1_2( locate_req_hdr.request_id,
                                                (byte) 0x03,//response_expected
