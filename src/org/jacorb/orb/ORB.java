@@ -56,7 +56,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.115.2.7 2004-03-31 12:32:29 gerald Exp $
+ * @version $Id: ORB.java,v 1.115.2.8 2004-04-28 07:14:30 gerald Exp $
  */
 
 public final class ORB
@@ -816,7 +816,6 @@ public final class ORB
         if( rootpoa == null )
         {
             rootpoa = org.jacorb.poa.POA._POA_init(this);
-            rootpoa._addPOAEventListener( this );
 
             basicAdapter = new BasicAdapter( this,
                                              rootpoa,
@@ -833,6 +832,7 @@ public final class ORB
                 throw new org.omg.CORBA.INITIALIZE("ConfigurationException: " + 
                                                    ce.getMessage() );
             }
+            rootpoa._addPOAEventListener( this );
 
         }
         return rootpoa;
