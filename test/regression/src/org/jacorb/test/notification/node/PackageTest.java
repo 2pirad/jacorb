@@ -26,17 +26,12 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * PackageTest.java
- *
- *
- *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.2.4.1 2004-04-28 13:09:59 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
 {
-
     public PackageTest( String name )
     {
         super( name );
@@ -50,10 +45,5 @@ public class PackageTest extends TestCase
         _suite.addTest( TCLTest.suite() );
 
         return _suite;
-    }
-
-    public static void main( String[] args ) throws Exception
-    {
-        junit.textui.TestRunner.run( suite() );
     }
 }
