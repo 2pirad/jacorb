@@ -41,7 +41,7 @@ import java.util.Enumeration;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.12 2002-06-21 15:07:49 steve.osselton Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.13 2002-06-24 07:28:37 nicolas Exp $
  */
 public class RequestController 
     extends Thread 
@@ -98,11 +98,22 @@ public class RequestController
         getPoolManager();
 
         if( priorityProp != null )
-            threadPriority = Integer.parseInt( priorityProp );
+        {
+            try
+            {
+                threadPriority = Integer.parseInt( priorityProp );
+            }
+            catch( NumberFormatException nfe )
+            {
+                org.jacorb.util.Debug.output( 1, "ERROR: Can't create int from >" +
+                                       priorityProp + "<" );
+                org.jacorb.util.Debug.output( 1, "Please check property \"jacorb.poa.thread_priority\"" );
+            }
+        }   
 
         if( threadPriority < Thread.MIN_PRIORITY )
             threadPriority = Thread.MIN_PRIORITY;
-        else if( threadPriority > Thread.MIN_PRIORITY )
+        else if( threadPriority > Thread.MAX_PRIORITY )
             threadPriority = Thread.MAX_PRIORITY;
 
         setPriority(threadPriority);	
