@@ -43,7 +43,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.78 2002-11-14 00:39:20 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.79 2002-11-21 11:09:20 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -415,11 +415,7 @@ public final class ORB
 
     /**
      * Tests if a policy factory is present for the given type.
-     * This method is (right now) only called by the Info-Objects
-     * of the portableInterceptor implementation to avoid running
-     * into exceptions.
      */
-
     public boolean hasPolicyFactoryForType(int type)
     {
         return (policy_factories != null &&
