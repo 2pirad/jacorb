@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.28 2001-11-09 08:56:01 jacorb Exp $
+ * @version $Id: Environment.java,v 1.29 2001-11-15 12:20:19 jacorb Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -500,7 +500,10 @@ public class Environment
 
     public static final String proxyURL() { return _proxy_server; }
 
-    public static final byte[] implName() { return _impl_name; }
+    public static final byte[] implName() 
+    {
+        return _impl_name; 
+    }
 
     public static final boolean useAppligator(boolean amIanApplet)
     {

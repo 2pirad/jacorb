@@ -8,7 +8,7 @@ import org.jacorb.util.Environment;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.4 2001-10-02 13:51:04 jacorb Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.5 2001-11-15 12:20:18 jacorb Exp $
  */
 
 public class IORInterceptorInitializer 
@@ -59,9 +59,5 @@ public class IORInterceptorInitializer
     }
 
 } // IORInterceptorInitializer
-
-
-
-
 
 

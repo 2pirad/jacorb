@@ -26,7 +26,7 @@ import java.io.*;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: Debug.java,v 1.5 2001-04-04 10:16:46 noffke Exp $
+ * @version $Id: Debug.java,v 1.6 2001-11-15 12:20:19 jacorb Exp $
  */
 
 public final class Debug
@@ -335,13 +335,5 @@ public final class Debug
     }
     */
 }
-
-
-
-
-
-
-
-
 
 
