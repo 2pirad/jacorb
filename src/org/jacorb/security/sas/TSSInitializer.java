@@ -28,6 +28,7 @@ import org.omg.Security.*;
 import org.omg.IOP.*;
 import org.omg.IOP.CodecFactoryPackage.*;
 import org.jacorb.util.*;
+import org.ietf.jgss.*;
 
 import org.jacorb.util.Environment;
 
@@ -35,27 +36,48 @@ import org.jacorb.util.Environment;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: TSSInitializer.java,v 1.2 2002-09-10 21:19:30 david.robison Exp $
+ * @version $Id: TSSInitializer.java,v 1.3 2002-09-11 19:20:03 david.robison Exp $
  */
 
 public class TSSInitializer
         extends org.omg.CORBA.LocalObject
         implements ORBInitializer
 {
-    public static int slotID = -1;
+    public static GSSManager gssManager = GSSManager.getInstance();
+    public static int sourceNameSlotID = -1;
+    public static int sasReplySlotID = -1;
 
     /**
     * This method registers the interceptors.
     */
     public void post_init( ORBInitInfo info )
     {
+
+        // load any GSS mechanism providors
+        for (int i = 1; i <= 16; i++) {
+            String mechOID = org.jacorb.util.Environment.getProperty("jacorb.security.sas.mechanism."+i+".oid");
+            String mechProvider = org.jacorb.util.Environment.getProperty("jacorb.security.sas.mechanism."+i+".provider");
+            if (mechOID == null || mechProvider == null) continue;
+            try {
+                Oid oid = new org.ietf.jgss.Oid(mechOID);
+                Class cls = Class.forName (mechProvider);
+                java.lang.Object provider = cls.newInstance ();
+                gssManager.addProviderAtFront((java.security.Provider)provider, oid);
+                Debug.output(1, "Adding GSS SPI Provider: " + oid + " " + mechProvider);
+            } catch (Exception e) {
+                Debug.output( 1, "GSSProvider "+mechOID+" "+mechProvider + " error: " +e );
+            }
+        }
+
+        // install the TSS interceptor
         try
         {
-            slotID = info.allocate_slot_id();
+            sourceNameSlotID = info.allocate_slot_id();
+            sasReplySlotID = info.allocate_slot_id();
             Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, (byte) 1, (byte) 0);
             Codec codec = info.codec_factory().create_codec(encoding);
             org.jacorb.orb.ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB ();
-            info.add_server_request_interceptor(new TSSInvocationInterceptor(orb, codec, slotID));
+            info.add_server_request_interceptor(new TSSInvocationInterceptor(orb, codec, sourceNameSlotID, sasReplySlotID));
         }
         catch (DuplicateName duplicateName)
         {
@@ -71,9 +93,3 @@ public class TSSInitializer
     {
     }
 }    // SAS setup Initializer
-
-
-
-
-
-

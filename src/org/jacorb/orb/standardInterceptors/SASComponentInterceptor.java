@@ -35,14 +35,13 @@ import org.jacorb.util.*;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.1 2002-09-10 16:26:02 david.robison Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.2 2002-09-11 19:19:28 david.robison Exp $
  */
 
 public class SASComponentInterceptor
     extends org.omg.CORBA.LocalObject
     implements IORInterceptor
 {
-    private static GSSManager gssManager = GSSManager.getInstance();
     private ORB orb = null;
     private TaggedComponent tc = null;
 
@@ -60,10 +59,6 @@ public class SASComponentInterceptor
 
     public void destroy()
     {
-    }
-
-    public static void setGSSManager(GSSManager manager) {
-      gssManager = manager;
     }
 
     /**
@@ -106,7 +101,7 @@ public class SASComponentInterceptor
                 SAS_ContextSec sasContextSec = new SAS_ContextSec((short)0, (short)0, serviceConfiguration, new byte[0][0], 0);
 
                 // create the security mech list
-                Oid[] mechs = gssManager.getMechs();
+                Oid[] mechs = org.jacorb.security.sas.TSSInitializer.gssManager.getMechs();
                 CompoundSecMech[] compoundSecMech = new CompoundSecMech[mechs.length-1];
                 for (int i = 1; i < mechs.length; i++)
                 {
@@ -131,5 +126,3 @@ public class SASComponentInterceptor
         }
     }
 } // SASComponentInterceptor
-
-

@@ -28,7 +28,7 @@ import java.security.*;
  * This is the GSS-API Sercurity Provider Interface (SPI) Facotry GSSUP GSSManager
  *
  * @author David Robison
- * @version $Id: GSSUPMechFactory.java,v 1.2 2002-09-10 21:19:30 david.robison Exp $
+ * @version $Id: GSSUPMechFactory.java,v 1.3 2002-09-11 19:20:03 david.robison Exp $
  */
 
 public final class GSSUPMechFactory implements MechanismFactory
@@ -37,7 +37,7 @@ public final class GSSUPMechFactory implements MechanismFactory
     protected static Provider myProvider;
 
     private Oid myMechOid;
-    private Oid[] nameTypes = new Oid[] {GSSName.NT_ANONYMOUS, GSSName.NT_EXPORT_NAME, GSSName.NT_HOSTBASED_SERVICE, GSSName.NT_MACHINE_UID_NAME, GSSName.NT_STRING_UID_NAME, GSSName.NT_USER_NAME};
+    private Oid[] nameTypes = new Oid[] {GSSName.NT_EXPORT_NAME};
 
     public GSSUPMechFactory ()
     {
@@ -68,6 +68,7 @@ public final class GSSUPMechFactory implements MechanismFactory
 
     public GSSCredentialSpi getCredentialElement(GSSNameSpi name, int initLifetime, int acceptLifetime, int usage) throws GSSException
     {
+          //System.out.println("getCredentialElement");
 	  return new GSSUPCredentialSpi(myProvider, myMechOid, name, initLifetime, acceptLifetime, usage);
     }
 
@@ -83,19 +84,19 @@ public final class GSSUPMechFactory implements MechanismFactory
 
     public GSSContextSpi getMechanismContext(GSSNameSpi nameSpi, GSSCredentialSpi credSpi, int lifetime) throws GSSException
     {
-          System.out.println("getMechanismContext-1");
-	  return new GSSUPContextSpi(myProvider, myMechOid, lifetime);
+          //System.out.println("getMechanismContext-1");
+	  return new GSSUPContextSpi(myProvider, myMechOid, nameSpi, credSpi, lifetime);
     }
 
     public GSSContextSpi getMechanismContext(GSSCredentialSpi credSpi) throws GSSException
     {
-          System.out.println("getMechanismContext-2");
-	  return new GSSUPContextSpi(credSpi.getProvider(), credSpi.getMechanism(), credSpi.getInitLifetime());
+          //System.out.println("getMechanismContext-2");
+	  return new GSSUPContextSpi(credSpi.getProvider(), credSpi.getMechanism(), credSpi.getName(), credSpi, credSpi.getInitLifetime());
     }
 
     public GSSContextSpi getMechanismContext(byte[] b1) throws GSSException
     {
-          System.out.println("getMechanismContext");
+          //System.out.println("getMechanismContext");
 	  return null;
     }
 }

@@ -27,7 +27,7 @@ import org.omg.GSSUP.*;
  * This is the GSS-API Sercurity Provider Interface (SPI) Provider for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: GSSUPProvider.java,v 1.2 2002-09-10 21:19:30 david.robison Exp $
+ * @version $Id: GSSUPProvider.java,v 1.3 2002-09-11 19:20:03 david.robison Exp $
  */
 
 public class GSSUPProvider extends Provider
@@ -35,6 +35,7 @@ public class GSSUPProvider extends Provider
 
     private static InitialContextToken defaultSubject = new InitialContextToken();
     protected static org.omg.CORBA.ORB orb = null;
+    protected static org.omg.IOP.Codec codec = null;
 
     /**
      * Returns the default GSSManager implementation.
@@ -53,10 +54,6 @@ public class GSSUPProvider extends Provider
         defaultSubject.username = username.getBytes();
         defaultSubject.password = password.getBytes();
         defaultSubject.target_name = target.getBytes();
-    }
-
-    public static void setORB(org.omg.CORBA.ORB o) {
-        orb = o;
     }
 
     public static InitialContextToken getDefaultSubject()

@@ -28,7 +28,7 @@ import java.security.*;
  * This is the GSS-API Sercurity Provider Interface (SPI) for the GSSUP Credential
  *
  * @author David Robison
- * @version $Id: GSSUPCredentialSpi.java,v 1.1 2002-09-10 16:24:05 david.robison Exp $
+ * @version $Id: GSSUPCredentialSpi.java,v 1.2 2002-09-11 19:20:03 david.robison Exp $
  */
 
 public final class GSSUPCredentialSpi implements GSSCredentialSpi
@@ -43,6 +43,7 @@ public final class GSSUPCredentialSpi implements GSSCredentialSpi
 
     public GSSUPCredentialSpi (Provider myProvider, Oid myMechOid, GSSNameSpi name, int initLifetime, int acceptLifetime, int usage)
     {
+        //System.out.println("GSSUPCredentialSpi");
         this.myProvider = myProvider;
         this.myMechOid = myMechOid;
         this.name = name;
@@ -93,4 +94,3 @@ public final class GSSUPCredentialSpi implements GSSCredentialSpi
         return myMechOid;
     }
 }
-
