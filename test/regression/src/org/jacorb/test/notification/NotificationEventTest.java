@@ -30,7 +30,7 @@ import org.apache.log.Priority;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationEventTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: NotificationEventTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
  */
 public class NotificationEventTest extends TestCase {
 
@@ -156,7 +156,6 @@ public class NotificationEventTest extends TestCase {
      * Entry point 
      */ 
     public static void main(String[] args) {
-	NotificationTestCase.setLogLevel("org.jacorb.notification", Priority.DEBUG);
 	junit.textui.TestRunner.run(suite());
     }
 

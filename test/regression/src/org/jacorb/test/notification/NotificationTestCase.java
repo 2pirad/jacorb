@@ -43,7 +43,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
  * Created: Thu Mar 27 15:29:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCase.java,v 1.2 2003-07-03 14:03:06 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCase.java,v 1.3 2003-07-20 11:02:12 alphonse.bendt Exp $
  */
 
 public class NotificationTestCase extends TestCase {
@@ -78,39 +78,6 @@ public class NotificationTestCase extends TestCase {
     public NotificationTestCase(String name, NotificationTestCaseSetup setup) {
 	super(name);
 	setup_ = setup;
-    }
-
-    static {
-	setDefault();
-    }
-
-    public static void setDefault() {
-	setLogLevel("org.jacorb.notification", Priority.NONE);
-	setLogLevel("org.jacorb.test.notification", Priority.NONE);
-
-	setLogFormat("org.jacorb.test.notification", "%7.7{priority} [%-.25{category}] (%{context}): %{message}\\n%{throwable}");
-	setLogFormat("org.jacorb.notification", "%7.7{priority} [%-.25{category}] (%{context}): %{message}\\n%{throwable}");
-    }
-
-    public static void setLogLevel(String logger, Priority priority) {
-	Logger _logger = 
-	    Hierarchy.
-	    getDefaultHierarchy().
-	    getLoggerFor(logger);
-
-	_logger.setPriority(priority);
-    }
-
-    public static void setLogFormat(String logger, String format) {
-	Logger _logger = 
-	    Hierarchy.
-	    getDefaultHierarchy().
-	    getLoggerFor(logger);
-
-	PatternFormatter _formatter = new PatternFormatter(format);
-	StreamTarget _target = new StreamTarget(System.out, _formatter);
-
-	_logger.setLogTargets(new LogTarget[] {_target});
     }
 
 }

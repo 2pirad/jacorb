@@ -25,13 +25,13 @@ import junit.framework.TestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
-import org.apache.log.Priority;
+import org.jacorb.notification.util.LogConfiguration;
 
 /**
  * AllTest.java
  *
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
  */
 
 public class AllTest extends TestCase {
@@ -53,13 +53,9 @@ public class AllTest extends TestCase {
     }
 
     public static void main(String[] args) throws Exception {
-	NotificationTestCase.setDefault();
-
-	NotificationTestCase.setLogLevel("org.jacorb.notification", 
-					 Priority.NONE);
+	LogConfiguration.getInstance().configure();
 
 	junit.textui.TestRunner.run(suite());
-	//junit.swingui.TestRunner.main(new String[] {AllTest.class.getName()});
     }
 
 } 

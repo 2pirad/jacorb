@@ -29,7 +29,7 @@ import org.omg.CORBA.ORB;
  * Created: Sat Oct 12 20:50:59 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterTest.java,v 1.2 2003-07-03 14:03:06 alphonse.bendt Exp $
+ * @version $Id: FilterTest.java,v 1.3 2003-07-20 11:02:12 alphonse.bendt Exp $
  */
 
 public class FilterTest extends TestCase {
@@ -218,22 +218,9 @@ public class FilterTest extends TestCase {
 
 
 	return _suite;
-// 	NotificationTestCaseSetup _setup =
-// 	    new NotificationTestCaseSetup(_suite, FilterFactoryImpl.class.getName());
-	
-// 	String[] _testMethodNames = org.jacorb.test.common.TestUtils.getTestMethods(FilterTest.class, "testMatch");
-
-//  	for (int x=0; x<_testMethodNames.length; ++x) {
-//  	    _suite.addTest(new FilterTest(_testMethodNames[x], _setup));
-//  	}
-
-// 	return _setup;
     }
 
     public static void main(String[] args) throws Exception {
-	//	NotificationTestCase.setLogLevel("org.jacorb.test.notification", Priority.DEBUG);
-	//	NotificationTestCase.setLogLevel("org.jacorb.notification", Priority.DEBUG);
-
 	junit.textui.TestRunner.run(suite());
     }
 }

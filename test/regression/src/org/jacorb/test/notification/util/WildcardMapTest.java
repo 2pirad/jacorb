@@ -16,7 +16,7 @@ import org.jacorb.notification.util.WildcardMap;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: WildcardMapTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: WildcardMapTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
  */
 
 public class WildcardMapTest extends TestCase {
@@ -290,11 +290,9 @@ public class WildcardMapTest extends TestCase {
      * Entry point 
      */ 
     public static void main(String[] args) {
-	NotificationTestCase.setDefault();
-	NotificationTestCase.setLogLevel("org.jacorb.notification.util", Priority.NONE);
 	junit.textui.TestRunner.run(suite());
     }
 
-}// WildcardMapTest
+}
 
 

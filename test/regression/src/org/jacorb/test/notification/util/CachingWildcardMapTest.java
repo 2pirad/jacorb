@@ -34,7 +34,7 @@ import junit.framework.TestSuite;
  * Created: Sat Apr 12 14:08:13 2003
  *
  * @author Alphonse Bendt
- * @version $Id: CachingWildcardMapTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: CachingWildcardMapTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
  */
 
 public class CachingWildcardMapTest extends WildcardMapTest {
@@ -52,8 +52,6 @@ public class CachingWildcardMapTest extends WildcardMapTest {
     }
 
     public static void main(String[] args) {
-	NotificationTestCase.setDefault();
-	NotificationTestCase.setLogLevel("org.jacorb.notification", Priority.NONE);
 	junit.textui.TestRunner.run(suite());
     }
     

@@ -22,7 +22,6 @@ import org.jacorb.notification.parser.TCLParser;
 import org.jacorb.test.notification.Address;
 import org.jacorb.test.notification.NamedValue;
 import org.jacorb.test.notification.NamedValueSeqHelper;
-import org.jacorb.test.notification.NotificationTestCase;
 import org.jacorb.test.notification.Person;
 import org.jacorb.test.notification.PersonHelper;
 import org.jacorb.test.notification.Profession;
@@ -40,13 +39,14 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 import org.omg.TimeBase.UtcT;
 import org.omg.TimeBase.UtcTHelper;
+import org.jacorb.notification.util.LogConfiguration;
 
 /**
  * JUnit TestCase. Test Parsing and Evaluation of various ETCL
  * Expressions.
  *
  * @author Alphonse Bendt
- * @version $Id: TCLTest.java,v 1.1 2003-06-05 13:12:00 alphonse.bendt Exp $
+ * @version $Id: TCLTest.java,v 1.2 2003-07-20 11:02:12 alphonse.bendt Exp $
  */
 
 public class TCLTest extends TestCase {
@@ -822,15 +822,7 @@ public class TCLTest extends TestCase {
     }
 
     public static void main(String[] args) {
-	NotificationTestCase.setDefault();
-
-	//	NotificationTestCase.setLogLevel("org.jacorb.notification", Priority.DEBUG);
-	//	NotificationTestCase.setLogLevel("org.jacorb.test.notification", Priority.DEBUG);	
-
-	junit.textui.TestRunner.run(suite());
-
-	System.out.println();
-	
+	junit.textui.TestRunner.run(suite());	
     }
 }
 
