@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.44 2004-05-03 04:54:08 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.45 2004-05-03 05:00:31 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -134,7 +134,7 @@ public abstract class GIOPConnection
         dump_incoming = 
             configuration.getAttribute("jacorb.debug.dump_incoming_messages","off").equals("on");
         timeout = 
-            configuration.getAttributeAsInteger("jacorb.connection.connect_timeout", 0);
+            configuration.getAttributeAsInteger("jacorb.connection.client.connect_timeout", 0);
 
     }
 
