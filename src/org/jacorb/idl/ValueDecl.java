@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.23 2002-06-03 20:12:20 gerald Exp $
+ * @version $Id: ValueDecl.java,v 1.23.2.1 2002-07-16 15:26:02 gerald Exp $
  */
 
 class ValueDecl
@@ -60,6 +60,7 @@ class ValueDecl
         for( Iterator i = d.v.iterator(); i.hasNext(); )
         {
             Declaration dec = ( (Definition)( i.next() ) ).get_declaration();
+            dec.setPackage( name );
             if( dec instanceof StateMember )
                 stateMembers.v.add( dec );
             else if( dec instanceof OpDecl )
@@ -97,6 +98,8 @@ class ValueDecl
 
     public void setPackage( String s )
     {
+        Environment.output( 4, "** ValueDecl setPackage " + s );
+
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
             pack_name = s + "." + pack_name;
