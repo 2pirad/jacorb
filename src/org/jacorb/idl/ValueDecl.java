@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.2 2001-11-08 17:02:24 spiegel Exp $
+ * @version $Id: ValueDecl.java,v 1.3 2001-11-12 09:54:27 spiegel Exp $
  */
 class ValueDecl 
     extends Value
@@ -88,10 +88,21 @@ class ValueDecl
     public void parse()
     {	
         stateMembers.parse();
+
         for (Iterator i = operations.iterator(); i.hasNext();)
             ((IdlSymbol)i.next()).parse();
+
         for (Iterator i = exports.iterator(); i.hasNext();)
-            ((IdlSymbol)i.next()).parse();
+        {
+            IdlSymbol sym = (IdlSymbol)i.next();
+            sym.parse();
+            if (sym instanceof AttrDecl)
+            {
+                for (Enumeration e = ((AttrDecl)sym).getOperations();
+                     e.hasMoreElements();)
+                    operations.add (e.nextElement());
+            }
+        }
 
 	try
 	{
@@ -217,9 +228,9 @@ class ValueDecl
 
     public String printReadExpression (String streamname)
     {
-        return "(" + javaName() + ")" + 
-               "((org.omg.CORBA_2_3.portable.InputStream)" + streamname +")"+ 
-               ".read_value (\"" + id() + "\")";
+        return "(" + javaName() + ")" 
+             + "((org.omg.CORBA_2_3.portable.InputStream)" + streamname + ")" 
+             + ".read_value (\"" + id() + "\")";
     }
 
     public String printReadStatement (String var_name, String streamname)
@@ -260,6 +271,12 @@ class ValueDecl
         for (Iterator i = stateMembers.v.iterator(); i.hasNext();)
         {
             ((StateMember)i.next()).print (out);
+            out.println();
+        }
+
+        for (Iterator i = operations.iterator(); i.hasNext();)
+        {
+            ((Operation)i.next()).printSignature (out, true);
             out.println();
         }
 
