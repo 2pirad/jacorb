@@ -29,7 +29,7 @@ import junit.framework.TestSuite;
  * PackageTest.java
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.3 2003-11-26 10:01:39 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
@@ -47,6 +47,7 @@ public class PackageTest extends TestCase
         _suite.addTest( WildcardMapTest.suite() );
         _suite.addTest( CachingWildcardMapTest.suite() );
         _suite.addTest( ThreadPoolTest.suite() );
+        _suite.addTest( ObjectPoolTest.suite() );
 
         return _suite;
     }
