@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.17 2003-12-04 14:20:08 simon.mcqueen Exp $
+ * @version $Id: JacIDL.java,v 1.18 2003-12-19 12:00:49 nick.cross Exp $
  */
 
 public class JacIDL
@@ -355,7 +355,7 @@ public class JacIDL
         }
 
         // Set the logging priority
-        parser.getLogger().setPriority(org.jacorb.util.LogKitLoggerFactory.intToPriority(_debuglevel));
+        parser.getLogger().setPriority(Environment.intToPriority(_debuglevel));
 
         // setup input file lists
         resetFileLists();
@@ -488,4 +488,3 @@ public class JacIDL
         }
     }
 }
-
