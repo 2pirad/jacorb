@@ -51,7 +51,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.100 2004-02-04 09:08:53 gerald Exp $
+ * @version $Id: Delegate.java,v 1.101 2004-02-04 14:37:55 gerald Exp $
  *
  */
 
@@ -279,11 +279,6 @@ public final class Delegate
                         {
                             //_OBJECT_FORWARD_PERM is actually more or
                             //less deprecated
-                            if ( logger.isDebugEnabled() )
-                            {
-                                logger.debug("Locate Reply: Forward");
-                            }
-
                             rebind( orb.object_to_string( lris.read_Object() ) );
                             break;
                         }
@@ -880,9 +875,6 @@ public final class Delegate
 
         if ( !async && receiver != null )
         {
-            if (logger.isDebugEnabled())
-                logger.debug("invoke: getReply()");
-
             // Synchronous invocation, response expected.
             // This call blocks until the reply arrives.
             org.omg.CORBA.portable.InputStream is = receiver.getReply();
