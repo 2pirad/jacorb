@@ -42,7 +42,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.29 2001-11-08 16:52:18 spiegel Exp $
+ * @version $Id: ORB.java,v 1.30 2001-11-08 17:44:50 jacorb Exp $
  */
 
 public final class ORB
@@ -1558,10 +1558,10 @@ public final class ORB
                         public java.io.Serializable read_value
                         (org.omg.CORBA_2_3.portable.InputStream is)
                         {
-                            StreamableValue result = 
+                            StreamableValue value = 
                                 (StreamableValue)instantiate (impl);
-                            result._read (is);
-                            return result;
+                            value._read (is);
+                            return value;
                         }
                     };
                 }
