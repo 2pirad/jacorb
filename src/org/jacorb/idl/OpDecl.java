@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.33 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: OpDecl.java,v 1.34 2003-09-12 09:38:41 andre.spiegel Exp $
  */
 
 public class OpDecl
@@ -65,7 +65,7 @@ public class OpDecl
         this.paramDecls  = new Vector (paramDecls);
         this.raisesExpr  = raisesExpr;
         setEnclosingSymbol (myInterface);
-        setPackage (myInterface.full_name());
+        this.pack_name   = myInterface.pack_name;
     }
 
     /**
