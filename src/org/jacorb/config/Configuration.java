@@ -55,7 +55,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.3 2004-04-30 12:01:17 brose Exp $
+ * @version $Id: Configuration.java,v 1.4 2004-05-06 07:25:40 brose Exp $
  */
 
 public class Configuration
@@ -232,7 +232,7 @@ public class Configuration
        else
        {
            if (logLevel > 0)
-               System.err.println("[ jacorb.home unset! Will use '.']");
+               System.err.println("[ jacorb.home unset! Will use '.' ]");
            configDir = ".";
        }
        
@@ -254,8 +254,8 @@ public class Configuration
        else
        {
            if (logLevel > 0)
-               System.err.println("[ configuration " + name + 
-                                  " not found in "  + propFileName + " ]");
+               System.err.println("[ File " + propFileName + " for configuration " + name + 
+                                  " not found ]");
        }
        
        // 4) look for additional custom properties files
@@ -287,13 +287,14 @@ public class Configuration
        }
 
        // now load properties file from classpath
-       orbConfig = loadPropertiesFromClassPath( name +  fileSuffix );
+       orbConfig = loadPropertiesFromClassPath( name + fileSuffix );
        if (orbConfig!= null)
        {
            setAttributes(orbConfig);
            loaded = true;
 
-           logLevel = getAttributeAsInteger("jacorb.config.log.verbosity",DEFAULT_LOG_LEVEL);
+           logLevel = 
+               getAttributeAsInteger("jacorb.config.log.verbosity",DEFAULT_LOG_LEVEL);
            if (logLevel > 2)
                System.out.println("[ configuration " + name + " loaded from classpath]");
        }
