@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.28 2003-09-03 08:53:28 brose Exp $
+ * @version $Id: IdlSymbol.java,v 1.29 2003-09-03 16:02:00 brose Exp $
  */
 
 public class IdlSymbol
@@ -62,8 +62,12 @@ public class IdlSymbol
 
     Logger logger;
 
+    /** the posizion in the IDL file where this symbol was found by the lexer,
+        needed for better error messages */
+    PositionInfo myPosition = null;
+
     /**
-     * class contstructor
+     * class constructor
      */
 
     public IdlSymbol( int num )
@@ -71,6 +75,7 @@ public class IdlSymbol
         super( num );
         inhibitionFlag = parser.getInhibitionState();
         logger = parser.getLogger();
+        myPosition = lexer.getPosition();
     }
 
 
