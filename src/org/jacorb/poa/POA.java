@@ -41,7 +41,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.15 2001-12-17 15:16:47 steve.osselton Exp $
+ * @version $Id: POA.java,v 1.16 2001-12-17 16:52:12 steve.osselton Exp $
  */
 
 public class POA 
@@ -1650,6 +1650,28 @@ public class POA
         return parent;
     }
 
+    public org.omg.PortableServer.POA[] the_children ()
+    {
+        checkDestructionApparent ();
+
+        int i = 0;
+        Enumeration enum;
+        org.omg.PortableServer.POA[] children;
+
+        synchronized (poaCreationLog)
+        {
+            children = new org.omg.PortableServer.POA[childs.size ()];
+            enum = childs.elements ();
+            while (enum.hasMoreElements ())
+            {
+                children[i] = (org.omg.PortableServer.POA) enum.nextElement ();
+                i++;
+            }
+        }
+
+        return children;
+    }
+
     public org.omg.PortableServer.POAManager the_POAManager ()
     {
         checkDestructionApparent ();
@@ -1660,12 +1682,12 @@ public class POA
      * notified the completion of a child destruction
      */         
 
-    protected void unregisterChild(String name) 
+    protected void unregisterChild (String name) 
     {
         synchronized (poaCreationLog) 
         {
-            childs.remove(name);
-            poaCreationLog.notifyAll();
+            childs.remove (name);
+            poaCreationLog.notifyAll ();
         }
     }
 
