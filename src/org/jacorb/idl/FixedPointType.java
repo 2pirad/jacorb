@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.4 2001-03-27 12:01:18 noffke Exp $
+ * @version $Id: FixedPointType.java,v 1.5 2001-03-29 14:13:54 jacorb Exp $
  */
 
 class FixedPointType 
@@ -119,28 +119,6 @@ class FixedPointType
 	ps.println("\t\treturn _type;");
 	ps.println("\t}");
 	
-	ps.println("\tpublic String get_id()");
-	ps.println("\t{");
-	ps.println("\t\treturn id();");
-	ps.println("\t}");
-
-	ps.println("\tpublic org.omg.CORBA.TypeCode get_type()");
-	ps.println("\t{");
-	ps.println("\t\treturn type();");
-	ps.println("\t}");
-
-	// what are these good for??
-
-	ps.println("\tpublic void write_Object(org.omg.CORBA.portable.OutputStream out, java.lang.Object obj)");
-	ps.println("\t{");
-	ps.println("\t\t throw new RuntimeException(\" not implemented\");");
-	ps.println("\t}");
-	
-	ps.println("\tpublic java.lang.Object read_Object(org.omg.CORBA.portable.InputStream in)");
-	ps.println("\t{");
-	ps.println("\t\t throw new RuntimeException(\" not implemented\");");
-	ps.println("\t}");
-
 	printIdMethod(ps); // from IdlSymbol
 
 	/** read */
