@@ -28,11 +28,11 @@ import org.apache.avalon.framework.configuration.Configurable;
  * specific logging backend.
  *
  * @author Gerald Brose 
- * @version $Id: LoggerFactory.java,v 1.3 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: LoggerFactory.java,v 1.4 2004-05-09 20:18:34 francisco Exp $
  * @since JacORB 2.0 beta 3
  */
 
-interface LoggerFactory extends Configurable
+public interface LoggerFactory extends Configurable
 {
     /**
      * @return the name of the actual logging mechanism, e.g., "logkit"
