@@ -25,15 +25,14 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.17 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: InterfaceBody.java,v 1.18 2003-01-03 21:02:45 gerald Exp $
  *
  * directly known subclasses: ValueBody
  */
 
 class InterfaceBody
-        extends IdlSymbol
+    extends IdlSymbol
 {
-
     public Vector v;
     public Interface my_interface;
     SymbolList inheritance_spec = null;
@@ -45,7 +44,7 @@ class InterfaceBody
     public static Vector parseThreads = new Vector();
 
     public class ParseThread
-            extends Thread
+        extends Thread
     {
 
         InterfaceBody b = null;
@@ -266,6 +265,11 @@ class InterfaceBody
 
     public void printOperationSignatures( PrintWriter ps )
     {
+        if( v.size() > 0  )
+        {
+            ps.println( "\t/* operations  */" );
+        }
+
         for( Enumeration e = v.elements(); e.hasMoreElements(); )
         {
             Definition d = (Definition)e.nextElement();
@@ -288,6 +292,11 @@ class InterfaceBody
 
     public void printConstants( PrintWriter ps )
     {
+        if( v.size() > 0 )
+        {
+            ps.println( "\t/* constants */" );
+        }
+
         for( Enumeration e = v.elements(); e.hasMoreElements(); )
         {
             Definition d = (Definition)e.nextElement();

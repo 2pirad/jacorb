@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.37 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Interface.java,v 1.38 2003-01-03 21:02:45 gerald Exp $
  */
 
 import java.io.File;
@@ -499,9 +499,7 @@ class Interface
         if( body != null )
         {
             // forward declaration
-            ps.println( "\t/* constants */" );
             body.printConstants( ps );
-            ps.println( "\t/* operations  */" );
             body.printOperationSignatures( ps );
         }
         ps.println( "}" );
