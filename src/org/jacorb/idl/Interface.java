@@ -20,12 +20,10 @@
 
 package org.jacorb.idl;
 
-
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.6 2001-03-26 09:08:44 jacorb Exp $
+ * @version $Id: Interface.java,v 1.8 2001-03-26 09:18:13 jacorb Exp $
  */
-
 
 import java.util.*;
 import java.io.*;
@@ -531,7 +529,10 @@ class Interface
         }
         else
         {
+            ps.println("\t\tif( obj instanceof " + typeName() + " )");
             ps.println("\t\t\treturn (" + typeName() + ")obj;");
+            ps.println("\t\telse");
+            ps.println("\t\tthrow new org.omg.CORBA.BAD_PARAM(\"Narrow failed, not a " + typeName()+ "\");");
         }
         ps.println("\t}");
 
