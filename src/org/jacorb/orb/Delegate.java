@@ -59,7 +59,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.86 2003-08-15 11:17:29 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.87 2003-10-05 16:24:44 brose Exp $
  *
  */
 
@@ -1093,21 +1093,9 @@ public final class Delegate
         }
         else
         {
-            // Try to avoid remote call - is it a derived type?
-            try
-            {
-                Class derivedhelper = Class.forName( RepositoryID.className( pior.getTypeId(), "Helper" ) );
-                Method derivednarrow = derivedhelper.getMethod
-                    ( "narrow", new Class[] { org.omg.CORBA.Object.class } );
-                Object narrowedhelper = derivednarrow.invoke( null, new Object[] { self } );
-
-                if( narrowedhelper != null )
-                {
-                    return true;
-                }
-            }
-            // If it fails fall back to a remote call.
-            catch (Exception e) {}
+            // removed code that tries to avoid a remote call, but
+            // delivers incorrect results (always true), bug #384.
+            // (There did not seem to be a way of fixing that code.)
 
             org.omg.CORBA.portable.OutputStream os;
             org.omg.CORBA.portable.InputStream is;
