@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.18 2002-02-07 16:27:17 steve.osselton Exp $
+ * @version $Id: UnionType.java,v 1.19 2002-02-08 21:21:33 gerald Exp $
  *
  */
 
@@ -228,9 +228,9 @@ class UnionType
             switch_body.setTypeSpec (switch_type_spec);
             switch_body.setUnion (this);
 
-            ScopedName.addRecursionScope (typeName ());
+            ScopedName.addRecursionScope( typeName());
             switch_body.parse();
-            ScopedName.removeRecursionScope (typeName ());
+            ScopedName.removeRecursionScope( typeName() );
         } 
         catch (NameAlreadyDefined p)
         {

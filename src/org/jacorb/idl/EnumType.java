@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.10 2002-02-07 16:27:16 steve.osselton Exp $
+ * @version $Id: EnumType.java,v 1.11 2002-02-08 21:21:32 gerald Exp $
  */
 
 class EnumType 
@@ -47,6 +47,7 @@ class EnumType
     {
         EnumType et = new EnumType( new_num());
         et.enumlist = this.enumlist;
+        et.typeName = this.typeName;
         et.pack_name = this.pack_name;
         et.name = this.name;
         et.token = this.token;
@@ -77,7 +78,10 @@ class EnumType
     public String typeName()
     {
         if( typeName == null )
+        {
+            //System.out.println(" Enum " + full_name()  + " has no typeName");
             setPrintPhaseNames();
+        }
         return typeName;
     }
 
@@ -198,7 +202,7 @@ class EnumType
         sb.append("})");
         return  sb.toString(); 
     }
-   
+   
 
     private void printClassComment(String className, PrintWriter ps)
     {

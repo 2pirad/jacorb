@@ -21,7 +21,7 @@ package org.jacorb.idl;
  */
 
 /**
- * @version $Id: ElementSpec.java,v 1.9 2001-12-13 15:44:58 gerald Exp $
+ * @version $Id: ElementSpec.java,v 1.10 2002-02-08 21:21:32 gerald Exp $
  */ 
 
 class ElementSpec  
@@ -76,7 +76,7 @@ class ElementSpec
 
 
                 //                if( ts.typeName().equals( containingUnion.typeName() ) ||
-                if( ScopedName.isRecursionScope( ts.typeName() ) )
+                if( ScopedName.isRecursionScope( ts.typeName() ))
                 {
                     ((SequenceType)seqTs.typeSpec()).setRecursive();
                 }

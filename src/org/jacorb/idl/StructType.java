@@ -27,7 +27,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.15 2001-12-17 14:07:28 gerald Exp $
+ * @version $Id: StructType.java,v 1.16 2002-02-08 21:21:32 gerald Exp $
  */
 
 class StructType 
@@ -173,10 +173,9 @@ class StructType
 	}
 	if( memberlist != null )
 	{
-            ScopedName.addRecursionScope( typeName()  );
-
+            ScopedName.addRecursionScope( typeName());
 	    memberlist.parse();
-            ScopedName.removeRecursionScope( typeName()  );
+            ScopedName.removeRecursionScope( typeName() );
 	}
 
 	parsed = true;

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.8 2001-06-13 09:54:50 jacorb Exp $
+ * @version $Id: TypeMap.java,v 1.9 2002-02-08 21:21:33 gerald Exp $
  */
 
 import java.util.*;
@@ -58,7 +58,7 @@ class TypeMap
 	throws NameAlreadyDefined
     {
 	Environment.output(3,"Typedef'ing " + name + " for " + 
-                           type.typeName() + 
+                           //                           type.typeName() + 
                            " , hash: " + type.hashCode() );
 
 	if( typemap.containsKey( name ))
@@ -76,12 +76,12 @@ class TypeMap
 		    typemap.put( name, ((ScopedName)type.typeSpec()).resolvedTypeSpec() );
 		else
 		    typemap.put( name, type.typeSpec() );
-		Environment.output(3," resolved " + ((ScopedName)type.typeSpec()).resolvedTypeSpec()); 
+		//Environment.output(3," resolved " + ((ScopedName)type.typeSpec()).resolvedTypeSpec()); 
 	    } 
 	    else 
 	    {
 		typemap.put( name, type.typeSpec() );
-		Environment.output(3,""+ type.typeSpec() ); 
+		//Environment.output(3,""+ type.typeSpec() ); 
 	    }
 	}
     }
