@@ -21,7 +21,7 @@
 package org.jacorb.orb.connection;
 
 import org.jacorb.orb.*;
-import org.jacorb.orb.portableInterceptor.DefaultClientInterceptor;
+import org.jacorb.orb.portableInterceptor.*;
 
 import org.omg.PortableInterceptor.*;
 import org.omg.IOP_N.Codec;
@@ -30,7 +30,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionClientInterceptor.java,v 1.1.2.1 2001-09-05 09:54:48 jacorb Exp $
+ * @version $Id: BiDirConnectionClientInterceptor.java,v 1.1.2.2 2001-09-21 07:53:19 jacorb Exp $
  */
 
 public class BiDirConnectionClientInterceptor
@@ -57,7 +57,10 @@ public class BiDirConnectionClientInterceptor
     public void send_request( ClientRequestInfo ri ) 
         throws ForwardRequest
     {
-        if( orb.useBiDirGIOP() )
+        //only send a BiDir service context if our orb allows it, and
+        //the connection was initiated in this process
+        if( orb.useBiDirGIOP() && 
+            ((ClientRequestInfoImpl) ri).connection.isClientInitiated() )
         {
             if( bidir_ctx == null )
             {

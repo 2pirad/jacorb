@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.1.2.1 2001-08-22 07:22:20 jacorb Exp $
+ * @version $Id: Transport.java,v 1.1.2.2 2001-09-21 07:53:25 jacorb Exp $
  */
 
 public interface Transport 
@@ -38,7 +38,7 @@ public interface Transport
      * Receive a GIOP message. This message must be complete, i.e. not
      * fragmented.
      *
-     * @return a message or null, if an ill-formatted has been
+     * @return a message or null, if an ill-formatted message has been
      * received.  
      *
      * @throws IOException If the transport layer has shut down
@@ -58,9 +58,6 @@ public interface Transport
      * should be handled on the GIOP connection layer.
      *
      * @param message the buffer containing the message. 
-     *
-     * @throws IOException If the transport layer has shut down
-     * irrevokably.  
      */
     public void addOutgoingMessage( byte[] message, int start, int size )
         throws IOException;
@@ -73,15 +70,16 @@ public interface Transport
         throws IOException;
     
     /**
-     * This signals that the corresponding GIOP connection is
-     * released, so the transport layer must close down too.  
+     * Close this transport (and free resources).  
      */
-    public void connectionTerminated();
+    public void close()
+        throws IOException;
     
     /**
      * Test, if the transport is using SSL.
      */
     public boolean isSSL();
 }// Transport
+
 
 

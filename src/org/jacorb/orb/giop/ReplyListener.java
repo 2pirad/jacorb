@@ -27,7 +27,7 @@ package org.jacorb.orb.connection;
  * Created: Sun Aug 12 22:01:01 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyListener.java,v 1.1.2.1 2001-08-22 07:22:16 jacorb Exp $
+ * @version $Id: ReplyListener.java,v 1.1.2.2 2001-09-21 07:53:23 jacorb Exp $
  */
 
 public interface ReplyListener 
@@ -44,6 +44,7 @@ public interface ReplyListener
     public void fragmentReceived( byte[] fragment,
                                   GIOPConnection connection );
 
+    public void connectionClosed();
 }// ReplyListener
 
 

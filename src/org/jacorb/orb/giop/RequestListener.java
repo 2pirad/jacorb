@@ -27,7 +27,7 @@ package org.jacorb.orb.connection;
  * Created: Sun Aug 12 22:01:01 2001
  *
  * @author Nicolas Noffke
- * @version $Id: RequestListener.java,v 1.1.2.1 2001-08-22 07:22:17 jacorb Exp $
+ * @version $Id: RequestListener.java,v 1.1.2.2 2001-09-21 07:53:24 jacorb Exp $
  */
 
 public interface RequestListener 
@@ -43,7 +43,8 @@ public interface RequestListener
     
     public void fragmentReceived( byte[] fragment,
                                   GIOPConnection connection );
-    
+
+    public void connectionClosed();
 }// RequestListener
 
 

@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.17.2.4 2001-09-05 09:50:51 jacorb Exp $
+ * @version $Id: Delegate.java,v 1.17.2.5 2001-09-21 07:53:18 jacorb Exp $
  *
  */
 
@@ -58,8 +58,6 @@ public final class Delegate
     private byte[] oid;
     private String adport;
 
-    /** code set service Context */
-    ServiceContext[] ctx = new ServiceContext[0];
 
     /** SSL tagged component */
     private org.omg.SSLIOP.SSL ssl;
@@ -741,11 +739,16 @@ public final class Delegate
             info.delegate = this;
         
             info.request_id = ros.requestId();
-            InterceptorManager manager = ((org.jacorb.orb.ORB) orb).getInterceptorManager();
+            InterceptorManager manager = 
+                ((org.jacorb.orb.ORB) orb).getInterceptorManager();
+
             info.current = manager.getCurrent();
 
             //allow interceptors access to request output stream
             info.request_os = ros;
+
+            //allow (BiDir) interceptor to inspect the connection
+            info.connection = connection;
     
             invokeInterceptors(info, ClientInterceptorIterator.SEND_REQUEST);
 

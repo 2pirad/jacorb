@@ -29,7 +29,7 @@ import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.11.2.5 2001-09-05 09:50:55 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.11.2.6 2001-09-21 07:53:22 jacorb Exp $
  *
  */
 
@@ -81,10 +81,6 @@ public class ReplyInputStream
                 throw new Error( "Unknown GIOP minor version: " + giop_minor );
             }
         }
-
-
-        System.out.println(">>>>>>>>>Received reply with GIOP 1." + 
-                           giop_minor);
     }
 
     /** 

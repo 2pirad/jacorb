@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.8.4.5 2001-09-05 09:50:55 jacorb Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.8.4.6 2001-09-21 07:53:23 jacorb Exp $
  *
  */
 
@@ -51,9 +51,6 @@ public class ReplyOutputStream
 
         setGIOPMinor( giop_minor );
  
-        System.out.println(">>>>>>>>>Created reply with GIOP 1." + 
-                           giop_minor);
-
         writeGIOPMsgHeader( MsgType_1_1._Reply,
                             giop_minor );
         

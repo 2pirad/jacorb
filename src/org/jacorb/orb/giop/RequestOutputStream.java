@@ -30,7 +30,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.10.4.5 2001-09-05 09:50:56 jacorb Exp $
+ * @version $Id: RequestOutputStream.java,v 1.10.4.6 2001-09-21 07:53:24 jacorb Exp $
  *
  */
 
@@ -61,11 +61,6 @@ public class RequestOutputStream
         this.response_expected = response_expected;
         this.operation = operation;
 
-        System.out.println(">>>>>>>>>Created request for op " + 
-                           operation + 
-                           " with GIOP 1." + 
-                           giop_minor);
-      
         writeGIOPMsgHeader( MsgType_1_1._Request,
                             giop_minor );
 

@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 17:12:10 2001
  *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirServerReplyListener.java,v 1.1.2.1 2001-08-22 07:22:15 jacorb Exp $
+ * @version $Id: NoBiDirServerReplyListener.java,v 1.1.2.2 2001-09-21 07:53:22 jacorb Exp $
  */
 
 public class NoBiDirServerReplyListener 
@@ -62,6 +62,10 @@ public class NoBiDirServerReplyListener
                                   GIOPConnection connection )
     {
         
+    }
+
+    public void connectionClosed()
+    {
     }
 
 }// NoBiDirServerReplyListener

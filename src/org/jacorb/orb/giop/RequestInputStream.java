@@ -27,7 +27,7 @@ import org.omg.IOP.ServiceContext;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.8.4.5 2001-09-05 09:50:56 jacorb Exp $
+ * @version $Id: RequestInputStream.java,v 1.8.4.6 2001-09-21 07:53:23 jacorb Exp $
  * 
  */
 
@@ -148,11 +148,6 @@ public class RequestInputStream
         {
 	    throw new Error( "Error: not a request!" );
         }
-        System.out.println(">>>>>>>>>received request for op " + 
-                           req_hdr.operation + 
-                           " with GIOP 1." + 
-                           giop_minor);
-        
     }
 
     public ServiceContext getServiceContext( int id )

@@ -15,7 +15,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.5.4.1 2001-08-22 07:22:22 jacorb Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.5.4.2 2001-09-21 07:53:25 jacorb Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -34,6 +34,8 @@ public class ClientRequestInfoImpl
 
     public org.jacorb.orb.connection.RequestOutputStream request_os = null;
     public org.jacorb.orb.connection.ReplyInputStream reply_is = null;
+
+    public org.jacorb.orb.connection.ClientConnection connection = null;
 
     public ClientRequestInfoImpl() 
     {

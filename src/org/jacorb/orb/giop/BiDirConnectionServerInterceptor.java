@@ -37,7 +37,7 @@ import org.jacorb.orb.portableInterceptor.*;
  * Created: Sun Sep  2 18:16:27 2001
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.1.2.1 2001-09-05 09:54:49 jacorb Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.1.2.2 2001-09-21 07:53:19 jacorb Exp $
  */
 
 public class BiDirConnectionServerInterceptor 
@@ -109,16 +109,12 @@ public class BiDirConnectionServerInterceptor
             {
                 ListenPoint p = bidir_ctx.listen_points[i];
                 
-                String info = 
-                    ConnectionManager.unifyTargetAddress( p.host + 
-                                                          ':' + 
-                                                          p.port );
+                String info = p.host + ':' + 
+                    ((p.port < 0)? ((int) p.port) + 65536 : (int) p.port);
 
                 Debug.output( 2, "BiDirServerInterceptor: Added client conn to target " + info );
                 
-                conn_mg.addConnection( new ClientConnection( connection,
-                                                             orb, 
-                                                             info ));
+                conn_mg.addConnection( connection, info );
             }            
         }
     }    

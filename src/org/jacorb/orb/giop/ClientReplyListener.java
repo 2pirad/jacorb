@@ -7,7 +7,7 @@ package org.jacorb.orb.connection;
  * Created: Sat Aug 18 18:37:56 2001
  *
  * @author Nicolas Noffke
- * @version $Id: ClientReplyListener.java,v 1.1.2.1 2001-08-22 07:22:09 jacorb Exp $ 
+ * @version $Id: ClientReplyListener.java,v 1.1.2.2 2001-09-21 07:53:20 jacorb Exp $ 
  */
 
 public class ClientReplyListener 
@@ -45,4 +45,9 @@ public class ClientReplyListener
         
     }
 
+    public void connectionClosed()
+    {
+
+    }
 }// ClientReplyListener
+

@@ -30,7 +30,7 @@ import org.jacorb.util.*;
  * Created: Sat Aug 18 10:52:45 2001
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.1.2.1 2001-08-22 07:22:13 jacorb Exp $
+ * @version $Id: MessageReceptor.java,v 1.1.2.2 2001-09-21 07:53:22 jacorb Exp $
  */
 
 public class MessageReceptor 
@@ -55,7 +55,7 @@ public class MessageReceptor
         }
         catch( CloseConnectionException cce )
         {
-            Debug.output( 2, "Connection Closed" );
+            //ignore
         }
         catch( Exception e )
         {
