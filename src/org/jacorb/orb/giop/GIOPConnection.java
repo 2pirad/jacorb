@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.40 2004-02-05 15:57:12 nick.cross Exp $
+ * @version $Id: GIOPConnection.java,v 1.41 2004-02-12 11:07:15 gerald Exp $
  */
 
 public abstract class GIOPConnection
@@ -388,10 +388,11 @@ public abstract class GIOPConnection
                     if (logger.isErrorEnabled())
                     {
                         logger.error( "Invalid GIOP major version encountered: " +
-                                     Messages.getGIOPMajor( message ) );
+                                      Messages.getGIOPMajor( message ) );
                     }
                     Debug.output( 3, "GIOPConnection.receiveMessages()", message );
 
+                    buf_mg.returnBuffer( message );
                     continue;
                 }
 
@@ -663,6 +664,7 @@ public abstract class GIOPConnection
                             logger.error("received message with unknown message type " + msg_type);
                         }
                         Debug.output( 3, "GIOPConnection.receiveMessages()", message );
+                        buf_mg.returnBuffer( message );
                     }
                 }
             }//synchronized( pendingUndecidedSync )
