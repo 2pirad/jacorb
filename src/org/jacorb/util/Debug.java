@@ -26,7 +26,7 @@ import java.io.*;
 /**
  *
  * @author Gerald Brose
- * @version $Id: Debug.java,v 1.12 2003-02-21 15:46:41 nick.cross Exp $
+ * @version $Id: Debug.java,v 1.13 2003-04-01 11:27:09 nick.cross Exp $
  */
 
 public final class Debug
@@ -238,6 +238,12 @@ public final class Debug
     }
 
 
+    /**
+     * <code>toHex</code> converts a byte into a readable string.
+     *
+     * @param b a <code>byte</code> value
+     * @return a <code>String</code> value
+     */
     public static final String toHex( byte b )
     {
         StringBuffer sb = new StringBuffer();
