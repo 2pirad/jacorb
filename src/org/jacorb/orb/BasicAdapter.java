@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.13 2002-01-11 21:38:55 gerald Exp $
+ * @version $Id: BasicAdapter.java,v 1.14 2002-02-12 18:16:41 steve.osselton Exp $
  */
 
 import java.io.*;
@@ -49,29 +49,8 @@ public class BasicAdapter
 
     static
     {
-        socket_factory = new ServerSocketFactory(){
-            public ServerSocket createServerSocket ( int port )
-            throws IOException
-            {
-                return new ServerSocket( port );
-            }
-
-            public ServerSocket createServerSocket( int port,
-                                                    int backlog )
-            throws IOException
-            {
-                return new ServerSocket( port, backlog );
-            }
-            public ServerSocket createServerSocket( int port,
-                                                    int backlog,
-                                                    InetAddress ifAddress )
-            throws IOException
-            {
-                return new ServerSocket( port, backlog, ifAddress );
-            }
-        };
+        socket_factory = SocketFactoryManager.getServerSocketFactory ((ORB) null);
     }
-        
 
     /** the number of outstanding replies. */
     private  int pendingReplies = 0;
@@ -156,22 +135,9 @@ public class BasicAdapter
         }
         else
         {
-            if( client_socket_factory == null )
+            if (client_socket_factory == null)
             {
-                client_socket_factory = new SocketFactory(){
-                    public Socket createSocket( String host,
-                                                int port )
-                    throws IOException, UnknownHostException
-                    {
-                        return new Socket( host, port );
-                    }
-                    
-                    public boolean isSSL( Socket socket )
-                    {
-                        //this factory doesn't know about ssl
-                        return false;
-                    }
-                };
+                client_socket_factory = SocketFactoryManager.getSocketFactory (orb);
             }
         }
 
