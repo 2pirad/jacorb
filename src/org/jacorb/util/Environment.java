@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.11 2001-04-10 09:32:49 jacorb Exp $
+ * @version $Id: Environment.java,v 1.12 2001-05-02 08:52:44 noffke Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -571,6 +571,11 @@ public class Environment
     public static String getProperty( String key, String def ) 
     { 
         return _props.getProperty( key, def ); 
+    }
+
+    public static void setProperty( String key, String value ) 
+    { 
+        _props.setProperty( key, value ); 
     }
 
     public static String[] getPropertyValueList(String key) 
