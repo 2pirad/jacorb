@@ -37,7 +37,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.17 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: PrintIOR.java,v 1.18 2003-02-26 07:37:18 andre.spiegel Exp $
  */
 
 public class PrintIOR
@@ -190,8 +190,8 @@ public class PrintIOR
                 case TAG_SECIOP_SEC_TRANS.value:
                     System.out.println("\t#"+ i + ": TAG_SECIOP_SEC_TRANS");
                     break;
-                case TAG_ALTERNATIVE_IIOP_ADDRESS.value:
-                    System.out.println("\t#"+ i + ": TAG_ALTERNATIVE_IIOP_ADDRESS");
+                case TAG_ALTERNATE_IIOP_ADDRESS.value:
+                    System.out.println("\t#"+ i + ": TAG_ALTERNATE_IIOP_ADDRESS");
                     break;
                 case TAG_CODE_SETS.value:
                     System.out.println("\t#"+ i + ": TAG_CODE_SETS");
