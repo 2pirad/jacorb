@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.38 2004-01-30 13:47:59 gerald Exp $ -->
+   <!-- $Id: build.xml,v 1.39 2004-02-01 02:30:55 david.robison Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -83,7 +83,7 @@
        <jar jarfile="${lib}/jacorb.jar"
       basedir="${classdir}"
       includes="org/jacorb/**,org/omg/**, HTTPClient/**"
-      excludes="org/jacorb/idl/**"
+      excludes="org/jacorb/idl/**,org/jacorb/demo/**"
       />
    </target>
 
