@@ -28,11 +28,11 @@ import junit.framework.*;
 
 import org.jacorb.test.common.*;
 import org.jacorb.test.*;
-import org.jacorb.test.orb.etf.wiop.*;
+import org.jacorb.test.orb.etf.wiop.WIOPFactories;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: C_WIOP_S_WIOP.java,v 1.1 2003-07-11 00:20:33 andre.spiegel Exp $
+ * @version $Id: C_WIOP_S_WIOP.java,v 1.2 2003-08-02 11:41:37 alphonse.bendt Exp $
  */
 public class C_WIOP_S_WIOP extends ClientServerTestCase
 {
