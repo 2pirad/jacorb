@@ -56,7 +56,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminTieImpl.java,v 1.5 2004-03-03 12:15:51 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminTieImpl.java,v 1.6 2004-03-17 23:08:33 alphonse.bendt Exp $
  */
 
 public class ConsumerAdminTieImpl
@@ -389,6 +389,11 @@ public class ConsumerAdminTieImpl
     public boolean hasMessageConsumer()
     {
         return false;
+    }
+
+
+    public void actionProxyCreationRequest( ProxyEvent event)
+    {
     }
 
 
