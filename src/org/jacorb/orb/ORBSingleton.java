@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.14 2002-02-18 15:15:04 jason.courage Exp $
+ * @version $Id: ORBSingleton.java,v 1.15 2002-02-18 16:30:58 jason.courage Exp $
  */
 
 public class ORBSingleton
@@ -328,12 +328,12 @@ public class ORBSingleton
                                          id, 
                                          name, 
                                          members);
-        //        tc.resolve_recursion();
+        tc.resolveRecursion( tc );
         return tc;
     }
 
     /**
-     * create aa union TypeCode
+     * create a union TypeCode
      */ 
 
     public TypeCode create_union_tc( String id, 
@@ -415,7 +415,7 @@ public class ORBSingleton
                                         name,
                                         discriminator_type, 
                                         members);
-        // tc.resolve_recursion();
+        tc.resolveRecursion( tc );
         return tc;
     }
 
