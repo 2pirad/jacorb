@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * Represents IDL base types
  *
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.17 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: BaseType.java,v 1.18 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 
@@ -40,7 +40,6 @@ class BaseType
 
     /** 
      * ignore, these types don't need to know their package 
-     * @overrides setPackage in 
      */
 
     public void setPackage( String s )

@@ -27,7 +27,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.15 2003-10-24 19:34:09 brose Exp $
+ * @version $Id: GlobalInputStream.java,v 1.16 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 public class GlobalInputStream
@@ -70,7 +70,7 @@ public class GlobalInputStream
      * file.  (Used, e.g., to determine if code has been previosuly
      * generated from an IDL file).
      *
-     * @arg other the file to compare this stream against
+     * @param other the file to compare this stream against
      * @return true, if this stream's IDL file is more recent than the other file  .
      */
 

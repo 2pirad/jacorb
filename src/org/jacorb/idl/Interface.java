@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.49 2003-10-24 20:00:55 brose Exp $
+ * @version $Id: Interface.java,v 1.50 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.File;
@@ -1333,7 +1333,6 @@ public class Interface
     }
 
     /**
-     * @overrides accept in IdlSymbol
      */
 
     public void accept(IDLTreeVisitor visitor)

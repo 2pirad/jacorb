@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.32 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: SequenceType.java,v 1.33 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 public class SequenceType
@@ -102,7 +102,6 @@ public class SequenceType
     }
 
     /**
-     * @overrides length() in VectorType
      */
 
     public int length()

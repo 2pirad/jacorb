@@ -34,8 +34,11 @@ import org.jacorb.orb.*;
  *    Modifications to support the above have been made as well as to support
  *    section 2.1.5 "Disconnection Behavior" on page 2-4.
  *
- * @authors Jeff Carlson, Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose 1997
- * $Id: ProxyPullConsumerImpl.java,v 1.8 2002-12-20 18:29:03 nicolas Exp $
+ * @author Jeff Carlson
+ * @author Joerg v. Frantzius
+ * @author Rainer Lischetzki
+ * @author Gerald Brose
+ * $Id: ProxyPullConsumerImpl.java,v 1.9 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 public class ProxyPullConsumerImpl
     extends org.omg.CosEventChannelAdmin.ProxyPullConsumerPOA

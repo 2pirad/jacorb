@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * CORBA DynStruct
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynStruct.java,v 1.15 2003-08-22 20:20:55 francisco Exp $
+ * $Id: DynStruct.java,v 1.16 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public final class DynStruct
@@ -167,7 +167,7 @@ public final class DynStruct
     }
 
     /**
-     * @overrides  equal() in DynAny
+     * Overrides  equal() in DynAny
      */
 
     public boolean equal( org.omg.DynamicAny.DynAny dyn_any )
@@ -305,8 +305,9 @@ public final class DynStruct
     }
 
     /**
-     * returns the DynAny's internal any representation, 
-     * @overwrites getRepresentation() in DynAny
+     * returns the DynAny's internal any representation.
+     * <p>
+     * Overrides getRepresentation() in DynAny.
      */
 
     protected org.omg.CORBA.Any getRepresentation()

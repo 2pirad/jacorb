@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDef.java,v 1.14 2003-09-09 15:23:34 brose Exp $
+ * @version $Id: TypeDef.java,v 1.15 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -149,7 +149,6 @@ public class TypeDef
     }
 
     /**
-     * @overrides accept in TypeDeclaration
      */ 
 
     public void accept( IDLTreeVisitor visitor )

@@ -26,7 +26,7 @@ package org.jacorb.poa.util;
  * in hashtables.
  *
  * @author Steve Osselton
- * @version $Id: ByteArrayKey.java,v 1.6 2003-10-28 12:15:50 nick.cross Exp $
+ * @version $Id: ByteArrayKey.java,v 1.7 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public class ByteArrayKey
@@ -53,7 +53,7 @@ public class ByteArrayKey
     }
 
     /**
-     * @overrides hashCode () in Object
+     * Overrides hashCode () in Object
      */
     public int hashCode ()
     {
@@ -74,7 +74,7 @@ public class ByteArrayKey
     }
 
     /**
-     * @overrides equals () in Object
+     * Overrides equals () in Object
      */
     public boolean equals (Object obj)
     {

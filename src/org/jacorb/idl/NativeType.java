@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: NativeType.java,v 1.10 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: NativeType.java,v 1.11 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -134,7 +134,6 @@ public class NativeType
     }
 
     /**
-     * @overrides accept in TypeDeclaration
      */ 
 
     public void accept( IDLTreeVisitor visitor )

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $id$
+ * @version $Id: FixedPointConstType.java,v 1.9 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 

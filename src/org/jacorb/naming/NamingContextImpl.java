@@ -36,7 +36,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.18 2003-10-29 10:24:26 brose Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.19 2003-10-29 12:00:29 simon.mcqueen Exp $
  *
  */
 
@@ -648,7 +648,6 @@ public class NamingContextImpl
 
     /** 
      * POA-related,
-     * @overrides _default_POA() in org.omg.PortableServer.Servant
      */
 
     public org.omg.PortableServer.POA default_POA() 
@@ -658,7 +657,7 @@ public class NamingContextImpl
 
 
     /**
-     * @overrides writeObject in Serializable
+     * Overrides writeObject in Serializable
      */
 
     private void writeObject(java.io.ObjectOutputStream out)
@@ -744,7 +743,7 @@ public class NamingContextImpl
 
     /**
      * convert a string into name
-     * @throw InvalidName
+     * @throws InvalidName
      */
 
     public NameComponent[] to_name( String sn ) 

@@ -32,7 +32,7 @@ import java.math.BigDecimal;
  * Written by Jason Courage
  *
  * @author Jason Courage, PrismTech Ltd, March 2002 
- * $Id: DynFixed.java,v 1.5 2003-08-22 20:20:55 francisco Exp $
+ * $Id: DynFixed.java,v 1.6 2003-10-29 12:00:30 simon.mcqueen Exp $
  *
  */
 
@@ -63,7 +63,7 @@ public final class DynFixed
    }
 
    /**
-    * @overrides from_any() in DynAny
+    * Overrides from_any() in DynAny
     */
 
    public void from_any(org.omg.CORBA.Any value) 

@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Spec.java,v 1.11 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Spec.java,v 1.12 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 
@@ -67,7 +67,6 @@ public class Spec
     }
 
     /**
-     * @overrides accept in IdlSymbol
      */ 
 
     public void accept( IDLTreeVisitor visitor )

@@ -34,7 +34,7 @@ import org.jacorb.util.Debug;
  *
  * @author Nicolas Noffke
  *
- * @version $Id: ImRServerInfo.java,v 1.7 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ImRServerInfo.java,v 1.8 2003-10-29 12:00:29 simon.mcqueen Exp $
  *
  */
 
@@ -155,7 +155,6 @@ public class ImRServerInfo  implements java.io.Serializable{
      * This method blocks until the server is released, i.e. set
      * to not holding. <br> This will not time out since holding a 
      * server is only done by administrators.
-     * @param
      **/
     public synchronized void awaitRelease(){
 	while(holding){

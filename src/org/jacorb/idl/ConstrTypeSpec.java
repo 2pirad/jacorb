@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.18 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.19 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -174,7 +174,6 @@ public class ConstrTypeSpec
     }
 
     /**
-     * @overrides accept in IdlSymbol
      */ 
 
     public void accept( IDLTreeVisitor visitor )

@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.39 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: StructType.java,v 1.40 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 public class StructType
@@ -574,7 +574,7 @@ public class StructType
     /** 
      * Generates code from this AST class 
      *
-     * @arg ps - not used, the necessary output streams to classes
+     * @param ps not used, the necessary output streams to classes
      * that receive code (e.g., helper and holder classes for the
      * IDL/Java mapping, are created inside this method.
      */

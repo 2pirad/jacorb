@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.14 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.15 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -45,7 +45,6 @@ class ArrayDeclarator
     }
 
     /**
-     * @overrides escapeName from Declarator
      */
 
     public void escapeName()

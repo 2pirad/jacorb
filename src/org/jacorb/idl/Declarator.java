@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: Declarator.java,v 1.9 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Declarator.java,v 1.10 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 public class Declarator
@@ -60,7 +60,6 @@ public class Declarator
     }
 
     /**
-     * @overrides escapeName from IdlSymbol
      */
 
     public void escapeName()

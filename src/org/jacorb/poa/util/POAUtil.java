@@ -30,7 +30,7 @@ import org.jacorb.util.Debug;
  * This class collects some useful routines for the POA.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAUtil.java,v 1.14 2003-04-08 13:35:36 nick.cross Exp $
+ * @version $Id: POAUtil.java,v 1.15 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public final class POAUtil
@@ -243,7 +243,7 @@ public final class POAUtil
      *
      * @param poa_name is a <code>String</code> value which may contain
      * poa_names separated by
-     * {@link POAConstants.OBJECT_KEY_SEPARATOR OBJECT_KEY_SEPARATOR}
+     * {@link POAConstants#OBJECT_KEY_SEPARATOR OBJECT_KEY_SEPARATOR}
      * @return a <code>Vector</code> value
      */
     public static Vector extractScopedPOANames (String poa_name)

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.24 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.25 2003-10-29 12:00:29 simon.mcqueen Exp $
  *
  */
 
@@ -255,7 +255,6 @@ public class ArrayTypeSpec
     }
 
     /**
-     * @overrides length() in VectorType
      */
 
     public int length()

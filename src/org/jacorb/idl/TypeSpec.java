@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.19 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: TypeSpec.java,v 1.20 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 
@@ -48,7 +48,7 @@ public class TypeSpec
     }
 
     /**
-     * @deprecated, use either getJavaTypeName() or getIDLTypeName()
+     * @deprecated use either getJavaTypeName() or getIDLTypeName()
      */
 
 

@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.22 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: InterfaceBody.java,v 1.23 2003-10-29 12:00:29 simon.mcqueen Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -506,7 +506,6 @@ public class InterfaceBody
     }
 
     /**
-     * @overrides accept in IdlSymbol
      */ 
 
     public void accept( IDLTreeVisitor visitor )

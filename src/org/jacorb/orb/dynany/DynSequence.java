@@ -31,7 +31,7 @@ import java.util.*;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.17 2003-08-22 20:20:55 francisco Exp $
+ * @version $Id: DynSequence.java,v 1.18 2003-10-29 12:00:30 simon.mcqueen Exp $
  *
  */
 
@@ -143,7 +143,7 @@ public final class DynSequence
    }
 
    /**
-    * @overrides  equal() in DynAny
+    * Overrides  equal() in DynAny
     */
 
    public boolean equal( org.omg.DynamicAny.DynAny dyn_any )

@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.15 2003-10-24 20:06:03 brose Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.16 2003-10-29 12:00:29 simon.mcqueen Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -363,7 +363,6 @@ public class ValueAbsDecl
 
 
     /**
-     * @overrides accept in TypeDeclaration
      */ 
 
     public void accept(IDLTreeVisitor visitor)

@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.26 2003-10-24 19:57:38 brose Exp $
+ * @version $Id: EnumType.java,v 1.27 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 public class EnumType
@@ -69,7 +69,6 @@ public class EnumType
     }
 
     /**
-     * @overrides  set_included from TypeDeclaration
      */
 
     public void set_included(boolean i)
@@ -464,7 +463,6 @@ public class EnumType
     }
 
     /**
-     * @overrides accept in TypeDeclaration
      */
 
     public void accept(IDLTreeVisitor visitor)

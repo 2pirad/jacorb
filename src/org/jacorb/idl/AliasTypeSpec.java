@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.42 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.43 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 public class AliasTypeSpec
@@ -121,7 +121,6 @@ public class AliasTypeSpec
 
     /**
      * @return true if this is a basic type
-     * @overrides basic() in org.jacorb.idl.TypeSpec
      */
 
     public boolean basic()

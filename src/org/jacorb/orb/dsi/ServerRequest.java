@@ -38,7 +38,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.24 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: ServerRequest.java,v 1.25 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public class ServerRequest
@@ -533,7 +533,7 @@ public class ServerRequest
      * <code>getScopes</code> returns the cached vector of poa_names.
      *
      * @return a <code>Vector</code> value containing Strings separated by
-     * {@link POAConstants.OBJECT_KEY_SEPARATOR OBJECT_KEY_SEPARATOR}
+     * {@link org.jacorb.poa.POAConstants#OBJECT_KEY_SEPARATOR OBJECT_KEY_SEPARATOR}
      */
     public Vector getScopes ()
     {

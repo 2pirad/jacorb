@@ -25,8 +25,8 @@ package org.jacorb.poa.except;
  * POA class (JacORB specific application error).
  * 
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: ApplicationError.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
- * @see	  jacorb.poa.POA#createPOA(String, org.omg.PortableServer.POAManager, org.omg.CORBA.Policy[])
+ * @version $Id: ApplicationError.java,v 1.7 2003-10-29 12:00:30 simon.mcqueen Exp $
+ * @see org.jacorb.poa.POA#create_POA(String, org.omg.PortableServer.POAManager, org.omg.CORBA.Policy[])
  */
 public final class ApplicationError 
     extends java.lang.Error 

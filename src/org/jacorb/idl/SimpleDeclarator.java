@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.13 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.14 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 
@@ -40,7 +40,6 @@ public class SimpleDeclarator
     }
 
     /**
-     * @overrides escapeName from Declarator
      */
 
     public void escapeName()

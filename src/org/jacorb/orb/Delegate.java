@@ -61,7 +61,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.91 2003-10-28 13:12:52 nick.cross Exp $
+ * @version $Id: Delegate.java,v 1.92 2003-10-29 12:00:30 simon.mcqueen Exp $
  *
  */
 
@@ -1355,7 +1355,7 @@ public final class Delegate
     }
 
     /**
-     * @overrides servant_postinvoke() in org.omg.CORBA.portable.Delegate<BR>
+     * Overrides servant_postinvoke() in org.omg.CORBA.portable.Delegate<BR>
      * called from generated stubs after a local operation
      */
 
@@ -1397,7 +1397,7 @@ public final class Delegate
     }
 
     /**
-     * @overrides servant_preinvoke() in org.omg.CORBA.portable.Delegate<BR>
+     * Overrides servant_preinvoke() in org.omg.CORBA.portable.Delegate<BR>
      * called from generated stubs before a local operation
      */
 

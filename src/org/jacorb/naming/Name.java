@@ -29,7 +29,7 @@ import  org.omg.CosNaming.NamingContextPackage.*;
  * between Names and their string representation
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Name.java,v 1.9 2003-10-28 17:04:41 simon.mcqueen Exp $ 
+ * @version $Id: Name.java,v 1.10 2003-10-29 12:00:29 simon.mcqueen Exp $ 
  */
 
 public class Name
@@ -238,7 +238,7 @@ public class Name
     /**
      *
      * @return an a array of NameComponents
-     * @throw org.omg.CosNaming.NamingContextPackage.InvalidName
+     * @throws org.omg.CosNaming.NamingContextPackage.InvalidName
      */
 
     public static org.omg.CosNaming.NameComponent[] toName( String sn ) 

@@ -52,7 +52,7 @@ import org.omg.CosNotification.Property;
  * Created: Sat Sep 07 21:05:32 2002
  *
  * @author Alphonse Bendt
- * @version $Id: DynamicEvaluator.java,v 1.7 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: DynamicEvaluator.java,v 1.8 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public class DynamicEvaluator
@@ -280,7 +280,6 @@ public class DynamicEvaluator
      *
      * @param value
      *
-     * @return
      */
     public Any evaluateUnion( Any value )
     throws EvaluationException

@@ -39,7 +39,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.36 2003-08-15 11:17:08 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.37 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 {
@@ -218,7 +218,7 @@ public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 
     /**
      * @deprecated This method cannot return a sensible result in the presence
-     * of alternate transports, use {@link getEndpointProfiles()} instead. 
+     * of alternate transports, use {@link #getEndpointProfiles()} instead. 
      */
     public int getPort()
     {
@@ -237,7 +237,7 @@ public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 
     /**
      * @deprecated This method cannot return a sensible result in the presence
-     * of alternate transports, use {@link getEndpointProfiles()} instead. 
+     * of alternate transports, use {@link #getEndpointProfiles()} instead. 
      */
     public int getSSLPort()
     {
@@ -256,7 +256,7 @@ public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 
     /**
      * @deprecated This method cannot return a sensible result in the presence
-     * of alternate transports, use {@link getEndpointProfiles()} instead. 
+     * of alternate transports, use {@link #getEndpointProfiles()} instead. 
      */
     public boolean hasSSLListener()
     {
@@ -265,7 +265,7 @@ public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 
     /**
      * @deprecated This method cannot return a sensible result in the presence
-     * of alternate transports, use {@link getEndpointProfiles()} instead. 
+     * of alternate transports, use {@link #getEndpointProfiles()} instead. 
      */
     public String getAddress()
     {

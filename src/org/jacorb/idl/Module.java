@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.14 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: Module.java,v 1.15 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.File;
@@ -172,7 +172,6 @@ public class Module
     }
 
     /**
-     * @overrides accept in IdlSymbol
      */ 
 
     public void accept(IDLTreeVisitor visitor)

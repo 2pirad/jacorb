@@ -30,7 +30,7 @@ import java.util.*;
  * CORBA DynArray
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynArray.java,v 1.13 2003-08-22 20:20:55 francisco Exp $
+ * $Id: DynArray.java,v 1.14 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public final class DynArray
@@ -132,7 +132,7 @@ public final class DynArray
    }
 
    /**
-     * @overrides  equal() in DynAny
+     * Overrides  equal() in DynAny
      */
 
    public boolean equal( org.omg.DynamicAny.DynAny dyn_any )
@@ -223,8 +223,9 @@ public final class DynArray
    }
 
    /**
-     * returns the DynAny's internal any representation, 
-     * @overwrites getRepresentation() in DynAny
+     * Returns the DynAny's internal any representation. 
+     * <p>
+     * Overrides getRepresentation() in DynAny
      */
 
    protected org.omg.CORBA.Any getRepresentation()

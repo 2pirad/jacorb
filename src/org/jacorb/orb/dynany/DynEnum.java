@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynEnum.java,v 1.12 2003-08-22 20:20:55 francisco Exp $
+ * $Id: DynEnum.java,v 1.13 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public final class DynEnum
@@ -76,7 +76,7 @@ public final class DynEnum
 
 
    /**
-    * @overrides  from_any() in DynAny
+    * Overrides  from_any() in DynAny
     */
 
    public void from_any( org.omg.CORBA.Any value ) 
@@ -111,7 +111,7 @@ public final class DynEnum
    }
 
    /**
-    * @overrides  equal() in DynAny
+    * Overrides  equal() in DynAny
     */
 
    public boolean equal( org.omg.DynamicAny.DynAny dyn_any )

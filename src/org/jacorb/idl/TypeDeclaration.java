@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.20 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: TypeDeclaration.java,v 1.21 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -195,7 +195,6 @@ public class TypeDeclaration
 //      }
 
     /**
-     * @overrides accept in Declaration
      */ 
 
     public void accept( IDLTreeVisitor visitor )

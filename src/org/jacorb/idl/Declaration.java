@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Declaration.java,v 1.11 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Declaration.java,v 1.12 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 
@@ -36,7 +36,6 @@ public class Declaration
     }
 
     /**
-     * @overrides accept in IdlSymbol
      */ 
 
     public void accept( IDLTreeVisitor visitor )

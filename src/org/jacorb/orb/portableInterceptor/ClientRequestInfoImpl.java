@@ -32,11 +32,11 @@ import org.jacorb.util.Debug;
 
 /**
  * This class represents the type of info object,
- * that will be passed to the ClientRequestInterceptors.<br>
+ * that will be passed to the ClientRequestInterceptors. <br>
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.18 2003-10-15 16:57:44 steve.osselton Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.19 2003-10-29 12:00:30 simon.mcqueen Exp $
  */
 
 public class ClientRequestInfoImpl

@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.34 2003-10-24 20:04:04 brose Exp $
+ * @version $Id: ValueDecl.java,v 1.35 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 public class ValueDecl
@@ -819,7 +819,6 @@ public class ValueDecl
 
 
     /**
-     * @overrides accept in TypeDeclaration
      */ 
 
     public void accept(IDLTreeVisitor visitor)

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.27 2003-10-28 17:04:41 simon.mcqueen Exp $
+ * @version $Id: ScopedName.java,v 1.28 2003-10-29 12:00:29 simon.mcqueen Exp $
  *
  */
 
@@ -205,7 +205,6 @@ public class ScopedName
     }
 
     /**
-     * @overrides escapeName in IdlSymbol
      */
 
     public void escapeName()

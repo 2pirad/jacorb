@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definition.java,v 1.12 2003-09-09 14:25:18 brose Exp $
+ * @version $Id: Definition.java,v 1.13 2003-10-29 12:00:29 simon.mcqueen Exp $
  */
 
 import java.io.PrintWriter;
@@ -91,7 +91,6 @@ public class Definition
     }
 
     /**
-     * @overrides accept in IdlSymbol
      */ 
 
     public void accept( IDLTreeVisitor visitor )
