@@ -22,56 +22,59 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: VoidTypeSpec.java,v 1.4 2002-03-19 09:25:08 nicolas Exp $
+ * @version $Id: VoidTypeSpec.java,v 1.5 2002-04-17 08:49:17 gerald Exp $
  */
 
 import java.io.PrintWriter;
 
-class VoidTypeSpec 
-    extends TypeSpec
+class VoidTypeSpec
+        extends TypeSpec
 {
-    public VoidTypeSpec(int num)
+
+    public VoidTypeSpec( int num )
     {
-	super(num);
+        super( num );
     }
 
     public String typeName()
     {
-	return "void";
+        return "void";
     }
 
 
     public String typeSignature()
     {
-	return "V";
+        return "V";
     }
 
-    public void print(PrintWriter ps)
+    public void print( PrintWriter ps )
     {
     }
 
     public String toString()
     {
-	return typeName();
+        return typeName();
     }
 
     public void setEnclosingSymbol( IdlSymbol s )
     {
-	if( enclosing_symbol != null && enclosing_symbol != s )
-	    throw new RuntimeException("Compiler Error: trying to reassign container for " + name );
-	enclosing_symbol = s;
+        if( enclosing_symbol != null && enclosing_symbol != s )
+            throw new RuntimeException( "Compiler Error: trying to reassign container for " + name );
+        enclosing_symbol = s;
     }
 
-    public void setPackage( String s)
+    public void setPackage( String s )
     {
-        s = parser.pack_replace(s);
+        s = parser.pack_replace( s );
     }
 
-    public void parse()  {}
+    public void parse()
+    {
+    }
 
     public TypeSpec typeSpec()
     {
-	return this;
+        return this;
     }
 }
 

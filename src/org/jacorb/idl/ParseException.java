@@ -22,24 +22,24 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParseException.java,v 1.5 2002-03-19 09:25:04 nicolas Exp $
+ * @version $Id: ParseException.java,v 1.6 2002-04-17 08:49:11 gerald Exp $
  *
  * Thrown by the IDL compiler when it encounters fatal errors
  */
 
 public class ParseException
-    extends RuntimeException
+        extends RuntimeException
 {
+
     public ParseException()
     {
     }
-    
-    public ParseException(String reason)
+
+    public ParseException( String reason )
     {
         super( reason );
     }
 
-    
 
 }
 

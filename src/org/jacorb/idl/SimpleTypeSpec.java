@@ -22,15 +22,16 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleTypeSpec.java,v 1.6 2002-03-25 17:48:57 gerald Exp $
+ * @version $Id: SimpleTypeSpec.java,v 1.7 2002-04-17 08:49:13 gerald Exp $
  */
 
-class SimpleTypeSpec 
-    extends TypeSpec
+class SimpleTypeSpec
+        extends TypeSpec
 {
-    public SimpleTypeSpec(int num) 
+
+    public SimpleTypeSpec( int num )
     {
-	super(num);
+        super( num );
     }
 
 }

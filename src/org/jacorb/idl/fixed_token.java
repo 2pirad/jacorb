@@ -27,24 +27,25 @@ package org.jacorb.idl;
  *  field str_val.
  *
  * @see java_cup.runtime.long_token
- * @version $Id: fixed_token.java,v 1.4 2002-03-19 09:25:09 nicolas Exp $
+ * @version $Id: fixed_token.java,v 1.5 2002-04-17 08:49:17 gerald Exp $
  * @author  Gerald Brose
  */
 
-public class fixed_token 
-    extends java_cup.runtime.long_token 
-    implements java.io.Serializable
+public class fixed_token
+        extends java_cup.runtime.long_token
+        implements java.io.Serializable
 {
+
     public java.math.BigDecimal fixed_val;
 
-    /** 
-     * Full constructor. 
+    /**
+     * Full constructor.
      */
 
-    public fixed_token(int term_num, java.math.BigDecimal f)
+    public fixed_token( int term_num, java.math.BigDecimal f )
     {
-	super(term_num);
-	fixed_val = f;
+        super( term_num );
+        fixed_val = f;
     }
 
 }

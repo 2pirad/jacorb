@@ -20,45 +20,45 @@
 
 package org.jacorb.idl;
 
-import java.io.*;
 
 /**
  * constant type
- * 
+ *
  * @author Gerald Brose
- * @version $Id: ConstType.java,v 1.6 2002-03-19 09:24:59 nicolas Exp $
+ * @version $Id: ConstType.java,v 1.7 2002-04-17 08:49:04 gerald Exp $
  */
 
-class ConstType 
-    extends IdlSymbol
+class ConstType
+        extends IdlSymbol
 {
+
     public TypeSpec symbol;
 
-    public ConstType(int num)
+    public ConstType( int num )
     {
-        super(num);
+        super( num );
     }
 
-    public void parse()  
+    public void parse()
     {
         if( symbol.typeSpec() instanceof ScopedName )
         {
-            TypeSpec ts = ((ScopedName)symbol.typeSpec()).resolvedTypeSpec();
-            if( ts != null ) 
+            TypeSpec ts = ( (ScopedName)symbol.typeSpec() ).resolvedTypeSpec();
+            if( ts != null )
                 symbol = ts;
-        } 
+        }
         symbol.parse();
     }
 
-    public void setPackage( String s)
+    public void setPackage( String s )
     {
-        s = parser.pack_replace(s);
+        s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
             pack_name = new String( s + "." + pack_name );
         else
             pack_name = s;
-                
-        symbol.setPackage( s);
+
+        symbol.setPackage( s );
     }
 
     public String toString()

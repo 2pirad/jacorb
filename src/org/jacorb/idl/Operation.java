@@ -22,14 +22,16 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Operation.java,v 1.5 2002-03-12 17:44:32 steve.osselton Exp $
+ * @version $Id: Operation.java,v 1.6 2002-04-17 08:49:11 gerald Exp $
  */
 
-import java.io.*;
+import java.io.PrintWriter;
+import java.io.Serializable;
 
 interface Operation
-    extends Serializable
+        extends Serializable
 {
+
     /** plain name of the operation */
 
     public String name();
@@ -40,25 +42,25 @@ interface Operation
 
     public String signature();
 
-    public void printSignature(PrintWriter ps);
+    public void printSignature( PrintWriter ps );
 
     /**
      * @param printModifiers whether "public abstract" should be added
      */
-    public void printSignature(PrintWriter ps, boolean printModifiers);
+    public void printSignature( PrintWriter ps, boolean printModifiers );
 
     /** method code for stubs */
 
-    public void printMethod(PrintWriter ps, String classname, boolean is_local);
+    public void printMethod( PrintWriter ps, String classname, boolean is_local );
 
     /** method code for skeletons */
 
-    public void printDelegatedMethod(PrintWriter ps);
+    public void printDelegatedMethod( PrintWriter ps );
 
-    public void printInvocation(PrintWriter ps);
+    public void printInvocation( PrintWriter ps );
 
 
-} 
+}
 
 
 

@@ -22,55 +22,56 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.7 2002-04-15 15:03:20 gerald Exp $
+ * @version $Id: LongType.java,v 1.8 2002-04-17 08:49:09 gerald Exp $
  */
 
-class LongType 
-    extends IntType 
+class LongType
+        extends IntType
 {
-    public LongType(int num)
+
+    public LongType( int num )
     {
-	super(num);
+        super( num );
     }
 
     public Object clone()
     {
-	return new LongType( new_num());
+        return new LongType( new_num() );
     }
 
     public TypeSpec typeSpec()
     {
-	return this;
+        return this;
     }
 
     public String typeName()
     {
-	return "int";
+        return "int";
     }
 
     public boolean basic()
     {
-	return true;
-    } 
+        return true;
+    }
 
     public int getTCKind()
     {
-        return ((unsigned) ? 5 : 3);
+        return ( ( unsigned ) ? 5 : 3 );
     }
 
     public String toString()
     {
-	return typeName();
+        return typeName();
     }
 
 
     public String holderName()
     {
-	return "org.omg.CORBA.IntHolder";
+        return "org.omg.CORBA.IntHolder";
     }
 
 
-    public String printReadExpression(String ps)
+    public String printReadExpression( String ps )
     {
         if( unsigned )
             return ps + ".read_ulong()";
@@ -79,12 +80,12 @@ class LongType
     }
 
 
-    public String printWriteStatement(String var_name, String ps)
+    public String printWriteStatement( String var_name, String ps )
     {
         if( unsigned )
-            return ps + ".write_ulong(" + var_name+ ");";
+            return ps + ".write_ulong(" + var_name + ");";
         else
-            return ps + ".write_long(" + var_name+ ");";
+            return ps + ".write_long(" + var_name + ");";
     }
 
     public String printInsertExpression()
@@ -101,5 +102,5 @@ class LongType
             return "extract_ulong";
         else
             return "extract_long";
-   }
+    }
 }

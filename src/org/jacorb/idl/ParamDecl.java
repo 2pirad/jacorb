@@ -22,82 +22,81 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.6 2002-03-19 09:25:04 nicolas Exp $
+ * @version $Id: ParamDecl.java,v 1.7 2002-04-17 08:49:11 gerald Exp $
  */
 
-import java.util.Vector;
-import java.util.Enumeration;
-import java.io.*;
+import java.io.PrintWriter;
 
-class ParamDecl 
-    extends IdlSymbol
+class ParamDecl
+        extends IdlSymbol
 {
+
     public int paramAttribute;
     public TypeSpec paramTypeSpec;
     public SimpleDeclarator simple_declarator;
 
-    public ParamDecl(int num)
+    public ParamDecl( int num )
     {
-	super(num);
+        super( num );
     }
 
-    public void setPackage( String s)
+    public void setPackage( String s )
     {
-        s = parser.pack_replace(s);
-	if( pack_name.length() > 0 )
-	    pack_name = new String( s + "." + pack_name );
-	else
-	    pack_name = s;
-	paramTypeSpec.setPackage(s);
+        s = parser.pack_replace( s );
+        if( pack_name.length() > 0 )
+            pack_name = new String( s + "." + pack_name );
+        else
+            pack_name = s;
+        paramTypeSpec.setPackage( s );
     }
 
 
-    public void parse() 
+    public void parse()
     {
-	while( paramTypeSpec.typeSpec() instanceof ScopedName )
-	{
-	    TypeSpec ts = ((ScopedName)paramTypeSpec.typeSpec()).resolvedTypeSpec();
+        while( paramTypeSpec.typeSpec() instanceof ScopedName )
+        {
+            TypeSpec ts = ( (ScopedName)paramTypeSpec.typeSpec() ).resolvedTypeSpec();
 
-	    if( ts != null ) 
-		paramTypeSpec = ts;
-	}
+            if( ts != null )
+                paramTypeSpec = ts;
+        }
     }
 
     public void print( PrintWriter ps )
     {
-	switch(paramAttribute)
-	{
-	case 1:
-	    //    if( paramTypeSpec instanceof ConstrTypeSpec )
-	    //ps.print( paramTypeSpec.typeName() );
-	    //else
-		ps.print( paramTypeSpec.toString() );
-	    break;
-	case 2: /*out*/
-	case 3: /*inout*/
-	    ps.print(paramTypeSpec.holderName());
-	    break;
-	}
-	ps.print(" " + simple_declarator);
-	//simple_declarator.print(ps);
+        switch( paramAttribute )
+        {
+            case 1:
+                //    if( paramTypeSpec instanceof ConstrTypeSpec )
+                //ps.print( paramTypeSpec.typeName() );
+                //else
+                ps.print( paramTypeSpec.toString() );
+                break;
+            case 2: /*out*/
+            case 3: /*inout*/
+                ps.print( paramTypeSpec.holderName() );
+                break;
+        }
+        ps.print( " " + simple_declarator );
+        //simple_declarator.print(ps);
     }
 
-    public String printWriteStatement( String ps)
+    public String printWriteStatement( String ps )
     {
-        return printWriteStatement(simple_declarator.toString() , ps);
+        return printWriteStatement( simple_declarator.toString(), ps );
     }
 
-    public String printWriteStatement( String name, String ps)
+    public String printWriteStatement( String name, String ps )
     {
-	if( paramAttribute != 1 )
-	    return paramTypeSpec.typeSpec().printWriteStatement( name + ".value", ps);
-	else
-	    return paramTypeSpec.typeSpec().printWriteStatement( name ,ps);
+        if( paramAttribute != 1 )
+            return paramTypeSpec.typeSpec().printWriteStatement( name + ".value", ps );
+        else
+            return paramTypeSpec.typeSpec().printWriteStatement( name, ps );
     }
 
-    public String printReadExpression( String ps)
+    public String printReadExpression( String ps )
     {
-	    return paramTypeSpec.typeSpec().printReadExpression( ps );
+        return paramTypeSpec.typeSpec().printReadExpression( ps );
     }
 
 }

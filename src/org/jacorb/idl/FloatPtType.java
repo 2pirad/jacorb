@@ -22,22 +22,22 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatPtType.java,v 1.4 2002-03-19 09:25:01 nicolas Exp $
+ * @version $Id: FloatPtType.java,v 1.5 2002-04-17 08:49:06 gerald Exp $
  */
 
-import java.io.PrintWriter;
 
-class FloatPtType 
-    extends BaseType 
+class FloatPtType
+        extends BaseType
 {
-    public FloatPtType(int num)
+
+    public FloatPtType( int num )
     {
-	super(num);
+        super( num );
     }
 
     public String holderName()
     {
-	return type_spec.holderName();
+        return type_spec.holderName();
     }
 }
 

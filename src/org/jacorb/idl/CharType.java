@@ -22,95 +22,96 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: CharType.java,v 1.8 2002-04-15 15:03:19 gerald Exp $
+ * @version $Id: CharType.java,v 1.9 2002-04-17 08:49:03 gerald Exp $
  */
 
-class CharType 
-    extends BaseType 
-    implements SwitchTypeSpec 
+class CharType
+        extends BaseType
+        implements SwitchTypeSpec
 {
+
     private boolean wide = false;
 
-    public CharType(int num) 
+    public CharType( int num )
     {
-	super(num);
+        super( num );
     }
 
     public Object clone()
     {
-	CharType s = new CharType(new_num());
-	if( wide )
-	    s.setWide();
-	return s;
+        CharType s = new CharType( new_num() );
+        if( wide )
+            s.setWide();
+        return s;
     }
 
     public boolean isWide()
     {
-	return wide;
+        return wide;
     }
 
     public void setWide()
     {
-	wide = true;
+        wide = true;
     }
 
     public String typeName()
     {
-	return "char";
+        return "char";
     }
 
-    public String idlTypeName ()
+    public String idlTypeName()
     {
-        return (wide ? "wchar" : "char");
+        return ( wide ? "wchar" : "char" );
     }
 
     public TypeSpec typeSpec()
     {
-	return this;
+        return this;
     }
 
     public String toString()
-    {	
-	return typeName();
+    {
+        return typeName();
     }
 
     public boolean basic()
     {
-	return true;
-    } 
+        return true;
+    }
 
     public int getTCKind()
     {
-	if( wide )
-	    return 26;
-	else
-	    return 9;
+        if( wide )
+            return 26;
+        else
+            return 9;
     }
 
     public String holderName()
-    {	
-	return "org.omg.CORBA.CharHolder";
+    {
+        return "org.omg.CORBA.CharHolder";
     }
 
-    public String printReadExpression(String strname)
+    public String printReadExpression( String strname )
     {
-	if( wide )
-	    return  strname + ".read_wchar()";
-	else
-	    return strname + ".read_char()";
+        if( wide )
+            return strname + ".read_wchar()";
+        else
+            return strname + ".read_char()";
     }
 
-    public String printWriteStatement(String var_name, String strname)
+    public String printWriteStatement( String var_name, String strname )
     {
-	if( wide )
-	    return strname + ".write_wchar("+var_name+");";
-	else
-	    return strname + ".write_char("+var_name+");";
+        if( wide )
+            return strname + ".write_wchar(" + var_name + ");";
+        else
+            return strname + ".write_char(" + var_name + ");";
     }
 
     public String printInsertExpression()
     {
-	if( wide )
+        if( wide )
             return "insert_wchar";
         else
             return "insert_char";
@@ -119,16 +120,16 @@ class CharType
 
     public String printExtractExpression()
     {
-	if( wide )
+        if( wide )
             return "extract_wchar";
         else
             return "extract_char";
     }
 
-    public boolean isSwitchable ()
+    public boolean isSwitchable()
     {
-       // wchar is not a valid union discriminator type
+        // wchar is not a valid union discriminator type
 
-       return !wide;
+        return !wide;
     }
 }

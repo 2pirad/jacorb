@@ -22,59 +22,58 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: InitParamDecl.java,v 1.1 2002-04-10 16:09:30 gerald Exp $
+ * @version $Id: InitParamDecl.java,v 1.2 2002-04-17 08:49:08 gerald Exp $
  */
 
-import java.util.Vector;
-import java.util.Enumeration;
-import java.io.*;
+import java.io.PrintWriter;
 
-class InitParamDecl 
-    extends ParamDecl
+class InitParamDecl
+        extends ParamDecl
 {
-    public InitParamDecl(int num)
+
+    public InitParamDecl( int num )
     {
-	super(num);
+        super( num );
     }
 
-    public void setPackage( String s)
+    public void setPackage( String s )
     {
-        s = parser.pack_replace(s);
-	if( pack_name.length() > 0 )
-	    pack_name = new String( s + "." + pack_name );
-	else
-	    pack_name = s;
-	paramTypeSpec.setPackage(s);
+        s = parser.pack_replace( s );
+        if( pack_name.length() > 0 )
+            pack_name = new String( s + "." + pack_name );
+        else
+            pack_name = s;
+        paramTypeSpec.setPackage( s );
     }
 
 
-    public void parse() 
+    public void parse()
     {
-	while( paramTypeSpec.typeSpec() instanceof ScopedName )
-	{
-	    TypeSpec ts = ((ScopedName)paramTypeSpec.typeSpec()).resolvedTypeSpec();
+        while( paramTypeSpec.typeSpec() instanceof ScopedName )
+        {
+            TypeSpec ts = ( (ScopedName)paramTypeSpec.typeSpec() ).resolvedTypeSpec();
 
-	    if( ts != null ) 
-		paramTypeSpec = ts;
-	}
+            if( ts != null )
+                paramTypeSpec = ts;
+        }
     }
 
     public void print( PrintWriter ps )
     {
-        ps.print( paramTypeSpec.toString() + " " + simple_declarator);
+        ps.print( paramTypeSpec.toString() + " " + simple_declarator );
     }
 
-    public String printWriteStatement( String ps)
+    public String printWriteStatement( String ps )
     {
-        return printWriteStatement( simple_declarator.toString() , ps);
+        return printWriteStatement( simple_declarator.toString(), ps );
     }
 
-    public String printWriteStatement( String name, String ps)
+    public String printWriteStatement( String name, String ps )
     {
-        return paramTypeSpec.typeSpec().printWriteStatement( name ,ps);
+        return paramTypeSpec.typeSpec().printWriteStatement( name, ps );
     }
 
-    public String printReadExpression( String ps)
+    public String printReadExpression( String ps )
     {
         return paramTypeSpec.typeSpec().printReadExpression( ps );
     }

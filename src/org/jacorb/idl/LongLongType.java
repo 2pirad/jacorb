@@ -22,20 +22,21 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongLongType.java,v 1.7 2002-04-15 15:03:20 gerald Exp $
+ * @version $Id: LongLongType.java,v 1.8 2002-04-17 08:49:09 gerald Exp $
  */
 
-class LongLongType 
-    extends IntType 
+class LongLongType
+        extends IntType
 {
-    public LongLongType(int num)
+
+    public LongLongType( int num )
     {
-	super(num);
+        super( num );
     }
 
     public Object clone()
     {
-	return new LongLongType( new_num());
+        return new LongLongType( new_num() );
     }
 
     public TypeSpec typeSpec()
@@ -45,20 +46,20 @@ class LongLongType
 
     public String typeName()
     {
-        return  "long";
+        return "long";
     }
 
     public boolean basic()
     {
         return true;
-    } 
+    }
 
     public int getTCKind()
     {
         if( unsigned )
             return 24; // tk_ulonglong
         else
-            return 23; // tk_longlong 
+            return 23; // tk_longlong
     }
 
     public String toString()
@@ -72,15 +73,15 @@ class LongLongType
     }
 
 
-    public String printReadExpression(String strname)
+    public String printReadExpression( String strname )
     {
         if( unsigned )
-            return strname + ".read_ulonglong()";       
+            return strname + ".read_ulonglong()";
         else
             return strname + ".read_longlong()";
     }
 
-    public String printReadStatement(String var_name, String strname)
+    public String printReadStatement( String var_name, String strname )
     {
         if( unsigned )
             return var_name + "=" + strname + ".read_ulonglong();";
@@ -88,12 +89,12 @@ class LongLongType
             return var_name + "=" + strname + ".read_longlong();";
     }
 
-    public String printWriteStatement(String var_name, String strname)
+    public String printWriteStatement( String var_name, String strname )
     {
         if( unsigned )
-            return strname + ".write_ulonglong("+var_name+");";
+            return strname + ".write_ulonglong(" + var_name + ");";
         else
-            return strname + ".write_longlong("+var_name+");";
+            return strname + ".write_longlong(" + var_name + ");";
     }
 
     public String printInsertExpression()

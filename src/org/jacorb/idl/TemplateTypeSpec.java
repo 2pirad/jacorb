@@ -22,24 +22,25 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TemplateTypeSpec.java,v 1.5 2002-03-19 09:25:07 nicolas Exp $
+ * @version $Id: TemplateTypeSpec.java,v 1.6 2002-04-17 08:49:14 gerald Exp $
  */
 
 
-class TemplateTypeSpec 
-    extends SimpleTypeSpec 
+class TemplateTypeSpec
+        extends SimpleTypeSpec
 {
+
     protected boolean typedefd = false;
 
-    public TemplateTypeSpec(int num) 
+    public TemplateTypeSpec( int num )
     {
-	super(num);
+        super( num );
     }
 
     public void parse()
-        throws ParseException
+            throws ParseException
     {
-	type_spec.parse();
+        type_spec.parse();
     }
 
     /**
@@ -49,14 +50,14 @@ class TemplateTypeSpec
 
     public void markTypeDefd()
     {
-	typedefd = true;
+        typedefd = true;
     }
 
 
     public boolean basic()
     {
-	return true;
-    } 
+        return true;
+    }
 }
 
 

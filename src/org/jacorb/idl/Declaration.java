@@ -22,20 +22,18 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Declaration.java,v 1.5 2002-03-19 09:25:00 nicolas Exp $
+ * @version $Id: Declaration.java,v 1.6 2002-04-17 08:49:04 gerald Exp $
  */
 
-import java.util.Vector;
-import java.util.Enumeration;
-import java.io.*;
 
-class Declaration	
-    extends IdlSymbol
+class Declaration
+        extends IdlSymbol
 {
-    public Declaration(int num)
+
+    public Declaration( int num )
     {
-	super(num);
-	pack_name = "";
+        super( num );
+        pack_name = "";
     }
 }
 
