@@ -30,7 +30,7 @@ import org.tanukisoftware.wrapper.WrapperManager;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: Main.java,v 1.1 2003-07-18 18:32:47 alphonse.bendt Exp $
+ * @version $Id: Main.java,v 1.2 2003-07-18 18:47:07 alphonse.bendt Exp $
  */
 
 public class Main 
@@ -49,7 +49,7 @@ public class Main
     public Integer start(String[] stringArray)
     {
 	try {
-	    application_ = EventChannelFactoryImpl.startFactory(stringArray);
+	    application_ = EventChannelFactoryImpl.newFactory(stringArray);
 
 	    return null;
 	} catch (Exception e) {
