@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.6 2001-04-04 10:17:43 noffke Exp $
+ * @version $Id: BasicAdapter.java,v 1.7 2001-04-04 14:45:14 jacorb Exp $
  */
 
 import java.io.*;
@@ -456,7 +456,8 @@ public class BasicAdapter
                 } 
                 catch (Exception e)
                 {
-                    Debug.output( Debug.IMPORTANT | Debug.ORB_CONNECT, e );
+                    if( do_run )
+                        Debug.output( Debug.IMPORTANT | Debug.ORB_CONNECT, e );
                 }
             }
                         
