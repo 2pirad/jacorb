@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.26 2002-04-15 08:20:55 jason.courage Exp $
+ * @version $Id: ORBSingleton.java,v 1.27 2002-05-06 13:44:07 gerald Exp $
  */
 
 public class ORBSingleton
@@ -44,12 +44,16 @@ public class ORBSingleton
    
     /** 
      * Determine if a character is ok to start an id. 
+     * (Note that '_' is allowed here - it might have
+     * been inserted by the IDL compiler to avoid clashes
+     * with reserved Java identifiers )
      * @param ch the character in question.
      */
+
     final protected static boolean legalStartChar(int ch)
     {
         return
-           ( ch >= 'a' &&  ch <= 'z') ||
+           ( ch >= 'a' &&  ch <= 'z') || (ch == '_') || 
            ( ch >= 'A' && ch <= 'Z');
     }
 
@@ -315,7 +319,7 @@ public class ORBSingleton
             if( names.containsKey( members[i].name ) || fault )
             {
                 throw new BAD_PARAM("Illegal struct member name: " + 
-                                    members[i].name, 
+                                    members[i].name + (fault? " (Bad PARAM) ": "" ),
                                     17, CompletionStatus.COMPLETED_NO );    
             }
             names.put( members[i].name, "" );
