@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.66 2002-10-14 16:52:03 steve.osselton Exp $
+ * @version $Id: CDROutputStream.java,v 1.67 2002-10-15 15:04:51 nick.cross Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -1616,6 +1616,9 @@ public class CDROutputStream
                 break;
             case TCKind._tk_wstring:
                 write_wstring( in.read_wstring());
+                break;
+            case TCKind._tk_fixed:
+                write_fixed (in.read_fixed());
                 break;
             case TCKind._tk_array:
                 try
