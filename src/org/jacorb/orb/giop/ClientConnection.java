@@ -36,7 +36,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.41 2003-12-23 09:57:17 simon.mcqueen Exp $
+ * @version $Id: ClientConnection.java,v 1.42 2003-12-27 16:00:36 nicolas Exp $
  */
 
 public class ClientConnection
@@ -369,8 +369,6 @@ public class ClientConnection
             //the underlying connection closed.
 
             conn_mg.removeConnection( this );
-            
-            //System.out.println( "Removed, profile: " + get_server_profile() + "; info: " + connection.connection_info );
         }
 
         streamClosed();
