@@ -47,7 +47,7 @@ import org.omg.CosNotifyChannelAdmin.StructuredProxyPushSupplierPOATie;
  * Created: Sun Nov 03 22:41:38 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.6 2003-07-15 13:43:32 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl
@@ -202,7 +202,7 @@ public class StructuredProxyPushSupplierImpl
 
     public List getSubsequentFilterStages()
     {
-        return Collections.singletonList( this );
+        return JDK13CollectionsWrapper.singletonList( this );
     }
 
     public EventConsumer getEventConsumer()

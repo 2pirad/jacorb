@@ -61,7 +61,7 @@ import org.omg.CosNotifyChannelAdmin.StructuredProxyPushConsumerPOATie;
  * Created: Mon Nov 04 01:52:01 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.6 2003-07-15 13:43:32 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl 
@@ -86,7 +86,7 @@ public class StructuredProxyPushConsumerImpl
 
 	setProxyType(ProxyType.PUSH_STRUCTURED);
 
-	subsequentDestinations_ = Collections.singletonList(myAdmin_);
+	subsequentDestinations_ = JDK13CollectionsWrapper.singletonList(myAdmin_);
     }
 
     public void push_structured_event(StructuredEvent structuredEvent) throws Disconnected {

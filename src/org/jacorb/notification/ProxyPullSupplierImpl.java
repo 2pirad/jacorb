@@ -52,7 +52,7 @@ import org.omg.CosNotifyChannelAdmin.ProxyPullSupplierPOATie;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.5 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.6 2003-07-15 13:43:32 alphonse.bendt Exp $
  */
 
 public class ProxyPullSupplierImpl
@@ -209,7 +209,7 @@ public class ProxyPullSupplierImpl
     }
 
     public List getSubsequentFilterStages() {
-	return Collections.singletonList(this);
+	return JDK13CollectionsWrapper.singletonList(this);
     }
 
     public EventConsumer getEventConsumer() {
