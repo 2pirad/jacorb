@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.5 2001-03-19 11:10:27 brose Exp $
+ * @version $Id: Environment.java,v 1.6 2001-03-20 08:39:29 jacorb Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -666,7 +666,7 @@ public class Environment
         while(prop_names.hasMoreElements())
         {
             String prop = (String) prop_names.nextElement();
-            if (prop.startsWith("org.omg.PortableInterceptor.ORBInitializerClass."))
+            if ( prop.startsWith("org.omg.PortableInterceptor.ORBInitializerClass."))
             {
                 String name = _props.getProperty(prop);
                 try
