@@ -55,7 +55,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.5 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: Configuration.java,v 1.6 2004-06-11 08:29:21 simon.mcqueen Exp $
  */
 
 public class Configuration
@@ -323,8 +323,16 @@ public class Configuration
     {
         for (Iterator iter=properties.keySet().iterator(); iter.hasNext();)
         {
-            String key = (String)iter.next();
-            setAttribute(key, (String)properties.get(key));
+            Object k = iter.next();
+            // Some lunatics illegally put non String objects into System props
+            // as keys / values - we check for both and ignore them.      
+            if (!(k instanceof String)) continue;
+            String key = (String)k;
+            Object value = properties.get(key);
+            if (value instanceof String || value == null)
+            {
+                setAttribute(key, (String)value);
+            }
         }
     }
 
