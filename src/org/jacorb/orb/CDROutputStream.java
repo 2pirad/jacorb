@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.39 2002-03-06 15:46:47 jason.courage Exp $
+ * @version     $Id: CDROutputStream.java,v 1.40 2002-03-07 16:46:56 spiegel Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -163,6 +163,12 @@ public class CDROutputStream
     {
         bufMgr = BufferManager.getInstance ();
         buffer = buf;
+    }
+
+    public org.omg.CORBA.ORB orb ()
+    {
+        if (orb == null) orb = org.omg.CORBA.ORB.init();
+        return orb;
     }
 
     /**
@@ -1371,10 +1377,21 @@ public class CDROutputStream
                }
                break;
             case TCKind._tk_abstract_interface: 
-               beginEncapsulation();
-               write_string(value.id());
-               write_string(value.name());
-               endEncapsulation();
+               if( tcMap.containsKey( value.id()) )
+               {
+                  writeRecursiveTypeCode( value, tcMap );
+               }
+               else
+               {
+                  write_long( _kind  );
+                  tcMap.put( value.id(), new Integer( pos ) );
+                  recursiveTCMap.put( value.id(), value );
+                  beginEncapsulation();
+                  write_string(value.id());
+                  write_string(value.name());
+                  endEncapsulation();
+               }
+
                break;
             default: 
                throw new org.omg.CORBA.MARSHAL ("Cannot handle TypeCode with kind: " + _kind);
