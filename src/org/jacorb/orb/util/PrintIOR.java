@@ -36,7 +36,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.23 2003-06-20 15:09:10 andre.spiegel Exp $
+ * @version $Id: PrintIOR.java,v 1.24 2003-08-11 13:17:27 nick.cross Exp $
  */
 
 public class PrintIOR
@@ -117,14 +117,14 @@ public class PrintIOR
         System.out.println("TAG_INTERNET_IOP Profiles:");
         for( int i = 0; i < profiles.size(); i++ )
         {
-            System.out.print("\tProfile Id   :  ");
+            System.out.print("\tProfile Id:  ");
 
             IIOPProfile p = (IIOPProfile)profiles.get(i);
             System.out.println("\tIIOP Version :  " +
                                (int)p.version().major + "." +
                                (int)p.version().minor);
 
-            System.out.println("\tHost\t:\t" + p.getAddress().getIP());
+            System.out.println("\tHost\t:\t" + p.getAddress().getHostname());
             int port = p.getAddress().getPort();
             if( port < 0 )
                 port += 65536;
