@@ -45,7 +45,7 @@ import java.util.Stack;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.24 2002-05-08 12:43:49 gerald Exp $
+ * @version $Id: lexer.java,v 1.25 2002-05-22 09:58:10 gerald Exp $
  * @author Gerald Brose
  *
  */
@@ -763,7 +763,8 @@ public class lexer
             {
                 if( !conditionalCompilation )
                     return;
-                advance();      // skip ' '
+                swallow_whitespace();
+                //                advance();      // skip ' '
                 String name = get_string();
                 if( name.equals( "prefix" ) )
                 {

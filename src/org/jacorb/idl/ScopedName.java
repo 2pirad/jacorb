@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.13 2002-04-17 08:49:12 gerald Exp $
+ * @version $Id: ScopedName.java,v 1.14 2002-05-22 09:58:09 gerald Exp $
  *
  */
 
@@ -33,8 +33,8 @@ import java.util.Hashtable;
 import java.util.Stack;
 
 class ScopedName
-        extends SimpleTypeSpec
-        implements SwitchTypeSpec
+    extends SimpleTypeSpec
+    implements SwitchTypeSpec
 {
 
     private static Hashtable pseudoScopes =

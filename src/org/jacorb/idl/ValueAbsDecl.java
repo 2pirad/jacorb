@@ -27,7 +27,7 @@ import java.util.Enumeration;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.6 2002-04-17 08:49:16 gerald Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.7 2002-05-22 09:58:09 gerald Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
@@ -35,9 +35,8 @@ import java.util.Enumeration;
  */
 
 class ValueAbsDecl
-        extends Value
+    extends Value
 {
-
     ValueBody body = null;
     ValueInheritanceSpec inheritanceSpec;
 
