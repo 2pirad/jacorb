@@ -47,7 +47,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.64 2003-11-07 14:15:54 francisco Exp $
+ * @version $Id: Environment.java,v 1.65 2003-11-11 23:04:49 andre.spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -149,6 +149,8 @@ public class Environment
 
     /**  default class name for logger factory */
     private static String loggerFactoryClzName = "org.jacorb.util.LogKitLoggerFactory";
+
+    private static Class identityHashMapClass = null;
 
     static
     {
@@ -1143,4 +1145,42 @@ public class Environment
         return loggerFactory;
     }
 
+    /**
+     * Creates an IdentityHashMap, using either the JDK 1.4 class or
+     * JacORB's drop-in replacement class if the former is not available.
+     *
+     * @return a newly created IdentityHashMap instance
+     */
+    public static Map createIdentityHashMap()
+    {
+        if (identityHashMapClass == null)
+        {
+            try
+            {
+                identityHashMapClass =
+                    classForName("java.util.IdentityHashMap");
+            }
+            catch (ClassNotFoundException ex)
+            {
+                try
+                {
+                    identityHashMapClass =
+                        classForName("org.jacorb.util.IdentityHashMap");
+                }
+                catch (ClassNotFoundException e)
+                {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        try
+        {
+            return (Map)identityHashMapClass.newInstance();
+        }
+        catch (Exception exc)
+        {
+            throw new RuntimeException(exc);
+        }   
+    }
+ 
 }
