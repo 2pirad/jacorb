@@ -23,7 +23,7 @@ package org.jacorb.naming.namemanager;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: Handler.java,v 1.3 2001-03-19 11:08:20 brose Exp $
+ * @version $Id: Handler.java,v 1.4 2001-03-19 12:35:06 noffke Exp $
  */
 
 import java.awt.event.*;
@@ -96,7 +96,7 @@ public class Handler
 	else if (e.getActionCommand().equals("About..."))
 	{
 	    JOptionPane.showMessageDialog(frame,
-					  "JacORB NameManager 1.1\n(C) 1998-99 Gerald Brose, Wei-ju Wu & Volker Siegel\nFreie Universität Berlin",
+					  "JacORB NameManager 1.1\n(C) 1998-99 Gerald Brose, Wei-ju Wu & Volker Siegel\nFreie Universitaet Berlin",
 					  "About",JOptionPane.INFORMATION_MESSAGE);
 	}
 	else if (e.getActionCommand().equals("Options"))
