@@ -48,7 +48,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.14 2004-02-13 12:41:31 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.15 2004-02-20 12:30:45 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage
@@ -399,10 +399,6 @@ public abstract class AbstractMessage
      * used to fetch the Filter Constraints that must be evaluated for
      * this Event. The Constraint Key consists of domain_name and
      * type_name of the Event.
-     * Within this Implementation the Operation
-     * {@link FilterUtils#calcConstraintKey(String, String)}
-     * is used to provide a uniform
-     * Mapping from domain_name and type_name to a Constraint Key.
      *
      * @return a <code>String</code> value
      */
