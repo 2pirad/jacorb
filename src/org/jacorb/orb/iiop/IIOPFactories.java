@@ -25,11 +25,10 @@ import org.omg.IOP.*;
 import org.omg.ETF.*;
 import org.omg.RTCORBA.ProtocolProperties;
 
-import org.jacorb.orb.InternetIOPProfile;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.1 2003-05-05 10:10:36 andre.spiegel Exp $
+ * @version $Id: IIOPFactories.java,v 1.2 2003-05-06 14:30:09 andre.spiegel Exp $
  */
 public class IIOPFactories extends org.omg.ETF._FactoriesLocalBase
 {
@@ -57,8 +56,8 @@ public class IIOPFactories extends org.omg.ETF._FactoriesLocalBase
         }
         else
         {
-            InternetIOPProfile result 
-                = new InternetIOPProfile (tagged_profile.value.profile_data);
+            IIOPProfile result 
+                = new IIOPProfile (tagged_profile.value.profile_data);
             components.value = result.getComponents().asArray();
             return result;
         }

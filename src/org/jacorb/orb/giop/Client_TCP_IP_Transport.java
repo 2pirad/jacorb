@@ -27,6 +27,7 @@ import java.util.*;
 import org.jacorb.util.*;
 import org.jacorb.orb.*;
 import org.jacorb.orb.factory.*;
+import org.jacorb.orb.iiop.*;
 
 import org.omg.CORBA.COMM_FAILURE;
 
@@ -37,13 +38,13 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.30 2003-04-27 12:44:41 andre.spiegel Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.31 2003-05-06 14:31:45 andre.spiegel Exp $
  */
 
 public class Client_TCP_IP_Transport
     extends TCP_IP_Transport
 {
-    private InternetIOPProfile target_profile;
+    private IIOPProfile target_profile;
     private boolean use_ssl = false;
     private SocketFactory socket_factory = null;
     private int timeout = 0;
@@ -53,7 +54,7 @@ public class Client_TCP_IP_Transport
     //used by org.jacorb.test.orb.connection[Client|Server]ConnectionTimeoutTest
     public static int openTransports = 0;
 
-    public Client_TCP_IP_Transport( InternetIOPProfile target_profile,
+    public Client_TCP_IP_Transport( IIOPProfile target_profile,
                                     boolean use_ssl,
                                     SocketFactory socket_factory,
                                     TransportManager transport_manager )

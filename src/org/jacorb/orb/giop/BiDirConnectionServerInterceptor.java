@@ -27,6 +27,7 @@ import org.omg.IOP.*;
 
 import org.jacorb.orb.*;
 import org.jacorb.util.Debug;
+import org.jacorb.orb.iiop.*;
 import org.jacorb.orb.portableInterceptor.*;
 
 
@@ -37,7 +38,7 @@ import org.jacorb.orb.portableInterceptor.*;
  * Created: Sun Sep  2 18:16:27 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.9 2003-04-26 17:40:58 andre.spiegel Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.10 2003-05-06 14:31:45 andre.spiegel Exp $
  */
 
 public class BiDirConnectionServerInterceptor 
@@ -110,7 +111,7 @@ public class BiDirConnectionServerInterceptor
 
                 Debug.output( 2, "BiDirServerInterceptor: Added client conn to target " + addr );
                 
-                conn_mg.addConnection( connection, new InternetIOPProfile (addr, null) );
+                conn_mg.addConnection( connection, new IIOPProfile (addr, null) );
             }            
         }
     }    

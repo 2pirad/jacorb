@@ -27,6 +27,7 @@ import java.lang.reflect.Constructor;
 
 import org.jacorb.orb.*;
 import org.jacorb.orb.factory.*;
+import org.jacorb.orb.iiop.*;
 import org.jacorb.util.*;
 
 /**
@@ -34,7 +35,7 @@ import org.jacorb.util.*;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.8 2003-04-27 12:46:39 andre.spiegel Exp $
+ * @version $Id: TransportManager.java,v 1.9 2003-05-06 14:31:12 andre.spiegel Exp $
  * */
 
 public class TransportManager
@@ -78,7 +79,7 @@ public class TransportManager
 
     }
 
-    public Transport createClientTransport( InternetIOPProfile target_profile,
+    public Transport createClientTransport( IIOPProfile target_profile,
                                             boolean use_ssl )
     {
         Transport transport =

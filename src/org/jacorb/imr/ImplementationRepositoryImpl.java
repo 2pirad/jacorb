@@ -27,6 +27,7 @@ import org.jacorb.imr.AdminPackage.*;
 
 import org.jacorb.orb.*;
 import org.jacorb.orb.connection.*;
+import org.jacorb.orb.iiop.*;
 
 import org.jacorb.poa.util.POAUtil;
 
@@ -49,7 +50,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.40 2003-04-28 14:26:45 nick.cross Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.41 2003-05-06 14:33:46 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1315,7 +1316,7 @@ public class ImplementationRepositoryImpl
         address = new IIOPAddress (host, port);
         connection = cm.getConnection
         (
-            new InternetIOPProfile (address, object_key),
+            new IIOPProfile (address, object_key),
             false
         );
 

@@ -7,10 +7,11 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.14 2003-05-05 09:54:22 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.15 2003-05-06 14:27:50 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.connection.*;
+import org.jacorb.orb.iiop.*;
 
 import java.io.*;
 import java.util.*;
@@ -43,7 +44,7 @@ public class GIOPConnectionTest extends TestCase
         private byte[] data = null;
         private int index = 0;
         private ByteArrayOutputStream b_out = new ByteArrayOutputStream();
-        private org.omg.ETF.Profile profile = new InternetIOPProfile
+        private org.omg.ETF.Profile profile = new IIOPProfile
         (
             new IIOPAddress ("127.0.0.1", 4711),
             null
