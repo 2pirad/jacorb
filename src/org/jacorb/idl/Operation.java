@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Operation.java,v 1.3 2001-03-19 11:07:46 brose Exp $
+ * @version $Id: Operation.java,v 1.4 2001-11-12 09:55:29 spiegel Exp $
  */
 
 import java.io.*;
@@ -41,6 +41,11 @@ interface Operation
     public String signature();
 
     public void printSignature(PrintWriter ps);
+
+    /**
+     * @param printModifiers whether "public abstract" should be added
+     */
+    public void printSignature(PrintWriter ps, boolean printModifiers);
 
     /** method code for stubs */
 

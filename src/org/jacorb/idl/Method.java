@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Method.java,v 1.5 2001-06-22 10:56:16 jacorb Exp $
+ * @version $Id: Method.java,v 1.6 2001-11-12 09:56:08 spiegel Exp $
  *
  * This class is used to represent accessor operations
  */
@@ -73,11 +73,19 @@ class Method
 	return sb.toString();
     }
 
-    public void printSignature(PrintWriter ps)
+    public void printSignature (PrintWriter ps)
+    {
+        printSignature (ps, pseudo);
+    }
+
+    /**
+     * @param printModifiers whether "public abstract" should be added
+     */
+    public void printSignature (PrintWriter ps, boolean printModifiers)
     {
 	ps.print("\t");
-	if( pseudo )
-	    ps.print( "abstract ");
+	if( printModifiers )
+	    ps.print( "public abstract ");
 
 	if( resultType != null )
 	{
