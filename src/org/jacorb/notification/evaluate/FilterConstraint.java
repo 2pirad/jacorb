@@ -49,7 +49,7 @@ import org.apache.avalon.framework.logger.Logger;
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.4 2003-11-03 10:32:43 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.5 2004-01-16 17:01:28 alphonse.bendt Exp $
  */
 
 public class FilterConstraint
@@ -66,7 +66,6 @@ public class FilterConstraint
      */
     private AbstractTCLNode rootNode_;
 
-
     ////////////////////////////////////////
 
     public FilterConstraint( AbstractTCLNode root )
@@ -75,7 +74,7 @@ public class FilterConstraint
     }
 
     public FilterConstraint( ConstraintExp constraintExp )
-    throws InvalidConstraint
+        throws InvalidConstraint
     {
         try
         {
@@ -86,8 +85,7 @@ public class FilterConstraint
             StaticTypeChecker _checker = new StaticTypeChecker();
             _checker.check( rootNode_ );
 
-            return ;
-
+            return;
         }
         catch ( StaticTypeException ste )
         {
@@ -110,18 +108,18 @@ public class FilterConstraint
 
     public EvaluationResult evaluate( EvaluationContext evaluationContext,
                                       Message event )
-    throws EvaluationException,
-                DynamicTypeException
+        throws EvaluationException,
+               DynamicTypeException
     {
-        logger_.debug("evaluate()" + rootNode_.toStringTree());
-
+        if (logger_.isDebugEnabled() ) {
+            logger_.debug("evaluate()" + rootNode_.toStringTree());
+        }
 
         evaluationContext.setEvent( event );
 
         EvaluationResult _res = rootNode_.evaluate( evaluationContext );
 
         return _res;
-
     }
 
     public String toString()
@@ -132,5 +130,4 @@ public class FilterConstraint
 
         return _b.toString();
     }
-
 }
