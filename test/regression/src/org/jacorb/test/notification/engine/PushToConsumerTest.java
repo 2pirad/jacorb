@@ -1,4 +1,4 @@
-epackage org.jacorb.test.notification.engine;
+package org.jacorb.test.notification.engine;
 
 /*
  *        JacORB - a free Java ORB
@@ -53,7 +53,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
  * Created: Mon Aug 18 16:11:37 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTest.java,v 1.2 2003-08-28 16:42:49 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTest.java,v 1.3 2003-08-28 17:01:09 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTest extends TestCase
