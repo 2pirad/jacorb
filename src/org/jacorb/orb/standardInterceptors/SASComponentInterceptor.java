@@ -27,6 +27,7 @@ import org.apache.avalon.framework.logger.Logger;
 import org.ietf.jgss.Oid;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORB;
+import org.jacorb.security.sas.ISASContext;
 import org.jacorb.util.Environment;
 import org.omg.ATLAS.ATLASLocator;
 import org.omg.ATLAS.ATLASProfile;
@@ -59,7 +60,7 @@ import org.omg.PortableInterceptor.IORInterceptor;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.13 2003-11-26 18:58:12 david.robison Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.14 2003-12-19 16:01:56 david.robison Exp $
  */
 
 public class SASComponentInterceptor
@@ -72,6 +73,7 @@ public class SASComponentInterceptor
     private ORB orb = null;
     private Codec codec = null;
     private TaggedComponent tc = null;
+    private ISASContext sasContext = null;
 
     public SASComponentInterceptor( ORB orb )
     {
@@ -86,6 +88,18 @@ public class SASComponentInterceptor
         {
             logger.error("Error initing SASComponentInterceptor: ",e);
         }
+		String contextClass = org.jacorb.util.Environment.getProperty("jacorb.security.sas.contextClass");
+		if (contextClass != null) {
+			try {
+				Class c = org.jacorb.util.Environment.classForName(contextClass);
+			  	sasContext = (ISASContext)c.newInstance();
+			} catch (Exception e) {
+			  logger.error("Could not instantiate SAS Context class " + contextClass + ": " + e);
+			}
+		}
+		if (sasContext == null) {
+			logger.error("Could not load SAS context class: "+contextClass);
+		}
     }
 
     // implementation of org.omg.PortableInterceptor.IORInterceptorOperations interface
@@ -144,7 +158,13 @@ public class SASComponentInterceptor
                 TaggedComponent transportMech = new TaggedComponent(TAG_NULL_TAG.value, new byte[0]);
 
                 // the AS_ContextSec
-                byte[] targetName = Environment.getProperty( "jacorb.security.sas.tss.target_name").getBytes();
+                byte[] targetName = new byte[0];
+                if (sasContext != null) {
+                	targetName = sasContext.getCreatedPrincipal().getBytes();
+                } else {
+                	targetName = Environment.getProperty( "jacorb.security.sas.tss.target_name").getBytes();
+                }
+                
                 short asTargetSupports = targetSupports;
                 short asTargetRequires = targetRequires;
 
