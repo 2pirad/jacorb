@@ -32,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:56:32 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.2 2001-10-02 13:51:01 jacorb Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.3 2001-11-16 15:15:34 jacorb Exp $
  */
 
 public class Server_TCP_IP_Transport 
@@ -79,8 +79,19 @@ public class Server_TCP_IP_Transport
                 
             //this will cause exceptions when trying to read from
             //the streams. Better than "nulling" them.
-            socket.shutdownInput();
-            socket.shutdownOutput();
+            if( in_stream != null )
+            {
+                in_stream.close();
+            }
+
+            if( out_stream != null )
+            {
+                out_stream.close();
+            }
+
+            //not jdk1.2
+            //socket.shutdownInput();
+            //socket.shutdownOutput();
         }
 
         Debug.output( 2, "Closed server-side TCP/IP transport to " +
