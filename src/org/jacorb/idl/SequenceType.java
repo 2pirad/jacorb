@@ -28,13 +28,12 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.21 2002-05-17 13:36:46 simon.mcqueen Exp $
+ * @version $Id: SequenceType.java,v 1.22 2002-05-31 12:59:09 gerald Exp $
  */
 
 public class SequenceType
         extends VectorType
 {
-
     private boolean written = false;
 
     /** used to generate unique name vor local variables */
