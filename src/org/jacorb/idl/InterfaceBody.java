@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.23 2003-10-29 12:00:29 simon.mcqueen Exp $
+ * @version $Id: InterfaceBody.java,v 1.24 2003-12-17 17:25:29 nick.cross Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -256,7 +256,7 @@ public class InterfaceBody
     public void print( PrintWriter ps )
     {
         if( ps != null )
-            throw new Error( "Compiler Error, interface body cannot be printed thus!" );
+            throw new RuntimeException( "Compiler Error, interface body cannot be printed thus!" );
 
         for( Enumeration e = v.elements(); e.hasMoreElements(); )
         {
@@ -348,7 +348,7 @@ public class InterfaceBody
                     }
                 }
             }
-            for (Iterator i = my_interface.inheritanceSpec.v.iterator(); 
+            for (Iterator i = my_interface.inheritanceSpec.v.iterator();
                  i.hasNext(); )
             {
                 TypeSpec ts = ((ScopedName)i.next()).resolvedTypeSpec();
@@ -387,7 +387,7 @@ public class InterfaceBody
         {
             ops[ i ].printMethod( ps, classname, is_local, is_abstract );
         }
-        
+
         if ( parser.generate_ami_callback &&
              !(my_interface instanceof ReplyHandler) )
         {
@@ -395,7 +395,7 @@ public class InterfaceBody
                 ops[ i ].print_sendc_Method( ps, classname );
         }
     }
-    
+
 
     /** print methods to the skeleton file */
 
@@ -424,7 +424,7 @@ public class InterfaceBody
                            ? "com.sun.java.util.collections.Hashtable"
                            : "java.util.Hashtable";
 
-        ps.println( "\tstatic private final " + HASHTABLE 
+        ps.println( "\tstatic private final " + HASHTABLE
                       + " m_opsHash = new " + HASHTABLE + "();" );
         ps.println( "\tstatic" );
         ps.println( "\t{" );
@@ -506,7 +506,7 @@ public class InterfaceBody
     }
 
     /**
-     */ 
+     */
 
     public void accept( IDLTreeVisitor visitor )
     {
@@ -515,5 +515,3 @@ public class InterfaceBody
 
 
 }
-
-
