@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB ORB build file                         -->
-  <!-- $Id: build.xml,v 1.15 2002-02-21 15:42:46 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.16 2002-03-05 15:12:38 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -13,7 +13,7 @@
 	<property name="dirs.base" value="${basedir}"/>
 	<property name="classdir" value="${dirs.base}/classes"/>
 	<property name="extpath" value="${dirs.base}/classes"/>
-	<property name="classpath" value="${java.class.path}:${dirs.base}/classes"/>
+	<property name="classpath" value="${dirs.base}/classes:${java.class.path}"/>
 	<property name="jsrc" value="${dirs.base}/src"/>
 	<property name="lib" value="${dirs.base}/lib"/>
 	<property name="include" value="${dirs.base}/idl"/>
