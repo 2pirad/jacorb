@@ -13,7 +13,7 @@ import org.omg.SSLIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.1 2003-05-06 14:28:40 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.2 2003-05-07 09:46:09 andre.spiegel Exp $
  */
 public class IIOPProfile extends _ProfileLocalBase
                                 implements Cloneable
@@ -231,6 +231,23 @@ public class IIOPProfile extends _ProfileLocalBase
     {
         return (SSL)components.getComponent( TAG_SSL_SEC_TRANS.value,
                                              SSLHelper.class );
+    }
+    
+    /**
+     * Returns the port on which SSL is available according to this profile,
+     * or -1 if SSL is not supported.
+     */
+    public int getSSLPort()
+    {
+        SSL ssl = getSSL();
+        if (ssl == null)
+            return -1;
+        else
+        {
+            int port = ssl.port;
+            if (port < 0) port += 65536;
+            return port;
+        }
     }
 
     public TaggedComponentList getComponents()
