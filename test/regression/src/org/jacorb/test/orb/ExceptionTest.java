@@ -6,6 +6,11 @@ import junit.framework.TestSuite;
 import org.jacorb.test.*;
 import org.jacorb.test.common.*;
 
+/**
+ * This class gathers all sorts of exception-related tests.
+ * @author Andre Spiegel spiegel@gnu.org
+ * @version $Id: ExceptionTest.java,v 1.2 2005-03-02 11:36:07 andre.spiegel Exp $
+ */
 public class ExceptionTest extends ClientServerTestCase
 {
     private ExceptionServer server;
@@ -32,6 +37,11 @@ public class ExceptionTest extends ClientServerTestCase
         return setup;
     }    
     
+    /**
+     * Checks whether a RuntimeException in the Servant is
+     * properly reported back to the client, including the
+     * error message.
+     */
     public void testRuntimeException()
     {
         try
