@@ -23,7 +23,7 @@ package org.jacorb.security.ssl;
 
 /**
  * @author Andr'e Benvenuti, Gerald Brose.
- * @version $Id: SSLSocketFactory.java,v 1.7 2001-06-21 15:12:00 noffke Exp $
+ * @version $Id: SSLSocketFactory.java,v 1.8 2001-07-03 12:31:13 noffke Exp $
  * 
  * We follow the design of socket factories in package javax.net 
  * and javax.net.ssl.* Because this package doesn't exist in the JDK yet we 
@@ -56,6 +56,8 @@ public class SSLSocketFactory
 
     private org.jacorb.orb.ORB orb = null;
 
+    private SSLContext default_context = null;
+
     public SSLSocketFactory( org.jacorb.orb.ORB orb ) 
     {
         this.orb = orb;
@@ -82,7 +84,8 @@ public class SSLSocketFactory
      * Parameters:
      * 	host - the server host
      * 	port - the server port
-     *  chain - a chain of X509 certificates to be used in SSL connection setup
+     *  chain - a chain of X509 certificates to be used in SSL 
+     *          connection setup
      *  key - the private key for the first cert in the chain.
      *
      * @throws:
@@ -97,7 +100,7 @@ public class SSLSocketFactory
         SSLSocket sock = new SSLSocket( host, port, getDefaultContext() );
 
         // rt: switch to server mode
-        if (isRoleChange) 
+        if( isRoleChange ) 
         {
             Debug.output(1, "SSLSocket switch to server mode...");
 	    sock.setUseClientMode( false );
@@ -106,69 +109,97 @@ public class SSLSocketFactory
         return sock;
     }
 
+    private org.jacorb.security.level2.KeyAndCert[] getSSLCredentials()
+    {
+        CurrentImpl  securityCurrent = null;        
+
+        try
+        {
+            securityCurrent = (CurrentImpl)
+                orb.resolve_initial_references("SecurityCurrent");
+        }
+        catch ( org.omg.CORBA.ORBPackage.InvalidName in )
+        {
+            Debug.output( 1, "Unable to obtain Security Current. Giving up" );
+            
+            System.exit( -1 );
+        }
+
+        return securityCurrent.getSSLCredentials();
+    }        
+
     private SSLContext getDefaultContext()
     {
-        if( securityCurrent == null )
+        
+        if( default_context != null )
         {
-            try
-            {
-                securityCurrent = (CurrentImpl)
-                    orb.resolve_initial_references("SecurityCurrent");
-            }
-            catch ( org.omg.CORBA.ORBPackage.InvalidName in )
-            {}
-        }        
+            return default_context;
+        }
 
-        SSLContext ctx = null;
-
-        org.jacorb.security.level2.KeyAndCert[] kac = 
-            securityCurrent.getSSLCredentials();
-
-	if (isRoleChange) 
+	if( isRoleChange ) 
         {
-	    SSLServerContext defaultContext = new SSLServerContext();
+	    SSLServerContext ctx = new SSLServerContext();
+
+            //the server always has to have certificates
+            org.jacorb.security.level2.KeyAndCert[] kac = 
+                getSSLCredentials();
+            
             for( int i = 0; i < kac.length; i++ )
             {
-		defaultContext.addServerCredentials( kac[i].chain,  
-                                                     kac[i].key );
+		ctx.addServerCredentials( kac[i].chain,  
+                                          kac[i].key );
 	    }
             
             if( (Environment.requiredBySSL() & 0x20) != 0 )
             {
                 //required: establish trust in target
                 //--> force other side to authenticate
-                defaultContext.setRequestClientCertificate( true );
+                ctx.setRequestClientCertificate( true );
             }
 
-            ctx = defaultContext;
+            default_context = ctx;
 	}
 	else 
         {
-	    SSLClientContext defaultContext = new SSLClientContext();
-            for( int i = 0; i < kac.length; i++ )
-            {
-		defaultContext.addClientCredentials( kac[i].chain,  
-                                                     kac[i].key );
-	    }
+	    SSLClientContext ctx = new SSLClientContext();
 
-            ctx = defaultContext;
+            //only add own credentials, if Establish trust in target
+            //is supported
+            if(( (byte) Environment.supportedBySSL() & 0x20) != 0 ) 
+            {            
+                org.jacorb.security.level2.KeyAndCert[] kac = 
+                    getSSLCredentials();
+
+                for( int i = 0; i < kac.length; i++ )
+                {
+                    ctx .addClientCredentials( kac[i].chain,  
+                                               kac[i].key );
+                }
+            }
+
+            default_context = ctx;
 	}
 
-        if( ( (byte)Environment.requiredBySSL() & 0x20) != 0  ) 
+        if(( (byte) Environment.requiredBySSL() & 0x20) != 0  ) 
             // 32 = Establish trust in target
         {            
-            String [] trusteeFileNames = 
-                Environment.getPropertyValueList("jacorb.security.trustees");
-            
+            String[] trusteeFileNames = 
+                Environment.getPropertyValueList( "jacorb.security.trustees" );
+
+            if( trusteeFileNames.length == 0 )
+            {
+                Debug.output( 1, "WARNING: No trusted certificates specified. This will accept all peer certificate chains!" );
+            }
+
             for( int i = 0; i < trusteeFileNames.length; i++ )
             {
-                ctx.addTrustedCertificate( CertUtils.readCertificate( trusteeFileNames[i] ));
+                default_context.addTrustedCertificate( CertUtils.readCertificate( trusteeFileNames[i] ));
             }
         }
 
         // ctx.setDebugStream( System.out );
 
-        return ctx;
+        return default_context;
     }
     
     /**
@@ -213,9 +244,4 @@ public class SSLSocketFactory
         return ( s instanceof SSLSocket); 
     }
 }
-
-
-
-
-
 
