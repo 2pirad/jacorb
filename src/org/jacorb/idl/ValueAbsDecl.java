@@ -27,7 +27,7 @@ import java.util.Enumeration;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.7 2002-05-22 09:58:09 gerald Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.8 2002-06-03 20:12:19 gerald Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
@@ -175,7 +175,15 @@ class ValueAbsDecl
                 for( Enumeration e = inheritanceSpec.v.elements(); e.hasMoreElements(); )
                 {
                     ScopedName name = (ScopedName)e.nextElement();
-                    ConstrTypeSpec ts = (ConstrTypeSpec)name.resolvedTypeSpec();
+
+                    TypeSpec resolvedTSpec = name.resolvedTypeSpec();
+                    if( ! ( resolvedTSpec instanceof ConstrTypeSpec ) )
+                    {
+                        parser.fatal_error( "Illegal inheritance spec: " +
+                                inheritanceSpec, token );
+                    }
+
+                    ConstrTypeSpec ts = (ConstrTypeSpec)resolvedTSpec;
                     if( !( ts.declaration() instanceof Interface ) &&
                             !( ts.declaration() instanceof ValueAbsDecl ) )
                     {
@@ -211,6 +219,30 @@ class ValueAbsDecl
                 parser.fatal_error( full_name() + " still has an empty body!", token );
         }
         return body;
+    }
+
+    public String getTypeCodeExpression()
+    {
+        return "org.omg.CORBA.ORB.init().create_value_tc(\"" + id() + 
+            "\", \"" + name + 
+            "\", org.omg.CORBA.VM_ABSTRACT.value " + 
+            ", null, null )";
+    }
+
+
+    public String printReadExpression( String streamname )
+    {
+        return "null /* no read expression for abstract value */";
+    }
+
+    public String printReadStatement( String var_name, String streamname )
+    {
+        return "throw new org.omg.CORBA.NO_IMPLEMENT();";
+    }
+
+    public String printWriteStatement( String var_name, String streamname )
+    {
+        return "throw new org.omg.CORBA.NO_IMPLEMENT();";
     }
 
 

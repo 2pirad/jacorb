@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.23 2002-06-03 13:42:12 gerald Exp $
+ * @version $Id: SequenceType.java,v 1.24 2002-06-03 20:12:18 gerald Exp $
  */
 
 public class SequenceType
@@ -414,7 +414,7 @@ public class SequenceType
         ps.println( "\tprivate static org.omg.CORBA.TypeCode _type = " +
                 getTypeCodeExpression() + ";" );
 
-        TypeSpec.printHelperClassMethods( className, ps, type );
+        TypeSpec.printHelperClassMethods( ps, type );
         printIdMethod( ps ); // from IdlSymbol
 
         /** read */

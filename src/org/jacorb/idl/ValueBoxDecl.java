@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.15 2002-05-17 13:36:47 simon.mcqueen Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.16 2002-06-03 20:12:19 gerald Exp $
  */
 
 class ValueBoxDecl
@@ -176,6 +176,7 @@ class ValueBoxDecl
 
     /**
      * @returns a string for an expression of type TypeCode that describes this type
+     * @overrides getTypeCodeExpression( Set knownTypes ) in TypeDeclaration
      */
 
     public String getTypeCodeExpression( Set knownTypes )
@@ -255,15 +256,20 @@ class ValueBoxDecl
 
         String type = typeName();
 
-        TypeSpec.printHelperClassMethods( className, ps, type );
+        TypeSpec.printHelperClassMethods(  ps, type );
 
         printIdMethod( ps ); // inherited from IdlSymbol
 
         /* read */
-        ps.println( "\tpublic static " + type + " read (final org.omg.CORBA.portable.InputStream in)" );
+        ps.println( "\tpublic static " + type + 
+                    " read (final org.omg.CORBA.portable.InputStream in)" );
         ps.println( "\t{" );
+
         if( typeSpec.typeSpec() instanceof BaseType )
-            ps.println( "\t\t" + type + " result = new " + type + "(" + typeSpec.typeSpec().printReadExpression( "in" ) + ");" );
+        {
+            ps.println( "\t\t" + type + " result = new " + type + 
+                        "(" + typeSpec.typeSpec().printReadExpression( "in" ) + ");" );
+        }
         else
         {
             ps.println( "\t\t" + type + " result;");
@@ -277,7 +283,9 @@ class ValueBoxDecl
         ps.println( "\tpublic static void write (final org.omg.CORBA.portable.OutputStream out, final " + type + " s)" );
         ps.println( "\t{" );
         if( typeSpec.typeSpec() instanceof BaseType )
+        {
             ps.println( "\t\t" + typeSpec.typeSpec().printWriteStatement( "s.value", "out" ) );
+        }
         else
             ps.println( "\t\t" + typeSpec.typeSpec().printWriteStatement( "s", "out" ) );
         ps.println( "\t}" );

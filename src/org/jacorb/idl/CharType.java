@@ -22,14 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: CharType.java,v 1.9 2002-04-17 08:49:03 gerald Exp $
+ * @version $Id: CharType.java,v 1.10 2002-06-03 20:12:18 gerald Exp $
  */
 
 class CharType
-        extends BaseType
-        implements SwitchTypeSpec
+    extends BaseType
+    implements SwitchTypeSpec
 {
-
     private boolean wide = false;
 
     public CharType( int num )

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.13 2002-05-30 10:54:58 nick.cross Exp $
+ * @version $Id: TypeDeclaration.java,v 1.14 2002-06-03 20:12:19 gerald Exp $
  */
 
 import java.io.PrintWriter;
@@ -82,6 +82,7 @@ class TypeDeclaration
      * this type.  If `knownTypes' contains this type,
      * then a recursive type code is returned.
      */
+
     public String getTypeCodeExpression( Set knownTypes )
     {
         if( type_decl instanceof Value )

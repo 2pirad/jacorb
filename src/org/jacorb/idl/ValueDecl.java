@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.22 2002-05-30 10:54:58 nick.cross Exp $
+ * @version $Id: ValueDecl.java,v 1.23 2002-06-03 20:12:20 gerald Exp $
  */
 
 class ValueDecl
@@ -407,7 +407,8 @@ class ValueDecl
      * Prints the abstract Java class to which this valuetype is mapped.
      */
 
-    private void printClass( File dir ) throws IOException
+    private void printClass( File dir ) 
+        throws IOException
     {
         File outfile = new File( dir, name + ".java" );
         PrintWriter out = new PrintWriter( new FileWriter( outfile ) );
