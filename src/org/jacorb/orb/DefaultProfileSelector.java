@@ -27,14 +27,17 @@ import org.jacorb.orb.connection.ClientConnectionManager;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: DefaultProfileSelector.java,v 1.1 2003-06-23 19:04:17 andre.spiegel Exp $
+ * @version $Id: DefaultProfileSelector.java,v 1.2 2003-08-11 09:34:06 andre.spiegel Exp $
  */
 public class DefaultProfileSelector implements ProfileSelector
 {
 
     public Profile selectProfile (List profiles, ClientConnectionManager ccm) 
     {
-        return (Profile)profiles.get(0);
+        if (profiles.size() > 0)
+            return (Profile)profiles.get(0);
+        else
+            return null;
     }
 
 }
