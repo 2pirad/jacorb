@@ -45,7 +45,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.16 2003-12-18 11:15:20 nick.cross Exp $
+ * @version $Id: ServerRequestListener.java,v 1.17 2003-12-30 14:36:04 andre.spiegel Exp $
  */
 
 public class ServerRequestListener
@@ -209,12 +209,12 @@ public class ServerRequestListener
     {
         POA tmp_poa = rootPOA;
         String res;
-        Vector scopes;
+        List scopes;
 
         try
         {
             // Get cached scopes from ServerRequest
-            scopes = request.getScopes ();
+            scopes = request.getScopes();
 
             for( int i = 0; i < scopes.size(); i++)
             {
