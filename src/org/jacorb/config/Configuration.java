@@ -55,7 +55,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.9 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: Configuration.java,v 1.10 2004-09-23 08:14:36 simon.mcqueen Exp $
  */
 
 public class Configuration
@@ -586,7 +586,7 @@ public class Configuration
         
         if (s != null && s.length() > 0)
         {
-            s = s.toLowerCase();
+            s = s.trim().toLowerCase();
             return ON.equals(s) || TRUE.equals(s);
         }
         else
@@ -601,7 +601,7 @@ public class Configuration
         
         if (s.length() > 0)
         {
-            s = s.toLowerCase();
+            s = s.trim().toLowerCase();
             return ON.equals(s) || TRUE.equals(s);
         }
         else
