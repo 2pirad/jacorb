@@ -49,7 +49,7 @@ import org.omg.CORBA.BAD_QOS;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.82 2004-03-03 15:27:45 gerald Exp $
+ * @version $Id: Environment.java,v 1.83 2004-03-05 10:46:33 gerald Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -415,8 +415,8 @@ public class Environment
             try
             {
                 loggerFactory.setDefaultLogFile(logFileName,_max_log_size);
-                logger = loggerFactory.getNamedRootLogger("jacorb");
-                //logger = loggerFactory.getNamedLogger("jacorb",logFileName,_max_log_size);
+                //logger = loggerFactory.getNamedRootLogger("jacorb");
+                logger = loggerFactory.getNamedLogger("jacorb",logFileName,_max_log_size);
             }
             catch (IOException e)
             {
