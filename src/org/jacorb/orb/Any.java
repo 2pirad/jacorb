@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.1 2001-03-17 18:08:31 brose Exp $ 
+ * $Id: Any.java,v 1.2 2001-03-17 18:44:19 brose Exp $ 
  * 
  */
 
@@ -89,7 +89,7 @@ public final class Any
         if( !typeCode.equal(a.type()))
             return false;
         else
-            return ((jacorb.orb.Any)a).value().equals(value()); // compare values
+            return ((org.jacorb.orb.Any)a).value().equals(value()); // compare values
     }
 
     public boolean equals( java.lang.Object obj )

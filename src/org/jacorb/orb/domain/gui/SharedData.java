@@ -10,7 +10,7 @@ import org.jacorb.orb.domain.*;
  * - a simple frame reference count mechanism
  * - a property policy called "policy editors"
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public interface SharedData
@@ -96,7 +96,7 @@ public interface SharedData
    *  in the buffer.
    *  @param aDomain the domain to copy into the domain buffer
    */
-  public void setDomainBuffer(jacorb.orb.domain.Domain aDomain);
+  public void setDomainBuffer(org.jacorb.orb.domain.Domain aDomain);
 
   /** convinience operation to check if the domain buffer is empty.
    *  @return true iff the result of getDomainBuffer is not null */

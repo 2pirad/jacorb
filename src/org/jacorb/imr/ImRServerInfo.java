@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  *
  * @author Nicolas Noffke
  *
- * @version $Id: ImRServerInfo.java,v 1.1 2001-03-17 18:08:23 brose Exp $
+ * @version $Id: ImRServerInfo.java,v 1.2 2001-03-17 18:43:55 brose Exp $
  *
  */
 

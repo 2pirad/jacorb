@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  *	The name server application
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: NameServer.java,v 1.1 2001-03-17 18:08:30 brose Exp $
+ *	@version $Id: NameServer.java,v 1.2 2001-03-17 18:44:12 brose Exp $
  */
 
 
@@ -189,7 +189,7 @@ public class NameServer
 
 	    orb = org.omg.CORBA.ORB.init(args, props);
 
-	    if (jacorb.util.Environment.useImR() && (args.length == 3) &&
+	    if (org.jacorb.util.Environment.useImR() && (args.length == 3) &&
 		args[2].equals("imr_register"))
             {
 	      
@@ -209,7 +209,7 @@ public class NameServer
 	    /* set a connection time out :
 	       after 30 secs. idle time, the adapter will close connections 
 	    */
-	    ((jacorb.orb.ORB)orb).getBasicAdapter().setTimeout(30000);
+	    ((org.jacorb.orb.ORB)orb).getBasicAdapter().setTimeout(30000);
 
 	    /* create a user defined poa for the naming contexts */
 

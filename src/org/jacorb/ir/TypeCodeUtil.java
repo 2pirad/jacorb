@@ -25,7 +25,7 @@ import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.1 2001-03-17 18:08:26 brose Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.2 2001-03-17 18:44:06 brose Exp $    
  */
  
 public class TypeCodeUtil

@@ -40,7 +40,7 @@ import java.util.Enumeration;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.1 2001-03-17 18:08:43 brose Exp $
+ * @version $Id: AOM.java,v 1.2 2001-03-17 18:45:06 brose Exp $
  */
 
 public class AOM 

@@ -13,7 +13,7 @@ import org.jacorb.util.Debug;
  * See PI SPec p.10-77ff
  *
  * @author Nicolas Noffke
- * @version $Id: Codec_CDR_1_0_Impl.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: Codec_CDR_1_0_Impl.java,v 1.2 2001-03-17 18:45:01 brose Exp $
  */
 
 public class Codec_CDR_1_0_Impl 

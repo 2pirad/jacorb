@@ -4,7 +4,7 @@ package org.jacorb.orb.domain;
  * Created: Tue Apr 11 14:34:46 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public class DomainQueueImpl implements DomainQueue {

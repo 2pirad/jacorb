@@ -7,7 +7,7 @@ import java.util.Hashtable;
  * Created: Mon Apr 10 11:33:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public class ParentRulesPolicy extends ManagementPolicyImpl

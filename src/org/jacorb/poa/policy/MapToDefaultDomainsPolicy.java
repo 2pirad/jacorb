@@ -15,7 +15,7 @@ import org.jacorb.util.Debug;
  * Created: Thu Apr 20 12:06:43 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public class MapToDefaultDomainsPolicy
@@ -128,7 +128,7 @@ public class MapToDefaultDomainsPolicy
                 mayBeResult[i] = 
                     nameResolver.resolveDomainPathName( pathnames[i] );
             }
-            catch (jacorb.orb.domain.InvalidName inv)
+            catch (org.jacorb.orb.domain.InvalidName inv)
             {
                 failures++;
                 Debug.output(Debug.DOMAIN | Debug.INFORMATION, 

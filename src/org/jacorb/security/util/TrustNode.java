@@ -24,7 +24,7 @@ package org.jacorb.security.util;
  * This class represents key store entries
  *
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: TrustNode.java,v 1.1 2001-03-17 18:08:52 brose Exp $
+ *	@version $Id: TrustNode.java,v 1.2 2001-03-17 18:45:21 brose Exp $
  */
 
 import java.security.*;

@@ -8,7 +8,7 @@ import org.omg.IOP_N.*;
  * with the ORB.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientInitializer.java,v 1.1 2001-03-17 18:09:03 brose Exp $
+ * @version $Id: ClientInitializer.java,v 1.2 2001-03-17 18:45:26 brose Exp $
  */
 
 public class ClientInitializer 
@@ -25,7 +25,7 @@ public class ClientInitializer
    */
   public void post_init(ORBInitInfo info) {
     try{
-      ORB orb = ((jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB();
+      ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB();
       int slot_id = info.allocate_slot_id();
     
       Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, 

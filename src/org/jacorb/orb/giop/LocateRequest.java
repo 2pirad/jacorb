@@ -22,7 +22,7 @@ package org.jacorb.orb.connection;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequest.java,v 1.1 2001-03-17 18:08:33 brose Exp $
+ * @version $Id: LocateRequest.java,v 1.2 2001-03-17 18:44:30 brose Exp $
  */
 
 import java.io.*;

@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Definitions.java,v 1.1 2001-03-17 18:08:19 brose Exp $
+ * @version $Id: Definitions.java,v 1.2 2001-03-17 18:43:35 brose Exp $
  */
 
 class Definitions 

@@ -23,7 +23,7 @@ package org.jacorb.naming.namemanager;
 /**
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: ContextNode.java,v 1.1 2001-03-17 18:08:30 brose Exp $
+ *	@version $Id: ContextNode.java,v 1.2 2001-03-17 18:44:15 brose Exp $
  */
 
 import org.omg.CosNaming.*;
@@ -220,7 +220,7 @@ public class ContextNode
 		jacorb.orb.ParsedIOR pior = null;
 		try
 		{
-		    pior = ((jacorb.orb.Delegate)((org.omg.CORBA.portable.ObjectImpl)context.resolve(
+		    pior = ((org.jacorb.orb.Delegate)((org.omg.CORBA.portable.ObjectImpl)context.resolve(
 		      		       			       ncs ))._get_delegate()).getParsedIOR();
 		}
 		catch( org.omg.CosNaming.NamingContextPackage.NotFound nf )

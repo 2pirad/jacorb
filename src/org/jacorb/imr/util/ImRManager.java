@@ -6,7 +6,7 @@ package org.jacorb.imr.util;
  * 
  * @author Nicolas Noffke
  * 
- * $Id: ImRManager.java,v 1.1 2001-03-17 18:08:24 brose Exp $
+ * $Id: ImRManager.java,v 1.2 2001-03-17 18:44:00 brose Exp $
  */
 
 import org.jacorb.imr.*;
@@ -608,7 +608,7 @@ public class ImRManager
             usage();
         }
 
-        m_orb = (jacorb.orb.ORB) org.omg.CORBA.ORB.init(args, null);
+        m_orb = (org.jacorb.orb.ORB) org.omg.CORBA.ORB.init(args, null);
 
         try
         {

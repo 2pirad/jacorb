@@ -3,7 +3,7 @@ package org.jacorb.security.jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.1 2001-03-17 18:08:49 brose Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.2 2001-03-17 18:45:11 brose Exp $
  */
 import org.jacorb.util.*;
 import org.jacorb.security.util.*;
@@ -21,7 +21,7 @@ public class SSLServerSocketFactory
 {
     private javax.net.ssl.SSLServerSocketFactory factory = null;
 
-    public SSLServerSocketFactory(jacorb.orb.ORB orb)
+    public SSLServerSocketFactory(org.jacorb.orb.ORB orb)
     {
         try
         {

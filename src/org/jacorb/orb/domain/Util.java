@@ -11,7 +11,7 @@ import org.jacorb.orb.ParsedIOR;
  * Created: Thu Jan 13 14:16:16 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public class Util  

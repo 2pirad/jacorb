@@ -22,7 +22,7 @@ import org.jacorb.util.Debug;
  * "setPolicyType".
  * This class is implemented with a java.util.Property
  * @author Herbert Kiefer
- * @version $Id: PropertyPolicyImpl.java,v 1.1 2001-03-17 18:08:35 brose Exp $ */
+ * @version $Id: PropertyPolicyImpl.java,v 1.2 2001-03-17 18:44:49 brose Exp $ */
 
 public class PropertyPolicyImpl 
     extends ManagementPolicyImpl
@@ -424,13 +424,13 @@ public class PropertyPolicyImpl
 		{
                     PropPol.put(nameOfProperty, valueOfProperty);
 		}
-                catch (jacorb.orb.domain.PropertyAlreadyDefined already)
+                catch (org.jacorb.orb.domain.PropertyAlreadyDefined already)
 		{ 
                     // overwrite value
                     PropPol.removeProperty(nameOfProperty);
 		   
                     try { PropPol.put(nameOfProperty, valueOfProperty);}
-                    catch (jacorb.orb.domain.PropertyAlreadyDefined never) {
+                    catch (org.jacorb.orb.domain.PropertyAlreadyDefined never) {
                         Debug.output(Debug.DOMAIN | 1, 
                                      "Environment.updatePropertyPolicies:"
                                      +" impossible ERROR occured !!!");

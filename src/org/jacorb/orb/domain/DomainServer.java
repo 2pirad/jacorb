@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  * "ParentRules" conflict resolution policy.
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @see org.jacorb.orb.domain.ParentRulesPolicy
  */
 
@@ -115,7 +115,7 @@ public class DomainServer
             { 
                 domain.insertChild(orb_domain); 
             }
-            catch(jacorb.orb.domain.GraphNodePackage.ClosesCycle cc) 
+            catch(org.jacorb.orb.domain.GraphNodePackage.ClosesCycle cc) 
             {} // never happens
 
         } 

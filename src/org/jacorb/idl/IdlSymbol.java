@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.1 2001-03-17 18:08:19 brose Exp $
+ * @version $Id: IdlSymbol.java,v 1.2 2001-03-17 18:43:38 brose Exp $
  */
 
 class IdlSymbol 

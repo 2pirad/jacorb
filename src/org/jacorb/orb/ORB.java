@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2000  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -40,7 +40,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.2 2001-03-17 18:26:03 jacorb Exp $
+ * @version $Id: ORB.java,v 1.3 2001-03-17 18:44:23 brose Exp $
  */
 
 public final class ORB

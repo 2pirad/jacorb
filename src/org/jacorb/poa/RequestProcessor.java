@@ -45,7 +45,7 @@ import org.omg.PortableInterceptor.*;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.1 2001-03-17 18:08:44 brose Exp $
+ * @version $Id: RequestProcessor.java,v 1.2 2001-03-17 18:45:07 brose Exp $
  */
 public class RequestProcessor 
     extends Thread 
@@ -197,7 +197,7 @@ public class RequestProcessor
                 controller.getLogTrace().printLog(3, request, "invoke operation on servant (stream based)");
                 if( specialOperations.containsKey(request.operation()))
                 {
-                    ((jacorb.orb.ServantDelegate)servant._get_delegate())._invoke(servant, 
+                    ((org.jacorb.orb.ServantDelegate)servant._get_delegate())._invoke(servant, 
                                                                                   request.operation(), 
                                                                                   request.getInputStream(), 
                                                                                   request);
@@ -215,7 +215,7 @@ public class RequestProcessor
                 if( specialOperations.containsKey(request.operation()) && 
                     !(servant instanceof org.jacorb.orb.Forwarder) )
                 {
-                    ((jacorb.orb.ServantDelegate)servant._get_delegate())._invoke(
+                    ((org.jacorb.orb.ServantDelegate)servant._get_delegate())._invoke(
                                                              servant, 
                                                              request.operation(), 
                                                              request.getInputStream(),

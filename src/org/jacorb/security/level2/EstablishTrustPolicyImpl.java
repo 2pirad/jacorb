@@ -9,7 +9,7 @@ import org.omg.CORBA.*;
  *
  * Created: Tue Jun 13 16:59:40 2000
  *
- * $Id: EstablishTrustPolicyImpl.java,v 1.1 2001-03-17 18:08:50 brose Exp $
+ * $Id: EstablishTrustPolicyImpl.java,v 1.2 2001-03-17 18:45:14 brose Exp $
  */
 
 public class EstablishTrustPolicyImpl 

@@ -30,10 +30,10 @@ import java.util.Vector;
  * CORBA DynArray
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynArray.java,v 1.1 2001-03-17 18:08:40 brose Exp $
+ * $Id: DynArray.java,v 1.2 2001-03-17 18:44:57 brose Exp $
  * $Log: DynArray.java,v $
- * Revision 1.1  2001-03-17 18:08:40  brose
- * Initial revision
+ * Revision 1.2  2001-03-17 18:44:57  brose
+ * *** empty log message ***
  *
  * Revision 1.5  2000/03/30 13:55:49  noffke
  * added portable intercetor support
@@ -65,13 +65,13 @@ public final class DynArray
     private org.omg.CORBA.TypeCode elementType;
     private org.omg.CORBA.Any[] members;
 
-    DynArray(jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,jacorb.orb.Any any)
+    DynArray(org.jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,jacorb.orb.Any any)
 	throws org.omg.DynamicAny.DynAnyPackage.TypeMismatch, InvalidValue
     {
 	super(orb,dynFactory,any);
     }
 
-    DynArray(jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,org.omg.CORBA.TypeCode tc)
+    DynArray(org.jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,org.omg.CORBA.TypeCode tc)
 	throws InvalidValue, TypeMismatch
     {
 	if( tc.kind() != org.omg.CORBA.TCKind.tk_array )
@@ -136,7 +136,7 @@ public final class DynArray
 
     public org.omg.CORBA.Any to_any() 
     {
-	jacorb.orb.Any out_any = (jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
+	jacorb.orb.Any out_any = (org.jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
 	out_any.type( type());
 
 	CDROutputStream os = new CDROutputStream();

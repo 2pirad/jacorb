@@ -13,8 +13,8 @@ import java.lang.*;
  *
  * @author Nicolas Noffke
  * $Log: QueryContainer.java,v $
- * Revision 1.1  2001-03-17 18:09:02  brose
- * Initial revision
+ * Revision 1.2  2001-03-17 18:45:24  brose
+ * *** empty log message ***
  *
  * Revision 1.4  1999/11/25 16:08:19  brose
  * cosmetics

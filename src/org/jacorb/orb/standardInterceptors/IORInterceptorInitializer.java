@@ -8,7 +8,7 @@ import org.jacorb.orb.*;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.2 2001-03-17 18:45:04 brose Exp $
  */
 
 public class IORInterceptorInitializer 
@@ -32,7 +32,7 @@ public class IORInterceptorInitializer
     {
         try
         {
-            ORB orb = ((jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB();
+            ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB();
             if( org.jacorb.util.Environment.supportSSL() )
             {
                 info.add_ior_interceptor(new SSLComponentInterceptor(orb));

@@ -24,7 +24,7 @@ package org.jacorb.orb.connection;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ConnectionManager.java,v 1.1 2001-03-17 18:08:32 brose Exp $
+ * @version $Id: ConnectionManager.java,v 1.2 2001-03-17 18:44:29 brose Exp $
  *
  */
 
@@ -58,7 +58,7 @@ public class ConnectionManager
     private  Vector                     proxyEntries=new Vector();
 
     
-    public ConnectionManager(jacorb.orb.ORB orb)
+    public ConnectionManager(org.jacorb.orb.ORB orb)
     {
         this.orb = orb;
 
@@ -499,7 +499,7 @@ public class ConnectionManager
 
                 try
                 {
-                    proxyURL = new java.net.URL(jacorb.util.Environment.proxyURL());
+                    proxyURL = new java.net.URL(org.jacorb.util.Environment.proxyURL());
                     Debug.output(2,"ORB:Trying address (Environment):"+proxyURL.toString());
                     readProxyIOR(proxyURL);
                     return;

@@ -6,7 +6,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerStartupDaemonImpl.java,v 1.1 2001-03-17 18:08:24 brose Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.2 2001-03-17 18:43:57 brose Exp $
  *
  */
 
@@ -117,7 +117,7 @@ public class ServerStartupDaemonImpl
     {
 	try
 	{
-	    orb = (jacorb.orb.ORB) ORB.init( args, null );	
+	    orb = (org.jacorb.orb.ORB) ORB.init( args, null );	
 	    POA poa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
 
 	    poa.the_POAManager().activate();

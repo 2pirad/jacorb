@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  * 
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.1 2001-03-17 18:08:21 brose Exp $
+ * @version $Id: ScopedName.java,v 1.2 2001-03-17 18:43:45 brose Exp $
  *
  */
 

@@ -9,7 +9,7 @@ import org.jacorb.util.Environment;
  * Created: Mon Aug  7 14:48:50 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public class PolicyCache  

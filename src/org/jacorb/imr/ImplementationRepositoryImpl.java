@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.1 2001-03-17 18:08:23 brose Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.2 2001-03-17 18:43:56 brose Exp $
  */
 
 public class ImplementationRepositoryImpl 
@@ -634,7 +634,7 @@ public class ImplementationRepositoryImpl
 	    System.out.println("Please check " + _backup_file.getAbsolutePath());
 	}
 
-	orb = (jacorb.orb.ORB) org.jacorb.orb.ORB.init(args,null);
+	orb = (org.jacorb.orb.ORB) org.jacorb.orb.ORB.init(args,null);
 
 	//Write IOR to file
 	try{	  

@@ -29,7 +29,7 @@ import  org.omg.CosNaming.NamingContextPackage.*;
  * between Names and their string representation
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Name.java,v 1.1 2001-03-17 18:08:29 brose Exp $ 
+ * @version $Id: Name.java,v 1.2 2001-03-17 18:44:12 brose Exp $ 
  */
 
 public class Name

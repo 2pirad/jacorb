@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *	The actual implementation for the CORBAService Naming
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: NamingContextImpl.java,v 1.1 2001-03-17 18:08:30 brose Exp $
+ *	@version $Id: NamingContextImpl.java,v 1.2 2001-03-17 18:44:12 brose Exp $
  *
  */
 

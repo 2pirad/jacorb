@@ -35,7 +35,7 @@ import java.net.*;
  * references only.
  *
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: EventChannelImpl.java,v 1.1 2001-03-17 18:08:17 brose Exp $
+ * @version $Id: EventChannelImpl.java,v 1.2 2001-03-17 18:43:24 brose Exp $
  */
 
 public class EventChannelImpl 

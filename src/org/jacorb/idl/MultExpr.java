@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.1 2001-03-17 18:08:20 brose Exp $
+ * @version $Id: MultExpr.java,v 1.2 2001-03-17 18:43:41 brose Exp $
  */
 
 class MultExpr 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.1 2001-03-17 18:08:21 brose Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.2 2001-03-17 18:43:46 brose Exp $
  */
 
 import java.util.Vector;

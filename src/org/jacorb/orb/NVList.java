@@ -22,7 +22,7 @@ package org.jacorb.orb;
 
 /**
  * @author Gerald Brose, FU Berlin 
- * @version $Id: NVList.java,v 1.1 2001-03-17 18:08:31 brose Exp $	
+ * @version $Id: NVList.java,v 1.2 2001-03-17 18:44:22 brose Exp $	
  */
 
 import java.util.Vector;

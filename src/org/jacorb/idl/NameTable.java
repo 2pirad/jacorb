@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.1 2001-03-17 18:08:20 brose Exp $
+ * @version $Id: NameTable.java,v 1.2 2001-03-17 18:43:41 brose Exp $
  *
  */
 

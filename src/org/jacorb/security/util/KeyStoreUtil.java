@@ -43,7 +43,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing a key store.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KeyStoreUtil.java,v 1.1 2001-03-17 18:08:51 brose Exp $
+ * @version $Id: KeyStoreUtil.java,v 1.2 2001-03-17 18:45:20 brose Exp $
  */
 
 public class KeyStoreUtil

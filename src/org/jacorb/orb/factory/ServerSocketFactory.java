@@ -30,7 +30,7 @@ package org.jacorb.orb.factory;
  * the code which asks for the sockets.
  * 
  * @author André Benvenuti
- * $Id: ServerSocketFactory.java,v 1.1 2001-03-17 18:08:41 brose Exp $
+ * $Id: ServerSocketFactory.java,v 1.2 2001-03-17 18:44:59 brose Exp $
  */
 
 import java.net.*;

@@ -13,7 +13,7 @@ import java.util.*;
  * See PI Spec p. 5-41ff
  *
  * @author Nicolas Noffke
- * @version $Id: RequestInfoImpl.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: RequestInfoImpl.java,v 1.2 2001-03-17 18:45:02 brose Exp $
  */
 
 public abstract class RequestInfoImpl 

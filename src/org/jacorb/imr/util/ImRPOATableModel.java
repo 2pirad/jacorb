@@ -11,8 +11,8 @@ import javax.swing.event.*;
  * @author Nicolas Noffke
  * 
  * $Log: ImRPOATableModel.java,v $
- * Revision 1.1  2001-03-17 18:08:24  brose
- * Initial revision
+ * Revision 1.2  2001-03-17 18:44:01  brose
+ * *** empty log message ***
  *
  * Revision 1.4  1999/11/25 16:05:48  brose
  * cosmetics

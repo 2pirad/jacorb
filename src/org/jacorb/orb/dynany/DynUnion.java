@@ -30,7 +30,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.1 2001-03-17 18:08:41 brose Exp $
+ * $Id: DynUnion.java,v 1.2 2001-03-17 18:44:58 brose Exp $
  *
  */
 
@@ -162,7 +162,7 @@ public final class DynUnion
                         (CDRInputStream) member.to_any().create_input_stream());
 
 	jacorb.orb.Any out_any = 
-            (jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
+            (org.jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
 
 	out_any.type( type() );
 	out_any.read_value( new CDRInputStream( orb, os.getBufferCopy()), type());
@@ -314,7 +314,7 @@ public final class DynUnion
 		throw new TypeMismatch();
 
 	    int members = type().member_count();
-	    Any dis_any = (jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
+	    Any dis_any = (org.jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
 	    /* find a discriminator value that is not an explicit case label */
 	    switch( type().kind().value() )
 	    {

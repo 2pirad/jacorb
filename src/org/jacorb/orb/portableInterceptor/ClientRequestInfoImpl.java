@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.1 2001-03-17 18:08:41 brose Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.2 2001-03-17 18:45:00 brose Exp $
  */
 
 public class ClientRequestInfoImpl extends RequestInfoImpl 
@@ -35,7 +35,7 @@ public class ClientRequestInfoImpl extends RequestInfoImpl
     super();
   }
 
-  public void setRequest(jacorb.orb.dii.Request request){
+  public void setRequest(org.jacorb.orb.dii.Request request){
     
     arguments = new org.omg.Dynamic.Parameter[request.arguments.count()];
     for (int i = 0; i < arguments.length; i++){

@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.*;
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.1 2001-03-17 18:08:33 brose Exp $
+ * @version $Id: ClientConnection.java,v 1.2 2001-03-17 18:44:35 brose Exp $
  */
 
 public final class ClientConnection 

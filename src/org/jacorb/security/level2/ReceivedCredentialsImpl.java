@@ -27,7 +27,7 @@ import org.omg.SecurityLevel2.*;
  *  JacORB implementation of security Credentials
  *
  * @author Gerald Brose
- * @version  $Id: ReceivedCredentialsImpl.java,v 1.1 2001-03-17 18:08:50 brose Exp $
+ * @version  $Id: ReceivedCredentialsImpl.java,v 1.2 2001-03-17 18:45:15 brose Exp $
  *
  */
 

@@ -28,7 +28,7 @@ import org.omg.DynamicAny.DynAnyPackage.*;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.1 2001-03-17 18:08:40 brose Exp $
+ * $Id: DynAny.java,v 1.2 2001-03-17 18:44:57 brose Exp $
  *
  */
 
@@ -48,7 +48,7 @@ public class DynAny
     protected DynAny()
     {}
 
-    DynAny(jacorb.orb.ORB orb, 
+    DynAny(org.jacorb.orb.ORB orb, 
 	   org.omg.DynamicAny.DynAnyFactory dynFactory, 
 	   org.jacorb.orb.Any _any)
 	throws TypeMismatch, InvalidValue
@@ -106,7 +106,7 @@ public class DynAny
 
 	try
 	{
-	    any = (jacorb.orb.Any)orb.create_any();
+	    any = (org.jacorb.orb.Any)orb.create_any();
 	    any.read_value( value.create_input_stream(), type());
 	}
 	catch( Exception e)
@@ -118,7 +118,7 @@ public class DynAny
     
     public org.omg.CORBA.Any to_any() 
     {
-	jacorb.orb.Any out_any = (jacorb.orb.Any)orb.create_any();
+	jacorb.orb.Any out_any = (org.jacorb.orb.Any)orb.create_any();
 	out_any.type( type());
 	out_any.read_value( any.create_input_stream(), type());
 	return out_any;
@@ -659,7 +659,7 @@ public class DynAny
 	    _any.insert_TypeCode( orb.get_primitive_tc( TCKind.tk_null ) );
 	    break;
 	case TCKind._tk_any:
-	    org.jacorb.orb.Any a = (jacorb.orb.Any)orb.create_any();
+	    org.jacorb.orb.Any a = (org.jacorb.orb.Any)orb.create_any();
 	    a.type( orb.get_primitive_tc( TCKind.tk_null ));
 	    _any.insert_any(a);
 	    break;

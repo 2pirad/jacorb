@@ -20,7 +20,7 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: AnyType.java,v 1.1 2001-03-17 18:08:18 brose Exp $
+ * @version $Id: AnyType.java,v 1.2 2001-03-17 18:43:31 brose Exp $
  */
 
 package org.jacorb.idl;

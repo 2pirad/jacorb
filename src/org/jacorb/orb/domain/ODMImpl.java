@@ -27,7 +27,7 @@ import java.util.Enumeration;
  * Created: Tue Aug  8 16:35:48 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $ */
+ * @version $Revision: 1.2 $ */
 
 public class ODMImpl 
     implements  ObjectDomainMapperOperations

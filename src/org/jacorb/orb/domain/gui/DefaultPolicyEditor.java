@@ -9,7 +9,7 @@ package org.jacorb.orb.domain.gui;
  * Created: Tue Jul  4 20:54:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $ 
+ * @version $Revision: 1.2 $ 
  */
 
 public class DefaultPolicyEditor 

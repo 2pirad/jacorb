@@ -23,7 +23,7 @@ package org.jacorb.orb.connection;
 /**
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnection.java,v 1.1 2001-03-17 18:08:32 brose Exp $
+ * @version $Id: ClientConnection.java,v 1.2 2001-03-17 18:44:29 brose Exp $
  *
  */
 
@@ -574,7 +574,7 @@ public class ClientConnection
 		    objects.put( key, o );
 		}
 
-		if (jacorb.util.Environment.verbosityLevel() > 4)
+		if (org.jacorb.util.Environment.verbosityLevel() > 4)
 		{
 		    //This is a costly op, since it involves buffer copying!
 		    Debug.output(5,"send request", os.getBufferCopy());

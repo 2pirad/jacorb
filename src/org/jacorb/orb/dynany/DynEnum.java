@@ -27,10 +27,10 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynEnum.java,v 1.1 2001-03-17 18:08:40 brose Exp $
+ * $Id: DynEnum.java,v 1.2 2001-03-17 18:44:58 brose Exp $
  * $Log: DynEnum.java,v $
- * Revision 1.1  2001-03-17 18:08:40  brose
- * Initial revision
+ * Revision 1.2  2001-03-17 18:44:58  brose
+ * *** empty log message ***
  *
  * Revision 1.5  2000/03/30 13:55:49  noffke
  * added portable intercetor support
@@ -64,13 +64,13 @@ public final class DynEnum
     private int max;
     private String [] member_names;
 
-    DynEnum(jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,jacorb.orb.Any any)
+    DynEnum(org.jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,jacorb.orb.Any any)
 	throws InvalidValue, TypeMismatch
     {
 	super(orb,dynFactory,any);
     }
 
-    DynEnum(jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,org.omg.CORBA.TypeCode tc)
+    DynEnum(org.jacorb.orb.ORB orb,org.omg.DynamicAny.DynAnyFactory dynFactory,org.omg.CORBA.TypeCode tc)
 	throws InvalidValue, TypeMismatch
     {
 	if( tc.kind().value() != org.omg.CORBA.TCKind._tk_enum )
@@ -135,7 +135,7 @@ public final class DynEnum
 	CDROutputStream os = new CDROutputStream();
 	os.write_long( enum_value );
 
-	jacorb.orb.Any out_any = (jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
+	jacorb.orb.Any out_any = (org.jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
 	out_any.type(type());	
 	out_any.read_value( new CDRInputStream(orb, os.getBufferCopy()), type());
 	return out_any;

@@ -22,7 +22,7 @@ package org.jacorb.events;
 
 /**
  * @authors Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose 1997
- * @version $Id: ProxyPullSupplierImpl.java,v 1.1 2001-03-17 18:08:17 brose Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.2 2001-03-17 18:43:25 brose Exp $
  */
 
 import org.omg.CosEventComm.*;

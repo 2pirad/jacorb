@@ -2,7 +2,7 @@ package org.jacorb.orb.domain;
 /**
  * Raised by operations front and dequeue  if a DomainQueue is empty.
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public class EmptyQueueException extends java.lang.RuntimeException {

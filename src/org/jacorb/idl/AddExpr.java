@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.1 2001-03-17 18:08:17 brose Exp $ 
+ * @version $Id: AddExpr.java,v 1.2 2001-03-17 18:43:30 brose Exp $ 
  */
 
 class AddExpr 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatType.java,v 1.1 2001-03-17 18:08:19 brose Exp $
+ * @version $Id: FloatType.java,v 1.2 2001-03-17 18:43:37 brose Exp $
  */
 
 

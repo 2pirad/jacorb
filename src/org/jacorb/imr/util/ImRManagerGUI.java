@@ -19,8 +19,8 @@ import org.jacorb.imr.*;
  * @author Nicolas Noffke
  * 
  * $Log: ImRManagerGUI.java,v $
- * Revision 1.1  2001-03-17 18:08:24  brose
- * Initial revision
+ * Revision 1.2  2001-03-17 18:44:00  brose
+ * *** empty log message ***
  *
  * Revision 1.7  1999/11/25 16:05:47  brose
  * cosmetics

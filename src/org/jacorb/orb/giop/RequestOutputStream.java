@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.1 2001-03-17 18:08:33 brose Exp $
+ * @version $Id: RequestOutputStream.java,v 1.2 2001-03-17 18:44:32 brose Exp $
  *
  */
 
@@ -158,7 +158,7 @@ public class RequestOutputStream
         //jacorb.util.Debug.output(2, "Data size: " + size());
     }
   
-    public void setRequest(jacorb.orb.dii.Request request){
+    public void setRequest(org.jacorb.orb.dii.Request request){
         this.request = request;
     }
 

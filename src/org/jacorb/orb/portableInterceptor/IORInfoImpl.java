@@ -12,7 +12,7 @@ import java.util.Vector;
  * See PI Spec p.7-64f
  *
  * @author Nicolas Noffke
- * @version $Id: IORInfoImpl.java,v 1.1 2001-03-17 18:08:42 brose Exp $
+ * @version $Id: IORInfoImpl.java,v 1.2 2001-03-17 18:45:01 brose Exp $
  */
 
 public class IORInfoImpl extends org.jacorb.orb.LocalityConstrainedObject 

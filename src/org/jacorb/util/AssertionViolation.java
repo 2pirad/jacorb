@@ -6,7 +6,7 @@ package org.jacorb.util;
  * Created: Fri Mar  3 16:58:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 
 public class AssertionViolation 
