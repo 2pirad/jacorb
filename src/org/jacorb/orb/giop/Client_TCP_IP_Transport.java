@@ -37,7 +37,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.25 2003-04-22 10:03:59 andre.spiegel Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.26 2003-04-23 09:43:09 andre.spiegel Exp $
  */
 
 public class Client_TCP_IP_Transport
@@ -99,7 +99,7 @@ public class Client_TCP_IP_Transport
         }
     }
 
-    protected synchronized boolean waitUntilConnected()
+    public synchronized boolean waitUntilConnected()
     {
         while( ! connected &&
                ! closed )

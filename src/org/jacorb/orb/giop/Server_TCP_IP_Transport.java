@@ -33,7 +33,7 @@ import org.jacorb.orb.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.17 2003-04-22 09:57:58 andre.spiegel Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.18 2003-04-23 09:42:12 andre.spiegel Exp $
  */
 
 public class Server_TCP_IP_Transport
@@ -109,7 +109,7 @@ public class Server_TCP_IP_Transport
         throw new org.omg.CORBA.BAD_OPERATION();
     }
 
-    protected boolean waitUntilConnected()
+    public boolean waitUntilConnected()
     {
         //can't reconnect
         return true;
