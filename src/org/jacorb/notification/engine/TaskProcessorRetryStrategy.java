@@ -24,10 +24,13 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.6 2004-08-17 13:49:30 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.7 2004-08-19 09:22:14 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategy extends RetryStrategy
 {
+    /**
+     * retry the failed operation. schedule the pending messages for delivery.
+     */
     private Runnable retryPushOperation_ = new Runnable()
     {
         public void run()
@@ -52,6 +55,9 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
         }
     };
 
+    /**
+     * re-enable disabled MessageConsumer and schedule retry
+     */
     private Runnable enableMessageConsumer_ = new Runnable()
     {
         public void run()
