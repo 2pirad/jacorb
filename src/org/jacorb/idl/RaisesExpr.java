@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.5 2001-12-07 15:54:13 gerald Exp $
+ * @version $Id: RaisesExpr.java,v 1.6 2001-12-13 15:44:59 gerald Exp $
  */
 
 class RaisesExpr 
@@ -125,11 +125,7 @@ class RaisesExpr
 
         for( int i = 0; i < classes.length; i++ )
         {
-            if( classes[i].indexOf('.') < 0 )
-            {
-                myInterface.imports.put( classes[i], "" );
-                myInterface.imports.put( classes[i] + "Helper", "" );
-            }
+            myInterface.addImportedName( classes[i] );
         }
     }
 

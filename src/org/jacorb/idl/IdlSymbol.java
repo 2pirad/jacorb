@@ -28,7 +28,7 @@ import java.io.*;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.10 2001-12-07 15:54:12 gerald Exp $
+ * @version $Id: IdlSymbol.java,v 1.11 2001-12-13 15:44:58 gerald Exp $
  */
 
 class IdlSymbol 
@@ -47,7 +47,7 @@ class IdlSymbol
     private String _version;
     protected IdlSymbol enclosing_symbol;
     protected String omg_package_prefix = "";
-    protected Hashtable imports = new Hashtable();
+    private Hashtable imports = new Hashtable();
 
     String typeName;
 
@@ -243,6 +243,24 @@ class IdlSymbol
 	}
     }
 
+    public void addImportedName( String name )
+    {
+        if( name.indexOf( '.' ) < 0 && !BaseType.isBasicName(name))
+        {
+            imports.put( name, "" );
+            imports.put( name + "Helper", "" );
+        }
+    }
+
+    public void addImportedNameHolder( String name )
+    {
+        if( name.indexOf( '.' ) < 0 && !BaseType.isBasicName(name))
+        {
+            imports.put( name, "" );
+            imports.put( name + "Helper", "" );
+            imports.put( name + "Holder", "" );
+        }
+    }
 
     public void setPrintPhaseNames()
     {

@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.13 2001-12-07 15:54:12 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.14 2001-12-13 15:44:58 gerald Exp $
  */
 
 public class AliasTypeSpec 
@@ -147,19 +147,23 @@ public class AliasTypeSpec
                 else
                     tName = originalType.typeName();
 
-                imports.put( tName, "" );
-                imports.put( tName + "Helper", "" );
+                addImportedName( tName );
+//                  imports.put( tName, "" );
+//                  imports.put( tName + "Helper", "" );
             }        
         }
 
 	if( originalType instanceof ScopedName )
         {
 	    originalType = ((ScopedName)originalType).resolvedTypeSpec();
-            if( originalType.typeName().indexOf( '.' ) < 0 )
-            {
-                imports.put( originalType.typeName(), "" );
-                imports.put( originalType.typeName() + "Helper", "" );
-            }
+
+            addImportedName( originalType.typeName() );
+
+//              if( originalType.typeName().indexOf( '.' ) < 0 )
+//              {
+//                  imports.put( originalType.typeName(), "" );
+//                  imports.put( originalType.typeName() + "Helper", "" );
+//              }
         }
 
 

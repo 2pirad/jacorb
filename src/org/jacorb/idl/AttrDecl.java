@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AttrDecl.java,v 1.5 2001-12-07 15:54:12 gerald Exp $
+ * @version $Id: AttrDecl.java,v 1.6 2001-12-13 15:44:58 gerald Exp $
  */
 
 class AttrDecl 
@@ -63,11 +63,8 @@ class AttrDecl
                 ((ScopedName)param_type_spec.typeSpec()).resolvedTypeSpec();
 	    if( ts != null ) 
 		param_type_spec = ts;
-            if( ts.typeName().indexOf( '.' ) < 0 )
-            {
-                myInterface.imports.put( ts.typeName(), "" );
-                myInterface.imports.put( ts.typeName() + "Helper", "" );
-            }
+
+            myInterface.addImportedName( ts.typeName());
 	}
 
 	declarators.parse();

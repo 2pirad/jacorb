@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.14 2001-12-07 15:54:14 gerald Exp $
+ * @version $Id: UnionType.java,v 1.15 2001-12-13 15:44:59 gerald Exp $
  *
  */
 
@@ -211,12 +211,8 @@ class UnionType
 		{
 		    parser.error("Illegal Switch Type: " + ts.typeName(), token);
 		}
-                if( switch_type_spec.typeName().indexOf( '.' ) < 0 )
-                {
-                    imports.put( switch_type_spec.typeName(), "" );
-                    imports.put(  switch_type_spec.typeName() + "Helper", "" );
-                }
 
+                addImportedName( switch_type_spec.typeName() );
 	    }
 	    switch_type_spec.parse();
 

@@ -1,3 +1,4 @@
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -24,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.11 2001-12-07 15:54:13 gerald Exp $
+ * @version $Id: SequenceType.java,v 1.12 2001-12-13 15:44:59 gerald Exp $
  */
 
 
@@ -354,11 +355,8 @@ public class SequenceType
                 ((ScopedName)type_spec.typeSpec()).resolvedTypeSpec();
 	    if( ts != null ) 
 		type_spec = ts;
-            if( type_spec.typeSpec().typeName().indexOf( '.' ) < 0 )
-            {
-                imports.put( type_spec.typeSpec().typeName(), "" );
-                imports.put( type_spec.typeSpec().typeName() + "Helper", "" );
-            }
+
+            addImportedName( type_spec.typeSpec().typeName());
 	}
 	try
 	{
