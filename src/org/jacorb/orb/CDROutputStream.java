@@ -40,7 +40,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.88 2003-12-19 10:57:32 nick.cross Exp $
+ * @version $Id: CDROutputStream.java,v 1.89 2003-12-30 14:36:38 andre.spiegel Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -127,7 +127,7 @@ public class CDROutputStream
     /** Nesting level of chunked valuetypes */
     private int valueNestingLevel = 0;
 
-    private List deferredArrayQueue = new Vector();
+    private List deferredArrayQueue = new ArrayList();
 
     private org.omg.CORBA.ORB orb = null;
 
