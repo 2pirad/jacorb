@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.16 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: TypeMap.java,v 1.17 2003-09-01 15:32:37 brose Exp $
  */
 
 import java.util.*;
@@ -63,7 +63,9 @@ class TypeMap
             // actually: throw new NameAlreadyDefined();
             // but we get better error messages if we leave
             // this to later stages
-            ;
+            if( parser.getLogger().isDebugEnabled() )
+                parser.getLogger().info( "Typedef'ing " + name +
+                                         " already in type map!" );
         }
         else
         {
@@ -88,6 +90,23 @@ class TypeMap
             }
         }
     }
+
+
+    /**
+     * remove the definition of a type with a give name, used when 
+     * inherited definitions are overwritten, called from NameTable only!
+     */ 
+
+    static void removeDefinition( String name )
+    {
+       if( typemap.containsKey( name ) )
+       {
+           typemap.remove( name );
+       }
+       else
+           throw new RuntimeException( "Could not find definition of : " + name );
+    }
+
 
     public static void replaceForwardDeclaration( String name,
                                                   TypeSpec type )
