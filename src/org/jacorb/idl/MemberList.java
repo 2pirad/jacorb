@@ -20,7 +20,7 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: MemberList.java,v 1.13 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: MemberList.java,v 1.14 2003-09-03 10:12:09 brose Exp $
  *
  */
 
@@ -28,7 +28,7 @@ package org.jacorb.idl;
 
 import java.util.*;
 
-class MemberList
+public class MemberList
     extends SymbolList
 {
     Vector extendVector = new Vector();
@@ -78,7 +78,8 @@ class MemberList
 
         if( enclosing_symbol != null && enclosing_symbol != s )
         {
-            System.err.println( "was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName() );
+            System.err.println( "was " + enclosing_symbol.getClass().getName() + 
+                                " now: " + s.getClass().getName() );
 
             throw new RuntimeException( "Compiler Error: trying to reassign container" );
         }
