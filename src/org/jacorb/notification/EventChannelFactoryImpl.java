@@ -66,6 +66,8 @@ import org.omg.PortableServer.POAHelper;
 import org.omg.PortableServer.POAPackage.ObjectNotActive;
 import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
+import java.io.PrintWriter;
+import java.io.FileWriter;
 
 /**
  * <code>EventChannelFactoryImpl</code> is a implementation of
@@ -86,7 +88,7 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
  * Created: Thu Oct 03 23:54:41 2002
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.12 2003-07-18 18:47:07 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.13 2003-07-19 11:21:37 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements Disposable
@@ -559,7 +561,7 @@ public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements D
     }
 
     private static void help() {
-	System.out.println("Usage: ntfy [-printIOR|-printCorbaloc|-help] [-port <oaPort>] [-channels <channels>]");
+	System.out.println("Usage: ntfy [-printIOR] [-printCorbaloc] [-writeIOR <filename>] [-port <oaPort>] [-channels <channels>] [-help]");
 	
 	System.exit(0);
     }    
@@ -573,6 +575,7 @@ public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements D
     	boolean doHelp = false;
     	boolean doPrintIOR = false;
     	boolean doPrintCorbaloc = false;
+	String iorFileName = null;
     	String oaPort = null;
     	int channels = 0;
     	
@@ -588,6 +591,8 @@ public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements D
 		oaPort = args[++i];
 	    } else if (args[i].equals("-channels")) {
 		channels = Integer.parseInt(args[++i]);
+	    } else if (args[i].equals("-writeIOR")) {
+		iorFileName = args[++i];
 	    } else {
 		System.out.println("Unknown argument: "+args[i]);
 		help();
@@ -622,6 +627,13 @@ public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements D
 	
 	if (doPrintIOR) {
 	    System.out.println(_factory.getIOR());
+	}
+
+	if (iorFileName != null) {
+	    PrintWriter out = new PrintWriter(new FileWriter(iorFileName));
+	    out.println(_factory.getIOR());
+	    out.flush();
+	    out.close();
 	}
 
 	if (doPrintCorbaloc) {
