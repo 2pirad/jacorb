@@ -26,13 +26,13 @@ import org.omg.CosNotifyComm.SequencePushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushSequenceOperation.java,v 1.4 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: PushSequenceOperation.java,v 1.5 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 public class PushSequenceOperation implements PushOperation {
 
-    private SequencePushConsumer sequencePushConsumer_;
+    private final SequencePushConsumer sequencePushConsumer_;
 
-    private StructuredEvent[] structuredEvents_;
+    private final StructuredEvent[] structuredEvents_;
 
     public PushSequenceOperation(SequencePushConsumer pushConsumer,
                                  StructuredEvent[] structuredEvents) {

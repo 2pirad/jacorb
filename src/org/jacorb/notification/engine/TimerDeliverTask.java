@@ -26,12 +26,12 @@ import org.omg.CosNotifyChannelAdmin.NotConnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimerDeliverTask.java,v 1.12 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: TimerDeliverTask.java,v 1.13 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 
 public class TimerDeliverTask extends AbstractDeliverTask
 {
-    TimerDeliverTask(TaskProcessor tp) {
+    public TimerDeliverTask(TaskProcessor tp) {
         super(tp);
     }
 
@@ -45,15 +45,7 @@ public class TimerDeliverTask extends AbstractDeliverTask
         if ( getMessageConsumer().hasPendingData() )
         {
             getMessageConsumer().deliverPendingData();
-        } else {
-//             if (logger_.isDebugEnabled()) {
-//                 logger_.debug("Nothing to do as the Target:"
-//                               + getMessageConsumer()
-//                               + " has no Pending Events.");
-//             }
-
-            dispose();
-        }
+        } 
     }
 
 

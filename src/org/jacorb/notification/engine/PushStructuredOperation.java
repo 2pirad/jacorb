@@ -26,11 +26,11 @@ import org.omg.CosNotifyComm.StructuredPushConsumerOperations;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushStructuredOperation.java,v 1.5 2004-08-17 13:48:54 alphonse.bendt Exp $
+ * @version $Id: PushStructuredOperation.java,v 1.6 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 public class PushStructuredOperation extends MessagePushOperation {
 
-    private StructuredPushConsumerOperations pushConsumer_;
+    private final StructuredPushConsumerOperations pushConsumer_;
 
     public PushStructuredOperation(StructuredPushConsumerOperations pushConsumer, Message message) {
         super(message);

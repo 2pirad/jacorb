@@ -1,5 +1,3 @@
-package org.jacorb.notification.engine;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -21,34 +19,13 @@ package org.jacorb.notification.engine;
  *
  */
 
-import org.jacorb.notification.interfaces.AbstractPoolable;
-import org.jacorb.notification.util.AbstractObjectPool;
+package org.jacorb.notification.engine;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTaskPool.java,v 1.5 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: Schedulable.java,v 1.1 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
-
-public abstract class AbstractTaskPool extends AbstractObjectPool
+public interface Schedulable
 {
-    public AbstractTaskPool(String name, int a, int b, int c, int d) {
-        super(name, a, b, c, d);
-    }
-
-
-    public AbstractTaskPool(String name) {
-        super(name);
-    }
-
-
-    public void passivateObject( Object o )
-    {
-        ( ( AbstractPoolable ) o ).reset();
-    }
-
-
-    public void activateObject( Object o )
-    {
-        ( ( AbstractPoolable ) o ).setObjectPool( this );
-    }
+    void schedule() throws InterruptedException;
 }

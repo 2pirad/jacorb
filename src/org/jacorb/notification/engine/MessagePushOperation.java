@@ -25,11 +25,11 @@ import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessagePushOperation.java,v 1.2 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: MessagePushOperation.java,v 1.3 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 public abstract class MessagePushOperation implements PushOperation {
 
-    protected Message message_;
+    protected final Message message_;
 
     public MessagePushOperation(Message message) {
         message_ = (Message)message.clone();

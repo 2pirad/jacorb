@@ -26,11 +26,11 @@ import org.omg.CosEventComm.PushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushAnyOperation.java,v 1.4 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: PushAnyOperation.java,v 1.5 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 public class PushAnyOperation extends MessagePushOperation {
 
-    private PushConsumer pushConsumer_;
+    private final PushConsumer pushConsumer_;
 
     public PushAnyOperation(PushConsumer pushConsumer, Message message) {
         super(message);

@@ -24,14 +24,14 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.7 2004-08-19 09:22:14 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.8 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategy extends RetryStrategy
 {
     /**
      * retry the failed operation. schedule the pending messages for delivery.
      */
-    private Runnable retryPushOperation_ = new Runnable()
+    final Runnable retryPushOperation_ = new Runnable()
     {
         public void run()
         {
@@ -49,7 +49,7 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
                 }
                 catch (RetryException e)
                 {
-                    dispose();
+                    //dispose();
                 }
             }
         }
@@ -58,7 +58,7 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
     /**
      * re-enable disabled MessageConsumer and schedule retry
      */
-    private Runnable enableMessageConsumer_ = new Runnable()
+    private final Runnable enableMessageConsumer_ = new Runnable()
     {
         public void run()
         {
@@ -70,11 +70,12 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
             }
             catch (InterruptedException e)
             {
+                // ignore
             }
         }
     };
 
-    private final TaskProcessor taskProcessor_;
+    final TaskProcessor taskProcessor_;
 
     /**
      * specify how long a ProxySupplier should be disabled in case
@@ -87,6 +88,7 @@ public class TaskProcessorRetryStrategy extends RetryStrategy
                                       TaskProcessor tp)
     {
         super(mc, op);
+        
         taskProcessor_ = tp;
         backoutInterval_ = tp.getBackoutInterval();
     }

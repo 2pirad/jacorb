@@ -25,11 +25,11 @@ import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushTypedOperation.java,v 1.3 2004-07-12 11:18:06 alphonse.bendt Exp $
+ * @version $Id: PushTypedOperation.java,v 1.4 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 public class PushTypedOperation implements PushOperation {
 
-    private Request request_;
+    private final Request request_;
 
     public PushTypedOperation(Request request) {
         request_ = request;

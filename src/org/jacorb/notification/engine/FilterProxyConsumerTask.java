@@ -26,7 +26,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTask.java,v 1.13 2004-08-13 12:17:44 alphonse.bendt Exp $
+ * @version $Id: FilterProxyConsumerTask.java,v 1.14 2005-02-14 00:03:09 alphonse.bendt Exp $
  */
 
 public class FilterProxyConsumerTask extends AbstractFilterTask
@@ -38,8 +38,8 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
 
     ////////////////////
 
-    FilterProxyConsumerTask(TaskExecutor te, TaskProcessor tp, TaskFactory tc) {
-        super(te, tp, tc);
+    public FilterProxyConsumerTask(TaskExecutor executor, TaskProcessor processor, TaskFactory factory) {
+        super(executor, processor, factory);
     }
 
     ////////////////////
@@ -83,12 +83,12 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
             AnyHolder newPriority = new AnyHolder();
 
             boolean priorityMatch =
-                message_.match( arrayCurrentFilterStage_[ 0 ].getPriorityFilter(),
+                getMessage().match( arrayCurrentFilterStage_[ 0 ].getPriorityFilter(),
                                 newPriority );
 
             if ( priorityMatch )
             {
-                message_.setPriority( newPriority.value.extract_long() );
+                getMessage().setPriority( newPriority.value.extract_long() );
             }
         }
         catch ( UnsupportedFilterableData e )
@@ -111,12 +111,12 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
             AnyHolder newLifetime = new AnyHolder();
 
             boolean lifetimeMatch =
-                message_.match( arrayCurrentFilterStage_[ 0 ].getLifetimeFilter(),
+                getMessage().match( arrayCurrentFilterStage_[ 0 ].getLifetimeFilter(),
                                 newLifetime );
 
             if ( lifetimeMatch )
             {
-                message_.setTimeout( newLifetime.value.extract_long() );
+                getMessage().setTimeout( newLifetime.value.extract_long() );
             }
         }
         catch ( UnsupportedFilterableData e )
@@ -126,7 +126,7 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
     }
 
 
-    public void doWork() throws InterruptedException
+    public void doFilter() throws InterruptedException
     {
         if ( arrayCurrentFilterStage_[ 0 ].hasPriorityFilter() )
         {
@@ -161,9 +161,7 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
         if ( !isFilterStageListEmpty() )
         {
             getTaskFactory().newFilterSupplierAdminTask( this ).schedule();
-        }
-
-        dispose();
+        } 
     }
 
     private boolean filter()
@@ -174,7 +172,7 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
         // as an Event passes only 1 ProxyConsumer we can assume
         // constant array size here
 
-        _forward = message_.match( arrayCurrentFilterStage_[ 0 ] );
+        _forward = getMessage().match( arrayCurrentFilterStage_[ 0 ] );
 
         if ( _forward )
         {
