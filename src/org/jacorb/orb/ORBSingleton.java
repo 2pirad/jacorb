@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.25 2002-03-28 16:05:03 jason.courage Exp $
+ * @version $Id: ORBSingleton.java,v 1.26 2002-04-15 08:20:55 jason.courage Exp $
  */
 
 public class ORBSingleton
@@ -267,15 +267,6 @@ public class ORBSingleton
         return new org.jacorb.orb.TypeCode( id );
     }  
  
-    /**
-     * @deprecated Deprecated by CORBA 2.3 
-     */
-
-    public TypeCode create_recursive_sequence_tc( int bound, int offset)
-    {
-        throw new org.omg.CORBA.NO_IMPLEMENT ();
-    }
-
     public TypeCode create_sequence_tc( int bound, TypeCode element_type)
     {
         checkTCMemberType( element_type );
