@@ -26,7 +26,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.5 2003-04-24 10:05:18 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.6 2003-04-27 07:46:23 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -91,12 +91,9 @@ public class ServerGIOPConnection
         {
             getWriteLock();
 
-            transport.write( false,
-                             false,
-                             CLOSE_CONNECTION_MESSAGE,
-                             0,
-                             CLOSE_CONNECTION_MESSAGE.length,
-                             0 );
+            write( CLOSE_CONNECTION_MESSAGE,
+                   0,
+                   CLOSE_CONNECTION_MESSAGE.length );
             transport.flush();
 
             if( delayClose )
