@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.29 2001-11-15 12:20:19 jacorb Exp $
+ * @version $Id: Environment.java,v 1.30 2001-11-19 13:24:14 nicolas Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -261,7 +261,7 @@ public class Environment
         }
         catch(SecurityException secex)
         {
-            System.out.println("Could not read local org.jacorb properties.");
+            System.out.println("Could not read local jacorb properties.");
         }
     }   
 
