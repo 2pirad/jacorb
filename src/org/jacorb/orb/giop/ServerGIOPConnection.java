@@ -26,7 +26,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.6 2003-04-27 07:46:23 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.7 2003-04-27 12:52:51 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -53,9 +53,10 @@ public class ServerGIOPConnection
     public ServerGIOPConnection( Transport transport,
                                  RequestListener request_listener,
                                  ReplyListener reply_listener,
+                                 StatisticsProvider statistics_provider,
                                  GIOPConnectionManager manager )
     {
-        super( transport, request_listener, reply_listener );
+        super( transport, request_listener, reply_listener, statistics_provider );
 
         this.manager = manager;
 
@@ -94,11 +95,17 @@ public class ServerGIOPConnection
             write( CLOSE_CONNECTION_MESSAGE,
                    0,
                    CLOSE_CONNECTION_MESSAGE.length );
+
             transport.flush();
 
-            if( delayClose )
+            if (statistics_provider != null)
             {
-                transport.turnOnFinalTimeout();
+                statistics_provider.flushed();
+            }
+
+            if( delayClose && transport instanceof TCP_IP_Transport )
+            {
+                ((TCP_IP_Transport)transport).turnOnFinalTimeout();
             }
             else
             {
