@@ -26,7 +26,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  *
- * $Id: ServerStartupDaemonImpl.java,v 1.11 2003-12-18 09:45:36 nick.cross Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.12 2004-02-05 13:47:08 nick.cross Exp $
  *
  */
 
@@ -149,7 +149,7 @@ public class ServerStartupDaemonImpl
         }
         catch( Exception _e )
         {
-            _e.printStackTrace();
+            Debug.output(3, _e);
         }
 
         System.exit(0);
@@ -194,7 +194,7 @@ public class ServerStartupDaemonImpl
             }
             catch( Exception _e )
             {
-                _e.printStackTrace();
+                Debug.output(3, _e);
             }
 
             Debug.output( 4,
