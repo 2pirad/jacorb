@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.7 2003-01-05 11:54:12 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.8 2003-01-08 23:49:23 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.*;
@@ -101,6 +101,16 @@ public class GIOPConnectionTest
         public StatisticsProvider getStatisticsProvider()
         {
             return null;
+        }
+
+        public void closeAllowReopen() throws IOException
+        {
+            closed = true;
+        }
+
+        public void closeCompletely() throws IOException
+        {
+            closed = true;
         }
 
     }
