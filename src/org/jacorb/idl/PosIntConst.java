@@ -22,13 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: PosIntConst.java,v 1.8 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: PosIntConst.java,v 1.9 2003-09-03 16:02:43 brose Exp $
  */
 
 class PosIntConst
     extends IdlSymbol
 {
-
+    private int value = -1;
     public ConstExpr const_expr;
 
     public PosIntConst( int num )
@@ -36,15 +36,26 @@ class PosIntConst
         super( num );
     }
 
+    void setExpression( ConstExpr const_expr )
+    {
+        this.const_expr = const_expr;
+        const_expr.parse();
+        if( value == -1 )
+        {
+            value = const_expr.pos_int_const();
+            if( value <= 0 )
+                throw new ParseException("Integer constant value must be greater 0.", 
+                                         this.myPosition );
+        }
+    }
+
     public void parse()
     {
-        const_expr.parse();
     }
 
     public int value()
-    {
-        
-        return const_expr.pos_int_const();
+    {        
+        return value;
     }
 
 
