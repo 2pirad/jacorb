@@ -21,7 +21,6 @@
 package org.jacorb.orb.giop;
 
 import org.jacorb.util.threadpool.Consumer;
-import org.jacorb.util.*;
 
 /**
  * MessageReceptor.java
@@ -30,7 +29,7 @@ import org.jacorb.util.*;
  * Created: Sat Aug 18 10:52:45 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.8 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: MessageReceptor.java,v 1.8.4.1 2004-03-24 19:05:38 gerald Exp $
  */
 
 public class MessageReceptor 
@@ -54,7 +53,6 @@ public class MessageReceptor
         }
         catch( Exception e )
         {
-            Debug.output( 3, e );
         }
     }    
 }// MessageReceptor

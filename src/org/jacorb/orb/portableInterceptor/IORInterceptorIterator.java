@@ -24,15 +24,13 @@ package org.jacorb.orb.portableInterceptor;
 import org.omg.PortableInterceptor.*;
 import org.omg.CORBA.UserException;
 
-import org.jacorb.util.Debug;
-
 /**
  * IORInterceptorIterator.java
  *
  * Created: Mon Apr 17 09:53:33 2000
  *
  * @author Nicolas Noffke
- * $Id: IORInterceptorIterator.java,v 1.7 2003-12-16 08:42:56 gerald Exp $
+ * $Id: IORInterceptorIterator.java,v 1.7.4.1 2004-03-24 19:05:38 gerald Exp $
  */
 
 public class IORInterceptorIterator 
@@ -58,14 +56,10 @@ public class IORInterceptorIterator
     {
         try
         {
-            Debug.output( 4, "Invoking IORInterceptor " + 
-                          interceptor.name());
-
             ((IORInterceptor) interceptor).establish_components(info);
         }
         catch(Exception e)
         {
-            Debug.output(4, e.getMessage());
         }
     }
 } // IORInterceptorIterator

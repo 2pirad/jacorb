@@ -23,7 +23,9 @@ package org.jacorb.orb.iiop;
 import java.io.*;
 import java.net.*;
 
-import org.jacorb.util.Debug;
+import org.apache.avalon.framework.logger.Logger;
+import org.apache.avalon.framework.configuration.*;
+
 import org.jacorb.orb.*;
 import org.jacorb.orb.iiop.*;
 
@@ -34,7 +36,7 @@ import org.jacorb.orb.iiop.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.1 2003-05-07 16:05:02 andre.spiegel Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.1.4.1 2004-03-24 19:05:38 gerald Exp $
  */
 
 public class ServerIIOPConnection
@@ -56,19 +58,33 @@ public class ServerIIOPConnection
         in_stream = socket.getInputStream();
         out_stream = new BufferedOutputStream(socket.getOutputStream());
 
+    }
+
+
+    public void configure(Configuration configuration)
+        throws ConfigurationException
+    {
+        super.configure(configuration);
+        //get the client-side timeout property value
+
+
         IIOPAddress address = new IIOPAddress
         (
             socket.getInetAddress().getHostAddress(),
             socket.getPort()
         );
         
-        profile = new IIOPProfile (address, null);
+        profile = new IIOPProfile(address, null);
+        profile.configure(configuration);
+
         connection_info = address.toString(); 
         connected = true;
 
-        Debug.output( 2, "Opened new server-side TCP/IP transport to " +
-                      connection_info );
+        if (logger.isInfoEnabled())
+            logger.info("Opened new server-side TCP/IP transport to " +
+                        connection_info );
     }
+
 
     public Socket getSocket()
     {
@@ -103,8 +119,9 @@ public class ServerIIOPConnection
             socket = null;
             connected = false;
 
-            Debug.output( 2, "Closed server-side transport to " +
-                          connection_info );
+            if (logger.isInfoEnabled())
+                logger.info("Closed server-side transport to " +
+                            connection_info );
         }
     }
 

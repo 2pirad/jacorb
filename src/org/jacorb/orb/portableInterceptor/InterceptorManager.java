@@ -20,7 +20,6 @@
  */
 package org.jacorb.orb.portableInterceptor;
 
-import org.jacorb.util.Debug;
 import org.omg.PortableInterceptor.*;
 import org.apache.avalon.framework.logger.Logger;
 
@@ -31,7 +30,7 @@ import java.util.*;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.14 2004-02-04 18:01:37 francisco Exp $
+ * @version $Id: InterceptorManager.java,v 1.14.2.1 2004-03-24 19:05:38 gerald Exp $
  */
 
 public class InterceptorManager  
@@ -55,7 +54,8 @@ public class InterceptorManager
                               int slot_count,
                               org.omg.CORBA.ORB orb) 
     {
-        logger = Debug.getNamedLogger("jacorb.orb.interceptors");
+        logger = 
+            ((org.jacorb.orb.ORB)orb).getConfiguration().getNamedLogger("jacorb.orb.interceptors");
         
         if (logger.isInfoEnabled())
         {

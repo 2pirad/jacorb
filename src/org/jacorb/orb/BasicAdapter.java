@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.41.4.1 2004-03-23 17:19:10 gerald Exp $
+ * @version $Id: BasicAdapter.java,v 1.41.4.2 2004-03-24 19:05:37 gerald Exp $
  */
 
 public class BasicAdapter
@@ -53,7 +53,6 @@ public class BasicAdapter
 {
     public  SSLServerSocketFactory ssl_socket_factory = null;
     private ServerSocketFactory socket_factory = null;
-
 
     private org.jacorb.orb.ORB orb;
     private POA rootPOA;
@@ -111,11 +110,11 @@ public class BasicAdapter
                 {
                     Class ssl = ObjectUtil.classForName( s );
 
-                    Constructor constr = ssl.getConstructor( new Class[]{
-                        org.jacorb.orb.ORB.class });
+                    Constructor constr = 
+                        ssl.getConstructor( new Class[]{org.jacorb.orb.ORB.class });
 
-                    ssl_socket_factory = (SSLServerSocketFactory)
-                        constr.newInstance( new Object[]{ orb });
+                    ssl_socket_factory = 
+                        (SSLServerSocketFactory)constr.newInstance( new Object[]{ orb });
                 }
                 catch (Exception e)
                 {
@@ -149,6 +148,12 @@ public class BasicAdapter
             ((Listener)i.next()).listen();
         }
     }
+
+    public SSLServerSocketFactory getSSLSocketFactory()
+    {
+        return ssl_socket_factory;
+    }
+
 
     /**
      * Returns a List of Factories for all transport plugins that

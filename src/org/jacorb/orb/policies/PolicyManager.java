@@ -38,7 +38,7 @@ import java.util.*;
  * "ORBPolicyManager."
  *
  * @author Gerald Brose, mailto:gerald.brose@acm.org
- * @version $Id: PolicyManager.java,v 1.1 2004-02-06 14:35:18 gerald Exp $
+ * @version $Id: PolicyManager.java,v 1.1.2.1 2004-03-24 19:05:38 gerald Exp $
  */
 
 public class PolicyManager 
@@ -46,8 +46,7 @@ public class PolicyManager
 {
     private org.jacorb.orb.ORB orb;
     private Map policy_overrides = null;
-    private Logger logger = 
-        org.jacorb.util.Debug.getNamedLogger("jacorb.orb.policies");
+    private Logger logger ;
 
     /**
      * public c'tor
@@ -57,6 +56,7 @@ public class PolicyManager
     {
         this.orb = orb;
         policy_overrides = new HashMap();
+        logger = orb.getConfiguration().getNamedLogger("jacorb.orb.policies");
     }
 
     /**

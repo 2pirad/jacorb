@@ -40,7 +40,7 @@ import org.jacorb.util.ObjectUtil;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.18.4.1 2004-03-23 17:19:10 gerald Exp $
+ * @version $Id: TransportManager.java,v 1.18.4.2 2004-03-24 19:05:38 gerald Exp $
  * */
 
 public class TransportManager
@@ -199,7 +199,9 @@ public class TransportManager
             // bootclasspath, and the external transport on the normal
             // classpath.
             Class c = ObjectUtil.classForName(className);
-            return (Factories)c.newInstance();
+            Configurable configurable = (Configurable)c.newInstance();
+            configurable.configure(configuration);
+            return (Factories)configurable;
         }
         catch (Exception e)
         {

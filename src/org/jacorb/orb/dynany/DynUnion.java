@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.20 2003-10-29 12:00:30 simon.mcqueen Exp $
+ * $Id: DynUnion.java,v 1.20.4.1 2004-03-24 19:05:38 gerald Exp $
  *
  */
 
@@ -168,9 +168,6 @@ public final class DynUnion
                itc.printStackTrace();
             }		
          }
-
-         org.jacorb.util.Debug.output( 3, "DynUnion.from_any(), member == null? " + 
-                                       ( member == null ));
       }
       catch( org.omg.CORBA.TypeCodePackage.Bounds b )
       {

@@ -30,7 +30,7 @@ import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.19 2004-01-02 12:13:25 nick.cross Exp $
+ * @version $Id: ReplyInputStream.java,v 1.19.4.1 2004-03-24 19:05:38 gerald Exp $
  *
  */
 
@@ -117,7 +117,7 @@ public class ReplyInputStream
                 catch( java.io.IOException ioe )
                 {
                     //should not happen anyway
-                    Debug.output( 1, ioe );
+                    // Debug.output( 1, ioe );
                 }
                 return new ApplicationException( id, this );
             }
