@@ -25,48 +25,48 @@ import org.jacorb.notification.filter.EvaluationResult;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ImmutableEvaluationResult.java,v 1.3 2004-08-13 11:55:29 alphonse.bendt Exp $
+ * @version $Id: ImmutableEvaluationResult.java,v 1.4 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
 public class ImmutableEvaluationResult extends EvaluationResult
 {
-    static void unsupported()
+    static void unsupported(String message)
     {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(message);
     }
 
     public void reset()
     {
-        unsupported();
+        unsupported("reset");
     }
 
-    public void setString( String s )
+    public void setString(String s)
     {
-        unsupported();
+        unsupported("setString(" + s + ")");
     }
 
-    public void setFloat( float f )
+    public void setFloat(float f)
     {
-        unsupported();
+        unsupported("setFloat(" + f + ")");
     }
 
-    public void setFloat( Double d )
+    public void setFloat(Double d)
     {
-        unsupported();
+        unsupported("setFloat(" + d + ")");
     }
 
-    public void setInt( int i )
+    public void setInt(int i)
     {
-        unsupported();
+        unsupported("setInt(" + i + ")");
     }
 
-    public void setInt( Double i )
+    public void setInt(Double i)
     {
-        unsupported();
+        unsupported("setInt(" + i + ")");
     }
 
-    public void setBool( boolean b )
+    public void setBool(boolean b)
     {
-        unsupported();
+        unsupported("setBool(" + b + ")");
     }
 }

@@ -22,12 +22,12 @@ package org.jacorb.notification.filter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ParseException.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ParseException.java,v 1.3 2005-02-14 00:04:35 alphonse.bendt Exp $
  */
 
 public class ParseException extends Exception {
 
-    Exception nested_;
+    private final Exception nested_;
 
     public ParseException(Exception e) {
         super();

@@ -30,13 +30,11 @@ import org.jacorb.notification.interfaces.Message;
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.8 2004-06-18 23:00:06 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.9 2005-02-14 00:04:35 alphonse.bendt Exp $
  */
 
 public interface FilterConstraint
-{
-    String getConstraint();
-
+{   
     EvaluationResult evaluate( EvaluationContext evaluationContext,
                                       Message event )
         throws EvaluationException;

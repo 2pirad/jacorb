@@ -29,21 +29,14 @@ import antlr.Token;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BinaryOperator.java,v 1.1 2004-08-13 11:55:29 alphonse.bendt Exp $
+ * @version $Id: BinaryOperator.java,v 1.2 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 public abstract class BinaryOperator extends UnaryOperator
 {
-
     public BinaryOperator(Token tok)
     {
         super(tok);
     }
-
-    public BinaryOperator()
-    {
-        super();
-    }
-
  
     protected final EvaluationResult evaluate(EvaluationContext context, 
             EvaluationResult left)

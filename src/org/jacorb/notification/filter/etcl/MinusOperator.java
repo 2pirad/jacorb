@@ -29,7 +29,7 @@ import antlr.Token;
 
 /**
  * A simple node to represent MINUS operation
- * @version $Id: MinusOperator.java,v 1.4 2004-08-13 11:55:29 alphonse.bendt Exp $
+ * @version $Id: MinusOperator.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
 public class MinusOperator extends UnaryOperator {
@@ -37,16 +37,13 @@ public class MinusOperator extends UnaryOperator {
     private boolean unary_;
     private static final String NAME = "MinusOperator";
 
-    public String getName() {
-        return NAME;
-    }
-
     public MinusOperator(Token tok) {
         super(tok);
+        setName(NAME);
     }
 
     public void setType(int type) {
-        unary_ = type == UNARY_MINUS;
+        unary_ = (type == UNARY_MINUS);
     }
 
     public String toString() {
@@ -61,11 +58,9 @@ public class MinusOperator extends UnaryOperator {
 
             return EvaluationResult.unaryMinus(left);
 
-        } else {
-
+        } 
             return EvaluationResult.minus(left,
                                           right().evaluate(context));
-        }
     }
 
     public void acceptInOrder(AbstractTCLVisitor visitor) throws VisitorException {

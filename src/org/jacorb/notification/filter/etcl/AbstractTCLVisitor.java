@@ -22,14 +22,13 @@ package org.jacorb.notification.filter.etcl;
  */
 
 /**
- * Adapter Class to help creating a Visitor for TCL
- * Trees. Override the appropiate Methods.
- *
- * @version $Id: AbstractTCLVisitor.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * Adapter Class to help creating a Visitor for TCL Trees. Override the appropiate Methods.
+ * 
+ * @version $Id: AbstractTCLVisitor.java,v 1.3 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
-abstract public class AbstractTCLVisitor {
-
+public abstract class AbstractTCLVisitor
+{
     public void visitPlus(PlusOperator plus) throws VisitorException
     {
     }
@@ -74,8 +73,7 @@ abstract public class AbstractTCLVisitor {
     {
     }
 
-    public void visitComponent(ETCLComponentName component)
-        throws VisitorException
+    public void visitComponent(ETCLComponentName component) throws VisitorException
     {
     }
 
@@ -83,13 +81,16 @@ abstract public class AbstractTCLVisitor {
     {
     }
 
-    public void visitOr(OrOperator or) throws VisitorException {
+    public void visitOr(OrOperator or) throws VisitorException
+    {
     }
 
-    public void visitEq(EqOperator or) throws VisitorException {
+    public void visitEq(EqOperator or) throws VisitorException
+    {
     }
 
-    public void visitNeq(NeqOperator or) throws VisitorException {
+    public void visitNeq(NeqOperator or) throws VisitorException
+    {
     }
 
     public void visitLt(LtOperator lt) throws VisitorException
@@ -112,13 +113,7 @@ abstract public class AbstractTCLVisitor {
     {
     }
 
-    public void visitComponentPosition(ComponentPositionOperator compPos)
-        throws VisitorException
-    {
-    }
-
-    public void visitUnionPosition(UnionPositionOperator unionPos)
-        throws VisitorException
+    public void visitUnionPosition(UnionPositionOperator unionPos) throws VisitorException
     {
     }
 

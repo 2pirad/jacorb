@@ -32,15 +32,15 @@ import org.omg.TimeBase.UtcTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CurrentTimeNode.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: CurrentTimeNode.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
 public class CurrentTimeNode extends ETCLComponentName {
 
     public static final String SHORT_NAME = "curtime";
-    static final String COMP_NAME = "$curtime";
+    private static final String COMP_NAME = "$curtime";
 
-    static ORB orb_ = ORB.init();
+    private final static ORB orb_ = ORB.init();
 
     public EvaluationResult evaluate( EvaluationContext context )
 	throws EvaluationException {

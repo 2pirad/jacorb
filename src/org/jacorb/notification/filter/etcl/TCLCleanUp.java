@@ -27,12 +27,11 @@ import antlr.collections.AST;
  * Visitor for TCL Trees. Does some Restructuration of a TCL Tree.
  *
  * @author Alphonse Bendt
- * @version $Id: TCLCleanUp.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: TCLCleanUp.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
 public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenTypes
 {
-
     public void fix( AbstractTCLNode node )
     {
         try
@@ -67,7 +66,7 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
             new StringBuffer( comp.toString() );
 
         AbstractTCLNode _cursor =
-            ( AbstractTCLNode ) comp.left();
+            comp.left();
 
         while ( _cursor != null )
         {
@@ -78,7 +77,7 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
         comp.setComponentName( _name.toString() );
     }
 
-    void fixUnionPosition( UnionPositionOperator node )
+    private void fixUnionPosition( UnionPositionOperator node )
     {
         AST _nextSibling = node.getNextSibling();
 

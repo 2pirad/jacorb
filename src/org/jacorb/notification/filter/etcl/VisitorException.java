@@ -23,18 +23,13 @@ package org.jacorb.notification.filter.etcl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: VisitorException.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: VisitorException.java,v 1.3 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
 public class VisitorException extends Exception
 {
-    public VisitorException()
+    public VisitorException(String msg)
     {
-        super();
-    }
-
-    public VisitorException( String msg )
-    {
-        super( msg );
+        super(msg);
     }
 }

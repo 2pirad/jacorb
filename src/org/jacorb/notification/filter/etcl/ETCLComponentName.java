@@ -33,20 +33,22 @@ import antlr.Token;
  * node that represents a COMPONENT Name
  *
  * @author Alphonse Bendt
- * @version $Id: ETCLComponentName.java,v 1.6 2004-08-13 11:55:29 alphonse.bendt Exp $
+ * @version $Id: ETCLComponentName.java,v 1.7 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
 public class ETCLComponentName extends AbstractTCLNode implements ComponentName
 {
-    String value_;
+    private final String value_;
 
-    String componentName_;
-
+    private String componentName_;
+    
     ////////////////////////////////////////
-
+    
     protected ETCLComponentName() {
+        super();
+        
+        value_ = null;
     }
-
 
     public ETCLComponentName( Token tok )
     {
@@ -65,7 +67,7 @@ public class ETCLComponentName extends AbstractTCLNode implements ComponentName
 
         Message _event = context.getCurrentMessage();
 
-        AbstractTCLNode _left = (AbstractTCLNode) left();
+        AbstractTCLNode _left = left();
 
         if (_left == null) {
             // this is the case when the expression just consists of

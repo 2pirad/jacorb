@@ -29,13 +29,14 @@ import antlr.Token;
 
 /**
  * A simple node to represent DIV operation
- * @version $Id: DivOperator.java,v 1.4 2004-08-13 11:55:29 alphonse.bendt Exp $
+ * @version $Id: DivOperator.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
  */
 
 public class DivOperator extends BinaryOperator {
 
     public DivOperator(Token tok) {
         super(tok);
+        setName("DivOperator");
     }
 
     public String toString() {
@@ -50,7 +51,6 @@ public class DivOperator extends BinaryOperator {
         } catch (ArithmeticException e) {
             throw new EvaluationException(e.getMessage());
         }
-
     }
 
     public void acceptInOrder(AbstractTCLVisitor visitor) throws VisitorException {
@@ -69,9 +69,5 @@ public class DivOperator extends BinaryOperator {
         visitor.visitDiv(this);
         left().acceptPreOrder(visitor);
         right().acceptPreOrder(visitor);
-    }
-
-    public String getName() {
-        return "DivOperator";
     }
 }

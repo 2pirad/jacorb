@@ -1,3 +1,5 @@
+package org.jacorb.notification.filter;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -19,33 +21,11 @@
  *
  */
 
-package org.jacorb.notification.filter.etcl;
-
-import org.jacorb.notification.filter.EvaluationContext;
-import org.jacorb.notification.filter.EvaluationException;
-import org.jacorb.notification.filter.EvaluationResult;
-
-import antlr.Token;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: UnaryOperator.java,v 1.2 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: EventTypeIdentifier.java,v 1.1 2005-02-14 00:04:35 alphonse.bendt Exp $
  */
-abstract class UnaryOperator extends AbstractTCLNode
-{
-    public UnaryOperator(Token tok)
-    {
-        super(tok);
-    }
 
-    public final EvaluationResult evaluate(EvaluationContext context) throws EvaluationException {
-        EvaluationResult _left = left().evaluate(context);  
-
-        return evaluate(context, _left);
-    }
-    
-    protected abstract EvaluationResult evaluate(EvaluationContext context, 
-            EvaluationResult left) throws EvaluationException;
-    
+public interface EventTypeIdentifier {
+    String getConstraintKey();
 }
-
