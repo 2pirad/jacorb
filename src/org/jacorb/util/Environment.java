@@ -45,7 +45,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  *
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.53 2003-05-22 12:56:13 nick.cross Exp $
+ * @version $Id: Environment.java,v 1.54 2003-05-23 12:46:44 andre.spiegel Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -586,6 +586,39 @@ public class Environment
     public static int getCompactTypecodes ()
     {
         return compactTypecodes;
+    }
+
+    public static String imrProxyHost()
+    {
+        return _props.getProperty (jacorbPrefix + "imr.ior_proxy_host");   
+    }
+    
+    public static int imrProxyPort()
+    {
+        return getIntPropertyWithDefault (jacorbPrefix + "imr.ior_proxy_port",
+                                          -1);
+    }
+    
+    public static String iorProxyHost()
+    {
+        return _props.getProperty (jacorbPrefix + "ior_proxy_host");
+    }
+    
+    public static int iorProxyPort()
+    {
+        return getIntPropertyWithDefault (jacorbPrefix + "ior_proxy_port",
+                                          -1);
+    }
+    
+    public static int giopMinorVersion()
+    {
+        return getIntPropertyWithDefault (jacorbPrefix + "giop_minor_version",
+                                          2);
+    }
+    
+    public static boolean giopAdd_1_0_Profiles()
+    {
+        return isPropertyOn (jacorbPrefix + "giop.add_1_0_profiles");
     }
 
     /**
