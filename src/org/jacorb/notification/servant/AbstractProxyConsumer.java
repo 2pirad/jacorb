@@ -58,7 +58,7 @@ import org.jacorb.notification.conf.Default;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.9 2004-06-18 23:04:51 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.10 2004-06-22 08:10:35 alphonse.bendt Exp $
  */
 
 abstract class AbstractProxyConsumer
@@ -321,7 +321,7 @@ abstract class AbstractProxyConsumer
      * subscription_change will no more be issued to the connected
      * Supplier
      */
-    private void removeListener()
+    protected void removeListener()
     {
         if (proxySubscriptionListener_ != null)
         {
