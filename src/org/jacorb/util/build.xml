@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<project name="util" default="all" basedir="../../../..">
+
+  <!-- ==================================================== -->
+  <!--             util build file                          -->
+  <!-- $Id: build.xml,v 1.1 2002-02-21 15:42:46 nick.cross Exp $  -->
+  <!-- ==================================================== -->
+
+   <target name="all"/>
+
+   <target name="clean">
+      <delete file="ValueHandler.java"/>
+   </target>
+
+</project>
