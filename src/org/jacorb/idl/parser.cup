@@ -14,7 +14,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  *
- * $Id: parser.cup,v 1.47 2002-05-17 13:36:47 simon.mcqueen Exp $
+ * $Id: parser.cup,v 1.48 2002-05-23 09:58:18 simon.mcqueen Exp $
  *
  */
 
@@ -32,7 +32,9 @@ parser code
     public static Stack scopes = new Stack();
 
     public static String currentVersion = "";
-    public static String compiler_version = "1.4 beta 5, May 2002";
+    
+    // Compiles out leaving no runtime dependency on Version
+    public static final String compiler_version = org.jacorb.util.Version.longVersion;
 
     private static final String yearString = "1997-2002";
 
