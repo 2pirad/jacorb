@@ -27,6 +27,7 @@ import org.jacorb.notification.util.ObjectPoolBase;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.StructuredEvent;
+import org.jacorb.notification.interfaces.Disposable;
 
 /**
  * NotificationEventFactory.java
@@ -34,11 +35,11 @@ import org.omg.CosNotification.StructuredEvent;
  *
  * Created: Tue Nov 05 18:53:27 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: NotificationEventFactory.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: NotificationEventFactory.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
-public class NotificationEventFactory
+public class NotificationEventFactory implements Disposable
 {
     ApplicationContext appContext_;
 
@@ -92,6 +93,11 @@ public class NotificationEventFactory
     {
         notificationAnyEventPool_.init();
         notificationStructuredEventPool_.init();
+    }
+
+    public void dispose() {
+	notificationStructuredEventPool_.dispose();
+	notificationAnyEventPool_.dispose();
     }
 
     // Used by the Proxies

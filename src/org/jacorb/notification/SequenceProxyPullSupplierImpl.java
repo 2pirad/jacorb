@@ -41,7 +41,7 @@ import org.omg.CosNotifyChannelAdmin.SequenceProxyPullSupplierPOATie;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.2 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.3 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullSupplierImpl
@@ -132,11 +132,9 @@ public class SequenceProxyPullSupplierImpl
     {
         synchronized ( pendingEvents_ )
         {
-            int _size = pendingEvents_.size();
-
-            if ( _size > 0 )
+            if ( !pendingEvents_.isEmpty() )
             {
-                int _retSize = ( number > _size ) ? _size : number;
+                int _retSize = ( number > pendingEvents_.size() ) ? pendingEvents_.size() : number;
 
                 StructuredEvent _ret[] = new StructuredEvent[ _retSize ];
 
@@ -221,4 +219,4 @@ public class SequenceProxyPullSupplierImpl
         return thisServant_;
     }
 
-} // SequenceProxyPullSupplierImpl
+}

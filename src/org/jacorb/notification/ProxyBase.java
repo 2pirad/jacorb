@@ -28,8 +28,8 @@ import org.apache.log.Hierarchy;
 import org.apache.log.Logger;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
-import org.jacorb.notification.interfaces.ProxyDisposedEvent;
-import org.jacorb.notification.interfaces.ProxyDisposedEventListener;
+import org.jacorb.notification.interfaces.ProxyEvent;
+import org.jacorb.notification.interfaces.ProxyEventListener;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.NamedPropertyRangeSeqHolder;
@@ -54,7 +54,7 @@ import org.omg.PortableServer.Servant;
  * Created: Sun Nov 03 22:49:01 2002
  *
  * @author Alphonse Bendt
- * @version $Id: ProxyBase.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: ProxyBase.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public abstract class ProxyBase implements FilterAdminOperations, 
@@ -63,7 +63,7 @@ public abstract class ProxyBase implements FilterAdminOperations,
 					   FilterStage,
 					   Disposable {
     
-    protected final static Integer NO_KEY = null;
+    public final static Integer NO_KEY = null;
 
     protected List proxyDisposedEventListener_;
     protected NotificationEventFactory notificationEventFactory_;
@@ -125,7 +125,7 @@ public abstract class ProxyBase implements FilterAdminOperations,
 
     abstract public Servant getServant();
 
-    public void addProxyDisposedEventListener(ProxyDisposedEventListener listener) 
+    public void addProxyDisposedEventListener(ProxyEventListener listener) 
     {
 	if (proxyDisposedEventListener_ == null) {
 	    synchronized(this) {
@@ -141,7 +141,7 @@ public abstract class ProxyBase implements FilterAdminOperations,
 	proxyDisposedEventListener_.add(listener);
     }
     
-    public void removeProxyDisposedEventListener(ProxyDisposedEventListener listener) 
+    public void removeProxyDisposedEventListener(ProxyEventListener listener) 
     {
 	if (proxyDisposedEventListener_ != null) {
 	    proxyDisposedEventListener_.remove(listener);
@@ -234,7 +234,7 @@ public abstract class ProxyBase implements FilterAdminOperations,
 	return null;
     }
 
-    Integer getKey() 
+    public Integer getKey() 
     {
 	return key_;
     }
@@ -273,11 +273,11 @@ public abstract class ProxyBase implements FilterAdminOperations,
 
 	    if (proxyDisposedEventListener_ != null) {
 		_i = proxyDisposedEventListener_.iterator();
-		ProxyDisposedEvent _event = new ProxyDisposedEvent(this);
+		ProxyEvent _event = new ProxyEvent(this);
 		while(_i.hasNext()) {
 
-		    ProxyDisposedEventListener _listener = 
-			(ProxyDisposedEventListener)_i.next();
+		    ProxyEventListener _listener = 
+			(ProxyEventListener)_i.next();
 
 		    _listener.actionProxyDisposed(_event);
 		}

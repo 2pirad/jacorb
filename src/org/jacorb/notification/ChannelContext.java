@@ -25,7 +25,7 @@ import org.jacorb.notification.engine.TaskProcessor;
 import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
 import org.omg.CosNotifyFilter.FilterFactory;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
-import org.jacorb.notification.interfaces.ProxyDisposedEventListener;
+import org.jacorb.notification.interfaces.ProxyEventListener;
 import org.jacorb.notification.interfaces.ProxyCreationRequestEventListener;
 import org.apache.log.Logger;
 import org.apache.log.Hierarchy;
@@ -37,7 +37,7 @@ import org.apache.log.Hierarchy;
  * Created: Sat Nov 30 16:02:18 2002
  *
  * @author Alphonse Bendt
- * @version $Id: ChannelContext.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: ChannelContext.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class ChannelContext {
@@ -52,8 +52,8 @@ public class ChannelContext {
     private TaskProcessor taskProcessor_;
 
     private ProxyCreationRequestEventListener proxyCreationEventListener_;
-    private ProxyDisposedEventListener proxySupplierDisposedListener_;
-    private ProxyDisposedEventListener proxyConsumerDisposedListener_;
+    private ProxyEventListener proxySupplierDisposedListener_;
+    private ProxyEventListener proxyConsumerDisposedListener_;
 
     /**
      * @return the TaskProcessor for this Channel
@@ -171,24 +171,24 @@ public class ChannelContext {
 	return _copy;
     }
 
-    public void setProxyConsumerDisposedEventListener(ProxyDisposedEventListener listener) {
+    public void setProxyConsumerDisposedEventListener(ProxyEventListener listener) {
 	proxyConsumerDisposedListener_ = listener;
     }
 
-    public void setProxySupplierDisposedEventListener(ProxyDisposedEventListener listener) {
+    public void setProxySupplierDisposedEventListener(ProxyEventListener listener) {
 	proxySupplierDisposedListener_ = listener;
     }
 
-    public ProxyDisposedEventListener getRemoveProxyConsumerListener() {
+    public ProxyEventListener getRemoveProxyConsumerListener() {
 	return proxyConsumerDisposedListener_;
     }
     
-    public ProxyDisposedEventListener getRemoveProxySupplierListener() {
+    public ProxyEventListener getRemoveProxySupplierListener() {
 	return proxySupplierDisposedListener_;
     }
 
     public void dispatchEvent(NotificationEvent event) {
-	eventChannelServant.dispatchEvent(event);
+	getTaskProcessor().processEvent( event );
     }
 
 }// ChannelContext

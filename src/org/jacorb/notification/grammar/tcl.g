@@ -1,4 +1,4 @@
-// $Id: tcl.g,v 1.3 2003-04-12 21:04:53 alphonse.bendt Exp $
+// $Id: tcl.g,v 1.4 2003-06-05 13:04:09 alphonse.bendt Exp $
 
 header {
     package org.jacorb.notification.parser;
@@ -61,6 +61,8 @@ tokens {
     REPO_ID     <AST=org.jacorb.notification.node.ImplicitOperatorNode>;
 
     DEFAULT     <AST=org.jacorb.notification.node.DefaultOperator>;
+
+    RUNTIME_VAR;
 }
 
 {
@@ -178,7 +180,7 @@ component
     | DOT compDot
     | compArray
     | compAssoc
-    | IDENTIFIER compExt
+    | IDENTIFIER<AST=org.jacorb.notification.node.RuntimeVariableNode>{#IDENTIFIER.setType(RUNTIME_VAR);} compExt
     ;
 
 compExt

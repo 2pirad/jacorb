@@ -25,7 +25,7 @@ package org.jacorb.notification.node;
  * Adapter Class to help creating a Visitor for TCL
  * Trees. Override the appropiate Methods.
  *
- * @version $Id: TCLVisitor.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @version $Id: TCLVisitor.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
  */
 abstract public class TCLVisitor {
 
@@ -95,6 +95,10 @@ abstract public class TCLVisitor {
     {
     }
 
+    public void visitLte(LteOperator lt) throws VisitorException 
+    {
+    }
+
     public void visitGt(GtOperator gt) throws VisitorException 
     {
     }
@@ -132,4 +136,8 @@ abstract public class TCLVisitor {
     public void visitIn(InOperator in) throws VisitorException 
     {
     }
+
+    public void visitGteOperator(GteOperator o) throws VisitorException {}
+
+    public void visitRuntimeVariable(RuntimeVariableNode r) throws VisitorException {}
 }

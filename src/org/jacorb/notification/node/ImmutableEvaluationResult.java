@@ -27,8 +27,8 @@ package org.jacorb.notification.node;
  *
  * Created: Thu Jan 02 15:48:45 2003
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ImmutableEvaluationResult.java,v 1.2 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: ImmutableEvaluationResult.java,v 1.3 2003-06-05 13:04:08 alphonse.bendt Exp $
  */
 
 public class ImmutableEvaluationResult extends EvaluationResult

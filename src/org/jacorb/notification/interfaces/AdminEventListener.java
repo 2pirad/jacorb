@@ -1,4 +1,4 @@
-package org.jacorb.notification;
+package org.jacorb.notification.interfaces;
 
 /*
  *        JacORB - a free Java ORB
@@ -22,15 +22,18 @@ package org.jacorb.notification;
  */
 
 /**
- * EventTypeIdentifier.java
+ * AdminEventListener.java
  *
  *
- * Created: Tue Oct 22 20:20:00 2002
+ * Created: Mon Jun  2 12:42:37 2003
  *
  * @author Alphonse Bendt
- * @version $Id: EventTypeIdentifier.java,v 1.5 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: AdminEventListener.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
-interface EventTypeIdentifier {
-    
+public interface AdminEventListener 
+{
+    void actionAdminCreated(AdminEvent e);
+
+    void actionAdminDestroyed(AdminEvent e);
 }

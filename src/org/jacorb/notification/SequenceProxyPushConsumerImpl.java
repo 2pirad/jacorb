@@ -42,8 +42,8 @@ import org.omg.CosNotifyChannelAdmin.SequenceProxyPushConsumerPOATie;
  *
  * Created: Sat Jan 11 17:06:27 2003
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.2 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.3 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl 

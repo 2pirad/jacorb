@@ -48,7 +48,7 @@ import org.omg.CosNotifyChannelAdmin.StructuredProxyPullSupplierPOATie;
  * Created: Tue Nov 05 14:25:49 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullSupplierImpl
@@ -255,6 +255,4 @@ public class StructuredProxyPullSupplierImpl
     {
         return !pendingEvents_.isEmpty();
     }
-
-
-} // StructuredProxyPullSupplierImpl
+} 

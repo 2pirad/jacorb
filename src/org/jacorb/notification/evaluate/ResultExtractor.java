@@ -37,7 +37,7 @@ import org.apache.log.Hierarchy;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: ResultExtractor.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @version $Id: ResultExtractor.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class ResultExtractor
@@ -58,13 +58,14 @@ public class ResultExtractor
     {
         logger_.debug( "extractFromAny(Any)" );
 
-        EvaluationResult _ret = new EvaluationResult();
+	if (any == null) {
+	    return null;
+	}
 
-        // DynAny _dynAny = dynAnyFactory_.create_dyn_any(any);
+        EvaluationResult _ret = new EvaluationResult();
 
         switch ( any.type().kind().value() )
         {
-            // switch (_dynAny.type().kind().value()) {
 
         case TCKind._tk_boolean:
             logger_.debug( "bool" );
@@ -78,13 +79,19 @@ public class ResultExtractor
 
         case TCKind._tk_long:
             logger_.debug( "long" );
-            _ret.setInt( any.extract_long() );
+            _ret.setLong( any.extract_long() );
             break;
 
         case TCKind._tk_short:
 	    logger_.debug( "int" );
-            _ret.setInt( any.extract_short() );
+            _ret.setLong( any.extract_short() );
             break;
+
+	case TCKind._tk_ulonglong:
+	    logger_.debug("long long");
+
+	    _ret.setLongLong( any.extract_ulonglong() );
+	    break;
 
         case TCKind._tk_any:
             logger_.debug( "nested" );

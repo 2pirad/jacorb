@@ -31,8 +31,8 @@ import org.apache.log.Hierarchy;
  *
  * Created: Wed Sep 18 02:07:17 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: TCLCleanUp.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: TCLCleanUp.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
  */
 
 public class TCLCleanUp extends TCLVisitor implements TCLParserTokenTypes
@@ -77,6 +77,7 @@ public class TCLCleanUp extends TCLVisitor implements TCLParserTokenTypes
     void insertComponentName( ComponentName comp )
     {
         StringBuffer _name = new StringBuffer( comp.toString() );
+
         TCLNode _cursor = ( TCLNode ) comp.left();
 
         while ( _cursor != null )

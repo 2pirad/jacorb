@@ -37,10 +37,11 @@ import org.jacorb.notification.engine.TaskProcessor;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.PortableServer.Servant;
 import org.omg.CosNotifyChannelAdmin.ProxyPullConsumerPOATie;
+import org.jacorb.util.Environment;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.4 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.5 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl
@@ -52,13 +53,31 @@ public class ProxyPullConsumerImpl
 
     private org.omg.CosEventComm.PullSupplier myPullSupplier_;
 
-    private boolean connected_ = false;
     private boolean active_ = false;
-    private long pollInterval_ = 1000L;
+    private long pollInterval_;
+
     private List subsequentDestinations_;
     private Object taskId_;
     private TaskProcessor engine_;
     private Runnable runQueueThis_;
+
+    /**
+     * Total number of pull-Operations
+     *
+     */
+    private int runCounter_;
+    
+    /**
+     * Total time spent within pull-Operations
+     *
+     */
+    private long runTime_;
+
+    /**
+     * Total number of successful pull-Operations
+     *
+     */
+    private int successfulPull_;
 
     ProxyPullConsumerImpl( SupplierAdminTieImpl adminServant,
                            ApplicationContext appContext,
@@ -96,24 +115,32 @@ public class ProxyPullConsumerImpl
 
     private void init( ChannelContext channelContext )
     {
+	
+	if (Environment.getProperty(Properties.PULL_CONSUMER_POLLINTERVALL) != null) {
+	    try {
+		pollInterval_ = 
+		    Long.parseLong(Environment.getProperty(Properties.PULL_CONSUMER_POLLINTERVALL));
+	    } catch (NumberFormatException e) {
+		logger_.error("Invalid Number Format for Property " + Properties.PULL_CONSUMER_POLLINTERVALL, e);
+		pollInterval_ = Constants.DEFAULT_PROXY_POLL_INTERVALL;
+	    }
+	}
+
         engine_ = channelContext.getTaskProcessor();
 
         runQueueThis_ = new Runnable()
-                        {
+	    {
                             public void run()
                             {
                                 try
-                                {
+				    {
                                     engine_.scheduleTimedPullTask( ProxyPullConsumerImpl.this );
                                 }
                                 catch ( InterruptedException ie )
-                                {}
-
+				    {}
+				
                             }
-
-                        }
-
-                        ;
+	    };
 
         connected_ = false;
         subsequentDestinations_ = Collections.singletonList( myAdmin_ );
@@ -181,11 +208,18 @@ public class ProxyPullConsumerImpl
         {
             if ( connected_ )
             {
+		++runCounter_;
+		long _start = System.currentTimeMillis();
+
                 event = myPullSupplier_.try_pull( hasEvent );
+
+		runTime_ += System.currentTimeMillis() - _start;
 
                 if ( hasEvent.value )
                 {
                     logger_.debug( "pulled event" );
+		    
+		    ++successfulPull_;
 
                     NotificationEvent _notifyEvent =
                         notificationEventFactory_.newEvent( event, this );
@@ -284,5 +318,21 @@ public class ProxyPullConsumerImpl
     public void setServant( Servant servant )
     {
         thisServant_ = servant;
+    }
+
+    public long getPollInterval() {
+	return pollInterval_;
+    }
+
+    public long getPullTimer() {
+	return runTime_;
+    }
+
+    public int getPullCounter() {
+	return runCounter_;
+    }
+
+    public int getSuccessfulPullCounter() {
+	return successfulPull_;
     }
 }

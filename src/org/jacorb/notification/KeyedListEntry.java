@@ -28,37 +28,45 @@ package org.jacorb.notification;
  * Created: Thu Jan 09 15:10:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: KeyedListEntry.java,v 1.2 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: KeyedListEntry.java,v 1.3 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
-public class KeyedListEntry {
+public class KeyedListEntry
+{
 
     private int key_;
 
-    int getKey() {
-	return key_;
+    int getKey()
+    {
+        return key_;
     }
 
     private Object value_;
 
-    public Object getValue() {
-	return value_;
+    public Object getValue()
+    {
+        return value_;
     }
 
-    public KeyedListEntry(int key, Object value) {
-	value_ = value;
-	key_ = key;
-    }
-    
-    public boolean equals(Object o) {
-	if (o instanceof KeyedListEntry) {
-	    return ((KeyedListEntry)o).getKey() == key_;
-	}
-	return false;
+    public KeyedListEntry( int key, Object value )
+    {
+        value_ = value;
+        key_ = key;
     }
 
-    public int hashCode() {
-	return key_;
+    public boolean equals( Object o )
+    {
+        if ( o instanceof KeyedListEntry )
+        {
+            return ( ( KeyedListEntry ) o ).getKey() == key_;
+        }
+
+        return false;
     }
 
-}// KeyedListEntry
+    public int hashCode()
+    {
+        return key_;
+    }
+
+}

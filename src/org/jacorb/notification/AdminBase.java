@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: AdminBase.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: AdminBase.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public abstract class AdminBase 
@@ -303,6 +303,12 @@ public abstract class AdminBase
     throws UnsupportedQoS
     {
     }
+
+    public void destroy()
+    {
+        dispose();
+    }
+    
 
     public synchronized void dispose()
     {

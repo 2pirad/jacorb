@@ -1,5 +1,3 @@
-package org.jacorb.notification;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -21,16 +19,21 @@ package org.jacorb.notification;
  *
  */
 
+package org.jacorb.notification;
+
 /**
- * EventTypeIdentifier.java
+ * Constants.java
  *
  *
- * Created: Tue Oct 22 20:20:00 2002
+ * Created: Wed May 28 10:43:42 2003
  *
  * @author Alphonse Bendt
- * @version $Id: EventTypeIdentifier.java,v 1.5 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: Constants.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
-interface EventTypeIdentifier {
-    
+public interface Constants 
+{
+
+    public final static long DEFAULT_PROXY_POLL_INTERVALL = 1000L;
+
 }

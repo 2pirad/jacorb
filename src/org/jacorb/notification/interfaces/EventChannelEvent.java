@@ -21,18 +21,21 @@ package org.jacorb.notification.interfaces;
  *
  */
 
+import org.jacorb.notification.interfaces.FrameworkEvent;
+import org.jacorb.notification.EventChannelImpl;
+
 /**
- * ProxyDisposedEventListener.java
+ * EventChannelCreatedEvent.java
  *
  *
- * Created: Wed Feb 12 15:15:13 2003
- *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ProxyDisposedEventListener.java,v 1.1 2003-04-12 21:17:41 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: EventChannelEvent.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
-public interface ProxyDisposedEventListener {
-
-    void actionProxyDisposed(ProxyDisposedEvent event);
-    
-}// ProxyDisposedEventListener
+public class EventChannelEvent extends FrameworkEvent 
+{
+    public EventChannelEvent(EventChannelImpl servant)
+    {
+	super(servant);
+    }   
+}

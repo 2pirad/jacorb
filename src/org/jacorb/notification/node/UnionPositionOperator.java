@@ -1,3 +1,5 @@
+package org.jacorb.notification.node;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,17 +20,8 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.notification.node;
 
-import org.jacorb.notification.node.TCLNode;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
-import org.jacorb.notification.EvaluationContext;
 import antlr.Token;
-import org.omg.CORBA.Any;
-import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
-import org.jacorb.notification.evaluate.EvaluationException;
-import org.omg.CORBA.TypeCodePackage.BadKind;
 
 /**
  * UnionPositionOperator.java
@@ -36,8 +29,8 @@ import org.omg.CORBA.TypeCodePackage.BadKind;
  *
  * Created: Thu Sep 26 14:57:58 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: UnionPositionOperator.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: UnionPositionOperator.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
  */
 
 public class UnionPositionOperator extends TCLNode {

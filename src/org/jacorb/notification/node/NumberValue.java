@@ -21,13 +21,7 @@ package org.jacorb.notification.node;
  *
  */
 
-import antlr.BaseAST;
 import antlr.Token;
-import antlr.collections.AST;
-import java.io.*;
-import java.io.Writer;
-import java.io.IOException;
-import org.omg.CORBA.TCKind;
 import org.jacorb.notification.EvaluationContext;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
@@ -35,10 +29,11 @@ import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 
 /** 
  * A simple node to represent a Number 
- * @version $Id: NumberValue.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @version $Id: NumberValue.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
  */
 
 public class NumberValue extends TCLNode {
+
     private Double  number_;
     EvaluationResult result_;
 
@@ -60,7 +55,7 @@ public class NumberValue extends TCLNode {
 	
 	switch(t) {
 	case NUMBER:
-	    _r.setInt(number_);
+	    _r.setLong(number_);
 	    break;
 	case NUM_FLOAT:
 	    _r.setFloat(number_);
@@ -68,6 +63,7 @@ public class NumberValue extends TCLNode {
 	default:
 	    throw new RuntimeException();
 	}
+
 	result_ = EvaluationResult.wrapImmutable(_r);
     }
 

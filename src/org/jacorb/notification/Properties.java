@@ -1,5 +1,3 @@
-package org.jacorb.notification;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -21,16 +19,23 @@ package org.jacorb.notification;
  *
  */
 
+package org.jacorb.notification;
+
 /**
- * EventTypeIdentifier.java
- *
- *
- * Created: Tue Oct 22 20:20:00 2002
+ * Properties.java
  *
  * @author Alphonse Bendt
- * @version $Id: EventTypeIdentifier.java,v 1.5 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: Properties.java,v 1.1 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
-interface EventTypeIdentifier {
-    
+public interface Properties 
+{
+
+    public static final String FILTER_POOL_WORKERS = "jacorb.notification.filter_pool_workers";
+
+    public static final String DELIVER_POOL_WORKERS = "jacorb.notification.deliver_pool_workers";
+
+    public static final String PULL_CONSUMER_POLLINTERVALL = 
+	"jacorb.notification.pull_consumer_pollintervall";
+
 }

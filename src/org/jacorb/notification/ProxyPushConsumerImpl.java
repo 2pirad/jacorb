@@ -36,7 +36,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.4 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.5 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl
@@ -116,6 +116,8 @@ public class ProxyPushConsumerImpl
      */
     public void push( Any event ) throws Disconnected
     {
+	//	logger_.debug("push(Any)");
+
         if ( !connected )
         {
             throw new Disconnected();
@@ -124,7 +126,11 @@ public class ProxyPushConsumerImpl
         NotificationEvent _notifyEvent =
             notificationEventFactory_.newEvent( event, this );
 
+	//logger_.debug("createdEvent");
+
         channelContext_.dispatchEvent( _notifyEvent );
+
+	//logger_.debug("dispatchedEvent");
     }
 
     public void connect_push_supplier( org.omg.CosEventComm.PushSupplier pushSupplier )

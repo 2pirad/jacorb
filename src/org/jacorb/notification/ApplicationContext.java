@@ -36,6 +36,7 @@ import org.omg.CORBA.Any;
 import org.omg.TimeBase.TimeTHelper;
 import org.omg.CosNotification.PacingInterval;
 import org.jacorb.notification.engine.TaskProcessor;
+import org.jacorb.notification.interfaces.Disposable;
 
 /**
  * ApplicationContext.java
@@ -43,11 +44,11 @@ import org.jacorb.notification.engine.TaskProcessor;
  *
  * Created: Sat Nov 30 16:02:04 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ApplicationContext.java,v 1.5 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: ApplicationContext.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
-public class ApplicationContext {
+public class ApplicationContext implements Disposable {
 
     private ORB orb_;
     private POA poa_;
@@ -63,6 +64,10 @@ public class ApplicationContext {
     private PropertyManager defaultQoSProperties_;
 
     public ApplicationContext(ORB orb, POA poa) throws InvalidName {
+	this(orb, poa, false);
+    }
+
+    public ApplicationContext(ORB orb, POA poa, boolean init) throws InvalidName {
 	orb_ = orb;
 	poa_ = poa;
 
@@ -119,7 +124,24 @@ public class ApplicationContext {
 	TimeTHelper.insert(_pacingInterval, 0);
 	defaultQoSProperties_.setProperty(PacingInterval.value, _pacingInterval);
 
+	if (init) {
+	    init();
+	}
+    }
+
+    public void init() {
 	taskProcessor_ = new TaskProcessor();
+    }
+
+    public void dispose() {
+	if (taskProcessor_ != null) {
+	    taskProcessor_.dispose();
+	    taskProcessor_ = null;
+	}
+
+	evaluationResultPool_.dispose();
+	evaluationContextPool_.dispose();
+	notificationEventFactory_.dispose();
     }
 
     /**

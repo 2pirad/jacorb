@@ -27,6 +27,8 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 import org.jacorb.notification.evaluate.EvaluationException;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.jacorb.notification.EvaluationContext;
+import org.omg.CORBA.Any;
+import org.omg.CORBA.TypeCodePackage.BadKind;
 
 /**
  * ImplictOperatorNode.java
@@ -34,8 +36,8 @@ import org.jacorb.notification.EvaluationContext;
  *
  * Created: Sat Sep 28 23:58:11 2002
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: ImplicitOperatorNode.java,v 1.5 2003-04-12 21:04:53 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: ImplicitOperatorNode.java,v 1.6 2003-06-05 13:04:08 alphonse.bendt Exp $
  */
 
 public class ImplicitOperatorNode extends TCLNode {
@@ -116,11 +118,19 @@ public class ImplicitOperatorNode extends TCLNode {
 	return operator_.toString();
     }
 
-}// ImplictOperatorNode
+}
 
 class RepoOperator implements ImplicitOperator {
     public String toString() {
 	return "_repos_id";
+    }
+
+    public Any evaluateImplicit(EvaluationContext context, Any value) throws EvaluationException {
+	try {
+	    return context.getDynamicEvaluator().evaluateRepositoryId(value);
+	} catch (BadKind e) {
+	    throw new EvaluationException();
+	}
     }
 }
 
@@ -128,16 +138,43 @@ class TypeOperator implements ImplicitOperator {
     public String toString() {
 	return "_type_id";
     }
+
+    public Any evaluateImplicit(EvaluationContext context, Any value) throws EvaluationException {
+	try {
+	    return context.getDynamicEvaluator().evaluateTypeName(value);
+	} catch (BadKind e) {
+	    throw new EvaluationException();
+	}
+    }
+
 }
 
 class DiscrimOperator implements ImplicitOperator {
     public String toString() {
 	return "_d";
     }
+
+    public Any evaluateImplicit(EvaluationContext context, Any value) throws EvaluationException {
+	try {
+	    return context.getDynamicEvaluator().evaluateDiscriminator(value);
+	} catch (InconsistentTypeCode e) {
+	    throw new EvaluationException();
+	}
+    }
+    
 }
 
 class LengthOperator implements ImplicitOperator {
     public String toString() {
 	return "_length";
     }
+
+    public Any evaluateImplicit(EvaluationContext context, Any value) throws EvaluationException {
+	try {
+	    return context.getDynamicEvaluator().evaluateListLength(value);
+	} catch (InconsistentTypeCode e) {
+	    throw new EvaluationException();
+	}
+    }
+
 }

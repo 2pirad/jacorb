@@ -46,8 +46,8 @@ import org.omg.CosNotifyChannelAdmin.SequenceProxyPushSupplierPOATie;
  *
  * Created: Sat Jan 11 16:47:42 2003
  *
- * @author <a href="mailto:bendt@inf.fu-berlin.de">Alphonse Bendt</a>
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.2 2003-04-12 21:04:54 alphonse.bendt Exp $
+ * @author Alphonse Bendt
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.3 2003-06-05 13:04:09 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl
@@ -194,27 +194,25 @@ public class SequenceProxyPushSupplierImpl
 
                     if ( hasPendingEvents() )
                     {
-
                         synchronized ( pendingEvents_ )
                         {
-
                             int _deliverBatchSize = 
 				( pendingEvents_.size() > maxBatchSize_ ) ?
 				maxBatchSize_ :
 				pendingEvents_.size();
-
+			    
                             _eventsToDeliver = 
 				new StructuredEvent[ _deliverBatchSize ];
-
+			    
                             for ( int x = 0; x < _deliverBatchSize; ++x )
-                            {
-                                _eventsToDeliver[ x ] = 
-				    ( StructuredEvent ) pendingEvents_.removeFirst();
-                            }
+				{
+				    _eventsToDeliver[ x ] = 
+					( StructuredEvent ) pendingEvents_.removeFirst();
+				}
                         }
-
+			
                         try
-                        {
+			    {
                             sequencePushConsumer_.push_structured_events( _eventsToDeliver );
                         }
                         catch ( Disconnected d )
@@ -222,13 +220,12 @@ public class SequenceProxyPushSupplierImpl
                             throw new NotConnected();
                         }
                     }
-
                     delivering_ = false;
                 }
             }
         }
     }
-
+    
     // new
     public void connect_sequence_push_consumer( SequencePushConsumer consumer )
     throws AlreadyConnected,
@@ -367,8 +364,7 @@ public class SequenceProxyPushSupplierImpl
                 }
             }
         }
-
         return thisServant_;
     }
 
-} // SequenceProxyPushSupplierImpl
+}
