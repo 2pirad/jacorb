@@ -1,6 +1,6 @@
 package org.jacorb.imr;
 
-import org.jacorb.orb.*;
+import org.omg.CORBA.ORB;
 /**
  * This class represents a host. It contains information about 
  * a server startup daemon residing on this host and provides
@@ -8,7 +8,7 @@ import org.jacorb.orb.*;
  *
  * @author Nicolas Noffke
  * 
- * @version $Id: ImRHostInfo.java,v 1.3 2001-03-19 11:07:58 brose Exp $
+ * @version $Id: ImRHostInfo.java,v 1.4 2001-11-15 17:30:09 jacorb Exp $
  */
 
 public class ImRHostInfo implements java.io.Serializable {
