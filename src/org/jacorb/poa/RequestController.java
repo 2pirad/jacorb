@@ -39,7 +39,7 @@ import java.util.*;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestController.java,v 1.31 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: RequestController.java,v 1.32 2004-10-18 11:07:31 simon.mcqueen Exp $
  */
 
 public final class RequestController
@@ -451,7 +451,7 @@ public final class RequestController
 
     public void run()
     {
-        State state;
+        org.omg.PortableServer.POAManagerPackage.State state;
         ServerRequest request;
         org.omg.CORBA.OBJ_ADAPTER closed_connection_exception =
             new org.omg.CORBA.OBJ_ADAPTER("connection closed: adapter inactive");

@@ -34,7 +34,7 @@ import org.apache.log.*;
  * IDL compiler option "-backend <classname>"
  *
  * @author Gerald Brose, XTRADYNE Technologies.
- * @version $Id: IDLTreeVisitor.java,v 1.4 2004-05-06 12:39:58 nicolas Exp $ 
+ * @version $Id: IDLTreeVisitor.java,v 1.5 2004-10-18 11:07:31 simon.mcqueen Exp $ 
  */
 
 public interface IDLTreeVisitor
@@ -77,7 +77,7 @@ public interface IDLTreeVisitor
 
     void visitUnion( UnionType union );
 
-    void visitEnum( EnumType enum );
+    void visitEnum( EnumType enumType );
 
 
     void visitNative( NativeType _native );

@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.22 2004-05-06 12:40:00 nicolas Exp $
+ * $Id: DynUnion.java,v 1.23 2004-10-18 11:07:31 simon.mcqueen Exp $
  *
  */
 
@@ -680,10 +680,10 @@ public final class DynUnion
             }
          case TCKind._tk_enum:
             {
-               org.omg.DynamicAny.DynEnum enum = null;
+               org.omg.DynamicAny.DynEnum dynEnum = null;
                try
                {         
-                  enum = (org.omg.DynamicAny.DynEnum) dynFactory.create_dyn_any_from_type_code (discriminator.type());
+                  dynEnum = (org.omg.DynamicAny.DynEnum) dynFactory.create_dyn_any_from_type_code (discriminator.type());
                }
                catch( InconsistentTypeCode it )
                {
@@ -695,7 +695,7 @@ public final class DynUnion
                {    
                   try
                   {
-                     enum.set_as_string( discriminator.type().member_name(i) );
+                     dynEnum.set_as_string( discriminator.type().member_name(i) );
                   }
                   catch( InvalidValue iv )
                   {
@@ -706,7 +706,7 @@ public final class DynUnion
                   found = false; // is the value used as a label?
                   for( int j = 0; j < type().member_count() && !found; j++ )
                   {
-                     if( enum.to_any ().equal( type().member_label(j) ) )
+                     if( dynEnum.to_any ().equal( type().member_label(j) ) )
                      {
                         found = true;
                      }
@@ -715,7 +715,7 @@ public final class DynUnion
                   if( !found )
                   {
                      // the enum value is not found among the union's label
-                     discriminator = enum.to_any();
+                     discriminator = dynEnum.to_any();
                      return;
                   }                    
                }

@@ -35,7 +35,7 @@ import org.jacorb.orb.ORB;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.12 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.13 2004-10-18 11:07:31 simon.mcqueen Exp $
  */
 
 public class ORBInitInfoImpl 
@@ -97,10 +97,10 @@ public class ORBInitInfoImpl
 
     private void merge(Vector target, Hashtable source)
     {
-        Enumeration enum = source.elements();
+        Enumeration enumeration = source.elements();
 
-        while(enum.hasMoreElements())
-            target.addElement(enum.nextElement());
+        while(enumeration.hasMoreElements())
+            target.addElement(enumeration.nextElement());
     }
 
     public Vector getClientInterceptors()

@@ -41,7 +41,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.48 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: POA.java,v 1.49 2004-10-18 11:07:31 simon.mcqueen Exp $
  */
 
 public class POA
@@ -1828,16 +1828,16 @@ public class POA
         checkDestructionApparent();
 
         int i = 0;
-        Enumeration enum;
+        Enumeration enumeration;
         org.omg.PortableServer.POA[] children;
 
         synchronized (poaCreationLog)
         {
             children = new org.omg.PortableServer.POA[childs.size()];
-            enum = childs.elements();
-            while (enum.hasMoreElements())
+            enumeration = childs.elements();
+            while (enumeration.hasMoreElements())
             {
-                children[i] = (org.omg.PortableServer.POA) enum.nextElement();
+                children[i] = (org.omg.PortableServer.POA) enumeration.nextElement();
                 i++;
             }
         }

@@ -29,7 +29,7 @@ import java.util.Enumeration;
  * The compiler backend for the IDL/Java mapping
  *
  * @author Copyright (c) 1999-2004, Gerald Brose
- * @version $Id: JavaMappingGeneratingVisitor.java,v 1.4 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: JavaMappingGeneratingVisitor.java,v 1.5 2004-10-18 11:07:31 simon.mcqueen Exp $
  *
  */
 
@@ -217,10 +217,10 @@ public class JavaMappingGeneratingVisitor
      * 
      */
 
-    public void visitEnum( EnumType enum )
+    public void visitEnum( EnumType enumType )
     {
 
-        for( Enumeration e = enum.enumlist.elements(); e.hasMoreElements(); )
+        for( Enumeration e = enumType.enumlist.elements(); e.hasMoreElements(); )
         {
             // 
         }

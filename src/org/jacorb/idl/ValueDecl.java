@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.40 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ValueDecl.java,v 1.41 2004-10-18 11:07:31 simon.mcqueen Exp $
  */
 
 public class ValueDecl
@@ -532,12 +532,12 @@ public class ValueDecl
                 }
 
                 // go through supported interfaces
-                Enumeration enum = inheritanceSpec.getSupportedInterfaces();
-                if (enum.hasMoreElements())
+                Enumeration enumeration = inheritanceSpec.getSupportedInterfaces();
+                if (enumeration.hasMoreElements())
                 {
-                    for(; enum.hasMoreElements();)
+                    for(; enumeration.hasMoreElements();)
                     {
-                        ScopedName sne = (ScopedName)enum.nextElement();
+                        ScopedName sne = (ScopedName)enumeration.nextElement();
                         implementsBuffer.append (", " + sne);
                         if (Interface.abstractInterfaces == null ||
                             !Interface.abstractInterfaces.contains (sne.toString()))
