@@ -13,7 +13,7 @@ import org.omg.CORBA.ORB;
  * See PI Spec p.10-80
  *
  * @author Nicolas Noffke
- * @version $Id: CodecFactoryImpl.java,v 1.5 2001-11-22 15:59:35 prism Exp $
+ * @version $Id: CodecFactoryImpl.java,v 1.6 2002-03-19 09:25:33 nicolas Exp $
  */
 
 public class CodecFactoryImpl extends org.omg.CORBA.LocalObject 

@@ -28,7 +28,7 @@ import java.net.*;
 
 /**
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: EventListElement.java,v 1.3 2001-03-19 11:07:33 brose Exp $
+ * @version $Id: EventListElement.java,v 1.4 2002-03-19 09:24:57 nicolas Exp $
  */
 
 class EventListElement

@@ -11,7 +11,7 @@ import org.jacorb.util.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.11 2001-11-22 15:59:36 prism Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.12 2002-03-19 09:25:35 nicolas Exp $
  */
 
 public class SSLComponentInterceptor 

@@ -6,7 +6,7 @@ package org.jacorb.security.level2;
  * Created: Mon Sep  4 16:33:49 2000
  *
  * @author Nicolas Noffke
- * @version $Id: KeyAndCert.java,v 1.5 2001-11-19 10:53:41 jacorb Exp $
+ * @version $Id: KeyAndCert.java,v 1.6 2002-03-19 09:25:40 nicolas Exp $
  */
 
 import java.security.PrivateKey;

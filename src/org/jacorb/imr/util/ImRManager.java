@@ -9,7 +9,7 @@ import org.jacorb.util.Debug;
  * 
  * @author Nicolas Noffke
  * 
- * $Id: ImRManager.java,v 1.5 2001-06-08 12:10:33 jacorb Exp $
+ * $Id: ImRManager.java,v 1.6 2002-03-19 09:25:10 nicolas Exp $
  */
 
 public class ImRManager

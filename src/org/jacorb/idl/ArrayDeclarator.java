@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.4 2001-11-09 08:54:44 jacorb Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.5 2002-03-19 09:24:58 nicolas Exp $
  */
 
 import java.util.Vector;

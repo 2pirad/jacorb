@@ -42,7 +42,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing certificates
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: CertUtils.java,v 1.5 2001-06-08 14:21:13 noffke Exp $
+ * @version $Id: CertUtils.java,v 1.6 2002-03-19 09:25:43 nicolas Exp $
  */
 
 public class CertUtils

@@ -17,7 +17,7 @@ package org.jacorb.util;
  * threads.
  *
  * @author Nicolas Noffke
- * $Id: ThreadSystemProperties.java,v 1.3 2001-03-19 11:10:28 brose Exp $
+ * $Id: ThreadSystemProperties.java,v 1.4 2002-03-19 09:25:54 nicolas Exp $
  */
 import java.util.*;
 

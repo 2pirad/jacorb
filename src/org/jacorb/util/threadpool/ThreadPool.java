@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:09:01 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPool.java,v 1.4 2001-10-02 13:51:14 jacorb Exp $
+ * $Id: ThreadPool.java,v 1.5 2002-03-19 09:25:57 nicolas Exp $
  */
 import org.jacorb.util.Debug;
 

@@ -10,7 +10,7 @@ import org.jacorb.util.Debug;
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.5 2001-12-21 10:35:47 nicolas Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.6 2002-03-19 09:25:32 nicolas Exp $
  */
 
 public class ClientInterceptorIterator 

@@ -26,7 +26,7 @@ package org.jacorb.security.util;
  * TrustNodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KSEntryTree.java,v 1.3 2001-03-19 11:09:27 brose Exp $
+ * @version $Id: KSEntryTree.java,v 1.4 2002-03-19 09:25:43 nicolas Exp $
  */
 
 import java.awt.*;

@@ -8,7 +8,7 @@ import javax.swing.table.*;
  * Created: Tue Jun 27 10:47:27 2000
  *
  * @author Nicolas Noffke
- * $Id: CADTableModel.java,v 1.3 2001-03-19 11:10:26 brose Exp $
+ * $Id: CADTableModel.java,v 1.4 2002-03-19 09:25:51 nicolas Exp $
  */
 
 public class CADTableModel 

@@ -6,7 +6,7 @@ package org.jacorb.trading.util;
  * Created: Sat Feb  5 11:41:42 2000
  *
  * @author Nicolas Noffke
- * @version $Id: TimerListNode.java,v 1.3 2001-03-19 11:10:15 brose Exp $
+ * @version $Id: TimerListNode.java,v 1.4 2002-03-19 09:25:47 nicolas Exp $
  */
 
 public class TimerListNode{

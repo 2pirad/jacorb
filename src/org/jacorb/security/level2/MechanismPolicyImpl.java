@@ -9,7 +9,7 @@ import org.omg.CORBA.*;
  *
  * Created: Tue Jun 13 11:37:29 2000
  *
- * $Id: MechanismPolicyImpl.java,v 1.4 2001-11-22 15:59:39 prism Exp $
+ * $Id: MechanismPolicyImpl.java,v 1.5 2002-03-19 09:25:40 nicolas Exp $
  */
 
 public class MechanismPolicyImpl 

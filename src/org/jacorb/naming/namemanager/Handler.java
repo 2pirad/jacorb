@@ -23,7 +23,7 @@ package org.jacorb.naming.namemanager;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: Handler.java,v 1.4 2001-03-19 12:35:06 noffke Exp $
+ * @version $Id: Handler.java,v 1.5 2002-03-19 09:25:17 nicolas Exp $
  */
 
 import java.awt.event.*;

@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * See PI Spec p.7-64f
  *
  * @author Nicolas Noffke
- * @version $Id: IORInfoImpl.java,v 1.5 2001-12-14 12:36:13 spiegel Exp $
+ * @version $Id: IORInfoImpl.java,v 1.6 2002-03-19 09:25:33 nicolas Exp $
  */
 
 public class IORInfoImpl extends org.omg.CORBA.LocalObject 

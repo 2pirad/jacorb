@@ -9,7 +9,7 @@ import org.omg.CORBA.*;
  *
  * Created: Tue Jun 13 16:55:36 2000
  *
- * $Id: InvocationCredentialsPolicyImpl.java,v 1.4 2001-11-22 15:59:39 prism Exp $
+ * $Id: InvocationCredentialsPolicyImpl.java,v 1.5 2002-03-19 09:25:39 nicolas Exp $
  */
 
 public class InvocationCredentialsPolicyImpl

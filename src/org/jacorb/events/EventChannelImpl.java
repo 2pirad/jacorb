@@ -3,7 +3,7 @@ package org.jacorb.events;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -36,7 +36,7 @@ import java.net.*;
  * references only.
  *
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose, Jeff Carlson
- * @version $Id: EventChannelImpl.java,v 1.6 2001-11-16 11:02:12 jacorb Exp $
+ * @version $Id: EventChannelImpl.java,v 1.7 2002-03-19 09:24:56 nicolas Exp $
  */
 
 public class EventChannelImpl extends JacORBEventChannelPOA

@@ -3,7 +3,7 @@ package org.jacorb.events;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
  * Implementation of COSEventChannelAdmin interface; ProxyPullConsumer.
  * This defines connect_pull_supplier() and disconnect_pull_consumer().
  *
- * 2001/23/08 JFC OMG EventService Specification 1.1 page 2-7 states:
+ * 2002/23/08 JFC OMG EventService Specification 1.1 page 2-7 states:
  *      "Registration is a two step process.  An event-generating application
  *      first obtains a proxy consumer from a channel, then 'connects' to the
  *      proxy consumer by providing it with a supplier.  ...  The reason for
@@ -35,7 +35,7 @@ import org.jacorb.orb.*;
  *    section 2.1.5 "Disconnection Behavior" on page 2-4.
  *
  * @authors Jeff Carlson, Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose 1997
- * $Id: ProxyPullConsumerImpl.java,v 1.6 2001-11-16 11:04:22 jacorb Exp $
+ * $Id: ProxyPullConsumerImpl.java,v 1.7 2002-03-19 09:24:57 nicolas Exp $
  */
 public class ProxyPullConsumerImpl
     extends org.omg.CosEventChannelAdmin.ProxyPullConsumerPOA

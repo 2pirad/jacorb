@@ -3,7 +3,7 @@ package org.jacorb.ir;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.6 2002-01-11 17:28:06 gerald Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.7 2002-03-19 09:25:14 nicolas Exp $    
  */
  
 public class TypeCodeUtil

@@ -3,7 +3,7 @@ package org.jacorb.orb.dynany;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -28,7 +28,7 @@ import org.omg.DynamicAny.DynAnyPackage.*;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.13 2002-01-17 10:26:55 jason.courage Exp $
+ * $Id: DynAny.java,v 1.14 2002-03-19 09:25:30 nicolas Exp $
  *
  */
 

@@ -9,7 +9,7 @@ import org.omg.Security.*;
  *
  * Created: Tue Jun 13 11:02:20 2000
  *
- * $Id: QOPPolicyImpl.java,v 1.4 2001-11-22 15:59:39 prism Exp $
+ * $Id: QOPPolicyImpl.java,v 1.5 2002-03-19 09:25:40 nicolas Exp $
  */
 
 public class QOPPolicyImpl 

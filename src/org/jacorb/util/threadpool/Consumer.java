@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Thu Dec 21 10:52:28 2000
  *
  * @author Nicolas Noffke
- * $Id: Consumer.java,v 1.3 2001-03-19 11:10:29 brose Exp $
+ * $Id: Consumer.java,v 1.4 2002-03-19 09:25:54 nicolas Exp $
  */
 
 public interface Consumer  

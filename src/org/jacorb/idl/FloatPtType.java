@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatPtType.java,v 1.3 2001-03-19 11:07:41 brose Exp $
+ * @version $Id: FloatPtType.java,v 1.4 2002-03-19 09:25:01 nicolas Exp $
  */
 
 import java.io.PrintWriter;

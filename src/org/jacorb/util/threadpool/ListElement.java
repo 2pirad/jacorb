@@ -3,10 +3,10 @@ package org.jacorb.util.threadpool;
  * ListElement.java
  *
  *
- * Created: Thu Jan  4 14:33:48 2001
+ * Created: Thu Jan  4 14:33:48 2002
  *
  * @author Nicolas Noffke
- * $Id: ListElement.java,v 1.3 2001-03-19 11:10:31 brose Exp $
+ * $Id: ListElement.java,v 1.4 2002-03-19 09:25:56 nicolas Exp $
  */
 
 public class ListElement  

@@ -10,7 +10,7 @@ import javax.swing.event.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImRServerTableModel.java,v 1.3 2001-03-19 11:08:01 brose Exp $
+ * $Id: ImRServerTableModel.java,v 1.4 2002-03-19 09:25:11 nicolas Exp $
  */
 
 public class ImRServerTableModel extends AbstractTableModel {

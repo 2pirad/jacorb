@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.21 2002-02-25 20:27:52 nicolas Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.22 2002-03-19 09:25:10 nicolas Exp $
  */
 
 public class ImplementationRepositoryImpl 

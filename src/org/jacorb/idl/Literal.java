@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.12 2002-02-27 17:36:54 nick.cross Exp $
+ * @version $Id: Literal.java,v 1.13 2002-03-19 09:25:02 nicolas Exp $
  */
 
 class Literal

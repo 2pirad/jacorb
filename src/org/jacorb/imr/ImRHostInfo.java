@@ -8,7 +8,7 @@ import org.omg.CORBA.ORB;
  *
  * @author Nicolas Noffke
  * 
- * @version $Id: ImRHostInfo.java,v 1.4 2001-11-15 17:30:09 jacorb Exp $
+ * @version $Id: ImRHostInfo.java,v 1.5 2002-03-19 09:25:09 nicolas Exp $
  */
 
 public class ImRHostInfo implements java.io.Serializable {

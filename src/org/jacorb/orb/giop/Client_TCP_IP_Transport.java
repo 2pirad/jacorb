@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,10 +32,10 @@ import org.omg.CORBA.COMM_FAILURE;
  * Client_TCP_IP_Transport.java
  *
  *
- * Created: Sun Aug 12 20:56:32 2001
+ * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.8 2002-03-06 14:33:20 gerald Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.9 2002-03-19 09:25:23 nicolas Exp $
  */
 
 public class Client_TCP_IP_Transport 

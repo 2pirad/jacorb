@@ -9,7 +9,7 @@ import java.lang.reflect.*;
  * application exception into an any.
  *
  * @author Nicolas Noffke
- * @version $Id: ApplicationExceptionHelper.java,v 1.5 2001-04-04 08:26:40 jacorb Exp $
+ * @version $Id: ApplicationExceptionHelper.java,v 1.6 2002-03-19 09:25:17 nicolas Exp $
  */
 
 public class ApplicationExceptionHelper  

@@ -17,7 +17,7 @@ import java.lang.reflect.*;
  * class.
  *
  * @author Nicolas Noffke
- * $Id: CapsuleThread.java,v 1.5 2001-10-02 13:51:14 jacorb Exp $
+ * $Id: CapsuleThread.java,v 1.6 2002-03-19 09:25:51 nicolas Exp $
  */
 
 public class CapsuleThread 

@@ -11,7 +11,7 @@ import org.jacorb.util.Debug;
  * Created: Wed Aug 16 10:36:21 2000
  *
  * @author Herbert Kiefer
- * @version $Id: ODMCache.java,v 1.4 2001-11-16 16:13:13 jacorb Exp $
+ * @version $Id: ODMCache.java,v 1.5 2002-03-19 09:25:30 nicolas Exp $
  */
 
 public class ODMCache  

@@ -3,7 +3,7 @@ package org.jacorb.orb.portableInterceptor;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -36,7 +36,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.7 2001-11-22 15:59:35 prism Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.8 2002-03-19 09:25:34 nicolas Exp $
  */
 
 public class ORBInitInfoImpl 

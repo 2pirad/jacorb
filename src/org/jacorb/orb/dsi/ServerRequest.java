@@ -3,7 +3,7 @@ package org.jacorb.orb.dsi;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ import org.omg.GIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.10 2002-01-11 21:35:21 gerald Exp $
+ * @version $Id: ServerRequest.java,v 1.11 2002-03-19 09:25:30 nicolas Exp $
  */
 
 public class ServerRequest 

@@ -5,10 +5,10 @@ import java.net.InetAddress;
  * DNSLookup.java
  *
  *
- * Created: Thu Apr  5 10:45:02 2001
+ * Created: Thu Apr  5 10:45:02 2002
  *
  * @author Nicolas Noffke
- * @version $Id: DNSLookup.java,v 1.1 2001-04-05 09:22:11 noffke Exp $
+ * @version $Id: DNSLookup.java,v 1.2 2002-03-19 09:25:29 nicolas Exp $
  */
 
 public class DNSLookup  

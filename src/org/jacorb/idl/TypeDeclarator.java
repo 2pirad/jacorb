@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclarator.java,v 1.3 2001-03-19 11:07:53 brose Exp $
+ * @version $Id: TypeDeclarator.java,v 1.4 2002-03-19 09:25:07 nicolas Exp $
  */
 
 class TypeDeclarator 

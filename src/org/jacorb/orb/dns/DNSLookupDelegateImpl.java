@@ -10,10 +10,10 @@ import java.net.InetAddress;
  * DNSLookupDelegateImpl.java
  *
  *
- * Created: Thu Apr  5 10:54:29 2001
+ * Created: Thu Apr  5 10:54:29 2002
  *
  * @author Nicolas Noffke
- * @version $Id: DNSLookupDelegateImpl.java,v 1.3 2001-06-25 15:21:59 noffke Exp $
+ * @version $Id: DNSLookupDelegateImpl.java,v 1.4 2002-03-19 09:25:29 nicolas Exp $
  */
 
 public class DNSLookupDelegateImpl

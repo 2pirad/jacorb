@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AnyType.java,v 1.5 2001-04-14 15:43:28 jacorb Exp $
+ * @version $Id: AnyType.java,v 1.6 2002-03-19 09:24:58 nicolas Exp $
  */
 
 class AnyType 

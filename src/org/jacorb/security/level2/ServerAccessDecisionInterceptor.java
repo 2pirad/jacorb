@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.10 2001-11-22 15:59:39 prism Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.11 2002-03-19 09:25:40 nicolas Exp $
  */
 
 public class ServerAccessDecisionInterceptor 

@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -47,7 +47,7 @@ import java_cup.runtime.float_token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.17 2002-02-27 17:36:55 nick.cross Exp $
+ * @version $Id: lexer.java,v 1.18 2002-03-19 09:25:09 nicolas Exp $
  * @author Gerald Brose
  *
  */

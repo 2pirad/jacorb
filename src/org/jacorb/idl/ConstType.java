@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import java.io.*;
  * constant type
  * 
  * @author Gerald Brose
- * @version $Id: ConstType.java,v 1.5 2002-02-26 12:07:06 steve.osselton Exp $
+ * @version $Id: ConstType.java,v 1.6 2002-03-19 09:24:59 nicolas Exp $
  */
 
 class ConstType 

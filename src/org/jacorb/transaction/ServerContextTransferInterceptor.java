@@ -11,7 +11,7 @@ import org.omg.IOP.Codec;
  * in the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: ServerContextTransferInterceptor.java,v 1.5 2001-11-22 15:59:40 prism Exp $
+ * @version $Id: ServerContextTransferInterceptor.java,v 1.6 2002-03-19 09:25:49 nicolas Exp $
  */
 
 public class ServerContextTransferInterceptor 

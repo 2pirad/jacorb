@@ -11,10 +11,13 @@ import org.jacorb.imr.*;
  * @author Nicolas Noffke
  * 
  * $Log: ImRTreeCellRenderer.java,v $
- * Revision 1.3  2001-03-19 11:08:02  brose
+ * Revision 1.4  2002-03-19 09:25:11  nicolas
+ * updated copyright to 2002
+ *
+ * Revision 1.3  2002/03/19 11:08:02  brose
  * *** empty log message ***
  *
- * Revision 1.2  2001/03/17 18:44:02  brose
+ * Revision 1.2  2002/03/17 18:44:02  brose
  * *** empty log message ***
  *
  * Revision 1.4  1999/11/25 16:05:49  brose

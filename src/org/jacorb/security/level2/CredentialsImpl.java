@@ -3,7 +3,7 @@ package org.jacorb.security.level2;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,7 +32,7 @@ import java.math.BigInteger;
 /**
  *  JacORB implementation of security Credentials
  *
- *  $Id: CredentialsImpl.java,v 1.5 2001-11-22 15:59:38 prism Exp $
+ *  $Id: CredentialsImpl.java,v 1.6 2002-03-19 09:25:39 nicolas Exp $
  *
  */
 

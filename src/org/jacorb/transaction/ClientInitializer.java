@@ -8,7 +8,7 @@ import org.omg.IOP.*;
  * with the ORB.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientInitializer.java,v 1.5 2001-11-22 15:59:40 prism Exp $
+ * @version $Id: ClientInitializer.java,v 1.6 2002-03-19 09:25:48 nicolas Exp $
  */
 
 public class ClientInitializer 

@@ -33,10 +33,10 @@ import org.jacorb.util.Debug;
  * MessageOutputStream.java
  *
  *
- * Created: Sat Aug 18 12:12:22 2001
+ * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.3 2002-03-05 08:14:37 gerald Exp $ 
+ * @version $Id: MessageOutputStream.java,v 1.4 2002-03-19 09:25:25 nicolas Exp $ 
  */
 
 public class MessageOutputStream 

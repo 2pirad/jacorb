@@ -4,10 +4,10 @@ package org.jacorb.orb.connection;
  * ClientReplyListener.java
  *
  *
- * Created: Sat Aug 18 18:37:56 2001
+ * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientReplyListener.java,v 1.2 2001-10-02 13:50:54 jacorb Exp $ 
+ * @version $Id: ClientReplyListener.java,v 1.3 2002-03-19 09:25:23 nicolas Exp $ 
  */
 
 public class ClientReplyListener 

@@ -3,7 +3,7 @@ package org.jacorb.events;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -31,7 +31,7 @@ import org.jacorb.orb.*;
  * This defines connect_push_consumer() and disconnect_push_supplier().  Helper
  * method will push a method to the registered consumer.
  *
- * 2001/23/08 JFC OMG EventService Specification 1.1 page 2-7 states:
+ * 2002/23/08 JFC OMG EventService Specification 1.1 page 2-7 states:
  *      "Registration is a two step process.  An event-generating application
  *      first obtains a proxy consumer from a channel, then 'connects' to the
  *      proxy consumer by providing it with a supplier.  ...  The reason for
@@ -40,7 +40,7 @@ import org.jacorb.orb.*;
  *    section 2.1.5 "Disconnection Behavior" on page 2-4.
  *
  * @author Jeff Carlson, Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: ProxyPushSupplierImpl.java,v 1.5 2001-10-07 22:17:07 jcarlson Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.6 2002-03-19 09:24:57 nicolas Exp $
  */
 public class ProxyPushSupplierImpl
     extends org.omg.CosEventChannelAdmin.ProxyPushSupplierPOA

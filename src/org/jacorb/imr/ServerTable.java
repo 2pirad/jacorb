@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -35,7 +35,7 @@ import org.jacorb.util.Environment;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerTable.java,v 1.5 2001-11-13 08:42:39 jacorb Exp $
+ * $Id: ServerTable.java,v 1.6 2002-03-19 09:25:10 nicolas Exp $
  */
 
 public class ServerTable implements Serializable {

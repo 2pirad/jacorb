@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AttrDecl.java,v 1.6 2001-12-13 15:44:58 gerald Exp $
+ * @version $Id: AttrDecl.java,v 1.7 2002-03-19 09:24:58 nicolas Exp $
  */
 
 class AttrDecl 

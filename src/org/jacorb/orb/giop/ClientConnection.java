@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -32,10 +32,10 @@ import org.omg.CONV_FRAME.*;
  * ClientConnection.java
  *
  *
- * Created: Sat Aug 18 18:37:56 2001
+ * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.22 2001-10-26 22:03:06 jacorb Exp $ 
+ * @version $Id: ClientConnection.java,v 1.23 2002-03-19 09:25:22 nicolas Exp $ 
  */
 
 public class ClientConnection 

@@ -8,7 +8,7 @@ import org.jacorb.util.Debug;
  *
  * @author Nicolas Noffke
  * 
- * $Id: RessourceLock.java,v 1.3 2001-03-19 11:07:59 brose Exp $
+ * $Id: RessourceLock.java,v 1.4 2002-03-19 09:25:10 nicolas Exp $
  *
  */
 

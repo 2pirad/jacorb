@@ -1,7 +1,7 @@
 /*
  *        Written for JacORB - a free Java ORB
  *
- *   Copyright (C) 2001 Gerald Brose
+ *   Copyright (C) 2002 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,7 +22,7 @@ package org.jacorb.security.jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.8 2001-08-22 07:20:12 jacorb Exp $
+ * $Id: SSLSocketFactory.java,v 1.9 2002-03-19 09:25:39 nicolas Exp $
  */
 
 

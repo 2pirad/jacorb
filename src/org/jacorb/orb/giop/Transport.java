@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,10 +26,10 @@ import java.io.IOException;
  * Transport.java
  *
  *
- * Created: Sun Aug 12 20:14:16 2001
+ * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.3 2002-03-05 08:15:44 gerald Exp $
+ * @version $Id: Transport.java,v 1.4 2002-03-19 09:25:28 nicolas Exp $
  */
 
 public interface Transport 

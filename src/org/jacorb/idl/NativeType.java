@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: NativeType.java,v 1.3 2001-03-19 11:07:45 brose Exp $
+ * @version $Id: NativeType.java,v 1.4 2002-03-19 09:25:04 nicolas Exp $
  */
 
 import java.io.*;

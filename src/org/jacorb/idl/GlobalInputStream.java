@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /*
  * @author Gerald Brose
- * @version $Id: GlobalInputStream.java,v 1.5 2001-09-07 12:40:15 jacorb Exp $
+ * @version $Id: GlobalInputStream.java,v 1.6 2002-03-19 09:25:01 nicolas Exp $
  *
  */
 

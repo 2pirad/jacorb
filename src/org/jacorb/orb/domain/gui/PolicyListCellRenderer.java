@@ -10,7 +10,7 @@ import org.jacorb.orb.domain.*;
 /**
  * This class renders nodes of the policy list.
  * @author Herbert Kiefer
- * @version $Id: PolicyListCellRenderer.java,v 1.4 2001-03-26 07:53:12 jacorb Exp $
+ * @version $Id: PolicyListCellRenderer.java,v 1.5 2002-03-19 09:25:30 nicolas Exp $
  */
 
 public class PolicyListCellRenderer 

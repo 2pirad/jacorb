@@ -1,7 +1,7 @@
 /*
  *        Written for JacORB - a free Java ORB
  *
- *   Copyright (C) 2001 - Gerald Brose
+ *   Copyright (C) 2002 - Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,10 +27,10 @@ import java.security.cert.X509Certificate;
  * ServerChainVerifier.java
  *
  *
- * Created: Mon Oct  1 16:03:14 2001
+ * Created: Mon Oct  1 16:03:14 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerChainVerifier.java,v 1.2 2001-10-02 13:51:11 jacorb Exp $
+ * @version $Id: ServerChainVerifier.java,v 1.3 2002-03-19 09:25:41 nicolas Exp $
  */
 
 public class ServerChainVerifier 

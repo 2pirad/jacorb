@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Thu Dec 21 11:35:52 2000
  *
  * @author Nicolas Noffke
- * $Id: LinkedListQueue.java,v 1.3 2001-03-19 11:10:31 brose Exp $
+ * $Id: LinkedListQueue.java,v 1.4 2002-03-19 09:25:56 nicolas Exp $
  */
 import java.util.Vector;
 

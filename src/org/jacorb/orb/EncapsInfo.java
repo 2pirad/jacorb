@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * information the has to be saved for each encapsulation and
  * restored later
  * @author Gerald Brose
- * @version $Id: EncapsInfo.java,v 1.3 2001-03-19 11:08:25 brose Exp $
+ * @version $Id: EncapsInfo.java,v 1.4 2002-03-19 09:25:19 nicolas Exp $
  */
 
 public class EncapsInfo

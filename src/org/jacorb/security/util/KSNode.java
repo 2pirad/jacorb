@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,7 +22,7 @@ package org.jacorb.security.util;
 
 /**
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: KSNode.java,v 1.4 2001-03-27 12:01:29 noffke Exp $
+ *	@version $Id: KSNode.java,v 1.5 2002-03-19 09:25:43 nicolas Exp $
  */
 
 import javax.swing.tree.*;

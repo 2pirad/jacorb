@@ -3,7 +3,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.6 2002-02-25 20:51:07 nicolas Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.7 2002-03-19 09:25:42 nicolas Exp $
  */
 import org.jacorb.util.*;
 import org.jacorb.security.util.*;
@@ -89,7 +89,7 @@ public class SSLServerSocketFactory
 
 	s.setNeedClientAuth( mutual_auth );
 
-	// Andrew T. Finnell / Change made for e-Security Inc. 2001 
+	// Andrew T. Finnell / Change made for e-Security Inc. 2002 
         // We need a way to enable the cipher suites that we would
         // like to use. We should obtain these from the properties file.
 	if( cipher_suites != null )
@@ -109,7 +109,7 @@ public class SSLServerSocketFactory
 
 	s.setNeedClientAuth( mutual_auth );
 
-	// Andrew T. Finnell / Change made for e-Security Inc. 2001 
+	// Andrew T. Finnell / Change made for e-Security Inc. 2002 
         // We need a way to enable the cipher suites that we would
         // like to use. We should obtain these from the properties file.
 	if( cipher_suites != null )
@@ -130,7 +130,7 @@ public class SSLServerSocketFactory
 
 	s.setNeedClientAuth( mutual_auth );
 
-	// Andrew T. Finnell / Change made for e-Security Inc. 2001 
+	// Andrew T. Finnell / Change made for e-Security Inc. 2002 
         // We need a way to enable the cipher suites that we would
         // like to use. We should obtain these from the properties file.
 	if( cipher_suites != null )

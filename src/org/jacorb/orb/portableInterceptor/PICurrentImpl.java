@@ -11,7 +11,7 @@ import java.util.Vector;
  * See PI Spec p. 6-55ff
  *
  * @author Nicolas Noffke
- * @version $Id: PICurrentImpl.java,v 1.4 2001-11-22 15:59:35 prism Exp $
+ * @version $Id: PICurrentImpl.java,v 1.5 2002-03-19 09:25:34 nicolas Exp $
  */
 
 public class PICurrentImpl extends org.omg.CORBA.LocalObject

@@ -12,10 +12,10 @@ package org.jacorb.util;
  * properties. With this class, you don't have to edit the global properties
  * each time a different process is started, but can keep the individual 
  * properties on a separate file for each different process.
- * <P>Created: Mon Apr  2 11:35:24 2001
+ * <P>Created: Mon Apr  2 11:35:24 2002
  *
  * @author Nicolas Noffke
- * $Id: Propla.java,v 1.1 2001-04-02 10:22:37 noffke Exp $
+ * $Id: Propla.java,v 1.2 2002-03-19 09:25:53 nicolas Exp $
  */
 import java.io.*;
 import java.util.*;

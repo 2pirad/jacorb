@@ -10,7 +10,7 @@ import org.omg.IOP.*;
  * via the static attribute
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInitializer.java,v 1.5 2001-11-22 15:59:41 prism Exp $
+ * @version $Id: ServerInitializer.java,v 1.6 2002-03-19 09:25:49 nicolas Exp $
  */
 
 public class ServerInitializer 

@@ -5,7 +5,7 @@ import org.jacorb.util.Debug;
 /**
  *
  * @author Nicolas Noffke
- * $Id: ServerInitializer.java,v 1.4 2001-11-22 15:59:39 prism Exp $
+ * $Id: ServerInitializer.java,v 1.5 2002-03-19 09:25:41 nicolas Exp $
  */
 
 public class ServerInitializer 

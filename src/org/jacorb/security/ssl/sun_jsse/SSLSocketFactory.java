@@ -22,7 +22,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.6 2002-02-25 20:51:08 nicolas Exp $
+ * $Id: SSLSocketFactory.java,v 1.7 2002-03-19 09:25:42 nicolas Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -61,7 +61,7 @@ public class SSLSocketFactory
 	change_roles = 
             Environment.isPropertyOn( "jacorb.security.change_ssl_roles" );
 
-        // Andrew T. Finnell / Change made for e-Security Inc. 2001
+        // Andrew T. Finnell / Change made for e-Security Inc. 2002
         // We need to obtain all the cipher suites to use from the 
         // properties file.
 	String cipher_suite_list = 

@@ -3,7 +3,7 @@ package org.jacorb.orb.connection;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2002  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -29,7 +29,7 @@ import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.13 2001-10-02 13:50:58 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.14 2002-03-19 09:25:26 nicolas Exp $
  *
  */
 

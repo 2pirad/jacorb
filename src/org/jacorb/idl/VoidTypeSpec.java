@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: VoidTypeSpec.java,v 1.3 2001-03-19 11:07:55 brose Exp $
+ * @version $Id: VoidTypeSpec.java,v 1.4 2002-03-19 09:25:08 nicolas Exp $
  */
 
 import java.io.PrintWriter;
