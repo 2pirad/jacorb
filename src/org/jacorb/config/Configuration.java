@@ -53,7 +53,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.1.2.5 2004-03-29 11:51:40 gerald Exp $
+ * @version $Id: Configuration.java,v 1.1.2.6 2004-03-29 19:54:15 gerald Exp $
  */
 
 public class Configuration
@@ -159,12 +159,12 @@ public class Configuration
        
        // 3) look for specific properties file
        String configDir = 
-           System.getProperty("jacorb.config.dir");
+           getAttribute("jacorb.config.dir", "");
        
-       if (configDir == null)
-           configDir = System.getProperty("jacorb.home");
+       if (configDir.length() == 0)
+           configDir = getAttribute("jacorb.home", "");
        
-       if (configDir != null )
+       if (configDir.length() != 0 )
            configDir += separator + "etc";
        else
        {
