@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrimaryExpr.java,v 1.14 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: PrimaryExpr.java,v 1.15 2003-09-09 13:54:35 brose Exp $
  */
 
 class PrimaryExpr
@@ -88,7 +88,12 @@ class PrimaryExpr
         }
         else if( symbol instanceof ScopedName )
         {
-            return Integer.parseInt( ConstDecl.namedValue( (ScopedName)symbol ) );
+            ConstExprEvaluator eval = 
+                new ConstExprEvaluator( ConstDecl.namedValue( (ScopedName)symbol ));
+            if( logger.isDebugEnabled() )
+                logger.debug( "PrimaryExpr: returning value " + eval.getValue().intValue());
+
+            return eval.getValue().intValue();
         }
         else
             return Integer.parseInt( ( (Literal)symbol ).toString() );
