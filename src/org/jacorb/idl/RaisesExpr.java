@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.7 2002-03-19 09:25:05 nicolas Exp $
+ * @version $Id: RaisesExpr.java,v 1.8 2002-04-10 16:09:31 gerald Exp $
  */
 
 class RaisesExpr 
@@ -121,7 +121,7 @@ class RaisesExpr
         h.clear();
         String[] classes = getExceptionClassNames();
 
-        Interface myInterface = (Interface)enclosing_symbol;
+        IdlSymbol myInterface = enclosing_symbol;
 
         for( int i = 0; i < classes.length; i++ )
         {

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AttrDecl.java,v 1.7 2002-03-19 09:24:58 nicolas Exp $
+ * @version $Id: AttrDecl.java,v 1.8 2002-04-10 16:09:29 gerald Exp $
  */
 
 class AttrDecl 
@@ -55,7 +55,7 @@ class AttrDecl
 
     public void parse() 
     {
-        Interface myInterface = (Interface)enclosing_symbol;
+        IdlSymbol myInterface = enclosing_symbol;
 
 	if( param_type_spec.typeSpec() instanceof ScopedName )
 	{

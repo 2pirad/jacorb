@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.17 2002-03-19 09:25:04 nicolas Exp $
+ * @version $Id: OpDecl.java,v 1.18 2002-04-10 16:09:31 gerald Exp $
  */
 
 class OpDecl 
@@ -36,7 +36,7 @@ class OpDecl
     public TypeSpec opTypeSpec;
     public Vector paramDecls;
     public RaisesExpr raisesExpr;
-    public Interface myInterface;
+    public IdlSymbol myInterface;
 
     public OpDecl(int num)
     {
@@ -73,7 +73,7 @@ class OpDecl
 
     public void parse()
     {
-        myInterface = (Interface)enclosing_symbol;
+        myInterface = enclosing_symbol;
 
         //        escapeName();
         if( opAttribute == 1 )

@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.9 2002-03-19 09:25:08 nicolas Exp $
+ * @version $Id: ValueDecl.java,v 1.10 2002-04-10 16:09:31 gerald Exp $
  */
 class ValueDecl 
     extends Value
@@ -33,6 +33,7 @@ class ValueDecl
     private MemberList stateMembers;
     private List       operations;
     private List       exports;
+    private List       factories;
 
     private boolean    isCustomMarshalled = false;
     
@@ -42,6 +43,7 @@ class ValueDecl
         stateMembers = new MemberList (new_num());
         operations   = new ArrayList();
         exports      = new ArrayList();
+        factories    = new ArrayList();
     }
 
     public void setValueElements (Definitions d)
@@ -53,6 +55,8 @@ class ValueDecl
                 stateMembers.v.add (dec);
             else if (dec instanceof OpDecl)
                 operations.add (dec);
+            else if (dec instanceof InitDecl)
+                factories.add (dec);
             else
                 exports.add (dec);
         }
@@ -228,6 +232,7 @@ class ValueDecl
                         ("Unable to create " + path, null);
 
             printClass (dir);
+            printFactory (dir);
             printHelper (dir);
             printHolder (dir);
         } 
@@ -317,6 +322,39 @@ class ValueDecl
         out.println ("}");
         out.close();
     }
+
+    /**
+     * Prints the Factory interface for this valuetype if any
+     * factories were defined.
+     */
+
+    private void printFactory (File dir) 
+        throws IOException
+    {
+        if( factories.size() == 0 )
+            return;
+
+        File        outfile = new File (dir, name + "ValueFactory.java");
+        PrintWriter out     = new PrintWriter (new FileWriter (outfile));
+
+        if( pack_name.length() > 0)
+            out.println ("package " + pack_name + ";\n");
+
+        printClassComment (out);
+
+        out.println ("public interface  " + name + "ValueFactory");
+        out.println ("\textends org.omg.CORBA.portable.ValueFactory");       
+        out.println ("{");
+
+        for (Iterator i = factories.iterator(); i.hasNext();)
+        {
+            ((InitDecl)i.next()).print(out, name);
+        }
+
+        out.println ("}");
+        out.close();
+    }
+
 
     /**
      * Prints the _write() method required by 

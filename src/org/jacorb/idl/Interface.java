@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.24 2002-03-19 09:25:02 nicolas Exp $
+ * @version $Id: Interface.java,v 1.25 2002-04-10 16:09:30 gerald Exp $
  */
 
 import java.util.*;
@@ -48,17 +48,17 @@ class Interface
         pack_name = "";
     }
 
-    public void setScopeData(ScopeData data)
-    {
-        scopeData = data;
-    }
+      public void setScopeData(ScopeData data)
+      {
+          scopeData = data;
+      }
 
-    public ScopeData getScopeData()
-    {
-        return scopeData;
-    }
+      public ScopeData getScopeData()
+      {
+          return scopeData;
+      }
 
-    public void setPackage( String s)
+    public void setPackage( String s )
     {
         s = parser.pack_replace(s);
         if( pack_name.length() > 0 )
@@ -385,6 +385,7 @@ class Interface
 
     private void printOperations( String classname, PrintWriter ps )
     {
+
         if( !pack_name.equals(""))
             ps.println("package " + pack_name + ";\n");
 
