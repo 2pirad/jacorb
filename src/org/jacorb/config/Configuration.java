@@ -60,7 +60,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.11 2004-10-29 08:40:21 andre.spiegel Exp $
+ * @version $Id: Configuration.java,v 1.12 2004-11-24 09:52:09 nicolas Exp $
  */
 
 public class Configuration
@@ -388,7 +388,8 @@ public class Configuration
         Properties result = null;
         try
         {
-            java.net.URL url = ClassLoader.getSystemResource(name);
+            java.net.URL url = 
+                Thread.currentThread().getContextClassLoader().getResource(name);
             if (url!=null)           
             {
                 result = new Properties();
