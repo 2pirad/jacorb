@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.7 2001-06-08 12:10:34 jacorb Exp $ 
+ * $Id: Any.java,v 1.7.2.1 2001-09-21 13:48:33 jacorb Exp $ 
  * 
  */
 
@@ -452,19 +452,23 @@ public final class Any
     public java.io.Serializable extract_Value() 
         throws org.omg.CORBA.BAD_OPERATION
     {
-        return null;
+        if (typeCode.kind().value() != TCKind._tk_value)
+            tc_error ("Cannot extract value!");
+        return (java.io.Serializable)value;
     }
 
 
     public void insert_Value(java.io.Serializable value)
     {
-        throw new org.omg.CORBA.NO_IMPLEMENT();
+        this.value    = value;
+        this.typeCode = TypeCode.create_tc (value.getClass());
     }
 
     public void insert_Value(java.io.Serializable value, org.omg.CORBA.TypeCode type) 
         throws org.omg.CORBA.MARSHAL
     {
-        throw new org.omg.CORBA.NO_IMPLEMENT();
+        this.value    = value;
+        this.typeCode = type;
     }
 
     // portable
@@ -592,6 +596,10 @@ public final class Any
                 throw new org.omg.CORBA.UNKNOWN("Bad TypeCode kind");
             }
             break;
+        case TCKind._tk_value:
+            insert_Value 
+                (((org.omg.CORBA_2_3.portable.InputStream)input).read_value());
+            break;
         default:
             throw new RuntimeException("Cannot handle TypeCode with kind " + kind);
         }
@@ -703,6 +711,10 @@ public final class Any
             {
                 throw new org.omg.CORBA.UNKNOWN("Bad TypeCode kind");
             }
+            break;
+        case TCKind._tk_value:
+            ((org.omg.CORBA_2_3.portable.OutputStream)output)
+                .write_value ((java.io.Serializable)value);
             break;
         default:
             throw new RuntimeException("Cannot handle TypeCode with kind " + kind);
