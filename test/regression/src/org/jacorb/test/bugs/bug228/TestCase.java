@@ -25,8 +25,11 @@ import junit.framework.*;
 import org.omg.CORBA.*;
 
 /**
+ * Tests whether factory methods do end up the Helper class of a value type.
+ * Also tests whether the ORB automatically finds the DefaultFactory.
+ * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: TestCase.java,v 1.1 2003-08-31 13:13:29 andre.spiegel Exp $
+ * @version $Id: TestCase.java,v 1.2 2003-08-31 13:14:43 andre.spiegel Exp $
  */
 public class TestCase extends junit.framework.TestCase
 {
