@@ -25,7 +25,7 @@ import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.4 2001-04-09 12:03:38 jacorb Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.4.6.1 2001-12-14 10:21:49 spiegel Exp $    
  */
  
 public class TypeCodeUtil
@@ -50,7 +50,8 @@ public class TypeCodeUtil
             cache.put( "org.omg.CORBA.TypeCode",new TypeCode( TCKind._tk_TypeCode));
             cache.put( "org.omg.CORBA.Principal",new TypeCode( TCKind._tk_Principal));
             cache.put( "org.omg.CORBA.Object", 
-                       new TypeCode( "IDL:omg.org/CORBA/Object:1.0", 
+                       new TypeCode( TCKind._tk_objref,
+                                     "IDL:omg.org/CORBA/Object:1.0", 
                                      "IDL:omg.org/CORBA/Object:1.0" ));
  
     }
