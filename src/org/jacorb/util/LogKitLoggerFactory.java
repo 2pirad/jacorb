@@ -45,7 +45,7 @@ import java.io.*;
  * logger, plus a suffix of <code>.log.verbosity</code>.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.5 2003-12-19 12:02:50 nick.cross Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.6 2003-12-30 15:24:51 andre.spiegel Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -60,7 +60,7 @@ public class LogKitLoggerFactory
     private int defaultPriority = 0;
 
     /** cache of created loggers */
-    private final Hashtable namedLoggers = new Hashtable();
+    private final Map namedLoggers = new HashMap();
 
     /**  append to a log file or overwrite ?*/
     private boolean append = false;
