@@ -39,7 +39,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.27 2002-03-19 09:25:20 nicolas Exp $
+ * @version $Id: ParsedIOR.java,v 1.28 2002-04-18 12:27:54 steve.osselton Exp $
  */
 
 public class ParsedIOR 
@@ -740,12 +740,24 @@ public class ParsedIOR
         }            
     }
 
-    public String getAddress()
+    public String getAddress ()
     {
-	int port = profileBodies[ effectiveProfileBody ].port;
-	if( port < 0 )
-	    port += 65536;
-	return profileBodies[ effectiveProfileBody ].host + ":" + port;
+        return (getHost () + ":" + getPort ());
+    }
+
+    public String getPort ()
+    {
+        int port = profileBodies[effectiveProfileBody].port;
+        if (port < 0)
+        {
+            port += 65536;
+        }
+        return (Integer.toString (port));
+    }
+
+    public String getHost ()
+    {
+        return (profileBodies[effectiveProfileBody].host);
     }
 
     public String getTypeId() 
