@@ -47,7 +47,7 @@ import org.omg.TimeBase.TimeTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.6 2004-03-03 12:16:51 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl
@@ -315,17 +315,8 @@ public class SequenceProxyPushSupplierImpl
 
     private boolean configureMaxBatchSize()
     {
-        int _maxBatchSize;
-
-        if (qosSettings_.containsKey(MaximumBatchSize.value))
-        {
-            _maxBatchSize = qosSettings_.get( MaximumBatchSize.value ).extract_long();
-        }
-        else
-        {
-            _maxBatchSize = Environment.getIntPropertyWithDefault(Configuration.MAX_BATCH_SIZE,
-                            Default.DEFAULT_MAX_BATCH_SIZE);
-        }
+        int _maxBatchSize =
+            qosSettings_.get( MaximumBatchSize.value ).extract_long();
 
         if ( maxBatchSize_ != _maxBatchSize )
         {

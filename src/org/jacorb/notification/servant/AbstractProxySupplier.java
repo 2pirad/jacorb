@@ -49,6 +49,8 @@ import org.omg.CosNotifyComm.NotifySubscribeOperations;
 
 import java.util.List;
 import org.omg.CosNotifyComm.NotifyPublish;
+import org.jacorb.notification.util.PropertySet;
+import org.jacorb.notification.util.PropertySetListener;
 
 /**
  * Abstract base class for ProxySuppliers.
@@ -60,7 +62,7 @@ import org.omg.CosNotifyComm.NotifyPublish;
  * </ul>
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.5 2004-02-20 12:41:54 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.6 2004-03-03 12:15:27 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier
