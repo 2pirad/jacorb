@@ -26,7 +26,7 @@ import org.jacorb.orb.dns.DNSLookup;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.10 2004-02-09 07:56:56 gerald Exp $
+ * @version $Id: IIOPAddress.java,v 1.11 2004-02-13 08:46:49 simon.mcqueen Exp $
  */
 public class IIOPAddress 
 {
@@ -158,7 +158,7 @@ public class IIOPAddress
         {
             IIOPAddress x = (IIOPAddress)other;
             if (this.port == x.port)
-                return this.getIP() == x.getIP();
+                return this.getIP().equals(x.getIP());
             else
                 return false;
         }
