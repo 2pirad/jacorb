@@ -12,7 +12,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  * 
- * $Id: parser.cup,v 1.11 2001-03-29 12:06:29 jacorb Exp $
+ * $Id: parser.cup,v 1.12 2001-03-29 12:10:55 jacorb Exp $
  *
  */
 
@@ -886,15 +886,15 @@ scopename ::=
 value ::=
           value_dcl:vd
                {: 
-                        RESULT.value_decl = vd;
+                        RESULT.setValueDeclaration( vd );
                 :}
         | value_abs_dcl:vad
                {: 
-                        RESULT.value_decl = vad;
+                        RESULT.setValueDeclaration( vad );
                 :}
         | value_box_dcl:vbx
                {: 
-                        RESULT.value_decl = vbx;
+                        RESULT.setValueDeclaration( vbx );
                 :}
         | ABSTRACT VALUETYPE ID:i 
         | VALUETYPE ID:i 
