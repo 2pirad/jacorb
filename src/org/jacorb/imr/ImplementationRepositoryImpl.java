@@ -50,7 +50,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.50 2003-12-16 08:41:27 gerald Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.51 2004-02-05 11:17:34 simon.mcqueen Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1418,7 +1418,8 @@ public class ImplementationRepositoryImpl
 
             RequestInputStream in = new RequestInputStream( orb, request );
 
-            replyNewLocation( ((org.jacorb.orb.ORB)orb).mapObjectKey( in.req_hdr.target.object_key() ),
+            replyNewLocation( ((org.jacorb.orb.ORB)orb).mapObjectKey(
+                                    ParsedIOR.extractObjectKey(in.req_hdr.target, (org.jacorb.orb.ORB)orb)),
                               in.req_hdr.request_id,
                               in.getGIOPMinor(),
                               connection );
@@ -1432,7 +1433,7 @@ public class ImplementationRepositoryImpl
             LocateRequestInputStream in =
             new LocateRequestInputStream( orb, request );
 
-            replyNewLocation( in.req_hdr.target.object_key(),
+            replyNewLocation( ParsedIOR.extractObjectKey(in.req_hdr.target, (org.jacorb.orb.ORB) orb),
                               in.req_hdr.request_id,
                               in.getGIOPMinor(),
                               connection );
