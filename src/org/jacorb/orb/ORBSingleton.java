@@ -29,7 +29,7 @@ import org.omg.CORBA.CompletionStatus;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.13 2002-02-18 13:30:39 jason.courage Exp $
+ * @version $Id: ORBSingleton.java,v 1.14 2002-02-18 15:15:04 jason.courage Exp $
  */
 
 public class ORBSingleton
@@ -346,16 +346,19 @@ public class ORBSingleton
 
         // check discriminator type
 
-        if (discriminator_type == null ||
-            !(discriminator_type.kind().value() == TCKind._tk_short ||
-              discriminator_type.kind().value() == TCKind._tk_long ||
-              discriminator_type.kind().value() == TCKind._tk_longlong ||
-              discriminator_type.kind().value() == TCKind._tk_ushort ||
-              discriminator_type.kind().value() == TCKind._tk_ulong  ||
-              discriminator_type.kind().value() == TCKind._tk_ulonglong ||
-              discriminator_type.kind().value() == TCKind._tk_char ||
-              discriminator_type.kind().value() == TCKind._tk_boolean ||
-              discriminator_type.kind().value() == TCKind._tk_enum
+        org.jacorb.orb.TypeCode disc_tc =
+          ((org.jacorb.orb.TypeCode) discriminator_type).originalType ();
+
+        if (disc_tc == null ||
+            !(disc_tc.kind().value() == TCKind._tk_short ||
+              disc_tc.kind().value() == TCKind._tk_long ||
+              disc_tc.kind().value() == TCKind._tk_longlong ||
+              disc_tc.kind().value() == TCKind._tk_ushort ||
+              disc_tc.kind().value() == TCKind._tk_ulong  ||
+              disc_tc.kind().value() == TCKind._tk_ulonglong ||
+              disc_tc.kind().value() == TCKind._tk_char ||
+              disc_tc.kind().value() == TCKind._tk_boolean ||
+              disc_tc.kind().value() == TCKind._tk_enum
               )
             )
         {
