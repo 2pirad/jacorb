@@ -29,6 +29,7 @@ import org.omg.CORBA.portable.RemarshalException;
 import org.omg.CORBA.portable.ApplicationException;
 import org.omg.CORBA.portable.InvokeHandler;
 import org.omg.CORBA.portable.ResponseHandler;
+import org.omg.CORBA.portable.ServantObject;
 
 import java.util.*;
 
@@ -43,7 +44,7 @@ import java.util.*;
  * ReplyHandler. 
  *
  * @author Andre Spiegel
- * @version $Id: ReplyReceiver.java,v 1.1.2.2 2002-10-21 19:07:35 andre.spiegel Exp $
+ * @version $Id: ReplyReceiver.java,v 1.1.2.3 2002-10-22 15:35:28 andre.spiegel Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -139,18 +140,26 @@ public class ReplyReceiver extends ReplyPlaceholder
         {
             performCallback ( reply );
         }
-            
-        pending_replies.remove ( this );
+
+        synchronized ( pending_replies )
+        {            
+            pending_replies.remove ( this );
+        }
         ready   = true;
         notifyAll();
     }       
 
     private void performCallback ( ReplyInputStream reply )
     {
-        // TODO: Handle exception replies
-        (( InvokeHandler ) replyHandler)._invoke ( operation,
-                                                   reply,
-                                                   dummyResponseHandler ); 
+        // TODO: exception replies
+
+        ServantObject so = delegate.servant_preinvoke (replyHandler,
+                                                       operation, 
+                                                       InvokeHandler.class);
+        ( (InvokeHandler)so.servant )._invoke ( operation,
+                                                reply,
+                                                dummyResponseHandler ); 
+        delegate.servant_postinvoke( replyHandler, so );
     }
 
     public synchronized MessageInputStream getInputStream()
