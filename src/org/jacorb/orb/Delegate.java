@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.32 2001-12-21 10:35:47 nicolas Exp $
+ * @version $Id: Delegate.java,v 1.33 2002-01-11 21:43:52 gerald Exp $
  *
  */
 
@@ -1339,9 +1339,9 @@ public final class Delegate
         synchronized( bind_sync )
         {
             if( piorOriginal != null )
-                return piorOriginal.ior_str;
+                return piorOriginal.getIORString();
             else
-                return getParsedIOR().ior_str;
+                return getParsedIOR().getIORString();
         }
     }
     
