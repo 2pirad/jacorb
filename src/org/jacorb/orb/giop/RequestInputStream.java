@@ -25,7 +25,7 @@ import org.jacorb.orb.*;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.8 2001-03-28 10:13:10 noffke Exp $
+ * @version $Id: RequestInputStream.java,v 1.9 2001-08-15 08:35:59 jacorb Exp $
  * 
  */
 
@@ -63,6 +63,18 @@ public class RequestInputStream
 	    msg_hdr= org.omg.GIOP.MessageHeader_1_0Helper.read(this);
 
 	req_hdr = org.omg.GIOP.RequestHeader_1_0Helper.read(this);	   
+    }
+
+    public void finalize()
+    {
+	try
+	{
+	    close();
+	}
+	catch( java.io.IOException iox )
+	{
+	    //ignore
+	}
     }
 }
 

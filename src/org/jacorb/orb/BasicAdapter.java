@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.10 2001-06-15 11:44:41 jacorb Exp $
+ * @version $Id: BasicAdapter.java,v 1.11 2001-08-15 08:35:59 jacorb Exp $
  */
 
 import java.io.*;
@@ -678,7 +678,13 @@ public class BasicAdapter
                 while( !done ) 
                 {
                     byte[] buf = connection.readBuffer();
-
+/*
+                    if( buf == null )
+                    {
+                        //sth went wrong. try again
+                        continue;
+                    }
+*/
                     Debug.output( 10, "Receive Request", buf );
 
                     int msg_type = buf[7];

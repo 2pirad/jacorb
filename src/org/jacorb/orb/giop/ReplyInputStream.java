@@ -28,7 +28,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.11 2001-08-08 08:35:08 jacorb Exp $
+ * @version $Id: ReplyInputStream.java,v 1.12 2001-08-15 08:35:59 jacorb Exp $
  *
  */
 
@@ -207,6 +207,18 @@ public class ReplyInputStream
 	wakeup();
 
 	return this;
+    }
+
+    public void finalize()
+    {
+	try
+	{
+	    close();
+	}
+	catch( java.io.IOException iox )
+	{
+	    //ignore
+	}
     }
 }
 

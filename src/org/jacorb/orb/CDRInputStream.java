@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.CodeSet;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.10 2001-07-29 08:48:20 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.11 2001-08-15 08:35:59 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -260,8 +260,10 @@ public class CDRInputStream
 	else if ( bb == 0 )
 	    return false;
 	else
+        {
 	    throw new Error("Unexpected boolean value: " + bb 
 			    + " pos: " + pos + " index: " + index);
+        }
     }
 
     /** arrays */
@@ -1155,17 +1157,17 @@ public class CDRInputStream
 	return pos;
     }
 
-    public void finalize()
-    {
-	try
-	{
-	    close();
-	}
-	catch( IOException iox )
-	{
-	    //ignore
-	}
-    }
+//      public void finalize()
+//      {
+//  	try
+//  	{
+//  	    close();
+//  	}
+//  	catch( IOException iox )
+//  	{
+//  	    //ignore
+//  	}
+//      }
 }
 
 
