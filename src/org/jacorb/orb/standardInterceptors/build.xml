@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--      JacORB Standard Interceptors build file         -->
-  <!-- $Id: build.xml,v 1.5 2002-09-12 12:26:13 david.robison Exp $ -->
+  <!-- $Id: build.xml,v 1.6 2002-09-12 14:29:36 david.robison Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -16,7 +16,7 @@
 	<property name="idlflags" 
                 value="-I${include}/omg -I${include}/jacorb -d
 	${src}/generated"/>
-      <available classname="org.itef.jgss.GSSManager" property="jgss.present" />       
+      <available classname="org.ietf.jgss.GSSManager" property="jgss.present" />       
   </target>
 
    <target name="all" depends="init">
