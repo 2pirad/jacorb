@@ -47,18 +47,19 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.1 2003-08-25 21:00:47 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.2 2003-08-27 20:16:22 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
 {
+    public static final int DEFAULT_PRIORITY = 0;
 
     private static final Property[] sFilterableData;
 
     private static final EventHeader sEventHeader;
 
     private static final String sAnyKey =
-        FilterUtils.calcConstraintKey( "", "%ANY" );
+        MessageUtils.calcConstraintKey( "", "%ANY" );
 
     static {
         EventType _type = new EventType( "", "%ANY" );
@@ -188,9 +189,9 @@ public class AnyMessage extends AbstractMessage
         return false;
     }
 
-    protected int getPriority()
+    public int getPriority()
     {
-        return 0;
+        return DEFAULT_PRIORITY;
     }
 
     public boolean match( MappingFilter filter, AnyHolder value ) throws UnsupportedFilterableData
