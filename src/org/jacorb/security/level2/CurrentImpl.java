@@ -35,7 +35,7 @@ import org.jacorb.util.ObjectUtil;
 /**
  *
  * @author Nicolas Noffke, Gerald Brose, Andrý Benvenuti
- * @version $Id: CurrentImpl.java,v 1.14.4.1 2004-03-25 15:55:08 gerald Exp $
+ * @version $Id: CurrentImpl.java,v 1.14.4.2 2004-03-29 11:51:40 gerald Exp $
  *
  */
 
@@ -81,14 +81,14 @@ public class CurrentImpl
         logger = configuration.getNamedLogger("jacorb.security.current");
 
         defaultSecurityName = 
-            configuration.getAttribute("jacorb.security.default_user" );
+            configuration.getAttribute("jacorb.security.default_user","" );
         defaultPassword = 
-            configuration.getAttribute( "jacorb.security.default_password" );
+            configuration.getAttribute( "jacorb.security.default_password","" );
 
         String accDecClassName = 
-            configuration.getAttribute("jacorb.security.access_decision");
+            configuration.getAttribute("jacorb.security.access_decision", null);
 
-        if ( accDecClassName!= null )
+        if ( accDecClassName != null )
         {
             //build access decision
             try
@@ -110,7 +110,7 @@ public class CurrentImpl
             access_decision = new AccessDecisionImpl();
 
         String s = 
-            configuration.getAttribute("jacorb.security.principal_authenticator");
+            configuration.getAttribute("jacorb.security.principal_authenticator",null);
  
         if( s != null )
         {

@@ -53,7 +53,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.18.2.1 2004-03-25 15:55:08 gerald Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.18.2.2 2004-03-29 11:51:40 gerald Exp $
  */
 
 public class SASClientInterceptor
@@ -98,22 +98,19 @@ public class SASClientInterceptor
         try
         {
             configuration.getAttribute("jacorb.security.sas.contextClass");
-            try 
-            {
-                Class c = 
-                    org.jacorb.util.ObjectUtil.classForName(contextClass);
-                sasContext = (ISASContext)c.newInstance();
-            }
-            catch (Exception e) 
-            {
-                if (logger.isErrorEnabled())
-                    logger.error("Could not instantiate class " + contextClass + ": " + e);
-            }
+            Class c = 
+                org.jacorb.util.ObjectUtil.classForName(contextClass);
+            sasContext = (ISASContext)c.newInstance();
         }
         catch(ConfigurationException ce) 
         {
             if (logger.isDebugEnabled())
                 logger.debug("ConfigurationException", ce);
+        }
+        catch (Exception e) 
+        {
+            if (logger.isErrorEnabled())
+                logger.error("Could not instantiate class " + contextClass + ": " + e);
         }
 
         if (sasContext == null) 

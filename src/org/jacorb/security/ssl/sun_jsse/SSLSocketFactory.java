@@ -35,7 +35,7 @@ import javax.net.*;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.11.2.1 2004-03-25 15:55:08 gerald Exp $
+ * $Id: SSLSocketFactory.java,v 1.11.2.2 2004-03-29 11:51:40 gerald Exp $
  */
 
 public class SSLSocketFactory 
@@ -69,10 +69,10 @@ public class SSLSocketFactory
             configuration.getAttribute("jacorb.security.jsse.trustees_from_ks","off").equals("on");
 
         keystore_location = 
-            configuration.getAttribute("jacorb.security.keystore");
+            configuration.getAttribute("jacorb.security.keystore","UNSET");
 
         keystore_passphrase = 
-            configuration.getAttribute("jacorb.security.keystore_password" );
+            configuration.getAttribute("jacorb.security.keystore_password","UNSET" );
 
         clientSupportedOptions = 
             configuration.getAttributeAsInteger("jacorb.security.ssl.client.supported_options", 16 );
@@ -102,7 +102,7 @@ public class SSLSocketFactory
         // We need to obtain all the cipher suites to use from the 
         // properties file.
 	String cipher_suite_list = 
-            configuration.getAttribute("jacorb.security.ssl.server.cipher_suites" );
+            configuration.getAttribute("jacorb.security.ssl.server.cipher_suites", null );
 	
 	if ( cipher_suite_list != null )
 	{

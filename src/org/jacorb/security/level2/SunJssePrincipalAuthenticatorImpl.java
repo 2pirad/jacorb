@@ -42,7 +42,7 @@ import org.apache.avalon.framework.configuration.*;
  * from a Java key store
  *
  * @author Gerald Brose
- * $Id: SunJssePrincipalAuthenticatorImpl.java,v 1.3.4.1 2004-03-25 15:55:08 gerald Exp $
+ * $Id: SunJssePrincipalAuthenticatorImpl.java,v 1.3.4.2 2004-03-29 11:51:40 gerald Exp $
  */
 
 public class SunJssePrincipalAuthenticatorImpl
@@ -65,10 +65,10 @@ public class SunJssePrincipalAuthenticatorImpl
 
         logger = configuration.getNamedLogger("jacorb.security.jsse");
         keyStoreLocation =
-            configuration.getAttribute("jacorb.security.keystore");
+            configuration.getAttribute("jacorb.security.keystore", null);
 
         String storePassphrase =
-            configuration.getAttribute("jacorb.security.keystore_password");
+            configuration.getAttribute("jacorb.security.keystore_password", null);
     }
 
 
