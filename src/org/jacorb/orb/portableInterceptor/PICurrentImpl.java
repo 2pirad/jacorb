@@ -22,7 +22,7 @@ package org.jacorb.orb.portableInterceptor;
 
 import org.omg.PortableInterceptor.*;
 import org.omg.CORBA.*;
-import java.util.Vector;
+import java.util.*;
 /**
  * This is the current object for the portable
  * interceptors. It is merely a slot table, but
@@ -31,7 +31,7 @@ import java.util.Vector;
  * See PI Spec p. 6-55ff
  *
  * @author Nicolas Noffke
- * @version $Id: PICurrentImpl.java,v 1.6 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: PICurrentImpl.java,v 1.7 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class PICurrentImpl extends org.omg.CORBA.LocalObject

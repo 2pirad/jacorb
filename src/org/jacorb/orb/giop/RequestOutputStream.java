@@ -21,7 +21,7 @@ package org.jacorb.orb.connection;
  */
 
 import java.io.*;
-import java.util.Vector;
+import java.util.*;
 
 import org.omg.GIOP.*;
 import org.omg.IOP.*;
@@ -30,7 +30,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.15 2002-05-06 07:27:51 gerald Exp $
+ * @version $Id: RequestOutputStream.java,v 1.16 2002-10-05 13:59:41 andre.spiegel Exp $
  *
  */
 

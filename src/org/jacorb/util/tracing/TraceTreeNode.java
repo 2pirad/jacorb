@@ -20,7 +20,7 @@
  */
 package org.jacorb.util.tracing;
 
-import java.util.Vector;
+import java.util.*;
 /**
  * TraceTreeNode.java
  *
@@ -28,7 +28,7 @@ import java.util.Vector;
  * Created: Tue Jul 25 13:06:22 2000
  *
  * @author Nicolas Noffke
- * $Id: TraceTreeNode.java,v 1.5 2002-07-01 07:54:17 nicolas Exp $
+ * $Id: TraceTreeNode.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class TraceTreeNode

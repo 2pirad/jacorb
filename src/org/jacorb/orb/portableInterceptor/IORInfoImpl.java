@@ -25,15 +25,15 @@ import org.omg.IOP.*;
 import org.omg.CORBA.*;
 import org.jacorb.orb.ORB;
 import org.jacorb.poa.POA;
-import java.util.Vector;
-import java.util.Hashtable;
+import java.util.*;
+
 /**
  * This class represents the type of info object
  * that will be passed to the IORInterceptors. <br>
  * See PI Spec p.7-64f
  *
  * @author Nicolas Noffke
- * @version $Id: IORInfoImpl.java,v 1.7 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: IORInfoImpl.java,v 1.8 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class IORInfoImpl extends org.omg.CORBA.LocalObject 

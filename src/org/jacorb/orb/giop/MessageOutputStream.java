@@ -21,7 +21,7 @@
 package org.jacorb.orb.connection;
 
 import java.io.*;
-import java.util.Vector;
+import java.util.*;
 
 import org.omg.GIOP.*;
 import org.omg.IOP.*;
@@ -36,7 +36,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.6 2002-05-06 07:27:51 gerald Exp $ 
+ * @version $Id: MessageOutputStream.java,v 1.7 2002-10-05 13:59:41 andre.spiegel Exp $ 
  */
 
 public class MessageOutputStream 

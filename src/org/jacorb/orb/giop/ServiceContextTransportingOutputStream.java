@@ -22,7 +22,7 @@
 package org.jacorb.orb.connection;
 
 import java.io.*;
-import java.util.Vector;
+import java.util.*;
 
 import org.omg.GIOP.*;
 import org.omg.IOP.*;
@@ -38,7 +38,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.11 2002-05-08 08:48:46 jason.courage Exp $ 
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.12 2002-10-05 13:59:41 andre.spiegel Exp $ 
  */
 
 public class ServiceContextTransportingOutputStream 

@@ -21,13 +21,11 @@ package org.jacorb.idl;
  */
 
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.9 2002-04-17 08:49:12 gerald Exp $
+ * @version $Id: RaisesExpr.java,v 1.10 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 class RaisesExpr

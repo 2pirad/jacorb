@@ -21,13 +21,11 @@
 package org.jacorb.idl;
 
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.21 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: OpDecl.java,v 1.22 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 class OpDecl

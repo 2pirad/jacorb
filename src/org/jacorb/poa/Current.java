@@ -24,15 +24,14 @@ import org.jacorb.poa.except.*;
  
 import org.omg.PortableServer.CurrentPackage.NoContext;
 
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * This class provides access to the identity of the object on which a method 
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: Current.java,v 1.12 2002-05-08 14:46:58 gerald Exp $
+ * @version $Id: Current.java,v 1.13 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class Current 

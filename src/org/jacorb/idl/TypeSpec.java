@@ -21,11 +21,11 @@
 package org.jacorb.idl;
 
 import java.io.PrintWriter;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.13 2002-06-03 20:12:19 gerald Exp $
+ * @version $Id: TypeSpec.java,v 1.14 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 

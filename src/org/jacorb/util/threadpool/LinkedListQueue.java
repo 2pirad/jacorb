@@ -26,9 +26,9 @@ package org.jacorb.util.threadpool;
  * Created: Thu Dec 21 11:35:52 2000
  *
  * @author Nicolas Noffke
- * $Id: LinkedListQueue.java,v 1.5 2002-07-01 07:54:17 nicolas Exp $
+ * $Id: LinkedListQueue.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $
  */
-import java.util.Vector;
+import java.util.*;
 
 public class LinkedListQueue
     implements ThreadPoolQueue

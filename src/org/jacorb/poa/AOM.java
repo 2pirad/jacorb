@@ -31,9 +31,7 @@ import org.omg.PortableServer.POAPackage.ObjectAlreadyActive;
 import org.omg.PortableServer.POAPackage.ObjectNotActive;
 import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 
-import java.util.Hashtable;
-import java.util.Vector;
-import java.util.Enumeration;
+import java.util.*;
 
 /**
  * This class maps object id's to servants and vice versa.
@@ -41,7 +39,7 @@ import java.util.Enumeration;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.17 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: AOM.java,v 1.18 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class AOM 

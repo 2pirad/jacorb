@@ -22,10 +22,10 @@ package org.jacorb.orb;
 
 /**
  * @author Gerald Brose, FU Berlin 
- * @version $Id: NVList.java,v 1.5 2002-07-01 07:54:16 nicolas Exp $	
+ * @version $Id: NVList.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $	
  */
 
-import java.util.Vector;
+import java.util.*;
 
 public class NVList
     extends org.omg.CORBA.NVList

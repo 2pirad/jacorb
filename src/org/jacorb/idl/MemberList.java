@@ -20,14 +20,13 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: MemberList.java,v 1.10 2002-05-07 12:57:30 gerald Exp $
+ * @version $Id: MemberList.java,v 1.11 2002-10-05 13:59:41 andre.spiegel Exp $
  *
  */
 
 package org.jacorb.idl;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 class MemberList
     extends SymbolList

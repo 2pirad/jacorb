@@ -24,13 +24,13 @@ import org.omg.DynamicAny.DynAnyPackage.*;
 import org.omg.DynamicAny.*;
 
 import org.jacorb.orb.*;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.13 2002-03-19 09:25:31 nicolas Exp $
+ * @version $Id: DynSequence.java,v 1.14 2002-10-05 13:59:41 andre.spiegel Exp $
  *
  */
 

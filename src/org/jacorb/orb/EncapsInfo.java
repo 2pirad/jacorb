@@ -20,13 +20,13 @@ package org.jacorb.orb;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.util.Map;
+import java.util.*;
 
 /** 
  * information the has to be saved for each encapsulation and
  * restored later
  * @author Gerald Brose
- * @version $Id: EncapsInfo.java,v 1.6 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: EncapsInfo.java,v 1.7 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class EncapsInfo

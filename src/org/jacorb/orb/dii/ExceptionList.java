@@ -22,10 +22,10 @@ package org.jacorb.orb.dii;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ExceptionList.java,v 1.5 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: ExceptionList.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
-import java.util.Vector;
+import java.util.*;
 
 public class ExceptionList 
 	extends org.omg.CORBA.ExceptionList 

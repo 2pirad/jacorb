@@ -21,12 +21,11 @@ package org.jacorb.idl;
  */
 
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.9 2002-05-30 10:54:58 nick.cross Exp $
+ * @version $Id: SymbolList.java,v 1.10 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 class SymbolList

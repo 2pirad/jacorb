@@ -1,5 +1,5 @@
 package org.jacorb.trading.util;
-import java.util.Hashtable;
+import java.util.*;
 
 /**
  * TimeoutThread.java
@@ -8,7 +8,7 @@ import java.util.Hashtable;
  * Created: Sat Feb  5 11:45:40 2000
  *
  * @author Nicolas Noffke
- * @version $Id: TimeoutThread.java,v 1.4 2002-03-19 09:25:46 nicolas Exp $
+ * @version $Id: TimeoutThread.java,v 1.5 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class TimeoutThread extends Thread {

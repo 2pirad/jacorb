@@ -25,7 +25,7 @@ import org.omg.CosNaming.*;
 import org.omg.IOP.*;
 import org.jacorb.orb.ORB;
 import org.omg.CORBA.Any;
-import java.util.Hashtable;
+import java.util.*;
 
 /**
  * This class represents the transaction current.
@@ -34,7 +34,7 @@ import java.util.Hashtable;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: TransactionCurrentImpl.java,v 1.12 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.13 2002-10-05 13:59:41 andre.spiegel Exp $
  *
  * Changes made by Vladimir Mencl <vladimir.mencl@mff.cuni.cz> (2002/07/15)
  *

@@ -32,16 +32,14 @@ import org.omg.PortableServer.Servant;
 import org.omg.PortableServer.ServantManager;
 import org.omg.PortableServer.ServantActivator;
 
-import java.util.Hashtable;
-import java.util.Vector;
-import java.util.Enumeration;
+import java.util.*;
 
 /**
  * This class manages all request processing affairs. The main thread takes the
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.15 2002-07-05 07:24:45 steve.osselton Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.16 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 public class RequestController 
     extends Thread 

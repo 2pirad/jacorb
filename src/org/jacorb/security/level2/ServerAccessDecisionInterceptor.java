@@ -24,7 +24,7 @@ import org.omg.PortableInterceptor.*;
 import org.omg.SecurityLevel2.*;
 import org.jacorb.util.*;
 import org.jacorb.orb.portableInterceptor.ServerRequestInfoImpl;
-import java.util.Hashtable;
+import java.util.*;
 
 /**
  * ServerAccessDecisionInterceptor.java
@@ -33,7 +33,7 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.12 2002-07-01 07:54:17 nicolas Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.13 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class ServerAccessDecisionInterceptor 

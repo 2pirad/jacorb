@@ -24,27 +24,21 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.12 2002-07-08 09:18:41 gerald Exp $
+ * @version $Id: NameTable.java,v 1.13 2002-10-05 13:59:41 andre.spiegel Exp $
  *
  */
 
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.StringTokenizer;
-import java.util.Vector;
+import java.util.*;
 
 class NameTable
 {
 
-    private static java.util.Hashtable h =
-            new java.util.Hashtable( 10000 );
+    private static Hashtable h = new Hashtable( 10000 );
 
-    private static java.util.Hashtable shadows =
-            new java.util.Hashtable();
+    private static Hashtable shadows = new Hashtable();
 
-    private static java.util.Hashtable ancestors =
-            new java.util.Hashtable();
+    private static Hashtable ancestors = new Hashtable();
 
     /**
      key: operation name,
@@ -52,13 +46,11 @@ class NameTable
      necessary to track legal diamond inheritance of operations
      */
 
-    private static java.util.Hashtable operationSources =
-            new java.util.Hashtable();
+    private static Hashtable operationSources = new Hashtable();
 
     private static String s = "";
 
-    public static java.util.Hashtable parsed_interfaces =
-            new java.util.Hashtable();
+    public static Hashtable parsed_interfaces = new Hashtable();
 
     public static void init()
     {

@@ -21,12 +21,11 @@
 package org.jacorb.idl;
 
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InitDecl.java,v 1.3 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: InitDecl.java,v 1.4 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 class InitDecl

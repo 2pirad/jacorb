@@ -22,8 +22,7 @@ package org.jacorb.idl;
 
 import java_cup.runtime.*;
 
-import java.util.Hashtable;
-import java.util.Stack;
+import java.util.*;
 
 /**
  *  This  class implements  a  scanner  (aka lexical  analyzer or
@@ -45,7 +44,7 @@ import java.util.Stack;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.26 2002-06-05 13:38:21 steve.osselton Exp $
+ * @version $Id: lexer.java,v 1.27 2002-10-05 13:59:41 andre.spiegel Exp $
  * @author Gerald Brose
  *
  */

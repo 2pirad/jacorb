@@ -22,11 +22,10 @@ package org.jacorb.util.tracing;
 
 /**
  * @author Gerald Brose
- * @version $Id: TracingServiceImpl.java,v 1.5 2002-03-19 09:25:58 nicolas Exp $
+ * @version $Id: TracingServiceImpl.java,v 1.6 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.*;
 import org.jacorb.util.tracing.TracingServicePackage.*;
 
 import org.omg.CORBA.ORB;

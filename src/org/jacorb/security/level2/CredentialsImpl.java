@@ -25,14 +25,14 @@ import org.omg.Security.*;
 import org.omg.SecurityLevel2.*;
 
 import java.io.*;
-import java.util.Vector;
+import java.util.*;
 import java.math.BigInteger;
 
 
 /**
  *  JacORB implementation of security Credentials
  *
- *  $Id: CredentialsImpl.java,v 1.6 2002-03-19 09:25:39 nicolas Exp $
+ *  $Id: CredentialsImpl.java,v 1.7 2002-10-05 13:59:41 andre.spiegel Exp $
  *
  */
 

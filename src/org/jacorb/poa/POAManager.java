@@ -25,15 +25,14 @@ import org.jacorb.util.Environment;
 import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
 import org.omg.PortableServer.POAManagerPackage.State;
 
-import java.util.Vector;
-import java.util.Enumeration;
+import java.util.*;
 import java.lang.Thread;
 
 /**
  * The poa manager class, an implementation of org.omg.PortableServer.POAManager
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAManager.java,v 1.7 2002-09-19 15:38:26 nick.cross Exp $
+ * @version $Id: POAManager.java,v 1.8 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 public class POAManager

@@ -22,12 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.8 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.9 2002-10-05 13:59:41 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 class ArrayDeclarator
         extends Declarator
