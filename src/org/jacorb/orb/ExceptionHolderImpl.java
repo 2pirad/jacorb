@@ -24,11 +24,11 @@ import java.io.*;
 import java.lang.reflect.*;
 
 import org.omg.GIOP.*;
+import org.omg.Messaging.ExceptionHolder;
 import org.omg.CORBA.ExceptionList;
 import org.omg.CORBA.UnknownUserException;
 import org.omg.CORBA.UserException;
 
-import org._orgModule;
 import org.jacorb.ir.*;
 import org.jacorb.util.*;
 import org.jacorb.orb.connection.*;
@@ -39,7 +39,7 @@ import org.jacorb.orb.connection.*;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.2 2002-11-04 18:05:12 andre.spiegel Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.3 2002-11-05 08:31:38 andre.spiegel Exp $
  */
 public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
 {
