@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.36 2004-01-05 13:28:33 gerald Exp $ -->
+   <!-- $Id: build.xml,v 1.37 2004-01-27 17:00:14 nicolas Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -113,7 +113,15 @@
          value="${java.home}" />
       <replace file="bin/jaco" token="@@@CLASSPATH@@@"
          value="${jaco.classpath}" />
-      <chmod file="bin/jaco" perm="ugo+rx"/>
+      <chmod perm="ugo+rx">
+         <fileset dir="bin">
+            <include name="*" />
+            <exclude name="*.bat" />
+            <exclude name="*.exe" />
+            <exclude name="*.conf" />
+            <exclude name="*template*" />
+         </fileset>
+      </chmod>
    </target>
 
    <!-- This target creates a jar file that contains the -->
