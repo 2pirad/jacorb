@@ -25,6 +25,8 @@ import java.net.*;
 import java.util.*;
 import java.lang.reflect.Constructor;
 
+import org.omg.ETF.Factories;
+
 import org.jacorb.orb.*;
 import org.jacorb.orb.factory.*;
 import org.jacorb.orb.iiop.*;
@@ -34,7 +36,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.8 2003-05-24 09:58:46 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.9 2003-06-23 19:01:16 andre.spiegel Exp $
  *
  */
 
@@ -133,10 +135,6 @@ public class ClientConnectionManager
         request_listener = listener;
     }
 
-    /**
-     * @param <code>String host_and_port</code> - in "host:xxx" notation
-     * @return <code>Connection</code> */
-
     public synchronized ClientConnection getConnection 
                                               (org.omg.ETF.Profile profile)
     {
@@ -147,10 +145,17 @@ public class ClientConnectionManager
 
         if (c == null)
         {
+            int tag = profile.tag();
+            Factories factories = transport_manager.getFactories (tag);
+            if (factories == null)
+            {
+                throw new RuntimeException 
+                    ("No transport plugin for profile tag " + tag);
+            }
             GIOPConnection connection = 
                 giop_connection_manager.createClientGIOPConnection( 
                     profile,
-                    transport_manager.getFactories().create_connection (null),
+                    factories.create_connection (null),
                     request_listener,
                     null );
             
