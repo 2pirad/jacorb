@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.12 2002-03-12 11:32:46 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.13 2002-03-13 08:48:24 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -13,7 +13,7 @@
 	<property name="src" value="${dirs.base}/src"/>
    </target>
 
-   <target name="javatest">
+   <target name="javatest" unless="no-rmi">
         <available classname="javax.rmi.CORBA.Stub"
                    property="rmi.iiop.present"/>
    </target>
