@@ -35,7 +35,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ChannelContext.java,v 1.14 2004-02-09 16:17:45 alphonse.bendt Exp $
+ * @version $Id: ChannelContext.java,v 1.15 2004-03-03 12:31:09 alphonse.bendt Exp $
  */
 
 public class ChannelContext
@@ -48,15 +48,13 @@ public class ChannelContext
 
     private Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
-    private EventChannel eventChannel;
+    private EventChannelImpl eventChannelServant_;
 
-    private EventChannelImpl eventChannelServant;
+    private EventChannelFactory eventChannelFactory_;
 
-    private EventChannelFactory eventChannelFactory;
+    private EventChannelFactoryImpl eventChannelFactoryServant_;
 
-    private EventChannelFactoryImpl eventChannelFactoryServant;
-
-    private FilterFactory defaultFilterFactory;
+    private FilterFactory defaultFilterFactory_;
 
     private TaskProcessor taskProcessor_;
 
@@ -80,43 +78,43 @@ public class ChannelContext
 
     private EventChannelFactory getEventChannelFactory()
     {
-        return eventChannelFactory;
+        return eventChannelFactory_;
     }
 
 
     private void setEventChannelFactory(EventChannelFactory argEventChannelFactory)
     {
-        eventChannelFactory = argEventChannelFactory;
+        eventChannelFactory_ = argEventChannelFactory;
     }
 
 
     public EventChannelFactoryImpl getEventChannelFactoryServant()
     {
-        return eventChannelFactoryServant;
+        return eventChannelFactoryServant_;
     }
 
 
     public void setEventChannelFactoryServant(EventChannelFactoryImpl argEventChannelFactoryServant)
     {
-        eventChannelFactoryServant = argEventChannelFactoryServant;
+        eventChannelFactoryServant_ = argEventChannelFactoryServant;
     }
 
 
     public FilterFactory getDefaultFilterFactory()
     {
-        return defaultFilterFactory;
+        return defaultFilterFactory_;
     }
 
 
     public void setDefaultFilterFactory(FilterFactory argDefaultFilterFactory)
     {
-        defaultFilterFactory = argDefaultFilterFactory;
+        defaultFilterFactory_ = argDefaultFilterFactory;
     }
 
 
     public EventChannelImpl getEventChannelServant()
     {
-        return eventChannelServant;
+        return eventChannelServant_;
     }
 
 
@@ -127,7 +125,7 @@ public class ChannelContext
         {
             throw new RuntimeException();
         }
-        eventChannelServant = argEventChannelServant;
+        eventChannelServant_ = argEventChannelServant;
     }
 
 
@@ -135,9 +133,9 @@ public class ChannelContext
     {
         ChannelContext _copy = new ChannelContext();
 
-        _copy.setEventChannelFactory(eventChannelFactory);
-        _copy.setEventChannelFactoryServant(eventChannelFactoryServant);
-        _copy.setDefaultFilterFactory(defaultFilterFactory);
+        _copy.setEventChannelFactory(eventChannelFactory_);
+        _copy.setEventChannelFactoryServant(eventChannelFactoryServant_);
+        _copy.setDefaultFilterFactory(defaultFilterFactory_);
 
         return _copy;
     }
