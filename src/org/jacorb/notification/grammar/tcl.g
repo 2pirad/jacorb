@@ -1,4 +1,4 @@
-// $Id: tcl.g,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
+// $Id: tcl.g,v 1.6 2004-01-16 16:57:25 alphonse.bendt Exp $
 
 header {
 package org.jacorb.notification.parser;
@@ -23,7 +23,6 @@ package org.jacorb.notification.parser;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-
 }
 
 {
