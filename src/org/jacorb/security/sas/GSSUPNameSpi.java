@@ -35,7 +35,7 @@ import sun.security.jgss.spi.GSSNameSpi;
  * This is the GSS-API Sercurity Provider Interface (SPI) for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: GSSUPNameSpi.java,v 1.6 2004-02-04 21:17:23 david.robison Exp $
+ * @version $Id: GSSUPNameSpi.java,v 1.7 2004-02-05 12:48:32 david.robison Exp $
  */
 
 public final class GSSUPNameSpi implements GSSNameSpi
@@ -88,14 +88,14 @@ public final class GSSUPNameSpi implements GSSNameSpi
         }
     }
 
-    public static byte[] encode(String username, String password, String target_name)
+    public static byte[] encode(String username, String password, byte[] target_name)
     {
 		InitialContextToken subject = null;
 		try
 		{
 		    subject = new InitialContextToken( username.getBytes("UTF-8"), 
 		                                       password.getBytes("UTF-8"), 
-		                                       target_name.getBytes("UTF-8"));
+		                                       target_name);
 		}
 		catch(java.io.UnsupportedEncodingException e)
 		{
@@ -187,7 +187,7 @@ public final class GSSUPNameSpi implements GSSNameSpi
 
     public static byte[] encode(String username, char[] password, String target_name)
     {
-		return encode(username, new String(password), target_name);
+		return encode(username, new String(password), target_name.getBytes());
 	}
 	 
 	public static InitialContextToken decode(byte[] gssToken)
