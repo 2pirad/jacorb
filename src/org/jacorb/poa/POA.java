@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.23 2002-05-27 08:50:03 jason.courage Exp $
+ * @version $Id: POA.java,v 1.24 2002-05-29 14:51:30 gerald Exp $
  */
 
 public class POA
@@ -731,15 +731,13 @@ public class POA
      */
 
 
-    public void deactivate_object(byte[] oid) 
+    public synchronized void deactivate_object(byte[] oid) 
         throws ObjectNotActive, WrongPolicy 
-    {
-        checkDestructionApparent ();
-                
+    {                
         if (!isRetain()) 
             throw new WrongPolicy();
                 
-        if (!aom.contains(oid)) 
+        if ( !aom.contains( oid ) || requestController.deactivationInProgress( oid ) ) 
             throw new ObjectNotActive();
                 
         final byte[] objectId = oid;
@@ -760,6 +758,8 @@ public class POA
                 }
             };
         thread.start();
+
+        requestController.waitForDeactivationStart( oid );
     }
 
 
