@@ -28,7 +28,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.13 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: IIOPAddress.java,v 1.14 2004-07-15 12:47:23 simon.mcqueen Exp $
  */
 public class IIOPAddress 
     implements Configurable
@@ -138,9 +138,6 @@ public class IIOPAddress
      */    
     public String getIP()
     {
-        if (!configured)
-            throw new Error("unconfigured IIOPAddress!");
-
         if (ip == null)
         {
             try
@@ -163,9 +160,14 @@ public class IIOPAddress
      * reverse DNS lookup on the IP address.
      */
     public String getHostname()
-    {
+    {    
         if (hostname == null)
         {
+            if (!configured)
+            {
+                throw new Error("Unconfigured IIOPAddress!");
+            }
+            
             hostname = lookup.inverseLookup(ip);
             if (hostname == null) 
                 hostname = ip;
