@@ -36,7 +36,7 @@ import org.jacorb.util.Environment;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: TSSInitializer.java,v 1.4 2002-09-13 15:34:07 david.robison Exp $
+ * @version $Id: TSSInitializer.java,v 1.5 2002-09-20 11:36:42 david.robison Exp $
  */
 
 public class TSSInitializer
@@ -45,7 +45,7 @@ public class TSSInitializer
 {
     public static GSSManager gssManager = GSSManager.getInstance();
     public static int sourceNameSlotID = -1;
-    public static int authTokensSlotID = -1;
+    public static int contextMsgSlotID = -1;
     public static int sasReplySlotID = -1;
 
     /**
@@ -74,12 +74,12 @@ public class TSSInitializer
         try
         {
             sourceNameSlotID = info.allocate_slot_id();
-            authTokensSlotID = info.allocate_slot_id();
+            contextMsgSlotID = info.allocate_slot_id();
             sasReplySlotID = info.allocate_slot_id();
             Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, (byte) 1, (byte) 0);
             Codec codec = info.codec_factory().create_codec(encoding);
             org.jacorb.orb.ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB ();
-            info.add_server_request_interceptor(new TSSInvocationInterceptor(orb, codec, sourceNameSlotID, sasReplySlotID));
+            info.add_server_request_interceptor(new TSSInvocationInterceptor(orb, codec, sourceNameSlotID, contextMsgSlotID, sasReplySlotID));
         }
         catch (DuplicateName duplicateName)
         {

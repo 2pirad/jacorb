@@ -26,6 +26,7 @@ import java.util.*;
 import org.omg.GIOP.*;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.CompletionStatus;
+import org.omg.CSI.EstablishContext;
 
 import org.jacorb.orb.SystemExceptionHelper;
 import org.jacorb.orb.BufferManager;
@@ -39,7 +40,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.12 2002-09-12 15:44:58 david.robison Exp $
+ * @version $Id: GIOPConnection.java,v 1.13 2002-09-20 11:37:34 david.robison Exp $
  */
 
 public final class GIOPConnection
@@ -545,11 +546,22 @@ public final class GIOPConnection
         }
     }
 
-    public void cacheSASContext(long client_context_id, byte[] client_authentication_token)
+    class CachedContext
+    {
+        public byte[] client_authentication_token;
+        public EstablishContext msg;
+        CachedContext(byte[] client_authentication_token, EstablishContext msg)
+        {
+            this.client_authentication_token = client_authentication_token;
+            this.msg = msg;
+        }
+    }
+
+    public void cacheSASContext(long client_context_id, byte[] client_authentication_token, EstablishContext msg)
     {
         synchronized ( sasContexts )
         {
-            sasContexts.put(new Long(client_context_id), new String(client_authentication_token));
+            sasContexts.put(new Long(client_context_id), new CachedContext(client_authentication_token, msg));
         }
     }
 
@@ -567,7 +579,17 @@ public final class GIOPConnection
         synchronized (sasContexts)
         {
             if (!sasContexts.containsKey(key)) return null;
-            return ((String)sasContexts.get(key)).getBytes();
+            return ((CachedContext)sasContexts.get(key)).client_authentication_token;
+        }
+    }
+
+    public EstablishContext getSASContextMsg(long client_context_id)
+    {
+        Long key = new Long(client_context_id);
+        synchronized (sasContexts)
+        {
+            if (!sasContexts.containsKey(key)) return null;
+            return ((CachedContext)sasContexts.get(key)).msg;
         }
     }
 

@@ -43,7 +43,7 @@ import org.omg.ATLAS.*;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: CSSInvocationInterceptor.java,v 1.5 2002-09-13 15:34:07 david.robison Exp $
+ * @version $Id: CSSInvocationInterceptor.java,v 1.6 2002-09-20 11:36:42 david.robison Exp $
  */
 
 public class CSSInvocationInterceptor
@@ -152,7 +152,14 @@ System.out.println("Authorized list size = " + authorizationList.length);
 
         // get SAS message
         SASContextBody contextBody = null;
-        ServiceContext ctx = ri.get_request_service_context(SecurityAttributeService);
+        ServiceContext ctx = null;
+        try
+        {
+            ctx = ri.get_request_service_context(SecurityAttributeService);
+        }
+        catch (Exception e)
+        {
+        }
         if (ctx == null) return;
         try
         {
@@ -189,7 +196,14 @@ System.out.println("Authorized list size = " + authorizationList.length);
 
         // get SAS message
         SASContextBody contextBody = null;
-        ServiceContext ctx = ri.get_request_service_context(SecurityAttributeService);
+        ServiceContext ctx = null;
+        try
+        {
+            ctx = ri.get_request_service_context(SecurityAttributeService);
+        }
+        catch (Exception e)
+        {
+        }
         if (ctx == null) return;
         try
         {
