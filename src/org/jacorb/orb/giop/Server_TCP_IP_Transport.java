@@ -32,7 +32,7 @@ import org.jacorb.util.Debug;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Server_TCP_IP_Transport.java,v 1.12 2002-11-26 16:45:35 nicolas Exp $
+ * @version $Id: Server_TCP_IP_Transport.java,v 1.13 2002-12-05 17:41:31 nicolas Exp $
  */
 
 public class Server_TCP_IP_Transport
@@ -111,22 +111,22 @@ public class Server_TCP_IP_Transport
         {
             Debug.output( 2, "Closing TCP connection, reason " + reason );
 
-            try
-            {
-                java.lang.reflect.Method method = 
-                    (socket.getClass().getMethod( "shutdownOutput", 
-                                                  new Class [0] ));
-                method.invoke (socket, new java.lang.Object[0]);
+//              try
+//              {
+//                  java.lang.reflect.Method method = 
+//                      (socket.getClass().getMethod( "shutdownOutput", 
+//                                                    new Class [0] ));
+//                  method.invoke (socket, new java.lang.Object[0]);
 
-                method = (socket.getClass().getMethod ("shutdownInput", 
-                                                       new Class [0]));
-                method.invoke (socket, new java.lang.Object[0]);
-            }
-            catch (Throwable ex)
-            {
-                // If Socket does not support shutdownOutput method
-                // (i.e JDK < 1.3)
-            }
+//                  method = (socket.getClass().getMethod ("shutdownInput", 
+//                                                         new Class [0]));
+//                  method.invoke (socket, new java.lang.Object[0]);
+//              }
+//              catch (Throwable ex)
+//              {
+//                  // If Socket does not support shutdownOutput method
+//                  // (i.e JDK < 1.3)
+//              }
 
             socket.close();
 
