@@ -27,7 +27,6 @@ import org.apache.avalon.framework.configuration.*;
 import org.apache.avalon.framework.logger.*;
 
 import org.jacorb.orb.giop.CodeSet;
-import org.jacorb.util.ObjectUtil;
 import org.jacorb.util.ValueHandler;
 import org.jacorb.ir.RepositoryID;
 
@@ -47,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.85 2004-07-19 04:37:13 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.86 2004-08-14 15:49:49 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -498,13 +497,10 @@ public class CDRInputStream
             throw new MARSHAL( "Internal Error - closeEncapsulation failed" );
         }
 
-        EncapsInfo ei = (EncapsInfo)getEncapsStack().pop();
+        EncapsInfo ei = (EncapsInfo)encaps_stack.pop();
         littleEndian = ei.littleEndian;
         int size = ei.size;
         int start = ei.start;
-        repIdMap    = ei.repIdMap;
-        valueMap    = ei.valueMap;
-        codebaseMap = ei.codebaseMap;
 
         if( pos < start + size )
             pos = start + size;
@@ -549,14 +545,11 @@ public class CDRInputStream
            When the encapsulation is closed, this value will be restored as
            index */
 
-        getEncapsStack().push(
-            new EncapsInfo (old_endian, index, pos, size,
-                            getValueMap(), getRepIdMap(), getCodebaseMap())
-        );
-        
-        valueMap    = ObjectUtil.createIdentityHashMap();
-        repIdMap    = new HashMap();
-        codebaseMap = new HashMap();
+        if (encaps_stack == null)
+        {
+            encaps_stack = new Stack();
+        }
+        encaps_stack.push(new EncapsInfo(old_endian, index, pos, size ));
 
         openEncapsulatedArray();
 
