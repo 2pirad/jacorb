@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.53 2002-05-14 14:56:59 francisco Exp $
+ * @version     $Id: CDROutputStream.java,v 1.54 2002-05-27 08:37:32 gerald Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -1480,7 +1480,7 @@ public class CDROutputStream
     }
 
     /** 
-     * called from Any 
+     * called from Any
      */
 
     public final void write_value ( final org.omg.CORBA.TypeCode tc,
