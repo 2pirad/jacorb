@@ -1,4 +1,4 @@
-# $Id: jacorb-wrapper-common,v 1.3 2004-03-17 22:40:40 alphonse.bendt Exp $
+# $Id: jacorb-wrapper-common,v 1.4 2004-03-18 00:04:56 alphonse.bendt Exp $
 
 # common part of a wrapper start script.
 # this script is sourced by other scripts
@@ -33,6 +33,10 @@ fi
 
 # make path full qualified
 WRAPPER_HOME=`cd "$WRAPPER_HOME" && pwd`
+
+if [ -z "$WRAPPER_CMD" -o ! -x "$WRAPPER_CMD" ] ; then
+    WRAPPER_CMD=$WRAPPER_HOME"/bin/wrapper"
+fi
 
 WRAPPER_LIB="$WRAPPER_HOME"/lib
 
