@@ -47,7 +47,7 @@ import java_cup.runtime.float_token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.21 2002-04-03 12:55:33 steve.osselton Exp $
+ * @version $Id: lexer.java,v 1.22 2002-04-03 16:31:33 steve.osselton Exp $
  * @author Gerald Brose
  *
  */
@@ -1161,7 +1161,7 @@ public class lexer
                     int digit = 0;
                     advance();
 
-                    if( next_char == '.' )
+                    if (next_char == '.')
                     {
                         StringBuffer f_string = new StringBuffer("0.");
                         advance();
@@ -1185,7 +1185,7 @@ public class lexer
                             radix = 16;
                         }
 
-                        StringBuffer val = new StringBuffer ();
+                        StringBuffer val = new StringBuffer ("0");
                         digit = Character.digit ((char) next_char, radix);
                         while (digit != -1 )
                         {
