@@ -60,7 +60,7 @@ import org.jacorb.util.Environment;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: QoSPropertySet.java,v 1.1 2004-03-03 12:09:01 alphonse.bendt Exp $
+ * @version $Id: QoSPropertySet.java,v 1.2 2004-03-17 22:56:23 alphonse.bendt Exp $
  */
 
 public class QoSPropertySet extends PropertySet
@@ -271,8 +271,6 @@ public class QoSPropertySet extends PropertySet
 
     ////////////////////////////////////////
 
-    private int type_;
-
     private HashSet validNames_;
 
     ////////////////////////////////////////
@@ -280,8 +278,6 @@ public class QoSPropertySet extends PropertySet
     public QoSPropertySet(int type)
     {
         super();
-
-        type_ = type;
 
         init(type);
     }
