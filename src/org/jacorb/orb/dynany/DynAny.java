@@ -29,7 +29,7 @@ import org.jacorb.orb.TypeCode;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.19 2003-10-27 09:37:00 andre.spiegel Exp $
+ * $Id: DynAny.java,v 1.20 2003-12-17 17:26:50 nick.cross Exp $
  *
  */
 public class DynAny
@@ -727,17 +727,16 @@ public class DynAny
 
    // methods below suggested by <Philippe.Merle@lifl.fr>,
    // to allow compilation on J2SDK 1.4.2
-   
+
    public void insert_val(java.io.Serializable value)
-        throws TypeMismatch   
+        throws TypeMismatch
    {
-       throw new Error("NOT IMPLEMENTED");
+       throw new NO_IMPLEMENT("DynAny::insert_val not implemented.");
    }
-   
+
    public java.io.Serializable get_val()
         throws TypeMismatch
    {
-        throw new Error("NOT IMPLEMENTED");
+        throw new NO_IMPLEMENT("DynAny::get_val not implemented");
    }
-
 }
