@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateRequestOutputStream.java,v 1.5 2001-03-28 08:55:49 brose Exp $
+ * @version $Id: LocateRequestOutputStream.java,v 1.6 2001-03-28 10:07:05 jacorb Exp $
  *
  */
 
@@ -55,8 +55,6 @@ public class LocateRequestOutputStream
 
 
 }
-
-
 
 
 

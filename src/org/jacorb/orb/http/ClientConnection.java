@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.*;
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.4 2001-03-27 12:01:26 noffke Exp $
+ * @version $Id: ClientConnection.java,v 1.5 2001-03-28 10:07:06 jacorb Exp $
  */
 
 public final class ClientConnection 
@@ -165,7 +165,7 @@ public final class ClientConnection
 		notifier=new Object();
 		repReceptor=new ReplyReceptor(this,true);
 		byte buf [] =  os.getBufferCopy();
-		rep = new LocateReplyInputStream(this, os.requestId());
+		rep = new LocateReplyInputStream(this.orb, os.requestId());
 		Integer key = new Integer( os.requestId() );
 		buffers.put( key, os ); //changed in 1.1 from byte[]->CDR
 		replies.put( key, rep );
@@ -220,7 +220,7 @@ public final class ClientConnection
 
 		if( os.response_expected() )
 		{
-		    rep = new ReplyInputStream(this, os.requestId());
+		    rep = new ReplyInputStream(this.orb, os.requestId());
 		    Integer key = new Integer( os.requestId() );
 		    buffers.put( key, os );
 		    replies.put( key, rep );

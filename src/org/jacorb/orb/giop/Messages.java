@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.4 2001-03-28 08:55:50 brose Exp $
+ * @version $Id: Messages.java,v 1.5 2001-03-28 10:07:05 jacorb Exp $
  *
  */
 
@@ -45,14 +45,13 @@ public class Messages
 
     public static byte [] locateReplyMessage( int request_id, 
                                               int status, 
-                                              org.omg.CORBA.Object arg, 
-                                              ServerConnection conn) 
+                                              org.omg.CORBA.Object arg ) 
 	throws org.omg.CORBA.COMM_FAILURE
     {
 	try 
 	{	
 	    LocateReplyOutputStream lr_out = 
-                new LocateReplyOutputStream(conn,request_id,status,arg);
+                new LocateReplyOutputStream(  request_id, status, arg );
 	    lr_out.close();
 	    return lr_out.getBufferCopy();
 	} 
@@ -212,12 +211,4 @@ public class Messages
 	    throw new RuntimeException("Cannot deal with reply message type " + msg_type + " !");
     }
 }
-
-
-
-
-
-
-
-
 

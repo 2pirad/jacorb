@@ -28,7 +28,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.6 2001-03-28 08:55:51 brose Exp $
+ * @version $Id: ReplyInputStream.java,v 1.7 2001-03-28 10:07:05 jacorb Exp $
  *
  */
 
@@ -205,8 +205,6 @@ public class ReplyInputStream
 	return this;
     }
 }
-
-
 
 
 

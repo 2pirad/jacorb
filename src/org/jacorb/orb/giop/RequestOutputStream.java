@@ -3,7 +3,7 @@ package org.jacorb.orb.connection;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2000  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.7 2001-03-28 09:05:11 jacorb Exp $
+ * @version $Id: RequestOutputStream.java,v 1.8 2001-03-28 10:07:06 jacorb Exp $
  *
  */
 
@@ -148,8 +148,8 @@ public class RequestOutputStream
             writeHeader(header_stream);
         }
 
-        //jacorb.util.Debug.output(2, "Header size: " + header_stream.size());
-        //jacorb.util.Debug.output(2, "Data size: " + size());
+        //org.jacorb.util.Debug.output(2, "Header size: " + header_stream.size());
+        //org.jacorb.util.Debug.output(2, "Data size: " + size());
     }
   
     public void setRequest(org.jacorb.orb.dii.Request request)
@@ -162,8 +162,6 @@ public class RequestOutputStream
         return request;
     }
 }
-
-
 
 
 

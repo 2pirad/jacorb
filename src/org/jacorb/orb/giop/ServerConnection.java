@@ -20,16 +20,6 @@
 
 package org.jacorb.orb.connection;
 
-/**
- * This class manages connections.<br>
- * It writes to an OutputStream or receives from an InputStream,<br>
- * converting type representations from internal to external or<br>
- * vice versa<p>
- *
- * @author Gerald Brose, FU Berlin
- * @version $Id: ServerConnection.java,v 1.5 2001-03-28 08:55:54 brose Exp $
- *
- */
 
 import java.io.*;
 import java.net.*;
@@ -38,6 +28,17 @@ import java.util.*;
 import org.jacorb.orb.*;
 import org.jacorb.util.Debug;
 import org.jacorb.util.*;
+
+/**
+ * This class manages connections.<br>
+ * It writes to an OutputStream or receives from an InputStream,<br>
+ * converting type representations from internal to external or<br>
+ * vice versa<p>
+ *
+ * @author Gerald Brose, FU Berlin
+ * @version $Id: ServerConnection.java,v 1.6 2001-03-28 10:07:06 jacorb Exp $
+ *
+ */
 
 public class ServerConnection
     extends AbstractConnection
@@ -339,7 +340,7 @@ public class ServerConnection
 	{
 	    try
 	    {
-		out_stream.write( Messages.locateReplyMessage(request_id,status,arg,this));
+		out_stream.write( Messages.locateReplyMessage( request_id, status, arg ));
 		out_stream.flush();
 	    } 
 	    catch ( Exception e )
@@ -401,14 +402,6 @@ public class ServerConnection
 
 
 }
-
-
-
-
-
-
-
-
 
 
 

@@ -25,7 +25,7 @@ import org.jacorb.orb.*;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.6 2001-03-28 08:55:53 brose Exp $
+ * @version $Id: RequestInputStream.java,v 1.7 2001-03-28 10:07:05 jacorb Exp $
  * 
  */
 
@@ -43,7 +43,7 @@ public class RequestInputStream
                                   byte [] buf, 
                                   boolean flag )
     {
-	super(  orb, buf );
+	super( orb, buf );
     }
 
     public RequestInputStream( org.omg.CORBA.ORB orb, byte [] buf )
@@ -65,8 +65,6 @@ public class RequestInputStream
 	req_hdr = org.omg.GIOP.RequestHeader_1_0Helper.read(this);	   
     }
 }
-
-
 
 
 
