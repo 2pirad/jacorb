@@ -49,7 +49,7 @@ import org.omg.CORBA.BAD_QOS;
  * properties will always we honored.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: Environment.java,v 1.75 2004-01-07 14:04:20 nick.cross Exp $
+ * @version $Id: Environment.java,v 1.76 2004-01-14 14:20:45 nicolas Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -387,7 +387,8 @@ public class Environment
     private static void readValues()
     {
         //        readValue("_verbosity", "verbosity", jacorbPrefix + "verbosity");
-        readValue("_client_pending_reply_timeout", jacorbPrefix + "connection.client.pending_reply_timeout");
+        readValue("_client_pending_reply_timeout", "connection.client.pending_reply_timeout", jacorbPrefix + "connection.client.pending_reply_timeout");
+
         readValue("_retries","retries",jacorbPrefix+"retries");
         readValue("_retry_interval","retry_interval",jacorbPrefix+"retry_interval");
         readValue("_outbuf_size","outbuf_size",jacorbPrefix+"outbuf_size");
