@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.34 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: lexer.java,v 1.35 2003-05-15 11:31:02 nick.cross Exp $
  * @author Gerald Brose
  *
  */
@@ -628,7 +628,7 @@ public class lexer
                 {
                     advance();
                 }
-                GlobalInputStream.include( fname, (char)next_char2, useIncludePath );
+                GlobalInputStream.include( fname, next_char2, useIncludePath );
                 current_line = 0;
                 advance();
                 advance();
@@ -969,7 +969,6 @@ public class lexer
         {
             char[] next = {(char)next_char, (char)next_char2};
             GlobalInputStream.insert( text + ( new String( next ) ) );
-            //System.out.println("Advancing after symbol " + result_str );
             advance(); // restore lookahead
             advance(); // restore lookahead
             return null;
