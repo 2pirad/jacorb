@@ -52,7 +52,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  * This is the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInterceptor.java,v 1.9 2003-11-25 18:40:25 david.robison Exp $
+ * @version $Id: SASTargetInterceptor.java,v 1.10 2003-12-16 16:56:10 david.robison Exp $
  */
 
 public class SASTargetInterceptor
@@ -213,9 +213,13 @@ public class SASTargetInterceptor
             String principalName = null;
             try
             {
+            	logger.error("START");
                 msg = contextBody.establish_msg();
+            	logger.error("Msg="+msg);
                 client_context_id = msg.client_context_id;
+            	logger.error("client_context_id="+client_context_id);
                 contextToken = msg.client_authentication_token;
+            	logger.error("contextToken="+contextToken);
 
                 // verify context
                 //Oid myMechOid = myCredential.getMechs()[0];
@@ -232,7 +236,9 @@ public class SASTargetInterceptor
 //System.out.println("OK="+ok);
                 //if (ok != JServerContext.as_ok) throw new org.omg.CORBA.NO_PERMISSION("SAS Error validating context", MinorCodes.SAS_TSS_FAILURE, CompletionStatus.COMPLETED_NO);
                 if (contextValidator != null && !contextValidator.validate(ri, contextToken)) throw new org.omg.CORBA.NO_PERMISSION("SAS Error validating context", MinorCodes.SAS_TSS_FAILURE, CompletionStatus.COMPLETED_NO);
+            	logger.error("OK1");
                 if (contextValidator != null) principalName = contextValidator.getPrincipalName();
+            	logger.error("principalName="+principalName);
             }
             catch (org.omg.CORBA.NO_PERMISSION e)
             {
