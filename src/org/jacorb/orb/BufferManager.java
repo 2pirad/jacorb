@@ -36,7 +36,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
  * shared BuffferManager across all ORBs in a process.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.18 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: BufferManager.java,v 1.19 2004-10-07 16:29:08 simon.mcqueen Exp $
 */
 
 public final class BufferManager
@@ -231,6 +231,7 @@ public final class BufferManager
                     }
                     // Else return the cached buffer
                     result = bufferMax;
+                    bufferMax = null;
                 }
             }
             catch (OutOfMemoryError e)
