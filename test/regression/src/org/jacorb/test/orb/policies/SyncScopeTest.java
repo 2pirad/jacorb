@@ -6,14 +6,14 @@ import junit.framework.*;
 import org.omg.CORBA.*;
 import org.omg.Messaging.*;
 
-import org.jacorb.Tests.*;
+import org.jacorb.test.*;
 import org.jacorb.test.common.*;
 
 /**
  * Tests for SyncScopePolicy.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: SyncScopeTest.java,v 1.1 2003-02-18 09:23:49 andre.spiegel Exp $
+ * @version $Id: SyncScopeTest.java,v 1.2 2003-04-02 08:40:27 nick.cross Exp $
  */
 public class SyncScopeTest extends ClientServerTestCase 
 {
