@@ -26,11 +26,12 @@ package org.jacorb.poa.util;
  * in hashtables.
  *
  * @author Steve Osselton
- * @version $Id: ByteArrayKey.java,v 1.4 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: ByteArrayKey.java,v 1.5 2003-04-01 12:39:23 nick.cross Exp $
  */
 
 public class ByteArrayKey
 {
+    private int cache = 0;
     private byte[] bytes = null;
 
     public ByteArrayKey (byte[] array)
@@ -38,40 +39,41 @@ public class ByteArrayKey
         bytes = array;
     }
 
+    public ByteArrayKey (ByteArrayKey bak)
+    {
+       cache = bak.cache;
+       bytes = bak.bytes;
+    }
+
     public byte[] getBytes ()
     {
         return bytes;
     }
 
-    public void setBytes (byte[] array)
-    {
-        bytes = array;
-    }
-
     /**
      * @overrides hashCode () in Object
      */
-
     public int hashCode ()
     {
-        int hash = 0;
-        long h = 1234;
-
-        if ((bytes != null) && (bytes.length > 0))
+        if( cache == 0 )
         {
-            for (int i = bytes.length; --i >= 0; )
-            {
-                h ^= bytes[i] * (i + 1);
-            }
-            hash = (int)((h >> 32) ^ h);
-        }
+            long h = 1234;
 
-        return hash;
+            if ((bytes != null) && (bytes.length > 0))
+            {
+                for (int i = bytes.length; --i >= 0; )
+                {
+                    h ^= bytes[i] * (i + 1);
+                }
+                cache = (int)((h >> 32) ^ h);
+            }
+        }
+        return cache;
     }
+
     /**
      * @overrides equals () in Object
      */
-
     public boolean equals (Object obj)
     {
         boolean result = false;
@@ -80,7 +82,7 @@ public class ByteArrayKey
         {
             ByteArrayKey key = (ByteArrayKey) obj;
 
-            if ((bytes == null) && (key.bytes == null))
+            if ((bytes == key.bytes) || ((bytes == null) && (key.bytes == null)))
             {
                 result = true;
             }
@@ -103,8 +105,8 @@ public class ByteArrayKey
 
         return result;
     }
-    
+
     public String toString() {
-    	return new String(bytes);    	
+    	return new String(bytes);
     }
 }
