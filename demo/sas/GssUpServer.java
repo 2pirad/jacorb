@@ -1,12 +1,11 @@
 package demo.sas;
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
+import org.jacorb.security.sas.GssUpContext;
 import org.omg.PortableServer.POA;
-import org.omg.Security.*;
-import org.jacorb.security.sas.*;
 import org.omg.CORBA.ORB;
-import org.jacorb.util.*;
 
 /**
  * This is the server part of the sas demo. It demonstrates
@@ -15,7 +14,7 @@ import org.jacorb.util.*;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: GssUpServer.java,v 1.2 2004-01-05 18:30:24 david.robison Exp $
+ * @version $Id: GssUpServer.java,v 1.3 2004-01-06 14:13:07 david.robison Exp $
  */
 
 public class GssUpServer extends SASDemoPOA {
@@ -44,9 +43,6 @@ public class GssUpServer extends SASDemoPOA {
 		}
 
 		try {
-			// set security credentials
-			GssUpContext.setUsernamePassword("Server", "");
-
 			// initialize the ORB and POA.
 			ORB orb = ORB.init(args, null);
 			POA poa = (POA) orb.resolve_initial_references("RootPOA");
