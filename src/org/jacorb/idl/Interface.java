@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.34 2002-08-02 16:35:04 nicolas Exp $
+ * @version $Id: Interface.java,v 1.35 2002-10-05 13:00:33 andre.spiegel Exp $
  */
 
 import java.io.File;
@@ -843,7 +843,12 @@ class Interface
         ps.println( "\npublic class " + className + "IRHelper" );
         ps.println( "{" );
 
-        ps.println( "\tpublic static java.util.Hashtable irInfo = new java.util.Hashtable();" );
+        String HASHTABLE = System.getProperty ("java.version").startsWith ("1.1")
+                           ? "com.sun.java.util.collections.Hashtable"
+                           : "java.util.Hashtable";
+
+        ps.println( "\tpublic static " + HASHTABLE 
+                          + " irInfo = new " + HASHTABLE + "();" );
         ps.println( "\tstatic" );
         ps.println( "\t{" );
         body.getIRInfo( irInfoTable );
