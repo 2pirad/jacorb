@@ -77,7 +77,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelImpl.java,v 1.17 2004-02-13 18:32:23 alphonse.bendt Exp $
+ * @version $Id: EventChannelImpl.java,v 1.18 2004-02-14 12:45:00 alphonse.bendt Exp $
  */
 
 public class EventChannelImpl
@@ -1019,5 +1019,15 @@ public class EventChannelImpl
 
     public boolean isPersistent() {
         return false;
+    }
+
+
+    /**
+     * get the number of clients connected to this event channel. the
+     * number is the total of all Suppliers and Consumers connected
+     * to this channel.
+     */
+    public int getNumberOfConnectedClients() {
+        return numberOfConsumers_.get() + numberOfSuppliers_.get();
     }
 }
