@@ -44,7 +44,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.94.2.2 2004-03-29 10:11:24 gerald Exp $
+ * @version $Id: CDROutputStream.java,v 1.94.2.3 2004-04-14 13:06:46 phil.mesnier Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -720,8 +720,9 @@ public class CDROutputStream
 
     public org.omg.CORBA.portable.InputStream create_input_stream()
     {
-        byte [] buf = (byte [])buffer.clone();
-        return new CDRInputStream( orb, buf );
+        byte[] result = new byte[index+1];
+        System.arraycopy(buffer, 0, result, 0, result.length);
+        return new CDRInputStream( orb, result );
     }
 
     public final void write_any(final org.omg.CORBA.Any value)

@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.104.2.5 2004-03-29 10:11:24 gerald Exp $
+ * @version $Id: Delegate.java,v 1.104.2.6 2004-04-14 13:06:46 phil.mesnier Exp $
  *
  */
 
@@ -1341,9 +1341,9 @@ public final class Delegate
                 catch (RemarshalException re)
                 {
                 }
-                catch (Exception ex)
+                catch (ApplicationException e)
                 {
-                    return true;
+                    throw new RuntimeException( "Unexpected exception " + e.getId() );
                 }
             }
         }
