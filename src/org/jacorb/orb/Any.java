@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.21 2002-02-20 10:50:28 jason.courage Exp $ 
+ * $Id: Any.java,v 1.22 2002-02-26 17:55:17 steve.osselton Exp $ 
  * 
  */
 
@@ -131,6 +131,8 @@ public final class Any
                 return extract_boolean() == a.extract_boolean();
             case TCKind._tk_char:
                 return extract_char() == a.extract_char();
+            case TCKind._tk_wchar:
+                return extract_wchar() == a.extract_wchar();
             case TCKind._tk_octet:
                 return extract_octet() == a.extract_octet();
             case TCKind._tk_any:
