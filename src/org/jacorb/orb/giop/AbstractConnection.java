@@ -22,7 +22,7 @@ package org.jacorb.orb.connection;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: AbstractConnection.java,v 1.2 2001-03-17 18:44:28 brose Exp $
+ * @version $Id: AbstractConnection.java,v 1.3 2001-03-19 11:08:28 brose Exp $
  *
  */
 
@@ -277,6 +277,12 @@ public abstract class AbstractConnection
     }
 
 }
+
+
+
+
+
+
 
 
 

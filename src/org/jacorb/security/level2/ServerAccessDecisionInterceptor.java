@@ -12,7 +12,7 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.2 2001-03-17 18:45:16 brose Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.3 2001-03-19 11:09:23 brose Exp $
  */
 
 public class ServerAccessDecisionInterceptor 
@@ -110,3 +110,9 @@ System.out.println("Call to: " + ri.target_most_derived_interface() );
     }
 
 } // ServerAccessDecisionInterceptor
+
+
+
+
+
+

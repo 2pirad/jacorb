@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.2 2001-03-17 18:43:31 brose Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.3 2001-03-19 11:07:35 brose Exp $
  */
 
 import java.util.Vector;
@@ -150,6 +150,12 @@ class ArrayDeclarator
     }
 
 }
+
+
+
+
+
+
 
 
 

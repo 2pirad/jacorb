@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: XorExpr.java,v 1.2 2001-03-17 18:43:50 brose Exp $
+ * @version $Id: XorExpr.java,v 1.3 2001-03-19 11:07:55 brose Exp $
  */
 
 class XorExpr 
@@ -83,6 +83,12 @@ class XorExpr
         return x + and_expr.value();
     }
 }
+
+
+
+
+
+
 
 
 

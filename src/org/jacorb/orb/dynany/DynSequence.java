@@ -30,7 +30,7 @@ import java.util.Vector;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.3 2001-03-19 08:40:35 jacorb Exp $
+ * @version $Id: DynSequence.java,v 1.4 2001-03-19 11:08:49 brose Exp $
  *
  */
 
@@ -315,5 +315,11 @@ public final class DynSequence
 
 
 }
+
+
+
+
+
+
 
 

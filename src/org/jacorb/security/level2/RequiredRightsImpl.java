@@ -8,7 +8,7 @@ import org.omg.Security.*;
  *
  * Created: Tue Jun 13 10:47:07 2000
  *
- * $Id: RequiredRightsImpl.java,v 1.2 2001-03-17 18:45:16 brose Exp $
+ * $Id: RequiredRightsImpl.java,v 1.3 2001-03-19 11:09:22 brose Exp $
  */
 
 public class RequiredRightsImpl 
@@ -53,3 +53,9 @@ public class RequiredRightsImpl
     }
 
 } // RequiredRightsImpl
+
+
+
+
+
+

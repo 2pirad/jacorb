@@ -4,7 +4,7 @@ package org.jacorb.util;
  * AssertionViolation.java
  *
  * @author 
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class Assertion
@@ -18,3 +18,9 @@ public class Assertion
             throw new AssertionViolation(msg);
     }  
 }
+
+
+
+
+
+

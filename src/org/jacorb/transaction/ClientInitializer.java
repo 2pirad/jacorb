@@ -8,7 +8,7 @@ import org.omg.IOP_N.*;
  * with the ORB.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientInitializer.java,v 1.2 2001-03-17 18:45:26 brose Exp $
+ * @version $Id: ClientInitializer.java,v 1.3 2001-03-19 11:10:17 brose Exp $
  */
 
 public class ClientInitializer 
@@ -45,3 +45,9 @@ public class ClientInitializer
   public void pre_init(ORBInitInfo info) {    
   }
 } // ClientInitializer
+
+
+
+
+
+

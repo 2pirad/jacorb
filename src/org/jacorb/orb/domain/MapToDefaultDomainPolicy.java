@@ -9,7 +9,7 @@ package org.jacorb.orb.domain;
  * Created: Thu Apr 20 12:06:43 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class MapToDefaultDomainPolicy extends ManagementPolicyImpl
@@ -57,3 +57,9 @@ public class MapToDefaultDomainPolicy extends ManagementPolicyImpl
     return ( new InitialMapPolicyPOATie (new MapToDefaultDomainPolicy()) )._this();
   }
 } // MapToDefaultDomainPolicy
+
+
+
+
+
+

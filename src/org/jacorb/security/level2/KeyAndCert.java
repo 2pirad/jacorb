@@ -6,7 +6,7 @@ package org.jacorb.security.level2;
  * Created: Mon Sep  4 16:33:49 2000
  *
  * @author Nicolas Noffke
- * @version $Id: KeyAndCert.java,v 1.2 2001-03-17 18:45:14 brose Exp $
+ * @version $Id: KeyAndCert.java,v 1.3 2001-03-19 11:09:20 brose Exp $
  */
 
 import java.security.PrivateKey;
@@ -34,3 +34,9 @@ public class KeyAndCert
         System.arraycopy( source.chain, 0, chain, 0, source.chain.length );
     }
 } // KeyAndCert
+
+
+
+
+
+

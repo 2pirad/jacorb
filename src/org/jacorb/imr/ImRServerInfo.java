@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  *
  * @author Nicolas Noffke
  *
- * @version $Id: ImRServerInfo.java,v 1.2 2001-03-17 18:43:55 brose Exp $
+ * @version $Id: ImRServerInfo.java,v 1.3 2001-03-19 11:07:58 brose Exp $
  *
  */
 
@@ -174,5 +174,11 @@ public class ImRServerInfo  implements java.io.Serializable{
     }
 
 } // ImRServerInfo
+
+
+
+
+
+
 
 

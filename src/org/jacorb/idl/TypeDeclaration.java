@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.2 2001-03-17 18:43:48 brose Exp $
+ * @version $Id: TypeDeclaration.java,v 1.3 2001-03-19 11:07:53 brose Exp $
  */
 
 import java.util.Vector;
@@ -148,6 +148,12 @@ class TypeDeclaration
     }
 
 }
+
+
+
+
+
+
 
 
 

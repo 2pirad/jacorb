@@ -4,7 +4,7 @@ package org.jacorb.orb.domain;
  * This class implements a simple test policy
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class TestPolicyImpl extends TestPolicyPOA {
   private String _desc;
@@ -34,3 +34,9 @@ public class TestPolicyImpl extends TestPolicyPOA {
   public String _toString() { return _desc; }
 
 }
+
+
+
+
+
+

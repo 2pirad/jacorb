@@ -25,7 +25,7 @@ package org.jacorb.orb;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.3 2001-03-17 18:44:20 brose Exp $
+ * @version $Id: BasicAdapter.java,v 1.4 2001-03-19 11:08:23 brose Exp $
  */
 
 import java.io.*;
@@ -186,7 +186,7 @@ public class BasicAdapter
         if( org.jacorb.util.Environment.enforceSSL() )
         {
             /* gb: sanity check: requiring SSL requires supporting it */
-            if( !jacorb.util.Environment.supportSSL ())
+            if( !org.jacorb.util.Environment.supportSSL ())
             {
                 throw new java.lang.Error("SSL required but not supported, cannot continue!");
             }
@@ -854,3 +854,9 @@ public class BasicAdapter
 
 
 }
+
+
+
+
+
+

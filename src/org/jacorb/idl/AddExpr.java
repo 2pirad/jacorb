@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.2 2001-03-17 18:43:30 brose Exp $ 
+ * @version $Id: AddExpr.java,v 1.3 2001-03-19 11:07:34 brose Exp $ 
  */
 
 class AddExpr 
@@ -88,6 +88,12 @@ class AddExpr
         return x + mult_expr.value();
     }
 }
+
+
+
+
+
+
 
 
 

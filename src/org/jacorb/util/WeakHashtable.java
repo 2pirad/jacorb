@@ -29,7 +29,7 @@ import java.lang.ref.*;
  * Created: Thu Nov  2 13:16:34 2000
  *
  * @author Nicolas Noffke
- * $Id: WeakHashtable.java,v 1.2 2001-03-17 18:45:30 brose Exp $
+ * $Id: WeakHashtable.java,v 1.3 2001-03-19 11:10:29 brose Exp $
  */
 
 public class WeakHashtable 
@@ -85,3 +85,9 @@ public class WeakHashtable
     }
 
 } // WeakHashtable
+
+
+
+
+
+

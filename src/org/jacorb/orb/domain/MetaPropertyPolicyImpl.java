@@ -9,7 +9,7 @@ package org.jacorb.orb.domain;
  * Created: Tue Aug  1 14:53:29 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $ 
+ * @version $Revision: 1.3 $ 
  */
 
 public class MetaPropertyPolicyImpl 
@@ -56,6 +56,12 @@ public class MetaPropertyPolicyImpl
     } // setManagedTypes
 
 } // MetaPropertyPolicyImpl
+
+
+
+
+
+
 
 
 

@@ -32,7 +32,7 @@ import org.jacorb.util.*;
 /**
  *
  * @author Nicolas Noffke, Gerald Brose, André Benvenuti
- * @version $Id: CurrentImpl.java,v 1.2 2001-03-17 18:45:13 brose Exp $
+ * @version $Id: CurrentImpl.java,v 1.3 2001-03-19 11:09:18 brose Exp $
  *
  */
 
@@ -484,6 +484,12 @@ public class CurrentImpl
         close();
     }
 }
+
+
+
+
+
+
 
 
 

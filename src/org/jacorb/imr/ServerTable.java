@@ -15,7 +15,7 @@ import org.jacorb.util.Environment;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerTable.java,v 1.2 2001-03-17 18:43:57 brose Exp $
+ * $Id: ServerTable.java,v 1.3 2001-03-19 11:07:59 brose Exp $
  */
 
 public class ServerTable implements Serializable {
@@ -303,5 +303,11 @@ public class ServerTable implements Serializable {
 	initTransient();
     }
 } // ServerTable
+
+
+
+
+
+
 
 

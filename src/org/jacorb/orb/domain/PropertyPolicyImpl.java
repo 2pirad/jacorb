@@ -22,7 +22,7 @@ import org.jacorb.util.Debug;
  * "setPolicyType".
  * This class is implemented with a java.util.Property
  * @author Herbert Kiefer
- * @version $Id: PropertyPolicyImpl.java,v 1.2 2001-03-17 18:44:49 brose Exp $ */
+ * @version $Id: PropertyPolicyImpl.java,v 1.3 2001-03-19 11:08:41 brose Exp $ */
 
 public class PropertyPolicyImpl 
     extends ManagementPolicyImpl
@@ -448,4 +448,10 @@ public class PropertyPolicyImpl
     } // updatePropertyPolicies
 
 } // PropertyPolicyImpl
+
+
+
+
+
+
 

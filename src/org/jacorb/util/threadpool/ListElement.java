@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Thu Jan  4 14:33:48 2001
  *
  * @author Nicolas Noffke
- * $Id: ListElement.java,v 1.2 2001-03-17 18:45:31 brose Exp $
+ * $Id: ListElement.java,v 1.3 2001-03-19 11:10:31 brose Exp $
  */
 
 public class ListElement  
@@ -55,3 +55,9 @@ public class ListElement
         this.next = v;
     }       
 } // ListElement
+
+
+
+
+
+

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Operation.java,v 1.2 2001-03-17 18:43:43 brose Exp $
+ * @version $Id: Operation.java,v 1.3 2001-03-19 11:07:46 brose Exp $
  */
 
 import java.io.*;
@@ -54,6 +54,12 @@ interface Operation
 
 
 } 
+
+
+
+
+
+
 
 
 

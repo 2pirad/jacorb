@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.4 2001-03-19 08:40:45 jacorb Exp $
+ * @version $Id: Environment.java,v 1.5 2001-03-19 11:10:27 brose Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -711,4 +711,10 @@ public class Environment
   
 
 }
+
+
+
+
+
+
 

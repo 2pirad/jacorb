@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.2 2001-03-17 18:45:00 brose Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.3 2001-03-19 11:08:53 brose Exp $
  */
 
 public class ClientRequestInfoImpl extends RequestInfoImpl 
@@ -265,3 +265,9 @@ public class ClientRequestInfoImpl extends RequestInfoImpl
     request_ctx.put(_id, service_context);
   }
 } // ClientRequestInfoImpl
+
+
+
+
+
+

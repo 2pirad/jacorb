@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.2 2001-03-17 18:43:32 brose Exp $
+ * @version $Id: BaseType.java,v 1.3 2001-03-19 11:07:36 brose Exp $
  */
 
 
@@ -107,6 +107,12 @@ class BaseType
 
 
 }
+
+
+
+
+
+
 
 
 

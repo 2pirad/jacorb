@@ -3,7 +3,7 @@ package org.jacorb.orb.factory;
 /* 
  * 
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.2 2001-03-17 18:44:59 brose Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.3 2001-03-19 11:08:51 brose Exp $
  */
 
 import java.net.*;
@@ -15,6 +15,12 @@ public interface SSLServerSocketFactory
     
     public boolean isSSL( ServerSocket socket );
 }
+
+
+
+
+
+
 
 
 

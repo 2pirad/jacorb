@@ -15,7 +15,7 @@ import java.util.*;
  * Created on 21. Juni 2000, 11:52
  *
  * @author  Nicolas Noffke
- * $Id: CAD.java,v 1.2 2001-03-17 18:45:28 brose Exp $
+ * $Id: CAD.java,v 1.3 2001-03-19 11:10:25 brose Exp $
  */
 public class CAD extends javax.swing.JFrame 
 {
@@ -343,3 +343,9 @@ public class CAD extends javax.swing.JFrame
         new CAD().show ();
     }
 }
+
+
+
+
+
+

@@ -25,7 +25,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateReplyOutputStream.java,v 1.2 2001-03-17 18:44:30 brose Exp $
+ * @version $Id: LocateReplyOutputStream.java,v 1.3 2001-03-19 11:08:30 brose Exp $
  *
  */
 
@@ -55,6 +55,12 @@ public class LocateReplyOutputStream
 
 
 }
+
+
+
+
+
+
 
 
 

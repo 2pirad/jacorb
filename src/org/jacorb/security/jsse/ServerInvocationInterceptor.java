@@ -16,7 +16,7 @@ import org.jacorb.orb.dsi.ServerRequest;
 
 /**
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.2 2001-03-17 18:45:12 brose Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.3 2001-03-19 11:09:17 brose Exp $
  */
 
 public class ServerInvocationInterceptor
@@ -114,3 +114,9 @@ public class ServerInvocationInterceptor
         org.jacorb.util.Debug.output( 3, "receive_other!");
     }
 }
+
+
+
+
+
+

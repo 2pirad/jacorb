@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.2 2001-03-17 18:43:32 brose Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.3 2001-03-19 11:07:35 brose Exp $
  *
  */
 
@@ -506,6 +506,12 @@ class ArrayTypeSpec
 
 
 }
+
+
+
+
+
+
 
 
 

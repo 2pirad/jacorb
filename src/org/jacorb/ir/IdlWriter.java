@@ -29,7 +29,7 @@ import org.omg.CORBA.TCKind;
  * This class prints IDL from IR-Descriptions to PrintStreams
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IdlWriter.java,v 1.2 2001-03-17 18:44:05 brose Exp $
+ * @version $Id: IdlWriter.java,v 1.3 2001-03-19 11:08:05 brose Exp $
  */
 
 public class IdlWriter 
@@ -500,6 +500,12 @@ public class IdlWriter
 
 
 }
+
+
+
+
+
+
 
 
 

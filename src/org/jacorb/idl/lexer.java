@@ -42,7 +42,7 @@ package org.jacorb.idl;
  *  
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.2 2001-03-17 18:43:51 brose Exp $
+ * @version $Id: lexer.java,v 1.3 2001-03-19 11:07:56 brose Exp $
  * @author Gerald Brose
  *
  */
@@ -1308,5 +1308,11 @@ public class lexer
     }
 
 }
+
+
+
+
+
+
 
 

@@ -30,7 +30,7 @@ package org.jacorb.orb.factory;
  * the code which asks for the sockets.
  * 
  * @author André Benvenuti
- * $Id: ServerSocketFactory.java,v 1.2 2001-03-17 18:44:59 brose Exp $
+ * $Id: ServerSocketFactory.java,v 1.3 2001-03-19 11:08:51 brose Exp $
  */
 
 import java.net.*;
@@ -70,3 +70,9 @@ public interface ServerSocketFactory
                                             InetAddress ifAddress )
         throws IOException;
 }
+
+
+
+
+
+

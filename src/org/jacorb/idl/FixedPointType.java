@@ -24,7 +24,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.2 2001-03-17 18:43:37 brose Exp $
+ * @version $Id: FixedPointType.java,v 1.3 2001-03-19 11:07:40 brose Exp $
  */
 
 class FixedPointType 
@@ -290,6 +290,12 @@ class FixedPointType
 	scale = scale_expr.pos_int_const();
     }
 }
+
+
+
+
+
+
 
 
 

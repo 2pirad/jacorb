@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedArraySize.java,v 1.2 2001-03-17 18:43:36 brose Exp $
+ * @version $Id: FixedArraySize.java,v 1.3 2001-03-19 11:07:40 brose Exp $
  */
 
 class FixedArraySize 
@@ -57,4 +57,10 @@ class FixedArraySize
         pos_int_const.setPackage(s);
     }
 }
+
+
+
+
+
+
 

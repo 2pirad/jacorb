@@ -25,7 +25,7 @@ import org.jacorb.orb.*;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.2 2001-03-17 18:44:32 brose Exp $
+ * @version $Id: RequestInputStream.java,v 1.3 2001-03-19 11:08:32 brose Exp $
  * 
  */
 
@@ -59,6 +59,12 @@ public class RequestInputStream
 	req_hdr = org.omg.GIOP.RequestHeader_1_0Helper.read(this);	   
     }
 }
+
+
+
+
+
+
 
 
 

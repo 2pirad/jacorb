@@ -28,7 +28,7 @@ import org.omg.DynamicAny.DynAnyPackage.*;
  * CORBA DynAny
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynAny.java,v 1.3 2001-03-19 08:40:35 jacorb Exp $
+ * $Id: DynAny.java,v 1.4 2001-03-19 11:08:48 brose Exp $
  *
  */
 
@@ -671,5 +671,11 @@ public class DynAny
 
 
 }
+
+
+
+
+
+
 
 

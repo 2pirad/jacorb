@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.3 2001-03-19 08:40:34 jacorb Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.4 2001-03-19 11:08:18 brose Exp $
  *
  */
 
@@ -298,7 +298,7 @@ public class NamingContextImpl
 
             if( ((org.omg.CORBA.Object)names.get( _n ))._non_existent() )
             {
-                jacorb.util.Debug.output(1,"removing name " + _n.baseNameComponent().id);
+                org.jacorb.util.Debug.output(1,"removing name " + _n.baseNameComponent().id);
                 deletionVector.addElement( _n );
             }
         }
@@ -317,7 +317,7 @@ public class NamingContextImpl
             Name _n = (Name)c.nextElement();
             if( ((org.omg.CORBA.Object)contexts.get( _n ))._non_existent() )
             {
-                jacorb.util.Debug.output(1,"removing context " + _n.baseNameComponent().id);
+                org.jacorb.util.Debug.output(1,"removing context " + _n.baseNameComponent().id);
                 deletionVector.addElement( _n );
             }
         }
@@ -576,17 +576,17 @@ public class NamingContextImpl
             {
                 org.omg.CORBA.Object o = (org.omg.CORBA.Object)names.remove( n );
                 o._release();
-                jacorb.util.Debug.output(1,"Unbound: " + n.toString());
+                org.jacorb.util.Debug.output(1,"Unbound: " + n.toString());
             } 
             else if( contexts.containsKey(n))
             {
                 org.omg.CORBA.Object o = (org.omg.CORBA.Object)contexts.remove( n );
                 o._release();
-                jacorb.util.Debug.output(1,"Unbound: " + n.toString());
+                org.jacorb.util.Debug.output(1,"Unbound: " + n.toString());
             } 
             else 
             {
-                jacorb.util.Debug.output(1,"Unbind failed for " + n.toString() );
+                org.jacorb.util.Debug.output(1,"Unbind failed for " + n.toString() );
                 throw new NotFound(
                                    NotFoundReason.not_context, 
                                    n.components());
@@ -740,6 +740,12 @@ public class NamingContextImpl
 
 
 }
+
+
+
+
+
+
 
 
 

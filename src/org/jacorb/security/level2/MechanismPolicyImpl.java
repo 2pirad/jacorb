@@ -9,7 +9,7 @@ import org.omg.CORBA.*;
  *
  * Created: Tue Jun 13 11:37:29 2000
  *
- * $Id: MechanismPolicyImpl.java,v 1.2 2001-03-17 18:45:15 brose Exp $
+ * $Id: MechanismPolicyImpl.java,v 1.3 2001-03-19 11:09:20 brose Exp $
  */
 
 public class MechanismPolicyImpl 
@@ -61,3 +61,9 @@ public class MechanismPolicyImpl
         return SecMechanismsPolicy.value;
     }    
 } // MechanismPolicyImpl
+
+
+
+
+
+

@@ -42,7 +42,7 @@ import iaik.x509.extensions.*;
  * A class with utility methods that help managing certificates
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: CertUtils.java,v 1.2 2001-03-17 18:45:19 brose Exp $
+ * @version $Id: CertUtils.java,v 1.3 2001-03-19 11:09:26 brose Exp $
  */
 
 public class CertUtils
@@ -312,7 +312,7 @@ public class CertUtils
 	    chain[ len - 1 ].verify( chain [ len - 1 ].getPublicKey ());
 
 	    for ( int i = len - 1; i > 0; i-- ) {
-		jacorb.util.Debug.output( 3, "verifying chain[ " + (i-1) + " ]");
+		org.jacorb.util.Debug.output( 3, "verifying chain[ " + (i-1) + " ]");
 		chain[ i - 1 ].verify( chain[ i ].getPublicKey ());
 	    }
 
@@ -349,3 +349,9 @@ public class CertUtils
 
 
 }
+
+
+
+
+
+

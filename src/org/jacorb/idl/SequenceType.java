@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.2 2001-03-17 18:43:45 brose Exp $
+ * @version $Id: SequenceType.java,v 1.3 2001-03-19 11:07:49 brose Exp $
  */
 
 import java.io.*;
@@ -552,6 +552,12 @@ public class SequenceType
 
 
 }
+
+
+
+
+
+
 
 
 

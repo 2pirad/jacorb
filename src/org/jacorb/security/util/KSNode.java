@@ -22,7 +22,7 @@ package org.jacorb.security.util;
 
 /**
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: KSNode.java,v 1.2 2001-03-17 18:45:20 brose Exp $
+ *	@version $Id: KSNode.java,v 1.3 2001-03-19 11:09:27 brose Exp $
  */
 
 import javax.swing.tree.*;
@@ -33,3 +33,9 @@ public interface KSNode
     iaik.x509.X509Certificate getCert();
 }
     
+
+
+
+
+
+

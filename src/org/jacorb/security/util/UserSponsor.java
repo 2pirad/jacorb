@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
  * A user sponsor, i.e. a frame that asks for user input
  *
  * @author Gerald Brose
- * @version $Id: UserSponsor.java,v 1.2 2001-03-17 18:45:21 brose Exp $
+ * @version $Id: UserSponsor.java,v 1.3 2001-03-19 11:09:29 brose Exp $
  */
 
 public class UserSponsor
@@ -253,5 +253,11 @@ public class UserSponsor
 
 
 }
+
+
+
+
+
+
 
 

@@ -27,7 +27,7 @@ package org.jacorb.idl;
  *  field str_val.
  *
  * @see java_cup.runtime.long_token
- * @version $Id: fixed_token.java,v 1.2 2001-03-17 18:43:51 brose Exp $
+ * @version $Id: fixed_token.java,v 1.3 2001-03-19 11:07:56 brose Exp $
  * @author  Gerald Brose
  */
 
@@ -48,6 +48,12 @@ public class fixed_token
     }
 
 }
+
+
+
+
+
+
 
 
 

@@ -23,7 +23,7 @@ package org.jacorb.security.jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.2 2001-03-17 18:45:12 brose Exp $
+ * $Id: SSLSocketFactory.java,v 1.3 2001-03-19 11:09:16 brose Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -102,3 +102,9 @@ public class SSLSocketFactory
         return ( s instanceof SSLSocket); 
     }
 }
+
+
+
+
+
+

@@ -3,7 +3,7 @@ package org.jacorb.orb;
 /**
  * JacORB - a free Java ORB
  *
- * @version $Id: LocalityConstrainedObject.java,v 1.2 2001-03-17 18:44:22 brose Exp $
+ * @version $Id: LocalityConstrainedObject.java,v 1.3 2001-03-19 11:08:25 brose Exp $
  */
 
 public class LocalityConstrainedObject
@@ -96,5 +96,11 @@ public class LocalityConstrainedObject
 	throw new org.omg.CORBA.MARSHAL();
     }
 }
+
+
+
+
+
+
 
 

@@ -31,7 +31,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.2 2001-03-17 18:44:21 brose Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.3 2001-03-19 11:08:24 brose Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -1424,6 +1424,12 @@ public class CDROutputStream
         return header_stream;
     }
 }
+
+
+
+
+
+
 
 
 

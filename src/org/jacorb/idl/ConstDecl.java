@@ -23,7 +23,7 @@ package org.jacorb.idl;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.2 2001-03-17 18:43:33 brose Exp $
+ * @version $Id: ConstDecl.java,v 1.3 2001-03-19 11:07:37 brose Exp $
  */
 
 import java.util.Vector;
@@ -249,6 +249,12 @@ class ConstDecl
 	}
     }
 }
+
+
+
+
+
+
 
 
 

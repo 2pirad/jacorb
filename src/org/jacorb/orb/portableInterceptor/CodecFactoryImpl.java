@@ -13,7 +13,7 @@ import org.omg.CORBA.ORB;
  * See PI Spec p.10-80
  *
  * @author Nicolas Noffke
- * @version $Id: CodecFactoryImpl.java,v 1.2 2001-03-17 18:45:00 brose Exp $
+ * @version $Id: CodecFactoryImpl.java,v 1.3 2001-03-19 11:08:54 brose Exp $
  */
 
 public class CodecFactoryImpl extends org.jacorb.orb.LocalityConstrainedObject 
@@ -39,3 +39,9 @@ public class CodecFactoryImpl extends org.jacorb.orb.LocalityConstrainedObject
       throw new UnknownEncoding();
   }  
 } // CodecFactoryImpl
+
+
+
+
+
+

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDef.java,v 1.2 2001-03-17 18:43:48 brose Exp $
+ * @version $Id: TypeDef.java,v 1.3 2001-03-19 11:07:54 brose Exp $
  */
 
 import java.util.Vector;
@@ -134,6 +134,12 @@ class TypeDef
     }
 
 }
+
+
+
+
+
+
 
 
 

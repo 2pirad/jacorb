@@ -27,7 +27,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Gerald Brose, FU Berlin 1996
- * $Id: ReplyReceptor.java,v 1.2 2001-03-17 18:44:31 brose Exp $	
+ * $Id: ReplyReceptor.java,v 1.3 2001-03-19 11:08:32 brose Exp $	
  *
  * An object of this class is created for every connection and listens
  * for replies.
@@ -83,7 +83,7 @@ public class ReplyReceptor
         {
 	    onceOnly = new Boolean(one);
         }
-	//	jacorb.util.Debug.output(4,"Reply Receptor thread flagged to end!");
+	//	org.jacorb.util.Debug.output(4,"Reply Receptor thread flagged to end!");
     }
 
     public boolean isStopped() 
@@ -101,7 +101,7 @@ public class ReplyReceptor
 	    }
             catch ( CloseConnectionException c ) 
             {
-	    	jacorb.util.Debug.output(3, "ReplyReceptor: CloseConnectionException");
+	    	org.jacorb.util.Debug.output(3, "ReplyReceptor: CloseConnectionException");
 	    	master.closeConnection();
                 break;
 	    }
@@ -130,5 +130,11 @@ public class ReplyReceptor
         }
     }
 }
+
+
+
+
+
+
 
 

@@ -8,7 +8,7 @@ import java.lang.reflect.*;
  * application exception into an any.
  *
  * @author Nicolas Noffke
- * @version $Id: ApplicationExceptionHelper.java,v 1.2 2001-03-17 18:44:20 brose Exp $
+ * @version $Id: ApplicationExceptionHelper.java,v 1.3 2001-03-19 11:08:23 brose Exp $
  */
 
 public class ApplicationExceptionHelper  {
@@ -42,5 +42,11 @@ public class ApplicationExceptionHelper  {
     _insert.invoke(null, new java.lang.Object[]{any, _user_ex});
   }
 } // ApplicationExceptionHelper
+
+
+
+
+
+
 
 

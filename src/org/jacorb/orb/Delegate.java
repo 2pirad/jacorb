@@ -41,7 +41,7 @@ import org.omg.CORBA.SystemException;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Delegate.java,v 1.2 2001-03-17 18:44:21 brose Exp $
+ * @version $Id: Delegate.java,v 1.3 2001-03-19 11:08:24 brose Exp $
  *
  */
 
@@ -1189,4 +1189,10 @@ public final class Delegate
 
 
 }
+
+
+
+
+
+
 

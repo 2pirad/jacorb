@@ -29,7 +29,7 @@ import org.jacorb.orb.*;
  * CORBA DynStruct
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynStruct.java,v 1.3 2001-03-19 08:40:36 jacorb Exp $
+ * $Id: DynStruct.java,v 1.4 2001-03-19 11:08:50 brose Exp $
  */
 
 public final class DynStruct
@@ -255,5 +255,11 @@ public final class DynStruct
 
 
 }
+
+
+
+
+
+
 
 

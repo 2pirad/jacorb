@@ -8,7 +8,7 @@ import java.util.Hashtable;
  * Created: Sat Feb  5 11:45:40 2000
  *
  * @author Nicolas Noffke
- * @version $Id: TimeoutThread.java,v 1.2 2001-03-17 18:45:25 brose Exp $
+ * @version $Id: TimeoutThread.java,v 1.3 2001-03-19 11:10:15 brose Exp $
  */
 
 public class TimeoutThread extends Thread {
@@ -41,7 +41,7 @@ public class TimeoutThread extends Thread {
 	}	
 
       }catch (Exception e){
-	jacorb.util.Debug.output(2, e);
+	org.jacorb.util.Debug.output(2, e);
       }
     }    
   }
@@ -71,3 +71,9 @@ public class TimeoutThread extends Thread {
     current_nodes.put(interruptee, _new);
   }
 } // TimeoutThread
+
+
+
+
+
+

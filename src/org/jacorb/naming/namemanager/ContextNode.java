@@ -29,7 +29,7 @@ import javax.swing.tree.*;
 /**
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: ContextNode.java,v 1.3 2001-03-19 08:40:34 jacorb Exp $
+ *	@version $Id: ContextNode.java,v 1.4 2001-03-19 11:08:19 brose Exp $
  */
 
 public class ContextNode
@@ -261,6 +261,12 @@ public class ContextNode
 	}
     }
 }
+
+
+
+
+
+
 
 
 

@@ -28,7 +28,7 @@ import org.jacorb.orb.portableInterceptor.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.3 2001-03-19 08:40:35 jacorb Exp $
+ * @version $Id: ServerRequest.java,v 1.4 2001-03-19 11:08:47 brose Exp $
  */
 
 public class ServerRequest 
@@ -187,7 +187,7 @@ public class ServerRequest
 		  
 			params[i] = new org.omg.Dynamic.Parameter(value.value(), mode);
 		    }catch (Exception e){
-			jacorb.util.Debug.output(2, e);
+			org.jacorb.util.Debug.output(2, e);
 		    }
 		}
 
@@ -311,7 +311,7 @@ public class ServerRequest
 	    }
 	    catch ( Exception ioe )
 	    {
-		jacorb.util.Debug.output(2,ioe);
+		org.jacorb.util.Debug.output(2,ioe);
 		System.err.println("ServerRequest: Error replying to request!");
 	    }
 	}
@@ -378,7 +378,7 @@ public class ServerRequest
 
     public void setSystemException(org.omg.CORBA.SystemException s)
     {
-	jacorb.util.Debug.output(2, s);
+	org.jacorb.util.Debug.output(2, s);
 	status = org.omg.GIOP.ReplyStatusType_1_0._SYSTEM_EXCEPTION;
 
 	/* we need to create a new output stream here because a system exception may
@@ -401,7 +401,7 @@ public class ServerRequest
 
     public void setLocationForward(org.omg.PortableServer.ForwardRequest r)
     {
-	jacorb.util.Debug.output(2,"Location Forward");
+	org.jacorb.util.Debug.output(2,"Location Forward");
 	status = org.omg.GIOP.ReplyStatusType_1_0._LOCATION_FORWARD;
 
 	//keep service contexts
@@ -577,6 +577,15 @@ public class ServerRequest
     }
 
 }
+
+
+
+
+
+
+
+
+
 
 
 

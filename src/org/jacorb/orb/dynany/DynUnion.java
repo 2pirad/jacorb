@@ -30,7 +30,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.3 2001-03-19 08:40:36 jacorb Exp $
+ * $Id: DynUnion.java,v 1.4 2001-03-19 11:08:51 brose Exp $
  *
  */
 
@@ -434,5 +434,11 @@ public final class DynUnion
 
 
 }
+
+
+
+
+
+
 
 

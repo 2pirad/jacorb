@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TemplateTypeSpec.java,v 1.2 2001-03-17 18:43:47 brose Exp $
+ * @version $Id: TemplateTypeSpec.java,v 1.3 2001-03-19 11:07:52 brose Exp $
  */
 
 
@@ -58,6 +58,12 @@ class TemplateTypeSpec
 	return true;
     } 
 }
+
+
+
+
+
+
 
 
 

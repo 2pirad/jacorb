@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.2 2001-03-17 18:43:41 brose Exp $
+ * @version $Id: MultExpr.java,v 1.3 2001-03-19 11:07:45 brose Exp $
  */
 
 class MultExpr 
@@ -95,6 +95,12 @@ class MultExpr
         return x + unary_expr.value();
     }
 }
+
+
+
+
+
+
 
 
 

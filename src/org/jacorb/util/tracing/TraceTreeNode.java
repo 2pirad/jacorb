@@ -8,7 +8,7 @@ import java.util.Vector;
  * Created: Tue Jul 25 13:06:22 2000
  *
  * @author Nicolas Noffke
- * $Id: TraceTreeNode.java,v 1.2 2001-03-17 18:45:32 brose Exp $
+ * $Id: TraceTreeNode.java,v 1.3 2001-03-19 11:10:34 brose Exp $
  */
 
 public class TraceTreeNode
@@ -37,3 +37,9 @@ public class TraceTreeNode
 //          server_time = server_time;
 //      }    
 } // TraceTreeNode
+
+
+
+
+
+

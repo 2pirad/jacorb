@@ -26,7 +26,7 @@ import java.io.*;
 /**
  * 
  * @author Gerald Brose
- * @version $Id: Version.java,v 1.2 2001-03-17 18:45:30 brose Exp $
+ * @version $Id: Version.java,v 1.3 2001-03-19 11:10:29 brose Exp $
  */
 
 public final class Version
@@ -38,6 +38,12 @@ public final class Version
 	return version;
     }
 }
+
+
+
+
+
+
 
 
 

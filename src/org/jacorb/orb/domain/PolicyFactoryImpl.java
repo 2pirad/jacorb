@@ -8,7 +8,7 @@ import org.omg.CORBA.TCKind;
  * Created: Mon Mar 27 16:32:08 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class PolicyFactoryImpl 
@@ -238,3 +238,9 @@ public class PolicyFactoryImpl
     }
 
 } // PolicyFactoryImpl
+
+
+
+
+
+

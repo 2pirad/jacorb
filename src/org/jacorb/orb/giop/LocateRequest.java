@@ -22,7 +22,7 @@ package org.jacorb.orb.connection;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequest.java,v 1.2 2001-03-17 18:44:30 brose Exp $
+ * @version $Id: LocateRequest.java,v 1.3 2001-03-19 11:08:30 brose Exp $
  */
 
 import java.io.*;
@@ -93,7 +93,7 @@ public class LocateRequest
 	    }
 	    else if( status == org.omg.GIOP.ReplyStatusType_1_0._SYSTEM_EXCEPTION )
 	    {
-		jacorb.orb.SystemExceptionHelper.write( out, sys_ex );
+		org.jacorb.orb.SystemExceptionHelper.write( out, sys_ex );
 	    }
 	    
 	    /* everything is written to out by now, be it results or exceptions */
@@ -120,6 +120,12 @@ public class LocateRequest
 	}
     }
 }
+
+
+
+
+
+
 
 
 

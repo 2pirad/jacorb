@@ -26,7 +26,7 @@ import java.lang.reflect.*;
  * The main server that starts the Interface Repository
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IRServer.java,v 1.2 2001-03-17 18:44:05 brose Exp $
+ * @version $Id: IRServer.java,v 1.3 2001-03-19 11:08:05 brose Exp $
  */
 
 public class IRServer
@@ -88,6 +88,12 @@ public class IRServer
     }
 
 }
+
+
+
+
+
+
 
 
 

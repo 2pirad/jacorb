@@ -23,9 +23,12 @@ package org.jacorb.naming;
 /**   
  * Implementation of the  "BindingIterator" interface
  * @author Gerald Brose
- * @version $Id: BindingIteratorImpl.java,v 1.2 2001-03-17 18:44:12 brose Exp $
+ * @version $Id: BindingIteratorImpl.java,v 1.3 2001-03-19 11:08:17 brose Exp $
  * $Log: BindingIteratorImpl.java,v $
- * Revision 1.2  2001-03-17 18:44:12  brose
+ * Revision 1.3  2001-03-19 11:08:17  brose
+ * *** empty log message ***
+ *
+ * Revision 1.2  2001/03/17 18:44:12  brose
  * *** empty log message ***
  *
  * Revision 1.4  2000/12/04 16:22:38  brose
@@ -113,6 +116,12 @@ public class BindingIteratorImpl
 	}
     }
 }
+
+
+
+
+
+
 
 
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatPtType.java,v 1.2 2001-03-17 18:43:37 brose Exp $
+ * @version $Id: FloatPtType.java,v 1.3 2001-03-19 11:07:41 brose Exp $
  */
 
 import java.io.PrintWriter;
@@ -40,6 +40,12 @@ class FloatPtType
 	return type_spec.holderName();
     }
 }
+
+
+
+
+
+
 
 
 

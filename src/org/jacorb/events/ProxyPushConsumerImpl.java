@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: ProxyPushConsumerImpl.java,v 1.2 2001-03-17 18:43:25 brose Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.3 2001-03-19 11:07:33 brose Exp $
  */
 
 public class ProxyPushConsumerImpl 
@@ -63,6 +63,12 @@ public class ProxyPushConsumerImpl
 	myEventChannel.internal_push ( event );
     }   
 }
+
+
+
+
+
+
 
 
 

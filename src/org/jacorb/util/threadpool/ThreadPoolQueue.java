@@ -6,7 +6,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:18:43 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPoolQueue.java,v 1.2 2001-03-17 18:45:32 brose Exp $
+ * $Id: ThreadPoolQueue.java,v 1.3 2001-03-19 11:10:32 brose Exp $
  */
 
 public interface ThreadPoolQueue
@@ -16,3 +16,9 @@ public interface ThreadPoolQueue
 
     public boolean isEmpty();
 } // ThreadPoolQueue
+
+
+
+
+
+

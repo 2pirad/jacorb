@@ -7,7 +7,7 @@ import java.util.Hashtable;
  * Created: Mon Apr 10 11:33:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class ParentRulesPolicy extends ManagementPolicyImpl
@@ -55,7 +55,7 @@ public org.omg.CORBA.Policy resolveConflict(Domain[] overlappingDMs,
     for (int i= 0; i < overlappingDMs.length ; i++)
       {
 	distance = ((Integer) distances.get(overlappingDMs[i])).intValue();
-	jacorb.util.Debug.output(4, "ParentRules.resolveConflict: distance of " 
+	org.jacorb.util.Debug.output(4, "ParentRules.resolveConflict: distance of " 
 				 + overlappingDMs[i].name() + " to root "
 				 + root.name() + " is " + distance);
 	if ( distance < min ) 
@@ -96,3 +96,9 @@ public org.omg.CORBA.Policy resolveConflict(Domain[] overlappingDMs,
   }
   
 } // SimpleConflictResolutionPolicy
+
+
+
+
+
+

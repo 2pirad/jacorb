@@ -25,7 +25,7 @@ import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.2 2001-03-17 18:44:06 brose Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.3 2001-03-19 11:08:08 brose Exp $    
  */
  
 public class TypeCodeUtil
@@ -266,4 +266,10 @@ public class TypeCodeUtil
         return sb.toString();
     }
 }
+
+
+
+
+
+
 

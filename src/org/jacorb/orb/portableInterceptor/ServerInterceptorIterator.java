@@ -31,7 +31,7 @@ import org.jacorb.util.Debug;
  * ServerRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version $Id: ServerInterceptorIterator.java,v 1.2 2001-03-17 18:45:03 brose Exp $
+ * @version $Id: ServerInterceptorIterator.java,v 1.3 2001-03-19 11:08:56 brose Exp $
  */
 
 public class ServerInterceptorIterator
@@ -142,3 +142,9 @@ public class ServerInterceptorIterator
 	info.caller_op = op;
     }
 } // ServerInterceptorIterator
+
+
+
+
+
+

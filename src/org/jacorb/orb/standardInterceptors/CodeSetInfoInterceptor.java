@@ -9,7 +9,7 @@ import org.jacorb.util.Debug;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.2 2001-03-17 18:45:04 brose Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.3 2001-03-19 11:08:56 brose Exp $
  */
 
 public class CodeSetInfoInterceptor 
@@ -66,8 +66,14 @@ public class CodeSetInfoInterceptor
 	os.close();
 
 	info.add_ior_component_to_profile (tagc, org.omg.IOP.TAG_INTERNET_IOP.value);
-	jacorb.util.Debug.output( Debug.INTERCEPTOR | 3, 
+	org.jacorb.util.Debug.output( Debug.INTERCEPTOR | 3, 
                                  "CodeSetInfoCreator added TaggedComponent to TAG_INTERNET_IOP profile");
       
     }
 }
+
+
+
+
+
+

@@ -4,7 +4,7 @@ package org.jacorb.orb.domain;
  * Created: Tue Apr 11 14:34:46 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class DomainQueueImpl implements DomainQueue {
@@ -69,3 +69,9 @@ class Element
   public Domain el;
   public Element next;
 }
+
+
+
+
+
+

@@ -22,7 +22,7 @@ package org.jacorb.orb.util;
 
 /**
  * @author Gerald Brose
- * @version $Id: CorbaLoc.java,v 1.2 2001-03-17 18:45:05 brose Exp $
+ * @version $Id: CorbaLoc.java,v 1.3 2001-03-19 11:08:57 brose Exp $
  */
 
 import org.jacorb.orb.ParsedIOR;
@@ -327,3 +327,9 @@ public class CorbaLoc
 
 
 }
+
+
+
+
+
+

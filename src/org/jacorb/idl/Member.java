@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.2 2001-03-17 18:43:40 brose Exp $
+ * @version $Id: Member.java,v 1.3 2001-03-19 11:07:44 brose Exp $
  *
  */
 
@@ -221,6 +221,12 @@ class Member
 	ps.print( prefix + type_spec.toString() + " " + declarator.toString() + ";" ); 
     }
 }
+
+
+
+
+
+
 
 
 

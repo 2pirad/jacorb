@@ -6,7 +6,7 @@ package org.jacorb.imr.util;
  * 
  * @author Nicolas Noffke
  * 
- * $Id: ImRManager.java,v 1.2 2001-03-17 18:44:00 brose Exp $
+ * $Id: ImRManager.java,v 1.3 2001-03-19 11:08:00 brose Exp $
  */
 
 import org.jacorb.imr.*;
@@ -648,5 +648,11 @@ public class ImRManager
     }
     
 } // ImRManager
+
+
+
+
+
+
 
 

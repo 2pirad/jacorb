@@ -8,7 +8,7 @@ import org.jacorb.orb.SystemExceptionHelper;
  * of RequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: RequestInterceptorIterator.java,v 1.2 2001-03-17 18:45:03 brose Exp $
+ * @version  $Id: RequestInterceptorIterator.java,v 1.3 2001-03-19 11:08:56 brose Exp $
  */
 
 public abstract class RequestInterceptorIterator 
@@ -60,3 +60,9 @@ public abstract class RequestInterceptorIterator
 	}
     }
 } // RequestInterceptorIterator
+
+
+
+
+
+

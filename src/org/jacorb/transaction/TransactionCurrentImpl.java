@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * maps to the methods in the control. 
  *
  * @author Nicolas Noffke
- * @version $Id: TransactionCurrentImpl.java,v 1.2 2001-03-17 18:45:27 brose Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.3 2001-03-19 11:10:21 brose Exp $
  */
 
 public class TransactionCurrentImpl 
@@ -240,3 +240,9 @@ public class TransactionCurrentImpl
         }
     } 
 } // TransactionCurrentImpl
+
+
+
+
+
+

@@ -8,7 +8,7 @@ import org.jacorb.orb.*;
  *
  * @author Nicolas Noffke
  * 
- * @version $Id: ImRHostInfo.java,v 1.2 2001-03-17 18:43:55 brose Exp $
+ * @version $Id: ImRHostInfo.java,v 1.3 2001-03-19 11:07:58 brose Exp $
  */
 
 public class ImRHostInfo implements java.io.Serializable {
@@ -69,5 +69,11 @@ public class ImRHostInfo implements java.io.Serializable {
 	out.defaultWriteObject();
     }
 } // ImRHostInfo
+
+
+
+
+
+
 
 

@@ -27,7 +27,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynEnum.java,v 1.3 2001-03-19 08:40:35 jacorb Exp $
+ * $Id: DynEnum.java,v 1.4 2001-03-19 11:08:49 brose Exp $
  */
 
 public final class DynEnum
@@ -154,5 +154,11 @@ public final class DynEnum
 
 
 }
+
+
+
+
+
+
 
 

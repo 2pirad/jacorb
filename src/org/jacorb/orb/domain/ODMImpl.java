@@ -27,7 +27,7 @@ import java.util.Enumeration;
  * Created: Tue Aug  8 16:35:48 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $ */
+ * @version $Revision: 1.3 $ */
 
 public class ODMImpl 
     implements  ObjectDomainMapperOperations
@@ -165,4 +165,10 @@ public class ODMImpl
     } // removeFromMapping
  
 } // ODMImpl
+
+
+
+
+
+
 

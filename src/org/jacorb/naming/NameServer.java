@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  *	The name server application
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: NameServer.java,v 1.2 2001-03-17 18:44:12 brose Exp $
+ *	@version $Id: NameServer.java,v 1.3 2001-03-19 11:08:18 brose Exp $
  */
 
 
@@ -97,7 +97,7 @@ public class NameServer
 	    }
 	    catch( IOException io )
 	    {
-		jacorb.util.Debug.output(2,"File seems corrupt, starting empty");
+		org.jacorb.util.Debug.output(2,"File seems corrupt, starting empty");
 	    }
 	    catch( java.lang.ClassNotFoundException c )
 	    {
@@ -133,7 +133,7 @@ public class NameServer
 
 		/* save state */
                 out.writeObject((NamingContextImpl)servant);
-		jacorb.util.Debug.output(2,"Saved state for servant " + oidStr);
+		org.jacorb.util.Debug.output(2,"Saved state for servant " + oidStr);
 	    }
 	    catch( IOException io )
 	    {
@@ -277,6 +277,12 @@ public class NameServer
 
 
 }
+
+
+
+
+
+
 
 
 

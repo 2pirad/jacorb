@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongLongType.java,v 1.2 2001-03-17 18:43:39 brose Exp $
+ * @version $Id: LongLongType.java,v 1.3 2001-03-19 11:07:43 brose Exp $
  */
 
 
@@ -101,6 +101,12 @@ class LongLongType
         return "J";
     }
 }
+
+
+
+
+
+
 
 
 

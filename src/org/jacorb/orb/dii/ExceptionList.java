@@ -22,7 +22,7 @@ package org.jacorb.orb.dii;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ExceptionList.java,v 1.2 2001-03-17 18:44:42 brose Exp $
+ * @version $Id: ExceptionList.java,v 1.3 2001-03-19 11:08:35 brose Exp $
  */
 
 import java.util.Vector;
@@ -68,5 +68,11 @@ public class ExceptionList
 		}
 	}
 }
+
+
+
+
+
+
 
 

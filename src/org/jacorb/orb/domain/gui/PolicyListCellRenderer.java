@@ -9,7 +9,7 @@ import org.jacorb.orb.domain.*;
 /**
  * This class renders nodes of the policy list.
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 
@@ -80,3 +80,9 @@ public class PolicyListCellRenderer
     }
 
 } // PolicyListCellRenderer
+
+
+
+
+
+

@@ -24,7 +24,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ObjectUtil.java,v 1.2 2001-03-17 18:45:29 brose Exp $
+ * @version $Id: ObjectUtil.java,v 1.3 2001-03-19 11:10:28 brose Exp $
  */
 
 public  class ObjectUtil
@@ -59,3 +59,9 @@ public  class ObjectUtil
     }
 
 }
+
+
+
+
+
+

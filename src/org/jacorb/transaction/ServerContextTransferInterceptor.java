@@ -11,7 +11,7 @@ import org.omg.IOP_N.Codec;
  * in the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: ServerContextTransferInterceptor.java,v 1.2 2001-03-17 18:45:26 brose Exp $
+ * @version $Id: ServerContextTransferInterceptor.java,v 1.3 2001-03-19 11:10:18 brose Exp $
  */
 
 public class ServerContextTransferInterceptor 
@@ -61,3 +61,9 @@ public class ServerContextTransferInterceptor
     throws ForwardRequest{
   }
 } // ServerContextTransferInterceptor
+
+
+
+
+
+

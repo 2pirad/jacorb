@@ -7,7 +7,7 @@ package org.jacorb.orb.domain;
  * Created: Wed Mar  8 13:33:41 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class FirstConflictResolutionPolicy extends ManagementPolicyImpl
@@ -56,3 +56,9 @@ public org.omg.CORBA.Policy resolveConflict(Domain[] overlappingDMs,
   }
   
 } // FirstConflictResolutionPolicy
+
+
+
+
+
+

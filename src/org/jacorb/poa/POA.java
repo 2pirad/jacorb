@@ -41,7 +41,7 @@ import java.util.*;
  * The main POA class, a implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.3 2001-03-17 18:45:07 brose Exp $
+ * @version $Id: POA.java,v 1.4 2001-03-19 11:09:00 brose Exp $
  */
 
 public class POA 
@@ -1771,4 +1771,10 @@ public class POA
     } // doInitialDomainMapping
 
 }
+
+
+
+
+
+
 

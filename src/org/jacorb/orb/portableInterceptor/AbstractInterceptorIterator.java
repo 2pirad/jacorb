@@ -7,7 +7,7 @@ import org.omg.CORBA.UserException;
  * AbstractInterceptorIterator.java
  *
  *
- * @version $Id: AbstractInterceptorIterator.java,v 1.2 2001-03-17 18:45:00 brose Exp $
+ * @version $Id: AbstractInterceptorIterator.java,v 1.3 2001-03-19 11:08:53 brose Exp $
  */
 
 public abstract class AbstractInterceptorIterator  
@@ -51,3 +51,9 @@ public abstract class AbstractInterceptorIterator
         throws UserException;
 
 } // AbstractInterceptorIterator
+
+
+
+
+
+

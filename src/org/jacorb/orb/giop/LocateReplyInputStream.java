@@ -30,7 +30,7 @@ import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: LocateReplyInputStream.java,v 1.2 2001-03-17 18:44:29 brose Exp $
+ * @version $Id: LocateReplyInputStream.java,v 1.3 2001-03-19 11:08:30 brose Exp $
  *
  */
 
@@ -96,6 +96,12 @@ public class LocateReplyInputStream
 	return rep_hdr.locate_status;
     }
 }
+
+
+
+
+
+
 
 
 

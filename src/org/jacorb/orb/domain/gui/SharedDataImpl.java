@@ -8,7 +8,7 @@ import java.util.*;
  * An implementation of the interface SharedData.
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public class SharedDataImpl 
@@ -395,6 +395,12 @@ public class SharedDataImpl
     } // initPropertyPolicy
   
 } // SharedData
+
+
+
+
+
+
 
 
 

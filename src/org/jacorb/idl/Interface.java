@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.2 2001-03-17 18:43:38 brose Exp $
+ * @version $Id: Interface.java,v 1.3 2001-03-19 11:07:42 brose Exp $
  */
 
 import java.util.*;
@@ -938,6 +938,12 @@ class Interface
         }
     }
 }
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ import java.util.*;
  * See PI Spec p. 5-41ff
  *
  * @author Nicolas Noffke
- * @version $Id: RequestInfoImpl.java,v 1.2 2001-03-17 18:45:02 brose Exp $
+ * @version $Id: RequestInfoImpl.java,v 1.3 2001-03-19 11:08:55 brose Exp $
  */
 
 public abstract class RequestInfoImpl 
@@ -135,3 +135,9 @@ public abstract class RequestInfoImpl
         return org.omg.Messaging.SYNC_WITH_TRANSPORT.value;
     }
 } // RequestInfoImpl
+
+
+
+
+
+

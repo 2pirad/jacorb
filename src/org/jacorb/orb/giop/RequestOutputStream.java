@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.2 2001-03-17 18:44:32 brose Exp $
+ * @version $Id: RequestOutputStream.java,v 1.3 2001-03-19 11:08:32 brose Exp $
  *
  */
 
@@ -142,7 +142,7 @@ public class RequestOutputStream
         int difference = 8 - (header_stream.size() % 8); //difference to next 8 byte border
         difference = (difference == 8)? 0 : difference;
 
-        //jacorb.util.Debug.output(2, "difference: " + difference);
+        //org.jacorb.util.Debug.output(2, "difference: " + difference);
 
         // This is a bit inefficent, but unfortunately, the service contexts are written
         // in the middle of the stream (not at the end), so fixing the size directly
@@ -154,8 +154,8 @@ public class RequestOutputStream
             writeHeader(header_stream);
         }
 
-        //jacorb.util.Debug.output(2, "Header size: " + header_stream.size());
-        //jacorb.util.Debug.output(2, "Data size: " + size());
+        //org.jacorb.util.Debug.output(2, "Header size: " + header_stream.size());
+        //org.jacorb.util.Debug.output(2, "Data size: " + size());
     }
   
     public void setRequest(org.jacorb.orb.dii.Request request){
@@ -166,6 +166,12 @@ public class RequestOutputStream
         return request;
     }
 }
+
+
+
+
+
+
 
 
 

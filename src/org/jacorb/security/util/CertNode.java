@@ -24,7 +24,7 @@ package org.jacorb.security.util;
  * This class represents key store entries
  *
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: CertNode.java,v 1.2 2001-03-17 18:45:19 brose Exp $
+ *	@version $Id: CertNode.java,v 1.3 2001-03-19 11:09:26 brose Exp $
  */
 
 import java.security.*;
@@ -142,4 +142,10 @@ public class CertNode
     }
 
 }
+
+
+
+
+
+
 

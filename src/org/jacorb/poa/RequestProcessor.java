@@ -45,7 +45,7 @@ import org.omg.PortableInterceptor.*;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.2 2001-03-17 18:45:07 brose Exp $
+ * @version $Id: RequestProcessor.java,v 1.3 2001-03-19 11:09:03 brose Exp $
  */
 public class RequestProcessor 
     extends Thread 
@@ -359,7 +359,7 @@ public class RequestProcessor
             manager.setTSCurrent(info.current);
         }
 
-        //jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req pre invoke");
+        //org.jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req pre invoke");
 
         if (servantManager != null)
         {
@@ -397,7 +397,7 @@ public class RequestProcessor
                     request.setServerRequestInfo(info);
 
             }
-            //jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req pre invoke");
+            //org.jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req pre invoke");
 
             invokeOperation();  
         }
@@ -407,7 +407,7 @@ public class RequestProcessor
 
         if (cookieHolder != null) 
         {
-            //jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req pre post invoke");
+            //org.jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req pre post invoke");
             invokePostInvoke();
         }
    
@@ -448,7 +448,7 @@ public class RequestProcessor
             request.get_out().setServiceContexts(info.getReplyServiceContexts());
             manager.removeTSCurrent();
         }
-        //jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req end");
+        //org.jacorb.util.Debug.output(2, ">>>>>>>>>>>> process req end");
     }
 
     private boolean invokeInterceptors( ServerRequestInfoImpl info,
@@ -530,6 +530,12 @@ public class RequestProcessor
     }
 
 }
+
+
+
+
+
+
 
 
 

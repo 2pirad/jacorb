@@ -26,7 +26,7 @@ package org.jacorb.security.util;
  * TrustNodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: KSEntryTree.java,v 1.2 2001-03-17 18:45:19 brose Exp $
+ * @version $Id: KSEntryTree.java,v 1.3 2001-03-19 11:09:27 brose Exp $
  */
 
 import java.awt.*;
@@ -378,6 +378,12 @@ System.out.println("bnv: iserted key entry for " + alias);
     }
 
 }
+
+
+
+
+
+
 
 
 

@@ -20,7 +20,7 @@ import org.jacorb.security.level2.*;
  * from a Java key store
  *
  * @author Nicolas Noffke
- * $Id: PrincipalAuthenticatorImpl.java,v 1.2 2001-03-17 18:45:11 brose Exp $
+ * $Id: PrincipalAuthenticatorImpl.java,v 1.3 2001-03-19 11:09:16 brose Exp $
  */
 
 public class PrincipalAuthenticatorImpl
@@ -49,7 +49,7 @@ public class PrincipalAuthenticatorImpl
     {
         java.security.Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
 
-	jacorb.util.Debug.output(3,"starting authentication");
+	org.jacorb.util.Debug.output(3,"starting authentication");
 	try 
 	{	
             String keystore_location = Environment.keyStore();
@@ -167,6 +167,12 @@ public class PrincipalAuthenticatorImpl
         throw new org.omg.CORBA.NO_IMPLEMENT();
     }
 }
+
+
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@ package org.jacorb.orb.domain;
  * Created: Tue Apr 11 14:19:50 2000
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 
 public interface DomainQueue  
@@ -29,3 +29,9 @@ public interface DomainQueue
   
   
 } // DomainQueue
+
+
+
+
+
+

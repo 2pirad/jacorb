@@ -6,7 +6,7 @@ package org.jacorb.security.jsse;
  * Created: Wed Mar  7 17:08:06 2001
  *
  * @author Nicolas Noffke
- * $Id: X509KeyManagerImpl.java,v 1.2 2001-03-17 18:45:12 brose Exp $
+ * $Id: X509KeyManagerImpl.java,v 1.3 2001-03-19 11:09:17 brose Exp $
  */
 import java.security.*;
 import java.security.cert.*;
@@ -66,3 +66,9 @@ public class X509KeyManagerImpl
         return kac[ Integer.parseInt( alias ) ].key;
     }
 } // X509KeyManagerImpl
+
+
+
+
+
+

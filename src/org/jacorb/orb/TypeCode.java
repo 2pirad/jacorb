@@ -25,7 +25,7 @@ import java.util.Hashtable;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.2 2001-03-17 18:44:25 brose Exp $    
+ * @version $Id: TypeCode.java,v 1.3 2001-03-19 11:08:28 brose Exp $    
  */
  
 public class TypeCode 
@@ -678,5 +678,11 @@ public class TypeCode
         return sb.toString();
     }
 }
+
+
+
+
+
+
 
 

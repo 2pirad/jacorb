@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: StringType.java,v 1.2 2001-03-17 18:43:46 brose Exp $
+ * @version $Id: StringType.java,v 1.3 2001-03-19 11:07:51 brose Exp $
  */
 
 
@@ -154,6 +154,12 @@ class StringType
 	    length = max.pos_int_const();
     }
 }
+
+
+
+
+
+
 
 
 

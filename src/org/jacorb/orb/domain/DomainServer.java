@@ -14,7 +14,7 @@ import org.jacorb.util.Debug;
  * "ParentRules" conflict resolution policy.
  *
  * @author Herbert Kiefer
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @see org.jacorb.orb.domain.ParentRulesPolicy
  */
 
@@ -127,5 +127,11 @@ public class DomainServer
         orb.run();
     }
 } // DomainServer
+
+
+
+
+
+
 
 

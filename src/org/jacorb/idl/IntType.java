@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IntType.java,v 1.2 2001-03-17 18:43:38 brose Exp $
+ * @version $Id: IntType.java,v 1.3 2001-03-19 11:07:42 brose Exp $
  */
 
 class IntType 
@@ -34,6 +34,12 @@ class IntType
 	super(num);
     }
 }
+
+
+
+
+
+
 
 
 
