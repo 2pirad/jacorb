@@ -20,7 +20,7 @@
 
 /**
  * @author Gerald Brose
- * @version $Id: MemberList.java,v 1.6 2001-12-07 15:54:13 gerald Exp $
+ * @version $Id: MemberList.java,v 1.7 2001-12-17 14:11:42 gerald Exp $
  *
  */
 
@@ -77,8 +77,10 @@ class MemberList
 
     public void setEnclosingSymbol( IdlSymbol s )
     {
+
         if( enclosing_symbol != null && enclosing_symbol != s )
         {
+	    System.err.println("was " + enclosing_symbol.getClass().getName() + " now: " + s.getClass().getName());
             throw new RuntimeException("Compiler Error: trying to reassign container");
         }
 
