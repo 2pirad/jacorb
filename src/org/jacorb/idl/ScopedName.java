@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.24 2003-09-03 10:18:20 brose Exp $
+ * @version $Id: ScopedName.java,v 1.25 2003-09-08 14:22:16 brose Exp $
  *
  */
 
@@ -40,8 +40,6 @@ public class ScopedName
     private static Hashtable enumMap = new Hashtable();
 
     private static Stack recursionStack = new Stack();
-
-    private static org.apache.log.Logger staticLogger = parser.getLogger();
 
     /**
      *  Interfaces define a new scope, but since we can't do that

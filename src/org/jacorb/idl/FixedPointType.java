@@ -25,13 +25,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.17 2003-09-04 08:30:05 nicolas Exp $
+ * @version $Id: FixedPointType.java,v 1.18 2003-09-08 14:22:16 brose Exp $
  */
 
 public class FixedPointType
     extends TemplateTypeSpec
 {
-
     public ConstExpr digit_expr = null;
     public ConstExpr scale_expr = null;
     private int digits = 0;

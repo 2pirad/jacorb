@@ -22,13 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: DoubleType.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: DoubleType.java,v 1.10 2003-09-08 14:22:16 brose Exp $
  */
 
 
 class DoubleType
-        extends FloatPtType
+    extends FloatPtType
 {
+    private boolean isLongDouble = false;
 
     public DoubleType( int num )
     {
@@ -38,6 +39,11 @@ class DoubleType
     public String typeName()
     {
         return "double";
+    }
+
+    public void setLongDouble()
+    {
+        isLongDouble = true;
     }
 
     public TypeSpec typeSpec()
