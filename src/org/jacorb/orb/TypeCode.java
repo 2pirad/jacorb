@@ -25,7 +25,7 @@ import java.util.Hashtable;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.6 2001-06-08 12:10:34 jacorb Exp $    
+ * @version $Id: TypeCode.java,v 1.6.2.1 2001-07-30 12:58:33 jacorb Exp $    
  */
  
 public class TypeCode 
@@ -183,15 +183,16 @@ public class TypeCode
     }
 
     /**
-     * Constructor for tk_alias
+     * Constructor for tk_alias, tk_value_box
      */  
 
-    public TypeCode ( String _id, 
+    public TypeCode (int _kind, 
+               String _id, 
                String _name, 
                org.omg.CORBA.TypeCode _original_type)
     { 
         id = _id;
-        kind = TCKind._tk_alias;
+        kind = _kind;
         if( _name != null )
             name = _name.replace('.','_'); // for orbixWeb Interop
         else
@@ -468,6 +469,7 @@ public class TypeCode
         case   TCKind._tk_array :
         case   TCKind._tk_sequence :
         case   TCKind._tk_alias : 
+        case   TCKind._tk_value_box :
             return content_type;
         default: throw new org.omg.CORBA.TypeCodePackage.BadKind();
         }
