@@ -29,23 +29,11 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.10 2003-01-13 09:03:56 nicolas Exp $
+ * @version $Id: Transport.java,v 1.11 2003-04-22 09:53:01 andre.spiegel Exp $
  */
 
 public interface Transport 
 {
-    /**
-     * Receive a GIOP message. This message must be complete, i.e. not
-     * fragmented.
-     *
-     * @return a message or null, if an ill-formatted message has been
-     * received.  
-     *
-     * @throws IOException If the transport layer has shut down
-     * irrevokably.  
-     */
-    public byte[] getMessage()
-        throws IOException;
 
     /**
      * Writes to the wire. The buffer may only be a fragment of a
@@ -108,6 +96,9 @@ public interface Transport
      * the next time.  
      */
     public void turnOnFinalTimeout();
+    
+    public org.omg.ETF.Profile get_server_profile(); 
+   
 }// Transport
 
 
