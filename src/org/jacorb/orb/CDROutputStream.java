@@ -33,7 +33,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.9.2.3 2001-09-05 09:50:51 jacorb Exp $ 
+ * @version     $Id: CDROutputStream.java,v 1.9.2.4 2001-09-27 11:43:00 jacorb Exp $ 
  * 
  * A stream for CDR marshalling.
  *
@@ -53,8 +53,8 @@ public class CDROutputStream
     private boolean released = false;
 
     /* character encoding code sets for char and wchar, default ISO8859_1 */
-    private int codeSet =  CodeSet.UTF8;
-    private int codeSetW=  CodeSet.UTF16;
+    private int codeSet =  CodeSet.getTCSDefault();
+    private int codeSetW=  CodeSet.getTCSWDefault();
 
     private BufferManager bufMgr = null;
 
@@ -70,9 +70,8 @@ public class CDROutputStream
 
     private org.omg.CORBA.ORB orb = null;
 
-    //using GIOP 1.0, until told otherwise
     //default access, so derived classes can access this field
-    public int giop_minor = 0;
+    public int giop_minor = 2;
     
     /** 
      * OutputStreams created using the empty constructor 

@@ -36,7 +36,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.6.2.2 2001-09-21 07:53:19 jacorb Exp $
+ * @version $Id: ParsedIOR.java,v 1.6.2.3 2001-09-27 11:43:02 jacorb Exp $
  */
 
 public class ParsedIOR 
@@ -319,19 +319,19 @@ public class ParsedIOR
         //retrieve the codeset component
         for( int i = 0; i < taggedComponents.length; i++ )
         {
-	    if( taggedComponents[i].tag != TAG_CODE_SETS.value )
+	    if( taggedComponents[i].tag == TAG_CODE_SETS.value )
             {
-		continue;
+                // get server cs from IOR 
+                CDRInputStream is =
+                    new CDRInputStream( orb, 
+                                        taggedComponents[i].component_data);
+                
+                is.openEncapsulatedArray();
+                
+                cs_info = CodeSetComponentInfoHelper.read( is );
+            
+                break;
             }
-
-	    // get server cs from IOR 
-	    CDRInputStream is =
-		new CDRInputStream( orb, 
-                                    taggedComponents[i].component_data);
-            
-	    is.openEncapsulatedArray();
-            
-	    cs_info = CodeSetComponentInfoHelper.read( is );
 	}
     }
 
@@ -361,9 +361,9 @@ public class ParsedIOR
 	{
 	    ProfileBody_1_0 profile_body = 
 		new ProfileBody_1_0( address.getVersion(),
-						  address.host,
-						  (short)address.port,
-						  corbaLoc.getKey());
+                                     address.host,
+                                     (short) address.port,
+                                     corbaLoc.getKey());
 
 	    ior = createIOR( "IDL:org.omg/CORBA/Object:1.0", profile_body);
 	}
