@@ -30,12 +30,16 @@ import org.jacorb.notification.util.TaskExecutor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.8 2004-01-29 14:16:59 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.9 2004-02-11 21:20:41 alphonse.bendt Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask
 {
+    private static final FilterStage[] NO_CURRENT_FILTER_STAGE =
+        new FilterStage[ 0 ];
+
     private static int COUNT = 0;
+
     private int id_ = ++COUNT;
 
     /**
@@ -55,10 +59,6 @@ public class FilterConsumerAdminTask extends AbstractFilterTask
     public String toString() {
         return "[FilterConsumerAdminTask#" + id_ + "]";
     }
-
-
-    private static final FilterStage[] NO_CURRENT_FILTER_STAGE =
-        new FilterStage[ 0 ];
 
 
     /**
