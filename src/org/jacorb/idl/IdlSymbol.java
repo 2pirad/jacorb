@@ -29,7 +29,7 @@ import java.util.Hashtable;
  * Base class for all classes of the abstract syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.18 2002-07-08 09:18:41 gerald Exp $
+ * @version $Id: IdlSymbol.java,v 1.18.4.1 2002-10-26 12:42:27 andre.spiegel Exp $
  */
 
 class IdlSymbol
@@ -113,7 +113,8 @@ class IdlSymbol
     public void escapeName()
     {
         if( !name.startsWith( "_" ) &&
-                lexer.strictJavaEscapeCheck( name ) )
+            !pack_name.startsWith( "org.omg" ) &&
+            lexer.strictJavaEscapeCheck( name ) )
         {
             name = "_" + name;
         }
