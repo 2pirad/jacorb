@@ -43,7 +43,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTest.java,v 1.8 2004-02-13 18:36:31 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTest.java,v 1.9 2004-02-20 12:42:37 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTest extends TestCase
@@ -147,13 +147,14 @@ public class PushToConsumerTest extends TestCase
         eventConsumer.check();
     }
 
+
     public void testPushFailRetry() throws Exception
     {
-
         MockMessage event1 =
             new MockMessage();
 
         Any any1 = orb.create_any();
+        any1.insert_long(5);
 
         event1.setAny(any1);
 
@@ -161,6 +162,7 @@ public class PushToConsumerTest extends TestCase
             new MockMessage();
 
         Any any2 = orb.create_any();
+        any2.insert_long(10);
 
         event2.setAny(any2);
 
