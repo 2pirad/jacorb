@@ -31,7 +31,7 @@ import org.jacorb.orb.connection.*;
 /**
  *   This class tunnels a GIOP request in HTTP.
  * @author Sebastian Mueller
- * @version $Id: ClientConnection.java,v 1.7 2001-08-08 14:06:27 jacorb Exp $
+ * @version $Id: ClientConnection.java,v 1.8 2001-08-10 12:33:25 jacorb Exp $
  */
 
 public final class ClientConnection 
@@ -46,14 +46,15 @@ public final class ClientConnection
     HTTPClient.HTTPResponse rsp;
     String host=null;
     int port;
+    
+    private ORB orb = null;
 
-    public ClientConnection( ConnectionManager mgr, 
-                             String _host, 
+    public ClientConnection( String _host, 
                              int _port,
-                             org.jacorb.orb.factory.SocketFactory factory )
+                             org.jacorb.orb.factory.SocketFactory factory,
+                             ORB orb )
     {
-        manager = mgr;
-        orb= mgr.getORB();
+        this.orb = orb;
         host=_host;
         port=_port;
         connection_info=host+":"+port;
@@ -87,11 +88,12 @@ public final class ClientConnection
 	
 	throw new java.io.EOFException();
     }
+
     public synchronized void closeConnection()
     {
-        manager.removeConnection( this );
         connected=false;
     }
+
     public boolean connected()
     {
         //		return connected;		

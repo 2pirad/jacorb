@@ -27,7 +27,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Gerald Brose, FU Berlin 1996
- * $Id: ReplyReceptor.java,v 1.6 2001-06-13 09:19:00 jacorb Exp $	
+ * $Id: ReplyReceptor.java,v 1.7 2001-08-10 12:33:25 jacorb Exp $	
  *
  * An object of this class is created for every connection and listens
  * for replies.
@@ -102,7 +102,7 @@ public class ReplyReceptor
             catch ( CloseConnectionException c ) 
             {
 	    	org.jacorb.util.Debug.output(3, "ReplyReceptor: CloseConnectionException");
-	    	master.closeConnection();
+	    	master._closeConnection();
                 break;
 	    }
             catch ( java.io.InterruptedIOException ioint ) 
@@ -118,7 +118,7 @@ public class ReplyReceptor
                 if( !isStopped() )
                 {
                     org.jacorb.util.Debug.output(3,e);
-                    master.closeConnection();
+                    master._closeConnection();
                 }
                 break;
 	    }

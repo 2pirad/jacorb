@@ -36,7 +36,7 @@ import org.jacorb.util.*;
  * vice versa<p>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerConnection.java,v 1.7 2001-06-12 12:27:47 jacorb Exp $
+ * @version $Id: ServerConnection.java,v 1.8 2001-08-10 12:33:25 jacorb Exp $
  *
  */
 
@@ -56,7 +56,8 @@ public class ServerConnection
     protected boolean isSSL;
     protected Socket mysock = null;
     private byte [] header = new byte[ Messages.MSG_HEADER_SIZE ];
-    
+
+    private ORB orb = null;
     /** 
      * dummy constructor
      */
