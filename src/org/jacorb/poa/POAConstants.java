@@ -19,16 +19,16 @@ package org.jacorb.poa;
  *   License along with this library; if not, write to the Free
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
- 
+
 /**
  * This class collects all POA related constants.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAConstants.java,v 1.10 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: POAConstants.java,v 1.11 2003-04-15 15:22:53 nick.cross Exp $
  */
 public class POAConstants
 {
-    /* request queue */ 
+    /* request queue */
     public final static int QUEUE_CAPACITY_INI = 10;
     public final static int QUEUE_CAPACITY_INC = 10;
 
@@ -39,8 +39,8 @@ public class POAConstants
     public final static int DESTRUCTION_COMPLETE = 3;
 
     /* separator char for qualified poa names */
-    public final static String OBJECT_KEY_SEPARATOR = "/";
-    public final static byte   OBJECT_KEY_SEP_BYTE = OBJECT_KEY_SEPARATOR.getBytes()[0];
+    public final static char OBJECT_KEY_SEPARATOR = '/';
+    public final static byte OBJECT_KEY_SEP_BYTE = (byte)OBJECT_KEY_SEPARATOR;
 
     public final static byte MASK_BYTE = (byte) '&';
     public final static byte MASK_MASK_BYTE = (byte) '&';
