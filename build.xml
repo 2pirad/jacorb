@@ -4,7 +4,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.19 2002-03-19 16:09:26 nicolas Exp $ -->
+   <!-- $Id: build.xml,v 1.20 2002-03-26 17:17:03 jason.courage Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init">
@@ -176,6 +176,10 @@
    <!-- ==================================================== -->
 
    <target name="clean" depends="init" description="Clean the checkout">
+      <delete file="${basedir}/bin/idl"/>
+      <delete file="${basedir}/bin/idl.bat"/>
+      <delete file="${basedir}/bin/jaco"/>
+      <delete file="${basedir}/bin/jaco.bat"/>
       <delete dir="${classdir}/demo"/>
       <delete dir="${classdir}/org"/>
       <delete dir="${classdir}/java_cup"/>
