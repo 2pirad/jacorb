@@ -28,7 +28,7 @@ import java.lang.reflect.*;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
- * @version $Id: Contained.java,v 1.11 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: Contained.java,v 1.12 2004-10-18 13:12:41 simon.mcqueen Exp $
  */
 
 public abstract class Contained
@@ -183,7 +183,7 @@ public abstract class Contained
                     loader.loadClass( c.getName()+"Helper");
 
                 org.omg.CORBA.TypeCode tc =
-                    (org.omg.CORBA.TypeCode)helperClass.getDeclaredMethod("type", null).invoke(null,null);
+                    (org.omg.CORBA.TypeCode)helperClass.getDeclaredMethod("type", (Class[]) null).invoke(null, (java.lang.Object[]) null);
                 switch( tc.kind().value())
                 {
                 case org.omg.CORBA.TCKind._tk_struct:
@@ -228,7 +228,7 @@ public abstract class Contained
             try
             {
                 org.omg.CORBA.TypeCode tc =
-                    (org.omg.CORBA.TypeCode)c.getDeclaredMethod("type",null).invoke(null,null);
+                    (org.omg.CORBA.TypeCode)c.getDeclaredMethod("type", (Class[]) null).invoke(null, (java.lang.Object[]) null);
                 if( tc.kind() == org.omg.CORBA.TCKind.tk_alias )
                 {
                     return new AliasDef(tc, 

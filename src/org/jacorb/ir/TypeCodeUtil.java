@@ -30,7 +30,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.14 2004-05-06 12:39:59 nicolas Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.15 2004-10-18 13:12:41 simon.mcqueen Exp $    
  */
  
 public class TypeCodeUtil
@@ -234,7 +234,7 @@ public class TypeCodeUtil
 
                     return (org.omg.CORBA.TypeCode)type.getDeclaredMethod(
                                                     "type", 
-                                                    null).invoke( null, null );
+                                                    (Class[]) null).invoke( null, (Object[]) null );
                 }
                 catch( ClassNotFoundException cnfe )
                 {
@@ -263,7 +263,7 @@ public class TypeCodeUtil
                     return (org.omg.CORBA.TypeCode)
                         resultHelperClass.getDeclaredMethod(
                                                     "type", 
-                                                    null).invoke( null, null );
+                                                    (Class[]) null).invoke( null, (Object[]) null );
                 }
                 catch( Exception cnfe )
                 {

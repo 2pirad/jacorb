@@ -29,7 +29,7 @@ import org.omg.PortableServer.POA;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
- * @version $Id: ExceptionDef.java,v 1.10 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ExceptionDef.java,v 1.11 2004-10-18 13:12:41 simon.mcqueen Exp $
  */
 
 public class ExceptionDef
@@ -85,7 +85,7 @@ public class ExceptionDef
             }
 
             helperClass = this.loader.loadClass(classId + "Helper") ;
-            id( (String)helperClass.getDeclaredMethod("id", null).invoke( null, null ));
+            id( (String)helperClass.getDeclaredMethod("id", (Class[]) null).invoke( null, (Object[]) null ));
             type =
                 TypeCodeUtil.getTypeCode(myClass, this.loader, null, classId, this.logger );
             try

@@ -34,7 +34,7 @@ import org.omg.CORBA.ValueMember;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.38 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: TypeCode.java,v 1.39 2004-10-18 13:12:41 simon.mcqueen Exp $
  */
 
 public class TypeCode
@@ -1269,9 +1269,9 @@ public class TypeCode
                 Class helperClass =
                     clz.getClassLoader().loadClass(helperClassName);
                 java.lang.reflect.Method typeMethod =
-                    helperClass.getMethod("type", null);
+                    helperClass.getMethod("type", (Class[]) null);
                 TypeCode newTypeCode =
-                    (TypeCode)typeMethod.invoke(null, null);
+                    (TypeCode)typeMethod.invoke(null, (Object[]) null);
                 knownTypes.put(clz, newTypeCode);
                 return newTypeCode;
             }

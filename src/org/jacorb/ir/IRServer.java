@@ -26,7 +26,7 @@ import java.lang.reflect.*;
  * The main server that starts the Interface Repository
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IRServer.java,v 1.9 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: IRServer.java,v 1.10 2004-10-18 13:12:41 simon.mcqueen Exp $
  */
 
 public class IRServer
@@ -77,7 +77,7 @@ public class IRServer
                                                    args[1], 
                                                    classLoader });
 
-            repositoryClass.getDeclaredMethod("loadContents", null ).invoke( repository,null );
+            repositoryClass.getDeclaredMethod("loadContents", (Class[]) null ).invoke( repository, (Object[]) null );
             
             Object lock = new Object();
             synchronized( lock ) 
