@@ -35,7 +35,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ChannelContext.java,v 1.15 2004-03-03 12:31:09 alphonse.bendt Exp $
+ * @version $Id: ChannelContext.java,v 1.16 2004-03-17 08:11:46 alphonse.bendt Exp $
  */
 
 public class ChannelContext
@@ -57,10 +57,6 @@ public class ChannelContext
     private FilterFactory defaultFilterFactory_;
 
     private TaskProcessor taskProcessor_;
-
-    private ProxyEventListener proxySupplierDisposedListener_;
-
-    private ProxyEventListener proxyConsumerDisposedListener_;
 
     ////////////////////////////////////////
 
@@ -138,30 +134,6 @@ public class ChannelContext
         _copy.setDefaultFilterFactory(defaultFilterFactory_);
 
         return _copy;
-    }
-
-
-    public void setProxyConsumerDisposedEventListener(ProxyEventListener listener)
-    {
-        proxyConsumerDisposedListener_ = listener;
-    }
-
-
-    public void setProxySupplierDisposedEventListener(ProxyEventListener listener)
-    {
-        proxySupplierDisposedListener_ = listener;
-    }
-
-
-    public ProxyEventListener getRemoveProxyConsumerListener()
-    {
-        return proxyConsumerDisposedListener_;
-    }
-
-
-    public ProxyEventListener getRemoveProxySupplierListener()
-    {
-        return proxySupplierDisposedListener_;
     }
 
 
