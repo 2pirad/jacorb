@@ -44,7 +44,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.94.2.1 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: CDROutputStream.java,v 1.94.2.2 2004-03-29 10:11:24 gerald Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -207,14 +207,17 @@ public class CDROutputStream
     public CDROutputStream(final org.omg.CORBA.ORB orb)
     {
         this();
-        this.orb = orb;
-        try
+        if (orb != null )
         {
-            configure(((org.jacorb.orb.ORB)orb).getConfiguration());
-        }
-        catch( ConfigurationException ce )
-        {
-            throw new INTERNAL("ConfigurationException: " + ce.getMessage());
+            this.orb = orb;
+            try
+            {
+                configure(((org.jacorb.orb.ORB)orb).getConfiguration());
+            }
+            catch( ConfigurationException ce )
+            {
+                throw new INTERNAL("ConfigurationException: " + ce.getMessage());
+            }
         }
     }
 

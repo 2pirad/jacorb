@@ -42,7 +42,7 @@ import org.jacorb.util.ObjectUtil;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.18.2.2 2004-03-25 12:07:02 gerald Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.18.2.3 2004-03-29 10:11:24 gerald Exp $
  *
  */
 
@@ -96,8 +96,8 @@ public class ClientConnectionManager
 
         if (configuration.getAttribute("jacorb.security.support_ssl","off").equals("on") )
         {
-            String s = configuration.getAttribute("jacorb.ssl.socket_factory");
-            if ( s == null || s.length() == 0)
+            String s = configuration.getAttribute("jacorb.ssl.socket_factory","");
+            if ( s.length() == 0)
             {
                 throw new RuntimeException( "SSL support is on, but the property \"jacorb.ssl.socket_factory\" is not set!" );
             }

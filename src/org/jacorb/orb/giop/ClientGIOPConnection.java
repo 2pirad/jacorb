@@ -27,11 +27,12 @@ import org.apache.avalon.framework.configuration.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.11.2.1 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.11.2.2 2004-03-29 10:11:24 gerald Exp $
  */
 
 public class ClientGIOPConnection
     extends GIOPConnection
+    implements Configurable
 {
     private boolean ignore_pending_messages_on_timeout = false;
 

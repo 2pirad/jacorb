@@ -32,7 +32,7 @@ import org.jacorb.config.Configuration;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.16.2.1 2004-03-23 17:19:10 gerald Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.16.2.2 2004-03-29 10:11:24 gerald Exp $
  */
 
 public class IORInterceptorInitializer
@@ -61,9 +61,9 @@ public class IORInterceptorInitializer
             config = orb.getConfiguration();
 
             String supportedOptions = 
-                config.getAttribute("jacorb.security.ssl.server.supported_options");
+                config.getAttribute("jacorb.security.ssl.server.supported_options",null);
             String requiredOptions = 
-                config.getAttribute("jacorb.security.ssl.server.required_options");
+                config.getAttribute("jacorb.security.ssl.server.required_options", null);
 
             if( config.getAttribute("jacorb.security.support_ssl","off").equals("on") &&
                 supportedOptions != null &&

@@ -39,10 +39,11 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.15.2.1 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: IIOPListener.java,v 1.15.2.2 2004-03-29 10:11:24 gerald Exp $
  */
 public class IIOPListener 
     extends _ListenerLocalBase
+    implements Configurable
 {
     private ORB orb = null;
     private SocketFactoryManager socketFactoryManager = null;
@@ -264,9 +265,9 @@ public class IIOPListener
                 EstablishTrustInClient.value;
 
             String prop = 
-                configuration.getAttribute("jacorb.ssl.server.required_options");
+                configuration.getAttribute("jacorb.ssl.server.required_options","");
 
-            if (prop != null)
+            if (prop.length() > 0)
             {
                 try
                 {
@@ -311,15 +312,6 @@ public class IIOPListener
     {
         if (sslServerSocketFactory == null)
         {
-            // This is a hack: We need the ORB to create an SSL
-            // server socket factory, but we don't have it here.
-            // So we let the BasicAdapter create the factory, and
-            // store it in a static variable (which is not specific
-            // to a particular ORB again, but this is the way it
-            // has always been in JacORB).
-
-            // TODO: Check what is the right thing to do.
-
             sslServerSocketFactory = 
                 orb.getBasicAdapter().getSSLSocketFactory();
 
@@ -399,14 +391,14 @@ public class IIOPListener
     {
         try
         {
-            String oa_addr = configuration.getAttribute("OAIAddr");
-            return (oa_addr == null) ? null : InetAddress.getByName(oa_addr);
+            String oa_addr = configuration.getAttribute("OAIAddr","");
+            return (oa_addr.length() == 0) ? null : InetAddress.getByName(oa_addr);
         }
-        catch (ConfigurationException e)
-        {
-            throw new org.omg.CORBA.INITIALIZE("Could not resolve configured listener host" + 
-                                               e.getMessage());
-        }
+//         catch (ConfigurationException e)
+//         {
+//             throw new org.omg.CORBA.INITIALIZE("Could not resolve configured listener host" + 
+//                                                e.getMessage());
+//         }
         catch (java.net.UnknownHostException e)
         {
             throw new org.omg.CORBA.INITIALIZE
@@ -465,7 +457,7 @@ public class IIOPListener
         Connection result = null;
         try
         {
-            result = createServerConnection (socket, isSSL);
+            result = createServerConnection(socket, isSSL);
         }
         catch (IOException ex)
         {
@@ -499,7 +491,16 @@ public class IIOPListener
                                                  boolean is_ssl)
         throws IOException
     {
-        return new ServerIIOPConnection (socket, is_ssl);
+        ServerIIOPConnection result = new ServerIIOPConnection(socket, is_ssl);
+        try
+        {
+            result.configure(configuration);
+        }
+        catch( ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
+        return result;
     }
 
     // Acceptor classes below this line

@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.80.2.2 2004-03-25 12:07:02 gerald Exp $
+ * $Id: CDRInputStream.java,v 1.80.2.3 2004-03-29 10:11:24 gerald Exp $
  */
 
 public class CDRInputStream
@@ -166,16 +166,21 @@ public class CDRInputStream
 
     public CDRInputStream(final org.omg.CORBA.ORB orb, final byte[] buf)
     {
-        this.orb = orb;
         buffer = buf;
-        try
+        if (orb != null)
         {
-            configure(((org.jacorb.orb.ORB)orb).getConfiguration());
+            this.orb = orb;            
+            try
+            {
+                configure(((org.jacorb.orb.ORB)orb).getConfiguration());
+            }
+            catch( ConfigurationException ce )
+            {
+                throw new INTERNAL("ConfigurationException: " + ce.getMessage());
+            }
         }
-        catch( ConfigurationException ce )
-        {
-            throw new INTERNAL("ConfigurationException: " + ce.getMessage());
-        }
+        else
+            this.orb = org.omg.CORBA.ORB.init();
     }
 
     public CDRInputStream(final org.omg.CORBA.ORB orb,
@@ -184,14 +189,6 @@ public class CDRInputStream
     {
         this( orb, buf );
         this.littleEndian = littleEndian;
-        try
-        {
-            configure(((org.jacorb.orb.ORB)orb).getConfiguration());
-        }
-        catch( ConfigurationException ce )
-        {
-            throw new INTERNAL("ConfigurationException: " + ce.getMessage());
-        }
     }
 
 
@@ -921,7 +918,7 @@ public class CDRInputStream
         }
         else
         {
-            if( ! (orb instanceof org.jacorb.orb.ORB))
+            if( !(orb instanceof org.jacorb.orb.ORB))
             {
                 throw new MARSHAL( "Cannot use the singleton ORB to receive object references, please initialize a full ORB instead.");
             }

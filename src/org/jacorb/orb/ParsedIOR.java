@@ -41,7 +41,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.60.2.2 2004-03-25 15:55:08 gerald Exp $
+ * @version $Id: ParsedIOR.java,v 1.60.2.3 2004-03-29 10:11:24 gerald Exp $
  */
 
 public class ParsedIOR
@@ -395,10 +395,12 @@ public class ParsedIOR
             String content = null;
             try
             {
-                ObjectUtil.readURL(object_reference);
+                content = ObjectUtil.readURL(object_reference);
             }
             catch(java.io.IOException ioe)
             {
+                if (logger.isDebugEnabled())
+                    logger.debug("Error reading IOR/URL: ", ioe);
                 // ignore;
             }
             if (content == null)

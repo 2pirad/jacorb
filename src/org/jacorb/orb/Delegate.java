@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.104.2.4 2004-03-25 15:55:08 gerald Exp $
+ * @version $Id: Delegate.java,v 1.104.2.5 2004-03-29 10:11:24 gerald Exp $
  *
  */
 
@@ -146,26 +146,6 @@ public final class Delegate
         conn_mg = orb.getClientConnectionManager();
     }
 
-    public void configure(org.apache.avalon.framework.configuration.Configuration configuration)
-        throws org.apache.avalon.framework.configuration.ConfigurationException
-    {
-        this.configuration = configuration;
-        logger = 
-            ((Configuration)configuration).getNamedLogger("jacorb.orb");
-        useIMR = 
-            configuration.getAttribute("jacorb.use_imr","off").equals("on");
-        locateOnBind =
-            configuration.getAttribute("jacorb.locate_on_bind","off").equals("on");
-
-        if (objectReference != null)
-            _pior = new ParsedIOR( objectReference, orb, logger);
-        else if (ior!=null)
-            _pior = new ParsedIOR( ior, orb, logger);
-        else
-            throw new ConfigurationException("Neither objectReference nor IOR set!");
-        checkIfImR( _pior.getTypeId() );
-   }
-
     public Delegate( org.jacorb.orb.ORB orb, String object_reference )
     {
         if ( object_reference.indexOf( "IOR:" ) != 0 )
@@ -186,7 +166,9 @@ public final class Delegate
         conn_mg = orb.getClientConnectionManager();
     }
 
-    //special constructor for appligator
+    /**
+     * special constructor for appligator
+     */
     public Delegate( org.jacorb.orb.ORB orb,
                      String object_reference,
                      boolean _donotcheckexceptions )
@@ -194,6 +176,28 @@ public final class Delegate
         this( orb, object_reference );
         doNotCheckExceptions = _donotcheckexceptions;
     }
+
+
+    public void configure(org.apache.avalon.framework.configuration.Configuration configuration)
+        throws org.apache.avalon.framework.configuration.ConfigurationException
+    {
+        this.configuration = configuration;
+        logger = 
+            ((Configuration)configuration).getNamedLogger("jacorb.orb.delegate");
+        useIMR = 
+            configuration.getAttribute("jacorb.use_imr","off").equals("on");
+        locateOnBind =
+            configuration.getAttribute("jacorb.locate_on_bind","off").equals("on");
+
+        if (objectReference != null)
+            _pior = new ParsedIOR( objectReference, orb, logger);
+        else if (ior!=null)
+            _pior = new ParsedIOR( ior, orb, logger);
+        else if (_pior == null )
+            throw new ConfigurationException("Neither objectReference nor IOR set!");
+        checkIfImR( _pior.getTypeId() );
+   }
+
 
     public boolean doNotCheckExceptions()
     {

@@ -33,7 +33,7 @@ import org.apache.avalon.framework.configuration.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.5.2.1 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: IIOPConnection.java,v 1.5.2.2 2004-03-29 10:11:24 gerald Exp $
  */
 
 public abstract class IIOPConnection 
@@ -78,7 +78,7 @@ public abstract class IIOPConnection
         this.configuration = (org.jacorb.config.Configuration)configuration;
         logger = this.configuration.getNamedLogger("jacorb.iiop.conn");
 
-        if( configuration.getAttribute( "jacorb.debug.dump_outgoing_messages","off" ).equals("on"))
+        if( configuration.getAttribute("jacorb.debug.dump_outgoing_messages","off").equals("on"))
         {
             b_out = new ByteArrayOutputStream();
         }

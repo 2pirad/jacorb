@@ -29,7 +29,7 @@ import org.jacorb.util.threadpool.*;
  * Created: Sat Aug 18 10:40:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.6 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.6.4.1 2004-03-29 10:11:24 gerald Exp $
  */
 
 public class MessageReceptorPool
@@ -39,12 +39,13 @@ public class MessageReceptorPool
 
     private MessageReceptorPool()
     {
-        pool = new ThreadPool( new ConsumerFactory(){
-                public Consumer create()
-                {
-                    return new MessageReceptor();
-                }
-            },
+        pool = 
+            new ThreadPool( new ConsumerFactory(){
+                    public Consumer create()
+                    {
+                        return new MessageReceptor();
+                    }
+                },
                                1000, //maximum number of connections
                                5 ); //max idle threads
     }

@@ -36,11 +36,12 @@ import org.jacorb.orb.iiop.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.1.4.1 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.1.4.2 2004-03-29 10:11:24 gerald Exp $
  */
 
 public class ServerIIOPConnection
     extends IIOPConnection
+    implements Configurable
 {
     private boolean is_ssl;
     private IIOPProfile profile;

@@ -29,7 +29,7 @@ import org.omg.RTCORBA.ProtocolProperties;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.4.4.1 2004-03-24 19:05:38 gerald Exp $
+ * @version $Id: IIOPFactories.java,v 1.4.4.2 2004-03-29 10:11:24 gerald Exp $
  */
 public class IIOPFactories 
     extends org.omg.ETF._FactoriesLocalBase
@@ -46,7 +46,16 @@ public class IIOPFactories
 
     public Connection create_connection(ProtocolProperties props)
     {
-        return new ClientIIOPConnection();
+        ClientIIOPConnection connection = new ClientIIOPConnection();
+        try
+        {
+            connection.configure(configuration);
+        }
+        catch( ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
+        return connection;
     }
 
     /**
