@@ -60,7 +60,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  * This is the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInterceptor.java,v 1.19 2004-02-11 14:00:17 david.robison Exp $
+ * @version $Id: SASTargetInterceptor.java,v 1.20 2004-03-04 16:27:10 david.robison Exp $
  */
 
 public class SASTargetInterceptor
@@ -274,7 +274,7 @@ public class SASTargetInterceptor
         }
         catch (BAD_PARAM e)
         {
-            logger.warn("Could not parse service context for operation " + ri.operation());
+            logger.debug("Could not parse service context for operation " + ri.operation());
         }
         catch (Exception e)
         {

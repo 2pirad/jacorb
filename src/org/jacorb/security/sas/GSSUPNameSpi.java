@@ -36,7 +36,7 @@ import sun.security.jgss.spi.GSSNameSpi;
  * This is the GSS-API Sercurity Provider Interface (SPI) for the GSSUP Name
  *
  * @author David Robison
- * @version $Id: GSSUPNameSpi.java,v 1.9 2004-02-05 15:57:12 nick.cross Exp $
+ * @version $Id: GSSUPNameSpi.java,v 1.10 2004-03-04 16:27:10 david.robison Exp $
  */
 
 public final class GSSUPNameSpi implements GSSNameSpi
@@ -59,7 +59,7 @@ public final class GSSUPNameSpi implements GSSNameSpi
         }
         catch (GSSException e)
         {
-            System.out.println("GSSUPMechanism: " + e);
+            logger.error("GSSUPMechanism: " + e);
         }
     }
 
