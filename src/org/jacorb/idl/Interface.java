@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.34.2.4 2002-10-01 12:57:50 andre.spiegel Exp $
+ * @version $Id: Interface.java,v 1.34.2.5 2002-10-25 17:50:15 andre.spiegel Exp $
  */
 
 import java.io.File;
@@ -863,7 +863,7 @@ class Interface
 
     protected void printLocalBase()
     {
-        PrintWriter ps = openOutput( name + "LocalBase" );
+        PrintWriter ps = openOutput( "_" + name + "LocalBase" );
         printPackage( ps );
         ps.println( "\n/**" );
         ps.println( " * Abstract base class for implenentations of local interface " + name );
