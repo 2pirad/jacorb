@@ -39,13 +39,13 @@ import sun.security.jgss.spi.GSSNameSpi;
  * This is the GSS-API Sercurity Provider Interface (SPI) for the GSSUP Context
  *
  * @author David Robison
- * @version $Id: GSSUPContextSpi.java,v 1.5 2003-11-25 18:40:25 david.robison Exp $
+ * @version $Id: GSSUPContextSpi.java,v 1.6 2004-02-05 14:04:54 nick.cross Exp $
  */
 
 public final class GSSUPContextSpi implements GSSContextSpi
 {
-	/** the logger used by the naming service implementation */
-	private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
+    /** the logger used by the naming service implementation */
+    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
 
     private Provider provider = null;
     private Oid mechOid = null;

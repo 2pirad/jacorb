@@ -31,19 +31,19 @@ import org.omg.PortableInterceptor.ORBInitializer;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: GSSUPProviderInitializer.java,v 1.4 2003-11-25 18:40:25 david.robison Exp $
+ * @version $Id: GSSUPProviderInitializer.java,v 1.5 2004-02-05 14:04:54 nick.cross Exp $
  */
 
 public class GSSUPProviderInitializer
-        extends org.omg.CORBA.LocalObject
-        implements ORBInitializer
+    extends org.omg.CORBA.LocalObject
+    implements ORBInitializer
 {
-	/** the logger used by the naming service implementation */
-	private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
+    /** the logger used by the naming service implementation */
+    private static Logger logger = org.jacorb.util.Debug.getNamedLogger("jacorb.SAS");
 
     /**
-    * This method registers the interceptors.
-    */
+     * This method registers the interceptors.
+     */
     public void pre_init( ORBInitInfo info )
     {
         // save ORB
@@ -65,9 +65,3 @@ public class GSSUPProviderInitializer
     {
     }
 }
-
-
-
-
-
-
