@@ -28,7 +28,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.14 2004-07-15 12:47:23 simon.mcqueen Exp $
+ * @version $Id: IIOPAddress.java,v 1.15 2004-08-25 11:37:11 simon.mcqueen Exp $
  */
 public class IIOPAddress 
     implements Configurable
@@ -218,5 +218,31 @@ public class IIOPAddress
     	out.write_string(ip);
     	out.write_ushort((short)port);
     	return out.getBufferCopy();
+    }
+    
+    /**
+    * Method for use by the PrintIOR utility. Previously it called
+    * getHostname() which may or may not have returned what was 
+    * actually encoded in the IOR. This is of limited use for 
+    * debugging purposes. This method attempts to return the string
+    * that this address was actually constructed with (i.e. what the
+    * IOR actually contains as its host string).
+    * @return Host name or IP address or both if the original host string
+    * cannot be determined.  
+    */
+    public String getOriginalHost()
+    {
+        if (hostname == null)
+        {
+            return ip;
+        }
+        else if (ip == null)
+        {
+            return hostname;
+        }
+        else
+        {
+            return hostname + " / " + ip;
+        }
     }
 }
