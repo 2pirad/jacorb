@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.13 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ConstExpr.java,v 1.14 2003-04-01 14:59:21 nick.cross Exp $
  */
 
 class ConstExpr
@@ -60,7 +60,6 @@ class ConstExpr
 
     public String toString()
     {
-        //        return value();
         return or_expr.toString();
     }
 
@@ -85,5 +84,3 @@ class ConstExpr
         or_expr.setPackage( s );
     }
 }
-
-
