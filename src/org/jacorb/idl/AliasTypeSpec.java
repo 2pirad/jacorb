@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.24 2002-04-17 08:49:02 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.25 2002-05-17 13:36:45 simon.mcqueen Exp $
  */
 
 public class AliasTypeSpec
@@ -351,7 +351,7 @@ public class AliasTypeSpec
 
         printClassComment( className, ps );
 
-        ps.println( "public final class " + className + "Holder" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Holder" );
         ps.println( "\timplements org.omg.CORBA.portable.Streamable" );
         ps.println( "{" );
 
@@ -394,7 +394,7 @@ public class AliasTypeSpec
 
         printClassComment( className, ps );
 
-        ps.println( "public final class " + className + "Helper" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Helper" );
         ps.println( "{" );
 
         ps.println( "\tprivate static org.omg.CORBA.TypeCode _type = " +

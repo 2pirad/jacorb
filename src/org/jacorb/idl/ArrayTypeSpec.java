@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.13 2002-04-17 08:49:03 gerald Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.14 2002-05-17 13:36:45 simon.mcqueen Exp $
  *
  */
 
@@ -317,7 +317,7 @@ class ArrayTypeSpec
 
         String type = typeName();
 
-        ps.println( "public final class " + className + "Holder" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Holder" );
         ps.println( "\timplements org.omg.CORBA.portable.Streamable" );
 
         ps.println( "{" );
@@ -358,7 +358,7 @@ class ArrayTypeSpec
 
         String type = typeName();
 
-        ps.println( "public final class " + className + "Helper" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Helper" );
         ps.println( "{" );
 
         ps.println( "\tprivate static org.omg.CORBA.TypeCode _type = " +

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.12 2002-04-17 08:49:05 gerald Exp $
+ * @version $Id: FixedPointType.java,v 1.13 2002-05-17 13:36:46 simon.mcqueen Exp $
  */
 
 class FixedPointType
@@ -98,7 +98,7 @@ class FixedPointType
         if( !pack_name.equals( "" ) )
             ps.println( "package " + pack_name + ";" );
 
-        ps.println( "public final class " + className + "Helper" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Helper" );
         ps.println( "{" );
         ps.println( "\tprivate static org.omg.CORBA.TypeCode _type = " + getTypeCodeExpression() + ";" );
 

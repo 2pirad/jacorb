@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.18 2002-05-15 14:34:46 nick.cross Exp $
+ * @version $Id: ValueDecl.java,v 1.19 2002-05-17 13:36:47 simon.mcqueen Exp $
  */
 
 class ValueDecl
@@ -643,7 +643,7 @@ class ValueDecl
 
         printClassComment( out );
 
-        out.println( "public final class " + name + "Holder" );
+        out.println( "public" + parser.getFinalString() + " class " + name + "Holder" );
         out.println( "\timplements org.omg.CORBA.portable.Streamable" );
         out.println( "{" );
         out.println( "\tpublic " + javaName() + " value;" );

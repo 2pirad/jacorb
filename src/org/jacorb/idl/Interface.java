@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.30 2002-05-15 14:34:46 nick.cross Exp $
+ * @version $Id: Interface.java,v 1.31 2002-05-17 13:36:46 simon.mcqueen Exp $
  */
 
 import java.io.File;
@@ -470,7 +470,7 @@ class Interface
 
         printClassComment( classname, ps );
 
-        ps.print( "public final class " + classname + "Holder" );
+        ps.print( "public" + parser.getFinalString() + " class " + classname + "Holder" );
         ps.print( "\timplements org.omg.CORBA.portable.Streamable" );
 
         ps.println( "{" );
@@ -512,7 +512,7 @@ class Interface
 
         printClassComment( className, ps );
 
-        ps.println( "public final class " + className + "Helper" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Helper" );
         ps.println( "{" );
 
         ps.println( "\tpublic static void insert (final org.omg.CORBA.Any any, final " + typeName() + " s)" );

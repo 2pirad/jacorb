@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.14 2002-05-08 12:43:49 gerald Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.15 2002-05-17 13:36:47 simon.mcqueen Exp $
  */
 
 class ValueBoxDecl
@@ -201,7 +201,7 @@ class ValueBoxDecl
 
     public String getTypeCodeExpression()
     {
-        return this.getTypeCodeExpression( new HashSet() ); 
+        return this.getTypeCodeExpression( new HashSet() );
     }
 
     private void printHolderClass( String className, PrintWriter ps )
@@ -209,7 +209,7 @@ class ValueBoxDecl
         if( !pack_name.equals( "" ) )
             ps.println( "package " + pack_name + ";" );
 
-        ps.println( "public final class " + className + "Holder" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Holder" );
         ps.println( "\timplements org.omg.CORBA.portable.Streamable" );
         ps.println( "{" );
 
@@ -248,7 +248,7 @@ class ValueBoxDecl
         if( !pack_name.equals( "" ) )
             ps.println( "package " + pack_name + ";" );
 
-        ps.println( "public final class " + className + "Helper" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Helper" );
         ps.println( "\timplements org.omg.CORBA.portable.BoxedValueHelper" );
         ps.println( "{" );
         ps.println( "\tprivate static org.omg.CORBA.TypeCode _type = " + getTypeCodeExpression() + ";" );

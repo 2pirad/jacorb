@@ -26,7 +26,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.17 2002-04-17 08:49:05 gerald Exp $
+ * @version $Id: EnumType.java,v 1.18 2002-05-17 13:36:45 simon.mcqueen Exp $
  */
 
 class EnumType
@@ -222,7 +222,7 @@ class EnumType
 
         printClassComment( className, ps );
 
-        ps.println( "public final class " + className + "Holder" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Holder" );
         ps.println( "\timplements org.omg.CORBA.portable.Streamable" );
         ps.println( "{" );
 
@@ -262,7 +262,7 @@ class EnumType
 
         printClassComment( className, ps );
 
-        ps.println( "public final class " + className + "Helper" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Helper" );
         ps.println( "{" );
 
         ps.println( "\tprivate static org.omg.CORBA.TypeCode _type = " + getTypeCodeExpression() + ";" );
@@ -292,7 +292,7 @@ class EnumType
 
         printClassComment( className, pw );
 
-        pw.println( "public final class " + className );
+        pw.println( "public" + parser.getFinalString() + " class " + className );
         pw.println( "\timplements org.omg.CORBA.portable.IDLEntity\n{" );
 
         pw.println( "\tprivate int value = -1;" );

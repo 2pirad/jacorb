@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.20 2002-05-03 16:46:36 gerald Exp $
+ * @version $Id: SequenceType.java,v 1.21 2002-05-17 13:36:46 simon.mcqueen Exp $
  */
 
 public class SequenceType
@@ -368,7 +368,7 @@ public class SequenceType
 
         printClassComment( className, ps );
 
-        ps.println( "public final class " + className + "Holder" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Holder" );
         ps.println( "\timplements org.omg.CORBA.portable.Streamable" );
 
         ps.println( "{" );
@@ -410,7 +410,7 @@ public class SequenceType
 
         printClassComment( className, ps );
 
-        ps.println( "public final class " + className + "Helper" );
+        ps.println( "public" + parser.getFinalString() + " class " + className + "Helper" );
         ps.println( "{" );
         ps.println( "\tprivate static org.omg.CORBA.TypeCode _type = " +
                 getTypeCodeExpression() + ";" );
