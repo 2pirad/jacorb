@@ -53,7 +53,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.80 2003-05-06 14:32:30 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.81 2003-05-07 09:44:38 andre.spiegel Exp $
  *
  */
 
@@ -212,13 +212,7 @@ public final class Delegate
             if ( bound )
                 return ;
 
-            _pior.init();
-
-            connection = conn_mg.getConnection
-            ( 
-                (IIOPProfile)_pior.getEffectiveProfile(),
-                _pior.useSSL()
-            );
+            connection = conn_mg.getConnection (_pior.getEffectiveProfile());
 
             bound = true;
 
@@ -1459,11 +1453,6 @@ public final class Delegate
         return getParsedIOR().getIOR().type_id;
     }
 
-    public boolean useSSL()
-    {
-        return getParsedIOR().useSSL();
-    }
-
     public org.omg.CORBA.Object set_policy_override( org.omg.CORBA.Object self,
                                                      org.omg.CORBA.Policy[] policies,
                                                      org.omg.CORBA.SetOverrideType set_add )
@@ -1494,7 +1483,6 @@ public final class Delegate
         synchronized ( bind_sync )
         {
             _pior = new ParsedIOR( ior );
-            getParsedIOR().init();
         }
 
         return self;
