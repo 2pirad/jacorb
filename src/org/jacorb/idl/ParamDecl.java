@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.8 2002-07-08 09:18:41 gerald Exp $
+ * @version $Id: ParamDecl.java,v 1.9 2002-08-02 16:35:04 nicolas Exp $
  */
 
 import java.io.PrintWriter;
@@ -58,6 +58,9 @@ class ParamDecl
             if( ts != null )
                 paramTypeSpec = ts;
         }
+        
+        Environment.doAssert( paramTypeSpec != null , " paramTypeSpec is null " + name );
+
         //simple_declarator.print(ps);
     }
 

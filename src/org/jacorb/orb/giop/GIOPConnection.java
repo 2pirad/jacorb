@@ -39,7 +39,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.10 2002-07-17 15:12:55 nicolas Exp $
+ * @version $Id: GIOPConnection.java,v 1.11 2002-08-02 16:35:04 nicolas Exp $
  */
 
 public final class GIOPConnection 

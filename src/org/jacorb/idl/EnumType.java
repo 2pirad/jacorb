@@ -22,18 +22,17 @@ package org.jacorb.idl;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.Enumeration;
+import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.19 2002-06-03 20:12:18 gerald Exp $
+ * @version $Id: EnumType.java,v 1.20 2002-08-02 16:35:04 nicolas Exp $
  */
 
 class EnumType
-        extends TypeDeclaration
-        implements SwitchTypeSpec
+    extends TypeDeclaration
+    implements SwitchTypeSpec
 {
-
     public SymbolList enumlist;
     int const_counter = 0;
     private boolean written = false;
@@ -191,6 +190,18 @@ class EnumType
     public String getTypeCodeExpression()
     {
         return full_name() + "Helper.type()";
+    }
+
+    public String getTypeCodeExpression( Set knownTypes )
+    {
+        if( knownTypes.contains( this ) )
+        {
+            return this.getRecursiveTypeCodeExpression();
+        }
+        else
+        {   
+            return this.getTypeCodeExpression();
+        }
     }
 
     private void printClassComment( String className, PrintWriter ps )

@@ -31,7 +31,7 @@ import java.util.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.31 2002-07-19 07:44:24 steve.osselton Exp $ 
+ * $Id: Any.java,v 1.32 2002-08-02 16:35:04 nicolas Exp $ 
  * 
  */
 
@@ -693,7 +693,6 @@ public final class Any
     { 
         if( value instanceof org.jacorb.orb.CDROutputStream )
         {
-            //System.out.println("Any.create_input_stream()");
             return new org.jacorb.orb.CDRInputStream( orb, ((CDROutputStream)value).getBufferCopy());
         }
         else
@@ -819,7 +818,7 @@ public final class Any
         //org.jacorb.util.Debug.output( 4, "Any.read_value: kind " + type().kind().value() );
     }
 
-    public void write_value( org.omg.CORBA.portable.OutputStream output )
+    public void write_value (org.omg.CORBA.portable.OutputStream output)
     {
         int kind = typeCode.kind().value();
         // org.jacorb.util.Debug.output(3, "Any.writeValue kind " + kind );
@@ -895,13 +894,13 @@ public final class Any
             try
             {
                 if (value instanceof org.omg.CORBA.portable.Streamable)
-                {
-                    org.omg.CORBA.portable.Streamable s =
+                { 
+                    org.omg.CORBA.portable.Streamable s = 
                         (org.omg.CORBA.portable.Streamable)value;
                     s._write (output);
                 }
                 else if (value instanceof org.omg.CORBA.portable.OutputStream)
-                {
+                { 
                     // Use ORB from CDROutputStream if Any has been created
                     // from ORBSingleton.
 

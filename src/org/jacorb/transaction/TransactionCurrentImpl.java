@@ -34,7 +34,7 @@ import java.util.Hashtable;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: TransactionCurrentImpl.java,v 1.11 2002-07-15 16:45:27 gerald Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.12 2002-08-02 16:35:04 nicolas Exp $
  *
  * Changes made by Vladimir Mencl <vladimir.mencl@mff.cuni.cz> (2002/07/15)
  *

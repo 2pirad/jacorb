@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDef.java,v 1.7 2002-04-17 08:49:15 gerald Exp $
+ * @version $Id: TypeDef.java,v 1.8 2002-08-02 16:35:04 nicolas Exp $
  */
 
 import java.io.PrintWriter;
@@ -30,9 +30,8 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 class TypeDef
-        extends TypeDeclaration
+    extends TypeDeclaration
 {
-
     public TypeDeclarator type_declarator;
     private Vector typeSpecs = new Vector();
 

@@ -44,7 +44,7 @@ import org.omg.PortableServer.POAPackage.*;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.59 2002-07-18 16:11:05 steve.osselton Exp $
+ * @version $Id: Delegate.java,v 1.60 2002-08-02 16:35:04 nicolas Exp $
  *
  */
 

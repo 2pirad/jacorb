@@ -27,7 +27,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.20 2002-07-08 09:16:07 gerald Exp $
+ * @version $Id: OpDecl.java,v 1.21 2002-08-02 16:35:04 nicolas Exp $
  */
 
 class OpDecl
@@ -125,8 +125,15 @@ class OpDecl
 //                  Environment.output( 2, "addImportedName " + param.paramTypeSpec.toString()  );
 //                  myInterface.addImportedName( param.paramTypeSpec.toString() );
 //              }
-            myInterface.addImportedName( param.paramTypeSpec.full_name(), 
-                                         param.paramTypeSpec );
+
+            if( !(param.paramTypeSpec.typeSpec() instanceof BaseType ))
+            {
+                
+                Environment.output( 2, param.paramTypeSpec.typeSpec().getClass().getName() );
+
+                myInterface.addImportedName( param.paramTypeSpec.typeSpec().full_name(), 
+                                             param.paramTypeSpec.typeSpec() );
+            }
         }
 
         if( opTypeSpec.typeSpec() instanceof ScopedName )

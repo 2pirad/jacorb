@@ -40,7 +40,7 @@ import java.util.*;
  * The main POA class, an implementation of org.omg.PortableServer.POA
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.28 2002-07-19 15:03:11 steve.osselton Exp $
+ * @version $Id: POA.java,v 1.29 2002-08-02 16:35:04 nicolas Exp $
  */
 
 public class POA

@@ -35,7 +35,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.13 2002-07-19 14:24:15 nick.cross Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.14 2002-08-02 16:35:04 nicolas Exp $
  */
 
 public class Client_TCP_IP_Transport

@@ -7,7 +7,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.32 2002-05-13 08:35:08 gerald Exp $ -->
+   <!-- $Id: build.xml,v 1.33 2002-08-02 16:35:04 nicolas Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -82,6 +82,13 @@
       <delete file="${src}/generated/org/omg/CORBA/TypeCodePOATie.java"/>
       <delete file="${src}/generated/org/omg/CORBA/_TypeCodeStub.java"/>
       <delete file="${src}/generated/org/omg/CORBA/PolicyOperations.java"/>
+      <!-- interface ORB is defined in _orb.idl to provide the wrapping -->
+      <!-- for the exceptions InvalidName and InvalidTypeCode. Deleting -->
+      <!-- this here to avoid confusing the compiler. -->
+      <delete>
+      <fileset dir="${src}/generated/org/omg/CORBA"
+               includes="ORB*,_ORBStub.java" />
+      </delete>
 
       <mkdir dir="${src}/generated/org"/>
 

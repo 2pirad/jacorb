@@ -22,12 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatType.java,v 1.6 2002-04-17 08:49:06 gerald Exp $
+ * @version $Id: FloatType.java,v 1.7 2002-08-02 16:35:04 nicolas Exp $
  */
 
-
 class FloatType
-        extends FloatPtType
+    extends FloatPtType
 {
 
     public FloatType( int num )
@@ -85,23 +84,5 @@ class FloatType
         return "extract_float";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
