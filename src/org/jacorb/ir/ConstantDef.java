@@ -23,7 +23,6 @@ package org.jacorb.ir;
 import java.lang.reflect.*;
 import java.util.*;
 
-import org.jacorb.orb.TypeCode;
 import org.jacorb.util.Debug;
 
 import org.omg.CORBA.INTF_REPOS;
@@ -32,7 +31,7 @@ import org.omg.CORBA.Any;
 /**
  * JacORB implementation of IR ConstantDef objects
  * @author  Gerald Brose
- * @version $Id: ConstantDef.java,v 1.10 2003-02-21 15:46:42 nick.cross Exp $
+ * @version $Id: ConstantDef.java,v 1.11 2003-08-20 19:15:34 francisco Exp $
  */
 
 public class ConstantDef
