@@ -22,11 +22,13 @@ package org.jacorb.notification;
  */
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
+import org.jacorb.notification.filter.ComponentName;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
-import org.jacorb.notification.filter.ComponentName;
 import org.jacorb.notification.filter.RuntimeVariable;
 import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Disposable;
@@ -38,17 +40,15 @@ import org.omg.CORBA.Any;
 import org.omg.CORBA.AnyHolder;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.StructuredEvent;
+import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.MappingFilter;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 import org.apache.avalon.framework.logger.Logger;
-import java.util.List;
-import org.omg.CosNotifyFilter.Filter;
-import java.util.Iterator;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.13 2004-02-08 14:22:11 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.14 2004-02-13 12:41:31 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage
