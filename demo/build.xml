@@ -4,11 +4,12 @@
 
   <!-- ==================================================== -->
   <!--            JacORB demo build file                     -->
-  <!-- $Id: build.xml,v 1.4 2003-09-01 15:26:32 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.5 2003-09-02 07:32:39 brose Exp $ -->
   <!-- ==================================================== -->
 
 
    <target name="init_compile">	
+	<property name="classdir" value="${basedir}/classes"/>
 	<property name="target" value="all"/>
 	<mkdir dir="${classdir}/demo"/>
    </target>
