@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.16 2003-04-27 07:37:16 andre.spiegel Exp $
+ * @version $Id: Transport.java,v 1.17 2003-04-27 12:39:03 andre.spiegel Exp $
  */
 
 public interface Transport 
@@ -62,26 +62,10 @@ public interface Transport
     // Non-ETF methods below this line
 
     /**
-     * Get the statistics provider for transport usage statistics.
-     */
-    public StatisticsProvider getStatisticsProvider();
-
-    /**
      * Set the transport listener used for upcalls.
      */
     public void setTransportListener( TransportListener listener );
 
-    /**
-     * This is used to tell the transport that a CloseConnection has
-     * been sent, and that it should set a timeout in case the client
-     * doesn't close its side of the connection right away.
-     *
-     * This should only be called on the thread that listens on the
-     * socket because timeouts are not applied until read() is called
-     * the next time.  
-     */
-    public void turnOnFinalTimeout();
-    
 }// Transport
 
 
