@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.13 2002-03-19 09:25:02 nicolas Exp $
+ * @version $Id: Literal.java,v 1.14 2002-04-03 12:55:33 steve.osselton Exp $
  */
 
 class Literal
@@ -53,7 +53,7 @@ class Literal
         // outside cons declarations (e.g, in sequence bounds),
         // but we care only for const declarations here.
 
-        if( declared_in != null )
+        if (declared_in != null)
         {
             TypeSpec ts = declared_in.const_type.symbol.typeSpec();
 
@@ -76,10 +76,15 @@ class Literal
                     parser.error("Illegal assignment of wide string constant to string!" );
 
             }
-
+            else if ((ts instanceof LongType) || (ts instanceof ShortType))
+            {
+               if (token instanceof java_cup.runtime.long_token)
+               {
+                   parser.error ("Illegal assignment from long long");
+               }
+            }
         }
     }
-
 
     public String toString()
     {

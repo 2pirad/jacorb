@@ -47,7 +47,7 @@ import java_cup.runtime.float_token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.20 2002-04-03 09:56:14 steve.osselton Exp $
+ * @version $Id: lexer.java,v 1.21 2002-04-03 12:55:33 steve.osselton Exp $
  * @author Gerald Brose
  *
  */
@@ -1155,7 +1155,8 @@ public class lexer
                 /* Try to scan octal/hexadecimal numbers, might even find a float */
                 if (next_char == '0')
                 {
-                    int i_val = 0;
+                    long l_val = 0;
+                    long l_val_old = 0;
                     int radix = 8;
                     int digit = 0;
                     advance();
@@ -1176,19 +1177,40 @@ public class lexer
                     }
                     else
                     {
-                        if( next_char == 'x' || next_char == 'X' )
+                        // See if hexadecimal value
+
+                        if (next_char == 'x' || next_char == 'X')
                         {
-                            advance();
+                            advance ();
                             radix = 16;
                         }
-                        digit = Character.digit( (char)next_char, radix );
-                        while ( digit != -1 )
+
+                        StringBuffer val = new StringBuffer ();
+                        digit = Character.digit ((char) next_char, radix);
+                        while (digit != -1 )
                         {
-                            i_val = i_val * radix + digit;
+                            val.append ((char) next_char);
                             advance();
-                            digit = Character.digit( (char)next_char, radix );
+                            digit = Character.digit((char) next_char, radix);
                         }
-                        return new int_token(sym.NUMBER, i_val);
+
+                        String str = val.toString ();
+                        try
+                        {
+                            return new int_token (sym.NUMBER, Integer.parseInt (str, radix));
+                        }
+                        catch (NumberFormatException ex)
+                        {
+                            try
+                            {
+                                return new long_token (sym.LONG_NUMBER, Long.parseLong (str, radix));
+                            }
+                            catch (NumberFormatException ex2)
+                            {
+                               emit_error ("Invalid octal/hex value:  " + str);
+                            }
+                        }
+                        return null;
                     }
                 }
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.5 2002-02-19 09:38:17 steve.osselton Exp $
+ * @version $Id: LongType.java,v 1.6 2002-04-03 12:55:33 steve.osselton Exp $
  */
 
 class LongType 
@@ -55,10 +55,7 @@ class LongType
 
     public int getTCKind()
     {
-        if( unsigned )
-            return 5; // tk_ulong
-        else
-            return 3;
+        return ((unsigned) ? 5 : 3);
     }
 
     public String toString()
@@ -109,5 +106,4 @@ class LongType
         else
             return "extract_long";
    }
-
 }

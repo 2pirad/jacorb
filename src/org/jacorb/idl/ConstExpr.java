@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.8 2002-03-19 09:24:59 nicolas Exp $
+ * @version $Id: ConstExpr.java,v 1.9 2002-04-03 12:55:33 steve.osselton Exp $
  */
 
 class ConstExpr 
@@ -84,8 +84,3 @@ class ConstExpr
         or_expr.setPackage(s);
     }
 }
-
-
-
-
-
