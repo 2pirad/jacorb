@@ -53,7 +53,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.21 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ReplyReceiver.java,v 1.22 2004-05-19 11:24:50 andre.spiegel Exp $
  */
 
 public class ReplyReceiver 
@@ -83,7 +83,7 @@ public class ReplyReceiver
                           ClientInterceptorHandler       interceptors,
                           org.omg.Messaging.ReplyHandler replyHandler )
     {
-        super();
+        super((org.jacorb.orb.ORB)delegate.orb(null));
 
         this.delegate         = delegate;
         this.operation        = operation;
