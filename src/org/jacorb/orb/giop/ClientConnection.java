@@ -32,7 +32,7 @@ import org.jacorb.orb.factory.SocketFactory;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnection.java,v 1.9 2001-04-05 09:52:22 noffke Exp $
+ * @version $Id: ClientConnection.java,v 1.10 2001-06-11 15:58:09 jacorb Exp $
  */
 
 public class ClientConnection
@@ -42,6 +42,9 @@ public class ClientConnection
     protected String connection_info = null;
     protected InputStream in_stream;
     BufferedOutputStream out_stream;
+
+    /** client-side socket timeout */
+    protected int timeout = 0;
 
     protected ConnectionManager manager;
 
@@ -121,6 +124,16 @@ public class ClientConnection
         
         Debug.output(1, "New " + ssl + "connection to " + host_and_port);
         repReceptor = new ReplyReceptor( this );
+
+        /* get the client-side timeout property value */
+
+        String prop = 
+            Environment.getProperty("jacorb.connection.client_timeout");
+        
+        if( prop != null )
+        {
+            timeout = Integer.parseInt(prop);
+        }
     }
 
     ORB getORB()
@@ -455,8 +468,10 @@ public class ClientConnection
 
 	int retries = Environment.noOfRetries();
 
-	String host = connection_info.substring(0,connection_info.indexOf(":"));
-	int port = new Integer( connection_info.substring( connection_info.indexOf(":")+1)).intValue();
+	String host = 
+            connection_info.substring(0,connection_info.indexOf(":"));
+	int port = 
+            new Integer( connection_info.substring( connection_info.indexOf(":")+1)).intValue();
 
 	while( retries > 0 ) 
 	{
@@ -467,6 +482,19 @@ public class ClientConnection
                 mysock = socket_factory.createSocket( host, port );
 
 		mysock.setTcpNoDelay(true);
+
+                if( timeout != 0 )
+                {
+                    /* re-set the socket timeout */
+                    try
+                    {
+                        mysock.setSoTimeout( timeout );
+                    } 
+                    catch ( java.lang.NumberFormatException nfe )
+                    {
+                        // just ignore
+                    }
+                }
 
 		in_stream = 
 		    new BufferedInputStream(mysock.getInputStream());
