@@ -43,7 +43,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.83 2003-03-25 08:55:29 gerald Exp $
+ * @version $Id: ORB.java,v 1.84 2003-03-31 15:57:41 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -185,7 +185,7 @@ public final class ORB
                     knownReferences.remove(key);
                     Debug.output(4,"Removing an invalid reference from cache.");
                 }
-                else if( pior.getAddress().equals(delpior.getAddress()))
+                else if( pior.getIIOPAddress().equals(delpior.getIIOPAddress()))
                 {
                     return o._duplicate();
                 }
