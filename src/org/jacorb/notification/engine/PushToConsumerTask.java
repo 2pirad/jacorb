@@ -27,45 +27,20 @@ import org.jacorb.notification.interfaces.Message;
 /**
  *
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTask.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: PushToConsumerTask.java,v 1.3 2003-08-28 16:01:27 alphonse.bendt Exp $
  */
 
-public class PushToConsumerTask extends AbstractTask
+public class PushToConsumerTask extends AbstractDeliverTask
 {
-
-    private EventConsumer target_;
-
-    public void reset()
-    {
-        target_ = null;
-        super.reset();
-    }
-
-    public EventConsumer getEventConsumer()
-    {
-        return target_;
-    }
-
-    public void setEventConsumer( EventConsumer dest )
-    {
-        target_ = dest;
-    }
-
     public void doWork()
     {
         if ( logger_.isDebugEnabled() )
         {
-            logger_.debug( "push " + event_ + " to " + target_ );
+            logger_.debug( "push " + message_ + " to " + getEventConsumer() );
         }
 
-        target_.deliverEvent( event_ );
+        getEventConsumer().deliverEvent( message_ );
 
         setStatus( DONE );
     }
-
-    public void release()
-    {
-        super.release();
-    }
-
 }
