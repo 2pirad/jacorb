@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
  * Created: Mon Apr  7 15:20:03 2003
  *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2 2003-07-16 00:09:09 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.3 2003-07-17 17:23:53 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase {
@@ -49,6 +49,7 @@ public class PackageTest extends TestCase {
 	TestSuite _suite = 
 	    new TestSuite("Tests in Package org.jacorb.test.notification");
 
+	_suite.addTest(EventChannelFactoryTest.suite());
 	_suite.addTest(EventChannelTest.suite());
 	_suite.addTest(CosEventChannelTest.suite());
 	_suite.addTest(StructuredEventChannelTest.suite());

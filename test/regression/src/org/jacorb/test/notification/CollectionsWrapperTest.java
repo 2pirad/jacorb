@@ -25,14 +25,12 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.jacorb.notification.CollectionsWrapper;
-import org.jacorb.notification.JacORBCollections;
-import org.jacorb.notification.JDK13Collections;
 import java.util.List;
 import java.util.Iterator;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CollectionsWrapperTest.java,v 1.1 2003-07-16 00:09:09 alphonse.bendt Exp $
+ * @version $Id: CollectionsWrapperTest.java,v 1.2 2003-07-17 17:23:53 alphonse.bendt Exp $
  */
 
 public class CollectionsWrapperTest extends TestCase 
@@ -42,42 +40,6 @@ public class CollectionsWrapperTest extends TestCase
 	String o = "testling";
 
 	List list = CollectionsWrapper.singletonList(o);
-
-	assertTrue(list.size() == 1);
-
-	assertEquals(o, list.get(0));
-
-	Iterator i = list.iterator();
-
-	while (i.hasNext()) {
-	    assertEquals(o, i.next());
-	}
-    }
-
-    public void testJacORBCollections() throws Exception {
-	String o = "testling";
-
-	JacORBCollections collections = new JacORBCollections();
-	
-	List list = collections.singletonList(o);
-
-	assertTrue(list.size() == 1);
-
-	assertEquals(o, list.get(0));
-
-	Iterator i = list.iterator();
-
-	while (i.hasNext()) {
-	    assertEquals(o, i.next());
-	}
-    }
-
-    public void testJDKCollections() throws Exception {
-	String o = "testling";
-
-	JDK13Collections collections = new JDK13Collections();
-	
-	List list = collections.singletonList(o);
 
 	assertTrue(list.size() == 1);
 
