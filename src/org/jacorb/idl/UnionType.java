@@ -28,7 +28,7 @@ import java.io.*;
  * A class for representing IDL unions 
  *
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.8 2001-04-14 15:11:34 jacorb Exp $
+ * @version $Id: UnionType.java,v 1.9 2001-04-17 07:53:04 jacorb Exp $
  *
  */
 
@@ -470,9 +470,9 @@ class UnionType
 		       " "+c.element_spec.d.name()+"()");
 	    pw.println("\t{");
 
-            if( switch_is_enum )
-                pw.print("\t\tif( !discriminator.equals( ");
-            else
+//              if( switch_is_enum )
+//                  pw.print("\t\tif( !discriminator.equals( ");
+//              else
                 pw.print("\t\tif( discriminator != " );
 
 	    for( int i = 0; i < caseLabelNum; i++ )
@@ -484,14 +484,14 @@ class UnionType
 
 		if( i < caseLabelNum-1 )
                 {
-                    if( switch_is_enum )
-                        pw.print(") && !discriminator.equals( ");
-                    else
+//                      if( switch_is_enum )
+//                          pw.print(") && !discriminator.equals( ");
+//                      else
                         pw.print(" && discriminator != ");
                 }
 	    }
-            if( switch_is_enum )
-                pw.print(")");
+//              if( switch_is_enum )
+//                  pw.print(")");
 
 	    pw.println(")\n\t\t\tthrow new org.omg.CORBA.BAD_OPERATION();");
 	    pw.println("\t\treturn " + c.element_spec.d.name() + ";");
@@ -520,9 +520,9 @@ class UnionType
 		pw.println("\t{");
 
 
-                if( switch_is_enum )
-                    pw.print("\t\tif( ! _discriminator.equals( ");
-                else
+//                  if( switch_is_enum )
+//                      pw.print("\t\tif( ! _discriminator.equals( ");
+//                  else
                     pw.print("\t\tif( _discriminator != ");
 
 		for( int i = 0; i < caseLabelNum; i++ )
@@ -541,8 +541,8 @@ class UnionType
                     }
 
 		}
-                if( switch_is_enum )
-                    pw.print(")");
+//                  if( switch_is_enum )
+//                      pw.print(")");
 
 		pw.println(")\n\t\t\tthrow new org.omg.CORBA.BAD_OPERATION();");
 		pw.println("\t\tdiscriminator = _discriminator;");

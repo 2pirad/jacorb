@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.6 2001-04-14 15:10:37 jacorb Exp $
+ * @version $Id: EnumType.java,v 1.7 2001-04-17 07:53:04 jacorb Exp $
  */
 
 class EnumType 
@@ -323,16 +323,21 @@ class EnumType
         pw.println("\t\tvalue = i;");
         pw.println("\t}");
         
-        pw.println("\tpublic boolean equals( java.lang.Object other )");
-        pw.println("\t{");
-        pw.println("\t\treturn ( other instanceof " + className + " ) && value == ((" + className + " )other).value();");
-        pw.println("\t}");
+//          pw.println("\tpublic boolean equals( java.lang.Object other )");
+//          pw.println("\t{");
+//          pw.println("\t\treturn ( other instanceof " + className + " ) && value == ((" + className + " )other).value();");
+//          pw.println("\t}");
+//  
+//          pw.println("\tpublic int hashCode()");
+//          pw.println("\t{");
+//          pw.println("\t\treturn ( \"" + pack_name + "." + className + "\" + value()).hashCode();");
+//          pw.println("\t}");
 
-        pw.println("\tpublic int hashCode()");
+        pw.println("\tjava.lang.Object readResolve()"); 
+        pw.println("\tthrows java.io.ObjectStreamException");
         pw.println("\t{");
-        pw.println("\t\treturn ( \"" + pack_name + "." + className + "\" + value()).hashCode();");
+        pw.println("\t\treturn from_int( value() );");
         pw.println("\t}");
-
         pw.println("}");
     }
 
