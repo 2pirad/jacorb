@@ -52,7 +52,7 @@ import org.apache.log.Logger;
  * Created: Sun Aug 17 11:48:32 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ReleaseTasksTest.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: ReleaseTasksTest.java,v 1.2 2003-08-26 09:28:56 alphonse.bendt Exp $
  */
 
 public class ReleaseTasksTest extends NotificationTestCase
@@ -111,6 +111,8 @@ public class ReleaseTasksTest extends NotificationTestCase
         eventChannelServant_.getChannelContext().dispatchEvent(event);
 
         pullReceiver.run();
+
+        Thread.sleep(1000);
 
         assertTrue(pushReceiver.isEventHandled());
         assertTrue(pullReceiver.isEventHandled());
