@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.13 2003-04-01 17:06:57 nick.cross Exp $
+ * @version $Id: JacIDL.java,v 1.14 2003-08-18 12:17:59 nick.cross Exp $
  */
 
 public class JacIDL
@@ -68,7 +68,6 @@ public class JacIDL
     public JacIDL()
     {
         parser.command_line = null;
-        parser.import_list = new Vector();
         parser.pack_replace = new Hashtable();
         parser.scopes = new java.util.Stack();
         parser.include_state = false;
