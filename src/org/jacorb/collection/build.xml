@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 
-<project name="orb" default="all" basedir=".">
+<project name="orb" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
   <!--             Collection build file                    -->
-  <!-- $Id: build.xml,v 1.2 2001-03-17 18:43:19 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.3 2001-03-20 09:34:58 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
-	<property name="dirs.base" value="../../.."/>
+	<property name="dirs.base" value="${basedir}"/>
 	<property name="classdir" value="${dirs.base}/classes"/>
 	<property name="src" value="${basedir}/src"/>
    </target>
@@ -16,7 +16,7 @@
    <target name="all" depends="init">
 	<javac srcdir="${src}"
                destdir="${classdir}"
-	       includes="jacorb/collection/util/*.java,jacorb/collection/*.java"
+	       includes="org/jacorb/collection/util/*.java,org/jacorb/collection/*.java"
 	        />
    </target>
 
