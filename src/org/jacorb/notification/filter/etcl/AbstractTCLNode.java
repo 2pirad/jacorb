@@ -37,7 +37,7 @@ import antlr.collections.AST;
  * Base Class for TCLTree Nodes.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractTCLNode.java,v 1.4 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: AbstractTCLNode.java,v 1.5 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTCLNode extends BaseAST implements TCLParserTokenTypes
@@ -48,13 +48,13 @@ public abstract class AbstractTCLNode extends BaseAST implements TCLParserTokenT
 
     private String name_;
 
-
     ////////////////////////////////////////////////////////////
     // Constructor
 
     public AbstractTCLNode( Token tok )
     {
         super();
+
         setType( tok.getType() );
     }
 

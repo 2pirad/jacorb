@@ -45,7 +45,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.7 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.8 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class ProxyPullSupplierImpl
@@ -65,17 +65,6 @@ public class ProxyPullSupplierImpl
     private PullConsumer pullConsumer_ = null;
 
     ////////////////////////////////////////
-
-    ProxyPullSupplierImpl(AbstractAdmin admin,
-                          ChannelContext channelContext)
-    {
-
-        super(admin,
-              channelContext);
-    }
-
-    ////////////////////////////////////////
-
 
     public ProxyType MyType() {
         return ProxyType.PULL_ANY;

@@ -24,7 +24,6 @@ package org.jacorb.notification;
 import java.util.List;
 
 import org.jacorb.notification.interfaces.Disposable;
-//import org.jacorb.util.Debug;
 
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
@@ -47,7 +46,7 @@ import java.util.Iterator;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.19 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.20 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl

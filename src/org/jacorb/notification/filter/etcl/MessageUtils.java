@@ -31,7 +31,7 @@ import org.jacorb.notification.filter.EvaluationResult;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtils.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: MessageUtils.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class MessageUtils

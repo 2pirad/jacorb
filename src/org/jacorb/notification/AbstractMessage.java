@@ -34,22 +34,19 @@ import org.jacorb.notification.interfaces.AbstractPoolable;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
-
+import org.jacorb.notification.interfaces.Message.MessageStateListener;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.AnyHolder;
 import org.omg.CORBA.ORB;
+import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.MappingFilter;
 import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
-import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.notification.interfaces.Message.MessageStateListener;
-
-
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.19 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: AbstractMessage.java,v 1.20 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage
@@ -158,6 +155,12 @@ public abstract class AbstractMessage
         public Any toAny()
         {
             return AbstractMessage.this.toAny();
+        }
+
+
+        public Property[] toTypedEvent() throws NoTranslationException
+        {
+            return AbstractMessage.this.toTypedEvent();
         }
 
 
@@ -407,6 +410,16 @@ public abstract class AbstractMessage
      * @return an <code>Any</code> value
      */
     public abstract Any toAny();
+
+
+    /**
+     * convert this message to a TypedEvent.
+     *
+     * @return a sequence of name-value pairs.
+     * @throws NoTranslationException if the contents of the message
+     * cannot be translated into a TypedEvent.
+     */
+    public abstract Property[] toTypedEvent() throws NoTranslationException;
 
     /**
      * Access this NotificationEvent as StructuredEvent.

@@ -37,7 +37,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.8 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.9 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl
@@ -45,14 +45,6 @@ public class StructuredProxyPushConsumerImpl
     implements StructuredProxyPushConsumerOperations {
 
     private StructuredPushSupplier pushSupplier_;
-
-    ////////////////////////////////////////
-
-    public StructuredProxyPushConsumerImpl(AbstractAdmin supplierAdminServant,
-                                           ChannelContext channelContext) {
-        super(supplierAdminServant,
-              channelContext);
-    }
 
     ////////////////////////////////////////
 
@@ -66,7 +58,8 @@ public class StructuredProxyPushConsumerImpl
     {
         checkStillConnected();
         Message _mesg =
-            messageFactory_.newMessage(structuredEvent, this);
+            getMessageFactory().newMessage(structuredEvent, this);
+
         checkMessageProperties(_mesg);
         getTaskProcessor().processMessage(_mesg);
     }

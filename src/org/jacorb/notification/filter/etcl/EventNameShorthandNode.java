@@ -27,12 +27,8 @@ import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.interfaces.Message;
 
 /**
- *
- *
- * Created: Thu Apr 10 12:08:42 2003
- *
  * @author Alphonse Bendt
- * @version $Id: EventNameShorthandNode.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: EventNameShorthandNode.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class EventNameShorthandNode extends ETCLComponentName

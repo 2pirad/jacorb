@@ -28,7 +28,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypeNameShorthandNode.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: TypeNameShorthandNode.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class TypeNameShorthandNode extends ETCLComponentName

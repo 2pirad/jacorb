@@ -23,7 +23,7 @@ package org.jacorb.notification.engine;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushToConsumerTask.java,v 1.12 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: PushToConsumerTask.java,v 1.13 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class PushToConsumerTask extends AbstractDeliverTask

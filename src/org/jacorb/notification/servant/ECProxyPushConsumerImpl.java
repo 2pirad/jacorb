@@ -30,22 +30,13 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushConsumerImpl.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ECProxyPushConsumerImpl.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
+
 public class ECProxyPushConsumerImpl
     extends ProxyPushConsumerImpl
     implements ProxyPushConsumerOperations
 {
-
-    ECProxyPushConsumerImpl( SupplierAdminTieImpl myAdminServant,
-                             ChannelContext channelContext)
-    {
-        super( myAdminServant,
-               channelContext);
-    }
-
-    ////////////////////////////////////////
-
     public void connect_push_supplier( org.omg.CosEventComm.PushSupplier pushSupplier )
         throws AlreadyConnected
     {

@@ -24,10 +24,9 @@ package org.jacorb.notification.engine;
 import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.engine.TaskExecutor;
 
-
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractDeliverTask.java,v 1.10 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: AbstractDeliverTask.java,v 1.11 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public abstract class AbstractDeliverTask extends AbstractTask

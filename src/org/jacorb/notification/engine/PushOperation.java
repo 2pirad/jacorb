@@ -20,32 +20,13 @@ package org.jacorb.notification.engine;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.Disposable;
 import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushOperation.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: PushOperation.java,v 1.3 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
-public abstract class PushOperation implements Disposable {
-
-    protected Message message_;
-
-    public PushOperation(Message message) {
-        message_ = (Message)message.clone();
-    }
-
-    protected PushOperation() {
-    }
-
-
-    public void dispose() {
-        if (message_ != null) {
-            message_.dispose();
-        }
-    }
-
-
-    public abstract void invokePush() throws Disconnected;
+public interface PushOperation extends Disposable {
+    void invokePush() throws Disconnected;
 }

@@ -31,23 +31,13 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullConsumerImpl.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ECProxyPullConsumerImpl.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class ECProxyPullConsumerImpl
     extends ProxyPullConsumerImpl
     implements ProxyPullConsumerOperations
 {
-
-    ECProxyPullConsumerImpl( AbstractAdmin admin,
-                             ChannelContext channelContext)
-    {
-        super( admin,
-               channelContext);
-    }
-
-    ////////////////////////////////////////
-
     public void connect_pull_supplier( PullSupplier pullSupplier )
         throws AlreadyConnected
     {

@@ -36,7 +36,7 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  * @todo remove the static dependeny to package filter.etcl.
  * @author Alphonse Bendt
- * @version $Id: EvaluationContext.java,v 1.4 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: EvaluationContext.java,v 1.5 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class EvaluationContext extends AbstractPoolable

@@ -42,7 +42,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.7 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.8 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl
@@ -50,15 +50,6 @@ public class StructuredProxyPushSupplierImpl
     implements StructuredProxyPushSupplierOperations
 {
     private StructuredPushConsumer pushConsumer_;
-
-    ////////////////////////////////////////
-
-    public StructuredProxyPushSupplierImpl( AbstractAdmin myAdminServant,
-                                            ChannelContext channelContext)
-    {
-        super( myAdminServant,
-               channelContext );
-    }
 
     ////////////////////////////////////////
 

@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskFactory.java,v 1.6 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: TaskFactory.java,v 1.7 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class TaskFactory implements Disposable,Configurable

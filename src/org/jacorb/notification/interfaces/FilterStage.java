@@ -31,20 +31,15 @@ import org.omg.CosNotifyFilter.MappingFilter;
  * these Classes during processing of a Message.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterStage.java,v 1.7 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: FilterStage.java,v 1.8 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
-public interface FilterStage
+public interface FilterStage extends FilterStageSource
 {
     /**
      * check if this FilterStage has been disposed.
      */
     boolean isDisposed();
-
-    /**
-     * get FilterStages following this Node.
-     */
-    List getSubsequentFilterStages();
 
     /**
      * get Filters associated to this FilterStage.
@@ -87,5 +82,4 @@ public interface FilterStage
      * @return a PriorityFilter or null if no Filter is attached
      */
     MappingFilter getPriorityFilter();
-
 }

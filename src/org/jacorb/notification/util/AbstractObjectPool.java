@@ -38,7 +38,7 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
  * returned to its pool!
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractObjectPool.java,v 1.7 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: AbstractObjectPool.java,v 1.8 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public abstract class AbstractObjectPool

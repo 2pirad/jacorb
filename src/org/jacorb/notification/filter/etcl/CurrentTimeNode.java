@@ -23,21 +23,16 @@ package org.jacorb.notification.filter.etcl;
 
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
+import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.util.Time;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
 import org.omg.TimeBase.UtcT;
 import org.omg.TimeBase.UtcTHelper;
-import org.jacorb.notification.filter.EvaluationResult;
 
 /**
- * CurrentTimeNode.java
- *
- *
- * Created: Tue Apr 29 11:55:47 2003
- *
  * @author Alphonse Bendt
- * @version $Id: CurrentTimeNode.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: CurrentTimeNode.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 
 public class CurrentTimeNode extends ETCLComponentName {
@@ -48,7 +43,7 @@ public class CurrentTimeNode extends ETCLComponentName {
     static ORB orb_ = ORB.init();
 
     public EvaluationResult evaluate( EvaluationContext context )
-        throws EvaluationException {
+	throws EvaluationException {
 
         EvaluationResult _result = new EvaluationResult();
 

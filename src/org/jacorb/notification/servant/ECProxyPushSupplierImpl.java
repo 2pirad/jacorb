@@ -32,19 +32,16 @@ import org.jacorb.notification.ChannelContext;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushSupplierImpl.java,v 1.5 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ECProxyPushSupplierImpl.java,v 1.6 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 public class ECProxyPushSupplierImpl
     extends ProxyPushSupplierImpl
     implements ProxyPushSupplierOperations
 {
-    ECProxyPushSupplierImpl(AbstractAdmin myAdminServant,
-                            ChannelContext channelContext)
-        throws UnsupportedQoS
-    {
+    ECProxyPushSupplierImpl()
 
-        super(myAdminServant,
-              channelContext);
+    {
+        super();
 
         isIDPublic_ = false;
     }

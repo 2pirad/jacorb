@@ -30,7 +30,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RetryStrategy.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: RetryStrategy.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
  */
 public abstract class RetryStrategy implements Disposable
 {
