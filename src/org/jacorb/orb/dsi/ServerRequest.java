@@ -30,6 +30,7 @@ import org.jacorb.poa.util.POAUtil;
 import org.jacorb.util.Debug;
 import org.jacorb.util.Environment;
 import org.jacorb.util.Time;
+import org.omg.CORBA.INTERNAL;
 import org.omg.GIOP.ReplyStatusType_1_2;
 import org.omg.IOP.INVOCATION_POLICIES;
 import org.omg.IOP.ServiceContext;
@@ -38,7 +39,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.26 2003-12-30 14:35:24 andre.spiegel Exp $
+ * @version $Id: ServerRequest.java,v 1.27 2004-01-02 10:37:51 nick.cross Exp $
  */
 
 public class ServerRequest
@@ -62,6 +63,9 @@ public class ServerRequest
     private byte[] oid;
     private byte[] object_key;
     private org.omg.CORBA.Object reference = null;
+    /**
+     * <code>rest_of_name</code> is target poa's name in relation to parent.
+     */
     private String[] rest_of_name = null;
 
     /* is this request stream or DSI-based ? */
@@ -113,6 +117,11 @@ public class ServerRequest
         this.rest_of_name = rest_of_name;
     }
 
+    /**
+     * <code>remainingPOAName</code> retrieves (if any) the target poa's
+     * name in relation to parent.
+     * @return a <code>String[]</code> value
+     */
     public String[] remainingPOAName()
     {
         return rest_of_name;
@@ -405,7 +414,7 @@ public class ServerRequest
             return out;
 
         if( !stream_based )
-            throw new Error("Internal: ServerRequest not stream-based!");
+            throw new INTERNAL("ServerRequest not stream-based!");
 
         out =
             new ReplyOutputStream(requestId(),
