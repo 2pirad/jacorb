@@ -26,18 +26,19 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.4 2003-04-28 14:26:17 nick.cross Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.5 2003-05-07 09:32:30 andre.spiegel Exp $
  */
 
 public class ClientGIOPConnection
     extends GIOPConnection
 {
-    public ClientGIOPConnection( Transport transport,
+    public ClientGIOPConnection( org.omg.ETF.Profile profile,
+                                 Transport transport,
                                  RequestListener request_listener,
                                  ReplyListener reply_listener,
                                  StatisticsProvider statistics_provider )
     {
-        super( transport, request_listener, reply_listener, statistics_provider );
+        super( profile, transport, request_listener, reply_listener, statistics_provider );
     }
 
 
