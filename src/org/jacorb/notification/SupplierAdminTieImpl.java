@@ -53,7 +53,7 @@ import org.omg.PortableServer.Servant;
  * Created: Sun Oct 13 01:39:12 2002
  *
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminTieImpl.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminTieImpl.java,v 1.7 2003-08-01 20:18:29 alphonse.bendt Exp $
  */
 
 public class SupplierAdminTieImpl
@@ -121,6 +121,8 @@ public class SupplierAdminTieImpl
             {
                 if ( thisRef_ == null )
                 {
+		    // sideeffect of getServant() is that
+		    // thisServant_ gets set.
                     getServant();
                     thisRef_ = thisServant_._this( getOrb() );
                 }

@@ -46,7 +46,7 @@ import org.omg.CosNotifyChannelAdmin.StructuredProxyPushSupplierPOATie;
  * Created: Sun Nov 03 22:41:38 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.9 2003-07-27 15:41:18 david.robison Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.10 2003-08-01 20:18:29 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl
@@ -91,15 +91,16 @@ public class StructuredProxyPushSupplierImpl
                 {
                     pushConsumer_.push_structured_event( event.toStructuredEvent() );
                 }
-                else
+                else 
                 {
+		    // not enabled
                     pendingEvents_.add( event.toStructuredEvent() );
                 }
             }
             catch ( Disconnected d )
             {
                 connected_ = false;
-                logger_.debug( "push failed - Recipient is Disconnected" );
+                logger_.warn( "push failed - PushConsumer was disconnected" );
             }
         }
         else
@@ -188,10 +189,10 @@ public class StructuredProxyPushSupplierImpl
             if ( pushConsumer_ != null )
             {
             	try {
-                	pushConsumer_.disconnect_structured_push_consumer();
-				} catch (Exception e) {
-					logger_.warn("Error disconnecting consumer: "+e);
-				}
+		    pushConsumer_.disconnect_structured_push_consumer();
+		} catch (Exception e) {
+		    logger_.warn("Error disconnecting consumer: "+e);
+		}
                 pushConsumer_ = null;
                 connected_ = false;
             }

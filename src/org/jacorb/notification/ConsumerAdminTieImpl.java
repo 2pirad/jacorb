@@ -54,7 +54,7 @@ import org.jacorb.notification.interfaces.ProxyEvent;
  * ConsumerAdminImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminTieImpl.java,v 1.6 2003-06-05 13:04:09 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminTieImpl.java,v 1.7 2003-08-01 20:18:29 alphonse.bendt Exp $
  */
 
 public class ConsumerAdminTieImpl
@@ -122,16 +122,18 @@ public class ConsumerAdminTieImpl
             synchronized ( this )
             {
                 if ( thisRef_ == null )
-                {
-                    getServant();
-                    thisRef_ = thisServant_._this( getOrb() );
-                }
+		    {
+			// sideeffect of getServant() is that
+			// thisServant_ gets set.		
+			getServant();
+			thisRef_ = thisServant_._this( getOrb() );
+		    }
             }
         }
-
+	
         return thisRef_;
     }
-
+    
     public org.omg.CORBA.Object getThisRef()
     {
         return getConsumerAdmin();
