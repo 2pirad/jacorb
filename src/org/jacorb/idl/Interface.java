@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.17 2001-10-05 09:49:37 spiegel Exp $
+ * @version $Id: Interface.java,v 1.18 2001-11-09 08:54:45 jacorb Exp $
  */
 
 import java.util.*;
@@ -70,7 +70,7 @@ class Interface
             body.setPackage( s); // a new scope!
 
         if( inheritanceSpec != null )
-            inheritanceSpec.setPackage(s);
+           inheritanceSpec.setPackage(s);
     }
 
     public void set_abstract()
@@ -102,6 +102,9 @@ class Interface
         if( enclosing_symbol != null && enclosing_symbol != s )
             throw new RuntimeException("Compiler Error: trying to reassign container for " + name );
         enclosing_symbol = s;
+
+        if( inheritanceSpec != null )
+            inheritanceSpec.setEnclosingSymbol(s);
     }
 
 
@@ -205,6 +208,7 @@ class Interface
         {
             if( inheritanceSpec != null && inheritanceSpec.v.size() > 0)
             {
+                Environment.output(4, "Checking inheritanceSpec of " + full_name() );
                 for( Enumeration e = inheritanceSpec.v.elements(); e.hasMoreElements(); )
                 {
                     try

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.5 2001-06-11 08:39:55 jacorb Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.6 2001-11-09 08:54:45 jacorb Exp $
  */
 
 import java.util.Vector;
@@ -52,6 +52,7 @@ class SimpleDeclarator
         if( ! name.startsWith("_") &&
             lexer.strictJavaEscapeCheck( name ))
         {
+            escapedName = true;
             name = "_" + name;
         }
     }
