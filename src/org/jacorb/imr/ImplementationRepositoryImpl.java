@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.14 2001-10-02 13:50:49 jacorb Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.15 2001-10-11 07:02:39 jacorb Exp $
  */
 
 public class ImplementationRepositoryImpl 
@@ -1039,7 +1039,7 @@ public class ImplementationRepositoryImpl
 	    // profile body contains new host and port of POA
 	    ProfileBody_1_0 _body = 
                 new ProfileBody_1_0( new Version( (byte) 1, 
-                                                  (byte) in.getGIOPMinor() ), 
+                                                  (byte) 0 ), 
                                      _poa.host,
                                      (short) _poa.port,
                                      in.req_hdr.target.object_key() );    
