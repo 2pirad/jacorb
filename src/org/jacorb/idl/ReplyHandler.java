@@ -9,7 +9,7 @@ import java.util.*;
  * ReplyHandler).
  * 
  * @author Andre Spiegel
- * $Id: ReplyHandler.java,v 1.1.2.5 2002-10-25 19:20:48 andre.spiegel Exp $
+ * $Id: ReplyHandler.java,v 1.1.2.6 2002-10-27 19:24:25 andre.spiegel Exp $
  */
 public class ReplyHandler extends Interface
 {
@@ -102,8 +102,8 @@ public class ReplyHandler extends Interface
             }
         }   
         body.addDefinition (new OpDecl (this, d.name, paramDecls));
-        //body.addDefinition 
-        //  (new OpDecl (this, d.name + "_excep", excepParameterList()));
+        body.addDefinition 
+          (new OpDecl (this, d.name + "_excep", excepParameterList()));
     }
     
     /**
@@ -118,16 +118,16 @@ public class ReplyHandler extends Interface
             body.addDefinition 
               (new OpDecl (this, "get_" + decl.name,
                            parameterList (d.param_type_spec, "ami_return_val")));
-            //body.addDefinition
-            //  (new OpDecl (this, "get_" + decl.name + "_excep", 
-            //               excepParameterList()));
+            body.addDefinition
+              (new OpDecl (this, "get_" + decl.name + "_excep", 
+                           excepParameterList()));
             if (!d.readOnly)
             {
                 body.addDefinition
                   (new OpDecl (this, "set_" + decl.name, new ArrayList()));
-            //    body.addDefinition
-            //      (new OpDecl (this, "set_" + decl.name + "_excep",
-            //                   excepParameterList()));
+                body.addDefinition
+                  (new OpDecl (this, "set_" + decl.name + "_excep",
+                               excepParameterList()));
             }
         }                  
     }
