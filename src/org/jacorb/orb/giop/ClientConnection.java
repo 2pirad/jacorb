@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.26 2002-05-28 07:56:53 nicolas Exp $ 
+ * @version $Id: ClientConnection.java,v 1.27 2002-06-25 07:35:05 nicolas Exp $ 
  */
 
 public class ClientConnection 
@@ -293,12 +293,6 @@ public class ClientConnection
     }
 
     
-    public void fragmentReceived( byte[] fragment,
-                                  GIOPConnection connection )
-    {
-        
-    }
-
     /*
      * Operations from ConnectionListener
      */

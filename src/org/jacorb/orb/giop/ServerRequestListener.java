@@ -47,7 +47,7 @@ import org.omg.CONV_FRAME.CodeSetContext;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.8 2002-05-28 07:56:53 nicolas Exp $
+ * @version $Id: ServerRequestListener.java,v 1.9 2002-06-25 07:35:05 nicolas Exp $
  */
 
 public class ServerRequestListener 
@@ -200,13 +200,6 @@ public class ServerRequestListener
     
     public void cancelRequestReceived( byte[] request,
                                        GIOPConnection connection )
-    {
-
-    }
-
-    
-    public void fragmentReceived( byte[] fragment,
-                                  GIOPConnection connection )
     {
 
     }

@@ -29,7 +29,7 @@ import org.jacorb.util.Debug;
  * Created: Sat Aug 18 17:12:10 2002
  *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirServerReplyListener.java,v 1.4 2002-03-19 09:25:26 nicolas Exp $
+ * @version $Id: NoBiDirServerReplyListener.java,v 1.5 2002-06-25 07:35:05 nicolas Exp $
  */
 
 public class NoBiDirServerReplyListener 
@@ -55,14 +55,9 @@ public class NoBiDirServerReplyListener
     public void closeConnectionReceived( byte[] close_conn,
                                          GIOPConnection connection )
     {
-        Debug.output( 1, "WARNING: Received a close connection message on a non bidir connection" );
+        //Debug.output( 1, "WARNING: Received a close connection message on a non bidir connection" );
     }
     
-    public void fragmentReceived( byte[] fragment,
-                                  GIOPConnection connection )
-    {
-        
-    }
 }// NoBiDirServerReplyListener
 
 

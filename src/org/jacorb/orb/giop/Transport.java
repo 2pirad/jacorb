@@ -29,7 +29,7 @@ import java.io.IOException;
  * Created: Sun Aug 12 20:14:16 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Transport.java,v 1.4 2002-03-19 09:25:28 nicolas Exp $
+ * @version $Id: Transport.java,v 1.5 2002-06-25 07:35:05 nicolas Exp $
  */
 
 public interface Transport 
@@ -51,7 +51,7 @@ public interface Transport
      * Writes to the wire. The buffer may only be a fragment of a
      * full message (in this case independant of GIOP Fragments), and
      * it also depends on the implementation, if it will already start
-     * to send the message over the wire, or wait until sendMessages()
+     * to send the message over the wire, or wait until flush()
      * is called. <br>
      * 
      * This is not supposed to be synchronized. Synchronization issues

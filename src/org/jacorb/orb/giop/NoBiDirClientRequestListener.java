@@ -37,7 +37,7 @@ import java.io.IOException;
  * Created: Sat Aug 18 11:47:12 2002
  *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirClientRequestListener.java,v 1.5 2002-04-08 17:42:28 nicolas Exp $
+ * @version $Id: NoBiDirClientRequestListener.java,v 1.6 2002-06-25 07:35:05 nicolas Exp $
  */
 
 public class NoBiDirClientRequestListener 
@@ -72,13 +72,6 @@ public class NoBiDirClientRequestListener
         replyException( request, connection );
     }
 
-    
-    public void fragmentReceived( byte[] fragment,
-                                  GIOPConnection connection )
-    {
-        
-    }
-    
     private void replyException( byte[] request, 
                                  GIOPConnection connection )
     {
