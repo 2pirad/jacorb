@@ -53,7 +53,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.34 2004-08-25 11:39:22 simon.mcqueen Exp $
+ * @version $Id: PrintIOR.java,v 1.35 2004-10-21 14:49:53 francisco Exp $
  */
 
 public class PrintIOR
@@ -289,7 +289,10 @@ public class PrintIOR
     
     private static void printNTExportedName(byte[] nameData) {
         // check for token identifier
-        if (nameData[0] != 0x04 || nameData[0] != 0x01) {
+        if (nameData.length < 2 || nameData[0] != 0x04 || nameData[1] != 0x01) {
+            dumpHex(nameData);
+            System.out.println();
+            return;            
         }
         
         // get mech length
@@ -573,7 +576,7 @@ public class PrintIOR
         CDRInputStream is =
         new CDRInputStream((org.omg.CORBA.ORB)null, tc.component_data);
         is.openEncapsulatedArray();
-        System.out.print ("\t\tAddress: " + IIOPAddress.read(is));
+        System.out.println("\t\tAddress: " + IIOPAddress.read(is));
     }
 
     public static void dumpHex(byte bs[])
