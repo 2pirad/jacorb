@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.3 2001-03-19 11:07:45 brose Exp $
+ * @version $Id: MultExpr.java,v 1.4 2001-05-01 08:13:37 jacorb Exp $
  */
 
 class MultExpr 
@@ -94,22 +94,17 @@ class MultExpr
         }
         return x + unary_expr.value();
     }
+
+    public String toString() 
+    {
+        String x = "";
+        if( mult_expr != null )
+        {
+            x = mult_expr + operator;
+        }
+        return x + unary_expr.toString();
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

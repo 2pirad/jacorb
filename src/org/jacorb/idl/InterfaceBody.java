@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.6 2001-04-24 10:01:24 jacorb Exp $
+ * @version $Id: InterfaceBody.java,v 1.7 2001-05-01 08:13:36 jacorb Exp $
  */
 
 class InterfaceBody 
@@ -449,7 +449,7 @@ class InterfaceBody
         ps.println("\t\treturn _out;");
     }
 
-    void getIRInfo(Hashtable irInfoTable )
+    void getIRInfo( Hashtable irInfoTable )
     {
 	for(Enumeration e = v.elements(); e.hasMoreElements();)
 	{

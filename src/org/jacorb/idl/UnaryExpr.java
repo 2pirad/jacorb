@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnaryExpr.java,v 1.3 2001-03-19 11:07:54 brose Exp $
+ * @version $Id: UnaryExpr.java,v 1.4 2001-05-01 08:13:37 jacorb Exp $
  */
 
 class UnaryExpr 
@@ -74,8 +74,15 @@ class UnaryExpr
     {
         return unary_op + primary_expr.value();
     }
-}
 
+    public String toString() 
+    {
+        return unary_op.toString() + primary_expr.toString();
+    }
+
+
+
+}
 
 
 

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.3 2001-03-19 11:07:47 brose Exp $
+ * @version $Id: ParamDecl.java,v 1.4 2001-05-01 08:13:37 jacorb Exp $
  */
 
 import java.util.Vector;
@@ -63,7 +63,7 @@ class ParamDecl
 	}
     }
 
-    public void print(PrintWriter ps)
+    public void print( PrintWriter ps )
     {
 	switch(paramAttribute)
 	{
@@ -92,23 +92,6 @@ class ParamDecl
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

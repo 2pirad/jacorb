@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.8 2001-04-14 15:43:29 jacorb Exp $
+ * @version $Id: OpDecl.java,v 1.9 2001-05-01 08:13:37 jacorb Exp $
  */
 
 class OpDecl 
@@ -547,31 +547,28 @@ class OpDecl
         }
         sb.append("(");
 
-	for(Enumeration e = paramDecls.elements(); e.hasMoreElements();)
+	for( Enumeration e = paramDecls.elements(); e.hasMoreElements();)
 	{
             ParamDecl param = (ParamDecl)e.nextElement();
             if( param.paramAttribute == 3 )
             {
-                sb.append("inout ");
+                sb.append("inout:" + param.simple_declarator.name + " " );
                 enter = true;
             }
             else if( param.paramAttribute == 2 )
             {
-                sb.append("out ");
+                sb.append("out:" + param.simple_declarator.name + " ");
                 enter = true;
             }
             else
-                sb.append("in ");
+                sb.append("in:" + param.simple_declarator.name + " ");
 
             ts = param.paramTypeSpec.typeSpec();
 
             if( ts instanceof AliasTypeSpec )
             {
- //                 if( ((AliasTypeSpec)ts).originalType.typeSpec() instanceof FixedPointType )
-//                  {
                 sb.append( ts.full_name() );
                 enter = true;     
-					//                }
             }            
 
             sb.append(",");
@@ -589,8 +586,10 @@ class OpDecl
         if( opAttribute == 1)
             sb.append("-oneway");
 
-        if( enter )
+        //       if( enter )
             irInfoTable.put( name, sb.toString());
+
+        Environment.output(2, "OpInfo for " + name + " : " + sb.toString());
     }
 
 

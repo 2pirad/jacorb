@@ -30,7 +30,7 @@ import org.omg.CORBA.*;
  * - additional insert_void operation
  * 
  * @author (c) Gerald Brose, FU Berlin 1997/98
- * $Id: Any.java,v 1.5 2001-03-29 15:36:25 jacorb Exp $ 
+ * $Id: Any.java,v 1.6 2001-05-01 08:13:38 jacorb Exp $ 
  * 
  */
 
@@ -42,9 +42,9 @@ public final class Any
     private java.lang.Object value;
     private org.omg.CORBA.ORB orb;
 
-    Any( org.omg.CORBA.ORB _orb )
+    Any( org.omg.CORBA.ORB orb )
     {
-        orb = _orb;
+        this.orb = orb;
         typeCode = orb.get_primitive_tc( org.omg.CORBA.TCKind.tk_null );
     }
         

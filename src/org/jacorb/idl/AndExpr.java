@@ -3,7 +3,7 @@ package org.jacorb.idl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-98  Gerald Brose.
+ *   Copyright (C) 1997-2001  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: AndExpr.java,v 1.3 2001-03-19 11:07:35 brose Exp $
+ * @version $Id: AndExpr.java,v 1.4 2001-05-01 08:13:36 jacorb Exp $
 */
 
 class AndExpr 
@@ -85,24 +85,18 @@ class AndExpr
         }
         return x + shift_expr.value();
     }
+
+    public String  toString() 
+    {
+        String x = "";
+        if( and_expr != null )
+        {
+            x = and_expr + "&";
+        }
+        return x + shift_expr;
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
