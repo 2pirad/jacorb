@@ -25,7 +25,7 @@ import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.6.2.2 2001-07-30 15:16:26 jacorb Exp $
+ * @version $Id: ORBSingleton.java,v 1.6.2.3 2001-09-20 09:32:37 jacorb Exp $
  */
 
 public class ORBSingleton
@@ -146,7 +146,7 @@ public class ORBSingleton
 
     public TypeCode get_primitive_tc(org.omg.CORBA.TCKind tcKind)
     {
-        return org.jacorb.orb.TypeCode.get_primitive_tc( tcKind.value() );
+        return new org.jacorb.orb.TypeCode( tcKind.value() );
     }
 
     public org.omg.CORBA.TypeCode create_value_tc(String id,
