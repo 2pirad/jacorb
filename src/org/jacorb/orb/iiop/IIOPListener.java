@@ -38,7 +38,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.4 2003-05-09 10:47:35 andre.spiegel Exp $
+ * @version $Id: IIOPListener.java,v 1.5 2003-05-24 09:51:32 andre.spiegel Exp $
  */
 public class IIOPListener extends _ListenerLocalBase
 {
@@ -382,12 +382,12 @@ public class IIOPListener extends _ListenerLocalBase
      * up to the ORB, using either the upcall mechanism or the 
      * polling mechanism.
      */
-    private void deliverConnection (Socket socket)
+    private void deliverConnection (Socket socket, boolean isSSL)
     {
         Connection result = null;
         try
         {
-            result = new ServerIIOPConnection (socket, false);
+            result = new ServerIIOPConnection (socket, isSSL);
         }
         catch (IOException ex)
         {
@@ -500,6 +500,10 @@ public class IIOPListener extends _ListenerLocalBase
              socket.setSoTimeout (getServerTimeout());
         }
 
+        protected void deliverConnection (Socket socket)
+        {
+            IIOPListener.this.deliverConnection (socket, false);
+        }
     }    
 
     private class SSLAcceptor extends Acceptor
@@ -525,6 +529,11 @@ public class IIOPListener extends _ListenerLocalBase
         {
             super.setup (socket);
             getSSLServerSocketFactory().switchToClientMode (socket);
+        }
+        
+        protected void deliverConnection (Socket socket)
+        {
+            IIOPListener.this.deliverConnection (socket, true);
         }
     }
 
