@@ -52,7 +52,7 @@ import org.apache.log.output.net.SocketOutputTarget;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: LogConfiguration.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: LogConfiguration.java,v 1.3 2003-09-12 09:36:00 alphonse.bendt Exp $
  */
 
 public class LogConfiguration
@@ -415,7 +415,7 @@ public class LogConfiguration
                                      Socket clientSocket =
                                          registration.serverSocket.accept();
 
-                                     ObjectInputStream objectInputStream=
+                                     ObjectInputStream objectInputStream = 
                                          new ObjectInputStream( clientSocket.getInputStream() );
 
                                      try
@@ -428,11 +428,15 @@ public class LogConfiguration
                                              target.processEvent( logEvent );
                                          }
                                      }
-                                     catch ( Exception e )
-                                     {}
+                                     catch ( Exception e ) {
+                                     } 
+                                     finally {
+                                         objectInputStream.close();
+                                     } 
+                                     
                                  }
                                  catch ( Exception e )
-                                 {}
+                                     {}
                              }
                          };
                      };
