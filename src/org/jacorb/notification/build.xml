@@ -8,33 +8,13 @@
 
 <!-- ============================================================= -->
 <!--              JacORB - NotificationService build file          -->
-<!-- $Id: build.xml,v 1.16 2003-08-25 21:00:46 alphonse.bendt Exp $ -->
+<!-- $Id: build.xml,v 1.17 2003-10-28 12:20:57 nick.cross Exp $ -->
 <!-- ============================================================= -->
 
   &common;
 
   <property name="notification.dir"
       value="${basedir}/src/org/jacorb/notification" />
-
-  <!-- check whether to use java.util.regexp or gnu.regexp -->
-  <target name="check-regexp">
-
-    <condition property="available.regexp.jdk" value="true" >
-      <or>
-        <equals arg2="${ant.java.version}" arg1="1.4"/>
-        <available classname="java.util.regex.Pattern" />
-      </or>
-    </condition>
-
-    <available classname="gnu.regexp.RE" property="available.regexp.gnu" />
-
-    <condition property="regexp.available">
-      <or>
-      <isset property="available.regexp.jdk" />
-      <isset property="available.regexp.gnu" />
-      </or>
-    </condition>
-  </target>
 
 
   <target name="notification.init" depends="init, check-regexp">
