@@ -40,7 +40,7 @@ import org.omg.CONV_FRAME.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.40 2002-10-17 19:35:32 david.robison Exp $
+ * @version $Id: ParsedIOR.java,v 1.41 2002-11-26 13:25:38 nicolas Exp $
  */
 
 public class ParsedIOR
@@ -549,7 +549,11 @@ public class ParsedIOR
 
         // bnv: consults SSL tagged component
         SSL ssl = getSSLTaggedComponent( pb );
-        if (sas != null) ssl.target_requires |= sas.mechanism_list[0].target_requires;
+        if( sas != null && 
+            ssl != null ) 
+        {
+            ssl.target_requires |= sas.mechanism_list[0].target_requires;
+        }
 
         // SSL usage is decided the following way: At least one side
         // must require it. Therefore, we first check if it is
