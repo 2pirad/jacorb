@@ -24,17 +24,13 @@ package org.jacorb.notification.queue;
 import org.jacorb.notification.interfaces.Message;
 
 /**
- * EventQueueOverflowStrategy.java
- *
- *
  * @author Alphonse Bendt
- * @version $Id: EventQueueOverflowStrategy.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: EventQueueOverflowStrategy.java,v 1.3 2005-02-14 00:11:10 alphonse.bendt Exp $
  */
 
 public abstract class EventQueueOverflowStrategy
 {
     public abstract Message removeElementFromQueue( AbstractBoundedEventQueue queue );
-
 
     public static final EventQueueOverflowStrategy FIFO =
         new EventQueueOverflowStrategy()
@@ -45,7 +41,6 @@ public abstract class EventQueueOverflowStrategy
             }
         };
 
-
     public static final EventQueueOverflowStrategy LIFO =
         new EventQueueOverflowStrategy()
         {
@@ -54,7 +49,6 @@ public abstract class EventQueueOverflowStrategy
                 return queue.getYoungestElement();
             }
         };
-
 
     public static final EventQueueOverflowStrategy LEAST_PRIORITY =
         new EventQueueOverflowStrategy()
@@ -65,7 +59,6 @@ public abstract class EventQueueOverflowStrategy
             }
         };
 
-
     public static final EventQueueOverflowStrategy EARLIEST_TIMEOUT =
         new EventQueueOverflowStrategy()
         {
@@ -74,5 +67,4 @@ public abstract class EventQueueOverflowStrategy
                 return queue.getEarliestTimeout();
             }
         };
-
 }
