@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: Interface.java,v 1.16 2001-06-13 09:54:49 jacorb Exp $
+ * @version $Id: Interface.java,v 1.17 2001-10-05 09:49:37 spiegel Exp $
  */
 
 import java.util.*;
@@ -104,10 +104,6 @@ class Interface
         enclosing_symbol = s;
     }
 
-    public String signature()
-    {
-        return "L" + typeName() + ";";
-    }
 
     public void set_locality( boolean locality_constraint )
     {
