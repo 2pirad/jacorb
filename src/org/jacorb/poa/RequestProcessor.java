@@ -49,7 +49,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.12 2002-05-08 14:46:59 gerald Exp $
+ * @version $Id: RequestProcessor.java,v 1.13 2002-07-05 07:24:45 steve.osselton Exp $
  */
 
 public class RequestProcessor 
@@ -68,6 +68,7 @@ public class RequestProcessor
     private CookieHolder cookieHolder;
 
     private static Hashtable specialOperations;
+    private static int count = 0;
 
     static
     {
@@ -80,8 +81,9 @@ public class RequestProcessor
         specialOperations.put("_set_policy_overrides", "");
     }
 
-    RequestProcessor( RPPoolManager _poolManager ) 
+    RequestProcessor (RPPoolManager _poolManager) 
     {
+        super ("RequestProcessor-" + (++count));
         poolManager = _poolManager;
     }
 

@@ -41,7 +41,7 @@ import java.util.Enumeration;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.14 2002-07-01 07:54:16 nicolas Exp $
+ * @version 1.11, 10/26/99, RT $Id: RequestController.java,v 1.15 2002-07-05 07:24:45 steve.osselton Exp $
  */
 public class RequestController 
     extends Thread 
@@ -56,6 +56,7 @@ public class RequestController
     /*  a  singleton   for  all  POA's  in  one   virtual  machine  if
        SINGLE_THREAD_MODEL is in use */
     private static RPPoolManager 	singletonPoolManager;
+    private static int count = 0;
 
     private LogTrace                    logTrace;	
 
@@ -87,6 +88,7 @@ public class RequestController
     RequestController( POA _poa, org.jacorb.orb.ORB _orb, 
                        AOM _aom, LogTrace _logTrace) 
     {
+        super ("RequestController-" + (++count));
         poa = _poa;
         aom = _aom;
         orb = _orb;
