@@ -24,7 +24,7 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: FilterTest.java,v 1.9 2004-02-25 14:52:57 alphonse.bendt Exp $
+ * @version $Id: FilterTest.java,v 1.10 2004-02-25 15:26:10 alphonse.bendt Exp $
  */
 
 public class FilterTest extends TestCase {
@@ -98,8 +98,7 @@ public class FilterTest extends TestCase {
 
 
     public void testMatchEmptyFilter() throws Exception {
-        // TODO match or not ???
-        assertTrue(filter_.match(testPerson_));
+        assertTrue(!filter_.match(testPerson_));
     }
 
 
