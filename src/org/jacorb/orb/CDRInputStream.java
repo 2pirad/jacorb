@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.21 2001-11-09 15:43:13 jacorb Exp $
+ * $Id: CDRInputStream.java,v 1.22 2001-11-13 08:29:19 jacorb Exp $
  */
 
 public class CDRInputStream
@@ -1019,7 +1019,7 @@ public class CDRInputStream
                 buf[ i++ ] = read_wchar( wchar_litte_endian );
             }
             
-            return new String( buf );
+            return new String( buf, 0, i );
         }
         else //GIOP 1.1 / 1.0
         {
