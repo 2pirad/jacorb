@@ -135,7 +135,7 @@ import org.apache.avalon.framework.logger.Logger;
  *
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: FilterImpl.java,v 1.19 2004-02-24 13:00:27 alphonse.bendt Exp $
+ * @version $Id: FilterImpl.java,v 1.20 2004-02-25 15:27:24 alphonse.bendt Exp $
  */
 
 public class FilterImpl
@@ -792,7 +792,7 @@ public class FilterImpl
     {
         ++matchCalled_;
 
-        return match_internal( anyEvent ) != NO_CONSTRAINTS_MATCH;
+        return match_internal( anyEvent ) >= 0;
     }
 
 
@@ -842,7 +842,7 @@ public class FilterImpl
     {
         ++matchStructuredCalled_;
 
-        return match_structured_internal(structuredevent) != NO_CONSTRAINTS_MATCH;
+        return match_structured_internal(structuredevent) >= 0;
     }
 
 

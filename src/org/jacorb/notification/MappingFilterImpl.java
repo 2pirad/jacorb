@@ -47,7 +47,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MappingFilterImpl.java,v 1.7 2004-02-24 13:00:27 alphonse.bendt Exp $
+ * @version $Id: MappingFilterImpl.java,v 1.8 2004-02-25 15:27:24 alphonse.bendt Exp $
  */
 
 public class MappingFilterImpl extends MappingFilterPOA implements Disposable
@@ -247,7 +247,7 @@ public class MappingFilterImpl extends MappingFilterPOA implements Disposable
     {
         int _filterId = filterImpl_.match_internal( any );
 
-        if ( _filterId != FilterImpl.NO_CONSTRAINTS_MATCH )
+        if ( _filterId >= 0 )
         {
             anyHolder.value = valueMap_.get( _filterId );
 
@@ -266,7 +266,7 @@ public class MappingFilterImpl extends MappingFilterPOA implements Disposable
     {
         int _filterId = filterImpl_.match_structured_internal( structuredEvent );
 
-        if ( _filterId != FilterImpl.NO_CONSTRAINTS_MATCH )
+        if ( _filterId >= 0 )
         {
             anyHolder.value = valueMap_.get( _filterId );
 
