@@ -21,7 +21,6 @@ package org.jacorb.notification;
  *
  */
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -47,7 +46,7 @@ import org.omg.CosNotifyChannelAdmin.StructuredProxyPushSupplierPOATie;
  * Created: Sun Nov 03 22:41:38 2002
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.7 2003-07-16 00:07:01 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.8 2003-07-23 15:13:31 david.robison Exp $
  */
 
 public class StructuredProxyPushSupplierImpl
@@ -188,7 +187,11 @@ public class StructuredProxyPushSupplierImpl
         {
             if ( pushConsumer_ != null )
             {
-                pushConsumer_.disconnect_structured_push_consumer();
+            	try {
+                	pushConsumer_.disconnect_structured_push_consumer();
+				} catch (Exception e) {
+					logger_.warn("Error disconnecting consumer: "+e);
+				}
                 pushConsumer_ = null;
                 connected_ = false;
             }
