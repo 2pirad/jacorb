@@ -32,7 +32,7 @@ import org.omg.PortableServer.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version     $Id: CDROutputStream.java,v 1.40 2002-03-07 16:46:56 spiegel Exp $
+ * @version     $Id: CDROutputStream.java,v 1.41 2002-03-12 18:28:20 steve.osselton Exp $
  * 
  * A stream for CDR marshalling.
  *
@@ -1061,29 +1061,29 @@ public class CDROutputStream
         buffer[pos++] = value;
     }
 
-//      public final void write_octet_array
-//          (final byte[] value, final int offset, final int length)
-//      {
-//          if( value != null )
-//          {
-//              check(length);
-//              System.arraycopy(value,offset,buffer,pos,length);
-//              index += length;
-//              pos += length;
-//          }
-//      }
+      public final void write_octet_array
+          (final byte[] value, final int offset, final int length)
+      {
+          if( value != null )
+          {
+              check(length);
+              System.arraycopy(value,offset,buffer,pos,length);
+              index += length;
+              pos += length;
+          }
+      }
 
-    public final void write_octet_array( final byte[] value, 
-                                         final int offset, 
-                                         final int length)
-    {
-        if( value != null )
-        {
-            deferredArrayQueue.add( new DeferredWriteFrame( index, offset, length, value ));
-            index += length;
-            deferred_writes += length;
-        }
-    }
+//    public final void write_octet_array( final byte[] value, 
+//                                         final int offset, 
+//                                         final int length)
+//    {
+//        if( value != null )
+//        {
+//            deferredArrayQueue.add( new DeferredWriteFrame( index, offset, length, value ));
+//            index += length;
+//            deferred_writes += length;
+//        }
+//    }
 
     public final void write_Principal (final org.omg.CORBA.Principal value)
     {
