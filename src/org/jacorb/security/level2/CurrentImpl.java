@@ -32,7 +32,7 @@ import org.jacorb.util.*;
 /**
  *
  * @author Nicolas Noffke, Gerald Brose, André Benvenuti
- * @version $Id: CurrentImpl.java,v 1.6 2001-10-02 13:51:06 jacorb Exp $
+ * @version $Id: CurrentImpl.java,v 1.7 2001-11-20 11:06:40 nicolas Exp $
  *
  */
 
@@ -183,7 +183,21 @@ public class CurrentImpl
         {
             Debug.output(Debug.SECURITY | Debug.IMPORTANT,
                          "WARNING: Unable to create custom PA. Will use default authenticator. Please check property \"jacorb.security.principal_authenticator\"" );
-            authenticators.add( new PrincipalAuthenticatorImpl() );
+
+            PrincipalAuthenticator pa = 
+                createAuthenticator( "org.jacorb.security.level2.PrincipalAuthenticatorImpl" );
+                
+            if( pa != null )
+            {
+                authenticators.add( pa );
+            }
+            else
+            {
+                Debug.output(Debug.SECURITY | Debug.IMPORTANT,
+                             "WARNING: Unable to create default PA" );
+                
+                return;
+            }
         }
 
         principalAuthenticator = 
