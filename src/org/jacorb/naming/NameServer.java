@@ -22,12 +22,15 @@ package org.jacorb.naming;
 
 import java.net.*;
 import java.io.*;
+
 import org.omg.PortableServer.*;
 import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.*;
+
 import org.jacorb.orb.*;
 import org.jacorb.util.*;
-import org.apache.log.*;
+
+import org.apache.avalon.framework.logger.*;
 
 
 //#ifjdk 1.2
@@ -38,7 +41,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.24 2003-10-29 10:24:26 brose Exp $
+ *  @version $Id: NameServer.java,v 1.25 2003-10-30 12:58:01 brose Exp $
  */
 
 
@@ -46,47 +49,10 @@ public class NameServer
 {
     private static org.omg.CORBA.ORB orb = null;
     public static String name_delimiter = "/";
-
     private static String filePrefix = "_nsdb";
-    private static Logger logger = 
-        Hierarchy.getDefaultHierarchy().getLoggerFor("jacorb.naming");
 
-    static
-    {
-        String loglevel = 
-            Environment.getProperty("jacorb.naming.log.verbosity");
-        if( loglevel != null )
-        {
-            int verbosity = Integer.parseInt(loglevel); 
-            switch (verbosity)
-            {
-                case 4 : 
-                    logger.setPriority(Priority.DEBUG);
-                    break;
-                case 3 : 
-                    logger.setPriority(Priority.INFO);
-                    break;
-                case 2 :
-                    logger.setPriority(Priority.WARN);
-                    break;
-                case 1 :
-                    logger.setPriority(Priority.ERROR);
-                    break;
-                case 0 : 
-                default :
-                    logger.setPriority(Priority.FATAL_ERROR);
-            }            
-        }
-    }
-
-    /**
-     * @return the configured Logger instance for the naming service
-     */
-
-    static Logger getLogger()
-    {
-        return logger;
-    }
+    /** the specific logger for this component */
+    private static Logger logger = Debug.getNamedLogger("jacorb.naming");
 
 
     /**
