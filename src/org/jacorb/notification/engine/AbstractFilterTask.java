@@ -30,7 +30,7 @@ import org.jacorb.notification.interfaces.FilterStage;
  * Abstract Base Class for FilterTask.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.2 2003-09-12 09:32:13 alphonse.bendt Exp $
  */
 
 abstract class AbstractFilterTask extends AbstractTask
@@ -39,7 +39,8 @@ abstract class AbstractFilterTask extends AbstractTask
     /**
      * Template for internal use.
      */
-    protected static final FilterStage[] FILTERSTAGE_ARRAY_TEMPLATE = new FilterStage[ 0 ];
+    protected static final FilterStage[] FILTERSTAGE_ARRAY_TEMPLATE =
+        new FilterStage[ 0 ];
 
     /**
      * FilterStages to process.
@@ -65,7 +66,8 @@ abstract class AbstractFilterTask extends AbstractTask
      */
     public FilterStage[] getFilterStageToBeProcessed()
     {
-        return ( FilterStage[] ) listOfFilterStageToBeProcessed_.toArray( FILTERSTAGE_ARRAY_TEMPLATE );
+        return ( FilterStage[] )
+            listOfFilterStageToBeProcessed_.toArray( FILTERSTAGE_ARRAY_TEMPLATE );
     }
 
     /**

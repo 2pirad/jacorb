@@ -32,7 +32,7 @@ import org.jacorb.notification.interfaces.FilterStage;
  *
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.3 2003-08-28 16:00:10 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.4 2003-09-12 09:32:30 alphonse.bendt Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask
@@ -41,7 +41,8 @@ public class FilterConsumerAdminTask extends AbstractFilterTask
         new FilterStage[ 0 ];
 
     /**
-     * this List contains FilterStages (ProxySuppliers) which hava a EventConsumer associated.
+     * this List contains FilterStages (ProxySuppliers) which have a
+     * EventConsumer associated. 
      */
     protected List listOfFilterStageWithEventConsumer_ =
         new Vector();
