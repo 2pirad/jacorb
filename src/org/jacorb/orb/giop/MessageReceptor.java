@@ -30,7 +30,7 @@ import org.jacorb.util.*;
  * Created: Sat Aug 18 10:52:45 2001
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.2 2001-10-02 13:50:57 jacorb Exp $
+ * @version $Id: MessageReceptor.java,v 1.3 2001-10-24 12:49:57 jacorb Exp $
  */
 
 public class MessageReceptor 
@@ -59,7 +59,7 @@ public class MessageReceptor
         }
         catch( Exception e )
         {
-            Debug.output( 1, e );
+            Debug.output( 3, e );
         }
     }    
 }// MessageReceptor
