@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.10 2001-11-20 11:05:57 nicolas Exp $ -->
+  <!-- $Id: build.xml,v 1.11 2001-11-29 10:44:38 gerald Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -39,7 +39,7 @@
    <target name="principal_authenticator" depends="init" if="iaik.present">
 	<javac srcdir="${src}"
                destdir="${classdir}"
-               includes="org/jacorb/security/level2/PrincipalAuthenticator.java"
+               includes="org/jacorb/security/level2/PrincipalAuthenticatorImpl.java"
         />
    </target>
 
