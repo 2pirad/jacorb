@@ -35,15 +35,15 @@ import org.jacorb.util.*;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.9 2003-05-06 14:31:12 andre.spiegel Exp $
+ * @version $Id: TransportManager.java,v 1.10 2003-05-07 09:39:29 andre.spiegel Exp $
  * */
 
 public class TransportManager
 {    
     public static final String FACTORY_PROP = "jacorb.net.socket_factory";
 
-    private SocketFactory socket_factory = null;
-    private SocketFactory ssl_socket_factory = null;
+    public static SocketFactory socket_factory = null;
+    public static SocketFactory ssl_socket_factory = null;
 
     public TransportManager( ORB orb )
     {
@@ -79,17 +79,9 @@ public class TransportManager
 
     }
 
-    public Transport createClientTransport( IIOPProfile target_profile,
-                                            boolean use_ssl )
+    public Transport createClientTransport()
     {
-        Transport transport =
-            new Client_TCP_IP_Transport( target_profile,
-                                         use_ssl,
-                                         use_ssl ? ssl_socket_factory
-                                                 : socket_factory,
-                                         this );
-
-        return transport;
+        return new Client_TCP_IP_Transport();
     }
 
     public Transport createServerTransport( Socket socket,
@@ -98,8 +90,7 @@ public class TransportManager
     {
         Transport transport = 
             new Server_TCP_IP_Transport( socket, 
-                                         is_ssl,
-                                         this );
+                                         is_ssl );
 
         return transport;
     }
