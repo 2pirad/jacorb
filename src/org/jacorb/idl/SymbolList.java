@@ -26,7 +26,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.7 2002-04-17 08:49:14 gerald Exp $
+ * @version $Id: SymbolList.java,v 1.8 2002-05-15 14:34:46 nick.cross Exp $
  */
 
 class SymbolList
@@ -53,8 +53,14 @@ class SymbolList
             ( (IdlSymbol)e.nextElement() ).setPackage( s );
     }
 
-    public void parse()
 
+    public int size ()
+    {
+        return v.size ();
+    }
+
+
+    public void parse()
     {
         Enumeration e = v.elements();
         for( ; e.hasMoreElements(); )
@@ -89,5 +95,3 @@ class SymbolList
         return sb.toString();
     }
 }
-
-

@@ -14,7 +14,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  *
- * $Id: parser.cup,v 1.45 2002-05-10 15:07:50 nick.cross Exp $
+ * $Id: parser.cup,v 1.46 2002-05-15 14:34:47 nick.cross Exp $
  *
  */
 
@@ -1661,6 +1661,11 @@ union_type ::=
                         RESULT.setSwitchBody( sb );
                         RESULT.set_token(i);
                         RESULT.set_included( parser.include_state );
+                        parser.closeScope( (Scope)RESULT );
+                :}
+        | UNION ID:i
+                {:
+                        RESULT.set_token(i);
                         parser.closeScope( (Scope)RESULT );
                 :}
         ;
