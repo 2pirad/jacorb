@@ -69,7 +69,7 @@ import org.apache.avalon.framework.configuration.Configuration;
  * </ul>
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.10 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.11 2004-06-18 23:05:16 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier
@@ -464,6 +464,9 @@ public abstract class AbstractProxySupplier
                                 {
                                     logger_.error("invalid event type", e);
                                 }
+                            catch (Exception e) {
+                                logger_.error("offer_change failed", e);
+                            }
                         }
                     };
 
