@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.34 2002-12-20 18:29:04 nicolas Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.35 2003-01-10 17:40:48 nicolas Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1252,14 +1252,14 @@ public class ImplementationRepositoryImpl
     private static boolean checkServerActive
        (String host, int port, byte []object_key)
     {
-        ConnectionManager         cm           = null;
+        ClientConnectionManager   cm           = null;
         ClientConnection          connection   = null;
         LocateRequestOutputStream lros         = null;
         LocateReplyReceiver       receiver     = null;
         LocateReplyInputStream    lris         = null;
         boolean                   result       = false;
 
-        cm = ((org.jacorb.orb.ORB)orb).getConnectionManager ();
+        cm = ((org.jacorb.orb.ORB)orb).getClientConnectionManager ();
         connection = cm.getConnection (host + ':' + port, false);
 
         Debug.output(Debug.IMR | Debug.DEBUG1,
