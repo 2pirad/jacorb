@@ -4,7 +4,7 @@
  * generated from this file, but it is not suitable to be
  * included in user-defined IDL files!
  *
- * $Id: _orb.idl,v 1.4 2002-08-02 16:35:04 nicolas Exp $
+ * $Id: _orb.idl,v 1.5 2002-10-18 12:39:21 steve.osselton Exp $
  */
 
 #ifndef _MYORB_IDL
@@ -700,9 +700,9 @@ module CORBA
     typedef sequence<long long> LongLongSeq;
     typedef sequence<short> ShortSeq;
     typedef sequence<unsigned long> ULongSeq;
-    typedef sequence<unsigned long long> UlongLongSeq;
-    typedef sequence<unsigned short> UshortSeq;
-    typedef sequence<wchar> WcharSeq;
+    typedef sequence<unsigned long long> ULongLongSeq;
+    typedef sequence<unsigned short> UShortSeq;
+    typedef sequence<wchar> WCharSeq;
 };
 
 
