@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.jacorb.notification.engine.TaskProcessor;
-import org.jacorb.notification.interfaces.EventConsumer;
+import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.TimerEventSupplier;
 import org.jacorb.util.Environment;
@@ -44,7 +44,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.11 2003-12-16 15:30:43 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.12 2004-01-16 17:25:05 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl
@@ -200,6 +200,8 @@ public class ProxyPullConsumerImpl
 
     public void runPullEvent() throws Disconnected
     {
+        //        checkConnected();
+
         BooleanHolder hasEvent = new BooleanHolder();
         Any event = null;
 
@@ -208,6 +210,7 @@ public class ProxyPullConsumerImpl
             if ( connected_ )
             {
                 ++runCounter_;
+
                 long _start = System.currentTimeMillis();
 
                 event = myPullSupplier_.try_pull( hasEvent );
@@ -220,10 +223,10 @@ public class ProxyPullConsumerImpl
 
                     ++successfulPull_;
 
-                    Message _notifyEvent =
-                        notificationEventFactory_.newEvent( event, this );
+                    Message _message =
+                        messageFactory_.newEvent( event, this );
 
-                    channelContext_.dispatchEvent( _notifyEvent );
+                    channelContext_.processMessage( _message );
                 }
             }
         }
@@ -254,7 +257,7 @@ public class ProxyPullConsumerImpl
 
     public SupplierAdmin MyAdmin()
     {
-        return ( SupplierAdmin ) myAdmin_.getThisRef();
+        return ( SupplierAdmin ) myAdmin_.getCorbaRef();
     }
 
     public List getSubsequentFilterStages()
@@ -262,12 +265,12 @@ public class ProxyPullConsumerImpl
         return subsequentDestinations_;
     }
 
-    public EventConsumer getEventConsumer()
+    public MessageConsumer getMessageConsumer()
     {
         throw new UnsupportedOperationException();
     }
 
-    public boolean hasEventConsumer()
+    public boolean hasMessageConsumer()
     {
         return false;
     }

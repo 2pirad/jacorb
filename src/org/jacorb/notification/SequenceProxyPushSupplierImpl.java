@@ -22,7 +22,7 @@ package org.jacorb.notification;
  */
 
 import org.jacorb.notification.engine.TaskProcessor;
-import org.jacorb.notification.interfaces.EventConsumer;
+import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.util.Environment;
 
@@ -48,13 +48,12 @@ import org.omg.CosNotifyChannelAdmin.NotConnected;
  * SequenceProxyPushSupplierImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.7 2003-12-16 15:30:43 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.8 2004-01-16 17:25:05 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl
     extends StructuredProxyPushSupplierImpl
-    implements SequenceProxyPushSupplierOperations,
-               EventConsumer
+    implements SequenceProxyPushSupplierOperations
 {
     static final StructuredEvent[] STRUCTURED_EVENT_ARRAY_TEMPLATE =
         new StructuredEvent[ 0 ];
@@ -131,7 +130,7 @@ public class SequenceProxyPushSupplierImpl
     }
 
     // overwrite
-    public void deliverEvent( Message event )
+    public void deliverMessage( Message event )
     {
         logger_.debug( "deliverEvent(...)" );
 
@@ -162,7 +161,7 @@ public class SequenceProxyPushSupplierImpl
     /**
      * overrides the superclass version.
      */
-    public void deliverPendingEvents() throws NotConnected {
+    public void deliverPendingMessages() throws NotConnected {
         deliverPendingEvents(true);
     }
 
@@ -240,9 +239,9 @@ public class SequenceProxyPushSupplierImpl
 
         active_ = true;
 
-        if ( hasPendingEvents() )
+        if ( hasPendingMessages() )
         {
-            deliverPendingEvents();
+            deliverPendingMessages();
         }
 
         startCronJob();

@@ -38,7 +38,7 @@ import org.jacorb.notification.interfaces.Message;
  * SequenceProxyPullConsumerImpl.java
  *
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.6 2003-12-16 15:30:43 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.7 2004-01-16 17:25:05 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl
@@ -124,10 +124,10 @@ public class SequenceProxyPullConsumerImpl
                 {
                     for ( int x = 0; x < _events.length; ++x )
                     {
-                        Message _notifyEvent =
-                            notificationEventFactory_.newEvent( _events[ x ], this );
+                        Message msg =
+                            messageFactory_.newEvent( _events[ x ], this );
 
-                        channelContext_.dispatchEvent( _notifyEvent );
+                        channelContext_.processMessage( msg );
                     }
                 }
             }

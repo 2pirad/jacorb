@@ -55,7 +55,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  *
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.3 2003-12-11 16:46:20 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.4 2004-01-16 17:25:05 alphonse.bendt Exp $
  */
 
 class StructuredEventMessage extends AbstractMessage
@@ -132,7 +132,7 @@ class StructuredEventMessage extends AbstractMessage
             Any _a =
                 context.getDynamicEvaluator().evaluatePropertyList(structuredEventValue_.filterable_data, v);
 
-            return context.getResultExtractor().extractFromAny(_a);
+            return EvaluationResult.fromAny(_a);
 
 
 
@@ -147,7 +147,7 @@ class StructuredEventMessage extends AbstractMessage
         Any _a =
             context.getDynamicEvaluator().evaluatePropertyList(structuredEventValue_.header.variable_header, v);
 
-        return context.getResultExtractor().extractFromAny(_a);
+        return EvaluationResult.fromAny(_a);
 
     }
 

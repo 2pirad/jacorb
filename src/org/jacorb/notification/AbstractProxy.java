@@ -51,19 +51,21 @@ import org.omg.PortableServer.Servant;
 
 import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import org.apache.avalon.framework.logger.Logger;
+import org.omg.CosEventComm.Disconnected;
 
 /**
  * ProxyBase.java
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.6 2003-12-11 16:43:38 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.7 2004-01-16 17:25:05 alphonse.bendt Exp $
  */
 
-public abstract class AbstractProxy implements FilterAdminOperations,
-            NotifyPublishOperations,
-            QoSAdminOperations,
-            FilterStage,
-            Disposable
+public abstract class AbstractProxy
+    implements FilterAdminOperations,
+               NotifyPublishOperations,
+               QoSAdminOperations,
+               FilterStage,
+               Disposable
 {
 
     private SynchronizedInt errorCounter_ = new SynchronizedInt(0);
@@ -73,7 +75,7 @@ public abstract class AbstractProxy implements FilterAdminOperations,
     protected Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     protected List proxyDisposedEventListener_;
-    protected MessageFactory notificationEventFactory_;
+    protected MessageFactory messageFactory_;
     protected boolean connected_;
     protected ChannelContext channelContext_;
     protected ApplicationContext applicationContext_;
@@ -118,7 +120,7 @@ public abstract class AbstractProxy implements FilterAdminOperations,
         channelContext_ = channelContext;
         connected_ = false;
 
-        notificationEventFactory_ =
+        messageFactory_ =
             applicationContext_.getMessageFactory();
 
         filterManager_ = new FilterManager(applicationContext_);
@@ -250,7 +252,7 @@ public abstract class AbstractProxy implements FilterAdminOperations,
      */
     public POA _default_POA()
     {
-        return applicationContext_.getPoa();
+        return channelContext_.getPOA();
     }
 
     void setFilterManager(FilterManager manager)
@@ -291,8 +293,8 @@ public abstract class AbstractProxy implements FilterAdminOperations,
             }
             try
             {
-                byte[] _oid = applicationContext_.getPoa().servant_to_id(getServant());
-                applicationContext_.getPoa().deactivate_object(_oid);
+                byte[] _oid = channelContext_.getPOA().servant_to_id(getServant());
+                channelContext_.getPOA().deactivate_object(_oid);
             }
             catch (Exception e)
             {
@@ -364,6 +366,14 @@ public abstract class AbstractProxy implements FilterAdminOperations,
     public int incErrorCounter()
     {
         return errorCounter_.increment();
+    }
+
+    protected void checkConnected() throws Disconnected
+    {
+        if ( !connected_ )
+            {
+                throw new Disconnected();
+            }
     }
 
 }

@@ -32,13 +32,13 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.2 2003-12-16 15:30:43 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.3 2004-01-16 17:25:05 alphonse.bendt Exp $
  */
 
 public class MessageFactory implements Disposable
 {
     private AbstractObjectPool anyMessagePool_ =
-        new AbstractObjectPool()
+        new AbstractObjectPool("AnyMessagePool")
         {
             public Object newInstance()
             {
@@ -56,7 +56,7 @@ public class MessageFactory implements Disposable
         };
 
     private AbstractObjectPool structuredEventMessagePool_ =
-        new AbstractObjectPool()
+        new AbstractObjectPool("StructuredEventMessagePool")
         {
             public Object newInstance()
             {
