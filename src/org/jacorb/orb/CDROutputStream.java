@@ -44,7 +44,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.96 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: CDROutputStream.java,v 1.97 2004-08-14 16:07:48 andre.spiegel Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -1384,7 +1384,7 @@ public class CDROutputStream
     {
         write_long( -1 ); // recursion marker
         int negative_offset =
-            ((Integer) tcMap.get( value.id())).intValue() - pos - 4;
+            ((Integer) tcMap.get( value.id())).intValue() - size() - 4;
 
         write_long( negative_offset );
     }
@@ -2144,7 +2144,7 @@ public class CDROutputStream
 
                 // value has already been written -- make an indirection
                 write_long (0xffffffff);
-                write_long (index.intValue() - pos);
+                write_long (index.intValue() - size());
                 return true;
             }
             else
@@ -2178,7 +2178,7 @@ public class CDROutputStream
         {
             // a previously written repository id -- make an indirection
             write_long (0xffffffff);
-            write_long ( _index.intValue() - pos);
+            write_long (_index.intValue() - size());
         }
     }
 
@@ -2216,7 +2216,7 @@ public class CDROutputStream
         {
             // a previously written codebase -- make an indirection
             write_long (0xffffffff);
-            write_long ( _index.intValue() - pos);
+            write_long (_index.intValue() - size());
         }
     }
 
