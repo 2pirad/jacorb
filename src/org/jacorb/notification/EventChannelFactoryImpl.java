@@ -86,7 +86,7 @@ import org.apache.avalon.framework.logger.Logger;
  * reference of that event channel.<br>
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.24 2004-01-16 22:28:37 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.25 2004-01-16 22:29:51 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl
@@ -307,9 +307,9 @@ public class EventChannelFactoryImpl
         {
             logger_.fatalError( "create_channel()", e );
         }
-        catch (PersistenceException e) {
-            logger_.fatalError("error creating persistent channel", e);
-        }
+//         catch (PersistenceException e) {
+//             logger_.fatalError("error creating persistent channel", e);
+//         }
 
         throw new RuntimeException();
     }
@@ -334,8 +334,8 @@ public class EventChannelFactoryImpl
                UnsupportedQoS,
                ObjectNotActive,
                WrongPolicy,
-               ServantAlreadyActive,
-               PersistenceException
+               ServantAlreadyActive
+               //               PersistenceException
     {
         if (logger_.isDebugEnabled() ) {
             logger_.debug( "create_channel_servant " + key );
@@ -414,20 +414,20 @@ public class EventChannelFactoryImpl
                                   _uniqueQoSProperties,
                                   _uniqueAdminProperties );
 
-        if (_connectionReliability == Persistent.value) {
-            makePersistent(_channelServant);
-        }
+//         if (_connectionReliability == Persistent.value) {
+//             makePersistent(_channelServant);
+//         }
 
         return _channelServant;
     }
 
-    private void makePersistent(EventChannelImpl channel) throws PersistenceException {
-        logger_.info("The creation of a persistent Channel has been requested");
+//     private void makePersistent(EventChannelImpl channel) throws PersistenceException {
+//         logger_.info("The creation of a persistent Channel has been requested");
 
-        if (eventChannelStore_ != null) {
-            eventChannelStore_.storePersistentChannel(channel);
-        }
-    }
+//         if (eventChannelStore_ != null) {
+//             eventChannelStore_.storePersistentChannel(channel);
+//         }
+//     }
 
     void removeEventChannelServant( int id )
     {
