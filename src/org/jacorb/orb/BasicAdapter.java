@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.41.4.4 2004-03-29 10:11:24 gerald Exp $
+ * @version $Id: BasicAdapter.java,v 1.41.4.5 2004-04-01 09:41:00 gerald Exp $
  */
 
 public class BasicAdapter
@@ -146,7 +146,6 @@ public class BasicAdapter
              Factories f = (Factories)i.next();
              Listener l = f.create_listener (null, (short)0, (short)0);
              l.set_handle(this);
-             ((Configurable)l).configure(configuration);
              listeners.add (l);
         }
 
