@@ -30,7 +30,7 @@ import java.util.Vector;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.10 2001-11-16 16:13:15 jacorb Exp $
+ * @version $Id: DynSequence.java,v 1.11 2001-11-26 10:23:42 jason.courage Exp $
  *
  */
 
@@ -76,23 +76,7 @@ public final class DynSequence
     {
         if( ! type().equivalent( value.type() ))
         {
-            System.err.println("expected tc kind " + type().kind().value()
-                       + ", got " + value.type().kind().value() );      
-            try
-            { 
-                System.err.println("expected element tc kind " + 
-                                   type().content_type().kind().value()+ ", got " + 
-                                   value.type().content_type().kind().value() ); 
-    
-                System.err.println("expected length " + type().length()
-                                   + ", got " + value.type().length() );         
-            }
-            catch( org.omg.CORBA.TypeCodePackage.BadKind bk )
-            {
-                // should not happen anymore
-                bk.printStackTrace();
-            }
-            throw new org.omg.DynamicAny.DynAnyPackage.TypeMismatch();
+           throw new org.omg.DynamicAny.DynAnyPackage.TypeMismatch();
         }
 
         try

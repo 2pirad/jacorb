@@ -33,7 +33,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * $Id: DynUnion.java,v 1.9 2001-11-09 08:12:40 jacorb Exp $
+ * $Id: DynUnion.java,v 1.10 2001-11-26 10:23:42 jason.courage Exp $
  *
  */
 
@@ -271,9 +271,6 @@ public final class DynUnion
     {
 	if( ! d.type().equivalent( discriminator.type()))
 	{
-	    System.err.println("expected tc kind " + 
-                               discriminator.type().kind().value() + 
-			       ", got " + d.type().kind().value() );	  
 	    throw new TypeMismatch();
 	}
 
