@@ -40,7 +40,7 @@ import iaik.security.ssl.SSLSocket;
  *
  * 
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.3 2001-11-09 08:59:29 jacorb Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.4 2001-11-19 09:46:33 jacorb Exp $
  */
 
 public class ServerInvocationInterceptor
@@ -78,6 +78,10 @@ public class ServerInvocationInterceptor
     {
         return name;
     }
+
+    public void destroy()
+    {
+    } 
 
     public void receive_request( ServerRequestInfo ri )
         throws ForwardRequest

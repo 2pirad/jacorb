@@ -23,7 +23,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.3 2001-10-04 07:45:26 jacorb Exp $
+ * $Id: SSLSocketFactory.java,v 1.4 2001-11-19 09:46:05 jacorb Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -36,7 +36,7 @@ import javax.net.ssl.*;
 import javax.net.*;
 import java.security.*;
 
-import com.sun.net.ssl.*;
+//import com.sun.net.ssl.*;
 
 public class SSLSocketFactory 
     implements org.jacorb.orb.factory.SocketFactory 
@@ -78,7 +78,7 @@ public class SSLSocketFactory
 
     private SocketFactory createSocketFactory() 
     {
-        Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
+        //Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
 
 	try 
 	{
@@ -129,7 +129,7 @@ public class SSLSocketFactory
 	    }
 	    else
 	    {
-		tmf.init( null );
+		tmf.init( (KeyStore) null );
 	    }
 
             SSLContext ctx = SSLContext.getInstance( "TLS" );

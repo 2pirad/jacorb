@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.8 2001-11-07 14:23:34 jacorb Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.9 2001-11-19 09:46:33 jacorb Exp $
  */
 
 public class ServerAccessDecisionInterceptor 
@@ -59,6 +59,10 @@ public class ServerAccessDecisionInterceptor
     {
         return name;
     }
+
+    public void destroy()
+    {
+    } 
 
     /**
      * Put the propagation context from the service context
