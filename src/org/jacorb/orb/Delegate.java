@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.106 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: Delegate.java,v 1.107 2004-07-16 09:25:57 andre.spiegel Exp $
  *
  */
 
@@ -930,6 +930,17 @@ public final class Delegate
         {
             if (logger.isDebugEnabled())
                 logger.debug("invoke: SystemException");
+
+            if( !async )
+            {
+               // Remove ReplyReceiver to break up reference cycle
+               // Otherwise gc will not detect this Delegate and
+               // will never finalize it.
+               synchronized (pending_replies)
+               {
+                   pending_replies.remove (receiver);
+               }
+            }
 
             interceptors.handle_receive_exception ( cfe );
 
