@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.23 2002-03-19 09:25:22 nicolas Exp $ 
+ * @version $Id: ClientConnection.java,v 1.24 2002-04-03 09:30:29 jason.courage Exp $ 
  */
 
 public class ClientConnection 
@@ -215,7 +215,7 @@ public class ClientConnection
         {
             connection.sendMessage( os );
         }
-        catch( Exception e )
+        catch( java.io.IOException e )
         {
             Debug.output(2,e);
             throw new org.omg.CORBA.COMM_FAILURE();
