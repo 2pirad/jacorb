@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  * 
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.8 2001-11-09 08:54:45 jacorb Exp $
+ * @version $Id: ScopedName.java,v 1.9 2002-02-07 16:27:16 steve.osselton Exp $
  *
  */
 
@@ -692,18 +692,10 @@ class ScopedName
         return (recursionStack.search( typeName ) != -1);
     }
 
-
+    public boolean isSwitchable ()
+    {
+        TypeSpec t = resolvedTypeSpec ();
+        return ((t instanceof SwitchTypeSpec) &&
+                ((SwitchTypeSpec)t).isSwitchable ());
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

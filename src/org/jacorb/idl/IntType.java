@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IntType.java,v 1.5 2001-06-22 10:56:15 jacorb Exp $
+ * @version $Id: IntType.java,v 1.6 2002-02-07 16:27:16 steve.osselton Exp $
  */
 
 class IntType 
@@ -43,9 +43,8 @@ class IntType
           ((IntType)type_spec).setUnsigned();
     }
 
+    public boolean isSwitchable ()
+    {
+       return true;
+    }
 }
-
-
-
-
-

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: BooleanType.java,v 1.4 2001-03-27 12:01:16 noffke Exp $
+ * @version $Id: BooleanType.java,v 1.5 2002-02-07 16:27:15 steve.osselton Exp $
  */
 
 
@@ -89,24 +89,10 @@ class BooleanType
     public String printExtractExpression()
     {
 	return "extract_boolean";
-    }}
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public boolean isSwitchable ()
+    {
+        return true;
+    }
+}

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.7 2001-12-13 15:44:58 gerald Exp $
+ * @version $Id: BaseType.java,v 1.8 2002-02-07 16:27:14 steve.osselton Exp $
  */
 
 
@@ -52,9 +52,13 @@ class BaseType
 	return type_spec.basic();
     }
 
-    public boolean isSwitchType()
+    public boolean isSwitchType ()
     {
-	return ( type_spec instanceof SwitchTypeSpec );
+	return
+        (
+            type_spec instanceof SwitchTypeSpec &&
+            ((SwitchTypeSpec)type_spec).isSwitchable ()
+        );
     }
 
     public void parse()         

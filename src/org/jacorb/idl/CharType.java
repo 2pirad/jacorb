@@ -22,9 +22,8 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: CharType.java,v 1.5 2001-04-05 09:20:59 jacorb Exp $
+ * @version $Id: CharType.java,v 1.6 2002-02-07 16:27:16 steve.osselton Exp $
  */
-
 
 class CharType 
     extends BaseType 
@@ -58,6 +57,11 @@ class CharType
     public String typeName()
     {
 	return "char";
+    }
+
+    public String idlTypeName ()
+    {
+        return (wide ? "wchar" : "char");
     }
 
     public TypeSpec typeSpec()
@@ -125,5 +129,11 @@ class CharType
         else
             return "extract_char";
     }
-}
 
+    public boolean isSwitchable ()
+    {
+       // wchar is not a valid union discriminator type
+
+       return !wide;
+    }
+}

@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.7 2001-11-16 10:50:40 spiegel Exp $
+ * @version $Id: TypeSpec.java,v 1.8 2002-02-07 16:27:16 steve.osselton Exp $
  */
 
 
@@ -47,10 +47,14 @@ public class TypeSpec
 	return ts;
     }
 
-
     public String typeName()
     {
 	return type_spec.typeName();
+    }
+
+    public String idlTypeName ()
+    {
+       return typeName ();
     }
 
     public String signature()

@@ -26,7 +26,7 @@ import java.io.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.9 2001-06-13 09:54:48 jacorb Exp $
+ * @version $Id: EnumType.java,v 1.10 2002-02-07 16:27:16 steve.osselton Exp $
  */
 
 class EnumType 
@@ -407,23 +407,8 @@ class EnumType
         return typeName();
     }
 
+    public boolean isSwitchable ()
+    {
+       return true;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
