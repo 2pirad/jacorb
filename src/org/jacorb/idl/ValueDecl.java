@@ -25,7 +25,7 @@ import java.io.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.4 2001-11-16 10:50:14 spiegel Exp $
+ * @version $Id: ValueDecl.java,v 1.5 2001-12-14 14:13:12 gerald Exp $
  */
 class ValueDecl 
     extends Value
@@ -133,6 +133,7 @@ class ValueDecl
 	    throw new RuntimeException("Compiler Error: trying to reassign container for " + name );
 	}
 	enclosing_symbol = s;
+        stateMembers.setEnclosingSymbol( s );
     }
 
     public void set_included(boolean i)

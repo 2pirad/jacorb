@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.10 2001-12-13 15:44:58 gerald Exp $
+ * @version $Id: Member.java,v 1.11 2001-12-14 14:13:12 gerald Exp $
  *
  */
 
@@ -105,7 +105,8 @@ class Member
 	    token = type_spec.typeSpec().get_token();
             String name = type_spec.typeSpec().toString();
 
-            enclosing_symbol.addImportedName( name );
+            // if(  enclosing_symbol != null )
+                enclosing_symbol.addImportedName( name );
 
 //              if( name.indexOf( '.' ) < 0 )
 //              {
