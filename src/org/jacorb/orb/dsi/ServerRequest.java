@@ -31,7 +31,7 @@ import org.omg.GIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.9 2001-10-02 13:51:04 jacorb Exp $
+ * @version $Id: ServerRequest.java,v 1.10 2002-01-11 21:35:21 gerald Exp $
  */
 
 public class ServerRequest 
@@ -105,7 +105,18 @@ public class ServerRequest
 	if( stream_based )
         {
             org.omg.CORBA.Any any = orb.create_any();
-            ((CDROutputStream)any.create_output_stream()).setBuffer( out.getBufferCopy() );
+
+            // create the output stream for the result
+
+            CDROutputStream _out = ((CDROutputStream)any.create_output_stream());
+
+            // get a copy of the content of this reply
+            byte[] result_buf = out.getBody();
+
+            // ... and insert it
+            _out.setBuffer( result_buf  );
+            // important: set the _out buffer's position to the end of the contents!
+            _out.skip( result_buf.length );
             return any;
         }
 	return result;
