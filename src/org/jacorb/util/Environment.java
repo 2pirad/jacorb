@@ -44,7 +44,7 @@ import java.io.*;
  * so properties from a file found in "." take precedence.
  * 
  * @author Gerald Brose
- * @version $Id: Environment.java,v 1.36 2002-04-04 10:52:19 steve.osselton Exp $
+ * @version $Id: Environment.java,v 1.37 2002-05-13 16:42:22 nicolas Exp $
  */
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -244,7 +244,9 @@ public class Environment
             //read prop values to set fields ov this class
             readValues();
 
-            if( _verbosity > 0 && ! loaded ) // rt
+            if( _verbosity > 0 && 
+                ! loaded && 
+                ! _props.getProperty( "jacorb.suppress_no_props_warning", "off" ).equals( "on" )) // rt
             {
                 System.err.println( "#####################################################################" );
 
