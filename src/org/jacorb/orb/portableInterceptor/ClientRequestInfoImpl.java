@@ -15,7 +15,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.4 2001-05-16 08:42:20 jacorb Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.5 2001-06-08 10:42:15 noffke Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -32,6 +32,8 @@ public class ClientRequestInfoImpl
     public org.jacorb.orb.Delegate delegate = null;
     public org.jacorb.orb.ORB orb = null;
 
+    public org.jacorb.orb.connection.RequestOutputStream request_os = null;
+    public org.jacorb.orb.connection.ReplyInputStream reply_is = null;
 
     public ClientRequestInfoImpl() 
     {
