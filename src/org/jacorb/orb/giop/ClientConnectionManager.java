@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.3 2003-04-22 10:02:26 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.4 2003-04-26 17:38:25 andre.spiegel Exp $
  *
  */
 
@@ -195,17 +195,23 @@ public class ClientConnectionManager
     }
 
 
+
+
     public synchronized void addConnection( GIOPConnection connection )
     {
-        org.omg.ETF.Profile profile = connection.getTransport().get_server_profile();
-            
+        addConnection ( connection,
+                        connection.getTransport().get_server_profile() );
+    }
+
+    public synchronized void addConnection( GIOPConnection connection,
+                                            org.omg.ETF.Profile profile )
+    {
         if( !connections.containsKey( profile ))
         {
-
             ClientConnection c = new ClientConnection
             ( 
                 connection, orb, this, 
-                ((InternetIOPProfile)profile).getAddress().toString(), 
+                profile.toString(),
                 false 
             );
 
