@@ -26,7 +26,7 @@ import org.omg.GIOP.*;
 /**
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.8.4.2 2001-08-10 17:47:14 jacorb Exp $
+ * @version $Id: RequestInputStream.java,v 1.8.4.3 2001-08-15 09:04:58 jacorb Exp $
  * 
  */
 
@@ -36,7 +36,7 @@ public class RequestInputStream
     public RequestHeader_1_2 req_hdr = null;
 
     protected int giop_minor = -1;
-    public int msg_length = -1;
+    private int msg_size = -1;
 
     /**
      * used by subclass, flag is a dummy
@@ -69,11 +69,16 @@ public class RequestInputStream
         //and 1.1/1.2
         setLittleEndian( Messages.isLittleEndian( buffer ));
 
+        msg_size = Messages.getMsgSize( buffer );
+
         //skip the message header. Its attributes are read directly
         skip( Messages.MSG_HEADER_SIZE );	    
 
         giop_minor = Messages.getGIOPMinor( buffer );
-        
+
+        //tell CDR stream which version to use
+        super.setGIOPMinor( giop_minor );
+
         switch( giop_minor )
         { 
             case 0 : 
@@ -136,6 +141,24 @@ public class RequestInputStream
     public int getGIOPMinor()
     {
         return giop_minor;
+    }
+    
+    //needed for Appligator
+    public int getMsgSize()
+    {
+        return msg_size;
+    }
+
+    public void finalize()
+    {
+	try
+	{
+	    close();
+	}
+	catch( java.io.IOException iox )
+	{
+	    //ignore
+	}
     }
 }
 

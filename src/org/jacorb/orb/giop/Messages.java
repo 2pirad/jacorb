@@ -26,7 +26,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.5.4.2 2001-08-10 17:47:13 jacorb Exp $
+ * @version $Id: Messages.java,v 1.5.4.3 2001-08-15 09:04:57 jacorb Exp $
  *
  */
 
@@ -240,6 +240,12 @@ public class Messages
         return (0x01 & buf[6]) != 0;
     }
 
+    public static final boolean isFragmented( byte[] buf )
+    {
+        //this is new for GIOP 1.1/1.2
+        return (0x02 & buf[6]) != 0;
+    }
+    
     public static final int getMsgType( byte[] buf )
     {
         return buf[7];
