@@ -32,7 +32,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.15 2003-10-16 12:28:27 steve.osselton Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.16 2003-11-29 15:19:55 andre.spiegel Exp $
  */
 public abstract class ReplyPlaceholder
 {
@@ -43,28 +43,11 @@ public abstract class ReplyPlaceholder
 
     protected MessageInputStream in = null;
 
-    protected int timeout = -1;
+    protected int timeout = Environment.clientPendingReplyTimeout();
 
     public ReplyPlaceholder()
     {
-        //get the client-side timeout property value
-        String prop =
-            Environment.getProperty( "jacorb.connection.client.pending_reply_timeout" );
-
-        if( prop != null )
-        {
-            try
-            {
-                timeout = Integer.parseInt(prop);
-            }
-            catch( NumberFormatException nfe )
-            {
-                Debug.output( 1, "Unable to create int from string >" +
-                              prop + '<' );
-                Debug.output( 1, "Please check property \"jacorb.connection.client.pending_reply_timeout\"" );
-            }
-        }
-
+        super();
     }
 
     public synchronized void replyReceived( MessageInputStream in )
