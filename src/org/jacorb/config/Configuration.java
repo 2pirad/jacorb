@@ -55,7 +55,7 @@ import org.jacorb.util.ObjectUtil;
  * retreive their Logger objects.
  * 
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.8 2004-07-12 11:46:10 simon.mcqueen Exp $
+ * @version $Id: Configuration.java,v 1.9 2004-08-25 09:31:41 simon.mcqueen Exp $
  */
 
 public class Configuration
@@ -499,6 +499,15 @@ public class Configuration
         return loggerFactory.getNamedLogger(name);
     }
     
+    public static final String getLoggerName(Class clz)
+    {
+        String packageName = clz.getPackage().getName();
+        if (packageName != null && packageName.startsWith("org.jacorb"))
+        {
+            return packageName.substring(4);
+        }
+        return packageName;
+    }
 
     /**
      * For a property that has a list of comma-separated values,

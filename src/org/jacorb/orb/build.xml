@@ -6,8 +6,8 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.22 2004-06-21 21:26:00 david.robison Exp $ -->
-  <!-- $Id: build.xml,v 1.22 2004-06-21 21:26:00 david.robison Exp $ -->
+  <!-- $Id: build.xml,v 1.23 2004-08-25 09:31:41 simon.mcqueen Exp $ -->
+  <!-- $Id: build.xml,v 1.23 2004-08-25 09:31:41 simon.mcqueen Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -41,7 +41,7 @@
 
    <target name="compile">
       <antcall target="jacorb-javac">
-         <param name="javac-includes" value="org/jacorb/orb/*.java,org/jacorb/orb/iiop/*.java,org/jacorb/orb/dii/*.java,org/jacorb/orb/dsi/*.java,org/jacorb/orb/dynany/*.java,org/jacorb/orb/policies/*.java,org/jacorb/orb/factory/*.java,org/jacorb/orb/portableInterceptor/*.java,org/jacorb/orb/giop/*.java,org/jacorb/orb/rmi/*.java,org/jacorb/orb/util/*.java"/>
+         <param name="javac-includes" value="org/jacorb/orb/*.java,org/jacorb/orb/iiop/*.java,org/jacorb/orb/dii/*.java,org/jacorb/orb/dsi/*.java,org/jacorb/orb/dynany/*.java,org/jacorb/orb/etf/*.java,org/jacorb/orb/policies/*.java,org/jacorb/orb/factory/*.java,org/jacorb/orb/portableInterceptor/*.java,org/jacorb/orb/giop/*.java,org/jacorb/orb/rmi/*.java,org/jacorb/orb/util/*.java"/>
       </antcall>
    </target>
 

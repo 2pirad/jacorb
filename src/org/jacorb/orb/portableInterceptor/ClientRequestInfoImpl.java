@@ -37,7 +37,7 @@ import org.jacorb.orb.iiop.IIOPProfile;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.24 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.25 2004-08-25 09:31:41 simon.mcqueen Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -94,10 +94,10 @@ public class ClientRequestInfoImpl
              this.target = self;
 
          Profile profile = pior.getEffectiveProfile();
-         if (profile instanceof IIOPProfile)
+         if (profile instanceof org.jacorb.orb.etf.ProfileBase)
          {
-             this.effective_profile    = ((IIOPProfile)profile).asTaggedProfile();
-             this.effective_components = ((IIOPProfile)profile).getComponents().asArray();
+             this.effective_profile    = ((org.jacorb.orb.etf.ProfileBase)profile).asTaggedProfile();
+             this.effective_components = ((org.jacorb.orb.etf.ProfileBase)profile).getComponents().asArray();
          }
 
          if ( this.effective_components == null )

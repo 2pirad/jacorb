@@ -23,11 +23,9 @@ package org.jacorb.orb.iiop;
 import java.io.*;
 import java.net.*;
 
-import org.apache.avalon.framework.logger.Logger;
 import org.apache.avalon.framework.configuration.*;
 
-import org.jacorb.orb.*;
-import org.jacorb.orb.iiop.*;
+import org.jacorb.orb.IIOPAddress;
 
 /**
  * ServerIIOPConnection.java
@@ -36,15 +34,12 @@ import org.jacorb.orb.iiop.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.3 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.4 2004-08-25 09:31:41 simon.mcqueen Exp $
  */
 
 public class ServerIIOPConnection
     extends IIOPConnection
-    implements Configurable
 {
-    private boolean is_ssl;
-    private IIOPProfile profile;
 
     public ServerIIOPConnection( Socket socket,
                                  boolean is_ssl )
@@ -54,7 +49,7 @@ public class ServerIIOPConnection
 
         this.socket = socket;
         //        socket.setTcpNoDelay( true );
-        this.is_ssl = is_ssl;
+        this.use_ssl = is_ssl;
 
         in_stream = socket.getInputStream();
         out_stream = new BufferedOutputStream(socket.getOutputStream());
@@ -66,8 +61,6 @@ public class ServerIIOPConnection
         throws ConfigurationException
     {
         super.configure(configuration);
-        //get the client-side timeout property value
-
 
         IIOPAddress address = new IIOPAddress
         (
@@ -129,16 +122,5 @@ public class ServerIIOPConnection
     public void connect (org.omg.ETF.Profile server_profile, long time_out)
     {
         //can't reconnect
-    }
-
-    public boolean isSSL()
-    {
-        return is_ssl;
-    }
-
-    public org.omg.ETF.Profile get_server_profile()
-    {
-        return profile;
-    }
-    
-}// Server_TCP_IP_Transport
+    }   
+}
