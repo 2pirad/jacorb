@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ImR build file                         -->
-  <!-- $Id: build.xml,v 1.5 2001-04-11 07:40:00 noffke Exp $ -->
+  <!-- $Id: build.xml,v 1.6 2001-11-09 09:55:43 jacorb Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -37,7 +37,6 @@
    </target>
 
    <target name="idlcompile">
-   <echo message="imr.idlcompile, classdir ${classdir}"/>
       <java classname="org.jacorb.idl.parser" 
             classpath="${classpath}"
 	    fork="yes">
@@ -46,7 +45,6 @@
    </target>
 
    <target name="util" if="java2.present">
-	   <echo message="util"/>
 	<javac srcdir="${src}"
                destdir="${classdir}"
 	       includes="org/jacorb/imr/util/*.java"
