@@ -51,7 +51,7 @@ import org.omg.CORBA.TRANSIENT;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.10 2004-04-28 12:37:28 brose Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.11 2004-05-03 04:57:06 andre.spiegel Exp $
  */
 
 public class ClientIIOPConnection
@@ -131,21 +131,8 @@ public class ClientIIOPConnection
             }
 
             checkSSL();
-            int retries;
-            if( time_out == 0 )
-            {
-               //user has specified no timout or infinite timeout (0)
-               //so we can use retries
-               retries = noOfRetries;
-            }
-            else
-            {
-               //user has explicitly defined a timeout for request
-               //so he expects, that the operation shall only use (block) the
-               //specified amount of time --> use this time and do not retry
-               retries = 0;
-            }
 
+            int retries = noOfRetries;
             while( retries >= 0 )
             {
                 try
