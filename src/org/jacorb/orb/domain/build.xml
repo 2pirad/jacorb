@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--            domain     build file                     -->
-  <!-- $Id: build.xml,v 1.6 2002-03-12 11:32:46 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.7 2002-03-27 12:27:57 jason.courage Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -101,7 +101,6 @@
    </target>
 
    <target name="gui1" if="java2">
-   <echo message="gui1 ausgefuehrt" />
 	<javac debug="${debug}" srcdir="${dsrc}"
                destdir="${dclassdir}"
                bootclasspath="${dirs.base}/classes:${java.home}/lib/rt.jar"
@@ -114,7 +113,6 @@
    </target>
 
    <target name="gui2" unless="java2">
- <echo message="gui2 ausgefuehrt" />
 	<javac debug="${debug}" srcdir="${dsrc}"
                destdir="${dclassdir}"
 	       includes="org/jacorb/orb/domain/gui/**/*.java"
