@@ -40,7 +40,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.17 2002-11-26 16:45:35 nicolas Exp $
+ * @version $Id: GIOPConnection.java,v 1.18 2002-12-11 22:37:47 david.robison Exp $
  */
 
 public final class GIOPConnection
@@ -646,13 +646,19 @@ public final class GIOPConnection
 
     public Object get_cubby(int id)
     {
-        if (id < 0 || id >= cubby_count) return null;
+        if (id < 0 || id >= cubby_count) {
+            Debug.output(1, "Get bad cubby id "+id+" (max="+cubby_count+")");
+            return null;
+        }
         return cubbyholes[id];
     }
 
     public void set_cubby(int id, Object obj)
     {
-        if (id < 0 || id >= cubby_count) return;
+        if (id < 0 || id >= cubby_count) {
+            Debug.output(1, "Set bad cubby id "+id+" (max="+cubby_count+")");
+            return;
+        }
         cubbyholes[id] = obj;
     }
 
