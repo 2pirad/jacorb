@@ -29,7 +29,7 @@ import  org.omg.CosNaming.NamingContextPackage.*;
  * between Names and their string representation
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Name.java,v 1.6 2002-03-19 09:25:16 nicolas Exp $ 
+ * @version $Id: Name.java,v 1.7 2002-05-06 14:39:27 gerald Exp $ 
  */
 
 public class Name
@@ -236,13 +236,15 @@ public class Name
     }
 
     /**
-     * @returns an a array of NameComponents
+     *
+     * @return an a array of NameComponents
+     * @throw org.omg.CosNaming.NamingContextPackage.InvalidName
      */
 
-    public static org.omg.CosNaming.NameComponent[] toName(String sn) 
+    public static org.omg.CosNaming.NameComponent[] toName( String sn ) 
 	throws org.omg.CosNaming.NamingContextPackage.InvalidName
     {
-	if( sn.startsWith("/"))
+	if( sn == null || sn.length() == 0 || sn.startsWith("/"))
 	    throw new InvalidName();
 
 	Vector v = new Vector();
@@ -321,14 +323,5 @@ public class Name
 	return sb.toString();
     }
 
-
 }
-
-
-
-
-
-
-
-
 

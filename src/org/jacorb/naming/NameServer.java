@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  *	The name server application
  * 
  *	@author Gerald Brose, FU Berlin
- *	@version $Id: NameServer.java,v 1.6 2002-03-19 09:25:16 nicolas Exp $
+ *	@version $Id: NameServer.java,v 1.7 2002-05-06 14:39:27 gerald Exp $
  */
 
 
@@ -278,22 +278,5 @@ public class NameServer
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -34,7 +34,7 @@ import org.jacorb.util.Environment;
  *      The actual implementation for the CORBAService Naming
  * 
  *      @author Gerald Brose, FU Berlin
- *      @version $Id: NamingContextImpl.java,v 1.7 2002-03-19 09:25:16 nicolas Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.8 2002-05-06 14:39:27 gerald Exp $
  *
  */
 
@@ -698,12 +698,13 @@ public class NamingContextImpl
 
     /**
      * convert a string into name
+     * @throw InvalidName
      */
 
-    public NameComponent[] to_name(String sn) 
+    public NameComponent[] to_name( String sn ) 
         throws InvalidName
     {
-        return Name.toName(sn);
+        return Name.toName( sn );
     }
 
 

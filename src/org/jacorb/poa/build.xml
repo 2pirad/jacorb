@@ -3,7 +3,7 @@
 <project name="poa" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
-  <!-- $Id: build.xml,v 1.5 2002-03-12 11:32:47 jason.courage Exp $ -->
+  <!-- $Id: build.xml,v 1.6 2002-05-06 14:38:21 gerald Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init">
@@ -14,13 +14,19 @@
 	<available classname="javax.swing.JTree" property="swing.present" />
    </target>
 
-   <target name="all" depends="init,base,gui"/>
+   <target name="all" depends="init,util,base,gui"/>
 	
-
    <target name="base">
 	<javac debug="${debug}" srcdir="${src}"
                destdir="${classdir}"
-	       includes="org/jacorb/poa/**.java,org/jacorb/poa/except/*.java,org/jacorb/poa/policy/*.java,org/jacorb/poa/util/*.java"
+	       includes="org/jacorb/poa/except/*.java,org/jacorb/poa/policy/*.java,org/jacorb/poa/**.java"
+	        />
+   </target>
+
+   <target name="util">
+	<javac debug="${debug}" srcdir="${src}"
+               destdir="${classdir}"
+	       includes="org/jacorb/poa/util/*.java"
 	        />
    </target>
 

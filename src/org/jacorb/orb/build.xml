@@ -4,7 +4,7 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.13 2002-03-13 08:48:24 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.14 2002-05-06 14:36:51 gerald Exp $ -->
   <!-- ==================================================== -->
 
    <target name="init" depends="javatest">
@@ -18,7 +18,7 @@
                    property="rmi.iiop.present"/>
    </target>
 
-   <target name="all" depends="init,reference-without-rmi,reference-with-rmi,domain,compile,dns"/> <!-- ir -->
+   <target name="all" depends="init,reference-without-rmi,reference-with-rmi,compile,dns"/> <!-- ir -->
 
    <target name="reference-without-rmi" unless="rmi.iiop.present">
         <echo message="RMI/IIOP not present, using old Reference inheritance."/>
