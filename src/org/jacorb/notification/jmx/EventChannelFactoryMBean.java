@@ -23,10 +23,12 @@ package org.jacorb.notification.jmx;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryMBean.java,v 1.1 2004-08-19 09:35:06 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryMBean.java,v 1.2 2004-08-19 15:23:05 alphonse.bendt Exp $
  */
 public interface EventChannelFactoryMBean
 {
     String start();
     String stop();
+    String getIOR();
+    String getCorbaloc();
 }
