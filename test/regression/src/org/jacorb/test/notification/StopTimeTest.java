@@ -24,11 +24,11 @@ package org.jacorb.test.notification;
 import java.util.Date;
 import java.util.HashSet;
 
+import junit.framework.Test;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.util.Time;
-
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.EventHeader;
 import org.omg.CosNotification.EventType;
@@ -36,19 +36,15 @@ import org.omg.CosNotification.FixedEventHeader;
 import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StartTime;
 import org.omg.CosNotification.StopTime;
+import org.omg.CosNotification.StopTimeSupported;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
 import org.omg.TimeBase.UtcT;
 import org.omg.TimeBase.UtcTHelper;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import org.omg.CosNotification.StopTimeSupported;
-import org.jacorb.test.common.TestUtils;
-
 /**
  * @author Alphonse Bendt
- * @version $Id: StopTimeTest.java,v 1.11 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: StopTimeTest.java,v 1.12 2004-05-01 09:37:17 alphonse.bendt Exp $
  */
 
 public class StopTimeTest extends NotificationTestCase

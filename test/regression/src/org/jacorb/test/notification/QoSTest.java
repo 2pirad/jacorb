@@ -21,8 +21,9 @@ package org.jacorb.test.notification;
  *
  */
 
-import org.jacorb.test.common.TestUtils;
+import java.util.Iterator;
 
+import junit.framework.Test;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.IntHolder;
 import org.omg.CosNotification.AnyOrder;
@@ -33,7 +34,6 @@ import org.omg.CosNotification.DiscardPolicy;
 import org.omg.CosNotification.EventReliability;
 import org.omg.CosNotification.FifoOrder;
 import org.omg.CosNotification.LifoOrder;
-import org.omg.CosNotification.MaxEventsPerConsumer;
 import org.omg.CosNotification.OrderPolicy;
 import org.omg.CosNotification.Persistent;
 import org.omg.CosNotification.Priority;
@@ -42,20 +42,10 @@ import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
-import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
-
-import java.util.Iterator;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import org.omg.CosNotification.StartTimeSupported;
 
 /**
- * Created: Mon Aug 11 21:21:21 2003
- *
  * @author Alphonse Bendt
- * @version $Id: QoSTest.java,v 1.6 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: QoSTest.java,v 1.7 2004-05-01 09:37:17 alphonse.bendt Exp $
  */
 
 public class QoSTest extends NotificationTestCase
@@ -161,8 +151,8 @@ public class QoSTest extends NotificationTestCase
 
         EventChannel channel =
             getFactory().create_channel( qosProps,
-                                                   new Property[0],
-                                                   channelId);
+					 new Property[0],
+					 channelId);
 
         // testdata
         StructuredEvent[] events = new StructuredEvent[10];
