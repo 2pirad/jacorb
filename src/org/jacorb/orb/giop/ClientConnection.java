@@ -35,7 +35,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.29 2002-10-21 07:49:54 nicolas Exp $
+ * @version $Id: ClientConnection.java,v 1.30 2002-11-13 13:50:29 nicolas Exp $
  */
 
 public class ClientConnection
@@ -246,6 +246,8 @@ public class ClientConnection
     public void replyReceived( byte[] reply,
                                GIOPConnection connection )
     {
+        connection.decPendingMessages();
+
         Integer key = new Integer( Messages.getRequestId( reply ));
 
         ReplyPlaceholder placeholder = null;
@@ -271,6 +273,8 @@ public class ClientConnection
     public void locateReplyReceived( byte[] reply,
                                      GIOPConnection connection )
     {
+        connection.decPendingMessages();
+
         Integer key = new Integer( Messages.getRequestId( reply ));
 
         ReplyPlaceholder placeholder = null;
@@ -315,27 +319,6 @@ public class ClientConnection
             //the underlying connection closed.
 
             conn_mg.removeConnection( this );
-        }
-    }
-
-    public void connectionTimedOut()
-    {
-        synchronized( replies )
-        {
-            if( replies.size() > 0 )
-            {
-                Debug.output( 1, "ERROR: Read timed out. Lost " +
-                              replies.size() + " outstanding replie(s)!");
-            }
-
-            for( Enumeration keys = replies.keys();
-                 keys.hasMoreElements(); )
-            {
-                ReplyPlaceholder placeholder =
-                    (ReplyPlaceholder) replies.remove( keys.nextElement() );
-
-                placeholder.timeout();
-            }
         }
     }
 

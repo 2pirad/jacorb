@@ -33,7 +33,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke
- * @version $Id: TCP_IP_Transport.java,v 1.10 2002-10-21 07:49:54 nicolas Exp $
+ * @version $Id: TCP_IP_Transport.java,v 1.11 2002-11-13 13:50:29 nicolas Exp $
  */
 
 public abstract class TCP_IP_Transport
@@ -183,18 +183,17 @@ public abstract class TCP_IP_Transport
                     );
                 }
                 close( READ_TIMED_OUT );
-                throw new TimeOutException( "Socket read timed out" );
             }
             catch( SocketException se )
             {
                 close( STREAM_CLOSED );
-                throw new StreamClosedException( "Socket stream closed" );
+                return -1;
             }
 
             if( n < 0 )
             {
                 close( STREAM_CLOSED );
-                throw new StreamClosedException( "Socket stream closed" );
+                return -1;
             }
 
             read += n;

@@ -40,7 +40,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.15 2002-10-28 20:32:07 david.robison Exp $
+ * @version $Id: GIOPConnection.java,v 1.16 2002-11-13 13:50:29 nicolas Exp $
  */
 
 public final class GIOPConnection
@@ -185,13 +185,6 @@ public final class GIOPConnection
                 }
 
                 throw cce;
-            }
-            catch( TimeOutException toe )
-            {
-                if( connection_listener != null )
-                {
-                    connection_listener.connectionTimedOut();
-                }
             }
             catch( StreamClosedException sce )
             {
@@ -481,7 +474,7 @@ public final class GIOPConnection
         }
     }
 
-    private  final void releaseWriteLock()
+    private final void releaseWriteLock()
     {
         synchronized( write_sync )
         {
@@ -491,7 +484,7 @@ public final class GIOPConnection
         }
     }
 
-    public void incPendingMessages()
+    public final void incPendingMessages()
     {
         if( ++pending_messages > 0 )
         {
@@ -499,7 +492,7 @@ public final class GIOPConnection
         }
     }
 
-    private void decPendingMessages()
+    public final void decPendingMessages()
     {
         if( --pending_messages == 0 )
         {
@@ -507,7 +500,7 @@ public final class GIOPConnection
         }
     }
 
-    public boolean hasPendingMessages()
+    public final boolean hasPendingMessages()
     {
         return pending_messages == 0;
     }
@@ -516,7 +509,7 @@ public final class GIOPConnection
      * write (a fragment of) the message (passes it on to the wire)
      */
 
-    public  final void write( byte[] fragment, int start, int size )
+    public final void write( byte[] fragment, int start, int size )
         throws IOException
     {
         transport.write( fragment, start, size );
@@ -524,7 +517,7 @@ public final class GIOPConnection
 
     /* pro forma implementations of io.OutputStream methods */
 
-    public  final void write(int i)
+    public final void write(int i)
         throws java.io.IOException
     {
         throw new org.omg.CORBA.NO_IMPLEMENT();

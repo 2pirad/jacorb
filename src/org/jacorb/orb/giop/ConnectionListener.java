@@ -27,12 +27,11 @@ package org.jacorb.orb.connection;
  * Created: Thu Oct  4 15:56:02 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ConnectionListener.java,v 1.3 2002-07-01 07:54:16 nicolas Exp $
+ * @version $Id: ConnectionListener.java,v 1.4 2002-11-13 13:50:29 nicolas Exp $
  */
 
 public interface ConnectionListener 
 {   
     public void connectionClosed();
-    public void connectionTimedOut();
     public void streamClosed();
 }// ConnectionListener
