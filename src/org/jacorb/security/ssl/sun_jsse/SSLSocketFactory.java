@@ -23,7 +23,7 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.4 2001-11-19 09:46:05 jacorb Exp $
+ * $Id: SSLSocketFactory.java,v 1.5 2001-11-19 10:53:42 jacorb Exp $
  */
 
 import org.jacorb.security.level2.*;
@@ -36,6 +36,8 @@ import javax.net.ssl.*;
 import javax.net.*;
 import java.security.*;
 
+//uncomment this line if you want to compile with the separately
+//available jsse1.0.2
 //import com.sun.net.ssl.*;
 
 public class SSLSocketFactory 
@@ -78,6 +80,8 @@ public class SSLSocketFactory
 
     private SocketFactory createSocketFactory() 
     {
+        //uncomment this line if you want to compile with the separately
+        //available jsse1.0.2
         //Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
 
 	try 

@@ -3,12 +3,14 @@ package org.jacorb.security.ssl.sun_jsse;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.4 2001-11-19 09:46:05 jacorb Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.5 2001-11-19 10:53:42 jacorb Exp $
  */
 import org.jacorb.util.*;
 import org.jacorb.security.util.*;
 import org.jacorb.security.level2.*;
 
+//uncomment this line if you want to compile with the separately
+//available jsse1.0.2
 //import com.sun.net.ssl.*;
 
 import java.net.*;
@@ -26,6 +28,8 @@ public class SSLServerSocketFactory
 
     public SSLServerSocketFactory( org.jacorb.orb.ORB orb )
     {
+        //uncomment this line if you want to compile with the separately
+        //available jsse1.0.2
         //Security.addProvider( new com.sun.net.ssl.internal.ssl.Provider() );
 
 	factory = createServerSocketFactory();
