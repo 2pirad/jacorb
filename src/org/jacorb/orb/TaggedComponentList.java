@@ -11,9 +11,9 @@ import org.omg.IOP.*;
  * generic methods to find and access individual components.
  * <p>
  * @author Andre Spiegel
- * @version $Id: TaggedComponentList.java,v 1.3 2003-04-14 15:33:07 andre.spiegel Exp $
+ * @version $Id: TaggedComponentList.java,v 1.4 2003-04-29 09:22:57 andre.spiegel Exp $
  */
-public class TaggedComponentList
+public class TaggedComponentList implements Cloneable
 {
 	private TaggedComponent[] components = null;
 	
@@ -54,6 +54,24 @@ public class TaggedComponentList
 	{
 		return components[index];
 	}
+    
+    public Object clone() throws CloneNotSupportedException
+    {
+        TaggedComponentList result = (TaggedComponentList)super.clone();
+        result.components = new TaggedComponent[this.components.length];
+        for (int i=0; i<this.components.length; i++)
+        {
+            result.components[i] = new TaggedComponent
+            (
+                this.components[i].tag,
+                new byte [this.components[i].component_data.length]
+            );
+            System.arraycopy (this.components[i].component_data, 0,
+                              result.components[i].component_data, 0,
+                              this.components[i].component_data.length);   
+        }
+        return result;
+    }
 	
 	public TaggedComponent[] asArray()
 	{
