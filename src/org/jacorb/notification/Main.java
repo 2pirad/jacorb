@@ -26,7 +26,7 @@ import org.tanukisoftware.wrapper.WrapperManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Main.java,v 1.8 2004-02-14 12:41:59 alphonse.bendt Exp $
+ * @version $Id: Main.java,v 1.9 2004-03-03 12:32:50 alphonse.bendt Exp $
  */
 
 public class Main implements WrapperListener
@@ -49,6 +49,12 @@ public class Main implements WrapperListener
         try
         {
             application_ = EventChannelFactoryImpl.newFactory( args );
+
+            application_.setDestroyMethod(new Runnable() {
+                    public void run() {
+                        WrapperManager.stop(0);
+                    }
+                });
 
             return null;
         }
