@@ -44,7 +44,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.86 2003-04-01 16:23:50 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.87 2003-04-02 14:45:41 nick.cross Exp $
  */
 
 public final class ORB
@@ -1946,23 +1946,50 @@ public final class ORB
      * of a corresponding configuration property in the properties
      * file, e.g. map "NameService" to "StandardNS/NameServer-POA/_root"
      *
-     * @returns the mapped key, if a mapping is defined, originalKey otherwise
+     * @param originalKey a <code>byte[]</code> value containing the original
+     * key.
+     * @return a <code>byte[]</code> value containing the mapped key, if a
+     * mapping is defined, originalKey otherwise.
      */
 
     public byte[] mapObjectKey( byte[] originalKey )
     {
+        BufferedReader br        = null;
+        File           iorFile   = null;
+        ParsedIOR      pIOR      = null;
+        String         found     = null;
+        String         original  = null;
+
         if( objectKeyMap.size() != 0 )
         {
-            String s = new String( originalKey );
-            Object o = objectKeyMap.get( s );
-            if( o != null )
+            original = new String( originalKey );
+            found    = (String)objectKeyMap.get( original );
+
+            if( found != null )
             {
-                return org.jacorb.orb.util.CorbaLoc.parseKey((String)o);
+                if ( ParsedIOR.isParsableProtocol ( found ) )
+                {
+                    // We have found a file reference. Use ParsedIOR to get
+                    // the byte key.
+                    try
+                    {
+                        pIOR = new ParsedIOR( found, this );
+                        return pIOR.get_object_key();
+                    }
+                    catch ( IllegalArgumentException e )
+                    {
+                        Debug.output( 2, "Error - could not read protocol " + found );
+                        return originalKey;
+                    }
+                }
+                else
+                {
+                    return org.jacorb.orb.util.CorbaLoc.parseKey(found);
+                }
             }
         }
         // else:
         return originalKey;
-
     }
 
     /**

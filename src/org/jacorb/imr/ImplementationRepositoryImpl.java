@@ -49,7 +49,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.37 2003-04-01 15:44:47 nick.cross Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.38 2003-04-02 14:45:41 nick.cross Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1364,10 +1364,12 @@ public class ImplementationRepositoryImpl
         {
 	}
 
-	/**
-	 *	receive and dispatch requests
-	 */
-
+        /**
+         * receive and dispatch requests
+         *
+         * @param request a <code>byte[]</code> value
+         * @param connection a <code>GIOPConnection</code> value
+         */
         public void requestReceived( byte[] request,
                                      GIOPConnection connection )
         {
@@ -1375,7 +1377,7 @@ public class ImplementationRepositoryImpl
 
             RequestInputStream in = new RequestInputStream( orb, request );
 
-            replyNewLocation( in.req_hdr.target.object_key(),
+            replyNewLocation( ((org.jacorb.orb.ORB)orb).mapObjectKey( in.req_hdr.target.object_key() ),
                               in.req_hdr.request_id,
                               in.getGIOPMinor(),
                               connection );
