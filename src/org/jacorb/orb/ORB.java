@@ -50,7 +50,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.106 2003-12-16 08:42:56 gerald Exp $
+ * @version $Id: ORB.java,v 1.107 2003-12-16 13:37:23 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -507,7 +507,8 @@ public final class ORB
         {
             IORInfoImpl info = new IORInfoImpl (this, poa,
                                                 componentMap,
-                                                policy_overrides);
+                                                policy_overrides,
+                                                profiles);
             try
             {
                 interceptor_manager.getIORIterator().iterate( info );
