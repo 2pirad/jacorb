@@ -25,7 +25,7 @@ import org.jacorb.util.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.6 2003-08-15 11:04:40 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.7 2003-11-07 14:15:53 francisco Exp $
  */
 
 public class GIOPConnectionManager 
@@ -69,7 +69,7 @@ public class GIOPConnectionManager
                 try
                 {
                     statistics_provider_class =
-                        Class.forName( s );
+                        Environment.classForName( s );
                 }
                 catch( Exception e )
                 {

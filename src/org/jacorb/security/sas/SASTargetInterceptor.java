@@ -52,7 +52,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  * This is the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASTargetInterceptor.java,v 1.7 2003-09-24 18:09:39 david.robison Exp $
+ * @version $Id: SASTargetInterceptor.java,v 1.8 2003-11-07 14:15:54 francisco Exp $
  */
 
 public class SASTargetInterceptor
@@ -120,7 +120,7 @@ public class SASTargetInterceptor
         String validatorClass = org.jacorb.util.Environment.getProperty("jacorb.security.sas.tss.context_validator");
         if (validatorClass != null) {
             try {
-              Class c = Class.forName(validatorClass);
+              Class c = Environment.classForName(validatorClass);
               contextValidator = (ISASContextValidator)c.newInstance();
             } catch (Exception e) {
               Debug.output("Could not instantiate class " + validatorClass + ": " + e);

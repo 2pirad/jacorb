@@ -24,13 +24,14 @@ import org.omg.CORBA.*;
 import org.omg.CORBA.portable.*;
 import java.lang.reflect.*;
 import org.jacorb.ir.RepositoryID;
+import org.jacorb.util.Environment;
 
 /**
  * This class provides a method for inserting an arbirtary
  * application exception into an any.
  *
  * @author Nicolas Noffke
- * @version $Id: ApplicationExceptionHelper.java,v 1.13 2003-04-01 13:32:28 nick.cross Exp $
+ * @version $Id: ApplicationExceptionHelper.java,v 1.14 2003-11-07 14:15:53 francisco Exp $
  */
 
 public class ApplicationExceptionHelper
@@ -58,8 +59,8 @@ public class ApplicationExceptionHelper
 
         // Get various required classes
 
-        Class exClass = Class.forName (name);
-        Class helperClass = Class.forName (helperName);
+        Class exClass = Environment.classForName (name);
+        Class helperClass = Environment.classForName (helperName);
         Class anyClass = org.omg.CORBA.Any.class;
         Class isClass = org.omg.CORBA.portable.InputStream.class;
 

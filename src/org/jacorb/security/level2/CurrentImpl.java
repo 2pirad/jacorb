@@ -32,7 +32,7 @@ import org.jacorb.util.*;
 /**
  *
  * @author Nicolas Noffke, Gerald Brose, Andrý Benvenuti
- * @version $Id: CurrentImpl.java,v 1.12 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: CurrentImpl.java,v 1.13 2003-11-07 14:15:54 francisco Exp $
  *
  */
 
@@ -68,7 +68,8 @@ public class CurrentImpl
         try
         {
             Class ad_class = 
-                Class.forName(Environment.getProperty("jacorb.security.access_decision"));
+                Environment.classForName(
+                    Environment.getProperty("jacorb.security.access_decision"));
 
             access_decision = (AccessDecision) ad_class.newInstance();
         }
@@ -103,7 +104,7 @@ public class CurrentImpl
     {
         try
         {
-            Class pa_class = Class.forName( class_name );
+            Class pa_class = Environment.classForName( class_name );
             
             Constructor[] constructors = pa_class.getConstructors();
             

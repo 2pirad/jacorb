@@ -47,7 +47,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.102 2003-10-30 14:52:28 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.103 2003-11-07 14:15:53 francisco Exp $
  */
 
 public final class ORB
@@ -1028,7 +1028,7 @@ public final class ORB
                 {
                     try
                     {
-                        Class currentClass = Class.forName( "org.jacorb.security.level2.CurrentImpl" );
+                        Class currentClass = Environment.classForName( "org.jacorb.security.level2.CurrentImpl" );
 
                         Constructor constr = currentClass.getConstructor( new Class[]{
                             org.omg.CORBA.ORB.class });
@@ -1304,7 +1304,7 @@ public final class ORB
         {
             try
             {
-                knownReferences = (Hashtable) Class.forName( s ).newInstance();
+                knownReferences = (Hashtable) Environment.classForName( s ).newInstance();
             }
             catch( Exception e )
             {
@@ -1359,7 +1359,7 @@ public final class ORB
         {
             try
             {
-                knownReferences = (Hashtable) Class.forName( s ).newInstance();
+                knownReferences = (Hashtable) Environment.classForName( s ).newInstance();
             }
             catch( Exception e )
             {
@@ -1739,24 +1739,14 @@ public final class ORB
         Class result = null;
         try
         {
-             //#ifjdk 1.2
-                result = Thread.currentThread().getContextClassLoader()
-                                               .loadClass (name);
-             //#else
-             //# result = Class.forName (name);
-             //#endif
+            result = Environment.classForName(name);
         }
         catch (ClassNotFoundException e)
         {
             if (orgomg && name.startsWith ("org.omg"))
                 try
                 {
-                     //#ifjdk 1.2
-                        result = Thread.currentThread().getContextClassLoader()
-                                       .loadClass ("omg.org" + name.substring(7));
-                     //#else
-                     //# result = Class.forName ("omg.org" + name.substring(7));
-                     //#endif
+                    result = Environment.classForName("omg.org" + name.substring(7));
                 }
                 catch (ClassNotFoundException x)
                 {

@@ -39,7 +39,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.38 2003-11-03 11:26:28 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.39 2003-11-07 14:15:53 francisco Exp $
  */
 public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 {
@@ -86,7 +86,7 @@ public class BasicAdapter extends org.omg.ETF._HandleLocalBase
 
                 try
                 {
-                    Class ssl = Class.forName( s );
+                    Class ssl = Environment.classForName( s );
 
                     Constructor constr = ssl.getConstructor( new Class[]{
                         org.jacorb.orb.ORB.class });

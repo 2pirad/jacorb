@@ -41,7 +41,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.56 2003-10-27 08:51:22 andre.spiegel Exp $
+ * @version $Id: ParsedIOR.java,v 1.57 2003-11-07 14:15:53 francisco Exp $
  */
 
 public class ParsedIOR
@@ -577,7 +577,7 @@ public class ParsedIOR
             Class[] types = new Class[1];
             java.lang.Object[] params = new java.lang.Object[1];
 
-            Class cls = Class.forName("javax.naming.InitialContext");
+            Class cls = Environment.classForName("javax.naming.InitialContext");
             java.lang.Object initialContext = cls.newInstance();
 
             types[0] = String.class;

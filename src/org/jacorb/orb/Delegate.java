@@ -61,7 +61,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.93 2003-10-30 10:03:13 nick.cross Exp $
+ * @version $Id: Delegate.java,v 1.94 2003-11-07 14:15:53 francisco Exp $
  *
  */
 
@@ -1120,7 +1120,7 @@ public final class Delegate
                 // This will only work if there is a correspondence between the Java class
                 // name and the Repository ID. If prefixes have been using then this mapping
                 // may have been lost.
-                Class stub = Class.forName( scn.toString());
+                Class stub = Environment.classForName( scn.toString());
                 Method idm = stub.getMethod ( "_ids", null );
                 String newids[] = (String[] )idm.invoke( stub.newInstance(),  new Object[] { } );
 

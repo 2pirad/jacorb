@@ -63,7 +63,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.5 2003-09-24 18:09:39 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.6 2003-11-07 14:15:54 francisco Exp $
  */
 
 public class SASClientInterceptor
@@ -91,7 +91,7 @@ public class SASClientInterceptor
 		String creatorClass = org.jacorb.util.Environment.getProperty("jacorb.security.sas.css.context_creator");
 		if (creatorClass != null) {
 			try {
-			  Class c = Class.forName(creatorClass);
+                          Class c = org.jacorb.util.Environment.classForName(creatorClass);
 			  contextCreator = (ISASContextCreator)c.newInstance();
 			} catch (Exception e) {
 			  Debug.output("Could not instantiate class " + creatorClass + ": " + e);

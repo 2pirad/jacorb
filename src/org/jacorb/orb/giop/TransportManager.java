@@ -37,7 +37,7 @@ import org.jacorb.util.*;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.15 2003-08-31 11:26:48 andre.spiegel Exp $
+ * @version $Id: TransportManager.java,v 1.16 2003-11-07 14:15:54 francisco Exp $
  * */
 
 public class TransportManager
@@ -75,7 +75,7 @@ public class TransportManager
             
             try
             {
-                Class ssl = Class.forName( s );
+                Class ssl = Environment.classForName( s );
                 
                 Constructor constr = ssl.getConstructor( new Class[]{
                     ORB.class });
@@ -164,11 +164,11 @@ public class TransportManager
     {
         try
         {
-            // Use the context class loader, because JacORB might be
-            // on the bootclasspath, and the external transport on the
-            // normal classpath.
-            ClassLoader cl = Thread.currentThread().getContextClassLoader();
-            Class c = cl.loadClass (className);
+            // Environment.classForName() uses the context class loader.
+            // This is important here because JacORB might be on the 
+            // bootclasspath, and the external transport on the normal 
+            // classpath.
+            Class c = Environment.classForName(className);
             return (Factories)c.newInstance();
         }
         catch (Exception e)

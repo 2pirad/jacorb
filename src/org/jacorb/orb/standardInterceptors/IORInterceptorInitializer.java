@@ -30,7 +30,7 @@ import org.jacorb.util.Environment;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.13 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.14 2003-11-07 14:15:54 francisco Exp $
  */
 
 public class IORInterceptorInitializer
@@ -66,7 +66,8 @@ public class IORInterceptorInitializer
             {
                 try
                 {
-                    Class sas = Class.forName ("org.jacorb.orb.standardInterceptors.SASComponentInterceptor");
+                    Class sas = Environment.classForName (
+                        "org.jacorb.orb.standardInterceptors.SASComponentInterceptor");
                     Constructor csas = sas.getConstructor
                         (new Class[] { orb.getClass () });
 

@@ -36,7 +36,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.11 2003-10-28 13:48:59 nick.cross Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.12 2003-11-07 14:15:53 francisco Exp $
  *
  */
 
@@ -79,7 +79,7 @@ public class ClientConnectionManager
 
             try
             {
-                Class ssl = Class.forName( s );
+                Class ssl = Environment.classForName( s );
 
                 Constructor constr = ssl.getConstructor( new Class[]{
                     ORB.class });
