@@ -32,7 +32,7 @@ import java.lang.Thread;
  * The poa manager class, an implementation of org.omg.PortableServer.POAManager
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAManager.java,v 1.9 2002-12-20 18:29:05 nicolas Exp $
+ * @version $Id: POAManager.java,v 1.10 2003-04-29 13:03:04 nick.cross Exp $
  */
 
 public class POAManager
@@ -202,7 +202,7 @@ public class POAManager
     }
 
 
-    synchronized protected POA getRegisteredPOA(String name)
+    protected synchronized POA getRegisteredPOA(String name)
     {
         POA result;
         Enumeration en = poas.elements();
@@ -283,7 +283,7 @@ public class POAManager
     }
 
 
-    synchronized protected void registerPOA(POA poa)
+    protected synchronized void registerPOA(POA poa)
     {
         if (!poas.contains(poa))
         {
@@ -299,7 +299,7 @@ public class POAManager
     }
 
 
-    synchronized protected void unregisterPOA(POA poa)
+    protected synchronized void unregisterPOA(POA poa)
     {
         poas.removeElement(poa);
         monitor.removePOA(poa._getQualifiedName());

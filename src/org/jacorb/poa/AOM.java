@@ -40,7 +40,7 @@ import org.omg.PortableServer.ServantActivator;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.21 2003-04-02 12:47:22 reimo Exp $
+ * @version $Id: AOM.java,v 1.22 2003-04-29 13:03:04 nick.cross Exp $
  */
 
 public class AOM
@@ -88,7 +88,7 @@ public class AOM
     }
 
 
-    synchronized protected void add( byte[] oid, Servant servant )
+    protected synchronized void add( byte[] oid, Servant servant )
         throws ObjectAlreadyActive, ServantAlreadyActive
     {
         ByteArrayKey oidbak = new ByteArrayKey (oid);
@@ -158,7 +158,7 @@ public class AOM
     }
 
 
-    synchronized protected StringPair[] deliverContent()
+    protected synchronized StringPair[] deliverContent()
     {
         StringPair[] result = new StringPair[objectMap.size()];
         ByteArrayKey oidbak;
@@ -200,7 +200,7 @@ public class AOM
 
 
 
-    synchronized protected Servant incarnate( byte[] oid,
+    protected synchronized Servant incarnate( byte[] oid,
                                               ServantActivator servant_activator,
                                               org.omg.PortableServer.POA poa )
         throws org.omg.PortableServer.ForwardRequest
