@@ -54,7 +54,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelHelper;
  * Created: Sun Aug 17 11:48:32 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ReleaseTasksTest.java,v 1.7 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: ReleaseTasksTest.java,v 1.8 2004-02-13 18:48:38 alphonse.bendt Exp $
  */
 
 public class ReleaseTasksTest extends NotificationTestCase
@@ -78,7 +78,7 @@ public class ReleaseTasksTest extends NotificationTestCase
         eventChannel_ = EventChannelHelper.narrow(eventChannelServant_.activate());
     }
 
-    public void tearDown() {
+    public void tearDown() throws Exception {
         super.tearDown();
 
         factory_.dispose();

@@ -24,7 +24,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredEventChannelTest.java,v 1.8 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: StructuredEventChannelTest.java,v 1.9 2004-02-13 18:48:38 alphonse.bendt Exp $
  */
 
 public class StructuredEventChannelTest extends NotificationTestCase
@@ -47,7 +47,7 @@ public class StructuredEventChannelTest extends NotificationTestCase
         super(name, setup);
     }
 
-    public void tearDown()
+    public void tearDown() throws Exception
     {
         super.tearDown();
     }

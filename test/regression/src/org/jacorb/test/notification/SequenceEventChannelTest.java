@@ -16,7 +16,7 @@ import org.jacorb.util.Debug;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceEventChannelTest.java,v 1.6 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: SequenceEventChannelTest.java,v 1.7 2004-02-13 18:48:38 alphonse.bendt Exp $
  */
 
 public class SequenceEventChannelTest extends NotificationTestCase {
@@ -30,7 +30,7 @@ public class SequenceEventChannelTest extends NotificationTestCase {
     }
 
 
-    public void tearDown() {
+    public void tearDown() throws Exception {
         super.tearDown();
     }
 

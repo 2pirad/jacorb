@@ -53,7 +53,7 @@ import org.omg.CORBA.BAD_QOS;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StopTimeTest.java,v 1.8 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: StopTimeTest.java,v 1.9 2004-02-13 18:48:38 alphonse.bendt Exp $
  */
 
 public class StopTimeTest extends NotificationTestCase
@@ -93,7 +93,7 @@ public class StopTimeTest extends NotificationTestCase
         structuredEvent_.remainder_of_body = getORB().create_any();
     }
 
-    public void tearDown() {
+    public void tearDown() throws Exception {
         messageFactory_.dispose();
 
         super.tearDown();

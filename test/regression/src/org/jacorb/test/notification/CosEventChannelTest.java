@@ -17,7 +17,7 @@ import org.apache.avalon.framework.logger.Logger;
  *  CosEvent Interfaces.
  *
  * @author Alphonse Bendt
- * @version $Id: CosEventChannelTest.java,v 1.6 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: CosEventChannelTest.java,v 1.7 2004-02-13 18:48:38 alphonse.bendt Exp $
  */
 
 public class CosEventChannelTest extends NotificationTestCase
@@ -35,7 +35,7 @@ public class CosEventChannelTest extends NotificationTestCase
         testData_ = getTestUtils().getTestPersonAny();
     }
 
-    public void tearDown()
+    public void tearDown() throws Exception
     {
         super.tearDown();
     }

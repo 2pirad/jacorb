@@ -22,12 +22,10 @@ package org.jacorb.test.notification;
  */
 
 import org.omg.CORBA.Any;
-import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
-import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
 import org.omg.CosNotifyChannelAdmin.SupplierAdmin;
 import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.CosNotifyFilter.ConstraintInfo;
@@ -61,7 +59,7 @@ import org.apache.avalon.framework.logger.Logger;
  * to AND. ProxySupplierfilter set to TRUE.
  *
  * @author Alphonse Bendt
- * @version $Id: InterFilterGroupOperatorTest.java,v 1.6 2004-02-09 16:26:42 alphonse.bendt Exp $
+ * @version $Id: InterFilterGroupOperatorTest.java,v 1.7 2004-02-13 18:48:38 alphonse.bendt Exp $
  */
 public class InterFilterGroupOperatorTest extends NotificationTestCase
 {
@@ -98,10 +96,12 @@ public class InterFilterGroupOperatorTest extends NotificationTestCase
         _info = falseFilter_.add_constraints(_constraintExp);
     }
 
-    public void tearDown()
+
+    public void tearDown() throws Exception
     {
         super.tearDown();
     }
+
 
     public void testTrueORFalse_NoneOrNone() throws Exception
     {

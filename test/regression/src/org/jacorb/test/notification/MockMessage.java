@@ -35,10 +35,11 @@ import org.omg.CosNotifyFilter.MappingFilter;
 import java.util.Date;
 
 import junit.framework.Assert;
+import org.omg.CosNotifyFilter.Filter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MockMessage.java,v 1.2 2004-01-23 19:44:03 alphonse.bendt Exp $
+ * @version $Id: MockMessage.java,v 1.3 2004-02-13 18:48:38 alphonse.bendt Exp $
  */
 
 public class MockMessage extends AbstractMessage {
@@ -116,6 +117,10 @@ public class MockMessage extends AbstractMessage {
     }
 
     public boolean match(MappingFilter m, AnyHolder r) {
+        return true;
+    }
+
+    public boolean match(Filter filter) {
         return true;
     }
 
