@@ -6,7 +6,7 @@ import junit.framework.*;
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: CallbackTestCase.java,v 1.1 2002-11-08 20:16:20 andre.spiegel Exp $
+ * @version $Id: CallbackTestCase.java,v 1.2 2002-11-09 14:27:19 andre.spiegel Exp $
  */
 public class CallbackTestCase extends ClientServerTestCase
 {
@@ -18,33 +18,40 @@ public class CallbackTestCase extends ClientServerTestCase
 
     protected abstract class ReplyHandler
     {
-        private boolean replyReceived = false;
-        private boolean testFailed = false;
+        private boolean replyReceived  = false;
+        private boolean testFailed     = true;
         private String  failureMessage = null;
 
         public synchronized void wait_for_reply(long timeout)
         {
-            try
+            try 
             {
-                replyReceived = false;
-                testFailed = false;
-                failureMessage = null;
-
-                this.wait(timeout);
-
-                if (!replyReceived)
-                    junit.framework.Assert.fail
-                        ( "no reply within timeout (" + timeout + "ms)" );
-                else if (testFailed)
+                long start = System.currentTimeMillis();
+                if ( !replyReceived )
+                {
+                    this.wait( timeout );
+                    if ( !replyReceived )
+                        junit.framework.Assert.fail
+                            ( "no reply within timeout (" 
+                              + timeout + "ms)" );
+                }
+                System.out.println( "waiting time: " +
+                                    ( System.currentTimeMillis() - start ) );
+                if ( testFailed )
                     junit.framework.Assert.fail( failureMessage );
                 else
                     ; // ok
             }
-            catch (InterruptedException ex)
+            catch ( InterruptedException e )
             {
                 junit.framework.Assert.fail
-                    ( "Interrupted while waiting for reply" );
-                
+                    ( "interrupted while waiting for reply" );
+            }
+            finally
+            {
+                replyReceived  = false;
+                testFailed     = true;
+                failureMessage = null;
             }
         }
 
@@ -64,8 +71,15 @@ public class CallbackTestCase extends ClientServerTestCase
         public void wrong_exception( String methodName, 
                                      ExceptionHolder excep_holder )
         {
-            fail( "unexpected exception: " 
-                  + methodName + ", " + excep_holder );   
+            try
+            {
+                excep_holder.raise_exception();
+            }
+            catch( Exception e )
+            {
+                fail( "unexpected exception: " 
+                      + methodName + ", " + e );
+            }   
         }
 
         public synchronized void pass()
