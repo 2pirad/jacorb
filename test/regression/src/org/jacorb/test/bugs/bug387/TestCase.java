@@ -28,7 +28,7 @@ import org.jacorb.test.common.*;
  * Tests marshaling of value box instances within structs within anys.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: TestCase.java,v 1.1 2003-10-10 13:26:13 andre.spiegel Exp $
+ * @version $Id: TestCase.java,v 1.2 2003-11-11 23:25:15 andre.spiegel Exp $
  */
 public class TestCase extends ClientServerTestCase
 {
@@ -55,6 +55,8 @@ public class TestCase extends ClientServerTestCase
         suite.addTest(new TestCase("test_return_null", setup));
         suite.addTest(new TestCase("test_pass_value", setup));
         suite.addTest(new TestCase("test_pass_null", setup));
+        suite.addTest(new TestCase("test_pass_unshared", setup));
+        suite.addTest(new TestCase("test_pass_shared", setup));
         
         return setup;   
     }
@@ -76,7 +78,7 @@ public class TestCase extends ClientServerTestCase
     public void test_pass_value()
     {
         org.omg.CORBA.Any a = setup.getClientOrb().create_any();
-        TestStruct t = new TestStruct("STRINGTEST", 1);
+        TestStruct t = new TestStruct("STRINGTEST", null, 1);
         TestStructHelper.insert(a, t);
         boolean result = server.test_pass_value(a, "STRINGTEST");
         assertTrue(result);
@@ -85,11 +87,31 @@ public class TestCase extends ClientServerTestCase
     public void test_pass_null()
     {
         org.omg.CORBA.Any a = setup.getClientOrb().create_any();
-        TestStruct t = new TestStruct(null, 1);
+        TestStruct t = new TestStruct(null, null, 1);
         TestStructHelper.insert(a, t);
         boolean result = server.test_pass_null(a);
         assertTrue(result);
     }
     
-    
+    public void test_pass_unshared()
+    {
+        org.omg.CORBA.Any a = setup.getClientOrb().create_any();
+        String s1 = "hello";
+        String s2 = new String(s1);
+        TestStruct t = new TestStruct(s1, s2, 1);
+        TestStructHelper.insert(a, t);
+        boolean result = server.test_pass_shared(a);
+        assertFalse(result);
+    }
+
+    public void test_pass_shared()
+    {
+        org.omg.CORBA.Any a = setup.getClientOrb().create_any();
+        String s1 = "hello";
+        String s2 = s1;
+        TestStruct t = new TestStruct(s1, s2, 1);
+        TestStructHelper.insert(a, t);
+        boolean result = server.test_pass_shared(a);
+        assertTrue(result);
+    }
 }
