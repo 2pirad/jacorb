@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose 
- * @version $Id: ConstrTypeSpec.java,v 1.7 2002-03-19 09:24:59 nicolas Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.8 2002-03-25 17:48:56 gerald Exp $
  */
 
 import java.io.PrintWriter;
@@ -83,6 +83,11 @@ class ConstrTypeSpec
     public String typeName()
     {
 	return c_type_spec.typeName();
+    }
+
+    public String full_name()
+    {
+	return c_type_spec.full_name();
     }
 
     /**

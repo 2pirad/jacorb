@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: OrExpr.java,v 1.8 2002-03-19 09:25:04 nicolas Exp $
+ * @version $Id: OrExpr.java,v 1.9 2002-03-25 17:48:56 gerald Exp $
  */
 
 import java.util.*;
@@ -85,7 +85,7 @@ class OrExpr
 	String x = "";
 	if( or_expr != null )
         {
-	    x = or_expr.value() + "|";
+	    x = or_expr.value() + " | ";
 	}
 	return x + xor_expr.value();
     }
@@ -95,7 +95,7 @@ class OrExpr
 	String x = "";
 	if( or_expr != null )
         {
-	    x = or_expr + "|";
+	    x = or_expr + " | ";
 	}
 	return x + xor_expr;
     }

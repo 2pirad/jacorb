@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleTypeSpec.java,v 1.5 2002-03-19 09:25:06 nicolas Exp $
+ * @version $Id: SimpleTypeSpec.java,v 1.6 2002-03-25 17:48:57 gerald Exp $
  */
 
 class SimpleTypeSpec 
@@ -33,25 +33,6 @@ class SimpleTypeSpec
 	super(num);
     }
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
