@@ -1,4 +1,4 @@
-package demo.sas;
+package org.jacorb.demo.sas;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -20,7 +20,7 @@ import org.omg.CSIIOP.EstablishTrustInClient;
  * accessed via the Security Level 2 interfaces.
  *
  * @author Nicolas Noffke
- * @version $Id: GssUpServer.java,v 1.4 2004-01-28 19:50:41 david.robison Exp $
+ * @version $Id: GssUpServer.java,v 1.1 2004-01-30 15:41:28 david.robison Exp $
  */
 
 public class GssUpServer extends SASDemoPOA {

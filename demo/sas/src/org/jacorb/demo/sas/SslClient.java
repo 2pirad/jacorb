@@ -1,9 +1,10 @@
-package demo.sas;
+package org.jacorb.demo.sas;
 
-import java.io.*;
-import java.util.*;
-import org.omg.CORBA.*;
-import org.jacorb.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+
+import org.omg.CORBA.ORB;
 
 /**
  * This is the client side of the sas demo. It just calls the single
@@ -11,7 +12,7 @@ import org.jacorb.util.*;
  * transparent.
  *
  * @author Nicolas Noffke
- * @version $Id: SslClient.java,v 1.1 2002-12-18 16:21:45 david.robison Exp $
+ * @version $Id: SslClient.java,v 1.1 2004-01-30 15:41:28 david.robison Exp $
  */
 
 public class SslClient

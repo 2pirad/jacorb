@@ -1,4 +1,4 @@
-package demo.sas;
+package org.jacorb.demo.sas;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,7 @@ import org.omg.CORBA.ORB;
  * transparent.
  *
  * @author Nicolas Noffke
- * @version $Id: GssUpClient.java,v 1.4 2004-01-06 14:13:07 david.robison Exp $
+ * @version $Id: GssUpClient.java,v 1.1 2004-01-30 15:41:28 david.robison Exp $
  */
 
 public class GssUpClient {
