@@ -31,7 +31,7 @@ import java.util.*;
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: Current.java,v 1.15 2003-04-29 13:03:04 nick.cross Exp $
+ * @version $Id: Current.java,v 1.16 2003-09-01 16:06:57 nick.cross Exp $
  */
 
 public class Current
@@ -132,12 +132,4 @@ public class Current
     {
         return getInvocationContext().getServant();
     }
-
-    /*
-      public org.jacorb.orb.connection.Connection getConnection()
-      throws NoContext
-      {
-      return ((RequestProcessor)getInvocationContext()).getConnection();
-      }
-    */
 }
