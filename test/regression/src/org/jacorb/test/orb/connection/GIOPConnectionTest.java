@@ -7,7 +7,7 @@ package org.jacorb.test.orb.connection;
  * Created: Sat Jun 22 14:26:15 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.15 2003-05-06 14:27:50 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.16 2003-05-07 09:52:04 andre.spiegel Exp $
  */
 
 import org.jacorb.orb.connection.*;
@@ -264,7 +264,8 @@ public class GIOPConnectionTest extends TestCase
             new GIOPConnectionManager();
 
         ServerGIOPConnection conn = 
-            giopconn_mg.createServerGIOPConnection( transport,
+            giopconn_mg.createServerGIOPConnection( null,
+                                                    transport,
                                                     request_listener,
                                                     reply_listener );
 
@@ -334,7 +335,8 @@ public class GIOPConnectionTest extends TestCase
             new GIOPConnectionManager();
         
         GIOPConnection conn = 
-            giopconn_mg.createServerGIOPConnection( transport,
+            giopconn_mg.createServerGIOPConnection( null, 
+                                                    transport,
                                                     request_listener,
                                                     reply_listener );
 
@@ -445,7 +447,8 @@ public class GIOPConnectionTest extends TestCase
             new GIOPConnectionManager();
         
         GIOPConnection conn = 
-            giopconn_mg.createServerGIOPConnection( transport,
+            giopconn_mg.createServerGIOPConnection( null,
+                                                    transport,
                                                     request_listener,
                                                     reply_listener );
 
@@ -517,7 +520,8 @@ public class GIOPConnectionTest extends TestCase
             new GIOPConnectionManager();
         
         GIOPConnection conn = 
-            giopconn_mg.createServerGIOPConnection( transport,
+            giopconn_mg.createServerGIOPConnection( null,
+                                                    transport,
                                                     request_listener,
                                                     reply_listener );
 
