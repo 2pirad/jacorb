@@ -37,7 +37,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.21 2004-10-29 10:05:39 simon.mcqueen Exp $
+ * @version $Id: IIOPListener.java,v 1.22 2004-12-20 11:35:11 simon.mcqueen Exp $
  */
 public class IIOPListener 
     extends org.jacorb.orb.etf.ListenerBase
@@ -449,7 +449,6 @@ public class IIOPListener
                 {
                     Socket socket = serverSocket.accept();
                     setup (socket);
-                    System.out.println("Socket port: " + socket.getLocalPort());
                     deliverConnection (socket);
                 }
                 catch (Exception e)
