@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.11 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: AddExpr.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
  */
 
 class AddExpr
@@ -118,6 +118,8 @@ class AddExpr
         return mult_expr.get_token();
     }
 }
+
+
 
 
 

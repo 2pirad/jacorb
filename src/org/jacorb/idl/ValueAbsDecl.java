@@ -27,7 +27,7 @@ import java.util.Enumeration;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.9 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.10 2003-03-04 08:38:55 gerald Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that on because we have to extend Value, and delegating some parts and
@@ -171,7 +171,8 @@ class ValueAbsDecl
         {
             if( inheritanceSpec != null && inheritanceSpec.v.size() > 0 )
             {
-                Environment.output( 4, "Checking inheritanceSpec of " + full_name() );
+                if( logger.isDebugEnabled() )
+		 logger.debug( "Checking inheritanceSpec of " + full_name() );
                 for( Enumeration e = inheritanceSpec.v.elements(); e.hasMoreElements(); )
                 {
                     ScopedName name = (ScopedName)e.nextElement();
@@ -336,6 +337,8 @@ class ValueAbsDecl
         }
     }
 }
+
+
 
 
 

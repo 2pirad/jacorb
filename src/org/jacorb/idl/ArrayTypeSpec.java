@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose (C)
- * @version $Id: ArrayTypeSpec.java,v 1.17 2003-03-03 08:22:01 gerald Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.18 2003-03-04 08:38:55 gerald Exp $
  *
  */
 
@@ -243,7 +243,8 @@ class ArrayTypeSpec
 
     public String printReadStatement( String var_name, String streamname )
     {
-        Environment.output( 2, "Array printReadStatement" );
+        if( logger.isWarnEnabled() )
+		 logger.warn( "Array printReadStatement" );
 
         StringBuffer sb = new StringBuffer();
         String type = typeName();
@@ -469,3 +470,5 @@ class ArrayTypeSpec
 
 
 }
+
+

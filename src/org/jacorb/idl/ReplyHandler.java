@@ -29,7 +29,7 @@ import java.util.*;
  * ReplyHandler).
  * 
  * @author Andre Spiegel
- * $Id: ReplyHandler.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
+ * $Id: ReplyHandler.java,v 1.4 2003-03-04 08:38:55 gerald Exp $
  */
 public class ReplyHandler extends Interface
 {
@@ -198,7 +198,6 @@ public class ReplyHandler extends Interface
         }
         catch (NameAlreadyDefined e)
         {
-            Environment.output( 4, e );
             parser.error( "Interface " + typeName() + " already defined", token );
         }
         
@@ -217,3 +216,5 @@ public class ReplyHandler extends Interface
             
 
 }
+
+

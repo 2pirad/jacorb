@@ -24,7 +24,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.11 2003-03-03 08:22:01 gerald Exp $
+ * @version $Id: Case.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
  */
 
 class Case
@@ -278,3 +278,5 @@ class Case
 
 
 }
+
+

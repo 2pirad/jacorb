@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.17 2003-01-11 19:58:04 gerald Exp $
+ * @version $Id: Literal.java,v 1.18 2003-03-04 08:38:55 gerald Exp $
  */
 
 class Literal
@@ -56,7 +56,8 @@ class Literal
         {
             TypeSpec ts = declared_in.const_type.symbol.typeSpec();
 
-            Environment.output( 2, "Literal " + ts.getClass().getName() + " " +
+            if( logger.isWarnEnabled() )
+		 logger.warn( "Literal " + ts.getClass().getName() + " " +
                     ( token != null? token.getClass().getName() :"<no token>" ) );
 
             if( ts instanceof FloatPtType &&
@@ -208,3 +209,5 @@ class Literal
         return result.toString();
     }
 }
+
+

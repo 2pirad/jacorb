@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: Spec.java,v 1.8 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Spec.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
  */
 
 class Spec
@@ -66,6 +66,8 @@ class Spec
             ( (IdlSymbol)e.nextElement() ).print( ps );
     }
 }
+
+
 
 
 

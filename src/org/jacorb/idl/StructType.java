@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.30 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: StructType.java,v 1.31 2003-03-04 08:38:55 gerald Exp $
  */
 
 class StructType
@@ -169,7 +169,6 @@ class StructType
         {
             if (exc)
             {
-                Environment.output( 4, nad );
                 parser.error( "Struct " + typeName() + " already defined", token );
             }
             else
@@ -188,7 +187,6 @@ class StructType
                 }
                 else
                 {
-                    Environment.output( 4, nad );
                     parser.error( "Struct " + typeName() + " already defined", token );
                 }
             }
@@ -594,3 +592,5 @@ class StructType
         }
     }
 }
+
+

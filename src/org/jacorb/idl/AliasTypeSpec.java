@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.33 2003-01-03 21:01:45 gerald Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.34 2003-03-04 08:38:55 gerald Exp $
  */
 
 public class AliasTypeSpec
@@ -506,3 +506,5 @@ public class AliasTypeSpec
 //  	}
     }
 }
+
+

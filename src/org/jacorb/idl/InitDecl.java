@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InitDecl.java,v 1.5 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: InitDecl.java,v 1.6 2003-03-04 08:38:55 gerald Exp $
  */
 
 class InitDecl
@@ -128,6 +128,8 @@ class InitDecl
 
 
 }
+
+
 
 
 

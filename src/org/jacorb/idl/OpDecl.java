@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.26 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: OpDecl.java,v 1.27 2003-03-04 08:38:55 gerald Exp $
  */
 
 class OpDecl
@@ -104,7 +104,8 @@ class OpDecl
 
     public void setEnclosingSymbol( IdlSymbol s )
     {
-        Environment.output( 2, "opDecl.setEnclosingSymbol " + s  );
+        if( logger.isWarnEnabled() )
+		 logger.warn( "opDecl.setEnclosingSymbol " + s  );
 
         if( enclosing_symbol != null && enclosing_symbol != s )
             throw new RuntimeException( "Compiler Error: trying to reassign container for "
@@ -168,14 +169,16 @@ class OpDecl
             }
 //              else
 //              {
-//                  Environment.output( 2, "addImportedName " + param.paramTypeSpec.toString()  );
+//                  if( logger.isWarnEnabled() )
+		 logger.warn( "addImportedName " + param.paramTypeSpec.toString()  );
 //                  myInterface.addImportedName( param.paramTypeSpec.toString() );
 //              }
 
             if( !(param.paramTypeSpec.typeSpec() instanceof BaseType ))
             {
                 
-                Environment.output( 3, "classname: " + 
+                if( logger.isInfoEnabled() )
+		 logger.info( "classname: " + 
                                     param.paramTypeSpec.typeSpec().getClass().getName() );
 
                 myInterface.addImportedName( param.paramTypeSpec.typeSpec().full_name(),
@@ -776,11 +779,14 @@ class OpDecl
         //       if( enter )
         irInfoTable.put( name, sb.toString() );
 
-        Environment.output( 2, "OpInfo for " + name + " : " + sb.toString() );
+        if( logger.isWarnEnabled() )
+		 logger.warn( "OpInfo for " + name + " : " + sb.toString() );
     }
 
 
 }
+
+
 
 
 

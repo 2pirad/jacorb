@@ -26,7 +26,7 @@ package org.jacorb.idl;
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.6 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: VectorType.java,v 1.7 2003-03-04 08:38:55 gerald Exp $
  */
 
 
@@ -129,19 +129,22 @@ public abstract class VectorType
         TypeSpec ts = type_spec;
         if( ts instanceof ScopedName )
         {
-            Environment.output( 1, "elementTypeName is outer ScopedName" );
+            if( logger.isFatalErrorEnabled() )
+		 logger.fatalError( "elementTypeName is outer ScopedName" );
             ts = ( (ScopedName)type_spec.type_spec ).resolvedTypeSpec();
 
             while( ts instanceof ScopedName || ts instanceof AliasTypeSpec )
             {
                 if( ts instanceof ScopedName )
                 {
-                    Environment.output( 1, "elementTypeName is inner Alias" );
+                    if( logger.isFatalErrorEnabled() )
+		 logger.fatalError( "elementTypeName is inner Alias" );
                     ts = ( (ScopedName)ts ).resolvedTypeSpec();
                 }
                 if( ts instanceof AliasTypeSpec )
                 {
-                    Environment.output( 1, "elementTypeName is inner Alias" );
+                    if( logger.isFatalErrorEnabled() )
+		 logger.fatalError( "elementTypeName is inner Alias" );
                     ts = ( (AliasTypeSpec)ts ).originalType();
                 }
             }
@@ -162,6 +165,8 @@ public abstract class VectorType
 
 
 }
+
+
 
 
 

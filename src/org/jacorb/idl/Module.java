@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.9 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Module.java,v 1.10 2003-03-04 08:38:55 gerald Exp $
  */
 
 import java.io.File;
@@ -112,7 +112,6 @@ class Module
         }
         catch( NameAlreadyDefined nad )
         {
-            Environment.output( 4, nad );
             parser.error( "Module name " + full_name() + " already defined", token );
         }
         spec.parse();
@@ -147,7 +146,8 @@ class Module
             }
             catch( IOException io )
             {
-                Environment.output( 2, io );
+                if( logger.isWarnEnabled() )
+                    logger.warn( "Exception: ", io );
             }
         }
         spec.print( ps );
@@ -165,6 +165,8 @@ class Module
     }
 
 }
+
+
 
 
 

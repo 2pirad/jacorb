@@ -27,7 +27,7 @@ package org.jacorb.idl;
  *  field str_val.
  *
  * @see java_cup.runtime.str_token
- * @version $Id: str_token.java,v 1.9 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: str_token.java,v 1.10 2003-03-04 08:38:55 gerald Exp $
  * @author  Gerald Brose
  */
 
@@ -67,3 +67,5 @@ public class str_token
 
 
 }
+
+

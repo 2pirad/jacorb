@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.14 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: FixedPointType.java,v 1.15 2003-03-04 08:38:55 gerald Exp $
  */
 
 class FixedPointType
@@ -271,3 +271,5 @@ class FixedPointType
         }
     }
 }
+
+

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyHandlerTypeSpec.java,v 1.3 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ReplyHandlerTypeSpec.java,v 1.4 2003-03-04 08:38:55 gerald Exp $
  */
 import java.io.PrintWriter;
 
@@ -105,3 +105,5 @@ public class ReplyHandlerTypeSpec
     }
 
 }
+
+

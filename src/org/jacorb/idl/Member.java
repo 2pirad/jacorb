@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.22 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Member.java,v 1.23 2003-03-04 08:38:55 gerald Exp $
  *
  */
 
@@ -288,3 +288,5 @@ class Member
         return type_spec.typeSpec();
     }
 }
+
+

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: PosIntConst.java,v 1.7 2003-03-03 08:22:01 gerald Exp $
+ * @version $Id: PosIntConst.java,v 1.8 2003-03-04 08:38:55 gerald Exp $
  */
 
 class PosIntConst
@@ -64,6 +64,8 @@ class PosIntConst
         const_expr.setPackage( s );
     }
 }
+
+
 
 
 

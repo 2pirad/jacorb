@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.10 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: LongType.java,v 1.11 2003-03-04 08:38:55 gerald Exp $
  */
 
 class LongType
@@ -104,3 +104,5 @@ class LongType
             return "extract_long";
     }
 }
+
+

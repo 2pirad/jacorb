@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: OrExpr.java,v 1.11 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: OrExpr.java,v 1.12 2003-03-04 08:38:55 gerald Exp $
  */
 
 import java.io.PrintWriter;
@@ -109,6 +109,8 @@ class OrExpr
     }
 
 }
+
+
 
 
 

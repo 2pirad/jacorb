@@ -26,7 +26,7 @@ package org.jacorb.idl;
  * A trivial holder for scoped names that appear as truncatable ancestors
  * in a value type's inheritance spec.
  *
- * @version $Id: Truncatable.java,v 1.7 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: Truncatable.java,v 1.8 2003-03-04 08:38:55 gerald Exp $
  */
 
 class Truncatable
@@ -54,3 +54,5 @@ class Truncatable
         return "truncatable " + scopedName.toString();
     }
 }
+
+

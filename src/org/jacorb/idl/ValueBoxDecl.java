@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.18 2002-12-20 18:29:04 nicolas Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.19 2003-03-04 08:38:55 gerald Exp $
  */
 
 class ValueBoxDecl
@@ -133,7 +133,6 @@ class ValueBoxDecl
         }
         catch( NameAlreadyDefined nad )
         {
-            Environment.output( 4, nad );
             parser.error( "Value box " + typeName() + " already defined", token );
         }
 
@@ -408,6 +407,8 @@ class ValueBoxDecl
         }
     }
 }
+
+
 
 
 
