@@ -25,7 +25,7 @@ import java.util.Iterator;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: LFUSelectionStrategyImpl.java,v 1.1 2002-11-26 16:45:35 nicolas Exp $
+ * @version $Id: LFUSelectionStrategyImpl.java,v 1.2 2002-11-27 16:24:54 nicolas Exp $
  */
 
 public class LFUSelectionStrategyImpl
@@ -46,11 +46,13 @@ public class LFUSelectionStrategyImpl
             {
                 LFUStatisticsProviderImpl sp = (LFUStatisticsProviderImpl)
                     t.getStatisticsProvider();
-  
-                if( sp.getFrequency() < least_usage )
+
+                double frequency = sp.getFrequency();
+
+                if( frequency < least_usage )
                 {
                     least_used = t;
-                    least_usage = sp.getFrequency();
+                    least_usage = frequency;
                 }
             }
         }
@@ -58,6 +60,5 @@ public class LFUSelectionStrategyImpl
         return least_used;
     }
 }
-
 
 
