@@ -51,7 +51,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.28 2004-06-09 05:35:33 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.29 2004-07-16 14:19:07 simon.mcqueen Exp $
  */
 
 public class RequestProcessor
@@ -356,6 +356,10 @@ public class RequestProcessor
                             " opname: " + request.operation() +
                             " invocation: throwable was thrown, " +
                             e.getMessage());
+                if (logger.isDebugEnabled())
+                {
+                    logger.debug("Exception:", e);
+                }
             }
             request.setSystemException(new org.omg.CORBA.UNKNOWN(e.getMessage()));
             /* which system exception I should raise? */
