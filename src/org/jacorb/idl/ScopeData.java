@@ -23,34 +23,13 @@ package org.jacorb.idl;
 /**
  * @author Gerald Brose
  *
- * @version $Id: ScopeData.java,v 1.9 2003-03-04 08:38:55 gerald Exp $
+ * @version $Id: ScopeData.java,v 1.10 2003-04-01 14:08:01 nick.cross Exp $
  */
 
 import java.util.*;
 
 public class ScopeData
 {
-
     public Hashtable versionMap = new Hashtable();
-
+    public Hashtable idMap = new Hashtable();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
