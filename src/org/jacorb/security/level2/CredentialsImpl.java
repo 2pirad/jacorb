@@ -32,7 +32,7 @@ import java.math.BigInteger;
 /**
  *  JacORB implementation of security Credentials
  *
- *  $Id: CredentialsImpl.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
+ *  $Id: CredentialsImpl.java,v 1.9 2003-01-03 21:04:24 gerald Exp $
  *
  */
 
@@ -327,8 +327,7 @@ public class CredentialsImpl
             return false; 
     }
   
-  
-    public boolean is_valid(org.omg.Security.UtcTHolder/*out*/ expiry_time)
+    public boolean is_valid(org.omg.TimeBase.UtcTHolder/*out*/ expiry_time)
     { 
         return false; 
     }
