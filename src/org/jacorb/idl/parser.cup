@@ -12,7 +12,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  * 
- * $Id: parser.cup,v 1.26.2.1 2001-11-02 16:09:48 spiegel Exp $
+ * $Id: parser.cup,v 1.26.2.2 2001-11-08 16:47:16 spiegel Exp $
  *
  */
 
@@ -1020,16 +1020,16 @@ value_dcl ::=
           CUSTOM VALUETYPE ID:i value_inheritance_spec:is LCBRACE value_elements:ve RCBRACE
                 {:
                         RESULT.set_token (i);
-                        // RESULT.set_inheritance_spec (is);
-                        RESULT.set_value_elements (ve);
-                        RESULT.is_custom_marshalled (true);
+                        // RESULT.setInheritanceSpec (is);
+                        RESULT.setValueElements (ve);
+                        RESULT.isCustomMarshalled (true);
                 :}
         | VALUETYPE ID:i value_inheritance_spec:is LCBRACE value_elements:ve RCBRACE
                 {:
                         RESULT.set_token (i);
-                        // RESULT.set_inheritance_spec (is);
-                        RESULT.set_value_elements (ve);
-                        RESULT.is_custom_marshalled (false);
+                        // RESULT.setInheritanceSpec (is);
+                        RESULT.setValueElements (ve);
+                        RESULT.isCustomMarshalled (false);
                 :} 
        ;
 
