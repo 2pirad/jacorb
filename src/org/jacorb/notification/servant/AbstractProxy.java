@@ -27,6 +27,7 @@ import org.jacorb.notification.FilterManager;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.Dependant;
+import org.jacorb.notification.ChannelContext;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.engine.TaskProcessor;
@@ -64,7 +65,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.10 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.11 2004-05-09 20:01:36 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy
