@@ -81,7 +81,7 @@ import org.omg.PortableServer.POAHelper;
  * Created: Thu Oct 03 23:54:41 2002
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.7 2003-07-03 14:03:06 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.8 2003-07-03 15:41:03 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements Disposable
@@ -468,6 +468,7 @@ public class EventChannelFactoryImpl extends EventChannelFactoryPOA implements D
         EventChannelFactoryImpl _factory =
             new EventChannelFactoryImpl();
 
+	System.out.println(_factory.getIOR());
     }
 
 } 
