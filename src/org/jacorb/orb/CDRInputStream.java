@@ -35,7 +35,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.57 2003-03-22 02:12:39 francisco Exp $
+ * $Id: CDRInputStream.java,v 1.58 2003-03-29 20:51:57 francisco Exp $
  */
 
 public class CDRInputStream
@@ -205,6 +205,18 @@ public class CDRInputStream
 	index += 4;
 	pos += 4;
 	return result;
+    }
+
+    private final long _read_longlong ()
+    {
+        if (littleEndian)
+        {
+            return ((long) _read_long() & 0xFFFFFFFFL) + ((long) _read_long() << 32);
+        }
+        else
+        {
+            return ((long) _read_long() << 32) + ((long) _read_long() & 0xFFFFFFFFL);
+        }
     }
 
     private final void handle_chunking()
@@ -402,9 +414,6 @@ public class CDRInputStream
     public final void read_boolean_array
     (final boolean[] value, final int offset, final int length)
     {
-        if (length == 0)
-            return;
-
         handle_chunking();
         byte bb;
         for (int j = offset; j < offset + length; j++)
@@ -438,9 +447,6 @@ public class CDRInputStream
     public final void read_char_array
     (final char[] value, final int offset, final int length)
     {
-        if (length == 0)
-            return;
-
         handle_chunking();
         for (int j = offset; j < offset + length; j++)
         {
@@ -460,9 +466,18 @@ public class CDRInputStream
         if (length == 0)
             return;
 
+        handle_chunking();
+
+ 	int remainder = 8 - (index % 8);
+ 	if (remainder != 8)
+ 	{
+ 	    index += remainder;
+ 	    pos += remainder;
+ 	}
+
         for (int j = offset; j < offset + length; j++)
         {
-            value[j] = Double.longBitsToDouble (read_longlong ());
+            value[j] = Double.longBitsToDouble (_read_longlong ());
         }
     }
 
@@ -673,9 +688,6 @@ public class CDRInputStream
     public final void read_octet_array
     (final byte[] value, final int offset, final int length)
     {
-        if (length == 0)
-            return;
-
         handle_chunking();
 	System.arraycopy (buffer,pos,value,offset,length);
 	index += length;
@@ -1377,9 +1389,6 @@ public class CDRInputStream
     public final void read_wchar_array
     (final char[] value, final int offset, final int length)
     {
-        if (length == 0)
-            return;
-
         handle_chunking();
 	for(int j=offset; j < offset+length; j++)
 	    value[j] = read_wchar(); // inlining later...
