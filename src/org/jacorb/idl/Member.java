@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.14 2002-03-19 09:25:02 nicolas Exp $
+ * @version $Id: Member.java,v 1.15 2002-03-25 11:42:14 steve.osselton Exp $
  *
  */
 
@@ -93,7 +93,7 @@ class Member
      *	Parsing members means creating new members for definitions
      *   with more than one declarator. 
      */
-    public void parse() 	
+    public void parse () 	
     {
 	boolean clone_and_parse = true;
 
@@ -147,11 +147,29 @@ class Member
             type_spec.parse();
         }
 
+        String tokName = null;
+        if (token != null && token.line_val != null)
+        {
+            tokName = token.line_val.trim ();
+            if (tokName.length () == 0)
+            {
+                tokName = null;
+            }
+        }
 
-
-	for( Enumeration e = declarators.v.elements(); e.hasMoreElements();)
+	for (Enumeration e = declarators.v.elements(); e.hasMoreElements();)
 	{
 	    Declarator d = (Declarator)e.nextElement();
+            String dName = d.name ();
+
+            if (tokName != null)
+            {
+                if (dName.equalsIgnoreCase (tokName))
+                {
+                    parser.fatal_error ("Declarator " + dName + 
+                        " already defined in scope.", token);
+                }
+            }
 
 	    // we don't parse the declarator itself
 	    // as that would result in its name getting defined
@@ -201,8 +219,8 @@ class Member
                 }
                 catch( NameAlreadyDefined nad )
                 {
-                    parser.error("Declarator " + d.name() + 
-                                 " already defined in scope.", token);
+                    parser.fatal_error ("Declarator " + d.name() + 
+                        " already defined in scope.", token);
                 }
             }
 
