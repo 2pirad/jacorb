@@ -23,9 +23,10 @@ package org.jacorb.notification.queue;
 
 import java.util.Hashtable;
 
-import org.jacorb.notification.Constants;
 import org.jacorb.notification.ConfigurableProperties;
+import org.jacorb.notification.Constants;
 import org.jacorb.notification.PropertyManager;
+import org.jacorb.util.Debug;
 import org.jacorb.util.Environment;
 
 import org.omg.CosNotification.AnyOrder;
@@ -38,21 +39,19 @@ import org.omg.CosNotification.OrderPolicy;
 import org.omg.CosNotification.PriorityOrder;
 import org.omg.CosNotification.UnsupportedQoS;
 
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * EventQueueFactory.java
  *
  *
  * @author Alphonse Bendt
- * @version $Id: EventQueueFactory.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: EventQueueFactory.java,v 1.2 2003-11-03 10:32:43 alphonse.bendt Exp $
  */
 
 public class EventQueueFactory
 {
-    static Logger sLogger =
-        Hierarchy.getDefaultHierarchy().getLoggerFor( EventQueueFactory.class.getName() );
+    static Logger sLogger = Debug.getNamedLogger( EventQueueFactory.class.getName() );
 
     private final static short UNKNOWN_POLICY = Short.MIN_VALUE;
 
@@ -100,14 +99,16 @@ public class EventQueueFactory
                                                    Constants.DEFAULT_MAX_EVENTS_PER_CONSUMER );
 
         String orderPolicy = Environment.getProperty( ConfigurableProperties.ORDER_POLICY,
-                             Constants.DEFAULT_ORDER_POLICY );
+                                                      Constants.DEFAULT_ORDER_POLICY );
 
 
         String discardPolicy = Environment.getProperty( ConfigurableProperties.DISCARD_POLICY,
-                               Constants.DEFAULT_DISCARD_POLICY );
+                                                        Constants.DEFAULT_DISCARD_POLICY );
 
-        sLogger.debug( "OrderPolicy: " + orderPolicy );
-        sLogger.debug( "DiscardPolicy: " + discardPolicy );
+        if (sLogger.isDebugEnabled()) {
+            sLogger.debug( "OrderPolicy: " + orderPolicy );
+            sLogger.debug( "DiscardPolicy: " + discardPolicy );
+        }
 
         short shortOrderPolicy = orderPolicyNameToValue( orderPolicy );
 
@@ -130,67 +131,69 @@ public class EventQueueFactory
             shortDiscardPolicy = qosProperties.getProperty( DiscardPolicy.value ).extract_short();
         }
 
-        sLogger.info( "Create EventQueue with the Settings: MAX_EVENTS_PER_CONSUMER="
-                      + maxEventsPerConsumer
-                      + "/ORDER_POLICY=" + mapOrderPolicyValueToName[ shortOrderPolicy ]
-                      + "/DISCARD_POLICY=" + mapDiscardPolicyValueToName[ shortDiscardPolicy ] );
+        if (sLogger.isInfoEnabled()) {
+            sLogger.info( "Create EventQueue with the Settings: MAX_EVENTS_PER_CONSUMER="
+                          + maxEventsPerConsumer
+                          + "/ORDER_POLICY=" + mapOrderPolicyValueToName[ shortOrderPolicy ]
+                          + "/DISCARD_POLICY=" + mapDiscardPolicyValueToName[ shortDiscardPolicy ] );
+        }
 
         AbstractBoundedEventQueue queue;
 
         switch ( shortOrderPolicy )
         {
 
-        case AnyOrder.value:
-            // fallthrough
+            case AnyOrder.value:
+                // fallthrough
 
-        case FifoOrder.value:
-            queue = new BoundedFifoEventQueue( maxEventsPerConsumer );
-            break;
+            case FifoOrder.value:
+                queue = new BoundedFifoEventQueue( maxEventsPerConsumer );
+                break;
 
-        case PriorityOrder.value:
-            queue = new BoundedPriorityEventQueue( maxEventsPerConsumer );
-            break;
+            case PriorityOrder.value:
+                queue = new BoundedPriorityEventQueue( maxEventsPerConsumer );
+                break;
 
-        case DeadlineOrder.value:
-            queue = new BoundedDeadlineEventQueue( maxEventsPerConsumer );
-            break;
+            case DeadlineOrder.value:
+                queue = new BoundedDeadlineEventQueue( maxEventsPerConsumer );
+                break;
 
-        default:
-            throw new IllegalArgumentException( "Orderpolicy: "
-                                                + orderPolicy
-                                                + " OrderPolicyValue: "
-                                                + shortOrderPolicy
-                                                + " unknown" );
+            default:
+                throw new IllegalArgumentException( "Orderpolicy: "
+                                                    + orderPolicy
+                                                    + " OrderPolicyValue: "
+                                                    + shortOrderPolicy
+                                                    + " unknown" );
         }
 
         switch ( shortDiscardPolicy )
         {
 
-        case AnyOrder.value:
-            // fallthrough
+            case AnyOrder.value:
+                // fallthrough
 
-        case FifoOrder.value:
-            queue.setOverflowStrategy( EventQueueOverflowStrategy.FIFO );
-            break;
+            case FifoOrder.value:
+                queue.setOverflowStrategy( EventQueueOverflowStrategy.FIFO );
+                break;
 
-        case LifoOrder.value:
-            queue.setOverflowStrategy( EventQueueOverflowStrategy.LIFO );
-            break;
+            case LifoOrder.value:
+                queue.setOverflowStrategy( EventQueueOverflowStrategy.LIFO );
+                break;
 
-        case PriorityOrder.value:
-            queue.setOverflowStrategy( EventQueueOverflowStrategy.LEAST_PRIORITY );
-            break;
+            case PriorityOrder.value:
+                queue.setOverflowStrategy( EventQueueOverflowStrategy.LEAST_PRIORITY );
+                break;
 
-        case DeadlineOrder.value:
-            queue.setOverflowStrategy( EventQueueOverflowStrategy.EARLIEST_TIMEOUT );
-            break;
+            case DeadlineOrder.value:
+                queue.setOverflowStrategy( EventQueueOverflowStrategy.EARLIEST_TIMEOUT );
+                break;
 
-        default:
-            throw new IllegalArgumentException( "Discardpolicy: "
-                                                + discardPolicy
-                                                + "DiscardPolicyValue: "
-                                                + shortDiscardPolicy
-                                                + " unknown" );
+            default:
+                throw new IllegalArgumentException( "Discardpolicy: "
+                                                    + discardPolicy
+                                                    + "DiscardPolicyValue: "
+                                                    + shortDiscardPolicy
+                                                    + " unknown" );
         }
 
         return queue;

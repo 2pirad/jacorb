@@ -4,23 +4,25 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+
 import org.jacorb.notification.FilterFactoryImpl;
-import org.jacorb.notification.util.LogConfiguration;
+
 import org.omg.CORBA.Any;
+import org.omg.CORBA.ORB;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.CosNotifyFilter.ConstraintInfo;
 import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.FilterFactory;
 import org.omg.CosNotifyFilter.FilterFactoryHelper;
-import EDU.oswego.cs.dl.util.concurrent.Latch;
+
 import EDU.oswego.cs.dl.util.concurrent.ClockDaemon;
-import org.omg.CORBA.ORB;
+import EDU.oswego.cs.dl.util.concurrent.Latch;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import org.jacorb.util.Debug;
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * FilterTest.java
@@ -29,15 +31,14 @@ import org.omg.CORBA.ORB;
  * Created: Sat Oct 12 20:50:59 2002
  *
  * @author Alphonse Bendt
- * @version $Id: FilterTest.java,v 1.6 2003-08-27 20:46:50 alphonse.bendt Exp $
+ * @version $Id: FilterTest.java,v 1.7 2003-11-03 10:32:43 alphonse.bendt Exp $
  */
 
 public class FilterTest extends TestCase {
 
     static Random random_ = new Random(System.currentTimeMillis());
 
-    Logger logger_ =
-        Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     FilterFactory factory_;
     Any testPerson_;
@@ -235,8 +236,7 @@ class FilterRead extends Thread {
     int iterations_;
     boolean lengthOk_ = true;
     boolean countOk_ = true;
-    Logger logger_ =
-        Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     TestCase testCase_;
     static int sCounter = 0;
@@ -333,11 +333,12 @@ class Counter {
 }
 
 class FilterModify extends Thread {
+
     TestCase testCase_;
     Filter filter_;
     int iterations_ = 100;
     ConstraintExp[] constraintExp_;
-    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     FilterModify(TestCase testCase, Filter filter, String expression, int iterations) {
         super();

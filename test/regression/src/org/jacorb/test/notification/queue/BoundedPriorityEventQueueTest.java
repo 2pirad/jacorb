@@ -37,8 +37,9 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.Debug;
+
 
 /**
  *  Unit Test for class BoundedPriorityEventQueue.java
@@ -47,14 +48,14 @@ import org.apache.log.Logger;
  * Created: Mon Aug 11 12:21:18 2003
  *
  * @author Alphonse Bendt
- * @version $Id: BoundedPriorityEventQueueTest.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: BoundedPriorityEventQueueTest.java,v 1.2 2003-11-03 10:32:42 alphonse.bendt Exp $
  */
 
 public class BoundedPriorityEventQueueTest extends TestCase
 {
 
     ApplicationContext context_;
-    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     public void setUp() throws Exception {
         context_ = new ApplicationContext(false);

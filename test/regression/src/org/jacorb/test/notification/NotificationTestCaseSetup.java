@@ -29,19 +29,19 @@ import org.jacorb.notification.EventChannelFactoryImpl;
 
 import junit.extensions.TestSetup;
 import junit.framework.Test;
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.Debug;
 
 /**
  * NotificationTestCaseSetup.java
  *
  * @author Alphonse Bendt
- * @version $Id: NotificationTestCaseSetup.java,v 1.6 2003-08-27 20:46:50 alphonse.bendt Exp $
+ * @version $Id: NotificationTestCaseSetup.java,v 1.7 2003-11-03 10:32:43 alphonse.bendt Exp $
  */
 
 public class NotificationTestCaseSetup extends TestSetup {
 
-    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
     ORB orb_;
     POA poa_;
     NotificationTestUtils testUtils_;

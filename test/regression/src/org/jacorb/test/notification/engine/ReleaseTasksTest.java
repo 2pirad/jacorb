@@ -42,8 +42,9 @@ import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.Debug;
+
 
 /**
  *  Unit Test for class ReleaseTasks
@@ -52,13 +53,13 @@ import org.apache.log.Logger;
  * Created: Sun Aug 17 11:48:32 2003
  *
  * @author Alphonse Bendt
- * @version $Id: ReleaseTasksTest.java,v 1.2 2003-08-26 09:28:56 alphonse.bendt Exp $
+ * @version $Id: ReleaseTasksTest.java,v 1.3 2003-11-03 10:32:42 alphonse.bendt Exp $
  */
 
 public class ReleaseTasksTest extends NotificationTestCase
 {
 
-    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     EventChannelFactoryImpl factory_;
     EventChannelImpl eventChannelServant_;

@@ -8,7 +8,7 @@
 
 <!-- ============================================================= -->
 <!--              JacORB - NotificationService build file          -->
-<!-- $Id: build.xml,v 1.18 2003-10-30 14:14:57 brose Exp $ -->
+<!-- $Id: build.xml,v 1.19 2003-11-03 10:32:43 alphonse.bendt Exp $ -->
 <!-- ============================================================= -->
 
   &common;
@@ -176,16 +176,5 @@
     </delete>
   </target>
 
-
-  <target name="checkstyle" >
-    <pathconvert property="cp.checkstyle" targetos="unix">
-      <path refid="cp.checkstyle" />
-    </pathconvert>
-
-    <checkstyle config="Checkstyle_JacORB_Checks.xml" classpath="${cp.checkstyle}">
-      <fileset dir="${notification.dir}" includes="**/*.java"/>
-      <formatter type="plain"/>
-    </checkstyle>
-  </target>
 
 </project>

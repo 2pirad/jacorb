@@ -21,8 +21,6 @@ package org.jacorb.test.notification;
  *
  */
 
-import org.jacorb.notification.util.LogConfiguration;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -32,16 +30,11 @@ import junit.swingui.TestRunner;
  * AllTest.java
  *
  * @author Alphonse Bendt
- * @version $Id: AllTest.java,v 1.5 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.6 2003-11-03 10:32:43 alphonse.bendt Exp $
  */
 
 public class AllTest extends TestCase
 {
-
-    static
-    {
-        LogConfiguration.getInstance().configure();
-    }
 
     public AllTest( String name )
     {

@@ -36,22 +36,22 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.Debug;
 
 /**
  *  Unit Test for class BoundedFIFOEventQueue
  *
  *
  * @author Alphonse Bendt
- * @version $Id: BoundedFifoEventQueueTest.java,v 1.1 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: BoundedFifoEventQueueTest.java,v 1.2 2003-11-03 10:32:42 alphonse.bendt Exp $
  */
 
 public class BoundedFifoEventQueueTest extends TestCase
 {
 
     ApplicationContext context;
-    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     public void setUp() throws Exception {
         context = new ApplicationContext(false);

@@ -25,8 +25,7 @@ import java.util.Date;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+
 import org.jacorb.notification.ApplicationContext;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.MessageFactory;
@@ -44,15 +43,17 @@ import org.omg.CosNotification.Timeout;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
 import org.omg.TimeBase.TimeTHelper;
 import org.omg.TimeBase.UtcTHelper;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.Debug;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimeoutTest.java,v 1.2 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: TimeoutTest.java,v 1.3 2003-11-03 10:32:42 alphonse.bendt Exp $
  */
 
  public class TimeoutTest extends NotificationTestCase
 {
-    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
 
     MessageFactory notificationEventFactory_;
     ApplicationContext applicationContext_;

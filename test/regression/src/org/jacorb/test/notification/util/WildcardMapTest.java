@@ -9,14 +9,15 @@ import org.jacorb.notification.util.WildcardMap;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.apache.log.Hierarchy;
+import org.jacorb.util.Debug;
+
 
 /**
  *  Unit Test for class WildcardMap
  *
  *
  * @author Alphonse Bendt
- * @version $Id: WildcardMapTest.java,v 1.4 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: WildcardMapTest.java,v 1.5 2003-11-03 10:32:42 alphonse.bendt Exp $
  */
 
 public class WildcardMapTest extends TestCase {
@@ -44,8 +45,8 @@ public class WildcardMapTest extends TestCase {
         int _iterations = 20;
 
 
-        if (Hierarchy.getDefaultHierarchy().getLoggerFor("org.jacorb.notification.util").isInfoEnabled()) {
-            Hierarchy.getDefaultHierarchy().getRootLogger().info("you should disable logging for testPerformance");
+        if (Debug.getNamedLogger("org.jacorb.notification.util").isInfoEnabled()) {
+            Debug.getNamedLogger("org.jacorb.notification.util").info("you should disable logging for testPerformance");
         }
 
         Random _random = new Random(System.currentTimeMillis());

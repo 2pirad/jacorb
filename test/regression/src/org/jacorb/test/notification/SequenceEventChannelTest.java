@@ -12,17 +12,17 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactory;
 import org.omg.CosNotifyFilter.FilterFactory;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
-import org.apache.log.Logger;
-import org.apache.log.Hierarchy;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.Debug;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceEventChannelTest.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: SequenceEventChannelTest.java,v 1.4 2003-11-03 10:32:43 alphonse.bendt Exp $
  */
 
 public class SequenceEventChannelTest extends NotificationTestCase {
 
-    Logger logger_ = Hierarchy.getDefaultHierarchy().getLoggerFor(getClass().getName());
+    Logger logger_ = Debug.getNamedLogger(getClass().getName());
     EventChannel channel_;
     EventChannelFactory channelFactory_;
     FilterFactory filterFactory_;

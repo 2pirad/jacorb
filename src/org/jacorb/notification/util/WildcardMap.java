@@ -23,8 +23,9 @@ package org.jacorb.notification.util;
 
 import java.util.Vector;
 
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
+import org.jacorb.util.Debug;
+
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * An Object that maps String Keys to Values. A WildcardMap cannot
@@ -60,14 +61,13 @@ import org.apache.log.Logger;
  * </pre>
  *
  * @author Alphonse Bendt
- * @version $Id: WildcardMap.java,v 1.8 2003-09-12 09:37:11 alphonse.bendt Exp $
+ * @version $Id: WildcardMap.java,v 1.9 2003-11-03 10:32:43 alphonse.bendt Exp $
  */
 
 public class WildcardMap
 {
 
-    static Logger logger_ =
-        Hierarchy.getDefaultHierarchy().getLoggerFor( WildcardMap.class.getName() );
+    static Logger logger_ = Debug.getNamedLogger( WildcardMap.class.getName() );
 
     static final int DEFAULT_TOPLEVEL_SIZE = 4;
 
@@ -184,8 +184,7 @@ public class WildcardMap
 class EntryList
 {
 
-    static Logger logger_ =
-        Hierarchy.getDefaultHierarchy().getLoggerFor( EntryList.class.getName() );
+    static Logger logger_ = Debug.getNamedLogger( EntryList.class.getName() );
 
     static int DEFAULT_INITIAL_SIZE = 2;
 
@@ -931,8 +930,7 @@ class EntryList
 class WCEntry
 {
 
-    static Logger logger_ =
-        Hierarchy.getDefaultHierarchy().getLoggerFor( WCEntry.class.getName() );
+    static Logger logger_ = Debug.getNamedLogger( WCEntry.class.getName() );
 
     /**
      * start index of key within key_ array

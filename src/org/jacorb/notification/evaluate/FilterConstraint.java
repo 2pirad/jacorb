@@ -21,17 +21,17 @@ package org.jacorb.notification.evaluate;
  *
  */
 
-import org.apache.log.Hierarchy;
-import org.apache.log.Logger;
 import org.jacorb.notification.EvaluationContext;
 import org.jacorb.notification.interfaces.Message;
+import org.jacorb.notification.node.AbstractTCLNode;
 import org.jacorb.notification.node.DynamicTypeException;
 import org.jacorb.notification.node.EvaluationResult;
 import org.jacorb.notification.node.StaticTypeChecker;
 import org.jacorb.notification.node.StaticTypeException;
 import org.jacorb.notification.node.TCLCleanUp;
-import org.jacorb.notification.node.AbstractTCLNode;
 import org.jacorb.notification.parser.TCLParser;
+import org.jacorb.util.Debug;
+
 import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.CosNotifyFilter.InvalidConstraint;
 import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
@@ -40,6 +40,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Representation of a Constraint.
@@ -48,13 +49,12 @@ import antlr.TokenStreamException;
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.3 2003-08-25 21:00:46 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.4 2003-11-03 10:32:43 alphonse.bendt Exp $
  */
 
 public class FilterConstraint
 {
-    private Logger logger_ =
-        Hierarchy.getDefaultHierarchy().getLoggerFor( getClass().getName() );
+    private Logger logger_ = Debug.getNamedLogger( getClass().getName() );
 
     /**
      * String representation of the Constraint.
@@ -75,7 +75,7 @@ public class FilterConstraint
     }
 
     public FilterConstraint( ConstraintExp constraintExp )
-        throws InvalidConstraint
+    throws InvalidConstraint
     {
         try
         {
@@ -86,7 +86,7 @@ public class FilterConstraint
             StaticTypeChecker _checker = new StaticTypeChecker();
             _checker.check( rootNode_ );
 
-            return;
+            return ;
 
         }
         catch ( StaticTypeException ste )
@@ -110,8 +110,8 @@ public class FilterConstraint
 
     public EvaluationResult evaluate( EvaluationContext evaluationContext,
                                       Message event )
-        throws EvaluationException,
-               DynamicTypeException
+    throws EvaluationException,
+                DynamicTypeException
     {
         logger_.debug("evaluate()" + rootNode_.toStringTree());
 
