@@ -40,7 +40,7 @@ import org.jacorb.orb.giop.*;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.8 2003-11-07 14:15:53 francisco Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.9 2003-12-16 08:42:56 gerald Exp $
  */
 public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
 {
@@ -106,8 +106,7 @@ public class ExceptionHolderImpl extends org.omg.Messaging.ExceptionHolder
             }
             catch( IOException ioe )
             {
-                Debug.output( Debug.IMPORTANT, 
-                              "Unexpected IOException: " + ioe );
+                Debug.output( 2, "Unexpected IOException: " + ioe );
             }
 
             org.omg.CORBA.UserException result = null;

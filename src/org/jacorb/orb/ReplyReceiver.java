@@ -47,7 +47,7 @@ import java.util.*;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.16 2003-12-10 17:09:32 nicolas Exp $
+ * @version $Id: ReplyReceiver.java,v 1.17 2003-12-16 08:42:56 gerald Exp $
  */
 public class ReplyReceiver extends ReplyPlaceholder
 {
@@ -166,8 +166,7 @@ public class ReplyReceiver extends ReplyPlaceholder
         }
         catch ( Exception e )
         {
-            Debug.output( Debug.IMPORTANT,
-                          "Exception during callback: " + e );
+            Debug.output( 2, "Exception during callback: " + e.getMessage() );
         }
         finally
         {
@@ -210,8 +209,7 @@ public class ReplyReceiver extends ReplyPlaceholder
         }
         catch ( Exception e )
         {
-            Debug.output( Debug.IMPORTANT,
-                          "Exception during callback: " + e );
+            Debug.output( 2, "Exception during callback: " + e.getMessage() );
         }
         finally
         {
@@ -424,8 +422,7 @@ public class ReplyReceiver extends ReplyPlaceholder
                         }
                         catch (InterruptedException ex)
                         {
-                            Debug.output (Debug.ORB_MISC | Debug.IMPORTANT,
-                                          "interrupted while waiting for timeout");
+                            Debug.output( 3,"interrupted while waiting for timeout");
                         }
                     }
                     if (!awakened)

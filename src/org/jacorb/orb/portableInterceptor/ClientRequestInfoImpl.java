@@ -25,6 +25,8 @@ import org.omg.CORBA.*;
 import org.omg.PortableInterceptor.*;
 import org.omg.Dynamic.Parameter;
 
+import org.apache.avalon.framework.logger.*;
+
 import java.util.*;
 
 import org.jacorb.orb.iiop.IIOPProfile;
@@ -36,7 +38,7 @@ import org.jacorb.util.Debug;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.19 2003-10-29 12:00:30 simon.mcqueen Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.20 2003-12-16 08:42:56 gerald Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -132,7 +134,11 @@ public class ClientRequestInfoImpl
             }
             catch (Exception e)
             {
-                Debug.output(Debug.INFORMATION | Debug.INTERCEPTOR, e);
+                Logger logger = Debug.getNamedLogger("pi");
+                if( logger.isDebugEnabled() )
+                {
+                    logger.debug(e.getMessage());
+                }
             }
         }
         //exceptions will be set when available

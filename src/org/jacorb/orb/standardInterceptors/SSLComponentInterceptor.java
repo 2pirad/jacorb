@@ -31,7 +31,7 @@ import org.jacorb.util.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.15 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.16 2003-12-16 08:42:56 gerald Exp $
  */
 
 public class SSLComponentInterceptor
@@ -120,7 +120,7 @@ public class SSLComponentInterceptor
         }
         catch (Exception e)
         {
-            Debug.output( Debug.SECURITY | Debug.IMPORTANT, e);
+            Debug.output( 1, e);
         }
     }
 } // SSLComponentInterceptor

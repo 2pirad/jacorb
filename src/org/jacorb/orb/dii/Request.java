@@ -36,7 +36,7 @@ import java.util.Enumeration;
  * DII requests
  * 
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.11 2003-08-15 11:17:44 andre.spiegel Exp $
+ * @version $Id: Request.java,v 1.12 2003-12-16 08:42:56 gerald Exp $
  */
 
 public class Request 
@@ -292,11 +292,11 @@ public class Request
                     }
                     catch (org.omg.CORBA.TypeCodePackage.BadKind ex)
                     {
-                       Debug.output (Debug.INFORMATION | Debug.DII, "Unexpected BadKind exception");
+                       Debug.output(5, "Unexpected BadKind exception");
                     }
                     catch (org.omg.CORBA.Bounds ex)
                     {
-                       Debug.output (Debug.INFORMATION | Debug.DII, "Unexpected Bounds exception");
+                       Debug.output(5, "Unexpected Bounds exception");
                        break;
                     }
                 }

@@ -38,7 +38,7 @@ import org.omg.PortableInterceptor.*;
  * client request and any interceptors registered for it.
  * 
  * @author Andre Spiegel
- * @version $Id: ClientInterceptorHandler.java,v 1.4 2003-08-15 11:17:24 andre.spiegel Exp $
+ * @version $Id: ClientInterceptorHandler.java,v 1.5 2003-12-16 08:42:56 gerald Exp $
  */
 public class ClientInterceptorHandler
 {
@@ -165,7 +165,7 @@ public class ClientInterceptorHandler
             }
             catch ( org.omg.CORBA.TypeCodePackage.BadKind bk )
             {
-                Debug.output ( Debug.INTERCEPTOR | Debug.INFORMATION, bk );
+                Debug.output ( 4, bk );
             }
             info.reply_status = SYSTEM_EXCEPTION.value;
 
@@ -194,7 +194,7 @@ public class ClientInterceptorHandler
             }
             catch ( Exception e )
             {
-                Debug.output ( Debug.INTERCEPTOR | Debug.INFORMATION, e );
+                Debug.output ( 4, e );
                 SystemExceptionHelper.insert ( info.received_exception,
                                                new org.omg.CORBA.UNKNOWN
                                                   ( e.getMessage() ) );
@@ -208,7 +208,7 @@ public class ClientInterceptorHandler
             catch ( Exception e )
             {
                 // shouldn't happen anyway
-                Debug.output ( Debug.INTERCEPTOR | Debug.INFORMATION, e);
+                Debug.output ( 2, e);
             }                        
 
             info.setReplyServiceContexts ( reply.rep_hdr.service_context );
@@ -236,7 +236,7 @@ public class ClientInterceptorHandler
         }
         catch ( org.omg.CORBA.UserException ue )
         {
-            Debug.output( Debug.INTERCEPTOR | Debug.IMPORTANT, ue );
+            Debug.output( 2, ue );
         }
     }
 

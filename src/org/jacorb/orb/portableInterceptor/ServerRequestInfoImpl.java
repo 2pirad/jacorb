@@ -27,17 +27,20 @@ import org.omg.PortableInterceptor.*;
 import org.omg.Dynamic.Parameter;
 import org.omg.PortableServer.Servant;
 
+import org.apache.avalon.framework.logger.*;
+
 import java.util.Enumeration;
 
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.util.Debug;
+
 /**
  * This class represents the type of info object
  * that will be passed to the ServerRequestInterceptors. <br>
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.11 2003-10-15 16:57:44 steve.osselton Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.12 2003-12-16 08:42:56 gerald Exp $
  */
 
 public class ServerRequestInfoImpl 
@@ -159,12 +162,14 @@ public class ServerRequestInfoImpl
         }
         catch(Exception e)
         {
-            Debug.output(Debug.INFORMATION | Debug.INTERCEPTOR, e);
+            Debug.output( 3, e);
         }
 
         if (result == null)
+        {
             throw new NO_RESOURCES("Stream-based skeletons/stubs do not support this op", 
                                    1, CompletionStatus.COMPLETED_MAYBE);
+        }
         else
             return result;
     }

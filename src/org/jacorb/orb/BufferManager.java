@@ -31,7 +31,7 @@ import org.omg.CORBA.NO_MEMORY;
  * Buffers are generally created on demand.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.14 2003-04-29 13:07:26 nick.cross Exp $
+ * @version $Id: BufferManager.java,v 1.15 2003-12-16 08:42:56 gerald Exp $
 */
 
 public final class BufferManager
@@ -67,7 +67,7 @@ public final class BufferManager
      * 0 : Active, never flushed
      * >0: Active with reaper flush thread.
      */
-    private static int time = -1;
+    private static int time = 0;
 
     static
     {

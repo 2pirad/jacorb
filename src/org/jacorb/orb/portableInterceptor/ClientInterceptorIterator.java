@@ -30,7 +30,7 @@ import org.jacorb.util.Debug;
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.8 2002-12-20 18:29:05 nicolas Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.9 2003-12-16 08:42:56 gerald Exp $
  */
 
 public class ClientInterceptorIterator 
@@ -81,8 +81,7 @@ public class ClientInterceptorIterator
 
 	try
         {
-	    Debug.output( Debug.DEBUG1 | Debug.INTERCEPTOR, 
-                          "Invoking CI " + interceptor.name());
+	    Debug.output( 5, "Invoking CI " + interceptor.name());
 	    
             switch (op) 
             {
@@ -101,9 +100,10 @@ public class ClientInterceptorIterator
 	    case RECEIVE_OTHER :
 		((ClientRequestInterceptor) interceptor).receive_other(info);
 	    }
-	}catch (ForwardRequest _fwd)
+	}
+        catch (ForwardRequest _fwd)
         {
-	    Debug.output(Debug.INFORMATION | Debug.INTERCEPTOR, _fwd);
+	    Debug.output( 3, _fwd);
 
 	    reverseDirection();
 	    op = RECEIVE_OTHER;
@@ -113,10 +113,10 @@ public class ClientInterceptorIterator
 	    info.forward_reference = _fwd.forward;
 	    interceptor_ex = _fwd;
 
-	}catch (org.omg.CORBA.SystemException _sysex)
+	}
+        catch (org.omg.CORBA.SystemException _sysex)
         {
-	    Debug.output(Debug.INFORMATION | Debug.INTERCEPTOR, 
-                         _sysex);
+	    Debug.output(3, _sysex);
 
 	    reverseDirection();
 	    op = RECEIVE_EXCEPTION;
@@ -127,22 +127,19 @@ public class ClientInterceptorIterator
 	    try
             {
 		info.received_exception_id = SystemExceptionHelper.type(_sysex).id();
-	    }catch(org.omg.CORBA.TypeCodePackage.BadKind _bk)
-            {
-		Debug.output(Debug.INFORMATION | Debug.INTERCEPTOR, _bk);
 	    }
-	}catch (Throwable th)
+            catch(org.omg.CORBA.TypeCodePackage.BadKind _bk)
+            {
+		Debug.output(4, _bk);
+	    }
+	}
+        catch (Throwable th)
         {
-	    Debug.output(Debug.IMPORTANT | Debug.INTERCEPTOR, 
-                         "ClientInterceptorIterator: Caught a " + th);
+	    Debug.output(3, "ClientInterceptorIterator: Caught a " + th);
 	}
       
 	info.caller_op = op;
     }
 } // ClientInterceptorIterator
-
-
-
-
 
 

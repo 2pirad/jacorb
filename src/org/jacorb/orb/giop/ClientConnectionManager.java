@@ -36,7 +36,7 @@ import org.jacorb.util.*;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.12 2003-11-07 14:15:53 francisco Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.13 2003-12-16 08:42:56 gerald Exp $
  *
  */
 
@@ -89,9 +89,7 @@ public class ClientConnectionManager
             }
             catch (Exception e)
             {
-                Debug.output( Debug.IMPORTANT | Debug.ORB_CONNECT,
-                              e );
-
+                Debug.output( 2, e );
                 throw new RuntimeException( "SSL support is on, but the ssl socket factory can't be instanciated (see trace)!" );
             }
         }

@@ -30,7 +30,7 @@ import org.jacorb.util.Environment;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.14 2003-11-07 14:15:54 francisco Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.15 2003-12-16 08:42:56 gerald Exp $
  */
 
 public class IORInterceptorInitializer
@@ -38,8 +38,8 @@ public class IORInterceptorInitializer
     implements ORBInitializer
 {
 
-    public IORInterceptorInitializer() {
-
+    public IORInterceptorInitializer() 
+    {
     }
 
     // implementation of org.omg.PortableInterceptor.ORBInitializerOperations interface

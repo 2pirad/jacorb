@@ -1,3 +1,5 @@
+package org.jacorb.orb.portableInterceptor;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,29 +20,28 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.orb.portableInterceptor;
 
 import org.omg.PortableInterceptor.*;
 import org.omg.CORBA.UserException;
 
 import org.jacorb.util.Debug;
+
 /**
  * IORInterceptorIterator.java
- *
  *
  * Created: Mon Apr 17 09:53:33 2000
  *
  * @author Nicolas Noffke
- * $Id: IORInterceptorIterator.java,v 1.6 2002-12-20 18:29:05 nicolas Exp $
+ * $Id: IORInterceptorIterator.java,v 1.7 2003-12-16 08:42:56 gerald Exp $
  */
 
 public class IORInterceptorIterator 
     extends AbstractInterceptorIterator 
 {
-
     private IORInfoImpl info = null;
 
-    public IORInterceptorIterator(Interceptor[] interceptors) {
+    public IORInterceptorIterator(Interceptor[] interceptors) 
+    {
         super(interceptors);
     }
   
@@ -53,25 +54,20 @@ public class IORInterceptorIterator
     }
 
     protected void invoke(Interceptor interceptor)
-        throws UserException{
-
+        throws UserException
+    {
         try
         {
-            Debug.output( Debug.DEBUG1 | Debug.INTERCEPTOR, 
-                          "Invoking IORInterceptor " + 
+            Debug.output( 4, "Invoking IORInterceptor " + 
                           interceptor.name());
 
             ((IORInterceptor) interceptor).establish_components(info);
         }
         catch(Exception e)
         {
-            Debug.output(Debug.INFORMATION | Debug.INTERCEPTOR, e);
+            Debug.output(4, e.getMessage());
         }
     }
 } // IORInterceptorIterator
-
-
-
-
 
 
