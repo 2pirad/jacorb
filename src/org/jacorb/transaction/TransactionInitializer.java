@@ -5,17 +5,18 @@ import org.jacorb.orb.*;
 import org.omg.IOP.*;
 /**
  * This class registers the ClientContextTransferInterceptor 
- * with the ORB.
+ * and the ServerContextTransferInterceptor with the ORB.
  *
- * @author Nicolas Noffke
- * @version $Id: ClientInitializer.java,v 1.6 2002-03-19 09:25:48 nicolas Exp $
+ * @author Vladimir Mencl
+ * @version $Id: TransactionInitializer.java,v 1.1 2002-05-01 20:08:17 vladimir.mencl Exp $
  */
 
-public class ClientInitializer 
-  extends org.omg.CORBA.LocalObject 
+public class TransactionInitializer 
+  extends org.omg.CORBA.LocalObject
   implements ORBInitializer{
+  public static int slot_id;
 
-  public ClientInitializer() {
+  public TransactionInitializer() {
   }
 
   // implementation of org.omg.PortableInterceptor.ORBInitializerOperations interface
@@ -26,7 +27,7 @@ public class ClientInitializer
   public void post_init(ORBInitInfo info) {
     try{
       ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB();
-      int slot_id = info.allocate_slot_id();
+      slot_id = info.allocate_slot_id();
     
       Encoding encoding = new Encoding(ENCODING_CDR_ENCAPS.value, 
 				       (byte) 1, (byte) 0);
@@ -35,19 +36,20 @@ public class ClientInitializer
       TransactionCurrentImpl ts_current = new TransactionCurrentImpl(orb, slot_id);
       info.register_initial_reference("TransactionCurrent", ts_current);
 
-      info.add_client_request_interceptor
-	(new ClientContextTransferInterceptor(slot_id, codec));
-    }catch (Exception e){
+      info.add_client_request_interceptor(
+	  new ClientContextTransferInterceptor(slot_id, codec));
+
+      info.add_server_request_interceptor(
+	  new ServerContextTransferInterceptor(codec, slot_id, ts_current, 
+	  orb));
+
+    } catch (Exception e){
       org.jacorb.util.Debug.output(2, e);
     }
   }
 
   public void pre_init(ORBInitInfo info) {    
   }
-} // ClientInitializer
 
-
-
-
-
+} // TransactionInitializer
 
