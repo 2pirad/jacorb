@@ -26,15 +26,21 @@ import org.omg.CORBA.BAD_PARAM;
 import org.omg.CORBA.BAD_TYPECODE;
 import org.omg.CORBA.TCKind;
 import org.omg.CORBA.CompletionStatus;
+import org.jacorb.util.Environment;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.32 2003-03-22 01:46:50 francisco Exp $
+ * @version $Id: ORBSingleton.java,v 1.33 2003-04-04 15:44:30 francisco Exp $
  */
 
 public class ORBSingleton
     extends org.omg.CORBA_2_5.ORB
 {
+
+    /* configurable properties */
+    private static boolean strict_check_on_tc_creation =
+        Environment.isPropertyOn ("jacorb.interop.strict_check_on_tc_creation");
+
     /* factory methods: */
 
     public org.omg.CORBA.Any create_any()
@@ -491,12 +497,12 @@ public class ORBSingleton
     {
        checkTCRepositoryId( id );
 
-       // Please do not uncomment the line below:
-       //checkTCName (name, true)
-       //
-       // Reason: Sun's ValueHandler calls create_abstract_interface_tc()
-       // passing an empty string as the name parameter. checkTCName()
-       // then throws `org.omg.CORBA.BAD_PARAM: Illegal blank IDL name'.
+       // strict_check_on_tc_creation is incompatible with Sun's ValueHandler,
+       // which calls create_abstract_interface_tc() passing an empty string 
+       // as the name parameter. checkTCName() then throws 
+       //`org.omg.CORBA.BAD_PARAM: Illegal blank IDL name'. 
+       if ( strict_check_on_tc_creation ) 
+           checkTCName (name, true);
 
        return new org.jacorb.orb.TypeCode (org.omg.CORBA.TCKind._tk_abstract_interface,
                                            id,
