@@ -37,7 +37,7 @@ import org.omg.CORBA.COMM_FAILURE;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: Client_TCP_IP_Transport.java,v 1.29 2003-04-27 07:41:36 andre.spiegel Exp $
+ * @version $Id: Client_TCP_IP_Transport.java,v 1.30 2003-04-27 12:44:41 andre.spiegel Exp $
  */
 
 public class Client_TCP_IP_Transport
@@ -56,10 +56,9 @@ public class Client_TCP_IP_Transport
     public Client_TCP_IP_Transport( InternetIOPProfile target_profile,
                                     boolean use_ssl,
                                     SocketFactory socket_factory,
-                                    StatisticsProvider statistics_provider,
                                     TransportManager transport_manager )
     {
-        super( statistics_provider, transport_manager );
+        super( transport_manager );
 
         this.target_profile = target_profile;
         this.use_ssl        = use_ssl;
@@ -142,8 +141,6 @@ public class Client_TCP_IP_Transport
                                   ( socket_factory.isSSL( socket ) ? " via SSL" : "" ));
 
                     connected = true;
-
-                    notifyAll();
 
                     //for testing purposes
                     ++openTransports;
