@@ -1,13 +1,31 @@
+/*
+ *        Written for JacORB - a free Java ORB
+ *
+ *   Copyright (C) 2001 Gerald Brose
+ *
+ *   This library is free software; you can redistribute it and/or
+ *   modify it under the terms of the GNU Library General Public
+ *   License as published by the Free Software Foundation; either
+ *   version 2 of the License, or (at your option) any later version.
+ *
+ *   This library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *   Library General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this library; if not, write to the Free
+ *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
 package org.jacorb.security.jsse;
 
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.7 2001-08-10 09:56:08 jacorb Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.8 2001-08-22 07:20:12 jacorb Exp $
  */
 import org.jacorb.util.*;
-import org.jacorb.security.util.*;
-import org.jacorb.security.level2.*;
 
 import com.sun.net.ssl.*;
 

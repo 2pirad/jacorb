@@ -47,7 +47,7 @@ import java.net.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImplementationRepositoryImpl.java,v 1.12 2001-08-15 12:48:32 jacorb Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.13 2001-08-22 07:20:12 jacorb Exp $
  */
 
 public class ImplementationRepositoryImpl 
@@ -676,7 +676,9 @@ public class ImplementationRepositoryImpl
 	    _out.println(orb.object_to_string(poa.servant_to_reference(_imr)));
 	    _out.flush();
 	    _out.close();
-	}catch (Exception _e){
+	}
+        catch (Exception _e)
+        {
             Debug.output(Debug.IMR | Debug.INFORMATION, _e);
 
 	    System.out.println("ERROR: Failed to write IOR to file.\nPlease check the path.");
@@ -688,12 +690,13 @@ public class ImplementationRepositoryImpl
     }
 
     private void restartServer(ImRServerInfo server)
-        throws ServerStartupFailed{
-
+        throws ServerStartupFailed
+    {
         // server might be holding
         server.awaitRelease();
 
-        if (! server.active){
+        if(! server.active )
+        {
             Debug.output(Debug.IMR | Debug.INFORMATION, 
                          "ImR: server " + server.name + " is down");
 
@@ -1163,7 +1166,6 @@ public class ImplementationRepositoryImpl
                 }
                 catch( Exception e )
                 {
-                    e.printStackTrace();
                     //TODO: Also set server to "down"?
                     sendSysException(new org.omg.CORBA.TRANSIENT("object not reachable"));
                     return;                
