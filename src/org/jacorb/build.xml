@@ -6,33 +6,14 @@
 
   <!-- ==================================================== -->
   <!--            JacORB ORB build file                         -->
-  <!-- $Id: build.xml,v 1.23 2002-10-15 12:32:39 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.24 2003-02-21 15:45:59 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
   &common;
 
    <!-- all -->
 
-   <target name="all" depends="init,load-taskdef,idlcompile,subdirs" />
-
-   <target name="idlcompile" depends="init,idl">
-      <antcall target="jacorb-javac">
-         <param name="javac-src" value="${src}/generated"/>
-         <param name="javac-includes" value="org/jacorb/proxy/**"/>
-      </antcall>
-   </target>
-
-
-   <!-- Determine if IDL compilation is necessary. -->
-   <target name="idl" depends="init,load-taskdef">
-      <jacidl srcdir="${idl}/jacorb"
-              destdir="${src}/generated"
-              sloppynames="true"
-              generateir="true"
-              includepath="${idl}/omg"
-              includes="Proxy.idl"/>
-    </target>
-
+   <target name="all" depends="init,load-taskdef,subdirs" />
 
    <target name="utils" depends="init">
       <ant antfile="${src}/org/jacorb/util/build.xml" dir="${basedir}"/>
