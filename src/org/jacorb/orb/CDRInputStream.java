@@ -34,7 +34,7 @@ import org.jacorb.util.ValueHandler;
  * Read CDR encoded data 
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.36 2002-03-01 09:59:53 steve.osselton Exp $
+ * $Id: CDRInputStream.java,v 1.37 2002-03-01 11:22:04 jason.courage Exp $
  */
 
 public class CDRInputStream
@@ -848,7 +848,7 @@ public class CDRInputStream
 
           closeEncapsulation();
           org.omg.CORBA.TypeCode seq_tc = 
-             orb.create_sequence_tc(0, content_type);
+             orb.create_sequence_tc(length, content_type);
           return seq_tc;
        case TCKind._tk_alias: 
           openEncapsulation();
