@@ -14,7 +14,7 @@ import java.util.*;
  *  Freie Universitaet Berlin.
  *
  *
- * $Id: parser.cup,v 1.48 2002-05-23 09:58:18 simon.mcqueen Exp $
+ * $Id: parser.cup,v 1.49 2002-06-07 07:20:31 gerald Exp $
  *
  */
 
@@ -344,7 +344,9 @@ parser code
 
     private static void version()
     {
-        System.out.println("JacORB IDL compiler V" + compiler_version + ",\n   (C) Gerald Brose, FU Berlin, " + yearString + ".");
+        System.out.println("JacORB IDL compiler V" +  compiler_version + 
+                           ",\n   (C) Gerald Brose, FU Berlin/XTRADYNE Technologies, " + 
+                           yearString + ".");
     }
 
     /* override error routines */
