@@ -4,7 +4,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.21 2002-03-27 12:25:46 jason.courage Exp $ -->
+   <!-- $Id: build.xml,v 1.22 2002-03-28 11:22:38 steve.osselton Exp $ -->
    <!-- ==================================================== -->
 
    <target name="init">
@@ -23,7 +23,7 @@
 
    <!-- top-level target -->
    <target name="all" depends="init,compiler,omg_idl,jacorb,libs"
-      description="Build JacORB.  Use -Ddebug=(on|off) option to switch debugging on or off (default is off)."/>
+      description="Build JacORB. Use -Ddebug=on to compile code with debug."/>
 
 
    <!-- ==================================================== -->
