@@ -4,11 +4,11 @@
   <!ENTITY common SYSTEM "file:../../../../common.xml"> 
 ]>
 
-<project name="notification" default="notification.all" basedir="../../../..">
+<project name="notification" default="all" basedir="../../../..">
 
 <!-- ============================================================= -->
 <!--              JacORB - NotificationService build file          -->
-<!-- $Id: build.xml,v 1.12 2003-08-01 07:41:51 alphonse.bendt Exp $ -->
+<!-- $Id: build.xml,v 1.13 2003-08-02 08:28:02 alphonse.bendt Exp $ -->
 <!-- ============================================================= -->
 
   &common;
@@ -69,7 +69,7 @@
   </target>
 
   <!-- default target -->
-  <target name="notification.all" 
+  <target name="all" 
     depends="notification.init, antlr, server" />
 
   <!-- ====== -->
