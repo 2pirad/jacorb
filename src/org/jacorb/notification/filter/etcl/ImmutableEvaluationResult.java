@@ -24,13 +24,8 @@ import org.jacorb.notification.filter.EvaluationResult;
  */
 
 /**
- * ImmutableEvaluationResult.java
- *
- *
- * Created: Thu Jan 02 15:48:45 2003
- *
  * @author Alphonse Bendt
- * @version $Id: ImmutableEvaluationResult.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ImmutableEvaluationResult.java,v 1.3 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
 public class ImmutableEvaluationResult extends EvaluationResult

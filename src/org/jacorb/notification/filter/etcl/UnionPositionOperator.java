@@ -24,13 +24,8 @@ package org.jacorb.notification.filter.etcl;
 import antlr.Token;
 
 /**
- * UnionPositionOperator.java
- *
- *
- * Created: Thu Sep 26 14:57:58 2002
- *
  * @author Alphonse Bendt
- * @version $Id: UnionPositionOperator.java,v 1.4 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: UnionPositionOperator.java,v 1.5 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
 public class UnionPositionOperator extends AbstractTCLNode

@@ -29,10 +29,10 @@ import antlr.Token;
 
 /**
  * A simple node to represent MULT operation
- * @version $Id: MultOperator.java,v 1.3 2004-07-12 11:18:25 alphonse.bendt Exp $
+ * @version $Id: MultOperator.java,v 1.4 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
-public class MultOperator extends AbstractTCLNode {
+public class MultOperator extends BinaryOperator {
 
     public MultOperator(Token tok) {
         super(tok);
@@ -42,11 +42,10 @@ public class MultOperator extends AbstractTCLNode {
         return " *";
     }
 
-    public EvaluationResult evaluate(EvaluationContext context)
+    public EvaluationResult evaluate(EvaluationContext context, EvaluationResult left, EvaluationResult right)
         throws EvaluationException {
 
-        return EvaluationResult.mult(left().evaluate(context),
-                                     right().evaluate(context));
+        return EvaluationResult.mult(right, left);
     }
 
     public String getName() {

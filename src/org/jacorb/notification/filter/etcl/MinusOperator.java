@@ -29,13 +29,13 @@ import antlr.Token;
 
 /**
  * A simple node to represent MINUS operation
- * @version $Id: MinusOperator.java,v 1.3 2004-07-12 11:18:25 alphonse.bendt Exp $
+ * @version $Id: MinusOperator.java,v 1.4 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
-public class MinusOperator extends AbstractTCLNode {
+public class MinusOperator extends UnaryOperator {
 
-    boolean unary_;
-    static final String NAME = "MinusOperator";
+    private boolean unary_;
+    private static final String NAME = "MinusOperator";
 
     public String getName() {
         return NAME;
@@ -53,16 +53,17 @@ public class MinusOperator extends AbstractTCLNode {
         return " -";
     }
 
-    public EvaluationResult evaluate(EvaluationContext context)
+    public EvaluationResult evaluate(EvaluationContext context, 
+            EvaluationResult left)
         throws EvaluationException {
 
         if (unary_) {
 
-            return EvaluationResult.unaryMinus(left().evaluate(context));
+            return EvaluationResult.unaryMinus(left);
 
         } else {
 
-            return EvaluationResult.minus(left().evaluate(context),
+            return EvaluationResult.minus(left,
                                           right().evaluate(context));
         }
     }

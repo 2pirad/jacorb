@@ -29,10 +29,10 @@ import antlr.Token;
 
 /**
  * A simple node to represent DIV operation
- * @version $Id: DivOperator.java,v 1.3 2004-07-12 11:18:25 alphonse.bendt Exp $
+ * @version $Id: DivOperator.java,v 1.4 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
-public class DivOperator extends AbstractTCLNode {
+public class DivOperator extends BinaryOperator {
 
     public DivOperator(Token tok) {
         super(tok);
@@ -42,12 +42,11 @@ public class DivOperator extends AbstractTCLNode {
         return " /";
     }
 
-    public EvaluationResult evaluate(EvaluationContext context)
+    public EvaluationResult evaluate(EvaluationContext context, EvaluationResult left, EvaluationResult right)
         throws EvaluationException {
 
         try {
-            return EvaluationResult.div(left().evaluate(context),
-                                        right().evaluate(context));
+            return EvaluationResult.div(left, right);
         } catch (ArithmeticException e) {
             throw new EvaluationException(e.getMessage());
         }

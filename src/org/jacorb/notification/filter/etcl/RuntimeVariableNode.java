@@ -30,15 +30,15 @@ import antlr.Token;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RuntimeVariableNode.java,v 1.5 2004-07-12 11:18:25 alphonse.bendt Exp $
+ * @version $Id: RuntimeVariableNode.java,v 1.6 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
 public class RuntimeVariableNode
     extends AbstractTCLNode
     implements RuntimeVariable
 {
-    private String value_;
-    private AbstractTCLNode strategy_;
+    private final String value_;
+    private final AbstractTCLNode strategy_;
 
     public RuntimeVariableNode( Token token )
     {

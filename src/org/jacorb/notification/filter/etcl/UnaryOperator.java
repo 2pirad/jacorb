@@ -1,5 +1,3 @@
-package org.jacorb.notification.filter.etcl;
-
 /*
  *        JacORB - a free Java ORB
  *
@@ -21,22 +19,38 @@ package org.jacorb.notification.filter.etcl;
  *
  */
 
+package org.jacorb.notification.filter.etcl;
+
+import org.jacorb.notification.filter.EvaluationContext;
+import org.jacorb.notification.filter.EvaluationException;
+import org.jacorb.notification.filter.EvaluationResult;
+
+import antlr.Token;
+
 /**
  * @author Alphonse Bendt
- * @version $Id: StaticTypeException.java,v 1.3 2004-08-13 11:55:29 alphonse.bendt Exp $
+ * @version $Id: UnaryOperator.java,v 1.1 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
-
-public class StaticTypeException extends VisitorException
+abstract class UnaryOperator extends AbstractTCLNode
 {
-
-    public StaticTypeException( String msg )
+    public UnaryOperator(Token tok)
     {
-        super( msg );
+        super(tok);
     }
 
-    public StaticTypeException()
+    public UnaryOperator()
     {
         super();
     }
 
-} // StaticTypeException
+    public final EvaluationResult evaluate(EvaluationContext context) throws EvaluationException {
+        EvaluationResult _left = left().evaluate(context);  
+
+        return evaluate(context, _left);
+    }
+    
+    protected abstract EvaluationResult evaluate(EvaluationContext context, 
+            EvaluationResult left) throws EvaluationException;
+    
+}
+

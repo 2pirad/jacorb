@@ -26,11 +26,10 @@ import org.jacorb.notification.filter.EvaluationException;
 import org.jacorb.notification.filter.EvaluationResult;
 import org.omg.CORBA.Any;
 
-//import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageUtils.java,v 1.5 2004-07-12 11:18:25 alphonse.bendt Exp $
+ * @version $Id: MessageUtils.java,v 1.6 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
 public class MessageUtils

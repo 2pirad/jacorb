@@ -33,7 +33,7 @@ import antlr.Token;
  * node that represents a COMPONENT Name
  *
  * @author Alphonse Bendt
- * @version $Id: ETCLComponentName.java,v 1.5 2004-07-12 11:18:25 alphonse.bendt Exp $
+ * @version $Id: ETCLComponentName.java,v 1.6 2004-08-13 11:55:29 alphonse.bendt Exp $
  */
 
 public class ETCLComponentName extends AbstractTCLNode implements ComponentName
@@ -93,6 +93,7 @@ public class ETCLComponentName extends AbstractTCLNode implements ComponentName
 
             break;
         default:
+            // coming here means, we've hit a bug
             throw new RuntimeException("Unexpected Nodetype: "
                                        + getNameForType(_left.getType()));
         }

@@ -18,6 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
+
 package org.jacorb.notification.filter.etcl;
 
 import org.jacorb.notification.filter.EvaluationContext;
@@ -26,45 +27,34 @@ import org.jacorb.notification.filter.EvaluationResult;
 
 import antlr.Token;
 
-/** A simple node to represent NOT operation */
-public class NotOperator extends UnaryOperator {
-    public NotOperator(Token tok) {
+/**
+ * @author Alphonse Bendt
+ * @version $Id: BinaryOperator.java,v 1.1 2004-08-13 11:55:29 alphonse.bendt Exp $
+ */
+public abstract class BinaryOperator extends UnaryOperator
+{
+
+    public BinaryOperator(Token tok)
+    {
         super(tok);
     }
 
-    public String toString() {
-        return " not";
+    public BinaryOperator()
+    {
+        super();
     }
 
-    public boolean checkOperands() {
-        return true;
-    }
-
-    public EvaluationResult evaluate(EvaluationContext context, EvaluationResult left)
-        throws EvaluationException {
-
-        boolean _b = left.getBool();
+ 
+    protected final EvaluationResult evaluate(EvaluationContext context, 
+            EvaluationResult left)
+            throws EvaluationException
+    {
+        EvaluationResult _right = right().evaluate(context);
         
-        return (_b ? EvaluationResult.BOOL_FALSE : EvaluationResult.BOOL_TRUE);
+        return evaluate(context, left, _right);
     }
+    
+    protected abstract EvaluationResult evaluate(EvaluationContext context, 
+            EvaluationResult left, EvaluationResult right) throws EvaluationException;
 
-    static final String NAME = "NotOperator";
-    public String getName() {
-        return NAME;
-    }
-
-    public void acceptInOrder(AbstractTCLVisitor visitor) throws VisitorException {
-        left().acceptInOrder(visitor);
-        visitor.visitNot(this);
-    }
-
-    public void acceptPreOrder(AbstractTCLVisitor visitor) throws VisitorException {
-        visitor.visitNot(this);
-        left().acceptPreOrder(visitor);
-    }
-
-    public void acceptPostOrder(AbstractTCLVisitor visitor) throws VisitorException {
-        left().acceptInOrder(visitor);
-        visitor.visitNot(this);
-    }
 }
