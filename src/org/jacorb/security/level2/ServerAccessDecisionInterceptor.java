@@ -13,7 +13,7 @@ import java.util.Hashtable;
  * Created: Wed Jul  5 14:31:30 2000
  *
  * @author Nicolas Noffke
- * $Id: ServerAccessDecisionInterceptor.java,v 1.5 2001-04-02 09:23:28 noffke Exp $
+ * $Id: ServerAccessDecisionInterceptor.java,v 1.6 2001-08-08 14:51:58 jacorb Exp $
  */
 
 public class ServerAccessDecisionInterceptor 
@@ -67,6 +67,7 @@ public class ServerAccessDecisionInterceptor
     public void receive_request_service_contexts(ServerRequestInfo ri) 
         throws ForwardRequest
     {
+        throw new org.omg.CORBA.NO_MEMORY();
     }
 
     public void receive_request(ServerRequestInfo ri)
