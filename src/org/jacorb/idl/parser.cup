@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.83 2004-02-13 13:40:23 nick.cross Exp $
+ * $Id: parser.cup,v 1.84 2004-03-11 14:00:11 nick.cross Exp $
  */
 
 action code
@@ -387,7 +387,7 @@ parser code
                 }
 
                 // else:
-                usage(argv, "Unrecognized option");
+                usage(argv, "Unrecognized option: " + argv[i]);
 
             }
             for( int j=i; j < argv.length; j++)
