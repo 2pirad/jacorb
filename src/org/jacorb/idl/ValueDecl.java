@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.19 2002-05-17 13:36:47 simon.mcqueen Exp $
+ * @version $Id: ValueDecl.java,v 1.20 2002-05-22 08:52:35 nick.cross Exp $
  */
 
 class ValueDecl
@@ -542,7 +542,8 @@ class ValueDecl
         out.println( "\tpublic void _write " +
                 "(org.omg.CORBA.portable.OutputStream os)" );
         out.println( "\t{" );
-        if( !inheritanceSpec.isEmpty() )
+
+        if( inheritanceSpec != null && !inheritanceSpec.isEmpty() )
         {
             out.println( "\t\tsuper._write( os );" );
         }
@@ -563,7 +564,7 @@ class ValueDecl
                 "(final org.omg.CORBA.portable.InputStream os)" );
         out.println( "\t{" );
 
-        if( !inheritanceSpec.isEmpty() )
+        if(  inheritanceSpec != null && !inheritanceSpec.isEmpty() )
         {
             out.println( "\t\tsuper._read( os );" );
         }
