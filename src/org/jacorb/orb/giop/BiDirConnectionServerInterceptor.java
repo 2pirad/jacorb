@@ -37,7 +37,7 @@ import org.jacorb.orb.portableInterceptor.*;
  * Created: Sun Sep  2 18:16:27 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.7 2003-01-07 18:06:59 nicolas Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.8 2003-04-14 15:26:39 andre.spiegel Exp $
  */
 
 public class BiDirConnectionServerInterceptor 
@@ -111,7 +111,7 @@ public class BiDirConnectionServerInterceptor
 
                 Debug.output( 2, "BiDirServerInterceptor: Added client conn to target " + info );
                 
-                conn_mg.addConnection( connection, info );
+                conn_mg.addConnection( connection );
             }            
         }
     }    
