@@ -23,16 +23,10 @@ package org.jacorb.notification.servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ManageableServant.java,v 1.5 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: ManageableServant.java,v 1.6 2005-04-10 14:27:09 alphonse.bendt Exp $
  */
 
 public interface ManageableServant {
-
-    /**
-     * @deprecated
-     * @throws Exception
-     */
-    void preActivate() throws Exception;
 
     org.omg.CORBA.Object activate();
 

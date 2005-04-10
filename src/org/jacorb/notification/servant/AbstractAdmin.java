@@ -70,7 +70,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
  * Abstract Baseclass for Adminobjects.
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.11 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.12 2005-04-10 14:23:59 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,
@@ -88,9 +88,10 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
                 String supportedInterface)
         {
             super();
-            this.admin_ = admin;
-            this.container_ = container;
-            this.supportedInterface_ = supportedInterface;
+            
+            admin_ = admin;
+            container_ = container;
+            supportedInterface_ = supportedInterface;
         }
 
         public String getSupportedInterface()
@@ -199,10 +200,6 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
 
         componentAdapterFactory_ = (ComponentAdapterFactory) container_
                 .getComponentInstance(ComponentAdapterFactory.class);
-    }
-
-    public void configure(Configuration w)
-    {
     }
 
     public final void addDisposeHook(Disposable d)
@@ -512,14 +509,6 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
         {
             proxy.setInterFilterGroupOperatorOR(true);
         }
-    }
-
-    /**
-     * satisfy method implementation
-     */
-    public void preActivate()
-    {
-        // No OP
     }
 
     public void addProxyEventListener(ProxyEventListener l)
