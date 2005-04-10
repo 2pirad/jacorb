@@ -36,10 +36,10 @@ import org.jacorb.notification.engine.TaskExecutor;
  * <br>
  *
  * @author Alphonse Bendt
- * @version $Id: MessageConsumer.java,v 1.9 2005-02-14 00:09:05 alphonse.bendt Exp $
+ * @version $Id: MessageConsumer.java,v 1.10 2005-04-10 14:23:28 alphonse.bendt Exp $
  */
 
-public interface MessageConsumer extends Disposable {
+public interface MessageConsumer extends Disposable, Comparable {
 
     /**
      * @return the <code>TaskExecutor</code> that should be used to
