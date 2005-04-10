@@ -27,7 +27,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterStageListManager.java,v 1.6 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: FilterStageListManager.java,v 1.7 2005-04-10 14:26:55 alphonse.bendt Exp $
  */
 
 abstract public class FilterStageListManager {
@@ -43,6 +43,8 @@ abstract public class FilterStageListManager {
     private java.util.List checkedList_ = Collections.EMPTY_LIST;
 
     private boolean sourceModified_;
+
+    private java.util.List readOnlyView_ = Collections.EMPTY_LIST;
 
     ////////////////////////////////////////
 
@@ -68,14 +70,20 @@ abstract public class FilterStageListManager {
 
                 fetchListData(_listProxy);
 
-                checkedList_ = Collections.unmodifiableList(_newList);
-
+                checkedList_ = _newList;
+                readOnlyView_ = Collections.unmodifiableList(checkedList_);
                 sourceModified_ = false;
             }
-            return checkedList_;
+            sortCheckedList(checkedList_);
+            
+            return readOnlyView_;
         }
     }
 
+    protected void sortCheckedList(java.util.List list)
+    {
+        // No OP
+    }
 
     abstract protected void fetchListData(List listProxy);
 }
