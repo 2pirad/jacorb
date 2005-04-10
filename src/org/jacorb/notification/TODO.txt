@@ -1,3 +1,5 @@
 * persistent channels
 * persistent events
 * move util.concurrent to backport of new java.util.concurrent
+
+$Id: TODO.txt,v 1.2 2005-04-10 14:18:20 alphonse.bendt Exp $
