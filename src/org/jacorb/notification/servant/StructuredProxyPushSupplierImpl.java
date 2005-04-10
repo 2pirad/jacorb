@@ -50,7 +50,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.13 2005-02-20 21:45:26 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.14 2005-04-10 14:28:58 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl extends AbstractProxySupplier implements
@@ -72,6 +72,8 @@ public class StructuredProxyPushSupplierImpl extends AbstractProxySupplier imple
     };
 
     private StructuredPushConsumerOperations pushConsumer_;
+
+    private long timeSpent_;
 
     // //////////////////////////////////////
 
@@ -121,8 +123,11 @@ public class StructuredProxyPushSupplierImpl extends AbstractProxySupplier imple
         try
         {
             logger_.debug("push to consumer");
+            
+            long now = System.currentTimeMillis();
             pushConsumer_.push_structured_event(message.toStructuredEvent());
-
+            timeSpent_ += (System.currentTimeMillis() - now);
+            
             resetErrorCounter();
         } catch (Throwable e)
         {
@@ -192,5 +197,10 @@ public class StructuredProxyPushSupplierImpl extends AbstractProxySupplier imple
     public org.omg.CORBA.Object activate()
     {
         return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
+    }
+    
+    protected long getCost()
+    {
+        return timeSpent_;
     }
 }

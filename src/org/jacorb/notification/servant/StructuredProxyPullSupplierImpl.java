@@ -52,7 +52,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.11 2005-02-20 21:45:26 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.12 2005-04-10 14:28:58 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -173,6 +173,7 @@ public class StructuredProxyPullSupplierImpl extends AbstractProxySupplier imple
      */
     public void messageDelivered()
     {
+        // ignore
     }
 
     public List getSubsequentFilterStages()
@@ -218,5 +219,10 @@ public class StructuredProxyPullSupplierImpl extends AbstractProxySupplier imple
     public org.omg.CORBA.Object activate()
     {
         return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
+    }
+   
+    protected long getCost()
+    {
+        return 0;
     }
 }

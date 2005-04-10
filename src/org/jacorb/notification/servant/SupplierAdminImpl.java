@@ -56,7 +56,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminImpl.java,v 1.5 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminImpl.java,v 1.6 2005-04-10 14:28:58 alphonse.bendt Exp $
  */
 
 public class SupplierAdminImpl extends AbstractSupplierAdmin implements SupplierAdminOperations,
@@ -139,8 +139,6 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
 
             intHolder.value = _servant.getID().intValue();
 
-            _servant.preActivate();
-
             return ProxyConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
@@ -180,8 +178,6 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
             AbstractProxy _servant = obtain_notification_push_consumer_servant(clienttype);
 
             intHolder.value = _servant.getID().intValue();
-
-            _servant.preActivate();
 
             return ProxyConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
@@ -254,8 +250,6 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
             addProxyToMap(_servant, pushServants_, modifyProxiesLock_);
 
             _servant.set_qos(get_qos());
-
-            _servant.preActivate();
 
             return org.omg.CosEventChannelAdmin.ProxyPullConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)

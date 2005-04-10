@@ -48,7 +48,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.11 2005-02-20 21:45:26 alphonse.bendt Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.12 2005-04-10 14:28:58 alphonse.bendt Exp $
  */
 
 public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -69,10 +69,10 @@ public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
 
     ////////////////////////////////////////
 
-    public ProxyPullSupplierImpl(IAdmin admin, ORB orb, POA poa, Configuration conf, TaskProcessor taskProcessor, OfferManager offerManager, SubscriptionManager subscriptionManager, ConsumerAdmin consumerAdmin)
+    public ProxyPullSupplierImpl(IAdmin admin, ORB orb, POA poa, Configuration config, TaskProcessor taskProcessor, OfferManager offerManager, SubscriptionManager subscriptionManager, ConsumerAdmin consumerAdmin)
             throws ConfigurationException
     {
-        super(admin, orb, poa, conf, taskProcessor, DefaultTaskExecutor.getDefaultExecutor(), offerManager, subscriptionManager, consumerAdmin);
+        super(admin, orb, poa, config, taskProcessor, DefaultTaskExecutor.getDefaultExecutor(), offerManager, subscriptionManager, consumerAdmin);
     }
 
     public ProxyType MyType()
@@ -206,5 +206,10 @@ public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
     public org.omg.CORBA.Object activate()
     {
         return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
+    }
+    
+    protected long getCost()
+    {
+        return 0;
     }
 }
