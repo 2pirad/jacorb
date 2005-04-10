@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.15 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.16 2005-04-10 14:18:01 alphonse.bendt Exp $
  */
 
 public class StructuredEventMessage extends AbstractMessage
@@ -206,7 +206,7 @@ public class StructuredEventMessage extends AbstractMessage
         }
     }
 
-    public static long unixTime(UtcT corbaTime)
+    private static long unixTime(UtcT corbaTime)
     {
         long _unixTime = (corbaTime.time - Time.UNIX_OFFSET) / 10000;
 

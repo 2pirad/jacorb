@@ -71,7 +71,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractEventChannel.java,v 1.3 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: AbstractEventChannel.java,v 1.4 2005-04-10 14:18:01 alphonse.bendt Exp $
  */
 
 public abstract class AbstractEventChannel implements Disposable, Configurable, ManageableServant
@@ -246,11 +246,6 @@ public abstract class AbstractEventChannel implements Disposable, Configurable, 
     }
 
     ////////////////////////////////////////
-
-    public void preActivate()
-    {
-        // NO OP
-    }
 
     /**
      * Callback to help keep track of the number of Consumers.
@@ -520,11 +515,6 @@ public abstract class AbstractEventChannel implements Disposable, Configurable, 
         return PropertySet.map2Props(_copy);
     }
 
-    private void configureAdmin(AbstractAdmin admin)
-    {
-        admin.configure(configuration_);
-    }
-
     protected AbstractAdmin get_consumeradmin_internal(int identifier) throws AdminNotFound
     {
         synchronized (modifyConsumerAdminsLock_)
@@ -562,7 +552,7 @@ public abstract class AbstractEventChannel implements Disposable, Configurable, 
     /**
      * fetch the List of all ConsumerAdmins that are connected to this EventChannel.
      */
-    private List getAllConsumerAdmins()
+    List getAllConsumerAdmins()
     {
         return listManager_.getList();
     }
@@ -642,9 +632,6 @@ public abstract class AbstractEventChannel implements Disposable, Configurable, 
         return _admin;
     }
 
-    /**
-     * @return
-     */
     private int createAdminID()
     {
         return adminIdPool_.increment();
@@ -728,8 +715,6 @@ public abstract class AbstractEventChannel implements Disposable, Configurable, 
     {
         AbstractAdmin _admin = newConsumerAdmin(id);
 
-        configureAdmin(_admin);
-
         return _admin;
     }
 
@@ -757,8 +742,6 @@ public abstract class AbstractEventChannel implements Disposable, Configurable, 
         AbstractSupplierAdmin _admin = newSupplierAdmin(id);
 
         _admin.setSubsequentFilterStageSource(new FilterStageSourceAdapter(this));
-
-        configureAdmin(_admin);
 
         return _admin;
     }

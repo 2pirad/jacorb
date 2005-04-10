@@ -52,7 +52,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * reference of that event channel. <br>
  * 
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.40 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.41 2005-04-10 14:18:01 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl extends AbstractChannelFactory implements
@@ -209,15 +209,6 @@ public class EventChannelFactoryImpl extends AbstractChannelFactory implements
     public EventChannel get_event_channel(int id) throws ChannelNotFound
     {
         return EventChannelHelper.narrow(get_event_channel_servant(id).activate());
-    }
-
-    /**
-     * @deprecated
-     * TODO remove
-     */
-    public void preActivate()
-    {
-        // no op
     }
 
     public EventChannelFactory getEventChannelFactory()
