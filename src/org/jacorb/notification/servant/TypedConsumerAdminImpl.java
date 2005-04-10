@@ -42,7 +42,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedConsumerAdminImpl.java,v 1.4 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: TypedConsumerAdminImpl.java,v 1.5 2005-04-10 14:32:57 alphonse.bendt Exp $
  */
 public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         TypedConsumerAdminOperations
@@ -80,8 +80,6 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
             AbstractProxy _proxy = obtain_typed_notification_pull_supplier_servant(type);
 
             id.value = _proxy.getID().intValue();
-
-            _proxy.preActivate();
 
             return TypedProxyPullSupplierHelper.narrow(_proxy.activate());
         } catch (Exception e)
@@ -121,8 +119,6 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
             AbstractProxy _proxy = obtain_typed_notification_push_supplier_servant(type);
 
             id.value = _proxy.getID().intValue();
-
-            _proxy.preActivate();
 
             return TypedProxyPushSupplierHelper.narrow(_proxy.activate());
         } catch (Exception e)

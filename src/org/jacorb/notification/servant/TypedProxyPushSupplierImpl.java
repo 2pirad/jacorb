@@ -54,7 +54,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImpl.java,v 1.7 2005-02-20 21:45:26 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImpl.java,v 1.8 2005-04-10 14:32:57 alphonse.bendt Exp $
  */
 
 public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
@@ -67,6 +67,8 @@ public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
     private static final TypeCode TYPE_CODE_VOID = ORB.init().get_primitive_tc(TCKind.tk_void);
 
     private final String supportedInterface_;
+
+    private long timeSpent_ = 0;
 
     public TypedProxyPushSupplierImpl(ITypedAdmin admin, ConsumerAdmin consumerAdmin, ORB orb,
             POA poa, Configuration conf, TaskProcessor taskProcessor, TaskExecutor taskExecutor,
@@ -217,7 +219,9 @@ public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
 
             try
             {
+                long now = System.currentTimeMillis();
                 _request.invoke();
+                timeSpent_ += (System.currentTimeMillis() - now);
 
                 resetErrorCounter();
             } catch (Throwable t)
@@ -252,5 +256,10 @@ public class TypedProxyPushSupplierImpl extends AbstractProxySupplier implements
         }
 
         return thisServant_;
+    }
+
+    protected long getCost()
+    {
+        return timeSpent_;
     }
 }

@@ -39,7 +39,7 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.queue.MessageQueueAdapter;
 import org.jacorb.notification.queue.RWLockEventQueueDecorator;
 import org.jacorb.notification.util.PropertySet;
-import org.jacorb.notification.util.PropertySetListener;
+import org.jacorb.notification.util.PropertySetAdapter;
 import org.omg.CORBA.ARG_OUT;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.BooleanHolder;
@@ -75,7 +75,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImpl.java,v 1.6 2005-02-20 21:45:26 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImpl.java,v 1.7 2005-04-10 14:32:57 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -361,12 +361,8 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
         }
     }
 
-    private PropertySetListener reconfigureEventQueues_ = new PropertySetListener()
-    {
-        public void validateProperty(Property[] props, List errors)
-        {
-        }
-
+    private PropertySetAdapter reconfigureEventQueues_ = new PropertySetAdapter()
+    { 
         public void actionPropertySetChanged(PropertySet source) throws UnsupportedQoS
         {
             configureEventQueue();
@@ -484,6 +480,7 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
 
     public void messageDelivered()
     {
+        // No Op
     }
     
     public void deliverPendingData()
@@ -498,5 +495,10 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
             pullConsumer_.disconnect_pull_consumer();
             pullConsumer_ = null;
         }
+    }
+    
+    protected long getCost()
+    {
+        return 0;
     }
 }

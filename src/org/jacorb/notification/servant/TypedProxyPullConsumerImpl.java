@@ -52,7 +52,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @Author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImpl.java,v 1.5 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImpl.java,v 1.6 2005-04-10 14:32:57 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -185,6 +185,7 @@ public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
             {
                 logger_.debug("invoke " + _tryPullOperations[x]);
             }
+            
             _request.invoke();
 
             Any _result = _request.result().value();

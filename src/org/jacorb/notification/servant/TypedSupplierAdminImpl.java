@@ -41,11 +41,10 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedSupplierAdminPOATie;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 import org.picocontainer.MutablePicoContainer;
-import org.picocontainer.defaults.ConstructorInjectionComponentAdapter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImpl.java,v 1.4 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImpl.java,v 1.5 2005-04-10 14:32:57 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         TypedSupplierAdminOperations
@@ -96,8 +95,6 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
 
             id.value = _servant.getID().intValue();
 
-            _servant.preActivate();
-
             return TypedProxyPushConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
@@ -128,8 +125,6 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
             addProxyToMap(_servant, pullServants_, modifyProxiesLock_);
 
             id.value = _servant.getID().intValue();
-
-            _servant.preActivate();
 
             return TypedProxyPullConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
