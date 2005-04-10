@@ -23,7 +23,7 @@ package org.jacorb.notification.conf;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Attributes.java,v 1.7 2005-03-31 20:08:48 alphonse.bendt Exp $
+ * @version $Id: Attributes.java,v 1.8 2005-04-10 14:19:42 alphonse.bendt Exp $
  */
 
 public interface Attributes
@@ -114,9 +114,9 @@ public interface Attributes
     String FILTER_PLUGIN_PREFIX =
         "jacorb.notification.filter.plugin";
 
-    String WILDCARDMAP_CLASS = "jacorb.notification.wildcardmap.implementation";
+    String WILDCARDMAP_CLASS = "jacorb.notification.filter.wildcardmap_impl";
 
-    String RETRY_STRATEGY_FACTORY = "jacorb.notification.retrystrategy.factory";
+    String RETRY_STRATEGY_FACTORY = "jacorb.notification.proxysupplier.retrystrategy_factory";
 
     String DEAD_FILTER_INTERVAL = "jacorb.notification.filter.dead_interval";
 }
