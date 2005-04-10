@@ -44,7 +44,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedConsumerAdminImplTest.java,v 1.3 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: TypedConsumerAdminImplTest.java,v 1.4 2005-04-10 14:31:57 alphonse.bendt Exp $
  */
 
 public class TypedConsumerAdminImplTest extends NotificationTestCase
@@ -91,8 +91,6 @@ public class TypedConsumerAdminImplTest extends NotificationTestCase
                 getMessageFactory(), (OfferManager) container_
                         .getComponentInstance(OfferManager.class), (SubscriptionManager) container_
                         .getComponentInstance(SubscriptionManager.class), mockChannel);
-
-        objectUnderTest_.preActivate();
 
         consumerAdmin_ = TypedConsumerAdminHelper.narrow(objectUnderTest_.activate());
         

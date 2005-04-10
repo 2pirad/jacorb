@@ -46,7 +46,7 @@ import org.omg.CosTypedNotifyComm.TypedPullSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.5 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.6 2005-04-10 14:31:57 alphonse.bendt Exp $
  */
 public class TypedProxyPullConsumerImplTest extends NotificationTestCase
 {
@@ -92,8 +92,6 @@ public class TypedProxyPullConsumerImplTest extends NotificationTestCase
         objectUnderTest_ = new TypedProxyPullConsumerImpl(mockAdmin_, mockSupplierAdmin_, getORB(),
                 getPOA(), getConfiguration(), getTaskProcessor(), getMessageFactory(),
                 new OfferManager(), new SubscriptionManager());
-
-        objectUnderTest_.preActivate();
 
         proxyPullConsumer_ = TypedProxyPullConsumerHelper.narrow(objectUnderTest_.activate());
 
@@ -205,8 +203,6 @@ public class TypedProxyPullConsumerImplTest extends NotificationTestCase
         objectUnderTest_ = new TypedProxyPullConsumerImpl(mockAdmin_, mockSupplierAdmin_, getORB(),
                 getPOA(), getConfiguration(), mockTaskProcessor, getMessageFactory(),
                 new OfferManager(), new SubscriptionManager());
-
-        objectUnderTest_.preActivate();
 
         proxyPullConsumer_ = TypedProxyPullConsumerHelper.narrow(objectUnderTest_.activate());
 

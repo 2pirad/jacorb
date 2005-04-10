@@ -47,7 +47,7 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.5 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.6 2005-04-10 14:31:57 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 {
@@ -88,9 +88,7 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 
         objectUnderTest_ = new TypedProxyPushConsumerImpl(mockAdmin_, mockSupplierAdmin_, getORB(),
                 getPOA(), getConfiguration(), getTaskProcessor(), getMessageFactory(),
-                new OfferManager(), new SubscriptionManager());
-
-        objectUnderTest_.preActivate();
+                new OfferManager(), new SubscriptionManager(), getRepository());
 
         proxyPushConsumer_ = TypedProxyPushConsumerHelper.narrow(objectUnderTest_.activate());
     }
@@ -154,8 +152,6 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
                     assertEquals(10, _props[2].value.extract_long());
                 } catch (Exception e)
                 {
-                    logger_.error("Argument does not match", e);
-
                     fail();
                 }
                 return true;
@@ -166,9 +162,7 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 
         objectUnderTest_ = new TypedProxyPushConsumerImpl(mockAdmin_, mockSupplierAdmin_, getORB(),
                 getPOA(), getConfiguration(), mockTaskProcessor, getMessageFactory(),
-                new OfferManager(), new SubscriptionManager());
-
-        objectUnderTest_.preActivate();
+                new OfferManager(), new SubscriptionManager(), getRepository());
 
         proxyPushConsumer_ = TypedProxyPushConsumerHelper.narrow(objectUnderTest_.activate());
 
@@ -214,6 +208,7 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
             fail("TypedProxyPushConsumer shouldn't support untyped push");
         } catch (NO_IMPLEMENT e)
         {
+            // expected
         }
         
         controlPushSupplier.verify();
