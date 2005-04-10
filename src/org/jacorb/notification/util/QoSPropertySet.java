@@ -61,7 +61,7 @@ import org.omg.TimeBase.TimeTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: QoSPropertySet.java,v 1.7 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: QoSPropertySet.java,v 1.8 2005-04-10 14:30:31 alphonse.bendt Exp $
  */
 
 public class QoSPropertySet extends PropertySet
@@ -336,8 +336,6 @@ public class QoSPropertySet extends PropertySet
                              NamedPropertyRangeSeqHolder namedPropertyRange)
         throws UnsupportedQoS
     {
-//         logger_.info("validate_qos");
-
         List _errors = new ArrayList();
 
         checkPropertyExistence(props, _errors);
