@@ -21,6 +21,8 @@
 
 package org.jacorb.notification.container;
 
+import java.lang.reflect.Constructor;
+
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.MessageFactory;
@@ -45,7 +47,7 @@ import org.picocontainer.defaults.DefaultPicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PicoContainerFactory.java,v 1.1 2005-02-13 23:58:53 alphonse.bendt Exp $
+ * @version $Id: PicoContainerFactory.java,v 1.2 2005-04-10 14:20:39 alphonse.bendt Exp $
  */
 public class PicoContainerFactory
 {
@@ -97,6 +99,8 @@ public class PicoContainerFactory
         _container.registerComponent(new CachingComponentAdapter(
                 new FilterFactoryComponentAdapter()));
 
+        _container.registerComponent(new CachingComponentAdapter(new RepositoryComponentAdapter()));
+    
         // register core services
 
         // etcl evaluator
@@ -172,6 +176,47 @@ public class PicoContainerFactory
         {
             throw new IllegalArgumentException("The specified value: \"" + _threadPolicy
                     + "\" specified in property: \"" + Attributes.THREADPOLICY + "\" is invalid");
+        }
+    }
+    
+    /**
+     * helper method for easier debugging of unresolved 
+     * dependencies.
+     *  
+     * DO NOT DELETE even if method is not referenced.
+     */
+    public static void dumpDependencies(PicoContainer container, Class clazzToBeCreated)
+    {
+        try {
+            Constructor[] ctors = clazzToBeCreated.getConstructors();
+            
+            StringBuffer b = new StringBuffer();
+            for (int i = 0; i < ctors.length; i++)
+            {
+                Constructor constructor = ctors[i];
+                
+                b.append(constructor);
+                b.append("\n");
+                Class[] params = constructor.getParameterTypes();
+                
+                for (int j = 0; j < params.length; j++)
+                {
+                    Class param = params[j];
+                    
+                    boolean resolvable = container.getComponentInstanceOfType(param) != null;
+                    b.append(j);
+                    b.append(": ");
+                    b.append(param);
+                    b.append(" -> ");
+                    b.append(resolvable);
+                    b.append("\n");
+                }
+            }
+            
+            System.err.println(b.toString());
+        } catch (Exception e)
+        {
+            e.printStackTrace();
         }
     }
 }
