@@ -66,7 +66,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.9 2005-04-10 14:18:01 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.10 2005-04-13 20:30:55 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -314,7 +314,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
         _eventChannelServant.set_qos(_qosSettings.toArray());
         _eventChannelServant.set_admin(_adminSettings.toArray());
 
-        if (logger_.isInfoEnabled())
+        if (logger_.isDebugEnabled())
         {
             logger_.debug("created channel_servant id=" + id.value);
         }
