@@ -52,7 +52,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * reference of that event channel. <br>
  * 
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.41 2005-04-10 14:18:01 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.42 2005-04-13 20:31:26 alphonse.bendt Exp $
  */
 
 public class EventChannelFactoryImpl extends AbstractChannelFactory implements
@@ -106,7 +106,7 @@ public class EventChannelFactoryImpl extends AbstractChannelFactory implements
      * @param administrativeProperties
      *            a list of name-value pairs, which specify the initial administrative property
      *            settings for the new channel
-     * @param channelIdentifier,
+     * @param channelIdentifier
      *            a reference to the new event channel
      * @return a newly created event channel
      * @exception UnsupportedAdmin
