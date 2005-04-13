@@ -45,13 +45,12 @@ import org.picocontainer.defaults.CachingComponentAdapter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelFactoryImpl.java,v 1.6 2005-04-10 14:32:57 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelFactoryImpl.java,v 1.7 2005-04-13 20:33:14 alphonse.bendt Exp $
  */
 
 public class TypedEventChannelFactoryImpl extends AbstractChannelFactory implements
         TypedEventChannelFactoryOperations
 {
-
     public TypedEventChannelFactoryImpl(PicoContainer container, ORB orb) throws UserException
     {
         super(container, orb);
