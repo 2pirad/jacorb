@@ -33,7 +33,7 @@ import EDU.oswego.cs.dl.util.concurrent.ReadWriteLock;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventTypeSet.java,v 1.8 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: EventTypeSet.java,v 1.9 2005-04-13 20:32:52 alphonse.bendt Exp $
  */
 
 public abstract class EventTypeSet
@@ -48,7 +48,7 @@ public abstract class EventTypeSet
 
     private EventType[] arrayView_ = null;
 
-    private boolean setModified_ = true;
+    private boolean eventTypeSetModified_ = true;
 
     protected static final EventType[] EMPTY_EVENT_TYPE = new EventType[0];
     
@@ -107,12 +107,12 @@ public abstract class EventTypeSet
             }
 
             if (_modified)
-            {
-                eventTypeSet_ = _modifiedSet;
-
+            {                
                 synchronized (arrayViewLock_)
                 {
-                    setModified_ = true;
+                    eventTypeSet_ = _modifiedSet;
+
+                    eventTypeSetModified_ = true;
                 }
             }
         } finally
@@ -167,7 +167,7 @@ public abstract class EventTypeSet
     {
         synchronized (arrayViewLock_)
         {
-            if (setModified_)
+            if (eventTypeSetModified_)
             {
                 EventTypeWrapper[] _allWrapped = (EventTypeWrapper[]) eventTypeSet_
                         .toArray(EVENT_TYPE_WRAPPER_TEMPLATE);
@@ -179,7 +179,7 @@ public abstract class EventTypeSet
                     _all[x] = _allWrapped[x].getEventType();
                 }
 
-                setModified_ = false;
+                eventTypeSetModified_ = false;
 
                 arrayView_ = _all;
             }
