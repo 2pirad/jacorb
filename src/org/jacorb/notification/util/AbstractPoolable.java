@@ -21,8 +21,6 @@ package org.jacorb.notification.util;
  *
  */
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.interfaces.Disposable;
 
@@ -30,18 +28,15 @@ import org.jacorb.notification.interfaces.Disposable;
  * Interface to indicate that a Object can be pooled. Objects can be pooled to spare ressources.
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractPoolable.java,v 1.1 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolable.java,v 1.2 2005-04-16 23:20:40 alphonse.bendt Exp $
  */
 
-public abstract class AbstractPoolable implements Disposable, Configurable
+public abstract class AbstractPoolable implements Disposable
 {
     private AbstractObjectPool objectPool_;
 
     protected final Logger logger_ = LogUtil.getLogger(getClass().getName());
 
-    public void configure(Configuration conf)
-    {
-    }
 
     /**
      * The call to this Method indicates that this Object is not needed by the user anymore. After a
