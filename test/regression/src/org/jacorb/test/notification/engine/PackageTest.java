@@ -26,13 +26,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * PackageTest.java
- * 
- * 
- * Created: Mon Apr 7 15:20:03 2003
- * 
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.5 2005-02-20 21:47:31 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.6 2005-04-16 23:22:38 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
@@ -52,13 +47,11 @@ public class PackageTest extends TestCase
         _suite.addTest(TaskProcessorRetryStrategyTest.suite());
         _suite.addTest(AlwaysDisposeRetryStrategyTest.suite());
         _suite.addTest(FilterProxyConsumerTaskTest.suite());
-
         _suite.addTest(FilterProxySupplierTaskTest.suite());
-
         _suite.addTest(FilterConsumerAdminTaskTest.suite());
-
         _suite.addTest(FilterSupplierAdminTaskTest.suite());
-
+        _suite.addTest(PushToConsumerTaskTest.suite());
+        
         return _suite;
     }
 }
