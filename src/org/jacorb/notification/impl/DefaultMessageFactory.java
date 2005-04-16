@@ -41,7 +41,7 @@ import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultMessageFactory.java,v 1.1 2005-02-14 00:08:40 alphonse.bendt Exp $
+ * @version $Id: DefaultMessageFactory.java,v 1.2 2005-04-16 23:13:43 alphonse.bendt Exp $
  */
 
 public class DefaultMessageFactory implements Disposable, MessageFactory //, Controllable
@@ -257,6 +257,6 @@ public class DefaultMessageFactory implements Disposable, MessageFactory //, Con
 
     public void addDisposeHook(Disposable d)
     {
-
+        // ignored
     }
 }
