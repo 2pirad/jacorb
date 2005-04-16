@@ -26,13 +26,13 @@ import org.jacorb.notification.util.AbstractPoolable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractPoolablePool.java,v 1.1 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolablePool.java,v 1.2 2005-04-16 23:29:25 alphonse.bendt Exp $
  */
 
 public abstract class AbstractPoolablePool extends AbstractObjectPool
 {
     public AbstractPoolablePool(String name, int threshold, int increase, int initial, int maxsize) {
-        super(name, threshold, increase, initial, maxsize);
+        super(name, threshold, increase, initial, maxsize, 0);
     }
 
 
