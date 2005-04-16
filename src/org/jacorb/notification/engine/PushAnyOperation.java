@@ -21,24 +21,25 @@ package org.jacorb.notification.engine;
  */
 
 import org.jacorb.notification.interfaces.Message;
+import org.jacorb.notification.interfaces.MessageConsumer;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushAnyOperation.java,v 1.5 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: PushAnyOperation.java,v 1.6 2005-04-16 23:11:20 alphonse.bendt Exp $
  */
 public class PushAnyOperation extends MessagePushOperation {
 
     private final PushConsumer pushConsumer_;
 
-    public PushAnyOperation(PushConsumer pushConsumer, Message message) {
-        super(message);
+    public PushAnyOperation(MessageConsumer messageConsumer, PushConsumer pushConsumer, Message message) {
+        super(messageConsumer, message);
 
         pushConsumer_ = pushConsumer;
     }
 
-    public void invokePush() throws Disconnected {
+    protected void invokePushInternal() throws Disconnected {
         pushConsumer_.push(message_.toAny());
     }
 }

@@ -21,24 +21,25 @@ package org.jacorb.notification.engine;
  */
 
 import org.jacorb.notification.interfaces.Message;
+import org.jacorb.notification.interfaces.MessageConsumer;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotifyComm.StructuredPushConsumerOperations;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushStructuredOperation.java,v 1.6 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: PushStructuredOperation.java,v 1.7 2005-04-16 23:11:20 alphonse.bendt Exp $
  */
 public class PushStructuredOperation extends MessagePushOperation {
 
     private final StructuredPushConsumerOperations pushConsumer_;
-
-    public PushStructuredOperation(StructuredPushConsumerOperations pushConsumer, Message message) {
-        super(message);
+    
+    public PushStructuredOperation(MessageConsumer messageConsumer, StructuredPushConsumerOperations pushConsumer, Message message) {
+        super(messageConsumer, message);
 
         pushConsumer_ = pushConsumer;
     }
 
-    public void invokePush() throws Disconnected {
+    protected void invokePushInternal() throws Disconnected {
         pushConsumer_.push_structured_event(message_.toStructuredEvent());
     }
 }
