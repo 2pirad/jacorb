@@ -28,7 +28,7 @@ import EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RWLockEventQueueDecorator.java,v 1.1 2005-02-14 00:11:10 alphonse.bendt Exp $
+ * @version $Id: RWLockEventQueueDecorator.java,v 1.2 2005-04-16 23:20:04 alphonse.bendt Exp $
  */
 public class RWLockEventQueueDecorator implements MessageQueueAdapter
 {
@@ -38,15 +38,15 @@ public class RWLockEventQueueDecorator implements MessageQueueAdapter
     private final ReadWriteLock delegateLock_ = new WriterPreferenceReadWriteLock();
 
     /**
-     * note that multithreaded access to this member is protected by
-     * pendingMessagesLock_
+     * note that multithreaded access to this member is protected by pendingMessagesLock_
      */
     private MessageQueueAdapter delegate_;
 
     /**
-     *  
+     * 
      */
-    public RWLockEventQueueDecorator(MessageQueueAdapter initialDelegate) throws InterruptedException
+    public RWLockEventQueueDecorator(MessageQueueAdapter initialDelegate)
+            throws InterruptedException
     {
         super();
 
@@ -183,6 +183,25 @@ public class RWLockEventQueueDecorator implements MessageQueueAdapter
         } finally
         {
             delegateLock_.readLock().release();
+        }
+    }
+
+    public void clear()
+    {
+        try
+        {
+            delegateLock_.writeLock().acquire();
+        } catch (InterruptedException e)
+        {
+            // ignore exception. force dispose.
+        }
+
+        try
+        {
+            delegate_.clear();
+        } finally
+        {
+            delegateLock_.writeLock().release();
         }
     }
 }

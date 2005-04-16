@@ -25,7 +25,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageQueueAdapter.java,v 1.1 2005-02-14 00:11:10 alphonse.bendt Exp $
+ * @version $Id: MessageQueueAdapter.java,v 1.2 2005-04-16 23:20:04 alphonse.bendt Exp $
  */
 public interface MessageQueueAdapter
 {
@@ -44,4 +44,6 @@ public interface MessageQueueAdapter
     Message[] getUpToMessages(int max) throws InterruptedException;
 
     Message[] getAtLeastMessages(int min) throws InterruptedException;
+    
+    void clear();
 }
