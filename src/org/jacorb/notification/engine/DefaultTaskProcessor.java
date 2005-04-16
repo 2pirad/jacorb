@@ -39,7 +39,7 @@ import EDU.oswego.cs.dl.util.concurrent.ThreadFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskProcessor.java,v 1.6 2005-02-20 23:20:42 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskProcessor.java,v 1.7 2005-04-16 23:13:02 alphonse.bendt Exp $
  */
 
 public class DefaultTaskProcessor implements TaskProcessor, Disposable
@@ -313,6 +313,7 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable
         {
             TimerDeliverTask _task = new TimerDeliverTask(this, consumer);
 
+            _task.setTaskExecutor(consumer.getExecutor());
             //_task.setMessageConsumer(consumer);
 
             _task.schedule();
