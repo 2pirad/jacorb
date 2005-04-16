@@ -52,7 +52,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedLong;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.14 2005-04-10 14:28:58 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.15 2005-04-16 23:19:24 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl extends StructuredProxyPushSupplierImpl implements
@@ -170,7 +170,7 @@ public class SequenceProxyPushSupplierImpl extends StructuredProxyPushSupplierIm
             } catch (Throwable e)
             {
                 PushSequenceOperation _failedOperation = new PushSequenceOperation(
-                        sequencePushConsumer_, _structuredEvents);
+                        this, sequencePushConsumer_, _structuredEvents);
 
                 handleFailedPushOperation(_failedOperation, e);
             }

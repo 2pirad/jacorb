@@ -50,7 +50,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.14 2005-04-10 14:28:58 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.15 2005-04-16 23:19:24 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl extends AbstractProxySupplier implements
@@ -131,7 +131,7 @@ public class StructuredProxyPushSupplierImpl extends AbstractProxySupplier imple
             resetErrorCounter();
         } catch (Throwable e)
         {
-            PushStructuredOperation _failedOperation = new PushStructuredOperation(pushConsumer_,
+            PushStructuredOperation _failedOperation = new PushStructuredOperation(this, pushConsumer_,
                     message);
 
             handleFailedPushOperation(_failedOperation, e);

@@ -45,7 +45,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.14 2005-04-10 14:28:58 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.15 2005-04-16 23:19:24 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl extends AbstractProxySupplier implements
@@ -101,7 +101,7 @@ public class ProxyPushSupplierImpl extends AbstractProxySupplier implements
             resetErrorCounter();
         } catch (Throwable e)
         {
-            PushAnyOperation _failedOperation = new PushAnyOperation(pushConsumer_, message);
+            PushAnyOperation _failedOperation = new PushAnyOperation(this, pushConsumer_, message);
 
             handleFailedPushOperation(_failedOperation, e);
         }
