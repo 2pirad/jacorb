@@ -30,7 +30,7 @@ import org.jacorb.notification.util.AbstractPoolable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PoolingEvaluationContextFactory.java,v 1.1 2005-02-14 00:08:40 alphonse.bendt Exp $
+ * @version $Id: PoolingEvaluationContextFactory.java,v 1.2 2005-04-16 23:29:53 alphonse.bendt Exp $
  */
 public class PoolingEvaluationContextFactory implements EvaluationContextFactory
 {
@@ -50,7 +50,7 @@ public class PoolingEvaluationContextFactory implements EvaluationContextFactory
             {
                 AbstractPoolable obj = (AbstractPoolable) o;
                 // todo check if configure can be called from AbstractObjectPool
-                obj.configure(configuration);
+              //  obj.configure(configuration);
                 obj.reset();
                 obj.setObjectPool(this);
             }
