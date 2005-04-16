@@ -21,8 +21,6 @@
 
 package org.jacorb.test.notification.engine;
 
-import org.jacorb.config.Configuration;
-
 import junit.framework.TestCase;
 
 import org.easymock.MockControl;
@@ -36,7 +34,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTaskTestCase.java,v 1.1 2005-02-14 00:17:14 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTaskTestCase.java,v 1.2 2005-04-16 23:22:20 alphonse.bendt Exp $
  */
 public abstract class AbstractFilterTaskTestCase extends TestCase
 {
@@ -82,11 +80,7 @@ public abstract class AbstractFilterTaskTestCase extends TestCase
         controlSchedulable_ = MockControl.createControl(Schedulable.class);
         mockSchedulable_ = (Schedulable) controlSchedulable_.getMock();
         
-        objectUnderTest_ = newObjectUnderTest();
-        
-        Configuration config = Configuration.getConfiguration(null, null, false);
-        
-        objectUnderTest_.configure(config);
+        objectUnderTest_ = newObjectUnderTest();       
     }
     
     public final void testCreate() throws Exception
