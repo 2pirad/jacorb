@@ -68,7 +68,7 @@ import org.picocontainer.defaults.DefaultPicoContainer;
  * </ul>
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.18 2005-04-10 14:25:28 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.19 2005-04-16 23:17:55 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -355,6 +355,8 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
     public final void dispose()
     {
         super.dispose();
+        
+        pendingMessages_.clear();
     }
 
     public final ConsumerAdmin MyAdmin()
@@ -443,7 +445,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
         return offerListener_;
     }
 
-    protected void connectClient(org.omg.CORBA.Object client)
+    public void connectClient(org.omg.CORBA.Object client)
     {
         super.connectClient(client);
 
