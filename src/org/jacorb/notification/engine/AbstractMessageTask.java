@@ -25,13 +25,11 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessageTask.java,v 1.1 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: AbstractMessageTask.java,v 1.2 2005-04-16 23:01:45 alphonse.bendt Exp $
  */
 public abstract class AbstractMessageTask extends AbstractTask
 {
     private Message message_;
-
-    private boolean removed = false;
 
     /**
      * @param tp
@@ -56,8 +54,6 @@ public abstract class AbstractMessageTask extends AbstractTask
 
     public Message removeMessage()
     {
-        removed = true;
-
         Message _event = message_;
 
         message_ = null;
@@ -92,17 +88,16 @@ public abstract class AbstractMessageTask extends AbstractTask
 
     public void dispose()
     {
-        if (!removed)
+        if (message_ != null)
         {
             message_.dispose();
         }
-        
+
         super.dispose();
     }
 
     public void reset()
     {
-        removed = false;
         message_ = null;
     }
 }
