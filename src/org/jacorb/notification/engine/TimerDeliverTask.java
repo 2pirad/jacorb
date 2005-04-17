@@ -27,15 +27,15 @@ import org.omg.CosNotifyChannelAdmin.NotConnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TimerDeliverTask.java,v 1.15 2005-04-16 23:05:28 alphonse.bendt Exp $
+ * @version $Id: TimerDeliverTask.java,v 1.16 2005-04-17 17:08:39 alphonse.bendt Exp $
  */
 
 public class TimerDeliverTask extends AbstractTask
 {
     private final MessageConsumer messageConsumer_;
     
-    public TimerDeliverTask(TaskProcessor tp, MessageConsumer messageConsumer) {
-        super(tp);
+    public TimerDeliverTask(TaskProcessor taskProcessor, MessageConsumer messageConsumer) {
+        super(taskProcessor);
         
         messageConsumer_ = messageConsumer;
     }
@@ -71,6 +71,6 @@ public class TimerDeliverTask extends AbstractTask
      */
     public void reset()
     {
-        // no operation
+        // nothing to reset
     }
 }

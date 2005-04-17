@@ -25,7 +25,7 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategyFactory.java,v 1.1 2005-02-20 21:35:27 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategyFactory.java,v 1.2 2005-04-17 17:08:11 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategyFactory implements RetryStrategyFactory
 {
@@ -34,6 +34,7 @@ public class TaskProcessorRetryStrategyFactory implements RetryStrategyFactory
     public TaskProcessorRetryStrategyFactory(TaskProcessor taskProcessor)
     {
         super();
+        
         taskProcessor_ = taskProcessor;
     }
 

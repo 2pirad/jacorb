@@ -39,7 +39,7 @@ import EDU.oswego.cs.dl.util.concurrent.ThreadFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskProcessor.java,v 1.7 2005-04-16 23:13:02 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskProcessor.java,v 1.8 2005-04-17 17:03:25 alphonse.bendt Exp $
  */
 
 public class DefaultTaskProcessor implements TaskProcessor, Disposable
@@ -292,11 +292,11 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable
      * the ProxyPullConsumer needs to regularely poll the Supplier. This method queues a Task to run
      * runPullEvent on the specified TimerEventSupplier
      */
-    public void scheduleTimedPullTask(MessageSupplier dest) throws InterruptedException
+    public void scheduleTimedPullTask(MessageSupplier messageSupplier) throws InterruptedException
     {
         PullFromSupplierTask _task = new PullFromSupplierTask(pullTaskExecutor_);
 
-        _task.setTarget(dest);
+        _task.setTarget(messageSupplier);
 
         _task.schedule();
     }
@@ -314,7 +314,6 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable
             TimerDeliverTask _task = new TimerDeliverTask(this, consumer);
 
             _task.setTaskExecutor(consumer.getExecutor());
-            //_task.setMessageConsumer(consumer);
 
             _task.schedule();
         }
