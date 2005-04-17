@@ -36,10 +36,10 @@ import org.jacorb.notification.engine.TaskExecutor;
  * <br>
  *
  * @author Alphonse Bendt
- * @version $Id: MessageConsumer.java,v 1.10 2005-04-10 14:23:28 alphonse.bendt Exp $
+ * @version $Id: MessageConsumer.java,v 1.11 2005-04-17 17:14:00 alphonse.bendt Exp $
  */
 
-public interface MessageConsumer extends Disposable, Comparable {
+public interface MessageConsumer extends Comparable {
 
     /**
      * @return the <code>TaskExecutor</code> that should be used to
@@ -104,4 +104,6 @@ public interface MessageConsumer extends Disposable, Comparable {
      * 
      */
     boolean isRetryAllowed();
+    
+    void destroy();
 }
