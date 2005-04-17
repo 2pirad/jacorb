@@ -31,6 +31,7 @@ import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.AbstractProxyConsumerI;
 import org.jacorb.notification.util.AbstractObjectPool;
 import org.jacorb.notification.util.AbstractPoolable;
+import org.jacorb.notification.util.AbstractPoolablePool;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.Bounds;
 import org.omg.CORBA.NVList;
@@ -41,55 +42,34 @@ import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultMessageFactory.java,v 1.2 2005-04-16 23:13:43 alphonse.bendt Exp $
+ * @version $Id: DefaultMessageFactory.java,v 1.3 2005-04-17 17:13:01 alphonse.bendt Exp $
  */
 
 public class DefaultMessageFactory implements Disposable, MessageFactory //, Controllable
 {
-    private final AbstractObjectPool typedEventMessagePool_ = new AbstractObjectPool(
+    private final AbstractObjectPool typedEventMessagePool_ = new AbstractPoolablePool(
             "TypedEventMessagePool")
     {
         public Object newInstance()
         {
             return new TypedEventMessage();
         }
-
-        public void activateObject(Object o)
-        {
-            AbstractPoolable obj = (AbstractPoolable) o;
-            obj.reset();
-            obj.setObjectPool(this);
-        }
     };
 
-    private final AbstractObjectPool anyMessagePool_ = new AbstractObjectPool("AnyMessagePool")
+    private final AbstractObjectPool anyMessagePool_ = new AbstractPoolablePool("AnyMessagePool")
     {
         public Object newInstance()
         {
             return new AnyMessage();
         }
-
-        public void activateObject(Object o)
-        {
-            AbstractPoolable obj = (AbstractPoolable) o;
-            obj.reset();
-            obj.setObjectPool(this);
-        }
     };
 
-    private final AbstractObjectPool structuredEventMessagePool_ = new AbstractObjectPool(
+    private final AbstractObjectPool structuredEventMessagePool_ = new AbstractPoolablePool(
             "StructuredEventMessagePool")
     {
         public Object newInstance()
         {
             return new StructuredEventMessage();
-        }
-
-        public void activateObject(Object o)
-        {
-            AbstractPoolable obj = (AbstractPoolable) o;
-            obj.reset();
-            obj.setObjectPool(this);
         }
     };
 
