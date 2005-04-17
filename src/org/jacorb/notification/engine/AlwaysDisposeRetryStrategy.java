@@ -25,7 +25,7 @@ import org.jacorb.notification.interfaces.MessageConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AlwaysDisposeRetryStrategy.java,v 1.1 2005-02-20 21:35:27 alphonse.bendt Exp $
+ * @version $Id: AlwaysDisposeRetryStrategy.java,v 1.2 2005-04-17 17:02:06 alphonse.bendt Exp $
  */
 public class AlwaysDisposeRetryStrategy extends AbstractRetryStrategy
 {
@@ -41,7 +41,7 @@ public class AlwaysDisposeRetryStrategy extends AbstractRetryStrategy
 
     protected void retryInternal() throws RetryException
     {
-        messageConsumer_.dispose();
+        messageConsumer_.destroy();
         dispose();
     }
 }
