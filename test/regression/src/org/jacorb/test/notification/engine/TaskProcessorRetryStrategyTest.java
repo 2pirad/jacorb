@@ -32,7 +32,7 @@ import org.omg.CORBA.TRANSIENT;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategyTest.java,v 1.2 2005-03-07 16:03:24 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategyTest.java,v 1.3 2005-04-17 17:18:30 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategyTest extends AbstractRetryStrategyTest
 {
@@ -92,7 +92,7 @@ public class TaskProcessorRetryStrategyTest extends AbstractRetryStrategyTest
         mockConsumer_.isRetryAllowed();
         controlConsumer_.setDefaultReturnValue(false);
         
-        mockConsumer_.dispose();
+        mockConsumer_.destroy();
         controlConsumer_.replay();
         
         mockPushOperation_.invokePush();

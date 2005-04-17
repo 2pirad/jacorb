@@ -29,7 +29,7 @@ import org.jacorb.notification.engine.AbstractRetryStrategy;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AlwaysDisposeRetryStrategyTest.java,v 1.1 2005-02-20 21:47:31 alphonse.bendt Exp $
+ * @version $Id: AlwaysDisposeRetryStrategyTest.java,v 1.2 2005-04-17 17:18:30 alphonse.bendt Exp $
  */
 public class AlwaysDisposeRetryStrategyTest extends AbstractRetryStrategyTest
 {
@@ -48,7 +48,7 @@ public class AlwaysDisposeRetryStrategyTest extends AbstractRetryStrategyTest
         mockConsumer_.isRetryAllowed();
         controlConsumer_.setDefaultReturnValue(true);
 
-        mockConsumer_.dispose();
+        mockConsumer_.destroy();
         controlConsumer_.replay();
 
         mockPushOperation_.dispose();
