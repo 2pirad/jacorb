@@ -28,7 +28,7 @@ import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractRetryStrategy.java,v 1.2 2005-04-16 23:11:56 alphonse.bendt Exp $
+ * @version $Id: AbstractRetryStrategy.java,v 1.3 2005-04-17 17:00:51 alphonse.bendt Exp $
  */
 public abstract class AbstractRetryStrategy implements RetryStrategy
 {
@@ -65,7 +65,7 @@ public abstract class AbstractRetryStrategy implements RetryStrategy
         
         if (isFatalException(error))
         {
-            messageConsumer_.dispose();
+            messageConsumer_.destroy();
             active_ = false;
 
             throw new RetryException("fatal exception while retrying push");
@@ -75,7 +75,7 @@ public abstract class AbstractRetryStrategy implements RetryStrategy
 
         if (!isRetryAllowed())
         {
-            messageConsumer_.dispose();
+            messageConsumer_.destroy();
             active_ = false;
 
             throw new RetryException("no more retries. giving up.");
