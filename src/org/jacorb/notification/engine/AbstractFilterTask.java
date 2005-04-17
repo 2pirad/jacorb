@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.12 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.13 2005-04-17 16:59:13 alphonse.bendt Exp $
  */
 public abstract class AbstractFilterTask extends AbstractMessageTask
 {
@@ -59,13 +59,13 @@ public abstract class AbstractFilterTask extends AbstractMessageTask
 
     ////////////////////
 
-    protected AbstractFilterTask(TaskExecutor executor, TaskProcessor tp, TaskFactory tc)
+    protected AbstractFilterTask(TaskExecutor taskExecutor, TaskProcessor taskProcessor, TaskFactory taskFactory)
     {
-        super(tp);
+        super(taskProcessor);
 
-        setTaskExecutor(executor);
+        setTaskExecutor(taskExecutor);
 
-        taskFactory_ = tc;
+        taskFactory_ = taskFactory;
 
         arrayCurrentFilterStage_ = EMPTY_FILTERSTAGE;
     }
@@ -143,6 +143,7 @@ public abstract class AbstractFilterTask extends AbstractMessageTask
         super.reset();
 
         clearFilterStageToBeProcessed();
+        arrayCurrentFilterStage_ = EMPTY_FILTERSTAGE;        
     }
 
     public void handleTaskError(AbstractTask task, Throwable error)
