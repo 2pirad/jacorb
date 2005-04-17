@@ -26,15 +26,17 @@ import org.apache.avalon.framework.configuration.Configuration;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
 import org.jacorb.notification.interfaces.Message;
+import org.jacorb.notification.util.AbstractPoolable;
+import org.jacorb.notification.util.AbstractPoolablePool;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskFactory.java,v 1.1 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskFactory.java,v 1.2 2005-04-17 17:02:53 alphonse.bendt Exp $
  */
 
 public class DefaultTaskFactory implements Disposable, Configurable, TaskFactory
 {
-    private final TaskProcessor taskProcessor_;
+    final TaskProcessor taskProcessor_;
 
     private final AbstractPoolablePool filterProxyConsumerTaskPool_ =
         new AbstractPoolablePool("FilterProxyConsumerTaskPool")
@@ -56,7 +58,7 @@ public class DefaultTaskFactory implements Disposable, Configurable, TaskFactory
                 return new FilterSupplierAdminTask(taskProcessor_.getFilterTaskExecutor(),
                                                    taskProcessor_,
                                                    DefaultTaskFactory.this);
-            }
+            }            
         };
 
 
