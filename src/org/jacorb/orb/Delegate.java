@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.109 2005-03-25 13:12:00 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.110 2005-04-21 07:58:16 andre.spiegel Exp $
  *
  */
 
@@ -1468,9 +1468,9 @@ public final class Delegate
                                          p.get_object_key(),
                                          ( int ) p.getEffectiveProfile().version().minor );
 
-            //Problem: What about the case where different objects
-            //that are accessed by the same connection have different
-            //codesets?  Is this possible anyway?
+            // CodeSets are only negotiated once per connection,
+            // not for each individual request
+            // (CORBA 3.0, 13.10.2.6, second paragraph).
             if ( ! connection.isTCSNegotiated() )
             {
                 ServiceContext ctx = connection.setCodeSet( p );
