@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.53 2004-07-19 08:23:50 andre.spiegel Exp $
+ * @version $Id: ClientConnection.java,v 1.54 2005-04-22 13:21:04 andre.spiegel Exp $
  */
 
 public class ClientConnection
@@ -75,8 +75,7 @@ public class ClientConnection
     private org.omg.ETF.Profile registeredProfile = null;
 
     private Logger logger = null;
-
-
+    
     public ClientConnection( GIOPConnection connection,
                              org.omg.CORBA.ORB orb,
                              ClientConnectionManager conn_mg,
@@ -125,12 +124,12 @@ public class ClientConnection
         return registeredProfile;
     }
 
-    public ServiceContext setCodeSet( ParsedIOR pior )
+    public void setCodeSet( ParsedIOR pior )
     {
         if( isTCSNegotiated() )
         {
             //if already negotiated, do nothing
-            return null;
+            return;
         }
 
         //if the other side only talks GIOP 1.0, don't send a codeset
@@ -138,7 +137,7 @@ public class ClientConnection
         if( pior.getEffectiveProfile().version().minor == 0 )
         {
             connection.markTCSNegotiated();
-            return null;
+            return;
         }
 
         int tcs = -1;
@@ -183,7 +182,6 @@ public class ClientConnection
                 " CodeSet found");
         }
 
-        //this also marks tcs as negotiated.
         connection.setCodeSets( tcs, tcsw );
 
         if (logger.isDebugEnabled())
@@ -193,13 +191,6 @@ public class ClientConnection
                           CodeSet.csName( tcsw ) + " as TCSW" );
         }
 
-        // encapsulate context
-        CDROutputStream os = new CDROutputStream( orb );
-        os.beginEncapsulatedArray();
-        CodeSetContextHelper.write( os, new CodeSetContext( tcs, tcsw ));
-
-        return new ServiceContext( org.omg.IOP.CodeSets.value,
-                                   os.getBufferCopy() );
     }
 
     public boolean isTCSNegotiated()
