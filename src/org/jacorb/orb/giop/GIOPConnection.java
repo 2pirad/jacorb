@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.46 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: GIOPConnection.java,v 1.47 2005-04-22 13:23:35 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -143,8 +143,6 @@ public abstract class GIOPConnection
     {
         this.TCS = TCS;
         this.TCSW = TCSW;
-
-        tcs_negotiated = true;
     }
 
     public final int getTCS()
