@@ -48,7 +48,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.19 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ServerRequestListener.java,v 1.20 2005-04-22 13:27:24 andre.spiegel Exp $
  */
 
 public class ServerRequestListener
@@ -145,6 +145,7 @@ public class ServerRequestListener
                 if( ctx != null )
                 {
                     connection.setCodeSets( ctx.char_data, ctx.wchar_data );
+                    connection.markTCSNegotiated();
                     if (logger.isDebugEnabled())
                         logger.debug("Received CodeSetContext. Using " +
                                      CodeSet.csName( ctx.char_data ) +
