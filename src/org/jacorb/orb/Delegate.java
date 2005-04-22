@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.110 2005-04-21 07:58:16 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.111 2005-04-22 13:19:48 andre.spiegel Exp $
  *
  */
 
@@ -1471,15 +1471,9 @@ public final class Delegate
             // CodeSets are only negotiated once per connection,
             // not for each individual request
             // (CORBA 3.0, 13.10.2.6, second paragraph).
-            if ( ! connection.isTCSNegotiated() )
+            if (!connection.isTCSNegotiated())
             {
-                ServiceContext ctx = connection.setCodeSet( p );
-
-                if ( ctx != null )
-                {
-                    ros.addServiceContext( ctx );
-                }
-
+                connection.setCodeSet(p);
             }
 
             //Setting the codesets not until here results in the
