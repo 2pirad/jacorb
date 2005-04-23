@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.54 2005-04-22 13:21:04 andre.spiegel Exp $
+ * @version $Id: ClientConnection.java,v 1.55 2005-04-23 13:09:04 phil.mesnier Exp $
  */
 
 public class ClientConnection
@@ -75,7 +75,7 @@ public class ClientConnection
     private org.omg.ETF.Profile registeredProfile = null;
 
     private Logger logger = null;
-    
+
     public ClientConnection( GIOPConnection connection,
                              org.omg.CORBA.ORB orb,
                              ClientConnectionManager conn_mg,
@@ -333,8 +333,10 @@ public class ClientConnection
 
         if( placeholder != null )
         {
+            ReplyInputStream ris = new ReplyInputStream (orb, reply);
+            ris.setCodeSet (this.getTCS(),this.getTCSW());
             //this will unblock the waiting thread
-            placeholder.replyReceived( new ReplyInputStream( orb, reply ));
+            placeholder.replyReceived(ris);
         }
         else
         {
