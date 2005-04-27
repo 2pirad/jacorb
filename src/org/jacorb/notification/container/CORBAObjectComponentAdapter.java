@@ -32,10 +32,12 @@ import org.picocontainer.defaults.AssignabilityRegistrationException;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CORBAObjectComponentAdapter.java,v 1.1 2005-02-13 23:58:53 alphonse.bendt Exp $
+ * @version $Id: CORBAObjectComponentAdapter.java,v 1.2 2005-04-27 10:34:54 alphonse.bendt Exp $
  */
 public class CORBAObjectComponentAdapter extends AbstractComponentAdapter
 {
+    private static final long serialVersionUID = 1L;
+    
     private final org.omg.CORBA.Object delegate_;
 
     /**

@@ -32,10 +32,12 @@ import org.picocontainer.defaults.AbstractComponentAdapter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RepositoryComponentAdapter.java,v 1.1 2005-02-13 23:58:53 alphonse.bendt Exp $
+ * @version $Id: RepositoryComponentAdapter.java,v 1.2 2005-04-27 10:34:54 alphonse.bendt Exp $
  */
 public class RepositoryComponentAdapter extends AbstractComponentAdapter
 {
+    private static final long serialVersionUID = 1L;
+    
     public RepositoryComponentAdapter()
     {
         super(Repository.class, Repository.class);
