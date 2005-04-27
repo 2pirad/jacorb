@@ -26,20 +26,23 @@ import org.jacorb.notification.util.GNUPatternWrapper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: GNUPatternWrapperTest.java,v 1.2 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: GNUPatternWrapperTest.java,v 1.3 2005-04-27 14:46:29 alphonse.bendt Exp $
  */
 
-public class GNUPatternWrapperTest extends AbstractPatternWrapperTest {
-
-    public GNUPatternWrapperTest(String name) {
+public class GNUPatternWrapperTest extends AbstractPatternWrapperTest
+{
+    public GNUPatternWrapperTest(String name)
+    {
         super(name);
     }
 
-    protected PatternWrapper newPattern() {
+    protected PatternWrapper newPattern()
+    {
         return new GNUPatternWrapper();
     }
 
-    public static TestSuite suite(){
+    public static TestSuite suite()
+    {
         TestSuite suite = new TestSuite(GNUPatternWrapperTest.class);
 
         return suite;

@@ -27,19 +27,22 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JDK14PatternWrapperTest.java,v 1.2 2004-04-28 12:37:29 brose Exp $
+ * @version $Id: JDK14PatternWrapperTest.java,v 1.3 2005-04-27 14:46:29 alphonse.bendt Exp $
  */
-public class JDK14PatternWrapperTest extends AbstractPatternWrapperTest {
-
-    public JDK14PatternWrapperTest(String name) {
+public class JDK14PatternWrapperTest extends AbstractPatternWrapperTest
+{
+    public JDK14PatternWrapperTest(String name)
+    {
         super(name);
     }
 
-    public PatternWrapper newPattern() {
+    public PatternWrapper newPattern()
+    {
         return new JDK14PatternWrapper();
     }
 
-    public static TestSuite suite(){
+    public static TestSuite suite()
+    {
         TestSuite suite = new TestSuite(JDK14PatternWrapperTest.class);
 
         return suite;

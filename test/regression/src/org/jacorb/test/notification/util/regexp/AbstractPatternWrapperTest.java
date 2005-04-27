@@ -25,24 +25,27 @@ import org.jacorb.notification.util.PatternWrapper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractPatternWrapperTest.java,v 1.3 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: AbstractPatternWrapperTest.java,v 1.4 2005-04-27 14:46:29 alphonse.bendt Exp $
  */
 
-public abstract class AbstractPatternWrapperTest extends TestCase {
-
+public abstract class AbstractPatternWrapperTest extends TestCase
+{
     protected PatternWrapper objectUnderTest_;
 
-    public AbstractPatternWrapperTest(String name) {
+    public AbstractPatternWrapperTest(String name)
+    {
         super(name);
     }
 
-    public final void setUp() {
+    public final void setUp()
+    {
         objectUnderTest_ = newPattern();
     }
 
     protected abstract PatternWrapper newPattern();
 
-    public void testNoMatch() {
+    public void testNoMatch()
+    {
         objectUnderTest_.compile("abc*d");
 
         String test = "xyzdef";
@@ -50,7 +53,8 @@ public abstract class AbstractPatternWrapperTest extends TestCase {
         assertEquals(0, objectUnderTest_.match(test));
     }
 
-    public void testMatch() {
+    public void testMatch()
+    {
         objectUnderTest_.compile("abc*d");
 
         String test = "abcccccccd";
@@ -59,13 +63,13 @@ public abstract class AbstractPatternWrapperTest extends TestCase {
 
         assertEquals(10, i);
     }
-    
+
     public void testToString()
     {
         String pattern = "a*b*d";
-        
+
         objectUnderTest_.compile(pattern);
-        
+
         assertEquals(pattern, objectUnderTest_.toString());
     }
 }
