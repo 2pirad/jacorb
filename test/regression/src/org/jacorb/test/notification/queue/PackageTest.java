@@ -26,15 +26,11 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * PackageTest.java
- * 
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.3 2005-04-27 10:51:05 alphonse.bendt Exp $
  */
-
 public class PackageTest extends TestCase
 {
-
     public PackageTest(String name)
     {
         super(name);
@@ -47,6 +43,7 @@ public class PackageTest extends TestCase
         _suite.addTest(BoundedPriorityEventQueueTest.suite());
         _suite.addTest(BoundedFifoEventQueueTest.suite());
         _suite.addTest(BoundedDeadlineEventQueueTest.suite());
+        _suite.addTest(RWLockEventQueueDecoratorTest.suite());
         
         return _suite;
     }
