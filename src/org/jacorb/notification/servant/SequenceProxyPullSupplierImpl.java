@@ -46,7 +46,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.11 2005-02-20 21:45:26 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.12 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullSupplierImpl extends StructuredProxyPullSupplierImpl implements
@@ -146,11 +146,6 @@ public class SequenceProxyPullSupplierImpl extends StructuredProxyPullSupplierIm
     public MessageConsumer getMessageConsumer()
     {
         return this;
-    }
-
-    public boolean hasMessageConsumer()
-    {
-        return true;
     }
 
     protected void disconnectClient()

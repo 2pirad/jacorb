@@ -55,7 +55,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.13 2005-04-10 14:24:33 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.14 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 abstract class AbstractProxyConsumer extends AbstractProxy implements AbstractProxyConsumerI,
@@ -322,5 +322,10 @@ abstract class AbstractProxyConsumer extends AbstractProxy implements AbstractPr
     final NotifySubscribeOperations getSubscriptionListener()
     {
         return subscriptionListener_;
+    }
+    
+    protected void processMessage(Message mesg)
+    {
+        getTaskProcessor().processMessage(mesg);
     }
 }

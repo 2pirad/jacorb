@@ -42,7 +42,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.11 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.12 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl extends AbstractProxyConsumer implements
@@ -70,7 +70,7 @@ public class StructuredProxyPushConsumerImpl extends AbstractProxyConsumer imple
         Message _mesg = getMessageFactory().newMessage(structuredEvent, this);
 
         checkMessageProperties(_mesg);
-        getTaskProcessor().processMessage(_mesg);
+        processMessage(_mesg);
     }
 
     public void disconnect_structured_push_consumer()

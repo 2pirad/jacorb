@@ -41,7 +41,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.10 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.11 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl extends StructuredProxyPullConsumerImpl implements
@@ -104,7 +104,7 @@ public class SequenceProxyPullConsumerImpl extends StructuredProxyPullConsumerIm
             {
                 Message msg = getMessageFactory().newMessage(_events[x], this);
 
-                getTaskProcessor().processMessage(msg);
+                processMessage(msg);
             }
         }
     }

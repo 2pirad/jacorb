@@ -52,7 +52,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @Author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImpl.java,v 1.6 2005-04-10 14:32:57 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImpl.java,v 1.7 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -202,7 +202,7 @@ public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
 
                 checkMessageProperties(_mesg);
 
-                getTaskProcessor().processMessage(_mesg);
+                processMessage(_mesg);
             }
         }
     }

@@ -50,7 +50,7 @@ import EDU.oswego.cs.dl.util.concurrent.Sync;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.12 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.13 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullConsumerImpl
@@ -78,12 +78,7 @@ public class StructuredProxyPullConsumerImpl
         {
             public void run()
             {
-                try
-                {
-                    getTaskProcessor().scheduleTimedPullTask(StructuredProxyPullConsumerImpl.this );
-                }
-                catch ( InterruptedException ie )
-                {}
+                schedulePullTask(StructuredProxyPullConsumerImpl.this);
             }
         };
     }
@@ -100,8 +95,8 @@ public class StructuredProxyPullConsumerImpl
         super.configure (conf);
 
         pollInterval_ =
-            conf.getAttributeAsLong (Attributes.PULL_CONSUMER_POLLINTERVALL,
-                                        Default.DEFAULT_PROXY_POLL_INTERVALL);
+            conf.getAttributeAsLong (Attributes.PULL_CONSUMER_POLL_INTERVAL,
+                                        Default.DEFAULT_PULL_CONSUMER_POLL_INTERVAL);
     }
 
 
@@ -170,10 +165,10 @@ public class StructuredProxyPullConsumerImpl
 
         if ( _hasEvent.value )
         {
-            Message _notifyEvent =
+            Message _mesg =
                 getMessageFactory().newMessage( _event, this );
 
-            getTaskProcessor().processMessage( _notifyEvent );
+            processMessage( _mesg );
         }
     }
 

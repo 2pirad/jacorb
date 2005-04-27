@@ -32,7 +32,6 @@ import org.jacorb.notification.NoTranslationException;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.TypedEventMessage;
-import org.jacorb.notification.engine.DefaultTaskExecutor;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
@@ -75,7 +74,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImpl.java,v 1.7 2005-04-10 14:32:57 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImpl.java,v 1.8 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -209,8 +208,8 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
             SubscriptionManager subscriptionManager, DynAnyFactory dynAnyFactory,
             Repository repository) throws ConfigurationException
     {
-        super(admin, orb, poa, conf, taskProcessor, DefaultTaskExecutor.getDefaultExecutor(),
-                offerManager, subscriptionManager, consumerAdmin);
+        super(admin, orb, poa, conf, taskProcessor, offerManager,
+                subscriptionManager, consumerAdmin);
 
         trueAny_ = orb.create_any();
         falseAny_ = orb.create_any();
@@ -414,11 +413,6 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
         return null;
     }
 
-    public boolean hasMessageConsumer()
-    {
-        return true;
-    }
-
     public MessageConsumer getMessageConsumer()
     {
         return this;
@@ -430,6 +424,7 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
         {
             thisServant_ = new TypedProxyPullSupplierPOATie(this);
         }
+        
         return thisServant_;
     }
 
@@ -478,11 +473,6 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
         }
     }
 
-    public void messageDelivered()
-    {
-        // No Op
-    }
-    
     public void deliverPendingData()
     {
         // No Op as this Proxy is a PullSupplier

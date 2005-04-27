@@ -27,7 +27,6 @@ import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
-import org.jacorb.notification.engine.DefaultTaskExecutor;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
@@ -52,7 +51,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.12 2005-04-10 14:28:58 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullSupplierImpl.java,v 1.13 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -88,8 +87,8 @@ public class StructuredProxyPullSupplierImpl extends AbstractProxySupplier imple
             TaskProcessor taskProcessor, OfferManager offerManager,
             SubscriptionManager subscriptionManager, ConsumerAdmin consumerAdmin) throws ConfigurationException
     {
-        super(admin, orb, poa, conf, taskProcessor, DefaultTaskExecutor.getDefaultExecutor(),
-                offerManager, subscriptionManager, consumerAdmin);
+        super(admin, orb, poa, conf, taskProcessor, offerManager,
+                subscriptionManager, consumerAdmin);
     }
 
     public ProxyType MyType()
@@ -168,14 +167,6 @@ public class StructuredProxyPullSupplierImpl extends AbstractProxySupplier imple
         structuredPullConsumer_ = null;
     }
 
-    /**
-     * PullSupplier always enqueues.
-     */
-    public void messageDelivered()
-    {
-        // ignore
-    }
-
     public List getSubsequentFilterStages()
     {
         return CollectionsWrapper.singletonList(this);
@@ -184,11 +175,6 @@ public class StructuredProxyPullSupplierImpl extends AbstractProxySupplier imple
     public MessageConsumer getMessageConsumer()
     {
         return this;
-    }
-
-    public boolean hasMessageConsumer()
-    {
-        return true;
     }
 
     public void disableDelivery()

@@ -41,7 +41,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.11 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.12 2005-04-27 10:45:46 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl extends AbstractProxyConsumer implements
@@ -92,7 +92,7 @@ public class ProxyPushConsumerImpl extends AbstractProxyConsumer implements
 
         checkMessageProperties(_mesg);
 
-        getTaskProcessor().processMessage(_mesg);
+        processMessage(_mesg);
     }
 
     public void connect_any_push_supplier(org.omg.CosEventComm.PushSupplier pushSupplier)
