@@ -21,89 +21,27 @@ package org.jacorb.notification.interfaces;
  *
  */
 
-import org.jacorb.notification.engine.TaskExecutor;
-
 /**
- * The interface MessageConsumer provides an abstraction of an
- * ProxySupplier.
- * <br>
- * The MessageConsumer is responsible
- * to maintain the Connection to the real Consumer. To deliver a
- * Message
- * the MessageConsumer converts the Message to the
- * appropiate Format (Any, StructuredEvent, Sequence of
- * StructuredEvent) required by its Consumer and delivers it.
- * <br>
- *
+ * The interface MessageConsumer provides an abstraction of an ProxySupplier. <br>
+ * The MessageConsumer is responsible to maintain the Connection to the real Consumer. To deliver a
+ * Message the MessageConsumer converts the Message to the appropiate Format (Any, StructuredEvent,
+ * Sequence of StructuredEvent) required by its Consumer and delivers it. <br>
+ * 
  * @author Alphonse Bendt
- * @version $Id: MessageConsumer.java,v 1.11 2005-04-17 17:14:00 alphonse.bendt Exp $
+ * @version $Id: MessageConsumer.java,v 1.12 2005-04-27 10:39:07 alphonse.bendt Exp $
  */
 
-public interface MessageConsumer extends Comparable {
-
-    /**
-     * @return the <code>TaskExecutor</code> that should be used to
-     * push Messages to the connected Consumer.
-     */
-    TaskExecutor getExecutor();
-
-
-    /**
-     * process pending work. push events to its connected
-     * (Push)Consumer.
-     */
-    void deliverPendingData();
-
-
-    /**
-     * check if this MessageConsumer has pending work to do. pending
-     * work is to push events
-     * to its connected (Push)Consumer.
-     */
-    boolean hasPendingData();
-
-
-    /**
-     * activate deliveries. this MessageConsumer may invoke remote
-     * operations again.
-     */
-    void enableDelivery();
-
-
-    /**
-     * Disable Deliveries. this MessageConsumer may not invoke remote
-     * operations. events are enqueued instead.
-     */
-    void disableDelivery();
-
-
+public interface MessageConsumer extends Comparable
+{
     /**
      * Deliver a Message to the associated Consumer.
      */
     void deliverMessage(Message m);
 
-
-    /**
-     * reset the error counter for this MessageConsumer to zero.
-     */
-    void resetErrorCounter();
-
-
-    /**
-     * increment the current error count by one for this MessageConsumer.
-     */
-    int incErrorCounter();
-
-
     /**
      * check if this MessageConsumer is still valid.
      */
     boolean isDisposed();
-    
-    /**
-     * 
-     */
-    boolean isRetryAllowed();
-    
+
     void destroy();
 }
