@@ -25,7 +25,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BasicMessageQueueAdapter.java,v 1.3 2005-04-16 23:20:04 alphonse.bendt Exp $
+ * @version $Id: BasicMessageQueueAdapter.java,v 1.4 2005-04-27 10:40:22 alphonse.bendt Exp $
  */
 public class BasicMessageQueueAdapter implements MessageQueueAdapter
 {
@@ -142,5 +142,10 @@ public class BasicMessageQueueAdapter implements MessageQueueAdapter
         {
             // should not happen as above call does not wait.
         }
+    }
+    
+    public String toString()
+    {
+        return queue_.toString();
     }
 }
