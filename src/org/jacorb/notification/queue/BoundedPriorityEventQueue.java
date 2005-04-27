@@ -22,6 +22,7 @@ package org.jacorb.notification.queue;
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -36,7 +37,7 @@ import EDU.oswego.cs.dl.util.concurrent.Heap;
  * implements the interface EventQueue and invokes the methods thereby synchronizing access.
 
  * @author Alphonse Bendt
- * @version $Id: BoundedPriorityEventQueue.java,v 1.7 2005-02-14 00:11:10 alphonse.bendt Exp $
+ * @version $Id: BoundedPriorityEventQueue.java,v 1.8 2005-04-27 10:41:59 alphonse.bendt Exp $
  */
 
 public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
@@ -63,7 +64,7 @@ public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
 
     private Heap newHeap()
     {
-        return new Heap(maxCapacity_, QueueUtil.DESCENDING_PRIORITY_COMPARATOR);
+        return new Heap2(maxCapacity_, QueueUtil.DESCENDING_PRIORITY_COMPARATOR);
     }
 
     protected Message getNextElement()
@@ -197,6 +198,8 @@ public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
             _events.add(_element);
         }
 
+        heap_.clear();
+        
         return _events;
     }
 
@@ -229,5 +232,10 @@ public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
     public int getSize()
     {
         return heap_.size();
+    }
+    
+    public String toString()
+    {
+        return heap_.toString();
     }
 }
