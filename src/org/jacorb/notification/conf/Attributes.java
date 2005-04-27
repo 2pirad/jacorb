@@ -23,7 +23,7 @@ package org.jacorb.notification.conf;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Attributes.java,v 1.8 2005-04-10 14:19:42 alphonse.bendt Exp $
+ * @version $Id: Attributes.java,v 1.9 2005-04-27 10:33:43 alphonse.bendt Exp $
  */
 
 public interface Attributes
@@ -37,7 +37,7 @@ public interface Attributes
     String PULL_POOL_WORKERS =
         "jacorb.notification.proxyconsumer.thread_pool_size";
 
-    String PULL_CONSUMER_POLLINTERVALL =
+    String PULL_CONSUMER_POLL_INTERVAL =
         "jacorb.notification.supplier.poll_intervall";
 
     String MAX_BATCH_SIZE =
