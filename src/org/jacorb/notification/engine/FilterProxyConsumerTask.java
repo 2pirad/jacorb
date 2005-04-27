@@ -26,7 +26,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTask.java,v 1.14 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: FilterProxyConsumerTask.java,v 1.15 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 
 public class FilterProxyConsumerTask extends AbstractFilterTask
@@ -38,8 +38,8 @@ public class FilterProxyConsumerTask extends AbstractFilterTask
 
     ////////////////////
 
-    public FilterProxyConsumerTask(TaskExecutor executor, TaskProcessor processor, TaskFactory factory) {
-        super(executor, processor, factory);
+    public FilterProxyConsumerTask(TaskFactory factory, TaskExecutor executor) {
+        super(factory, executor);
     }
 
     ////////////////////

@@ -21,17 +21,17 @@
 
 package org.jacorb.notification.engine;
 
-import org.jacorb.notification.interfaces.MessageConsumer;
+import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AlwaysDisposeRetryStrategy.java,v 1.2 2005-04-17 17:02:06 alphonse.bendt Exp $
+ * @version $Id: AlwaysDisposeRetryStrategy.java,v 1.3 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 public class AlwaysDisposeRetryStrategy extends AbstractRetryStrategy
 {
-    public AlwaysDisposeRetryStrategy(MessageConsumer mc, PushOperation operation)
+    public AlwaysDisposeRetryStrategy(IProxyPushSupplier pushSupplier, PushOperation operation)
     {
-        super(mc, operation);
+        super(pushSupplier, operation);
     }
     
     protected long getTimeToWait()
@@ -41,7 +41,7 @@ public class AlwaysDisposeRetryStrategy extends AbstractRetryStrategy
 
     protected void retryInternal() throws RetryException
     {
-        messageConsumer_.destroy();
+        pushSupplier_.destroy();
         dispose();
     }
 }

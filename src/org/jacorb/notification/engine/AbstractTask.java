@@ -25,25 +25,12 @@ import org.jacorb.notification.util.AbstractPoolable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTask.java,v 1.14 2005-04-17 17:01:29 alphonse.bendt Exp $
+ * @version $Id: AbstractTask.java,v 1.15 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTask extends AbstractPoolable implements Runnable, Schedulable
-{
-    private final TaskProcessor taskProcessor_;
-
-    /**
-     * to support pooling the TaskExecutor
-     * must be set on a per MessageConsumer basis.
-     */
+{    
     private TaskExecutor taskExecutor_;
-
-    ////////////////////
-
-    protected AbstractTask(TaskProcessor taskProcessor)
-    {
-        taskProcessor_ = taskProcessor;
-    }
 
     ////////////////////
 
@@ -56,12 +43,6 @@ public abstract class AbstractTask extends AbstractPoolable implements Runnable,
     {
         taskExecutor_ = taskExecutor;
     }
-
-    protected TaskProcessor getTaskProcessor()
-    {
-        return taskProcessor_;
-    }
-
 
     /**
      * Override this Method in Subclasses to do the "real work".

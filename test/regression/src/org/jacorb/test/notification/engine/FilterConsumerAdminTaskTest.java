@@ -32,7 +32,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTaskTest.java,v 1.1 2005-02-14 00:17:14 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTaskTest.java,v 1.2 2005-04-27 10:50:49 alphonse.bendt Exp $
  */
 public class FilterConsumerAdminTaskTest extends AbstractFilterTaskTestCase
 {
@@ -50,8 +50,7 @@ public class FilterConsumerAdminTaskTest extends AbstractFilterTaskTestCase
 
     protected AbstractFilterTask newObjectUnderTest()
     {
-        objectUnderTest_ = new FilterConsumerAdminTask(mockTaskExecutor_, mockTaskProcessor_,
-                mockTaskFactory_);
+        objectUnderTest_ = new FilterConsumerAdminTask(mockTaskFactory_, mockTaskExecutor_);
         
         return objectUnderTest_;
     }

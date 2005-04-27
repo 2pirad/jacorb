@@ -26,7 +26,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskFactory.java,v 1.10 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: TaskFactory.java,v 1.11 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 public interface TaskFactory
 {
@@ -40,11 +40,11 @@ public interface TaskFactory
 
     ////////////////////////////////////////
     
-    public abstract AbstractDeliverTask[] newPushToConsumerTask(FilterStage[] nodes, Message event);
+    public abstract void enqueueMessage(FilterStage[] nodes, Message event);
 
     /**
      * factory method to create PushToConsumer Tasks. The Tasks are
      * initialized with the data taken from a FilterProxySupplierTask.
      */
-    public abstract AbstractDeliverTask[] newPushToConsumerTask(FilterProxySupplierTask task);
+    public abstract void enqueueMessage(FilterProxySupplierTask task);
 }

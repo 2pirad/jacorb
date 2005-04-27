@@ -21,21 +21,19 @@ package org.jacorb.notification.engine;
  *
  */
 
+import org.jacorb.notification.interfaces.IProxyPushSupplier;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.interfaces.MessageSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.24 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.25 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 
 
 public interface TaskProcessor
 {
     TaskFactory getTaskFactory();
-
-    long getBackoutInterval ();
 
 
     TaskExecutor getFilterTaskExecutor();
@@ -67,7 +65,7 @@ public interface TaskProcessor
      * Also used after a disabled MessageConsumer is enabled again to
      * push the pending Messages.
      */
-     void scheduleTimedPushTask( MessageConsumer consumer )
+     void schedulePushOperation( IProxyPushSupplier consumer )
         throws InterruptedException;
 
     ////////////////////////////////////////
@@ -85,7 +83,6 @@ public interface TaskProcessor
 
 
     Object executeTaskAfterDelay( long delay, Runnable task );
-
 
     //    Object executeTaskAt( Date startTime, Runnable task );
 

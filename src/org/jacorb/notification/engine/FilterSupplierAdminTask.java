@@ -23,7 +23,7 @@ package org.jacorb.notification.engine;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterSupplierAdminTask.java,v 1.13 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: FilterSupplierAdminTask.java,v 1.14 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 
 public class FilterSupplierAdminTask extends AbstractFilterTask
@@ -36,9 +36,9 @@ public class FilterSupplierAdminTask extends AbstractFilterTask
 
     ////////////////////////////////////////
 
-    public FilterSupplierAdminTask(TaskExecutor te, TaskProcessor tp, TaskFactory tc)
+    public FilterSupplierAdminTask(TaskFactory taskFactory, TaskExecutor taskExecutor)
     {
-        super(te, tp, tc);
+        super(taskFactory, taskExecutor);
     }
 
     ////////////////////////////////////////

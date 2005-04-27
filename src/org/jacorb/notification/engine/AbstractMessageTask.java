@@ -25,40 +25,32 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessageTask.java,v 1.2 2005-04-16 23:01:45 alphonse.bendt Exp $
+ * @version $Id: AbstractMessageTask.java,v 1.3 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 public abstract class AbstractMessageTask extends AbstractTask
 {
     private Message message_;
 
     /**
-     * @param tp
-     */
-    public AbstractMessageTask(TaskProcessor tp)
-    {
-        super(tp);
-    }
-
-    /**
      * set the Message for this Task to use.
      */
-    public void setMessage(Message event)
+    public void setMessage(Message message)
     {
         if (message_ != null)
         {
             throw new RuntimeException("remove old first");
         }
 
-        message_ = event;
+        message_ = message;
     }
 
     public Message removeMessage()
     {
-        Message _event = message_;
+        Message _mesg = message_;
 
         message_ = null;
 
-        return _event;
+        return _mesg;
     }
 
     public Message copyMessage()

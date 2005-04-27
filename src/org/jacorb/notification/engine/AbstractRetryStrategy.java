@@ -21,29 +21,29 @@ package org.jacorb.notification.engine;
  */
 
 import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.notification.interfaces.MessageConsumer;
+import org.jacorb.notification.interfaces.IProxyPushSupplier;
 import org.jacorb.notification.util.LogUtil;
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractRetryStrategy.java,v 1.3 2005-04-17 17:00:51 alphonse.bendt Exp $
+ * @version $Id: AbstractRetryStrategy.java,v 1.4 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 public abstract class AbstractRetryStrategy implements RetryStrategy
 {
     protected final Logger logger_ = LogUtil.getLogger(getClass().getName());    
     protected final PushOperation pushOperation_;
 
-    protected final MessageConsumer messageConsumer_;
+    protected final IProxyPushSupplier pushSupplier_;
 
     private boolean active_ = true;
     
     ////////////////////////////////////////
 
-    public AbstractRetryStrategy(MessageConsumer mc, PushOperation operation)
+    public AbstractRetryStrategy(IProxyPushSupplier pushSupplier, PushOperation operation)
     {
-        messageConsumer_ = mc;
+        pushSupplier_ = pushSupplier;
         pushOperation_ = operation;
     }
 
@@ -56,7 +56,7 @@ public abstract class AbstractRetryStrategy implements RetryStrategy
 
     protected boolean isRetryAllowed()
     {
-        return active_ && messageConsumer_.isRetryAllowed();
+        return active_ && pushSupplier_.isRetryAllowed();
     }
 
     protected void remoteExceptionOccured(Throwable error) throws RetryException
@@ -65,17 +65,17 @@ public abstract class AbstractRetryStrategy implements RetryStrategy
         
         if (isFatalException(error))
         {
-            messageConsumer_.destroy();
+            pushSupplier_.destroy();
             active_ = false;
 
             throw new RetryException("fatal exception while retrying push");
         }
 
-        messageConsumer_.incErrorCounter();
+        pushSupplier_.incErrorCounter();
 
         if (!isRetryAllowed())
         {
-            messageConsumer_.destroy();
+            pushSupplier_.destroy();
             active_ = false;
 
             throw new RetryException("no more retries. giving up.");

@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.6 2005-04-16 23:22:38 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.7 2005-04-27 10:50:49 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
@@ -41,7 +41,6 @@ public class PackageTest extends TestCase
     {
         TestSuite _suite = new TestSuite("Tests in Package org.jacorb.test.notification.engine");
 
-        _suite.addTest(PushToConsumerTest.suite());
         _suite.addTest(PushOperationTest.suite());
         _suite.addTest(WaitRetryStrategyTest.suite());
         _suite.addTest(TaskProcessorRetryStrategyTest.suite());
@@ -50,7 +49,6 @@ public class PackageTest extends TestCase
         _suite.addTest(FilterProxySupplierTaskTest.suite());
         _suite.addTest(FilterConsumerAdminTaskTest.suite());
         _suite.addTest(FilterSupplierAdminTaskTest.suite());
-        _suite.addTest(PushToConsumerTaskTest.suite());
         
         return _suite;
     }

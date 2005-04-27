@@ -32,7 +32,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.18 2005-04-17 17:04:26 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.19 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask
@@ -93,9 +93,9 @@ public class FilterProxySupplierTask extends AbstractFilterTask
 
     ////////////////////////////////////////
 
-    public FilterProxySupplierTask(TaskExecutor taskExecutor, TaskProcessor taskProcessor, TaskFactory taskFactory)
+    public FilterProxySupplierTask(TaskFactory taskFactory, TaskExecutor taskExecutor)
     {
-        super(taskExecutor, taskProcessor, taskFactory);
+        super(taskFactory, taskExecutor);
     }
 
     ////////////////////////////////////////
@@ -116,7 +116,7 @@ public class FilterProxySupplierTask extends AbstractFilterTask
     {
         filter();
 
-        AbstractDeliverTask.scheduleTasks(getTaskFactory().newPushToConsumerTask(this));
+        getTaskFactory().enqueueMessage(this);
     }
 
     private Message updatePriority(int indexOfCurrentEvent, Message message)

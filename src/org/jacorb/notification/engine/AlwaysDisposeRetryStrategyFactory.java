@@ -21,15 +21,15 @@
 
 package org.jacorb.notification.engine;
 
-import org.jacorb.notification.interfaces.MessageConsumer;
+import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AlwaysDisposeRetryStrategyFactory.java,v 1.1 2005-02-20 21:35:27 alphonse.bendt Exp $
+ * @version $Id: AlwaysDisposeRetryStrategyFactory.java,v 1.2 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 public class AlwaysDisposeRetryStrategyFactory implements RetryStrategyFactory
 {
-    public RetryStrategy newRetryStrategy(MessageConsumer messageConsumer,
+    public RetryStrategy newRetryStrategy(IProxyPushSupplier messageConsumer,
             PushOperation pushOperation)
     {
         return new AlwaysDisposeRetryStrategy(messageConsumer, pushOperation);

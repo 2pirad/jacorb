@@ -21,26 +21,33 @@
 
 package org.jacorb.notification.engine;
 
-import org.jacorb.notification.interfaces.MessageConsumer;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.notification.conf.Attributes;
+import org.jacorb.notification.conf.Default;
+import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategyFactory.java,v 1.2 2005-04-17 17:08:11 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategyFactory.java,v 1.3 2005-04-27 10:48:40 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategyFactory implements RetryStrategyFactory
 {
     private final TaskProcessor taskProcessor_;
+    private final int backoutInterval_;
 
-    public TaskProcessorRetryStrategyFactory(TaskProcessor taskProcessor)
+    public TaskProcessorRetryStrategyFactory(Configuration config, TaskProcessor taskProcessor)
     {
         super();
+        
+        backoutInterval_ = config.getAttributeAsInteger(Attributes.BACKOUT_INTERVAL,
+                Default.DEFAULT_BACKOUT_INTERVAL);
         
         taskProcessor_ = taskProcessor;
     }
 
-    public RetryStrategy newRetryStrategy(MessageConsumer messageConsumer,
+    public RetryStrategy newRetryStrategy(IProxyPushSupplier pushSupplier,
             PushOperation pushOperation)
     {
-        return new TaskProcessorRetryStrategy(messageConsumer, pushOperation, taskProcessor_);
+        return new TaskProcessorRetryStrategy(pushSupplier, pushOperation, taskProcessor_, backoutInterval_);
     }
 }
