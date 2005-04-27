@@ -38,7 +38,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DeadlockBugTest.java,v 1.2 2005-02-20 21:46:29 alphonse.bendt Exp $
+ * @version $Id: DeadlockBugTest.java,v 1.3 2005-04-27 10:49:51 alphonse.bendt Exp $
  */
 public class DeadlockBugTest extends TestCase
 {
@@ -152,9 +152,6 @@ public class DeadlockBugTest extends TestCase
         putter.interrupt();
     }
 
-    /**
-     * @return
-     */
     public static Test suite()
     {
         return new TestSuite(DeadlockBugTest.class);
