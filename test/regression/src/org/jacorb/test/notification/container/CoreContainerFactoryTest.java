@@ -34,51 +34,48 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CoreContainerFactoryTest.java,v 1.1 2005-02-14 00:17:14 alphonse.bendt Exp $
+ * @version $Id: CoreContainerFactoryTest.java,v 1.2 2005-04-27 10:50:27 alphonse.bendt Exp $
  */
 public class CoreContainerFactoryTest extends TestCase
 {
     ORB orb_;
 
-    PicoContainer picoContainer;
+    PicoContainer picoContainer_;
 
     public void setUp() throws Exception
     {
         orb_ = ORB.init(new String[0], null);
-        picoContainer = PicoContainerFactory.createRootContainer((org.jacorb.orb.ORB)orb_);
+        picoContainer_ = PicoContainerFactory.createRootContainer((org.jacorb.orb.ORB)orb_);
     }
 
     public void testGetORB()
     {
-        ORB _orb = (ORB) picoContainer.getComponentInstance(ORB.class);
+        ORB _orb = (ORB) picoContainer_.getComponentInstance(ORB.class);
 
         assertNotNull(_orb);
     }
 
     public void testGetPOA()
     {
-        POA _poa = (POA) picoContainer.getComponentInstance(POA.class);
+        POA _poa = (POA) picoContainer_.getComponentInstance(POA.class);
 
         assertNotNull(_poa);
     }
 
     public void testGetConfiguration()
     {
-        Configuration config = (Configuration) picoContainer.getComponentInstance(Configuration.class);
+        Configuration config = (Configuration) picoContainer_.getComponentInstance(Configuration.class);
         
         assertNotNull(config);
     }
     
     public void testGetFilterFactory()
     {
-        FilterFactory filterFactory = (FilterFactory)picoContainer.getComponentInstance(FilterFactory.class);
+        FilterFactory filterFactory = (FilterFactory)picoContainer_.getComponentInstance(FilterFactory.class);
         
         assertNotNull(filterFactory);
     }
     
-    /**
-     * @return
-     */
     public static Test suite()
     {
         return new TestSuite(CoreContainerFactoryTest.class);

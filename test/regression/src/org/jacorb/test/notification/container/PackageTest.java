@@ -26,7 +26,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.1 2005-02-14 00:17:14 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.2 2005-04-27 10:50:27 alphonse.bendt Exp $
  */
 public class PackageTest extends TestSuite
 {
@@ -34,10 +34,8 @@ public class PackageTest extends TestSuite
     {
         TestSuite suite = new TestSuite("Tests in package org.jacorb.test.notification.container");
         
-        suite.addTest(ReferenceComponentAdapterTest.suite());
+        suite.addTest(CORBAObjectComponentAdapterTest.suite());
         suite.addTest(CoreContainerFactoryTest.suite());
-        suite.addTest(DeliverTaskExecutorComponentAdapterTest.suite());
-        suite.addTest(NonCachingRememberingComponentAdapterTest.suite());
         
         return suite;
      }
