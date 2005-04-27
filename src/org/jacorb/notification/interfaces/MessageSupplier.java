@@ -29,14 +29,16 @@ import org.omg.CosEventComm.Disconnected;
  * The implementation maintains a connection to a PullSupplier.
  *
  * @author Alphonse Bendt
- * @version $Id: MessageSupplier.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: MessageSupplier.java,v 1.3 2005-04-27 10:39:46 alphonse.bendt Exp $
  */
 
-public interface MessageSupplier extends Disposable {
+public interface MessageSupplier {
 
     /**
      * the implementation pulls one or more events from its Supplier
      * and hands over the pulled events to the TaskProcessor.
      */
     void runPullMessage() throws Disconnected;
+    
+    void destroy();
 }
