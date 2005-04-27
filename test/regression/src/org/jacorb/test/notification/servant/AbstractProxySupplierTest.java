@@ -28,7 +28,6 @@ import junit.framework.Test;
 import org.easymock.MockControl;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
-import org.jacorb.notification.engine.DefaultTaskExecutor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageConsumer;
 import org.jacorb.notification.servant.AbstractProxySupplier;
@@ -43,7 +42,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplierTest.java,v 1.1 2005-04-16 23:24:21 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplierTest.java,v 1.2 2005-04-27 10:51:33 alphonse.bendt Exp $
  */
 public class AbstractProxySupplierTest extends NotificationTestCase
 {
@@ -83,14 +82,9 @@ public class AbstractProxySupplierTest extends NotificationTestCase
         POA mockPOA = (POA) controlPOA.getMock();
 
         objectUnderTest_ = new AbstractProxySupplier(mockIAdmin, getORB(), mockPOA,
-                getConfiguration(), getTaskProcessor(), DefaultTaskExecutor.getDefaultExecutor(),
-                new OfferManager(), new SubscriptionManager(), mockConsumerAdmin)
+                getConfiguration(), getTaskProcessor(), new OfferManager(),
+                new SubscriptionManager(), mockConsumerAdmin)
         {
-            protected void messageDelivered()
-            {
-                // ignored
-            }
-
             protected long getCost()
             {
                 return 0;
@@ -116,11 +110,6 @@ public class AbstractProxySupplierTest extends NotificationTestCase
                 // ignored
             }
 
-            public boolean hasMessageConsumer()
-            {
-                return false;
-            }
-
             public MessageConsumer getMessageConsumer()
             {
                 return null;
@@ -144,11 +133,6 @@ public class AbstractProxySupplierTest extends NotificationTestCase
         mockClient_ = (org.omg.CORBA.Object) controlClient_.getMock();
     }
 
-    /**
-     * Constructor for AbstractProxySupplierTest.
-     * 
-     * @param name
-     */
     public AbstractProxySupplierTest(String name, NotificationTestCaseSetup setup)
     {
         super(name, setup);
