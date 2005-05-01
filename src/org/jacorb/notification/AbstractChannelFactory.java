@@ -23,7 +23,9 @@ package org.jacorb.notification;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -31,6 +33,7 @@ import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.conf.Attributes;
+import org.jacorb.notification.container.BiDirGiopPOAComponentAdapter;
 import org.jacorb.notification.container.PicoContainerFactory;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.servant.ManageableServant;
@@ -66,7 +69,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.10 2005-04-13 20:30:55 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.11 2005-05-01 21:09:14 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -140,9 +143,15 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
 
         POA _rootPOA = (POA) container_.getComponentInstance(POA.class);
 
-        org.omg.CORBA.Policy[] _policies = new org.omg.CORBA.Policy[] { _rootPOA
-                .create_id_assignment_policy(IdAssignmentPolicyValue.USER_ID) };
-
+        List _ps = new ArrayList();
+        
+        _ps.add(_rootPOA
+                .create_id_assignment_policy(IdAssignmentPolicyValue.USER_ID));
+        
+        BiDirGiopPOAComponentAdapter.addBiDirGiopPolicy(_ps, orb, config_);
+        
+        org.omg.CORBA.Policy[] _policies = (org.omg.CORBA.Policy[]) _ps.toArray(new org.omg.CORBA.Policy[_ps.size()]);
+        
         eventChannelFactoryPOA_ = _rootPOA.create_POA(EVENTCHANNEL_FACTORY_POA_NAME, _rootPOA
                 .the_POAManager(), _policies);
 
