@@ -30,7 +30,6 @@ import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.AbstractProxyConsumerI;
 import org.jacorb.notification.util.AbstractObjectPool;
-import org.jacorb.notification.util.AbstractPoolable;
 import org.jacorb.notification.util.AbstractPoolablePool;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.Bounds;
@@ -42,10 +41,10 @@ import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultMessageFactory.java,v 1.3 2005-04-17 17:13:01 alphonse.bendt Exp $
+ * @version $Id: DefaultMessageFactory.java,v 1.4 2005-05-01 21:00:40 alphonse.bendt Exp $
  */
 
-public class DefaultMessageFactory implements Disposable, MessageFactory //, Controllable
+public class DefaultMessageFactory implements Disposable, MessageFactory
 {
     private final AbstractObjectPool typedEventMessagePool_ = new AbstractPoolablePool(
             "TypedEventMessagePool")
@@ -233,10 +232,5 @@ public class DefaultMessageFactory implements Disposable, MessageFactory //, Con
         _mesg.setStructuredEvent(structuredEvent, false, false);
 
         return _mesg.getHandle();
-    }
-
-    public void addDisposeHook(Disposable d)
-    {
-        // ignored
     }
 }
