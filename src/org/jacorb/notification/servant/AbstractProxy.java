@@ -65,7 +65,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.18 2005-04-27 10:45:46 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.19 2005-05-01 21:00:58 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -218,7 +218,6 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
 
     // TODO implement
     public void validate_event_qos(Property[] qosProps, NamedPropertyRangeSeqHolder propSeqHolder)
-
     {
         throw new NO_IMPLEMENT();
     }
