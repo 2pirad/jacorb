@@ -50,7 +50,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * Provide the Basic operations needed to evaluate filter expressions on Anys.
  * 
  * @author Alphonse Bendt
- * @version $Id: DefaultETCLEvaluator.java,v 1.1 2005-02-14 00:07:38 alphonse.bendt Exp $
+ * @version $Id: DefaultETCLEvaluator.java,v 1.2 2005-05-01 21:52:09 alphonse.bendt Exp $
  */
 
 public class DefaultETCLEvaluator implements ETCLEvaluator
@@ -232,6 +232,8 @@ public class DefaultETCLEvaluator implements ETCLEvaluator
                 }
             } catch (Bounds b)
             {
+                // this should never happen as _x should be always < _memberCount.
+                throw new RuntimeException();
             }
 
         } catch (BadKind e)

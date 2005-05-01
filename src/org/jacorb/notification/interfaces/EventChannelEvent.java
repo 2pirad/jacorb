@@ -25,11 +25,13 @@ import org.jacorb.notification.AbstractEventChannel;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventChannelEvent.java,v 1.5 2004-07-12 11:19:03 alphonse.bendt Exp $
+ * @version $Id: EventChannelEvent.java,v 1.6 2005-05-01 21:52:25 alphonse.bendt Exp $
  */
 
 public class EventChannelEvent extends ApplicationEvent
 {
+    private static final long serialVersionUID = 1L;
+
     public EventChannelEvent(AbstractEventChannel servant)
     {
         super(servant);

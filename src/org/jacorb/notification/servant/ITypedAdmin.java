@@ -22,10 +22,15 @@
 package org.jacorb.notification.servant;
 
 /**
+ * Internal Interface provided to TypedProxiesthat gives them Information from their Parent Admin.
+ * 
  * @author Alphonse Bendt
- * @version $Id: ITypedAdmin.java,v 1.1 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: ITypedAdmin.java,v 1.2 2005-05-01 21:52:55 alphonse.bendt Exp $
  */
 public interface ITypedAdmin extends IAdmin
 {
+    /**
+     * @return the Repository ID of the Interface that the Proxy should support.
+     */
     String getSupportedInterface();
 }

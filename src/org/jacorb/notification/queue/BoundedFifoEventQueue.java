@@ -21,9 +21,7 @@ package org.jacorb.notification.queue;
  *
  */
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,7 +33,7 @@ import org.jacorb.notification.interfaces.Message;
  * EventQueue and invokes the methods thereby synchronizing access.
  * 
  * @author Alphonse Bendt
- * @version $Id: BoundedFifoEventQueue.java,v 1.4 2005-03-20 21:58:51 alphonse.bendt Exp $
+ * @version $Id: BoundedFifoEventQueue.java,v 1.5 2005-05-01 21:52:41 alphonse.bendt Exp $
  */
 
 public class BoundedFifoEventQueue extends AbstractBoundedEventQueue

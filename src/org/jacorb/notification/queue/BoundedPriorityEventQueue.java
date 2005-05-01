@@ -22,7 +22,6 @@ package org.jacorb.notification.queue;
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -37,7 +36,7 @@ import EDU.oswego.cs.dl.util.concurrent.Heap;
  * implements the interface EventQueue and invokes the methods thereby synchronizing access.
 
  * @author Alphonse Bendt
- * @version $Id: BoundedPriorityEventQueue.java,v 1.8 2005-04-27 10:41:59 alphonse.bendt Exp $
+ * @version $Id: BoundedPriorityEventQueue.java,v 1.9 2005-05-01 21:52:41 alphonse.bendt Exp $
  */
 
 public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue

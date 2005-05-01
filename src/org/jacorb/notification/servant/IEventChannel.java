@@ -25,20 +25,25 @@ import org.jacorb.notification.IContainer;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
 
 /**
+ * Internal Interface used by Admins to query the settings of the EventChannel they belong to.
+ * 
  * @author Alphonse Bendt
- * @version $Id: IEventChannel.java,v 1.1 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: IEventChannel.java,v 1.2 2005-05-01 21:52:55 alphonse.bendt Exp $
  */
 public interface IEventChannel extends IContainer
 {
+    /**
+     * @return the id the Admin should use.
+     */
     int getAdminID();
 
     /**
-     * @return
+     * @return the id of the parent Channel.
      */
     int getID();
 
     /**
-     * @return
+     * @return the parent Channel.
      */
     EventChannel getEventChannel();
 }

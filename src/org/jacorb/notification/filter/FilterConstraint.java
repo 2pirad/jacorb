@@ -25,12 +25,12 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * Representation of a Constraint.
- * A {@link org.jacorb.notification.FilterImpl FilterImpl} encapsulates
+ * A {@link org.jacorb.notification.filter.AbstractFilter Filter} encapsulates
  * several Constraints. Each Constraint is represented by an instance
  * of this Class.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterConstraint.java,v 1.9 2005-02-14 00:04:35 alphonse.bendt Exp $
+ * @version $Id: FilterConstraint.java,v 1.10 2005-05-01 21:51:46 alphonse.bendt Exp $
  */
 
 public interface FilterConstraint

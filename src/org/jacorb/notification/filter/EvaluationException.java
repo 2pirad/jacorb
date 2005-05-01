@@ -24,11 +24,13 @@ package org.jacorb.notification.filter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EvaluationException.java,v 1.3 2004-07-12 11:18:44 alphonse.bendt Exp $
+ * @version $Id: EvaluationException.java,v 1.4 2005-05-01 21:51:46 alphonse.bendt Exp $
  */
 
 public class EvaluationException extends Exception
 {
+    private static final long serialVersionUID = 1L;
+
 
     public EvaluationException()
     {

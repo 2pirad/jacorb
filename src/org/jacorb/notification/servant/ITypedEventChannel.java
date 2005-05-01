@@ -23,9 +23,9 @@ package org.jacorb.notification.servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ITypedEventChannel.java,v 1.1 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: ITypedEventChannel.java,v 1.2 2005-05-01 21:52:55 alphonse.bendt Exp $
  */
 public interface ITypedEventChannel
 {
-
+    // marker interface
 }

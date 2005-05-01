@@ -26,16 +26,17 @@ import org.jacorb.notification.servant.AbstractProxy;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyEvent.java,v 1.6 2004-07-12 11:19:03 alphonse.bendt Exp $
+ * @version $Id: ProxyEvent.java,v 1.7 2005-05-01 21:52:25 alphonse.bendt Exp $
  */
 
 public class ProxyEvent extends ApplicationEvent
 {
+    private static final long serialVersionUID = 1L;
+
     public ProxyEvent(AbstractProxy b)
     {
         super(b);
     }
-
 
     public ProxyEvent(AbstractAdmin admin)
     {
