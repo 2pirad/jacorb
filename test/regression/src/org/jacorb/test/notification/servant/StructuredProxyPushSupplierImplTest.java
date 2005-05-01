@@ -23,7 +23,6 @@ package org.jacorb.test.notification.servant;
 
 import junit.framework.Test;
 
-import org.apache.avalon.framework.configuration.Configuration;
 import org.easymock.MockControl;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
@@ -41,15 +40,13 @@ import org.omg.CosNotifyComm.StructuredPushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.3 2005-04-27 10:51:33 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.4 2005-05-01 21:15:51 alphonse.bendt Exp $
  */
 public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 {
     private StructuredProxyPushSupplierImpl objectUnderTest_;
 
     private MockControl controlTaskExecutor_;
-
-    private TaskExecutor mockTaskExecutor_;
 
     private MockControl controlTaskProcessor_;
 
@@ -74,13 +71,9 @@ public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 
         controlAdmin.replay();
 
-        MockControl controlConfig = MockControl.createControl(Configuration.class);
-        Configuration mockConfig = (Configuration) controlConfig.getMock();
-
         controlTaskProcessor_ = MockControl.createControl(TaskProcessor.class);
         mockTaskProcessor_ = (TaskProcessor) controlTaskProcessor_.getMock();
         controlTaskExecutor_ = MockControl.createControl(TaskExecutor.class);
-        mockTaskExecutor_ = (TaskExecutor) controlTaskExecutor_.getMock();
         objectUnderTest_ = new StructuredProxyPushSupplierImpl(mockAdmin, getORB(), getPOA(),
                 getConfiguration(), mockTaskProcessor_, new DefaultPushTaskExecutorFactory(1), new OfferManager(),
                 new SubscriptionManager(), null);

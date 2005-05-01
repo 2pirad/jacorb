@@ -40,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImplTest.java,v 1.4 2005-04-10 14:31:57 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImplTest.java,v 1.5 2005-05-01 21:15:16 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImplTest extends NotificationTestCase
 {
@@ -57,7 +57,7 @@ public class TypedSupplierAdminImplTest extends NotificationTestCase
 
     public void setUpTest() throws Exception
     {
-        container_ = PicoContainerFactory.createChildContainer(getContainer());
+        container_ = PicoContainerFactory.createChildContainer(getPicoContainer());
 
         container_.registerComponentInstance(new OfferManager());
 

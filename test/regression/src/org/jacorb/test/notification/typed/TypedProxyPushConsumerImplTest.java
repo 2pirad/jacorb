@@ -47,7 +47,7 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.6 2005-04-10 14:31:57 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.7 2005-05-01 21:15:16 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 {
@@ -76,7 +76,7 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
         controlAdmin_.setReturnValue(true);
 
         mockAdmin_.getContainer();
-        controlAdmin_.setReturnValue(getContainer());
+        controlAdmin_.setReturnValue(getPicoContainer());
 
         mockAdmin_.getSupportedInterface();
         controlAdmin_.setDefaultReturnValue(CoffeeHelper.id());
@@ -102,11 +102,6 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
     {
         assertEquals(new Integer(10), objectUnderTest_.getID());
         assertTrue(objectUnderTest_.isIDPublic());
-    }
-
-    public void testMyAdmin()
-    {
-        assertEquals(mockSupplierAdmin_, proxyPushConsumer_.MyAdmin());
     }
 
     public void testGetTypedConsumer() throws Exception
@@ -195,7 +190,7 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
         
         PushSupplierPOATie tie = new PushSupplierPOATie(mockPushSupplier);
         
-        proxyPushConsumer_.connect_typed_push_supplier(tie._this(getORB()));
+        proxyPushConsumer_.connect_typed_push_supplier(tie._this(getClientORB()));
 
         Any any = getORB().create_any();
 
