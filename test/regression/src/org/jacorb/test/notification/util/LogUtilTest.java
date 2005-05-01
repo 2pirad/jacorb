@@ -30,7 +30,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: LogUtilTest.java,v 1.1 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: LogUtilTest.java,v 1.2 2005-05-01 21:12:13 alphonse.bendt Exp $
  */
 public class LogUtilTest extends TestCase
 {
@@ -50,9 +50,6 @@ public class LogUtilTest extends TestCase
         assertNotNull(_logger);
     }
 
-    /**
-     * @return
-     */
     public static Test suite()
     {
         return new TestSuite(LogUtilTest.class);

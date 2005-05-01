@@ -31,7 +31,7 @@ import org.jacorb.notification.util.DisposableManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DisposableManagerTest.java,v 1.1 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: DisposableManagerTest.java,v 1.2 2005-05-01 21:11:58 alphonse.bendt Exp $
  */
 public class DisposableManagerTest extends TestCase
 {
@@ -89,9 +89,6 @@ public class DisposableManagerTest extends TestCase
         controlDisposable_.verify();
     }
 
-    /**
-     * @return
-     */
     public static Test suite()
     {
         return new TestSuite(DisposableManagerTest.class);
