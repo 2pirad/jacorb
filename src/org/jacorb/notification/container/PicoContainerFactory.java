@@ -46,7 +46,7 @@ import org.picocontainer.defaults.DefaultPicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PicoContainerFactory.java,v 1.3 2005-04-27 10:37:14 alphonse.bendt Exp $
+ * @version $Id: PicoContainerFactory.java,v 1.4 2005-05-01 21:09:47 alphonse.bendt Exp $
  */
 public class PicoContainerFactory
 {
@@ -87,7 +87,7 @@ public class PicoContainerFactory
         _container.registerComponentInstance(org.omg.CORBA.ORB.class, orb);
 
         // register services that need to be looked up via orb using custom componentadapter
-        _container.registerComponent(new CachingComponentAdapter(new POAComponentAdapter()));
+        _container.registerComponent(new CachingComponentAdapter(new BiDirGiopPOAComponentAdapter(new POAComponentAdapter())));
 
         _container.registerComponent(new CachingComponentAdapter(
                 new DynAnyFactoryComponentAdapter()));
