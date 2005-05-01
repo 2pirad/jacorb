@@ -52,7 +52,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @Author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImpl.java,v 1.7 2005-04-27 10:45:46 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImpl.java,v 1.8 2005-05-01 21:02:48 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -103,6 +103,11 @@ public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
 
         interfaceDef_ = InterfaceDefHelper.narrow(typedPullSupplier_._get_interface_def());
 
+        if (interfaceDef_ == null)
+        {
+            throw new NullPointerException();
+        }
+        
         if (!typedPullSupplier_._is_a(expectedInterface_))
         {
             throw new TypeError();
