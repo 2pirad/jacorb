@@ -39,7 +39,7 @@ import EDU.oswego.cs.dl.util.concurrent.ThreadFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskProcessor.java,v 1.9 2005-04-27 10:48:40 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskProcessor.java,v 1.10 2005-05-01 21:10:09 alphonse.bendt Exp $
  */
 
 public class DefaultTaskProcessor implements TaskProcessor, Disposable
@@ -170,18 +170,15 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable
         logger_.info("create TaskProcessor");
 
         // create pull worker pool. allow pull workers to die
-        int value = config.getAttributeAsInteger(Attributes.PULL_POOL_WORKERS,
+        int _pullPoolSize = config.getAttributeAsInteger(Attributes.PULL_POOL_WORKERS,
                 Default.DEFAULT_PULL_POOL_SIZE);
 
-        pullTaskExecutor_ = new DefaultTaskExecutor("PullThread", value, true);
+        pullTaskExecutor_ = new DefaultTaskExecutor("PullThread", _pullPoolSize, true);
 
-        value = config.getAttributeAsInteger(Attributes.FILTER_POOL_WORKERS,
+        int _filterPoolSize = config.getAttributeAsInteger(Attributes.FILTER_POOL_WORKERS,
                 Default.DEFAULT_FILTER_POOL_SIZE);
 
-        matchTaskExecutor_ = new DefaultTaskExecutor("FilterThread", value);
-
-        value = config.getAttributeAsInteger(Attributes.DELIVER_POOL_WORKERS,
-                Default.DEFAULT_DELIVER_POOL_WORKERS);
+        matchTaskExecutor_ = new DefaultTaskExecutor("FilterThread", _filterPoolSize);
 
         taskFactory_ = new DefaultTaskFactory(this);
 
