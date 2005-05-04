@@ -22,7 +22,6 @@ package org.jacorb.notification;
 
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.jacorb.notification.container.CORBAObjectComponentAdapter;
-import org.jacorb.notification.container.PicoContainerFactory;
 import org.jacorb.notification.servant.ITypedEventChannel;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.ORB;
@@ -45,7 +44,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelFactoryImpl.java,v 1.7 2005-04-13 20:33:14 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelFactoryImpl.java,v 1.8 2005-05-04 13:58:47 alphonse.bendt Exp $
  */
 
 public class TypedEventChannelFactoryImpl extends AbstractChannelFactory implements
@@ -79,35 +78,12 @@ public class TypedEventChannelFactoryImpl extends AbstractChannelFactory impleme
 
     protected AbstractEventChannel newEventChannel()
     {
-        final MutablePicoContainer _container = PicoContainerFactory
-                .createChildContainer(container_);
+        final MutablePicoContainer _container = newContainerForChannel();
 
         ComponentAdapter typedChannelComponentAdapter = componentAdapterFactory_
                 .createComponentAdapter(ITypedEventChannel.class, TypedEventChannelImpl.class, null);
 
         _container.registerComponent(new CachingComponentAdapter(typedChannelComponentAdapter));
-
-        final int _channelID = createChannelIdentifier();
-
-        IFactory _factory = new IFactory()
-        {
-            public MutablePicoContainer getContainer()
-            {
-                return _container;
-            }
-
-            public int getChannelID()
-            {
-                return _channelID;
-            }
-
-            public void destroy()
-            {
-                container_.removeChildContainer(_container);
-            }
-        };
-
-        _container.registerComponentInstance(_factory);
 
         return (AbstractEventChannel) _container.getComponentInstance(ITypedEventChannel.class);
     }

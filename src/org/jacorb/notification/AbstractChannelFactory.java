@@ -69,7 +69,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.11 2005-05-01 21:09:14 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.12 2005-05-04 13:58:47 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -331,7 +331,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
         return _eventChannelServant;
     }
 
-    protected int createChannelIdentifier()
+    private int createChannelIdentifier()
     {
         return eventChannelIDPool_.increment();
     }
@@ -675,5 +675,34 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
     public POA _default_POA()
     {
         return eventChannelFactoryPOA_;
+    }
+
+    protected MutablePicoContainer newContainerForChannel()
+    {
+        final MutablePicoContainer _channelContainer = PicoContainerFactory
+                .createChildContainer(container_);
+    
+        // create identifier
+        final int _channelID = createChannelIdentifier();
+        IFactory _factory = new IFactory()
+        {
+            public MutablePicoContainer getContainer()
+            {
+                return _channelContainer;
+            }
+    
+            public int getChannelID()
+            {
+                return _channelID;
+            }
+    
+            public void destroy()
+            {
+                container_.removeChildContainer(_channelContainer);
+            }
+        };
+        
+        _channelContainer.registerComponentInstance(IFactory.class, _factory);
+        return _channelContainer;
     }
 }
