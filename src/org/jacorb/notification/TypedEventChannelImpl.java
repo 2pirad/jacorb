@@ -51,7 +51,7 @@ import org.picocontainer.defaults.ConstructorInjectionComponentAdapter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelImpl.java,v 1.6 2005-05-04 14:00:06 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelImpl.java,v 1.7 2005-05-04 17:32:29 alphonse.bendt Exp $
  */
 
 public class TypedEventChannelImpl extends AbstractEventChannel implements
@@ -77,7 +77,7 @@ public class TypedEventChannelImpl extends AbstractEventChannel implements
 
         public int getChannelID()
         {
-            return TypedEventChannelImpl.this.getID();
+            return getID();
         }
 
         public EventChannel getEventChannel()
