@@ -46,7 +46,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.18 2005-05-01 21:14:29 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.19 2005-05-04 14:00:32 alphonse.bendt Exp $
  */
 
 public class AdminLimitTest extends NotificationTestCase
@@ -86,7 +86,7 @@ public class AdminLimitTest extends NotificationTestCase
                 return 20;
             }
 
-            public int getID()
+            public int getChannelID()
             {
                 return 10;
             }

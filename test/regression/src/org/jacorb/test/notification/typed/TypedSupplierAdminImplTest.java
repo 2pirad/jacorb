@@ -40,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImplTest.java,v 1.5 2005-05-01 21:15:16 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImplTest.java,v 1.6 2005-05-04 14:00:32 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImplTest extends NotificationTestCase
 {
@@ -77,7 +77,7 @@ public class TypedSupplierAdminImplTest extends NotificationTestCase
         mockChannel.getAdminID();
         controlChannel.setReturnValue(10);
 
-        mockChannel.getID();
+        mockChannel.getChannelID();
         controlChannel.setReturnValue(20);
 
         controlChannel.replay();

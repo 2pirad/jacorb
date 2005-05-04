@@ -28,7 +28,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannel;
  * Internal Interface used by Admins to query the settings of the EventChannel they belong to.
  * 
  * @author Alphonse Bendt
- * @version $Id: IEventChannel.java,v 1.2 2005-05-01 21:52:55 alphonse.bendt Exp $
+ * @version $Id: IEventChannel.java,v 1.3 2005-05-04 13:56:06 alphonse.bendt Exp $
  */
 public interface IEventChannel extends IContainer
 {
@@ -40,7 +40,7 @@ public interface IEventChannel extends IContainer
     /**
      * @return the id of the parent Channel.
      */
-    int getID();
+    int getChannelID();
 
     /**
      * @return the parent Channel.
