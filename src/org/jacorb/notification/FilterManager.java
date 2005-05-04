@@ -37,7 +37,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.14 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: FilterManager.java,v 1.15 2005-05-04 13:19:56 alphonse.bendt Exp $
  */
 
 public class FilterManager implements FilterAdminOperations
@@ -99,6 +99,7 @@ public class FilterManager implements FilterAdminOperations
                 }
             } catch (Exception e)
             {
+                // ignored
             }
         }
 
