@@ -30,25 +30,23 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.16 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.17 2005-05-04 13:20:40 alphonse.bendt Exp $
  */
 public interface MessageFactory
 {
-    public abstract void dispose();
+    Message newMessage(Any any, AbstractProxyConsumerI consumer);
 
-    ////////////////////////////////////////
-    public abstract Message newMessage(Any any, AbstractProxyConsumerI consumer);
-
-    public abstract Message newMessage(StructuredEvent structuredEvent,
+    Message newMessage(StructuredEvent structuredEvent,
             AbstractProxyConsumerI consumer);
 
-    public abstract Message newMessage(String interfaceName, String operationName, NVList args,
+    Message newMessage(String interfaceName, String operationName, NVList args,
             AbstractProxyConsumerI consumer);
 
     ////////////////////////////////////////
-    public abstract Message newMessage(Property[] props);
+    
+    Message newMessage(Property[] props);
 
-    public abstract Message newMessage(Any any);
+    Message newMessage(Any any);
 
-    public abstract Message newMessage(StructuredEvent structuredEvent);
+    Message newMessage(StructuredEvent structuredEvent);
 }
