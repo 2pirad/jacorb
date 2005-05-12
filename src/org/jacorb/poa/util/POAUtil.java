@@ -29,7 +29,7 @@ import org.omg.PortableServer.*;
  * This class collects some useful routines for the POA.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAUtil.java,v 1.18 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: POAUtil.java,v 1.19 2005-05-12 19:21:38 andre.spiegel Exp $
  */
 
 public final class POAUtil
@@ -158,7 +158,8 @@ public final class POAUtil
     {
         for (int i = 0; i < object_key.length; i++)
         {
-            if( object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE )
+            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE
+                && (i==0 || object_key[i-1] != POAConstants.MASK_BYTE))
             {
                 byte[] result = IdUtil.extract(object_key, 0, i);
                 return unmaskStr( new String(result) );
@@ -177,7 +178,8 @@ public final class POAUtil
     {
         for (int i=object_key.length-1; i>=0; i--)
         {
-            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE)
+            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE
+                && (i==0 || object_key[i-1] != POAConstants.MASK_BYTE))
             {
                 i++;
                 byte[] result =
@@ -208,7 +210,8 @@ public final class POAUtil
         int end = 0;
         for (int i=0; i<object_key.length; i++)
         {
-            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE)
+            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE
+                && (i==0 || object_key[i-1] != POAConstants.MASK_BYTE))
             {
                 begin = i;
                 break;
@@ -216,7 +219,8 @@ public final class POAUtil
         }
         for (int i=object_key.length-1; i>=0; i--)
         {
-            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE)
+            if (object_key[i] == POAConstants.OBJECT_KEY_SEP_BYTE
+                && (i==0 || object_key[i-1] != POAConstants.MASK_BYTE))
             {
                 end = i;
                 break;
