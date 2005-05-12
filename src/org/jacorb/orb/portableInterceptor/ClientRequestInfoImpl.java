@@ -37,7 +37,7 @@ import org.jacorb.orb.iiop.IIOPProfile;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.26 2004-12-11 21:21:15 andre.spiegel Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.27 2005-05-12 21:59:12 andre.spiegel Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -84,7 +84,7 @@ public class ClientRequestInfoImpl
          org.jacorb.orb.ParsedIOR pior = delegate.getParsedIOR();
 
          if ( piorOriginal != null )
-             this.target = orb._getObject( piorOriginal );
+             this.target = orb._getObject( pior );
          else
              this.target = self;
 
