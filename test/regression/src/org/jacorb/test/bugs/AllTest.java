@@ -21,15 +21,16 @@ package org.jacorb.test.bugs;
  */
 
 import junit.framework.*;
+import org.jacorb.test.common.*;
 
 /**
  * Test suite for all bug tests.
  * 
- * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: AllTest.java,v 1.8 2005-03-27 19:00:21 francisco Exp $
+ * @author Andre Spiegel spiegel@gnu.org
+ * @version $Id: AllTest.java,v 1.9 2005-05-13 14:17:50 andre.spiegel Exp $
  */
 
-public class AllTest extends TestCase
+public class AllTest extends JacORBTestSuite
 {
    public AllTest(String name)
    {
@@ -38,7 +39,7 @@ public class AllTest extends TestCase
 
    public static Test suite()
    {
-      TestSuite suite = new TestSuite("All bugs");
+      TestSuite suite = new AllTest("All bugs");
 
       suite.addTest(org.jacorb.test.bugs.bug228.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug272.TestCase.suite());
