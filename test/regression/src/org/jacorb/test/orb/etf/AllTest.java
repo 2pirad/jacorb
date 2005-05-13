@@ -3,7 +3,7 @@ package org.jacorb.test.orb.etf;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2005  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -21,12 +21,13 @@ package org.jacorb.test.orb.etf;
  */
 
 import junit.framework.*;
+import org.jacorb.test.common.*;
 
 /**
- * @version $Id: AllTest.java,v 1.3 2004-04-28 12:37:29 brose Exp $
+ * @jacorb-since 2.2 
+ * @version $Id: AllTest.java,v 1.4 2005-05-13 13:32:37 andre.spiegel Exp $
  */
-
-public class AllTest extends TestCase
+public class AllTest extends JacORBTestSuite
 {
     public AllTest(String name)
     {
@@ -35,7 +36,7 @@ public class AllTest extends TestCase
 
     public static Test suite()
     {
-        TestSuite suite = new TestSuite("ETF Tests");
+        TestSuite suite = new AllTest("ETF Tests");
 
         suite.addTest(C_WIOP_S_WIOP.suite());
         suite.addTest(C_WIOP_S_IIOP_WIOP.suite());
