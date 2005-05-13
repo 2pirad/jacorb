@@ -9,7 +9,7 @@ import org.jacorb.test.common.*;
 /**
  * This class gathers all sorts of exception-related tests.
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: ExceptionTest.java,v 1.2 2005-03-02 11:36:07 andre.spiegel Exp $
+ * @version $Id: ExceptionTest.java,v 1.3 2005-05-13 13:34:36 andre.spiegel Exp $
  */
 public class ExceptionTest extends ClientServerTestCase
 {
@@ -27,7 +27,8 @@ public class ExceptionTest extends ClientServerTestCase
 
     public static Test suite()
     {
-        TestSuite suite = new TestSuite("Client/server exception tests");
+        TestSuite suite = new JacORBTestSuite("Client/server exception tests",
+                                              ExceptionTest.class);
         ClientServerSetup setup =
             new ClientServerSetup(suite,
                                   "org.jacorb.test.orb.ExceptionServerImpl");
@@ -41,6 +42,7 @@ public class ExceptionTest extends ClientServerTestCase
      * Checks whether a RuntimeException in the Servant is
      * properly reported back to the client, including the
      * error message.
+     * @jacorb-since cvs
      */
     public void testRuntimeException()
     {
