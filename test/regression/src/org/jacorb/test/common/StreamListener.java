@@ -29,7 +29,7 @@ import java.io.*;
  * that allows you to capture an IOR from the <code>InputStream</code>.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: StreamListener.java,v 1.3 2003-08-17 23:38:10 andre.spiegel Exp $
+ * @version $Id: StreamListener.java,v 1.4 2005-05-16 11:40:15 andre.spiegel Exp $
  */
 public class StreamListener extends Thread
 {
@@ -95,7 +95,7 @@ public class StreamListener extends Thread
             }
             catch (Exception ex)
             {
-                System.out.println("Exception reading from server: " + ex);
+                //System.out.println("Exception reading from server: " + ex);
                 System.out.println("StreamListener exiting");
                 break;
             }
