@@ -67,7 +67,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.24 2005-03-04 20:40:43 david.robison Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.25 2005-06-01 11:03:58 andre.spiegel Exp $
  */
 
 public class SASClientInterceptor
@@ -179,14 +179,14 @@ public class SASClientInterceptor
             if (logger.isWarnEnabled())
                 logger.warn("Did not find tagged component TAG_CSI_SEC_MECH_LIST: "+e);
         }
-        if (csmList == null) 
-            return;
 
-        if (csmList.mechanism_list[0].as_context_mech.target_supports == 0 &&
+        if(csmList != null &&
+           csmList.mechanism_list[0].as_context_mech.target_supports == 0 &&
             csmList.mechanism_list[0].as_context_mech.target_requires == 0 &&
             csmList.mechanism_list[0].sas_context_mech.target_supports == 0 &&
-            csmList.mechanism_list[0].sas_context_mech.target_requires == 0)
+           csmList.mechanism_list[0].sas_context_mech.target_requires == 0) {
             return;
+        }
 
         // ask connection for client_context_id
         ClientConnection connection = ((ClientRequestInfoImpl) ri).connection;
