@@ -35,7 +35,7 @@ import org.apache.avalon.framework.configuration.*;
  *      The implementation for the CORBAService Naming
  *
  *      @author Gerald Brose
- *      @version $Id: NamingContextImpl.java,v 1.25 2004-05-06 12:39:59 nicolas Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.26 2005-06-01 10:03:50 andre.spiegel Exp $
  */
 
 public class NamingContextImpl
@@ -545,8 +545,12 @@ public class NamingContextImpl
         }
         catch ( Exception ue )
         {
-            ue.printStackTrace();
-            System.exit(1);
+            if (logger.isErrorEnabled())
+            {
+                logger.error ("failed to create new context", ue);
+            }
+            throw new RuntimeException ("failed to create new context: " 
+                                        + ue.toString());
         }
         return NamingContextExtHelper.narrow(ctx);
     }
