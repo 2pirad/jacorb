@@ -32,7 +32,7 @@ import org.omg.PortableServer.CurrentPackage.NoContext;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.24 2005-06-01 09:20:23 andre.spiegel Exp $
+ * $Id: ServantDelegate.java,v 1.25 2005-06-01 11:26:00 andre.spiegel Exp $
  */
 
 public class ServantDelegate
@@ -225,7 +225,8 @@ public class ServantDelegate
     public org.omg.CORBA.Policy _get_policy(org.omg.CORBA.Object self,
                                             int policy_type)
     {
-        return null;
+
+        return poa != null ? ((org.jacorb.poa.POA)poa).getPolicy(policy_type) : null;
     }
 
     /**
