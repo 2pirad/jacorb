@@ -39,7 +39,7 @@ import org.jacorb.orb.dsi.ServerRequest;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.15 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.16 2005-06-01 11:30:43 andre.spiegel Exp $
  */
 
 public class ServerRequestInfoImpl 
@@ -66,11 +66,9 @@ public class ServerRequestInfoImpl
     
         this.orb = orb;
         this.request = request;
-//          this.servant = servant;
-
-//          if (servant != null){
-//              setServant(servant);
-//          }
+        if (servant != null){
+          setServant(servant);
+        }
 
         setRequestServiceContexts(request.getServiceContext());
 
