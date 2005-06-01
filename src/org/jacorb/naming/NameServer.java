@@ -39,7 +39,7 @@ import org.jacorb.imr.util.ImRManager;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.31 2004-05-06 12:39:59 nicolas Exp $
+ *  @version $Id: NameServer.java,v 1.32 2005-06-01 10:04:23 andre.spiegel Exp $
  */
 
 
@@ -168,8 +168,11 @@ public class NameServer
             }
             catch( java.lang.ClassNotFoundException c )
             {
-                logger.error("Could not read object from file, class not found!");
-                System.exit(1);
+                if (logger.isErrorEnabled())
+                {
+                    logger.error("Could not read object from file, class not found!");
+                }
+                throw new RuntimeException ("Could not read object from file, class not found!");
             }
 
             if( n == null )
