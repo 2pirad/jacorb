@@ -32,7 +32,7 @@ import org.omg.PortableServer.CurrentPackage.NoContext;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.23 2004-05-06 12:40:00 nicolas Exp $
+ * $Id: ServantDelegate.java,v 1.24 2005-06-01 09:20:23 andre.spiegel Exp $
  */
 
 public class ServantDelegate
@@ -265,7 +265,7 @@ public class ServantDelegate
         else if( method.equals("_interface"))
         {
             _out = handler.createReply();
-            _out.write_Object(self._get_interface() );
+            _out.write_Object(self._get_interface_def() );
         }
         else if( method.equals("_non_existent"))
         {
