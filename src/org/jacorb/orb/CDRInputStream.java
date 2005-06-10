@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.89 2005-04-23 13:07:29 phil.mesnier Exp $
+ * $Id: CDRInputStream.java,v 1.90 2005-06-10 10:02:27 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -1239,7 +1239,7 @@ public class CDRInputStream
                             null
                         );
                     }
-                    result = orb.create_struct_tc (id, name, members);
+                    result = orb.create_exception_tc (id, name, members);
                     putCachedTypecode( id, result );
                 }
                 getRecursiveTCMap().put (id, result);
