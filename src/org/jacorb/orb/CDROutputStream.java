@@ -44,7 +44,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.100 2005-04-23 13:07:29 phil.mesnier Exp $
+ * @version $Id: CDROutputStream.java,v 1.101 2005-06-26 21:11:56 francisco Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -2376,7 +2376,10 @@ public class CDROutputStream
                     try
                     {
                         Class helperClass =
-                        cls.getClassLoader().loadClass(helperClassName);
+                            (cls.getClassLoader() != null)
+                                ? cls.getClassLoader().loadClass(helperClassName)
+                                : ObjectUtil.classForName(helperClassName);
+
                         Class[] paramTypes =
                             { org.omg.CORBA.portable.OutputStream.class, cls };
                         writeMethod = helperClass.getMethod("write", paramTypes);
