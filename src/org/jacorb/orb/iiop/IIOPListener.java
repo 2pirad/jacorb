@@ -37,7 +37,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.22 2004-12-20 11:35:11 simon.mcqueen Exp $
+ * @version $Id: IIOPListener.java,v 1.23 2005-08-04 05:04:50 francisco Exp $
  */
 public class IIOPListener 
     extends org.jacorb.orb.etf.ListenerBase
@@ -63,6 +63,7 @@ public class IIOPListener
     private SSLServerSocketFactory sslServerSocketFactory = null;
 
     private SSLAcceptor sslAcceptor = null;
+    private LoopbackAcceptor loopbackAcceptor ;
 
     private boolean supportSSL = false;
     private boolean dnsEnabled = false;
@@ -146,6 +147,8 @@ public class IIOPListener
             sslAcceptor.init();
         }
 
+        loopbackAcceptor = new LoopbackAcceptor() ;
+
         endpoint = createEndPointProfile();
 
     }
@@ -168,6 +171,8 @@ public class IIOPListener
         
         if (sslAcceptor != null)
             sslAcceptor.start();
+        
+        loopbackAcceptor.start() ;
     }
 
     /**
@@ -177,6 +182,8 @@ public class IIOPListener
      */
     public void destroy()
     {        
+        loopbackAcceptor.terminate() ;
+        
         if (sslAcceptor != null)
             sslAcceptor.terminate();
 
@@ -558,4 +565,28 @@ public class IIOPListener
         }
     }
 
+    private class LoopbackAcceptor implements IIOPLoopback
+    {
+        public void start()
+        {
+            IIOPLoopbackRegistry.getRegistry().register(getAddress(), this) ;
+        }
+        
+        public void terminate()
+        {
+            IIOPLoopbackRegistry.getRegistry().unregister(getAddress()) ;
+        }
+        
+        public void initLoopback(final IIOPLoopbackInputStream lis, final IIOPLoopbackOutputStream los)
+        {
+            final IIOPLoopbackConnection connection = new IIOPLoopbackConnection(lis, los) ;
+            deliverConnection(connection) ;
+        }
+        
+        private IIOPAddress getAddress()
+        {
+            final IIOPProfile profile = (IIOPProfile)IIOPListener.this.endpoint ;
+            return profile.getAddress() ;
+        }
+    }
 }
