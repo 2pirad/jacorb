@@ -53,7 +53,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedLong;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.17 2005-04-27 10:45:46 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.18 2005-08-16 21:47:18 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl extends StructuredProxyPushSupplierImpl implements
@@ -248,7 +248,7 @@ public class SequenceProxyPushSupplierImpl extends StructuredProxyPushSupplierIm
 
     private void startCronJob()
     {
-        if (pacingInterval_.get() > 0 && taskId_ != null)
+        if (pacingInterval_.get() > 0 && taskId_ == null)
         {
             taskId_ = getTaskProcessor().executeTaskPeriodically(pacingInterval_.get(),
                     schedulePushOperation_, true);
