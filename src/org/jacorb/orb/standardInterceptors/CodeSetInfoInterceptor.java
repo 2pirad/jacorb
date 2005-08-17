@@ -22,6 +22,9 @@ package org.jacorb.orb.standardInterceptors;
 
 import org.omg.PortableInterceptor.*;
 
+import org.apache.avalon.framework.logger.*;
+import org.apache.avalon.framework.configuration.*;
+
 import org.jacorb.orb.*;
 import org.jacorb.orb.giop.CodeSet;
 
@@ -29,17 +32,24 @@ import org.jacorb.orb.giop.CodeSet;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.21 2004-12-20 11:35:22 simon.mcqueen Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.22 2005-08-17 21:12:38 phil.mesnier Exp $
  */
 
 public class CodeSetInfoInterceptor
     extends org.omg.CORBA.LocalObject
-    implements IORInterceptor
+    implements IORInterceptor, Configurable
 {
     private org.omg.IOP.TaggedComponent tagc = null;
+    private org.apache.avalon.framework.logger.Logger logger = null;
 
     public CodeSetInfoInterceptor(ORB orb)
     {
+        try {
+            configure (orb.getConfiguration());
+        } catch (ConfigurationException ex){
+            // will have to do with defaults
+        }
+
         // create the info
         org.omg.CONV_FRAME.CodeSetComponentInfo cs_info =
             new org.omg.CONV_FRAME.CodeSetComponentInfo();
@@ -67,6 +77,31 @@ public class CodeSetInfoInterceptor
         os.close ();
         os = null;
         cs_info = null;
+    }
+
+
+    public void configure(Configuration config)
+        throws ConfigurationException
+    {
+        org.jacorb.config.Configuration cfg =
+            (org.jacorb.config.Configuration)config;
+
+        logger = cfg.getNamedLogger("org.jacorb.interceptors.ior_init");
+
+        String ncsc =
+            config.getAttribute("jacorb.native_char_codeset", "ISO-8859-1");
+
+        String ncsw =
+            config.getAttribute("jacorb.native_wchar_codeset", "UTF-16");
+
+        if (CodeSet.setNCSC (ncsc) == -1 &&
+            logger.isErrorEnabled())
+            logger.error("Cannot set default NCSC to " + ncsc);
+
+        if (CodeSet.setNCSW (ncsw) == -1 &&
+            logger.isErrorEnabled())
+            logger.error("Cannot set default NCSW to " + ncsw);
+
     }
 
     public String name()
