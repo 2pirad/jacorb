@@ -26,8 +26,10 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.engine.PushOperation;
+import org.jacorb.notification.engine.PushTaskExecutor;
 import org.jacorb.notification.engine.PushTaskExecutorFactory;
 import org.jacorb.notification.engine.TaskProcessor;
+import org.jacorb.notification.engine.PushTaskExecutor.PushTask;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.util.PropertySet;
 import org.jacorb.notification.util.PropertySetAdapter;
@@ -53,7 +55,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedLong;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.18 2005-08-16 21:47:18 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.19 2005-08-17 22:33:14 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl extends StructuredProxyPushSupplierImpl implements
@@ -91,11 +93,27 @@ public class SequenceProxyPushSupplierImpl extends StructuredProxyPushSupplierIm
 
         configurePacingInterval();
 
+        final PushTask flushTask = new PushTaskExecutor.PushTask()
+        {
+            public void doPush()
+            {
+                deliverPendingMessages(true);
+            }
+            
+            public void cancel()
+            {
+                // ignore, only depends on settings of ProxyPushSupplier
+            }
+        };
+        
         schedulePushOperation_ = new Runnable()
         {
             public void run()
             {
-                schedulePush();
+                if (!isDisposed() && !isSuspended() && isEnabled())
+                {
+                    schedulePush(flushTask);
+                }
             }
         };
         
