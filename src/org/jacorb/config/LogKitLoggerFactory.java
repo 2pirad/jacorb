@@ -53,11 +53,11 @@ import java.io.*;
  * property, if it's set. If not, the default is 0.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.3 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.4 2005-08-19 17:11:54 alphonse.bendt Exp $
  * @since JacORB 2.0 beta 3
  */
 
-class LogKitLoggerFactory
+public class LogKitLoggerFactory
     implements LoggerFactory
 {
     private final static String DEFAULT_LOG_PATTERN =
