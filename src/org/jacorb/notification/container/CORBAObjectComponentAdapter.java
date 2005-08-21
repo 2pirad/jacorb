@@ -23,6 +23,7 @@ package org.jacorb.notification.container;
 
 import java.lang.reflect.Method;
 
+import org.jacorb.util.ObjectUtil;
 import org.picocontainer.PicoContainer;
 import org.picocontainer.PicoInitializationException;
 import org.picocontainer.PicoIntrospectionException;
@@ -32,7 +33,7 @@ import org.picocontainer.defaults.AssignabilityRegistrationException;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CORBAObjectComponentAdapter.java,v 1.2 2005-04-27 10:34:54 alphonse.bendt Exp $
+ * @version $Id: CORBAObjectComponentAdapter.java,v 1.3 2005-08-21 13:11:30 alphonse.bendt Exp $
  */
 public class CORBAObjectComponentAdapter extends AbstractComponentAdapter
 {
@@ -43,10 +44,8 @@ public class CORBAObjectComponentAdapter extends AbstractComponentAdapter
     /**
      * Component Adapter to specify a reference to a CORBA Object.
      * 
-     * @param service
-     *            CORBA Interface the delegate offers
-     * @param delegate
-     *            CORBA object that offers the service
+     * @param service CORBA Interface the delegate offers
+     * @param delegate CORBA object that offers the service
      */
     public CORBAObjectComponentAdapter(Class service, org.omg.CORBA.Object delegate)
     {
@@ -58,7 +57,16 @@ public class CORBAObjectComponentAdapter extends AbstractComponentAdapter
 
         try
         {
-            Class _helperClass = Class.forName(_helperClassName);
+            final Class _helperClass;
+            if (service.getClassLoader() != null)
+            {
+                _helperClass = service.getClassLoader().loadClass(_helperClassName);
+            }
+            else
+            {
+                _helperClass = ObjectUtil.classForName(_helperClassName);
+            }
+            
             Method _idMethod = _helperClass.getMethod("id", new Class[0]);
             String _id = (String) _idMethod.invoke(null, null);
 
