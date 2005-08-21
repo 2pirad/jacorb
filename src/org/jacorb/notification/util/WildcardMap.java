@@ -41,7 +41,7 @@ package org.jacorb.notification.util;
  * </pre>
  * 
  * This behaviour is similiar to a {@link java.util.Map Map}.<br>
- * The other way using the WildcardMap is to use the Operation {@link#getWithExpansion(Object)
+ * The other way using the WildcardMap is to use the Operation {@link #getWithExpansion(Object)
  * getWithExpansion()}. This Operations matches the requested Key to all contained Keys. If the Key
  * of an Entry contains the Wildcard Character '*' it is matched as expected by the semantic of '*'.
  * The Operations returns an array of all matching entries:
@@ -54,7 +54,7 @@ package org.jacorb.notification.util;
  * </pre>
  * 
  * @author Alphonse Bendt
- * @version $Id: WildcardMap.java,v 1.15 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: WildcardMap.java,v 1.16 2005-08-21 13:38:40 alphonse.bendt Exp $
  */
 public interface WildcardMap
 {

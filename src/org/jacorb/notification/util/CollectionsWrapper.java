@@ -34,7 +34,7 @@ import java.util.List;
  * @author Alphonse Bendt
  * @author Marc Heide
  * 
- * @version $Id: CollectionsWrapper.java,v 1.1 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: CollectionsWrapper.java,v 1.2 2005-08-21 13:38:40 alphonse.bendt Exp $
  */
 
 public class CollectionsWrapper
@@ -70,6 +70,7 @@ public class CollectionsWrapper
 
     private static class SingletonList extends AbstractList implements Serializable
     {
+        private static final long serialVersionUID = 1L;
         private final Object singletonElement_;
 
         SingletonList(Object element)

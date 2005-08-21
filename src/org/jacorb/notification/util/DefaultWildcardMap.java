@@ -26,7 +26,7 @@ import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultWildcardMap.java,v 1.1 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: DefaultWildcardMap.java,v 1.2 2005-08-21 13:38:40 alphonse.bendt Exp $
  */
 
 public class DefaultWildcardMap implements WildcardMap
@@ -109,11 +109,11 @@ class EntryList
 
     private PatternWrapper myPattern_;
 
-    private final char[] key_;
+    final char[] key_;
 
     private final int start_;
 
-    private int end_;
+    int end_;
 
     private final int depth_;
 
@@ -667,7 +667,6 @@ class EntryList
 
     private static void splitEntryList(EntryList list, int offset)
     {
-
         EntryList _ret = new EntryList(list.key_, list.start_ + offset, list.end_, list.depth_
                 + offset, list.myEntry_, list.entries_.length);
 

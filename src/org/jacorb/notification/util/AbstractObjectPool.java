@@ -45,7 +45,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
  * This class needs a two phase initialization: configure MUST be invoked before an instance can be used.
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractObjectPool.java,v 1.18 2005-04-17 17:17:34 alphonse.bendt Exp $
+ * @version $Id: AbstractObjectPool.java,v 1.19 2005-08-21 13:38:40 alphonse.bendt Exp $
  */
 
 public abstract class AbstractObjectPool implements Runnable, Configurable
@@ -193,7 +193,7 @@ public abstract class AbstractObjectPool implements Runnable, Configurable
                     try
                     {
                         poolsToCheck[x].run();
-                    } catch (Throwable t)
+                    } catch (Exception t)
                     {
                         // should not happen
                         sLogger_.error("Error cleaning up Pool", t);
