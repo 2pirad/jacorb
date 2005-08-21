@@ -41,7 +41,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.13 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.14 2005-08-21 13:06:42 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
@@ -131,7 +131,7 @@ public class AnyMessage extends AbstractMessage
                 }
 
                 typedEventValue_ = _typedEventValue;
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 isTranslationPossible_ = false;
 
                 throw new NoTranslationException();
