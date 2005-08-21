@@ -41,7 +41,7 @@ import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultMessageFactory.java,v 1.4 2005-05-01 21:00:40 alphonse.bendt Exp $
+ * @version $Id: DefaultMessageFactory.java,v 1.5 2005-08-21 13:28:09 alphonse.bendt Exp $
  */
 
 public class DefaultMessageFactory implements Disposable, MessageFactory
@@ -90,11 +90,6 @@ public class DefaultMessageFactory implements Disposable, MessageFactory
         typedEventMessagePool_.dispose();
     }
 
-    public String getControllerName()
-    {
-        return "org.jacorb.notification.jmx.MessageFactoryControl";
-    }
-
     ////////////////////////////////////////
 
     // Used by the Proxies
@@ -137,8 +132,8 @@ public class DefaultMessageFactory implements Disposable, MessageFactory
 
         _mesg.setFilterStage(consumer.getFirstStage());
 
-        _mesg.setStructuredEvent(structuredEvent, consumer.isStartTimeSupported(), consumer
-                .isTimeOutSupported());
+        _mesg.setStructuredEvent(structuredEvent, consumer.getStartTimeSupported(), consumer
+                .getTimeOutSupported());
 
         return _mesg.getHandle();
     }
