@@ -32,8 +32,11 @@ import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.CosNotifyComm.NotifySubscribeOperations;
 
 /**
+ * Utility class that manages subscriptions of NotifySubscribers and broadcasting of subscription_change
+ * requests.
+ * 
  * @author Alphonse Bendt
- * @version $Id: SubscriptionManager.java,v 1.7 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: SubscriptionManager.java,v 1.8 2005-08-21 13:07:25 alphonse.bendt Exp $
  */
 
 public class SubscriptionManager extends EventTypeSet implements NotifySubscribeOperations
