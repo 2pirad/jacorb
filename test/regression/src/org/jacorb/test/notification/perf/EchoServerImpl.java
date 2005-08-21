@@ -34,14 +34,15 @@ import org.omg.PortableServer.POAHelper;
  * Created: Mon Apr  7 15:38:18 2003
  *
  * @author Alphonse Bendt
- * @version $Id: EchoServerImpl.java,v 1.2 2004-08-01 17:55:28 alphonse.bendt Exp $
+ * @version $Id: EchoServerImpl.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 
 public class EchoServerImpl extends EchoServerPOA
 {
-
     public void acceptAny( Any any )
-    {}
+    {
+        // ingored
+    }
 
     public static void main( String[] args ) throws Exception
     {

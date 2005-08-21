@@ -19,31 +19,11 @@
  *
  */
 
-package org.jacorb.test.notification.common;
+package org.jacorb.test.notification.jmx;
 
-import java.util.Properties;
+import org.jacorb.notification.interfaces.JMXManageable;
 
-import junit.framework.Test;
-
-import org.jacorb.test.common.ClientServerSetup;
-
-public class NotifyServerTestSetup extends ClientServerSetup
+public interface ManageableTestMBean extends JMXManageable, TestServiceMBean
 {
-    private final static String IGNORED = "ignored";
-    
-    public NotifyServerTestSetup(Test test)
-    {
-        super(test, IGNORED);
-    }
-
-    public NotifyServerTestSetup(Test test, Properties clientOrbProperties,
-            Properties serverOrbProperties)
-    {
-        super(test, IGNORED, clientOrbProperties, serverOrbProperties);
-    }
-
-    public String getTestServerMain()
-    {
-       return NotifyServerTestRunner.class.getName();
-    }
+    // empty
 }

@@ -46,7 +46,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.19 2005-05-04 14:00:32 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.20 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 
 public class AdminLimitTest extends NotificationTestCase
@@ -72,13 +72,7 @@ public class AdminLimitTest extends NotificationTestCase
 
             public EventChannel getEventChannel()
             {
-                try
-                {
-                    return getDefaultChannel();
-                } catch (Exception e)
-                {
-                    throw new RuntimeException();
-                }
+                return null;
             }
 
             public int getAdminID()
@@ -95,6 +89,11 @@ public class AdminLimitTest extends NotificationTestCase
             {
                 // nothing to do
             }
+
+            public String getChannelMBean()
+            {
+                return null;
+            }
         };
 
         objectUnderTest_ = new ConsumerAdminImpl(channel, getORB(), getPOA(),
@@ -110,8 +109,6 @@ public class AdminLimitTest extends NotificationTestCase
     public void testBasics() throws Exception
     {
         assertEquals(20, consumerAdmin_.MyID());
-        
-        assertEquals(getDefaultChannel(), consumerAdmin_.MyChannel());
     }
 
     public void testObtainNotificationPullSupplierFiresEvent() throws Exception

@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushOperationTest.java,v 1.6 2005-04-17 17:18:30 alphonse.bendt Exp $
+ * @version $Id: PushOperationTest.java,v 1.7 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class PushOperationTest extends TestCase
 {
@@ -59,13 +59,14 @@ public class PushOperationTest extends TestCase
         Message mockMessage = (Message) controlMessage.getMock();
 
         MockControl controlMessage2 = MockControl.createControl(Message.class);
-        Message mockMessage2 = (Message) controlMessage.getMock();
+        Message mockMessage2 = (Message) controlMessage2.getMock();
 
         mockMessage.clone();
         controlMessage.setReturnValue(mockMessage2);
 
         mockMessage2.dispose();
-
+        controlMessage2.setVoidCallable();
+        
         controlMessage2.replay();
         controlMessage.replay();
 

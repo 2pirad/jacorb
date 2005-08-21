@@ -32,7 +32,7 @@ import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.StructuredEventMessage;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.TypedEventMessage;
-import org.jacorb.notification.engine.DefaultPushTaskExecutorFactory;
+import org.jacorb.notification.engine.DirectExecutorPushTaskExecutorFactory;
 import org.jacorb.notification.servant.ITypedAdmin;
 import org.jacorb.notification.servant.TypedProxyPushSupplierImpl;
 import org.jacorb.test.notification.NotificationTestCase;
@@ -55,7 +55,7 @@ import EDU.oswego.cs.dl.util.concurrent.Latch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.8 2005-05-01 21:15:16 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.9 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class TypedProxyPushSupplierImplTest extends NotificationTestCase
 {
@@ -100,7 +100,7 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
         mockConsumerAdmin_ = (ConsumerAdmin) controlConsumerAdmin_.getMock();
 
         objectUnderTest_ = new TypedProxyPushSupplierImpl(mockAdmin_, mockConsumerAdmin_, getORB(),
-                getPOA(), getConfiguration(), getTaskProcessor(), new DefaultPushTaskExecutorFactory(1), new OfferManager(), new SubscriptionManager());
+                getPOA(), getConfiguration(), getTaskProcessor(), new DirectExecutorPushTaskExecutorFactory(), new OfferManager(), new SubscriptionManager());
 
         proxyPushSupplier_ = TypedProxyPushSupplierHelper.narrow(objectUnderTest_.activate());
     }
@@ -195,7 +195,7 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
         proxyPushSupplier_.connect_typed_push_consumer(_consumer);
 
         // run test
-        objectUnderTest_.getMessageConsumer().deliverMessage(_event.getHandle());
+        objectUnderTest_.getMessageConsumer().queueMessage(_event.getHandle());
 
         // verify results
         _mockCoffee.verify();
@@ -239,7 +239,7 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
         proxyPushSupplier_.connect_typed_push_consumer(_consumer);
 
         // run test
-        objectUnderTest_.getMessageConsumer().deliverMessage(_event.getHandle());
+        objectUnderTest_.getMessageConsumer().queueMessage(_event.getHandle());
 
         // verify results
         _mockCoffee.verify();
@@ -288,7 +288,7 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
         proxyPushSupplier_.connect_typed_push_consumer(_consumer);
 
         // run test
-        objectUnderTest_.getMessageConsumer().deliverMessage(_event.getHandle());
+        objectUnderTest_.getMessageConsumer().queueMessage(_event.getHandle());
 
         // verify results
         _mockCoffee.verify();
@@ -341,7 +341,7 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
         proxyPushSupplier_.connect_typed_push_consumer(_consumer);
 
         // run test
-        objectUnderTest_.getMessageConsumer().deliverMessage(_event.getHandle());
+        objectUnderTest_.getMessageConsumer().queueMessage(_event.getHandle());
 
         assertTrue(_hasReceived.attempt(5000));
         

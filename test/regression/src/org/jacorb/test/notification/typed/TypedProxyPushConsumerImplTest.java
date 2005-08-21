@@ -47,7 +47,7 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.7 2005-05-01 21:15:16 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.8 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 {
@@ -161,12 +161,12 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 
         proxyPushConsumer_ = TypedProxyPushConsumerHelper.narrow(objectUnderTest_.activate());
 
-        org.omg.CORBA.Object coff = CoffeeHelper.narrow(proxyPushConsumer_.get_typed_consumer());
+        org.omg.CORBA.Object obj = CoffeeHelper.narrow(proxyPushConsumer_.get_typed_consumer());
 
         // some extra steps involved as local invocations are not
         // supported on dsi servants.
 
-        String coffString = coff.toString();
+        String coffString = obj.toString();
 
         Coffee coffee = CoffeeHelper.narrow(getClientORB().string_to_object(coffString));
 

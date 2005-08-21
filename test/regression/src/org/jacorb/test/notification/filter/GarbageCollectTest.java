@@ -42,7 +42,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: GarbageCollectTest.java,v 1.2 2005-05-01 21:16:32 alphonse.bendt Exp $
+ * @version $Id: GarbageCollectTest.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class GarbageCollectTest extends NotificationTestCase
 {
@@ -67,7 +67,6 @@ public class GarbageCollectTest extends NotificationTestCase
         super.setUpTest();
 
         controlConfiguration_ = MockControl.createControl(Configuration.class);
-
 
         iContainerForTest_ = new IContainer()
         {

@@ -45,7 +45,7 @@ import EDU.oswego.cs.dl.util.concurrent.Latch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.5 2005-05-01 21:15:16 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.6 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class TypedProxyPullSupplierImplTest extends NotificationTestCase
 {
@@ -160,7 +160,7 @@ public class TypedProxyPullSupplierImplTest extends NotificationTestCase
         StringHolder _name = new StringHolder();
         IntHolder _minutes = new IntHolder();
 
-        objectUnderTest_.getMessageConsumer().deliverMessage(_mesg.getHandle());
+        objectUnderTest_.getMessageConsumer().queueMessage(_mesg.getHandle());
 
         assertTrue(_pullCoffee.try_drinking_coffee(_name, _minutes));
 
@@ -200,7 +200,7 @@ public class TypedProxyPullSupplierImplTest extends NotificationTestCase
             }
         }.start();
 
-        objectUnderTest_.getMessageConsumer().deliverMessage(_mesg.getHandle());
+        objectUnderTest_.getMessageConsumer().queueMessage(_mesg.getHandle());
 
         assertTrue(_latch.attempt(1000));
 

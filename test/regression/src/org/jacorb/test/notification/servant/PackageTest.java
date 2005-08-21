@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.2 2005-04-16 23:24:21 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class PackageTest extends TestCase
 {
@@ -38,6 +38,10 @@ public class PackageTest extends TestCase
         suite.addTest(ProxyPushSupplierImplTest.suite());
         suite.addTest(StructuredProxyPushSupplierImplTest.suite());
         suite.addTest(AbstractProxySupplierTest.suite());
+        suite.addTest(SequenceProxyPushSupplierImplTest.suite());
+        suite.addTest(PullMessagesOperationTest.suite());
+        suite.addTest(PullMessagesUtilityTest.suite());
+        suite.addTest(PullMessagesUtilityIntegrationTest.suite());
         
         return suite;
     }

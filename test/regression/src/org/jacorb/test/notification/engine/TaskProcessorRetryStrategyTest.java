@@ -32,7 +32,7 @@ import org.omg.CORBA.TRANSIENT;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategyTest.java,v 1.4 2005-04-27 10:50:49 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategyTest.java,v 1.5 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategyTest extends AbstractRetryStrategyTest
 {
@@ -62,10 +62,14 @@ public class TaskProcessorRetryStrategyTest extends AbstractRetryStrategyTest
     
     public void testSuccessfulRetryDisposes() throws Exception
     {        
+        mockConsumer_.isRetryAllowed();
+        controlConsumer_.setReturnValue(true);
         controlConsumer_.replay();
         
         mockPushOperation_.invokePush();
+        controlPushOperation_.setVoidCallable();
         mockPushOperation_.dispose();
+        controlPushOperation_.setVoidCallable();
         
         controlPushOperation_.replay();
         
@@ -79,12 +83,15 @@ public class TaskProcessorRetryStrategyTest extends AbstractRetryStrategyTest
     }
     
     public void testNotSuccessfulRetryDisposes() throws Exception
-    {        
+    {   
+        mockConsumer_.isRetryAllowed();
+        controlConsumer_.setReturnValue(true);
+        
         mockConsumer_.incErrorCounter();
         controlConsumer_.setDefaultReturnValue(0);
         
         mockConsumer_.isRetryAllowed();
-        controlConsumer_.setDefaultReturnValue(false);
+        controlConsumer_.setReturnValue(false);
         
         mockConsumer_.destroy();
         controlConsumer_.replay();
@@ -111,7 +118,7 @@ public class TaskProcessorRetryStrategyTest extends AbstractRetryStrategyTest
         controlConsumer_.setDefaultReturnValue(0);
         
         mockConsumer_.isRetryAllowed();
-        controlConsumer_.setReturnValue(true, 2);
+        controlConsumer_.setDefaultReturnValue(true);
         controlConsumer_.replay();
         
         mockPushOperation_.invokePush();

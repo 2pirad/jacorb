@@ -42,7 +42,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplierTest.java,v 1.2 2005-04-27 10:51:33 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplierTest.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class AbstractProxySupplierTest extends NotificationTestCase
 {
@@ -55,6 +55,10 @@ public class AbstractProxySupplierTest extends NotificationTestCase
     private MockControl controlClient_;
 
     private org.omg.CORBA.Object mockClient_;
+
+    private MockControl controlPOA_;
+
+    private POA mockPOA_;
 
     /*
      * @see TestCase#setUp()
@@ -73,15 +77,17 @@ public class AbstractProxySupplierTest extends NotificationTestCase
         mockIAdmin.getContainer();
         controlIAdmin.setReturnValue(null);
 
+        mockIAdmin.getAdminMBean();
+        controlIAdmin.setReturnValue("admin");
+
         controlIAdmin.replay();
 
         MockControl controlConsumerAdmin = MockControl.createControl(ConsumerAdmin.class);
         ConsumerAdmin mockConsumerAdmin = (ConsumerAdmin) controlConsumerAdmin.getMock();
 
-        MockControl controlPOA = MockControl.createNiceControl(POA.class);
-        POA mockPOA = (POA) controlPOA.getMock();
-
-        objectUnderTest_ = new AbstractProxySupplier(mockIAdmin, getORB(), mockPOA,
+        controlPOA_ = MockControl.createNiceControl(POA.class);
+        mockPOA_ = (POA) controlPOA_.getMock();
+        objectUnderTest_ = new AbstractProxySupplier(mockIAdmin, getORB(), mockPOA_,
                 getConfiguration(), getTaskProcessor(), new OfferManager(),
                 new SubscriptionManager(), mockConsumerAdmin)
         {
@@ -103,11 +109,6 @@ public class AbstractProxySupplierTest extends NotificationTestCase
             protected Servant getServant()
             {
                 return null;
-            }
-
-            public void deliverPendingData()
-            {
-                // ignored
             }
 
             public MessageConsumer getMessageConsumer()
@@ -142,7 +143,7 @@ public class AbstractProxySupplierTest extends NotificationTestCase
     {
         controlMessage_.replay();
 
-        objectUnderTest_.deliverMessage(mockMessage_);
+        objectUnderTest_.queueMessage(mockMessage_);
 
         controlMessage_.verify();
     }
@@ -152,19 +153,27 @@ public class AbstractProxySupplierTest extends NotificationTestCase
         mockMessage_.clone();
         controlMessage_.setReturnValue(mockMessage_);
 
+        mockClient_._is_a(null);
+        controlClient_.setDefaultMatcher(MockControl.ALWAYS_MATCHER);
+        controlClient_.setDefaultReturnValue(false);
+
         controlMessage_.replay();
 
         controlClient_.replay();
 
         objectUnderTest_.connectClient(mockClient_);
 
-        objectUnderTest_.deliverMessage(mockMessage_);
+        objectUnderTest_.queueMessage(mockMessage_);
 
         controlMessage_.verify();
     }
 
     public void testDisposeDisposesPendingMessages() throws Exception
     {
+        mockPOA_.servant_to_id(null);
+        controlPOA_.setMatcher(MockControl.ALWAYS_MATCHER);
+        controlPOA_.setReturnValue(new byte[] {1});
+        
         mockMessage_.clone();
         controlMessage_.setReturnValue(mockMessage_);
 
@@ -172,7 +181,7 @@ public class AbstractProxySupplierTest extends NotificationTestCase
         controlMessage_.replay();
 
         objectUnderTest_.connectClient(mockClient_);
-        objectUnderTest_.deliverMessage(mockMessage_);
+        objectUnderTest_.queueMessage(mockMessage_);
         objectUnderTest_.dispose();
 
         controlMessage_.verify();

@@ -30,7 +30,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTaskTest.java,v 1.2 2005-04-27 10:50:49 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTaskTest.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
  */
 public class FilterProxySupplierTaskTest extends AbstractFilterTaskTestCase
 {
@@ -65,7 +65,7 @@ public class FilterProxySupplierTaskTest extends AbstractFilterTaskTestCase
         controlMessage_.replay();
         objectUnderTest_.setMessage(mockMessage_);
         
-        mockFilterStage_.isDisposed();
+        mockFilterStage_.isDestroyed();
         controlFilterStage_.setDefaultReturnValue(false);
         
         mockFilterStage_.hasPriorityFilter();
