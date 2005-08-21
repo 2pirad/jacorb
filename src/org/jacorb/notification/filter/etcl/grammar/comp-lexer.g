@@ -1,4 +1,4 @@
-// $Id: comp-lexer.g,v 1.2 2004-06-02 21:55:13 alphonse.bendt Exp $
+// $Id: comp-lexer.g,v 1.3 2005-08-21 13:25:11 alphonse.bendt Exp $
 
 header {
 package org.jacorb.notification.filter.etcl;
@@ -6,7 +6,7 @@ package org.jacorb.notification.filter.etcl;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1999-2004 Gerald Brose
+ *   Copyright (C) 1999-2005 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
