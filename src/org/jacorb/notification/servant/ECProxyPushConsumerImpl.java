@@ -34,13 +34,16 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
 /**
+ * @jmx.mbean extends = "AbstractProxyConsumerMBean"
+ * @jboss.xmbean
+ * 
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushConsumerImpl.java,v 1.6 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushConsumerImpl.java,v 1.7 2005-08-21 13:33:00 alphonse.bendt Exp $
  */
 
 public class ECProxyPushConsumerImpl
     extends ProxyPushConsumerImpl
-    implements ProxyPushConsumerOperations
+    implements ProxyPushConsumerOperations, ECProxyPushConsumerImplMBean
 {
     public ECProxyPushConsumerImpl(IAdmin admin, ORB orb, POA poa, Configuration conf, TaskProcessor taskProcessor, MessageFactory mf)
     {

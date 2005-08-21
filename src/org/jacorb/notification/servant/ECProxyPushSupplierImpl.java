@@ -37,11 +37,14 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
 /**
+ * @jmx.mbean extends = "AbstractProxyPushSupplierMBean"
+ * @jboss.xmbean
+ * 
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushSupplierImpl.java,v 1.10 2005-04-27 10:45:46 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushSupplierImpl.java,v 1.11 2005-08-21 13:33:00 alphonse.bendt Exp $
  */
 public class ECProxyPushSupplierImpl extends ProxyPushSupplierImpl implements
-        ProxyPushSupplierOperations
+        ProxyPushSupplierOperations, ECProxyPushSupplierImplMBean
 {
     private static final ConsumerAdmin NO_ADMIN = null;
     

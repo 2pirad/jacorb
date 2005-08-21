@@ -21,25 +21,31 @@
 
 package org.jacorb.notification.servant;
 
-import org.jacorb.notification.IContainer;
+import org.omg.CosEventComm.Disconnected;
 
-/**
- * Internal Interface provided to Proxies that gives them Information about their Parent Admin.
- * 
- * @author Alphonse Bendt
- * @version $Id: IAdmin.java,v 1.3 2005-08-21 13:33:00 alphonse.bendt Exp $
- */
-public interface IAdmin extends IContainer
+public interface MessageSupplierDelegate
 {
-    /**
-     * @return the id the Proxy should use.
-     */
-    int getProxyID();
+    public class PullResult
+    {
+        public final boolean success_;
+        public final Object data_;
+        
+        public PullResult(Object data, boolean success)
+        {
+            success_ = success;
+            data_ = data;
+        }
+    }
     
     /**
-     * @return a boolean value that indicates if the id may be used to look up the Proxy via Admins get_proxy* methods.
+     * the implementation pulls one or more events from its Supplier
+     * and hands over the pulled events to the TaskProcessor.
      */
-    boolean isIDPublic();
+    PullResult pullMessages() throws Disconnected;
     
-    String getAdminMBean();
+    void queueMessages(PullResult data);
+    
+    boolean getConnected();
+    
+    boolean isSuspended();
 }

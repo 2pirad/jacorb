@@ -42,7 +42,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedConsumerAdminImpl.java,v 1.5 2005-04-10 14:32:57 alphonse.bendt Exp $
+ * @version $Id: TypedConsumerAdminImpl.java,v 1.6 2005-08-21 13:33:00 alphonse.bendt Exp $
  */
 public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         TypedConsumerAdminOperations
@@ -96,10 +96,10 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         final MutablePicoContainer _containerForProxy =
             newContainerForTypedProxy(type);
         
-        _containerForProxy.registerComponent(newComponentAdapter(TypedProxyPullSupplierImpl.class, TypedProxyPullSupplierImpl.class));
+        _containerForProxy.registerComponentImplementation(AbstractProxySupplier.class, TypedProxyPullSupplierImpl.class);
         
-        TypedProxyPullSupplierImpl _servant = (TypedProxyPullSupplierImpl) _containerForProxy
-                .getComponentInstance(TypedProxyPullSupplierImpl.class);
+        AbstractProxySupplier _servant = (AbstractProxySupplier) _containerForProxy
+                .getComponentInstanceOfType(AbstractProxySupplier.class);
 
         configureMappingFilters(_servant);
 
@@ -135,10 +135,10 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         final MutablePicoContainer _containerForProxy =
             newContainerForTypedProxy(type);
         
-        _containerForProxy.registerComponent(newComponentAdapter(TypedProxyPushSupplierImpl.class, TypedProxyPushSupplierImpl.class));
+        _containerForProxy.registerComponentImplementation(AbstractProxySupplier.class, TypedProxyPushSupplierImpl.class);
         
-        TypedProxyPushSupplierImpl _servant = (TypedProxyPushSupplierImpl) _containerForProxy
-                .getComponentInstance(TypedProxyPushSupplierImpl.class);
+        AbstractProxySupplier _servant = (AbstractProxySupplier) _containerForProxy
+                .getComponentInstanceOfType(AbstractProxySupplier.class);
 
         configureMappingFilters(_servant);
 
@@ -161,5 +161,10 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
             String type)
     {
         throw new NO_IMPLEMENT();
+    }
+    
+    public String getMBeanType()
+    {
+        return "TypedConsumerAdmin";
     }
 }

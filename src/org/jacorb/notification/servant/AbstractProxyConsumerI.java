@@ -24,11 +24,11 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumerI.java,v 1.3 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: AbstractProxyConsumerI.java,v 1.4 2005-08-21 13:33:00 alphonse.bendt Exp $
  */
 
 public interface AbstractProxyConsumerI {
-    boolean isStartTimeSupported();
-    boolean isTimeOutSupported();
+    boolean getStartTimeSupported();
+    boolean getTimeOutSupported();
     FilterStage getFirstStage();
 }

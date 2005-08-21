@@ -35,12 +35,15 @@ import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
 /**
+ *  @jmx.mbean extends = "AbstractProxyConsumerMBean"
+ *  @jboss.xmbean
+ * 
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullConsumerImpl.java,v 1.6 2005-02-14 00:11:54 alphonse.bendt Exp $
+ * @version $Id: ECProxyPullConsumerImpl.java,v 1.7 2005-08-21 13:33:00 alphonse.bendt Exp $
  */
 
 public class ECProxyPullConsumerImpl extends ProxyPullConsumerImpl implements
-        ProxyPullConsumerOperations
+        ProxyPullConsumerOperations, ECProxyPullConsumerImplMBean
 {
     public ECProxyPullConsumerImpl(IAdmin admin, ORB orb, POA poa, Configuration conf,
             TaskProcessor taskProcessor, MessageFactory messageFactory)
@@ -68,5 +71,4 @@ public class ECProxyPullConsumerImpl extends ProxyPullConsumerImpl implements
     {
         return ProxyPullConsumerHelper.narrow(getServant()._this_object(getORB()));
     }
-
 }

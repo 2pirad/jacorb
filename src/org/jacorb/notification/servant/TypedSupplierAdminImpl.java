@@ -44,7 +44,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImpl.java,v 1.5 2005-04-10 14:32:57 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImpl.java,v 1.6 2005-08-21 13:33:00 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         TypedSupplierAdminOperations
@@ -79,11 +79,10 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         {
             final MutablePicoContainer _containerForProxy = newContainerForTypedProxy(type);
 
-            _containerForProxy.registerComponent(newComponentAdapter(
-                    TypedProxyPushConsumerImpl.class, TypedProxyPushConsumerImpl.class));
+            _containerForProxy.registerComponentImplementation(AbstractProxyConsumer.class, TypedProxyPushConsumerImpl.class);
 
-            TypedProxyPushConsumerImpl _servant = (TypedProxyPushConsumerImpl) _containerForProxy
-                    .getComponentInstance(TypedProxyPushConsumerImpl.class);
+            AbstractProxyConsumer _servant = (AbstractProxyConsumer) _containerForProxy
+                    .getComponentInstanceOfType(AbstractProxyConsumer.class);
 
             _servant.setSubsequentDestinations(CollectionsWrapper.singletonList(this));
 
@@ -112,11 +111,10 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         {
             final MutablePicoContainer _containerForProxy = newContainerForTypedProxy(type);
 
-            _containerForProxy.registerComponent(newComponentAdapter(
-                    TypedProxyPullConsumerImpl.class, TypedProxyPullConsumerImpl.class));
+            _containerForProxy.registerComponentImplementation(AbstractProxyConsumer.class, TypedProxyPullConsumerImpl.class);
 
-            TypedProxyPullConsumerImpl _servant = (TypedProxyPullConsumerImpl) _containerForProxy
-                    .getComponentInstance(TypedProxyPullConsumerImpl.class);
+            AbstractProxyConsumer _servant = (AbstractProxyConsumer) _containerForProxy
+                    .getComponentInstanceOfType(AbstractProxyConsumer.class);
 
             configureInterFilterGroupOperator(_servant);
 
@@ -144,5 +142,10 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
     public org.omg.CosEventChannelAdmin.ProxyPullConsumer obtain_typed_pull_consumer(String type)
     {
         throw new NO_IMPLEMENT();
+    }
+    
+    public String getMBeanType()
+    {
+        return "TypedSupplierAdmin";
     }
 }

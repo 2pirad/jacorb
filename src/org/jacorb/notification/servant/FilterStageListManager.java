@@ -27,7 +27,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterStageListManager.java,v 1.7 2005-04-10 14:26:55 alphonse.bendt Exp $
+ * @version $Id: FilterStageListManager.java,v 1.8 2005-08-21 13:33:00 alphonse.bendt Exp $
  */
 
 abstract public class FilterStageListManager {
@@ -62,7 +62,7 @@ abstract public class FilterStageListManager {
 
                 List _listProxy = new List() {
                         public void add(FilterStage d) {
-                            if (!d.isDisposed()) {
+                            if (!d.isDestroyed()) {
                                 _newList.add(d);
                             }
                         }
