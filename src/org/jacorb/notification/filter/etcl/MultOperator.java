@@ -30,12 +30,11 @@ import antlr.Token;
 /**
  * A simple node to represent MULT operation
  * 
- * @version $Id: MultOperator.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: MultOperator.java,v 1.6 2005-08-21 13:24:38 alphonse.bendt Exp $
  */
 
 public class MultOperator extends BinaryOperator
 {
-
     public MultOperator(Token tok)
     {
         super(tok);
@@ -48,30 +47,14 @@ public class MultOperator extends BinaryOperator
     }
 
     public EvaluationResult evaluate(EvaluationContext context, EvaluationResult left,
-            EvaluationResult right) throws EvaluationException
+            EvaluationResult rightVal) throws EvaluationException
     {
 
-        return EvaluationResult.mult(right, left);
+        return EvaluationResult.mult(rightVal, left);
     }
 
-    public void acceptInOrder(AbstractTCLVisitor visitor) throws VisitorException
-    {
-        left().acceptInOrder(visitor);
-        visitor.visitMult(this);
-        right().acceptInOrder(visitor);
-    }
-
-    public void acceptPostOrder(AbstractTCLVisitor visitor) throws VisitorException
-    {
-        left().acceptPostOrder(visitor);
-        right().acceptPostOrder(visitor);
-        visitor.visitMult(this);
-    }
-
-    public void acceptPreOrder(AbstractTCLVisitor visitor) throws VisitorException
+    protected void visitThis(AbstractTCLVisitor visitor) throws VisitorException
     {
         visitor.visitMult(this);
-        left().acceptPreOrder(visitor);
-        right().acceptPreOrder(visitor);
     }
 }

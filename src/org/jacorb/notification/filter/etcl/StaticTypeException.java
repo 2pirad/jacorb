@@ -23,7 +23,7 @@ package org.jacorb.notification.filter.etcl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StaticTypeException.java,v 1.4 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: StaticTypeException.java,v 1.5 2005-08-21 13:24:38 alphonse.bendt Exp $
  */
 
 public class StaticTypeException extends VisitorException
@@ -32,5 +32,4 @@ public class StaticTypeException extends VisitorException
     {
         super(msg);
     }
-
 }

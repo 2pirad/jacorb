@@ -51,7 +51,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MappingFilterImpl.java,v 1.3 2005-04-10 14:21:32 alphonse.bendt Exp $
+ * @version $Id: MappingFilterImpl.java,v 1.4 2005-08-21 13:25:53 alphonse.bendt Exp $
  */
 
 public class MappingFilterImpl implements GCDisposable, MappingFilterOperations
@@ -297,7 +297,7 @@ public class MappingFilterImpl implements GCDisposable, MappingFilterOperations
         AbstractFilter.attemptDispose(this, usageDecorator_.getLastUsage(), maxIdleTime_);
     }
 
-    public void addDisposeHook(Disposable d)
+    public void registerDisposable(Disposable d)
     {
         disposeHooks_.addDisposable(d);
     }

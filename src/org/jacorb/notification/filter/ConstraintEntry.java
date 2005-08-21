@@ -26,7 +26,7 @@ import org.omg.CosNotifyFilter.ConstraintInfo;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConstraintEntry.java,v 1.1 2005-02-14 00:04:35 alphonse.bendt Exp $
+ * @version $Id: ConstraintEntry.java,v 1.2 2005-08-21 13:25:53 alphonse.bendt Exp $
  */
 
 public class ConstraintEntry
@@ -51,12 +51,10 @@ public class ConstraintEntry
         return new EventTypeWrapper( constraintInfo_.constraint_expression.event_types[ index ] );
     }
 
-
     public int getEventTypeCount()
     {
         return constraintInfo_.constraint_expression.event_types.length;
     }
-
 
     public int getConstraintId()
     {
@@ -77,5 +75,16 @@ public class ConstraintEntry
     public FilterConstraint getFilterConstraint()
     {
         return filterConstraint_;
+    }
+    
+    public void appendToBuffer(StringBuffer buffer)
+    {
+        buffer.append("Constraint #");
+        buffer.append(getConstraintId());
+        buffer.append(": ");
+        buffer.append(EventTypeWrapper.toString(constraintInfo_.constraint_expression.event_types));
+        buffer.append("\n\t");
+        buffer.append(getConstraintExpression());
+        buffer.append("\n");
     }
 }
