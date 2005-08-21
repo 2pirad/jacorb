@@ -29,7 +29,7 @@ import java.io.*;
  * with appropriate arguments.
  * 
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: DirectLauncher.java,v 1.1 2005-05-10 13:58:29 andre.spiegel Exp $
+ * @version $Id: DirectLauncher.java,v 1.2 2005-08-21 13:39:37 alphonse.bendt Exp $
  */
 public class DirectLauncher extends JacORBLauncher
 {
@@ -89,7 +89,7 @@ public class DirectLauncher extends JacORBLauncher
              + jacorbHome + "/lib/avalon-framework-4.1.5.jar:"
              + jacorbHome + "/lib/concurrent-1.3.2.jar:"
              + jacorbHome + "/lib/antlr-2.7.2.jar:"
-             + jacorbHome + "/lib/picocontainer-1.2-021105.jar";
+             + jacorbHome + "/lib/picocontainer-1.2.jar";
     }
         
     public String getJacORBPath()
