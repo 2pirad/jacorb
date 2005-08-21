@@ -31,7 +31,7 @@ import org.jacorb.notification.util.DisposableManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DisposableManagerTest.java,v 1.2 2005-05-01 21:11:58 alphonse.bendt Exp $
+ * @version $Id: DisposableManagerTest.java,v 1.3 2005-08-21 13:18:31 alphonse.bendt Exp $
  */
 public class DisposableManagerTest extends TestCase
 {
@@ -41,9 +41,7 @@ public class DisposableManagerTest extends TestCase
 
     private Disposable mockDisposable_;
 
-    /*
-     * @see TestCase#setUp()
-     */
+    
     protected void setUp() throws Exception
     {
         super.setUp();
@@ -53,11 +51,7 @@ public class DisposableManagerTest extends TestCase
         mockDisposable_ = (Disposable) controlDisposable_.getMock();
     }
 
-    /**
-     * Constructor for DisposableManagerTest.
-     * 
-     * @param name
-     */
+    
     public DisposableManagerTest(String name)
     {
         super(name);
@@ -74,8 +68,10 @@ public class DisposableManagerTest extends TestCase
     {
         mockDisposable_.dispose();
         controlDisposable_.replay();
+        
         objectUnderTest_.addDisposable(mockDisposable_);
         objectUnderTest_.dispose();
+        
         controlDisposable_.verify();
     }
 
@@ -83,9 +79,11 @@ public class DisposableManagerTest extends TestCase
     {
         mockDisposable_.dispose();
         controlDisposable_.replay();
+        
         objectUnderTest_.addDisposable(mockDisposable_);
         objectUnderTest_.dispose();
         objectUnderTest_.dispose();
+        
         controlDisposable_.verify();
     }
 
