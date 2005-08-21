@@ -26,7 +26,7 @@ import org.tanukisoftware.wrapper.WrapperManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WrapperMain.java,v 1.2 2005-05-04 13:21:10 alphonse.bendt Exp $
+ * @version $Id: WrapperMain.java,v 1.3 2005-08-21 16:57:46 alphonse.bendt Exp $
  */
 
 public class WrapperMain implements WrapperListener
@@ -71,7 +71,7 @@ public class WrapperMain implements WrapperListener
         {
             application_ = ConsoleMain.newFactory(args);
 
-            application_.setDestroyMethod(CMD_WRAPPERMANAGER_STOP);
+           // application_.setDestroyMethod(CMD_WRAPPERMANAGER_STOP);
 
             return null;
         } catch (Exception e)

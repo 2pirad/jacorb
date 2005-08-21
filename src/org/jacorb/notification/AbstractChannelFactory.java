@@ -72,7 +72,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.13 2005-08-21 13:29:03 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.14 2005-08-21 16:57:46 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -485,7 +485,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
         // TODO fetch this from somewhere?
         int _connectionTimeout = 4000;
 
-        int _estimatedShutdowntime = _numberOfClients * _connectionTimeout;
+        int _estimatedShutdowntime = 2000 + _numberOfClients * _connectionTimeout;
 
         if (logger_.isInfoEnabled())
         {
