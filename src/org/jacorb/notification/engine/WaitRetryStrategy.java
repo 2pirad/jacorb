@@ -24,7 +24,7 @@ import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WaitRetryStrategy.java,v 1.6 2005-04-27 10:48:40 alphonse.bendt Exp $
+ * @version $Id: WaitRetryStrategy.java,v 1.7 2005-08-21 13:30:16 alphonse.bendt Exp $
  */
 
 public class WaitRetryStrategy extends AbstractRetryStrategy
@@ -76,11 +76,12 @@ public class WaitRetryStrategy extends AbstractRetryStrategy
                     pushOperation_.invokePush();
 
                     return;
-                } catch (Throwable error)
+                } catch (Exception error)
                 {
                     remoteExceptionOccured(error);
                 }
             }
+            
             throw new RetryException("no more retries possible");
         } finally
         {

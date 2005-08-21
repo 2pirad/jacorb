@@ -36,7 +36,7 @@ import EDU.oswego.cs.dl.util.concurrent.Heap;
  * implements the interface EventQueue and invokes the methods thereby synchronizing access.
  * 
  * @author Alphonse Bendt
- * @version $Id: BoundedDeadlineEventQueue.java,v 1.6 2005-02-14 00:11:10 alphonse.bendt Exp $
+ * @version $Id: BoundedDeadlineEventQueue.java,v 1.7 2005-08-21 13:32:36 alphonse.bendt Exp $
  */
 
 public class BoundedDeadlineEventQueue extends AbstractBoundedEventQueue
@@ -57,6 +57,11 @@ public class BoundedDeadlineEventQueue extends AbstractBoundedEventQueue
 
     ////////////////////////////////////////
 
+    public String getOrderPolicyName()
+    {
+        return "DeadlineOrder";
+    }
+    
     protected Message getNextElement()
     {
         return getEarliestTimeout();

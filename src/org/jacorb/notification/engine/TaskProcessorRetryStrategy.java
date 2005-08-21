@@ -26,7 +26,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.11 2005-04-27 10:48:40 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.12 2005-08-21 13:30:16 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategy extends AbstractRetryStrategy implements
         PushTaskExecutor.PushTask
@@ -38,7 +38,14 @@ public class TaskProcessorRetryStrategy extends AbstractRetryStrategy implements
     {
         public void run()
         {
-            pushSupplier_.schedulePush(TaskProcessorRetryStrategy.this);
+            if (pushSupplier_.isRetryAllowed())
+            {
+                pushSupplier_.schedulePush(TaskProcessorRetryStrategy.this);
+            } 
+            else
+            {
+                dispose();
+            }
         }
     };
 
@@ -64,7 +71,7 @@ public class TaskProcessorRetryStrategy extends AbstractRetryStrategy implements
 
     protected void retryInternal() throws RetryException
     {
-        if (!pushSupplier_.isDisposed())
+        if (pushSupplier_.isRetryAllowed())
         {
             pushSupplier_.disableDelivery();
 
@@ -78,14 +85,14 @@ public class TaskProcessorRetryStrategy extends AbstractRetryStrategy implements
         {
             try
             {
-                if (!pushSupplier_.isDisposed())
+                if (pushSupplier_.isRetryAllowed())
                 {
                     pushOperation_.invokePush();
                     pushSupplier_.pushPendingData();
                 }
 
                 dispose();
-            } catch (Throwable error)
+            } catch (Exception error)
             {
                 try
                 {

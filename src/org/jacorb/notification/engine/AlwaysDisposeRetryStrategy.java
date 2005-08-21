@@ -25,7 +25,7 @@ import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AlwaysDisposeRetryStrategy.java,v 1.3 2005-04-27 10:48:40 alphonse.bendt Exp $
+ * @version $Id: AlwaysDisposeRetryStrategy.java,v 1.4 2005-08-21 13:30:16 alphonse.bendt Exp $
  */
 public class AlwaysDisposeRetryStrategy extends AbstractRetryStrategy
 {
@@ -33,7 +33,7 @@ public class AlwaysDisposeRetryStrategy extends AbstractRetryStrategy
     {
         super(pushSupplier, operation);
     }
-    
+
     protected long getTimeToWait()
     {
         return 0;
@@ -41,7 +41,11 @@ public class AlwaysDisposeRetryStrategy extends AbstractRetryStrategy
 
     protected void retryInternal() throws RetryException
     {
-        pushSupplier_.destroy();
+        if (!pushSupplier_.isDestroyed())
+        {
+            pushSupplier_.destroy();
+        }
+        
         dispose();
     }
 }

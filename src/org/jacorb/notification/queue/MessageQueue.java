@@ -25,11 +25,20 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageQueue.java,v 1.1 2005-02-14 00:11:10 alphonse.bendt Exp $
+ * @version $Id: MessageQueue.java,v 1.2 2005-08-21 13:32:36 alphonse.bendt Exp $
  */
 
 public interface MessageQueue
 {
+    interface DiscardListener
+    {
+        void messageDiscarded(int maxSize);
+    }
+    
+    void addDiscardListener(DiscardListener listener);
+    
+    void removeDiscardListener(DiscardListener listener);
+    
     /**
      * get the next Message from this queue. which particular event is
      * selected depends on the underlying implementation.
@@ -82,4 +91,8 @@ public interface MessageQueue
      * access the current size of this queue.
      */
     int getSize();
+    
+    String getOrderPolicyName();
+    
+    String getDiscardPolicyName();
 }

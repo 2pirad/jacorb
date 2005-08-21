@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.18 2005-04-27 10:48:40 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.19 2005-08-21 13:30:16 alphonse.bendt Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask
@@ -114,7 +114,7 @@ public class FilterConsumerAdminTask extends AbstractFilterTask
 
             boolean _filterForCurrentFilterStageMatched = false;
 
-            if (!arrayCurrentFilterStage_[x].isDisposed())
+            if (!arrayCurrentFilterStage_[x].isDestroyed())
             {
                 _filterForCurrentFilterStageMatched = getMessage().match(arrayCurrentFilterStage_[x]);
             }

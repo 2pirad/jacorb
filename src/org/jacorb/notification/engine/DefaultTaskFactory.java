@@ -31,7 +31,7 @@ import org.jacorb.notification.util.AbstractPoolablePool;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskFactory.java,v 1.3 2005-04-27 10:48:40 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskFactory.java,v 1.4 2005-08-21 13:30:16 alphonse.bendt Exp $
  */
 
 public class DefaultTaskFactory implements Disposable, Configurable, TaskFactory
@@ -232,11 +232,11 @@ public class DefaultTaskFactory implements Disposable, Configurable, TaskFactory
 
             if (alternateMessage != null)
             {
-                consumer.deliverMessage(alternateMessage);
+                consumer.queueMessage(alternateMessage);
             }
             else
             {
-                consumer.deliverMessage(mesg);
+                consumer.queueMessage(mesg);
             }
         }
     }

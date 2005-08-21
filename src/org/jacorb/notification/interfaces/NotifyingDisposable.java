@@ -23,9 +23,9 @@ package org.jacorb.notification.interfaces;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: GCDisposable.java,v 1.2 2005-08-21 13:30:01 alphonse.bendt Exp $
+ * @version $Id: NotifyingDisposable.java,v 1.1 2005-08-21 13:30:01 alphonse.bendt Exp $
  */
-public interface GCDisposable extends NotifyingDisposable
+public interface NotifyingDisposable extends Disposable
 {
-    void attemptDispose();
+    void registerDisposable(Disposable disposable);
 }

@@ -32,7 +32,7 @@ import EDU.oswego.cs.dl.util.concurrent.ThreadFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskExecutor.java,v 1.1 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskExecutor.java,v 1.2 2005-08-21 13:30:16 alphonse.bendt Exp $
  */
 
 public class DefaultTaskExecutor implements TaskExecutor
@@ -134,7 +134,7 @@ public class DefaultTaskExecutor implements TaskExecutor
         disposeHooks_.dispose();
     }
 
-    public void addDisposeHook(Disposable d)
+    public void registerDisposable(Disposable d)
     {
         disposeHooks_.addDisposable(d);
     }

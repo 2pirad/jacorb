@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.17 2005-04-16 23:00:28 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.18 2005-08-21 13:29:03 alphonse.bendt Exp $
  */
 
 public class StructuredEventMessage extends AbstractMessage
@@ -166,7 +166,7 @@ public class StructuredEventMessage extends AbstractMessage
     public EvaluationResult extractFilterableData(EvaluationContext context, ComponentName root,
             String v) throws EvaluationException
     {
-        Any _any = context.getDynamicEvaluator().evaluatePropertyList(
+        Any _any = context.getETCLEvaluator().evaluatePropertyList(
                 toStructuredEvent().filterable_data, v);
 
         return EvaluationResult.fromAny(_any);
@@ -175,7 +175,7 @@ public class StructuredEventMessage extends AbstractMessage
     public EvaluationResult extractVariableHeader(EvaluationContext context, ComponentName root,
             String v) throws EvaluationException
     {
-        Any _any = context.getDynamicEvaluator().evaluatePropertyList(
+        Any _any = context.getETCLEvaluator().evaluatePropertyList(
                 toStructuredEvent().header.variable_header, v);
 
         return EvaluationResult.fromAny(_any);
@@ -197,7 +197,7 @@ public class StructuredEventMessage extends AbstractMessage
             }
             else if (timeoutSupported && Timeout.value.equals(props[x].name))
             {
-                setTimeout(TimeTHelper.extract(props[x].value));
+                setTimeout(TimeTHelper.extract(props[x].value) / 10000);
             }
             else if (Priority.value.equals(props[x].name))
             {

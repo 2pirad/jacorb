@@ -19,13 +19,27 @@
  *
  */
 
-package org.jacorb.notification.interfaces;
+package org.jacorb.notification.engine;
 
-/**
- * @author Alphonse Bendt
- * @version $Id: GCDisposable.java,v 1.2 2005-08-21 13:30:01 alphonse.bendt Exp $
- */
-public interface GCDisposable extends NotifyingDisposable
+import org.jacorb.notification.interfaces.NotifyingDisposable;
+
+public class DirectExecutorPushTaskExecutorFactory implements PushTaskExecutorFactory
 {
-    void attemptDispose();
+    private final PushTaskExecutor executor_ = new PushTaskExecutor()
+    {
+        public void executePush(PushTask task)
+        {
+            task.doPush();
+        }
+
+        public void dispose()
+        {
+            // ignored
+        }
+    };
+    
+    public PushTaskExecutor newExecutor(NotifyingDisposable callbackingDisposable)
+    {
+        return executor_;
+    }
 }

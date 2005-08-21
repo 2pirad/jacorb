@@ -22,15 +22,15 @@
 package org.jacorb.notification.engine;
 
 import org.jacorb.notification.interfaces.Disposable;
-import org.jacorb.notification.interfaces.CallbackingDisposable;
+import org.jacorb.notification.interfaces.NotifyingDisposable;
 
 import EDU.oswego.cs.dl.util.concurrent.Executor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.7 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: TaskExecutor.java,v 1.8 2005-08-21 13:30:16 alphonse.bendt Exp $
  */
-public interface TaskExecutor extends Executor, Disposable, CallbackingDisposable
+public interface TaskExecutor extends Executor, Disposable, NotifyingDisposable
 {
     boolean isTaskQueued();
 }

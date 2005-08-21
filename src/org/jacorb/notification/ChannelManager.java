@@ -33,7 +33,7 @@ import org.omg.CosNotifyChannelAdmin.ChannelNotFound;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ChannelManager.java,v 1.4 2005-02-13 23:56:59 alphonse.bendt Exp $
+ * @version $Id: ChannelManager.java,v 1.5 2005-08-21 13:29:03 alphonse.bendt Exp $
  */
 public class ChannelManager implements Disposable
 {
@@ -97,7 +97,7 @@ public class ChannelManager implements Disposable
             isChannelsModified_ = true;
         }
 
-        channel.addDisposeHook(new Disposable()
+        channel.registerDisposable(new Disposable()
         {
             public void dispose()
             {
@@ -180,7 +180,7 @@ public class ChannelManager implements Disposable
                         .getValue();
 
                 i.remove();
-                _channel.dispose();
+                _channel.destroy();
             }
         }
 

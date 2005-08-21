@@ -25,10 +25,14 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageQueueAdapter.java,v 1.2 2005-04-16 23:20:04 alphonse.bendt Exp $
+ * @version $Id: MessageQueueAdapter.java,v 1.3 2005-08-21 13:32:36 alphonse.bendt Exp $
  */
 public interface MessageQueueAdapter
 {
+    void addDiscardListener(MessageQueue.DiscardListener listener);
+    
+    void removeDiscardListener(MessageQueue.DiscardListener listener);
+    
     void enqeue(Message message) throws InterruptedException;
 
     boolean hasPendingMessages() throws InterruptedException;
@@ -46,4 +50,8 @@ public interface MessageQueueAdapter
     Message[] getAtLeastMessages(int min) throws InterruptedException;
     
     void clear();
+    
+    String getDiscardPolicyName();
+    
+    String getOrderPolicyName();
 }

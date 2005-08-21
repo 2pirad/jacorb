@@ -31,7 +31,7 @@ import org.omg.CosNotifyFilter.MappingFilter;
  * these Classes during processing of a Message.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterStage.java,v 1.8 2004-05-09 19:01:42 alphonse.bendt Exp $
+ * @version $Id: FilterStage.java,v 1.9 2005-08-21 13:30:01 alphonse.bendt Exp $
  */
 
 public interface FilterStage extends FilterStageSource
@@ -39,7 +39,7 @@ public interface FilterStage extends FilterStageSource
     /**
      * check if this FilterStage has been disposed.
      */
-    boolean isDisposed();
+    boolean isDestroyed();
 
     /**
      * get Filters associated to this FilterStage.

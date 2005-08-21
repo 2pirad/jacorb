@@ -32,8 +32,12 @@ import EDU.oswego.cs.dl.util.concurrent.FIFOReadWriteLock;
 import EDU.oswego.cs.dl.util.concurrent.ReadWriteLock;
 
 /**
+ * Utility class that manages Sets of EventTypes. EventTypes can be added and removed.
+ * this class will calculate recalculate its internal Set and notify its listeners
+ * if its state has changed.
+ * 
  * @author Alphonse Bendt
- * @version $Id: EventTypeSet.java,v 1.9 2005-04-13 20:32:52 alphonse.bendt Exp $
+ * @version $Id: EventTypeSet.java,v 1.10 2005-08-21 13:29:03 alphonse.bendt Exp $
  */
 
 public abstract class EventTypeSet

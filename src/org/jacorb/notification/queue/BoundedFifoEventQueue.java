@@ -33,7 +33,7 @@ import org.jacorb.notification.interfaces.Message;
  * EventQueue and invokes the methods thereby synchronizing access.
  * 
  * @author Alphonse Bendt
- * @version $Id: BoundedFifoEventQueue.java,v 1.5 2005-05-01 21:52:41 alphonse.bendt Exp $
+ * @version $Id: BoundedFifoEventQueue.java,v 1.6 2005-08-21 13:32:36 alphonse.bendt Exp $
  */
 
 public class BoundedFifoEventQueue extends AbstractBoundedEventQueue
@@ -53,6 +53,11 @@ public class BoundedFifoEventQueue extends AbstractBoundedEventQueue
         linkedList_ = new LinkedList();
     }
 
+    public String getOrderPolicyName()
+    {
+        return "FifoOrder";
+    }
+    
     public boolean isEmpty()
     {
         return linkedList_.isEmpty();

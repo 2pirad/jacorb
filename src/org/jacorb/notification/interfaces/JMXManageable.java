@@ -21,11 +21,17 @@
 
 package org.jacorb.notification.interfaces;
 
-/**
- * @author Alphonse Bendt
- * @version $Id: CallbackingDisposable.java,v 1.1 2005-02-14 00:09:05 alphonse.bendt Exp $
- */
-public interface CallbackingDisposable extends Disposable
+public interface JMXManageable extends NotifyingDisposable
 {
-    void addDisposeHook(Disposable d);
+    interface JMXCallback
+    {
+        void sendJMXNotification(String type, String message);
+        void sendJMXAttributeChanged(String name, Object oldValue, Object newValue);
+    }
+    
+    void setJMXCallback(JMXCallback callback);
+    
+    String[] getJMXNotificationTypes();
+    
+    String getJMXObjectName();
 }

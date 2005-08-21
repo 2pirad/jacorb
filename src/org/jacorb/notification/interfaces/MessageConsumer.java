@@ -28,7 +28,7 @@ package org.jacorb.notification.interfaces;
  * Sequence of StructuredEvent) required by its Consumer and delivers it. <br>
  * 
  * @author Alphonse Bendt
- * @version $Id: MessageConsumer.java,v 1.12 2005-04-27 10:39:07 alphonse.bendt Exp $
+ * @version $Id: MessageConsumer.java,v 1.13 2005-08-21 13:30:01 alphonse.bendt Exp $
  */
 
 public interface MessageConsumer extends Comparable
@@ -36,12 +36,12 @@ public interface MessageConsumer extends Comparable
     /**
      * Deliver a Message to the associated Consumer.
      */
-    void deliverMessage(Message m);
+    void queueMessage(Message m);
 
     /**
      * check if this MessageConsumer is still valid.
      */
-    boolean isDisposed();
+    boolean isDestroyed();
 
     void destroy();
 }

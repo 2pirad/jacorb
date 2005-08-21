@@ -36,7 +36,7 @@ import EDU.oswego.cs.dl.util.concurrent.Heap;
  * implements the interface EventQueue and invokes the methods thereby synchronizing access.
 
  * @author Alphonse Bendt
- * @version $Id: BoundedPriorityEventQueue.java,v 1.9 2005-05-01 21:52:41 alphonse.bendt Exp $
+ * @version $Id: BoundedPriorityEventQueue.java,v 1.10 2005-08-21 13:32:36 alphonse.bendt Exp $
  */
 
 public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
@@ -61,6 +61,11 @@ public class BoundedPriorityEventQueue extends AbstractBoundedEventQueue
 
     ////////////////////////////////////////
 
+    public String getOrderPolicyName()
+    {
+        return "PriorityOrder";
+    }
+    
     private Heap newHeap()
     {
         return new Heap2(maxCapacity_, QueueUtil.DESCENDING_PRIORITY_COMPARATOR);
