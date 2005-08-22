@@ -21,8 +21,6 @@
 
 package org.jacorb.notification.servant;
 
-import java.util.List;
-
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.jacorb.notification.OfferManager;
@@ -38,8 +36,6 @@ import org.jacorb.notification.engine.RetryStrategy;
 import org.jacorb.notification.engine.RetryStrategyFactory;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.IProxyPushSupplier;
-import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.notification.util.CollectionsWrapper;
 import org.jacorb.util.ObjectUtil;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
@@ -60,7 +56,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedRef;
  *                      notificationType = "java.lang.String" 
  *                      
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyPushSupplier.java,v 1.2 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyPushSupplier.java,v 1.3 2005-08-22 18:17:15 alphonse.bendt Exp $
  */
 public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier implements
         IProxyPushSupplier
@@ -298,15 +294,5 @@ public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier im
     public int getAveragePushDuration()
     {
         return (int) getCost() / getPushOperationCount();
-    }
-    
-    public final List getSubsequentFilterStages()
-    {
-        return CollectionsWrapper.singletonList(this);
-    }
-    
-    public final MessageConsumer getMessageConsumer()
-    {
-        return this;
     }
 }

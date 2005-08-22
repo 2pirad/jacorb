@@ -20,16 +20,12 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.util.List;
-
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.interfaces.MessageConsumer;
-import org.jacorb.notification.util.CollectionsWrapper;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CORBA.ORB;
@@ -47,7 +43,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.13 2005-04-27 10:45:46 alphonse.bendt Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.14 2005-08-22 18:17:15 alphonse.bendt Exp $
  */
 
 public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -150,16 +146,6 @@ public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
         pullConsumer_ = consumer;
 
         connectClient(consumer);
-    }
-
-    public List getSubsequentFilterStages()
-    {
-        return CollectionsWrapper.singletonList(this);
-    }
-
-    public MessageConsumer getMessageConsumer()
-    {
-        return this;
     }
 
     public void enableDelivery()
