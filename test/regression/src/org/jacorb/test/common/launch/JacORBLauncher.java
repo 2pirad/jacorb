@@ -36,7 +36,7 @@ import org.jacorb.test.common.*;
  * invoke the launch() method on the resulting object.
  * 
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: JacORBLauncher.java,v 1.1 2005-05-10 13:57:56 andre.spiegel Exp $
+ * @version $Id: JacORBLauncher.java,v 1.2 2005-08-28 11:02:39 andre.spiegel Exp $
  */
 public abstract class JacORBLauncher
 {
@@ -137,6 +137,9 @@ public abstract class JacORBLauncher
     public static JacORBLauncher getLauncher (String version,
                                               boolean coverage)
     {
+        if (version.startsWith("tao"))
+            return new TAOLauncher (null, false);
+        
         int index = getVersions().indexOf (version);
         if (index == -1) throw new RuntimeException
         (
