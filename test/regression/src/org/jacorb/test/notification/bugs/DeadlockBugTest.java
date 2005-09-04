@@ -38,7 +38,7 @@ import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DeadlockBugTest.java,v 1.3 2005-04-27 10:49:51 alphonse.bendt Exp $
+ * @version $Id: DeadlockBugTest.java,v 1.4 2005-09-04 17:44:08 alphonse.bendt Exp $
  */
 public class DeadlockBugTest extends TestCase
 {
@@ -58,11 +58,7 @@ public class DeadlockBugTest extends TestCase
         objectUnderTest_ = new RWLockEventQueueDecorator(new BasicMessageQueueAdapter(queue));
     }
 
-    /**
-     * Constructor for AbstractProxySupplierTest.
-     * 
-     * @param name
-     */
+    
     public DeadlockBugTest(String name)
     {
         super(name);
