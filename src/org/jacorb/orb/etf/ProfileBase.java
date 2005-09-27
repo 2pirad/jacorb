@@ -31,7 +31,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.1 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: ProfileBase.java,v 1.2 2005-09-27 20:49:11 phil.mesnier Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase
@@ -77,6 +77,17 @@ public abstract class ProfileBase
     */
     public abstract int tag();
     
+
+    /**
+     * Profiles use this method for taking alternative address values
+     * for replacement, such as when an IOR proxy or IMR is in use.
+     * This is a concrete method here to not break existing profiles
+     * that may not be interested in this behavior.
+     */
+    public void patchPrimaryAddress(ProtocolAddressBase replacement)
+    {
+    }
+
     /**
     * ETF defined function to marshal the appropriate information for this
     * transport into the tagged profile.  ORBs will typically need 

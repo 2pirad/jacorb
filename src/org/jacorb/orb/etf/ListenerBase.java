@@ -31,7 +31,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ListenerBase.java,v 1.1 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: ListenerBase.java,v 1.2 2005-09-27 20:49:11 phil.mesnier Exp $
  */
 public abstract class ListenerBase 
     extends _ListenerLocalBase
@@ -45,7 +45,7 @@ public abstract class ListenerBase
     /**
     * The profile of this listener's endpoint.
     */
-    protected Profile endpoint = null;
+    protected Profile profile = null;
     
     /**
     * The primary acceptor of this listener.
@@ -221,7 +221,7 @@ public abstract class ListenerBase
      */
     public Profile endpoint()
     {
-        return endpoint.copy();
+        return profile.copy();
     }
     
     protected abstract class Acceptor 
