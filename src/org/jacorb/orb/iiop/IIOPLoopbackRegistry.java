@@ -23,11 +23,9 @@ package org.jacorb.orb.iiop;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jacorb.orb.IIOPAddress;
-
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopbackRegistry.java,v 1.1 2005-08-04 05:04:50 francisco Exp $
+ * @version $Id: IIOPLoopbackRegistry.java,v 1.2 2005-09-27 20:52:18 phil.mesnier Exp $
  */
 public class IIOPLoopbackRegistry
 {
@@ -44,18 +42,19 @@ public class IIOPLoopbackRegistry
         return REGISTRY ;
     }
     
-    public synchronized void register(final IIOPAddress address, final IIOPLoopback loopback)
+    public synchronized void register(final IIOPAddress address,
+                                      final IIOPLoopback loopback)
     {
-        loopbackMap.put(address, loopback) ;
+        loopbackMap.put(address, loopback);
     }
     
     public synchronized void unregister(final IIOPAddress address)
     {
-        loopbackMap.remove(address) ;
+        loopbackMap.remove(address);
     }
     
     public synchronized IIOPLoopback getLoopback(final IIOPAddress address)
     {
-        return (IIOPLoopback)loopbackMap.get(address) ;
+        return (IIOPLoopback)loopbackMap.get(address);
     }
 }

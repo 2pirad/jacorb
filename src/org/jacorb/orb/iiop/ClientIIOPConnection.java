@@ -29,7 +29,6 @@ import java.util.List;
 import org.apache.avalon.framework.configuration.*;
 
 import org.jacorb.orb.CDRInputStream;
-import org.jacorb.orb.IIOPAddress;
 import org.jacorb.orb.factory.SocketFactory;
 import org.jacorb.orb.giop.TransportManager;
 
@@ -45,7 +44,7 @@ import org.omg.CORBA.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.15 2005-08-04 05:04:50 francisco Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.16 2005-09-27 20:52:18 phil.mesnier Exp $
  */
 
 public class ClientIIOPConnection
@@ -231,7 +230,8 @@ public class ClientIIOPConnection
         addressList.addAll(iiopProfile.getAlternateAddresses());
         
         final Iterator addressIterator = addressList.iterator() ;
-        final IIOPLoopbackRegistry registry = IIOPLoopbackRegistry.getRegistry() ;
+        final IIOPLoopbackRegistry registry =
+            IIOPLoopbackRegistry.getRegistry() ;
         
         while (addressIterator.hasNext())
         {
@@ -291,22 +291,20 @@ public class ClientIIOPConnection
                    //this is necessary since earlier JDKs didnt support connect()
                    //with time_out
                    final ClientIIOPConnection self = this;
-                   Thread thread = new Thread( new  Runnable()
+                   Thread thread =
+                       new Thread( new  Runnable()
                                                     {
                                                        public void run()
                                                        {
-                                                          try
-                                                          {
-                                                             socket = factory.createSocket(ipAddress, port);
+                                   try {
+                                       socket = factory.createSocket(ipAddress,
+                                                                     port);
                                                           }
-                                                          catch (Exception e)
-                                                          {
+                                   catch (Exception e) {
                                                              exception = e;
                                                           }
-                                                          finally
-                                                          {
-                                                             synchronized (self)
-                                                             {
+                                   finally {
+                                       synchronized (self) {
                                                                 self.notify();
                                                              }
                                                           }

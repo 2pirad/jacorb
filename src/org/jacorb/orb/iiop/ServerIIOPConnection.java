@@ -25,8 +25,6 @@ import java.net.*;
 
 import org.apache.avalon.framework.configuration.*;
 
-import org.jacorb.orb.IIOPAddress;
-
 /**
  * ServerIIOPConnection.java
  *
@@ -34,7 +32,7 @@ import org.jacorb.orb.IIOPAddress;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.4 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.5 2005-09-27 20:52:18 phil.mesnier Exp $
  */
 
 public class ServerIIOPConnection
