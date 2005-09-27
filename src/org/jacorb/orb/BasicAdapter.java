@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.46 2005-09-27 15:10:57 francisco Exp $
+ * @version $Id: BasicAdapter.java,v 1.47 2005-09-27 19:24:27 francisco Exp $
  */
 
 public class BasicAdapter
@@ -339,8 +339,7 @@ public class BasicAdapter
                 }
                 try
                 {
-                    tmp_poa = tmp_poa._getChildPOA(scopes[i], 
-                                                   request.poaName());
+                    tmp_poa = tmp_poa._getChildPOA( scopes[i] );
                 }
                 catch ( org.jacorb.poa.except.ParentIsHolding p )
                 {

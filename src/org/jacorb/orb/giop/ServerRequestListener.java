@@ -48,7 +48,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * Created: Sun Aug 12 22:26:25 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.21 2005-09-27 15:10:57 francisco Exp $
+ * @version $Id: ServerRequestListener.java,v 1.22 2005-09-27 19:24:27 francisco Exp $
  */
 
 public class ServerRequestListener
@@ -264,7 +264,7 @@ public class ServerRequestListener
 
                 try
                 {
-                    tmp_poa = tmp_poa._getChildPOA(res, request.poaName());
+                    tmp_poa = tmp_poa._getChildPOA( res );
                 }
                 catch ( org.jacorb.poa.except.ParentIsHolding p )
                 {
