@@ -2,7 +2,7 @@ package org.jacorb.test.orb;
 
 import org.omg.PortableServer.*;
 
-import org.jacorb.orb.IIOPAddress;
+import org.jacorb.orb.iiop.IIOPAddress;
 import org.jacorb.config.Configuration;
 
 import org.jacorb.test.*;
@@ -11,7 +11,7 @@ import org.apache.avalon.framework.configuration.Configurable;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddressServerImpl.java,v 1.3 2004-07-30 15:31:30 simon.mcqueen Exp $
+ * @version $Id: IIOPAddressServerImpl.java,v 1.4 2005-09-27 20:57:22 phil.mesnier Exp $
  */
 public class IIOPAddressServerImpl extends IIOPAddressServerPOA
     implements Configurable
@@ -38,10 +38,25 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         }
     }
 
+    public void setSocketProtAddr(String protaddr)
+    {
+        config.setAttribute ("OAAddress",protaddr);
+        try
+        {
+            config.getORB().configure(config);
+        }
+        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
+    }
+
     public void clearSocketAddress()
     {
         config.setAttribute ("OAIAddr", null);
         config.setAttribute ("OAPort", null);
+        config.setAttribute ("OAAddress",null);
+
         try
         {
             config.getORB().configure(config);
@@ -67,10 +82,24 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         }
     }
 
+    public void setIORProtAddr(String protaddr)
+    {
+        config.setAttribute ("jacorb.ior_proxy_address", protaddr);
+        try
+        {
+            config.getORB().configure(config);
+        }
+        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        {
+            throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
+        }
+    }
+
     public void clearIORAddress()
     {
         config.setAttribute ("jacorb.ior_proxy_host", null);
         config.setAttribute ("jacorb.ior_proxy_port", null);
+        config.setAttribute ("jacorb.ior_proxy_address", null);
         try
         {
             config.getORB().configure(config);
