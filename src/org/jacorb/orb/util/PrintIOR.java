@@ -28,12 +28,12 @@ import java.io.IOException;
 import java.util.List;
 
 import org.jacorb.orb.CDRInputStream;
-import org.jacorb.orb.IIOPAddress;
 import org.jacorb.orb.ORBConstants;
 import org.jacorb.orb.ParsedIOR;
 import org.jacorb.orb.TaggedComponentList;
 import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.orb.iiop.IIOPProfile;
+import org.jacorb.orb.iiop.IIOPAddress;
 
 import org.omg.CONV_FRAME.CodeSetComponentInfoHelper;
 import org.omg.CSIIOP.CompoundSecMechList;
@@ -53,7 +53,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.35 2004-10-21 14:49:53 francisco Exp $
+ * @version $Id: PrintIOR.java,v 1.36 2005-09-27 20:56:10 phil.mesnier Exp $
  */
 
 public class PrintIOR
@@ -143,8 +143,9 @@ public class PrintIOR
                                (int)p.version().major + "." +
                                (int)p.version().minor);
 
-            System.out.println("\tHost\t:\t" + p.getAddress().getOriginalHost());
-            int port = p.getAddress().getPort();
+            System.out.println("\tHost\t:\t" +
+                               ((IIOPAddress)p.getAddress()).getOriginalHost());
+            int port = ((IIOPAddress)p.getAddress()).getPort();
             if( port < 0 )
                 port += 65536;
 

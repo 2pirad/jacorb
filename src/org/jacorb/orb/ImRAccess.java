@@ -27,13 +27,18 @@ package org.jacorb.orb;
  * Created: Thu Jan 31 20:55:32 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ImRAccess.java,v 1.6 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ImRAccess.java,v 1.7 2005-09-27 20:56:10 phil.mesnier Exp $
  */
 
 public interface ImRAccess
 {
     public String getImRHost();
     public int getImRPort();
+    public org.jacorb.orb.etf.ProtocolAddressBase getImRAddress();
+    public void registerPOA( String name,
+                             String server,
+                             org.jacorb.orb.etf.ProtocolAddressBase address)
+        throws org.omg.CORBA.INTERNAL;
     public void registerPOA( String name,
                              String server,
                              String host,

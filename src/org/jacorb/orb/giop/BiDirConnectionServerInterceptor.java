@@ -39,7 +39,7 @@ import org.apache.avalon.framework.logger.*;
  * Created: Sun Sep  2 18:16:27 2002
  *
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.13 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.14 2005-09-27 20:56:10 phil.mesnier Exp $
  */
 
 public class BiDirConnectionServerInterceptor 
@@ -121,6 +121,3 @@ public class BiDirConnectionServerInterceptor
         }
     }    
 }// BiDirConnectionServerInterceptor
-
-
-

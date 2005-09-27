@@ -44,7 +44,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BasicAdapter.java,v 1.47 2005-09-27 19:24:27 francisco Exp $
+ * @version $Id: BasicAdapter.java,v 1.48 2005-09-27 20:56:10 phil.mesnier Exp $
  */
 
 public class BasicAdapter
@@ -255,7 +255,7 @@ public class BasicAdapter
         if (l != null)
         {
             IIOPProfile profile = (IIOPProfile)l.endpoint();
-            return profile.getAddress().getPort();
+            return ((IIOPAddress)profile.getAddress()).getPort();
         }
         else
         {
@@ -302,13 +302,7 @@ public class BasicAdapter
         if (l != null)
         {
             IIOPProfile profile = (IIOPProfile)l.endpoint();
-            String dnsEnable = 
-                configuration.getAttribute("jacorb.dns.enable","off");
-
-            if (dnsEnable.equals("on"))
-                return profile.getAddress().getHostname();
-            else
-                return profile.getAddress().getIP();
+            return ((IIOPAddress)profile.getAddress()).getHostname();
         }
         else
         {

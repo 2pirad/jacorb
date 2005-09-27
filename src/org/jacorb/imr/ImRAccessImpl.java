@@ -23,7 +23,7 @@ package org.jacorb.imr;
 import org.jacorb.imr.RegistrationPackage.DuplicatePOAName;
 import org.jacorb.imr.RegistrationPackage.IllegalPOAName;
 import org.omg.CORBA.INTERNAL;
-
+import org.jacorb.orb.iiop.IIOPAddress;
 
 /**
  * ImRAccessImpl.java
@@ -32,7 +32,7 @@ import org.omg.CORBA.INTERNAL;
  * Created: Thu Jan 31 21:05:55 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ImRAccessImpl.java,v 1.8 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ImRAccessImpl.java,v 1.9 2005-09-27 20:56:10 phil.mesnier Exp $
  */
 
 public class ImRAccessImpl
@@ -84,6 +84,16 @@ public class ImRAccessImpl
         return result;
     }
 
+    public org.jacorb.orb.etf.ProtocolAddressBase getImRAddress()
+    {
+        if( info == null )
+        {
+            info = reg.get_imr_info();
+        }
+        return new IIOPAddress (info.host, info.port);
+    }
+
+
     public String getImRHost()
     {
         if( info == null )
@@ -102,6 +112,19 @@ public class ImRAccessImpl
         }
 
         return info.port;
+    }
+
+    public void registerPOA( String name,
+                             String server,
+                             org.jacorb.orb.etf.ProtocolAddressBase address)
+        throws INTERNAL
+    {
+        if (address instanceof IIOPAddress)
+            registerPOA (name, server,
+                         ((IIOPAddress)address).getHostname(),
+                         ((IIOPAddress)address).getPort());
+        else
+            throw new INTERNAL("IMR only supports IIOP based POAs");
     }
 
     public void registerPOA( String name,
