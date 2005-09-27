@@ -12,7 +12,7 @@ import java.io.*;
  * Created: Mon Sep  3 19:28:34 2001
  *
  * @author Nicolas Noffke
- * @version $Id: Client.java,v 1.1 2001-11-13 08:32:39 jacorb Exp $
+ * @version $Id: Client.java,v 1.2 2005-09-27 20:58:29 phil.mesnier Exp $
  */
 
 public class Client 
@@ -62,7 +62,7 @@ public class Client
         // initialize the ORB.
         Properties props = new Properties();
         props.put( "org.omg.PortableInterceptor.ORBInitializerClass.bidir_init",
-                   "org.jacorb.orb.connection.BiDirConnectionInitializer" );
+                   "org.jacorb.orb.giop.BiDirConnectionInitializer" );
 
         org.omg.CORBA.ORB orb = org.omg.CORBA.ORB.init( args, props );
 
