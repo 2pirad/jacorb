@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.32 2004-11-18 23:25:37 andre.spiegel Exp $
+ * @version $Id: ServerRequest.java,v 1.33 2005-09-27 15:10:57 francisco Exp $
  */
 
 public class ServerRequest
@@ -56,6 +56,8 @@ public class ServerRequest
     private UtcT requestStartTime = null,
                  requestEndTime   = null,
                  replyEndTime     = null;
+
+    private String poa_name;
 
     /**
      * <code>scopes</code> caches the scoped poa names.
@@ -109,7 +111,8 @@ public class ServerRequest
         object_key = 
             orb.mapObjectKey(org.jacorb.orb.ParsedIOR.extractObjectKey(in.req_hdr.target, orb));
 
-        oid = org.jacorb.poa.util.POAUtil.extractOID( object_key );
+        oid = POAUtil.extractOID(object_key);
+        poa_name = POAUtil.extractPOAName(object_key);
     }
 
     /*
@@ -566,6 +569,11 @@ public class ServerRequest
         return object_key;
     }
 
+    public String poaName()
+    {
+        return poa_name;
+    }
+
     /**
      * <code>getScopes</code> returns the cached list of poa_names.
      *
@@ -576,8 +584,7 @@ public class ServerRequest
     {
         if (scopes == null || ( cachePoaNames == false ) )
         {
-            scopes = POAUtil.extractScopedPOANames
-                (POAUtil.extractPOAName (object_key));
+            scopes = POAUtil.extractScopedPOANames(poa_name);
         }
         return scopes;
     }

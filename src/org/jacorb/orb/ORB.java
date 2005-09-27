@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.124 2005-06-01 19:55:19 brose Exp $
+ * @version $Id: ORB.java,v 1.125 2005-09-27 15:10:57 francisco Exp $
  */
 
 public final class ORB
@@ -170,6 +170,7 @@ public final class ORB
 
     private boolean bidir_giop = false;
 
+    private List registeredAdapterNames = null;
 
     public ORB()
     {
@@ -193,6 +194,9 @@ public final class ORB
 
         implName =
             configuration.getAttribute("jacorb.implname", "" );
+
+        registeredAdapterNames =
+            configuration.getAttributeList("jacorb.registered_adapter_names");
 
         giopMinorVersion =
             configuration.getAttributeAsInteger("jacorb.giop_minor_version", 2);
@@ -279,6 +283,11 @@ public final class ORB
 
             clientConnectionManager.setRequestListener( basicAdapter.getRequestListener() );
         }
+    }
+
+    public List getRegisteredAdapterNames()
+    {
+        return registeredAdapterNames;
     }
 
     /**
@@ -443,7 +452,7 @@ public final class ORB
 
                 try
                 {
-                    tmp_poa = tmp_poa._getChildPOA( res );
+                    tmp_poa = tmp_poa._getChildPOA(res, poa_name);
                 }
                 catch ( org.jacorb.poa.except.ParentIsHolding p )
                 {
