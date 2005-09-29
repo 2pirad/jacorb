@@ -44,7 +44,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.53 2005-09-27 19:24:27 francisco Exp $
+ * @version $Id: POA.java,v 1.54 2005-09-29 00:27:47 francisco Exp $
  */
 
 public class POA
@@ -320,12 +320,14 @@ public class POA
         if (child == null || child.isDestructionApparent())
         {
 
-            if (isHolding())
-                throw new ParentIsHolding();
-
             if (adapterActivator == null)
-                throw new org.omg.CORBA.OBJECT_NOT_EXIST("no adapter activator exists for " +
-                                                         adapter_name);
+            {
+                if (isHolding())
+                    throw new ParentIsHolding();
+                else
+                    throw new org.omg.CORBA.OBJECT_NOT_EXIST("no adapter activator exists for " +
+                                                             adapter_name);
+            }
 
             if (isDiscarding())
                 throw new org.omg.CORBA.TRANSIENT("a parent poa is in discarding state");
