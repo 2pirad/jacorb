@@ -40,8 +40,18 @@ import bsh.EvalError;
 import bsh.Interpreter;
 
 /**
+ * This is an example of an custom Filter plugin.
+ * to make this grammar available to the FilterFactory you have
+ * to add an entry with the prefix jacorb.notification.filter.plugin to jacorb.properties.
+ * The entry must have the following form:
+ * 
+ * <code>jacorb.notification.filter.plugin.GRAMMAR_NAME=CLASSNAME</code>
+ * <br>
+ * to make this grammar available one had to add the following entry to jacorb.properties:
+ * <code>jacorb.notification.filter.plugin.BSH=org.jacorb.notification.filter.bsh.BSHFilter</code>
+ * 
  * @author Alphonse Bendt
- * @version $Id: BSHFilter.java,v 1.2 2005-02-14 00:05:37 alphonse.bendt Exp $
+ * @version $Id: BSHFilter.java,v 1.3 2005-10-02 15:12:15 alphonse.bendt Exp $
  */
 public class BSHFilter extends AbstractFilter
 {
