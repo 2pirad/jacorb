@@ -55,12 +55,12 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicReference;
  *                     ProxyPushConsumer failed" notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyPushSupplier.java,v 1.4 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyPushSupplier.java,v 1.5 2005-10-02 19:29:45 alphonse.bendt Exp $
  */
 public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier implements
         IProxyPushSupplier
 {
-    private final String NOTIFY_PUSH_FAILED = "notification.proxy.push_failed";
+    private static final String NOTIFY_PUSH_FAILED = "notification.proxy.push_failed";
 
     private final AtomicReference retryStrategyFactory_;
 

@@ -30,14 +30,14 @@ import antlr.Token;
 /**
  * A simple node to represent OR operation
  * 
- * @version $Id: OrOperator.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: OrOperator.java,v 1.6 2005-10-02 19:29:45 alphonse.bendt Exp $
  */
 
 public class OrOperator extends UnaryOperator
 {
     private static final String NAME = "OrOperator";
 
-    private static final String OR = "or";
+    private static final String STRING_REP = "or";
 
     public OrOperator(Token tok)
     {
@@ -47,7 +47,7 @@ public class OrOperator extends UnaryOperator
 
     public String toString()
     {
-        return OR;
+        return STRING_REP;
     }
 
     public EvaluationResult evaluate(EvaluationContext context, EvaluationResult left)
