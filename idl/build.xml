@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.51 2005-08-19 18:38:52 alphonse.bendt Exp $ -->
+   <!-- $Id: build.xml,v 1.52 2005-10-02 15:16:47 alphonse.bendt Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -568,7 +568,7 @@
               srcdir="idl"
               omgprefix="true"
               includepath="${idl}/omg"
-              includes="**/omg/TimeBase.idl"
+              includes="**/omg/TimeBase.idl, **/omg/CosTime.idl"
               destdir="${src}/generated"/>
    </target>
 
