@@ -41,11 +41,12 @@ import org.omg.CosNotifyComm.PullConsumerPOA;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullSupplier;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullSupplierHelper;
 
-import EDU.oswego.cs.dl.util.concurrent.Latch;
+import edu.emory.mathcs.backport.java.util.concurrent.CountDownLatch;
+import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.6 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.7 2005-10-02 15:20:31 alphonse.bendt Exp $
  */
 public class TypedProxyPullSupplierImplTest extends NotificationTestCase
 {
@@ -189,20 +190,20 @@ public class TypedProxyPullSupplierImplTest extends NotificationTestCase
         final StringHolder _name = new StringHolder();
         final IntHolder _minutes = new IntHolder();
 
-        final Latch _latch = new Latch();
+        final CountDownLatch _latch = new CountDownLatch(1);
 
         new Thread()
         {
             public void run()
             {
                 _pullCoffee.drinking_coffee(_name, _minutes);
-                _latch.release();
+                _latch.countDown();
             }
         }.start();
 
         objectUnderTest_.getMessageConsumer().queueMessage(_mesg.getHandle());
 
-        assertTrue(_latch.attempt(1000));
+        assertTrue(_latch.await(1000, TimeUnit.MICROSECONDS));
 
         assertEquals("jacorb", _name.value);
         assertEquals(10, _minutes.value);

@@ -36,7 +36,7 @@ import org.omg.CosNotifyComm.NotifySubscribeOperations;
  * requests.
  * 
  * @author Alphonse Bendt
- * @version $Id: SubscriptionManager.java,v 1.8 2005-08-21 13:07:25 alphonse.bendt Exp $
+ * @version $Id: SubscriptionManager.java,v 1.9 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 
 public class SubscriptionManager extends EventTypeSet implements NotifySubscribeOperations
@@ -102,23 +102,11 @@ public class SubscriptionManager extends EventTypeSet implements NotifySubscribe
 
     public void subscription_change(EventType[] added, EventType[] removed) throws InvalidEventType
     {
-        try
-        {
-            changeSet(added, removed);
-        } catch (InterruptedException e)
-        {
-          // ignore
-        }
+        changeSet(added, removed);
     }
 
     public EventType[] obtain_subscription_types()
     {
-        try
-        {
-            return getAllTypes();
-        } catch (InterruptedException e)
-        {
-            return EMPTY_EVENT_TYPE;
-        }
+        return getAllTypes();
     }
 }

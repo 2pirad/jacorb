@@ -26,22 +26,23 @@ import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.15 2005-08-21 13:30:16 alphonse.bendt Exp $
+ * @version $Id: PullFromSupplierTask.java,v 1.16 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 
 public class PullFromSupplierTask extends AbstractTask
 {
     private MessageSupplier target_;
 
-    ////////////////////////////////////////
+    // //////////////////////////////////////
 
-    PullFromSupplierTask(TaskExecutor executor) {
+    PullFromSupplierTask(TaskExecutor executor)
+    {
         setTaskExecutor(executor);
     }
 
-    ////////////////////////////////////////
+    // //////////////////////////////////////
 
-    public void setTarget( MessageSupplier target )
+    public void setTarget(MessageSupplier target)
     {
         target_ = target;
     }
@@ -53,21 +54,21 @@ public class PullFromSupplierTask extends AbstractTask
         dispose();
     }
 
-
     public void reset()
     {
         target_ = null;
     }
 
-
-    public void handleTaskError(AbstractTask task, Exception error) {
-        if (error instanceof Disconnected) {
+    public void handleTaskError(AbstractTask task, Exception error)
+    {
+        if (error instanceof Disconnected)
+        {
             target_.destroy();
         }
     }
 
-
-    public void schedule() throws InterruptedException {
+    public void schedule()
+    {
         schedule(false);
     }
 }

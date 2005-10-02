@@ -25,7 +25,7 @@ import org.jacorb.notification.util.AbstractPoolable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractTask.java,v 1.16 2005-08-21 13:30:16 alphonse.bendt Exp $
+ * @version $Id: AbstractTask.java,v 1.17 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 
 public abstract class AbstractTask extends AbstractPoolable implements Runnable, Schedulable
@@ -95,7 +95,7 @@ public abstract class AbstractTask extends AbstractPoolable implements Runnable,
      *            true, if the task may be run in the calling thread. false, if the TaskExecutor
      *            should be used.
      */
-    protected void schedule(boolean directRunAllowed) throws InterruptedException
+    protected void schedule(boolean directRunAllowed) 
     {
         schedule(taskExecutor_, directRunAllowed);
     }
@@ -111,7 +111,6 @@ public abstract class AbstractTask extends AbstractPoolable implements Runnable,
      *            should be used.
      */
     protected void schedule(TaskExecutor executor, boolean directRunAllowed)
-            throws InterruptedException
     {
         if (directRunAllowed)
         {

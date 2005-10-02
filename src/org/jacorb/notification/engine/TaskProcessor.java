@@ -24,25 +24,24 @@ package org.jacorb.notification.engine;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageSupplier;
 
+import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
+
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.26 2005-08-21 13:30:16 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.27 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 
 public interface TaskProcessor
 {
     TaskFactory getTaskFactory();
 
-
     TaskExecutor getFilterTaskExecutor();
-
 
     /**
      * process a Message. the various settings for the Message
      * (timeout, starttime, stoptime) are checked and applied.
      */
      void processMessage( Message mesg );
-
 
     /**
      * Schedule ProxyPullConsumer for pull-Operation.
@@ -54,20 +53,13 @@ public interface TaskProcessor
      void scheduleTimedPullTask( MessageSupplier dest )
         throws InterruptedException;
 
-  
     ////////////////////////////////////////
     // Timer Operations
     ////////////////////////////////////////
 
-
-
-     Object executeTaskPeriodically( long intervall,
+     ScheduledFuture executeTaskPeriodically( long intervall,
 				     Runnable task,
 				     boolean startImmediately );
 
-
-    void cancelTask( Object id );
-
-
-    Object executeTaskAfterDelay( long delay, Runnable task );
+    ScheduledFuture executeTaskAfterDelay( long delay, Runnable task );
 }

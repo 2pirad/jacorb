@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.15 2005-08-21 13:30:16 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.16 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 public abstract class AbstractFilterTask extends AbstractMessageTask
 {
@@ -152,7 +152,7 @@ public abstract class AbstractFilterTask extends AbstractMessageTask
     /**
      * Schedule this Task on its default Executor for execution.
      */
-    public void schedule() throws InterruptedException
+    public void schedule()
     {
         // as all FilterTasks share their Executor, queuing of this
         // Task can be avoided if there are no other Tasks to run.

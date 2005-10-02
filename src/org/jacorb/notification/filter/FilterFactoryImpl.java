@@ -47,18 +47,18 @@ import org.omg.CosNotifyFilter.MappingFilterHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
-import EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean;
+import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.4 2005-08-21 13:25:53 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.5 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable, ManageableServant
 {
     private class GCThread extends Thread implements Disposable
     {
-        private final SynchronizedBoolean active = new SynchronizedBoolean(true);
+        private final AtomicBoolean active = new AtomicBoolean(true);
 
         public GCThread()
         {

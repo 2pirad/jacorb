@@ -72,7 +72,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.23 2005-08-22 18:17:15 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.24 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -156,18 +156,12 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
         qosSettings_.addPropertySetListener(new String[] { OrderPolicy.value, DiscardPolicy.value,
                 MaxEventsPerConsumer.value }, eventQueueConfigurationChangedCB);
 
-        try
-        {
-            MessageQueueAdapter initialEventQueue = getMessageQueueFactory().newMessageQueue(
-                    qosSettings_);
+        MessageQueueAdapter initialEventQueue = 
+            getMessageQueueFactory().newMessageQueue(qosSettings_);
 
-            pendingMessages_ = new RWLockEventQueueDecorator(initialEventQueue);
+        pendingMessages_ = new RWLockEventQueueDecorator(initialEventQueue);
 
-            pendingMessages_.addDiscardListener(discardListener_);
-        } catch (InterruptedException e)
-        {
-            throw new RuntimeException();
-        }
+        pendingMessages_.addDiscardListener(discardListener_);
 
         eventTypes_.add(EVENT_MESSAGE_DISCARDED);
     }
@@ -292,7 +286,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
 
             if (logger_.isDebugEnabled())
             {
-                logger_.debug("added " + message + " to pending Messages.");
+                logger_.debug("enqueue " + message + " to pending Messages.");
             }
         } catch (InterruptedException e)
         {
@@ -336,7 +330,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
     {
         if (logger_.isDebugEnabled())
         {
-            logger_.debug("deliverMessage() connected=" + getConnected() + " suspended="
+            logger_.debug("queueMessage() connected=" + getConnected() + " suspended="
                     + isSuspended());
         }
 

@@ -35,7 +35,7 @@ import org.omg.CosNotifyComm.NotifyPublishOperations;
  * Utility class that manages subscriptions of NotifyPublishers and broadcasting of offer_change requests.
  * 
  * @author Alphonse Bendt
- * @version $Id: OfferManager.java,v 1.7 2005-08-21 13:29:03 alphonse.bendt Exp $
+ * @version $Id: OfferManager.java,v 1.8 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 
 public class OfferManager extends EventTypeSet implements NotifyPublishOperations
@@ -100,23 +100,11 @@ public class OfferManager extends EventTypeSet implements NotifyPublishOperation
 
     public void offer_change(EventType[] added, EventType[] removed) throws InvalidEventType
     {
-        try
-        {
-            changeSet(added, removed);
-        } catch (InterruptedException e)
-        {
-            // ignore
-        }
+        changeSet(added, removed);
     }
 
     public EventType[] obtain_offered_types()
     {
-        try
-        {
-            return getAllTypes();
-        } catch (InterruptedException e)
-        {
-            return EMPTY_EVENT_TYPE;
-        }
+        return getAllTypes();
     }
 }

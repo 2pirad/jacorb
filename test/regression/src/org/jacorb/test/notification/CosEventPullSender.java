@@ -12,11 +12,11 @@ import org.omg.CosEventChannelAdmin.TypeError;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PullSupplierPOA;
 
-import EDU.oswego.cs.dl.util.concurrent.Latch;
+import edu.emory.mathcs.backport.java.util.concurrent.CountDownLatch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CosEventPullSender.java,v 1.5 2005-05-01 21:14:29 alphonse.bendt Exp $
+ * @version $Id: CosEventPullSender.java,v 1.6 2005-10-02 15:20:41 alphonse.bendt Exp $
  */
 
 public class CosEventPullSender extends PullSupplierPOA implements TestClientOperations, Runnable
@@ -27,7 +27,7 @@ public class CosEventPullSender extends PullSupplierPOA implements TestClientOpe
 
     ProxyPullConsumer myConsumer_;
 
-    Latch latch_ = new Latch();
+    CountDownLatch latch_ = new CountDownLatch(1);
 
     private boolean connected_;
 
@@ -47,7 +47,7 @@ public class CosEventPullSender extends PullSupplierPOA implements TestClientOpe
     {
         try
         {
-            latch_.acquire();
+            latch_.await();
         } catch (InterruptedException ie)
         {
             // ignored
@@ -83,7 +83,7 @@ public class CosEventPullSender extends PullSupplierPOA implements TestClientOpe
                     event_ = null;
                     success.value = true;
                     sent_ = true;
-                    latch_.release();
+                    latch_.countDown();
                 }
             }
         }

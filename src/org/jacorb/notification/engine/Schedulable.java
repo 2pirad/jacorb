@@ -23,9 +23,9 @@ package org.jacorb.notification.engine;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Schedulable.java,v 1.1 2005-02-14 00:03:09 alphonse.bendt Exp $
+ * @version $Id: Schedulable.java,v 1.2 2005-10-02 15:18:39 alphonse.bendt Exp $
  */
 public interface Schedulable
 {
-    void schedule() throws InterruptedException;
+    void schedule();
 }
