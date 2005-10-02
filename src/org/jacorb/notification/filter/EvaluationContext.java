@@ -24,7 +24,6 @@ package org.jacorb.notification.filter;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.AbstractMessage;
 import org.jacorb.notification.filter.etcl.AbstractTCLNode;
 import org.jacorb.notification.filter.etcl.ArrayOperator;
@@ -38,13 +37,12 @@ import org.jacorb.notification.filter.etcl.TCLParserTokenTypes;
 import org.jacorb.notification.filter.etcl.UnionPositionOperator;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.util.AbstractPoolable;
-import org.jacorb.notification.util.LogUtil;
 import org.omg.CORBA.Any;
 
 /**
  * @todo remove the static dependeny to package filter.etcl.
  * @author Alphonse Bendt
- * @version $Id: EvaluationContext.java,v 1.8 2005-08-21 13:25:53 alphonse.bendt Exp $
+ * @version $Id: EvaluationContext.java,v 1.9 2005-10-02 19:29:20 alphonse.bendt Exp $
  */
 
 public class EvaluationContext extends AbstractPoolable
@@ -56,8 +54,6 @@ public class EvaluationContext extends AbstractPoolable
     private final Map resultCache_;
 
     private final Map anyCache_;
-
-    private final Logger logger_ = LogUtil.getLogger(getClass().getName());
 
     ////////////////////////////////////////
 
