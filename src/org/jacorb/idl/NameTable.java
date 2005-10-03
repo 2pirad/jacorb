@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.23 2005-03-28 19:58:29 brose Exp $
+ * @version $Id: NameTable.java,v 1.24 2005-10-03 20:41:48 andre.spiegel Exp $
  *
  */
 
@@ -171,10 +171,13 @@ class NameTable
                 shadows.remove( name );
                 h.remove( name );
 
-                // remove the inherited type definition, a new one will be
-                // added soon under this name! Addition of this line fixes
-                // bug #345
-                TypeMap.removeDefinition( name );
+                if( kind.startsWith( "type" ) )
+                {
+                    // remove the inherited type definition, a new one will be
+                    // added soon under this name! Addition of this line fixes
+                    // bug #345
+                    TypeMap.removeDefinition( name );
+                }
             }
         }
 
@@ -354,6 +357,13 @@ class NameTable
                                                             key.substring( key.lastIndexOf( '.' ) ),
                                                             anc );
                     }
+                    else
+                    {
+                        if( logger.isDebugEnabled() ) {
+                            logger.debug("- NameTable.inherit " + kind + " from:  " + key);
+                        }
+                    }
+
 
                     if( !isDefined( key ) )
                         throw new RuntimeException( "CompilerError!" );
