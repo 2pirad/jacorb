@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.86 2004-04-21 15:42:13 brose Exp $
+ * $Id: parser.cup,v 1.87 2005-10-03 21:03:53 andre.spiegel Exp $
  */
 
 action code
@@ -77,6 +77,8 @@ parser code
     protected static boolean cldc10 = false;
 
     protected static boolean forceOverwrite;
+
+    protected static boolean generateDiiStubs = false;
 
     protected static String finalString = FINAL;
 
@@ -200,6 +202,11 @@ parser code
                 if( argv[i].equals("-syntax"))
                 {
                     parse_only = true;
+                    continue;
+                }
+                if( argv[i].equals("-diistub"))
+                {
+                    generateDiiStubs = true;
                     continue;
                 }
                 if( argv[i].equals("-noskel"))
