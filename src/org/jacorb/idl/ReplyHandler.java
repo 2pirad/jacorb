@@ -29,7 +29,7 @@ import java.util.*;
  * ReplyHandler).
  * 
  * @author Andre Spiegel
- * $Id: ReplyHandler.java,v 1.7 2005-03-28 19:58:29 brose Exp $
+ * $Id: ReplyHandler.java,v 1.8 2005-10-03 22:26:58 andre.spiegel Exp $
  */
 public class ReplyHandler extends Interface
 {
@@ -71,8 +71,11 @@ public class ReplyHandler extends Interface
             {
                 ScopedName n1 = (ScopedName)i.next();
                 ScopedName n2 = new ScopedName (new_num());
-                n2.pack_name = n1.pack_name;
-                n2.typeName  = "AMI_" + n1.name + "Handler";
+                StringBuffer typeName = new StringBuffer(n1.typeName());
+                int nameStart = typeName.lastIndexOf(".") + 1;
+                typeName.insert(nameStart, "AMI_");
+                typeName.append("Handler");
+                n2.typeName  = typeName.toString();
                 inheritanceSpec.v.add (n2);
             }
         }
