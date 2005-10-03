@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.20 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ParamDecl.java,v 1.21 2005-10-03 21:19:25 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -138,6 +138,42 @@ public class ParamDecl
     {
         return paramTypeSpec.typeSpec().printReadExpression( ps );
     }
+
+    public void printAddArgumentStatement(PrintWriter ps, String reqname)
+    {
+        String varname = this.simple_declarator.toString();
+        String anyname = "$" + varname;
+        ps.print( "\t\torg.omg.CORBA.Any " + anyname + " = " +  reqname);
+        switch (this.paramAttribute) {
+        case ParamDecl.MODE_OUT:
+            ps.println(".add_out_arg();");
+            varname = varname + ".value";
+            break;
+        case ParamDecl.MODE_IN:
+            ps.println(".add_in_arg();");
+            break;
+        case ParamDecl.MODE_INOUT:
+            ps.println(".add_inout_arg();");
+            varname = varname + ".value";
+            break;
+        default:
+            throw new ParseException("Wrong parameter declaration");
+        }
+        paramTypeSpec.typeSpec().printInsertIntoAny(ps, anyname, varname);
+    }
+
+    /**
+     * @param ps
+     * @param string
+     */
+    public void printExtractArgumentStatement(PrintWriter ps)
+    {
+        String varname = this.simple_declarator.toString();
+        String anyname = "$" + varname;
+
+        paramTypeSpec.typeSpec().printExtractResult(ps, varname + ".value", anyname, paramTypeSpec.toString());
+    }
+
 
     public void accept( IDLTreeVisitor visitor )
     {
