@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.41 2004-10-18 11:07:31 simon.mcqueen Exp $
+ * @version $Id: ValueDecl.java,v 1.42 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 public class ValueDecl
@@ -317,6 +317,10 @@ public class ValueDecl
     public String holderName()
     {
         return javaName() + "Holder";
+    }
+
+    public String helperName() {
+        return javaName() + "Helper";
     }
 
     public String typeName()
@@ -828,6 +832,19 @@ public class ValueDecl
         }
     }
 
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname) {
+        ps.println( "\t\t" + anyname + ".insert_Value(" + varname + ", "+ varname +"._type());");
+    }
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        ps.println("\t\t" + resultname + " = (" + resulttype + ")" + anyname + ".extract_Value();");
+    }
 
     /**
      */

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.47 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.48 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 public class AliasTypeSpec
@@ -499,6 +499,23 @@ public class AliasTypeSpec
         ps.println("\t\t" + originalType.printWriteStatement("_s", "_out"));
         ps.println("\t}");
         ps.println("}");
+    }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        String helpername = className() + "Helper";
+        ps.println("\t\t" + pack_name + "." + helpername + ".insert(" + anyname + ", " + varname + " );");
+    }
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        String helpername = className() + "Helper";
+        ps.println("\t\t" + resultname + " = " + pack_name + "." + helpername + ".extract(" + anyname + ");");
     }
 
     public void accept(IDLTreeVisitor visitor)

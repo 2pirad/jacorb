@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.45 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: StructType.java,v 1.46 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 public class StructType
@@ -271,6 +271,11 @@ public class StructType
     public String holderName()
     {
         return getJavaTypeName() + "Holder";
+    }
+
+    public String helperName()
+    {
+        return getJavaTypeName() + "Helper";
     }
 
     /**
@@ -663,6 +668,23 @@ public class StructType
                 throw new RuntimeException("File IO error" + i);
             }
         }
+    }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        ps.println("\t\t" + pack_name + "." + className() + "Helper.insert(" + anyname + ", " + varname + ");");
+    }
+
+
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        ps.println("\t\t" + resultname + " = " + pack_name + "." + className() + "Helper.extract(" + anyname + ");");
     }
 
     public void accept(IDLTreeVisitor visitor)

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderTypeSpec.java,v 1.8 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ExceptionHolderTypeSpec.java,v 1.9 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -123,6 +123,22 @@ public class ExceptionHolderTypeSpec
         return "(" + typeName() + ")"
                 + "((org.omg.CORBA_2_3.portable.InputStream)" + streamname + ")"
                 + ".read_value (\"" + id() + "\")";
+    }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        throw new RuntimeException( "Should not be called" );
+    }
+
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        throw new RuntimeException( "Should not be called" );
     }
 
 }

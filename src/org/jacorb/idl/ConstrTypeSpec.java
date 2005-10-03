@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.21 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.22 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -147,6 +147,11 @@ public class ConstrTypeSpec
         return c_type_spec.holderName();
     }
 
+    public String helperName() throws NoHelperException {
+        return c_type_spec.helperName();
+    }
+
+
     public String printReadExpression( String streamname )
     {
         return c_type_spec.printReadExpression( streamname );
@@ -171,6 +176,24 @@ public class ConstrTypeSpec
     {
         return c_type_spec.declaration().id();
     }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        c_type_spec.printInsertIntoAny(ps, anyname, varname);
+    }
+
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        c_type_spec.printExtractResult(ps, resultname, anyname, resulttype);
+    }
+
+
 
     /**
      */

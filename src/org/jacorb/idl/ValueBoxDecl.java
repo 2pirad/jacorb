@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.29 2005-03-08 11:49:36 andre.spiegel Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.30 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 public class ValueBoxDecl
@@ -423,6 +423,27 @@ public class ValueBoxDecl
             }
         }
     }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        ps.println("\t\t" + anyname + ".type(" + getTypeCodeExpression() +");");
+        ps.println("\t\t" + helperName() + ".write(" + anyname + ".create_output_stream()," + varname + ");");
+
+
+
+    }
+
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        ps.println("\t\t" + resultname + " = (" + resulttype + ")" + anyname + ".extract_Value();");
+    }
+
 
     public void accept(IDLTreeVisitor visitor)
     {

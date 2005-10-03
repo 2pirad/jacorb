@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.60 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: Interface.java,v 1.61 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 import java.io.File;
@@ -187,6 +187,11 @@ public class Interface
     public String holderName()
     {
         return toString() + "Holder";
+    }
+
+    public String helperName()
+    {
+        return toString() + "Helper";
     }
 
     public String toString()
@@ -1383,6 +1388,41 @@ public class Interface
             if (replyHandler != null)
                 replyHandler.print (_ps);
         }
+    }
+
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        if (is_abstract)
+        {
+            throw new RuntimeException("DII stubs not yet implemented for abstract interfaces");
+            /*
+            ps.println("\t\tif (s instanceof org.omg.CORBA.Object)");
+            ps.println("\t\t{");
+            ps.println("\t\t\tany.insert_Object((org.omg.CORBA.Object)s);");
+            ps.println("\t\t}");
+            ps.println("\t\telse if (s instanceof java.io.Serializable)");
+            ps.println("\t\t{");
+            ps.println("\t\t\tany.insert_Value((java.io.Serializable)s);");
+            ps.println("\t\t}");
+            ps.println("\t\telse");
+            ps.println("\t\t{");
+            ps.println("\t\t\tthrow new org.omg.CORBA.BAD_PARAM(\"Failed to insert in helper\");");
+            ps.println("\t\t}"); */
+        }
+        else
+        {
+            ps.println( "\t\t" + anyname + ".insert_Object(" + varname + ");");
+        }
+    }
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype) {
+        ps.println("\t\t" + resultname + " = " + helperName() + ".extract(" + anyname + ");" );
     }
 
     public void accept(IDLTreeVisitor visitor)

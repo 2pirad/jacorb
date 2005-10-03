@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeCodeTypeSpec.java,v 1.12 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: TypeCodeTypeSpec.java,v 1.13 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -99,6 +99,23 @@ public class TypeCodeTypeSpec
     public String printWriteStatement( String var_name, String streamname )
     {
         return streamname + ".write_TypeCode(" + var_name + ");";
+    }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        ps.println( "\t\t" + anyname + ".insert_TypeCode(" + varname + ");");
+    }
+
+
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        ps.println("\t\t" + resultname + " = (" + resulttype + ")" + anyname + ".extract_TypeCode();");
     }
 
 }

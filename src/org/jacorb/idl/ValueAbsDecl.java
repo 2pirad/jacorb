@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.20 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.21 2005-10-03 21:13:22 andre.spiegel Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -109,6 +109,10 @@ public class ValueAbsDecl
     public String holderName()
     {
         return javaName() + "Holder";
+    }
+
+    public String helperName() throws NoHelperException {
+        throw new NoHelperException();
     }
 
     public String toString()
@@ -376,6 +380,21 @@ public class ValueAbsDecl
                 throw new RuntimeException("File IO error" + i);
             }
         }
+    }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        ps.println( "\t\t" + anyname + ".insert_Value(" + varname + ", " + varname + "._type());");
+    }
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        ps.println("\t\t" + resultname + " = (" + resulttype + ")" + anyname + ".extract_Value();");
     }
 
     public void accept(IDLTreeVisitor visitor)

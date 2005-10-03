@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.36 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: SequenceType.java,v 1.37 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 public class SequenceType
@@ -568,4 +568,22 @@ public class SequenceType
             throw new RuntimeException("File IO error" + i);
         }
     }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        ps.println("\t" + helperName() + ".insert(" + anyname + ", " + varname + " );");
+
+    }
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+       throw new RuntimeException("DII Stubs not yet complete for Sequence types");
+    }
+
+
 }

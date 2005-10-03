@@ -20,13 +20,14 @@
 
 package org.jacorb.idl;
 
+import java.io.PrintWriter;
 
 /**
  * Common super class for arrays and sequences
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.13 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: VectorType.java,v 1.14 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 
@@ -163,6 +164,22 @@ public abstract class VectorType
     public abstract String holderName();
 
     public abstract String helperName();
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        throw new RuntimeException ("Not yet implemented");
+    }
+
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        throw new RuntimeException ("Not yet implemented");
+    }
 
 
     public String toString()

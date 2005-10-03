@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.33 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: EnumType.java,v 1.34 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 public class EnumType
@@ -184,6 +184,11 @@ public class EnumType
     public String holderName()
     {
         return typeName() + "Holder";
+    }
+
+    public String helperName()
+    {
+        return typeName() + "Helper";
     }
 
 
@@ -449,6 +454,23 @@ public class EnumType
     {
         return true;
     }
+
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        ps.println("\t\t" + pack_name + "." + className() + "Helper.insert(" + anyname + ", " + varname + ");");
+    }
+
+
+    public void printExtractResult(PrintWriter ps,
+                                    String resultname,
+                                    String anyname,
+                                    String resulttype)
+    {
+        ps.println("\t\t" + resultname + " = " + pack_name + "." + className() + "Helper.extract(" + anyname + ");");
+    }
+
 
     /**
      */

@@ -20,9 +20,11 @@
 
 package org.jacorb.idl;
 
+import java.io.PrintWriter;
+
 /**
  * @author Gerald Brose
- * @version $Id: AnyType.java,v 1.15 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: AnyType.java,v 1.16 2005-10-03 21:13:22 andre.spiegel Exp $
  */
 
 public class AnyType
@@ -92,6 +94,21 @@ public class AnyType
         return strname + ".write_any(" + var_name + ");";
     }
 
+    public void printInsertIntoAny(PrintWriter ps,
+                                   String anyname,
+                                   String varname)
+    {
+        ps.println( "\t\t" + anyname + ".insert_any(" + varname + ");");
+    }
+
+    public void printExtractResult(PrintWriter ps,
+                                   String resultname,
+                                   String anyname,
+                                   String resulttype)
+    {
+        ps.println("\t\t" + resultname + " = (" + resulttype + ")" + anyname + ".extract_any();");
+    }
+ 
 }
 
 
