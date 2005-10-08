@@ -22,7 +22,6 @@
 package org.jacorb.notification.impl;
 
 import org.apache.avalon.framework.configuration.Configuration;
-import org.jacorb.notification.filter.ETCLEvaluator;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.interfaces.EvaluationContextFactory;
 import org.jacorb.notification.util.AbstractObjectPool;
@@ -30,27 +29,25 @@ import org.jacorb.notification.util.AbstractPoolable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PoolingEvaluationContextFactory.java,v 1.2 2005-04-16 23:29:53 alphonse.bendt Exp $
+ * @version $Id: PoolingEvaluationContextFactory.java,v 1.3 2005-10-08 11:06:12 alphonse.bendt Exp $
  */
 public class PoolingEvaluationContextFactory implements EvaluationContextFactory
 {
     private final AbstractObjectPool evaluationContextPool_;
-
+    
     public PoolingEvaluationContextFactory(final Configuration configuration,
-            	final ETCLEvaluator evaluator)
+            	final EvaluationContextFactory delegate)
     {
         evaluationContextPool_ = new AbstractObjectPool("EvaluationContextPool")
         {
             public Object newInstance()
             {
-                return new EvaluationContext(evaluator);
+                return delegate.newEvaluationContext();
             }
 
             public void activateObject(Object o)
             {
                 AbstractPoolable obj = (AbstractPoolable) o;
-                // todo check if configure can be called from AbstractObjectPool
-              //  obj.configure(configuration);
                 obj.reset();
                 obj.setObjectPool(this);
             }
