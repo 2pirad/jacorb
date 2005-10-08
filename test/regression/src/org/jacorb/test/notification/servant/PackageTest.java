@@ -27,13 +27,13 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.4 2005-10-08 11:06:36 alphonse.bendt Exp $
  */
 public class PackageTest extends TestCase
 {
     public static Test suite() throws Exception
     {
-        TestSuite suite = new TestSuite();
+        TestSuite suite = new TestSuite("Tests in package org.jacorb.test.notification.servant");
         
         suite.addTest(ProxyPushSupplierImplTest.suite());
         suite.addTest(StructuredProxyPushSupplierImplTest.suite());
