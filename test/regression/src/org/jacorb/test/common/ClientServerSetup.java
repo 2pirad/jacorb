@@ -75,7 +75,7 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.21 2005-05-16 17:35:20 andre.spiegel Exp $
+ * @version $Id: ClientServerSetup.java,v 1.22 2005-10-08 18:03:58 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -166,7 +166,13 @@ public class ClientServerSetup extends TestSetup {
                                           "ERR");
         outListener.start();
         errListener.start();
-        String ior = outListener.getIOR();
+        String ior = outListener.getIOR(5000);
+        if (ior == null)
+        {
+            String exc = errListener.getException(1000);
+            
+            fail("could not access IOR. cause maybe: " + exc);
+        }
         serverObject = clientOrb.string_to_object(ior);
     }
 

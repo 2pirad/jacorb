@@ -29,14 +29,15 @@ import java.io.*;
  * that allows you to capture an IOR from the <code>InputStream</code>.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: StreamListener.java,v 1.4 2005-05-16 11:40:15 andre.spiegel Exp $
+ * @version $Id: StreamListener.java,v 1.5 2005-10-08 18:03:58 alphonse.bendt Exp $
  */
 public class StreamListener extends Thread
 {
     private BufferedReader in = null;
     private String id = null;
     private String ior = null;
-
+    private String exception = null;
+    
     public StreamListener(InputStream stream, String id)
     {
         this.in = new BufferedReader(new InputStreamReader(stream));
@@ -48,27 +49,49 @@ public class StreamListener extends Thread
      * This method blocks until a line of the form "SERVER IOR: <IOR>"
      * is received from the InputStream.
      */
-    public String getIOR()
+    public String getIOR(long timeout)
     {
-        while (true)
+        long waitUntil = System.currentTimeMillis() + timeout;
+
+        synchronized (this)
         {
-            synchronized (this)
+            while (ior == null && System.currentTimeMillis() < waitUntil)
             {
-                if (this.ior != null)
-                    return this.ior;
-                else
-                    try
-                    {
-                        this.wait();
-                    }
-                    catch (InterruptedException ex)
-                    {
-                        // ignore
-                    }
+                try
+                {
+                    this.wait(timeout);
+                } catch (InterruptedException ex)
+                {
+                    // ignore
+                }
             }
+
+            return ior;
         }
     }
+    
 
+    public String getException(long timeout)
+    {
+        long waitUntil = System.currentTimeMillis() + timeout;
+        
+        synchronized(this)
+        {
+            while(exception == null && System.currentTimeMillis() < waitUntil)
+            {
+                try
+                {
+                    wait(timeout);
+                } catch (InterruptedException e)
+                {
+                    // ignore
+                }
+            }
+            
+            return exception;
+        }
+    }
+    
     public void run()
     {
         while (true)
@@ -87,6 +110,15 @@ public class StreamListener extends Thread
                         this.ior = line.substring(12);
                         this.notifyAll();
                     }
+                }
+                else if (line.indexOf("Exception") >=0 )
+                {
+                    synchronized(this)
+                    {
+                        exception = line;
+                        notifyAll();
+                    }
+                    System.out.println("[ SERVER " + id + " " + line + " ]");
                 }
                 else
                 {
