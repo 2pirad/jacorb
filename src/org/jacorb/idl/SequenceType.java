@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.37 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: SequenceType.java,v 1.38 2005-10-09 21:23:25 alphonse.bendt Exp $
  */
 
 public class SequenceType
@@ -317,7 +317,7 @@ public class SequenceType
         if (max != null)
         {
             max.parse();
-            length = Integer.parseInt(max.value());
+            length = max.pos_int_const();
 
         }
 
