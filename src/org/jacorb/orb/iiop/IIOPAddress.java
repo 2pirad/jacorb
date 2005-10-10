@@ -30,7 +30,7 @@ import org.jacorb.orb.CDRInputStream;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddress.java,v 1.1 2005-09-27 20:52:18 phil.mesnier Exp $
+ * @version $Id: IIOPAddress.java,v 1.2 2005-10-10 21:36:39 phil.mesnier Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -219,15 +219,6 @@ public class IIOPAddress
         String hostname = cdr.read_string();
         short port = cdr.read_ushort();
         return new IIOPAddress (hostname,port);
-    }
-
-    public byte[] toCDR()
-    {
-    	CDROutputStream out = new CDROutputStream();
-    	out.beginEncapsulatedArray();
-    	out.write_string(getIP());
-    	out.write_ushort((short)port);
-    	return out.getBufferCopy();
     }
 
     /**
