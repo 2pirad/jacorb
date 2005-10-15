@@ -34,7 +34,7 @@ import org.jacorb.test.common.TestUtils;
  * will fail if JacIDL does not cause an error during processing.
  * 
  * @author Alphonse Bendt
- * @version $Id: ParseInvalidIDLTest.java,v 1.1 2005-10-09 21:22:37 alphonse.bendt Exp $
+ * @version $Id: ParseInvalidIDLTest.java,v 1.2 2005-10-15 20:05:22 alphonse.bendt Exp $
  */
 public class ParseInvalidIDLTest extends AbstractIDLTestcase
 {
@@ -46,6 +46,10 @@ public class ParseInvalidIDLTest extends AbstractIDLTestcase
     public void testParseInvalidIDLFails() 
     {
         runJacIDL(true);
+        // if a test fails the directory 
+        // will not be deleted. this way
+        // the contents can be inspected.
+        deleteRecursively(dirGeneration);
     }
 
     public static Test suite()
