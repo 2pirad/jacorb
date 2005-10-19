@@ -51,12 +51,17 @@ import bsh.Interpreter;
  * <code>jacorb.notification.filter.plugin.BSH=org.jacorb.notification.filter.bsh.BSHFilter</code>
  * 
  * @author Alphonse Bendt
- * @version $Id: BSHFilter.java,v 1.3 2005-10-02 15:12:15 alphonse.bendt Exp $
+ * @version $Id: BSHFilter.java,v 1.4 2005-10-19 22:18:20 alphonse.bendt Exp $
  */
 public class BSHFilter extends AbstractFilter
 {
     public static final String CONSTRAINT_GRAMMAR = "BSH";
 
+    /**
+     * as instances of this class will be created using picocontainer the class
+     * can specify its dependencies in the constructor. picocontainer will fill
+     * in the appropiate values (as long as they are registered).
+     */
     public BSHFilter(Configuration config, EvaluationContextFactory evaluationContextFactory,
             MessageFactory messageFactory, ORB orb, POA poa) throws ConfigurationException
     {
