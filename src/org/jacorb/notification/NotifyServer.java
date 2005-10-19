@@ -20,25 +20,16 @@ package org.jacorb.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.io.File;
 import java.util.Properties;
 
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.imr.util.ImRManager;
 import org.jacorb.notification.conf.Attributes;
-import org.omg.CORBA.IntHolder;
-import org.omg.CosNotification.Property;
-import org.picocontainer.MutablePicoContainer;
-import org.picocontainer.defaults.CachingComponentAdapterFactory;
-import org.picocontainer.defaults.ComponentAdapterFactory;
-import org.picocontainer.defaults.ConstructorInjectionComponentAdapterFactory;
-import org.picocontainer.defaults.DefaultPicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotifyServer.java,v 1.1 2005-10-12 13:08:16 david.robison Exp $
+ * @version $Id: NotifyServer.java,v 1.2 2005-10-19 22:16:55 alphonse.bendt Exp $
  */
 
 public class NotifyServer
