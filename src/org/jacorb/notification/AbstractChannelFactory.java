@@ -73,7 +73,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.16 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.17 2005-10-19 22:17:10 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -612,8 +612,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
             return;
         }
 
-        namingContext_ = NamingContextHelper.narrow(getORB().resolve_initial_references(
-                "NameService"));
+        namingContext_ = NamingContextHelper.narrow(getORB().resolve_initial_references("NameService"));
 
         NameComponent[] _name = new NameComponent[] { new NameComponent(nameId, nameKind) };
 
@@ -633,8 +632,11 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
         {
             if (registeredName_ != null)
             {
-                logger_.info("namingContext.unbind(" + format(registeredName_) + ")");
-
+                if (logger_.isInfoEnabled())
+                {
+                    logger_.info("namingContext.unbind(" + format(registeredName_) + ")");
+                }
+                
                 namingContext_.unbind(registeredName_);
 
                 registeredName_ = null;
