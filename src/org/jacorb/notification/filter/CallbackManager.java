@@ -37,7 +37,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CallbackManager.java,v 1.3 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: CallbackManager.java,v 1.4 2005-10-19 22:18:04 alphonse.bendt Exp $
  */
 public class CallbackManager extends EventTypeSet implements Disposable
 {
@@ -106,7 +106,7 @@ public class CallbackManager extends EventTypeSet implements Disposable
         }
     }
     
-    public void replaceWith(EventType[] replacement) throws InterruptedException
+    public void replaceWith(EventType[] replacement)
     {
         changeSet(replacement, getAllTypes());
     }
