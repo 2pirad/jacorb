@@ -44,7 +44,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.101 2005-06-26 21:11:56 francisco Exp $
+ * @version $Id: CDROutputStream.java,v 1.102 2005-10-21 21:10:33 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -697,9 +697,9 @@ public class CDROutputStream
 
     public final void increaseSize(final  int amount)
     {
-        pos += amount;
-
         check( amount );
+        
+        pos += amount;
     }
 
     public void setBuffer(final byte[] b)
