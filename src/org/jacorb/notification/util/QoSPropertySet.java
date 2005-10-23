@@ -61,7 +61,7 @@ import org.omg.TimeBase.TimeTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: QoSPropertySet.java,v 1.8 2005-04-10 14:30:31 alphonse.bendt Exp $
+ * @version $Id: QoSPropertySet.java,v 1.9 2005-10-23 19:11:25 alphonse.bendt Exp $
  */
 
 public class QoSPropertySet extends PropertySet
@@ -76,7 +76,6 @@ public class QoSPropertySet extends PropertySet
     private static final Set sValidChannelQoSNames_;
     private static final Set sValidAdminQoSNames_;
     private static final Set sValidProxyQoSNames_;
-    private static final Set sValidMessageQoSNames_;
 
     private static final Any connectionReliabilityLow_;
     private static final Any connectionReliabilityHigh_;
@@ -150,8 +149,6 @@ public class QoSPropertySet extends PropertySet
         _validMessageQoS.add(StopTime.value);
         _validMessageQoS.add(Timeout.value);
 
-        sValidMessageQoSNames_ = Collections.unmodifiableSet(_validMessageQoS);
-        
         ////////////////////
 
         connectionReliabilityHigh_ = sORB.create_any();
