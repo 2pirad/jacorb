@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterConsumerAdminTask.java,v 1.19 2005-08-21 13:30:16 alphonse.bendt Exp $
+ * @version $Id: FilterConsumerAdminTask.java,v 1.20 2005-10-23 19:10:50 alphonse.bendt Exp $
  */
 
 public class FilterConsumerAdminTask extends AbstractFilterTask
@@ -85,7 +85,7 @@ public class FilterConsumerAdminTask extends AbstractFilterTask
         pushToConsumers();
     }
 
-    private void pushToConsumers() throws InterruptedException
+    private void pushToConsumers()
     {
         // if we are filtering Outgoing events its
         // possible that deliveries can be made as soon as
