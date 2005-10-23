@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractBoundedEventQueue.java,v 1.9 2005-08-21 13:32:36 alphonse.bendt Exp $
+ * @version $Id: AbstractBoundedEventQueue.java,v 1.10 2005-10-23 19:12:02 alphonse.bendt Exp $
  */
 
 public abstract class AbstractBoundedEventQueue implements MessageQueue
@@ -66,7 +66,7 @@ public abstract class AbstractBoundedEventQueue implements MessageQueue
 
     protected abstract Message[] getElements(int max);
 
-    protected abstract void addElement(Message event);
+    protected abstract void addElement(Message message);
 
     protected abstract Message[] getAllElements();
 
