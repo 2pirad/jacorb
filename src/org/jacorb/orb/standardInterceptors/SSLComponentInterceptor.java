@@ -32,7 +32,7 @@ import org.jacorb.orb.*;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.19 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.20 2005-10-25 17:55:55 andre.spiegel Exp $
  */
 
 public class SSLComponentInterceptor
@@ -122,7 +122,7 @@ public class SSLComponentInterceptor
 
                 SSLHelper.write( sslDataStream , ssl );
 
-                tc = new TaggedComponent( TAG_SSL_SEC_TRANS.value,
+                tc = new TaggedComponent( org.omg.SSLIOP.TAG_SSL_SEC_TRANS.value,
                                           sslDataStream.getBufferCopy() );
 
                 sslDataStream.close ();
