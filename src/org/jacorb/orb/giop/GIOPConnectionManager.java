@@ -28,7 +28,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.10 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.11 2005-10-25 12:27:49 andre.spiegel Exp $
  */
 
 public class GIOPConnectionManager 
@@ -206,6 +206,29 @@ public class GIOPConnectionManager
                 logger.warn("ConfigurationException", ce);
         }
         return connection;
+    }
+    
+    /**
+     * Closes all server-side GIOP connections.
+     */
+    public void shutdown()
+    {
+        List connections = null;
+        synchronized (server_giop_connections)
+        {
+            connections = new ArrayList (server_giop_connections);
+        }
+
+        if (logger.isDebugEnabled())
+            logger.debug ("GIOPConnectionManager.shutdown(), " + 
+                          connections.size() + " connections");
+
+        for (Iterator i=connections.iterator(); i.hasNext();)
+        {
+            ServerGIOPConnection c = (ServerGIOPConnection)i.next();
+            c.tryClose();
+        }
+        
     }
 
     private StatisticsProvider getStatisticsProvider()
