@@ -58,7 +58,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.127 2005-09-27 20:56:10 phil.mesnier Exp $
+ * @version $Id: ORB.java,v 1.128 2005-10-25 12:29:10 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -1738,6 +1738,10 @@ public final class ORB
             logger.debug("ORB going shutdown (cleaning up ORB...)");
         }
 
+        if (giop_connection_manager != null)
+        {
+            giop_connection_manager.shutdown();
+        }
         clientConnectionManager.shutdown();
         knownReferences.clear();
         bufferManager.release();
