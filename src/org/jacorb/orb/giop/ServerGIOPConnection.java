@@ -29,7 +29,7 @@ import org.jacorb.orb.iiop.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.15 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.16 2005-10-25 14:29:51 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -82,6 +82,10 @@ public class ServerGIOPConnection
     {
         if( tryDiscard() )
         {
+            if (logger.isDebugEnabled())
+                logger.debug("ServerGIOPConnection.tryClose() " +
+                             this.toString() + " will send close connection");
+                
             sendCloseConnection();
 
             closeOnReadTimeout = true;
@@ -95,6 +99,10 @@ public class ServerGIOPConnection
         }
         else
         {
+            if (logger.isDebugEnabled())
+                logger.debug("ServerGIOPConnection.tryClose() " +
+                             this.toString() + " cannot close connection");
+                
             return false;
         }
     }
