@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.48 2005-08-17 21:16:23 phil.mesnier Exp $
+ * @version $Id: GIOPConnection.java,v 1.49 2005-10-25 14:26:57 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -280,11 +280,15 @@ public abstract class GIOPConnection
         }
         catch (org.omg.CORBA.COMM_FAILURE ex)
         {
+            if (logger.isDebugEnabled())
+                logger.debug("GIOPConnection.getMessage(): COMM_FAILURE");
             this.streamClosed();
             return null;
         }
         catch (org.omg.CORBA.TIMEOUT ex)
         {
+            if (logger.isDebugEnabled())
+                logger.debug("GIOPConnection.getMessage(): TIMEOUT");
             this.readTimedOut();
             return null;
         }
@@ -813,8 +817,17 @@ public abstract class GIOPConnection
 
                 synchronized (connect_sync)
                 {
-                    transport.connect (profile, timeout);
-                    connect_sync.notifyAll();
+                    try
+                    {
+                        transport.connect (profile, timeout);
+                        connect_sync.notifyAll();
+                    }
+                    catch (RuntimeException ex)
+                    {
+                        do_close = true;
+                        connect_sync.notifyAll();
+                        throw ex;
+                    }
                 }
 
             }
