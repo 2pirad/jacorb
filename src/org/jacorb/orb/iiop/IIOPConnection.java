@@ -31,7 +31,7 @@ import org.apache.avalon.framework.logger.Logger;
  * Created: Sun Aug 12 20:18:47 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.8 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: IIOPConnection.java,v 1.9 2005-10-25 14:31:13 andre.spiegel Exp $
  */
 
 public abstract class IIOPConnection
@@ -56,7 +56,7 @@ public abstract class IIOPConnection
         return use_ssl;
     }
 
-    protected void setTimeout(int timeout)
+    protected synchronized void setTimeout(int timeout)
     {
         if (socket != null)
         {
