@@ -36,7 +36,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.15 2005-09-27 20:52:18 phil.mesnier Exp $
+ * @version $Id: IIOPProfile.java,v 1.16 2005-10-25 17:54:10 andre.spiegel Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase
@@ -192,8 +192,10 @@ public class IIOPProfile
             out.beginEncapsulatedArray();
             SSLHelper.write( out, ssl );
 
+            // TAG_SSL_SEC_TRANS must be disambiguated in case OpenORB-generated
+            // OMG classes are in the classpath.
             components.addComponent
-                (new TaggedComponent( TAG_SSL_SEC_TRANS.value,
+                (new TaggedComponent( org.omg.SSLIOP.TAG_SSL_SEC_TRANS.value,
                                       out.getBufferCopy() )
                  );
         }
@@ -336,7 +338,9 @@ public class IIOPProfile
 
     public SSL getSSL()
     {
-        return (SSL)components.getComponent( TAG_SSL_SEC_TRANS.value,
+        // TAG_SSL_SEC_TRANS must be disambiguated in case OpenORB-generated
+        // OMG classes are in the classpath.
+        return (SSL)components.getComponent( org.omg.SSLIOP.TAG_SSL_SEC_TRANS.value,
                                              SSLHelper.class );
     }
 
