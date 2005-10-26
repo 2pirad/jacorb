@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.56 2005-10-26 09:29:09 andre.spiegel Exp $
+ * @version $Id: ClientConnection.java,v 1.57 2005-10-26 10:38:50 andre.spiegel Exp $
  */
 
 public class ClientConnection
@@ -249,6 +249,13 @@ public class ClientConnection
         return result;
     }
 
+    /**
+     * Returns the number of clients currently using this connection.
+     */
+    public int numClients() 
+    {
+        return client_count;
+    }
 
     public boolean isClientInitiated()
     {
