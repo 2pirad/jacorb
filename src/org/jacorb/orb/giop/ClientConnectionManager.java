@@ -42,7 +42,7 @@ import org.jacorb.util.ObjectUtil;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.21 2005-02-09 09:51:18 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.22 2005-10-26 10:42:52 andre.spiegel Exp $
  *
  */
 
@@ -183,11 +183,25 @@ public class ClientConnectionManager
      */
     public synchronized void releaseConnection( ClientConnection c )
     {
-        // hasNoMoreClients now merged into decClients.
         if ( c.decClients() )
         {
+            if (logger.isDebugEnabled())
+            {
+                logger.debug ("releasing connection to " + c.getInfo());
+            }
             c.close();
             connections.remove(c.getRegisteredProfile());
+        }
+        else
+        {
+            // not sure if this should be a warning or even an error
+            if (logger.isDebugEnabled())
+            {
+                logger.debug ("cannot release connection to " 
+                              + c.getInfo() + 
+                              " (still has " + c.numClients()
+                              + " clients)");
+            }
         }
     }
 
