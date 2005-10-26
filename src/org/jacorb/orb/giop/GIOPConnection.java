@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.49 2005-10-25 14:26:57 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.50 2005-10-26 10:21:34 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -239,10 +239,19 @@ public abstract class GIOPConnection
          }
     }
 
-
+    /**
+     * Called by this.getMessage() to signal that the attempt to
+     * read a message resulted in a timeout.  This method is implemented
+     * differently on the client and server side.
+     */
     protected abstract void readTimedOut();
-    protected abstract void streamClosed();
 
+    /**
+     * Called by this.getMessage() to signal that the underlying transport
+     * was closed while attempting to read a message.  This method is
+     * implemented differently on the client and server side.
+     */
+    protected abstract void streamClosed();
 
     /**
      * Read a GIOP message from the stream. This will first try to
