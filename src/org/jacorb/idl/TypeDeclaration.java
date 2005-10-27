@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.25 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: TypeDeclaration.java,v 1.26 2005-10-27 21:23:53 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
@@ -50,7 +50,7 @@ public class TypeDeclaration
     public TypeDeclaration declaration()
     {
         return type_decl;
-    };
+    }
 
     public String typeName()
     {
@@ -148,7 +148,11 @@ public class TypeDeclaration
     }
 
     public String helperName() throws NoHelperException {
-        System.out.println("TypeDecl.helperName() for "+this.getClass());
+        if (type_decl == null)
+        {
+            throw new NoHelperException();
+        }
+        
         return type_decl.helperName();
     }
 
