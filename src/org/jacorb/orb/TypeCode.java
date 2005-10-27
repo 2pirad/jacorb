@@ -34,7 +34,7 @@ import org.omg.CORBA.ValueMember;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.39 2004-10-18 13:12:41 simon.mcqueen Exp $
+ * @version $Id: TypeCode.java,v 1.40 2005-10-27 21:31:58 alphonse.bendt Exp $
  */
 
 public class TypeCode
@@ -380,6 +380,7 @@ public class TypeCode
         value_modifier = type_modifier;
         content_type = concrete_base;
         setValueMembers(members);
+        resolveRecursion(this);
     }
 
     /**
@@ -1470,6 +1471,12 @@ public class TypeCode
                   {
                      tc.resolveRecursion (actual);
                   }
+               }
+               break;
+            case  -1: // create_recursive_tc sets kind to -1
+               if (tc.id.equals (actual.id))
+               {
+                   tc.setActualTC (actual);
                }
                break;
             }
