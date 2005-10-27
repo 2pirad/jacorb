@@ -21,24 +21,19 @@ package org.jacorb.notification;
  *
  */
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.tanukisoftware.wrapper.WrapperListener;
 import org.tanukisoftware.wrapper.WrapperManager;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WrapperMain.java,v 1.3 2005-08-21 16:57:46 alphonse.bendt Exp $
+ * @version $Id: WrapperMain.java,v 1.4 2005-10-27 21:35:35 alphonse.bendt Exp $
  */
 
 public class WrapperMain implements WrapperListener
 {
-    private static final Runnable CMD_WRAPPERMANAGER_STOP = new Runnable()
-    {
-        public void run()
-        {
-            WrapperManager.stop(0);
-        }
-    };
-    
     private static final EventChannelFactoryImpl.ShutdownCallback WRAPPERMANAGER_BEGIN_SHUTDOWN = new EventChannelFactoryImpl.ShutdownCallback()
     {
         public void needTime(int time)
@@ -54,16 +49,10 @@ public class WrapperMain implements WrapperListener
 
     private AbstractChannelFactory application_;
 
-    // //////////////////////////////////////
-
     private WrapperMain()
     {
         super();
     }
-
-    // //////////////////////////////////////
-
-    // Implementation of org.tanukisoftware.wrapper.WrapperListener
 
     public Integer start(String[] args)
     {
@@ -71,12 +60,15 @@ public class WrapperMain implements WrapperListener
         {
             application_ = ConsoleMain.newFactory(args);
 
-           // application_.setDestroyMethod(CMD_WRAPPERMANAGER_STOP);
-
             return null;
         } catch (Exception e)
         {
-            e.printStackTrace();
+            final StringWriter stringWriter = new StringWriter();
+            final PrintWriter printWriter = new PrintWriter(stringWriter);
+            e.printStackTrace(printWriter);
+            printWriter.flush();
+            printWriter.close();
+            WrapperManager.log(WrapperManager.WRAPPER_LOG_LEVEL_FATAL, stringWriter.toString());
 
             return new Integer(1);
         }
