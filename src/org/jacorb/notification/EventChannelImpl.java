@@ -48,13 +48,13 @@ import org.omg.PortableServer.Servant;
 import org.picocontainer.MutablePicoContainer;
 
 /**
- * @jmx:mbean name="EventChannelMBean" description="Control an EventChannel"
+ * @jmx.mbean name="EventChannelMBean" description="Control an EventChannel"
  * extends = "AbstractEventChannelMBean"
  * 
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: EventChannelImpl.java,v 1.29 2005-08-21 13:29:03 alphonse.bendt Exp $
+ * @version $Id: EventChannelImpl.java,v 1.30 2005-10-27 21:34:18 alphonse.bendt Exp $
  */
 
 public class EventChannelImpl extends AbstractEventChannel implements EventChannelOperations, EventChannelImplMBean
