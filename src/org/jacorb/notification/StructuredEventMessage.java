@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Adapts a StructuredEvent to the Message Interface.
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessage.java,v 1.18 2005-08-21 13:29:03 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessage.java,v 1.19 2005-10-27 21:34:52 alphonse.bendt Exp $
  */
 
 public class StructuredEventMessage extends AbstractMessage
@@ -60,8 +60,6 @@ public class StructuredEventMessage extends AbstractMessage
     private StructuredEvent structuredEventValue_;
 
     private Property[] typedEventValue_;
-
-    private boolean isTranslationPossible_ = true;
 
     private String constraintKey_;
 
@@ -74,6 +72,8 @@ public class StructuredEventMessage extends AbstractMessage
     private boolean isTimeoutSet_;
 
     private short priority_;
+
+    private NoTranslationException translationException_ = null;
 
     // //////////////////////////////////////
 
@@ -96,11 +96,11 @@ public class StructuredEventMessage extends AbstractMessage
         anyValue_ = null;
         structuredEventValue_ = null;
         typedEventValue_ = null;
-        isTranslationPossible_ = true;
         constraintKey_ = null;
         startTime_ = null;
         stopTime_ = null;
         priority_ = 0;
+        translationException_ = null;
     }
 
     public int getType()
@@ -126,9 +126,9 @@ public class StructuredEventMessage extends AbstractMessage
 
     public synchronized Property[] toTypedEvent() throws NoTranslationException
     {
-        if (!isTranslationPossible_)
+        if (translationException_ != null)
         {
-            throw new NoTranslationException();
+            throw translationException_;
         }
 
         if (typedEventValue_ == null)
@@ -149,9 +149,8 @@ public class StructuredEventMessage extends AbstractMessage
                 typedEventValue_ = structuredEventValue_.filterable_data;
             } catch (Exception e)
             {
-                isTranslationPossible_ = false;
-
-                throw new NoTranslationException(e);
+                translationException_ = new NoTranslationException(e);
+                throw translationException_;
             }
         }
 

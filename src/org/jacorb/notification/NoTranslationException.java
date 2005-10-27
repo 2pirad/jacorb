@@ -22,18 +22,13 @@ package org.jacorb.notification;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NoTranslationException.java,v 1.4 2005-05-04 13:21:22 alphonse.bendt Exp $
+ * @version $Id: NoTranslationException.java,v 1.5 2005-10-27 21:34:52 alphonse.bendt Exp $
  */
 
 public class NoTranslationException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
-    public NoTranslationException()
-    {
-        super();
-    }
-    
     public NoTranslationException(Exception cause)
     {
         super(cause.getMessage());

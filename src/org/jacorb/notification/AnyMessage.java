@@ -41,7 +41,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.14 2005-08-21 13:06:42 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.15 2005-10-27 21:34:52 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
@@ -79,8 +79,8 @@ public class AnyMessage extends AbstractMessage
 
     private Property[] typedEventValue_;
 
-    private boolean isTranslationPossible_ = true;
-
+    private NoTranslationException translationException_ = null;
+    
     ////////////////////////////////////////
 
     public synchronized void setAny( Any any )
@@ -96,7 +96,7 @@ public class AnyMessage extends AbstractMessage
         anyValue_ = null;
         structuredEventValue_ = null;
         typedEventValue_ = null;
-        isTranslationPossible_ = true;
+        translationException_ = null;
     }
 
 
@@ -114,8 +114,8 @@ public class AnyMessage extends AbstractMessage
 
     public synchronized Property[] toTypedEvent() throws NoTranslationException
     {
-        if (!isTranslationPossible_) {
-            throw new NoTranslationException();
+        if (translationException_ != null) {
+            throw translationException_;
         }
 
         if (typedEventValue_ == null) {
@@ -132,9 +132,9 @@ public class AnyMessage extends AbstractMessage
 
                 typedEventValue_ = _typedEventValue;
             } catch (Exception e) {
-                isTranslationPossible_ = false;
+                translationException_ = new NoTranslationException(e);
 
-                throw new NoTranslationException();
+                throw translationException_;
             }
         }
         return typedEventValue_;
