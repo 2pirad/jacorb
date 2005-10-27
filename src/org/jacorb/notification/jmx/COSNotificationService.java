@@ -48,7 +48,7 @@ import org.picocontainer.defaults.DefaultPicoContainer;
  *              description="Control the JacORB Notification Service"
  * 
  * @author Alphonse Bendt
- * @version $Id: COSNotificationService.java,v 1.2 2005-09-04 18:20:58 alphonse.bendt Exp $
+ * @version $Id: COSNotificationService.java,v 1.3 2005-10-27 21:36:44 alphonse.bendt Exp $
  */
 public class COSNotificationService implements COSNotificationServiceMBean
 {
@@ -85,15 +85,15 @@ public class COSNotificationService implements COSNotificationServiceMBean
         DynamicMBeanProvider _decoratedProvider = new UnregisterObjectNameProviderDecorator(
                 mbeanServer, mbeanProvider);
 
-        ComponentAdapterFactory _nonCachingFactory = new JMXExposingComponentAdapterFactory(
+        ComponentAdapterFactory _defaultCAF = new JMXExposingComponentAdapterFactory(
                 new ConstructorInjectionComponentAdapterFactory(), mbeanServer,
                 new DynamicMBeanProvider[] { _decoratedProvider });
 
-        ComponentAdapterFactory _cachingFactory = new CachingComponentAdapterFactory(
-                _nonCachingFactory);
+        ComponentAdapterFactory _cachingCAF = new CachingComponentAdapterFactory(
+                _defaultCAF);
 
-        container_ = new DefaultPicoContainer(_cachingFactory);
-        container_.registerComponentInstance(ComponentAdapterFactory.class, _nonCachingFactory);
+        container_ = new DefaultPicoContainer(_cachingCAF);
+        container_.registerComponentInstance(ComponentAdapterFactory.class, _defaultCAF);
     }
 
     /**
