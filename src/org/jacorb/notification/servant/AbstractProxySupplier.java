@@ -72,7 +72,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.24 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.25 2005-10-27 21:39:06 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -80,7 +80,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
 {
     private static final String EVENT_MESSAGE_DISCARDED = "notification.proxy.message_discarded";
 
-    int numberOfDiscardedMessages_ = 0;
+    private int numberOfDiscardedMessages_ = 0;
 
     private MessageQueue.DiscardListener discardListener_ = new MessageQueue.DiscardListener()
     {
@@ -282,7 +282,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
 
         try
         {
-            pendingMessages_.enqeue(message);
+            pendingMessages_.enqeue(_copy);
 
             if (logger_.isDebugEnabled())
             {

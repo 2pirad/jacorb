@@ -60,10 +60,10 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.16 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.17 2005-10-27 21:39:06 alphonse.bendt Exp $
  */
 
-public abstract class AbstractProxyConsumer extends AbstractProxy implements AbstractProxyConsumerI,
+public abstract class AbstractProxyConsumer extends AbstractProxy implements IProxyConsumer,
         NotifyPublishOperations, AbstractProxyConsumerMBean
 {
     private final static EventType[] EMPTY_EVENT_TYPE_ARRAY = new EventType[0];

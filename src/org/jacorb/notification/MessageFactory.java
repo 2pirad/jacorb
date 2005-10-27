@@ -22,7 +22,7 @@
 package org.jacorb.notification;
 
 import org.jacorb.notification.interfaces.Message;
-import org.jacorb.notification.servant.AbstractProxyConsumerI;
+import org.jacorb.notification.servant.IProxyConsumer;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.NVList;
 import org.omg.CosNotification.Property;
@@ -30,17 +30,17 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MessageFactory.java,v 1.17 2005-05-04 13:20:40 alphonse.bendt Exp $
+ * @version $Id: MessageFactory.java,v 1.18 2005-10-27 21:39:06 alphonse.bendt Exp $
  */
 public interface MessageFactory
 {
-    Message newMessage(Any any, AbstractProxyConsumerI consumer);
+    Message newMessage(Any any, IProxyConsumer consumer);
 
     Message newMessage(StructuredEvent structuredEvent,
-            AbstractProxyConsumerI consumer);
+            IProxyConsumer consumer);
 
     Message newMessage(String interfaceName, String operationName, NVList args,
-            AbstractProxyConsumerI consumer);
+            IProxyConsumer consumer);
 
     ////////////////////////////////////////
     

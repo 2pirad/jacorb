@@ -46,11 +46,11 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.11 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.12 2005-10-27 21:39:06 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl extends AbstractProxyConsumer implements
-        SequenceProxyPushConsumerOperations, SequenceProxyPushConsumerImplMBean, AbstractProxyConsumerI
+        SequenceProxyPushConsumerOperations, SequenceProxyPushConsumerImplMBean, IProxyConsumer
 {
     private SequencePushSupplier sequencePushSupplier_;
 

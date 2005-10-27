@@ -67,7 +67,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminImpl.java,v 1.6 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminImpl.java,v 1.7 2005-10-27 21:39:06 alphonse.bendt Exp $
  */
 
 public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOperations,
@@ -87,7 +87,7 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
         }
     }
 
-    static final FilterstageWithMessageConsumerComparator FILTERSTAGE_COMPARATOR = new FilterstageWithMessageConsumerComparator();
+    private static final FilterstageWithMessageConsumerComparator FILTERSTAGE_COMPARATOR = new FilterstageWithMessageConsumerComparator();
     
     private final ConsumerAdmin thisRef_;
 
@@ -111,7 +111,7 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
 
         listManager_ = new FilterStageListManager()
         {
-            public void fetchListData(FilterStageListManager.List listProxy)
+            public void fetchListData(FilterStageListManager.FilterStageList listProxy)
             {
                 Iterator i = pullServants_.entrySet().iterator();
 
@@ -128,7 +128,7 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
                 }
             }
             
-            protected void sortCheckedList(java.util.List list)
+            protected void doSortCheckedList(List list)
             {
                 Collections.sort(list, FILTERSTAGE_COMPARATOR);
             }

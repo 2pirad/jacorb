@@ -75,7 +75,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImpl.java,v 1.10 2005-08-22 18:17:15 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImpl.java,v 1.11 2005-10-27 21:39:06 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -240,10 +240,7 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
         } catch (InconsistentTypeCode e)
         {
             throw new RuntimeException();
-        } catch (InterruptedException e)
-        {
-            throw new RuntimeException();
-        }
+        } 
     }
 
     private void ensureMethodOnlyUsesOutParams(OperationDescription operation)
@@ -282,7 +279,6 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
     }
 
     private final Map newMessageQueueMap(FullInterfaceDescription interfaceDescription)
-            throws InterruptedException
     {
         Map map = new HashMap();
 
