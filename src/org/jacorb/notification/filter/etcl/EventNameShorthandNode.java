@@ -28,7 +28,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventNameShorthandNode.java,v 1.6 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: EventNameShorthandNode.java,v 1.7 2005-10-27 21:39:39 alphonse.bendt Exp $
  */
 
 public class EventNameShorthandNode extends ETCLComponentName
@@ -62,22 +62,25 @@ public class EventNameShorthandNode extends ETCLComponentName
 
     public void acceptInOrder(AbstractTCLVisitor v)
     {
+        // no operation
     }
 
     public void acceptPostOrder(AbstractTCLVisitor v)
     {
+        // no operation
     }
 
     public void acceptPreOrder(AbstractTCLVisitor v)
     {
+        // no operation
     }
 
     public EvaluationResult evaluate( EvaluationContext context )
         throws EvaluationException
     {
-        Message _event = context.getCurrentMessage();
-        EvaluationResult _result = new EvaluationResult();
-
+        final Message _event = context.getCurrentMessage();
+        final EvaluationResult _result;
+        
         switch (_event.getType())
         {
             case Message.TYPE_ANY:
@@ -86,6 +89,7 @@ public class EventNameShorthandNode extends ETCLComponentName
 
             case Message.TYPE_STRUCTURED:
                 String _domainName = _event.toStructuredEvent().header.fixed_header.event_name;
+                _result = new EvaluationResult();
                 _result.setString(_domainName);
                 break;
 
@@ -100,5 +104,4 @@ public class EventNameShorthandNode extends ETCLComponentName
     {
         return COMP_NAME;
     }
-
 }

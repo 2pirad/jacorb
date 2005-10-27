@@ -30,7 +30,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PropertyShorthandNode.java,v 1.7 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: PropertyShorthandNode.java,v 1.8 2005-10-27 21:39:39 alphonse.bendt Exp $
  */
 
 public class PropertyShorthandNode extends AbstractTCLNode
@@ -56,18 +56,19 @@ public class PropertyShorthandNode extends AbstractTCLNode
             shorthandVariableHeader_ = (ETCLComponentName) TCLParser
                     .parse("$.header.variable_header(" + value + ")");
 
-            shorthandVariableHeader_.acceptInOrder(new TCLCleanUp());
+            final TCLCleanUp etclCleanup = new TCLCleanUp();
+            shorthandVariableHeader_.acceptInOrder(etclCleanup);
 
             shorthandFilterableData_ = (ETCLComponentName) TCLParser.parse("$.filterable_data("
                     + value + ")");
 
-            shorthandFilterableData_.acceptInOrder(new TCLCleanUp());
+            shorthandFilterableData_.acceptInOrder(etclCleanup);
 
             shorthandDefault_ = (ETCLComponentName) TCLParser.parse("$." + value);
-            shorthandDefault_.acceptInOrder(new TCLCleanUp());
+            shorthandDefault_.acceptInOrder(etclCleanup);
 
             shorthandDefaultAny_ = (ETCLComponentName) TCLParser.parse("$(" + value + ")");
-            shorthandDefaultAny_.acceptInOrder(new TCLCleanUp());
+            shorthandDefaultAny_.acceptInOrder(etclCleanup);
 
         } catch (ParseException e)
         {
@@ -81,7 +82,7 @@ public class PropertyShorthandNode extends AbstractTCLNode
     public EvaluationResult evaluate(EvaluationContext context)
             throws PropertyDoesNotExistException
     {
-        Message _event = context.getCurrentMessage();
+        final Message _event = context.getCurrentMessage();
         EvaluationResult _res = null;
 
         try

@@ -28,7 +28,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypeNameShorthandNode.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: TypeNameShorthandNode.java,v 1.6 2005-10-27 21:39:39 alphonse.bendt Exp $
  */
 
 public class TypeNameShorthandNode extends ETCLComponentName
@@ -61,20 +61,25 @@ public class TypeNameShorthandNode extends ETCLComponentName
     }
 
     public void acceptInOrder( AbstractTCLVisitor v )
-    {}
+    {
+        // no operation
+    }
 
     public void acceptPostOrder( AbstractTCLVisitor v )
-    {}
+    {
+        // no operation
+    }
 
     public void acceptPreOrder( AbstractTCLVisitor v )
-    {}
+    {
+        // no operation
+    }
 
     public EvaluationResult evaluate( EvaluationContext context )
         throws EvaluationException
     {
-        Message _event = context.getCurrentMessage();
-
-        EvaluationResult _result;
+        final Message _event = context.getCurrentMessage();
+        final EvaluationResult _result;
 
         switch ( _event.getType() )
         {
