@@ -39,7 +39,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplierTest.java,v 1.5 2005-09-10 05:55:28 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplierTest.java,v 1.6 2005-10-27 21:41:51 alphonse.bendt Exp $
  */
 public class AbstractProxySupplierTest extends NotificationTestCase
 {
@@ -166,6 +166,41 @@ public class AbstractProxySupplierTest extends NotificationTestCase
         objectUnderTest_.queueMessage(mockMessage_);
         objectUnderTest_.dispose();
 
+        verifyAll();
+    }
+    
+    public void testConnectedSupplierDoesQueueClonedMessage() throws Exception
+    {
+        MockControl controlClonedMessage = MockControl.createControl(Message.class);
+        Message mockClonedMessage = (Message) controlClonedMessage.getMock();
+        
+        mockMessage_.clone();
+        controlMessage_.setReturnValue(mockClonedMessage);
+        mockMessage_.dispose();
+        
+        mockClient_._is_a(null);
+        controlClient_.setDefaultMatcher(MockControl.ALWAYS_MATCHER);
+        controlClient_.setDefaultReturnValue(false);
+
+        controlClonedMessage.expectAndReturn(mockClonedMessage.getPriority(), 0, MockControl.ZERO_OR_MORE);
+        mockClonedMessage.dispose();
+        
+        controlClonedMessage.replay();
+        replayAll();
+
+        objectUnderTest_.connectClient(mockClient_);
+        objectUnderTest_.queueMessage(mockMessage_);
+        mockMessage_.dispose();
+        
+        assertEquals(1, objectUnderTest_.getPendingMessagesCount());
+        
+        Message queuedMessage = objectUnderTest_.getMessageBlocking();
+        assertSame(mockClonedMessage, queuedMessage);
+        queuedMessage.dispose();
+
+        assertEquals(0, objectUnderTest_.getPendingMessagesCount());
+        
+        controlClonedMessage.verify();
         verifyAll();
     }
 
