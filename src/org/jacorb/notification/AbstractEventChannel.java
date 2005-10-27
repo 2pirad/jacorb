@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractEventChannel.java,v 1.7 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: AbstractEventChannel.java,v 1.8 2005-10-27 21:35:50 alphonse.bendt Exp $
  */
 
 public abstract class AbstractEventChannel implements ManageableServant, JMXManageable
@@ -218,7 +218,7 @@ public abstract class AbstractEventChannel implements ManageableServant, JMXMana
 
         listManager_ = new FilterStageListManager()
         {
-            public void fetchListData(FilterStageListManager.List list)
+            public void fetchListData(FilterStageListManager.FilterStageList list)
             {
                 synchronized (modifyConsumerAdminsLock_)
                 {
