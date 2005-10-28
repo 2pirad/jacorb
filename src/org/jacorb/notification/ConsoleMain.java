@@ -21,12 +21,13 @@ package org.jacorb.notification;
  */
 
 import java.util.Properties;
+import java.util.StringTokenizer;
 
 import org.jacorb.notification.conf.Attributes;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConsoleMain.java,v 1.3 2005-08-21 13:29:03 alphonse.bendt Exp $
+ * @version $Id: ConsoleMain.java,v 1.4 2005-10-28 10:53:35 alphonse.bendt Exp $
  */
 
 public class ConsoleMain
@@ -161,6 +162,23 @@ public class ConsoleMain
         }
         
         return _cmdLineParser.getProps();
+    }
+    
+    public static String[] splitArgs(String argString)
+    {
+        if (argString == null)
+        {
+            return new String[0];
+        }
+        
+        StringTokenizer tokenizer = new StringTokenizer(argString, " ");
+        String[] result = new String[tokenizer.countTokens()];
+        for (int i = 0; i < result.length; ++i)
+        {
+            result[i] = tokenizer.nextToken();
+        }
+        
+        return result;
     }
     
     public static final void main(String[] args) throws Exception
