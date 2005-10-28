@@ -47,7 +47,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.13 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.14 2005-10-28 10:54:30 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -176,7 +176,7 @@ public class ProxyPullConsumerImpl extends AbstractProxyConsumer implements
         return pullMessagesOperation_.getSuccessfulPullCounter();
     }
 
-    public PullResult pullMessages() throws Disconnected
+    public MessageSupplierDelegate.PullResult pullMessages() throws Disconnected
     {
         BooleanHolder _hasEvent = new BooleanHolder();
         Any _event = pullSupplier_.try_pull(_hasEvent);

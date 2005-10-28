@@ -49,7 +49,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.12 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.13 2005-10-28 10:54:30 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -124,7 +124,7 @@ public class SequenceProxyPullConsumerImpl extends AbstractProxyConsumer impleme
         return ProxyConsumerHelper.narrow(getServant()._this_object(getORB()));
     }
 
-    public PullResult pullMessages() throws Disconnected
+    public MessageSupplierDelegate.PullResult pullMessages() throws Disconnected
     {
         BooleanHolder _hasEvent = new BooleanHolder();
         _hasEvent.value = false;
