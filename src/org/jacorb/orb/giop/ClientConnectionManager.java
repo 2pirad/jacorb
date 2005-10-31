@@ -42,7 +42,7 @@ import org.jacorb.util.ObjectUtil;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.22 2005-10-26 10:42:52 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.23 2005-10-31 11:27:09 andre.spiegel Exp $
  *
  */
 
@@ -118,8 +118,6 @@ public class ClientConnectionManager
                 throw new RuntimeException( "SSL support is on, but the ssl socket factory can't be instantiated ("+e.getMessage()+")!" );
             }
         }
-
-
     }
 
 
@@ -156,10 +154,8 @@ public class ClientConnectionManager
                                       profile, true );
 
             if( logger.isInfoEnabled())
-            {
-                logger.info("ClientConnectionManager: created new conn to target " +
-                            c.getInfo() );
-            }
+                logger.info("ClientConnectionManager: created new "
+                            + c.getGIOPConnection().toString() );
 
             connections.put( profile, c );
             receptor_pool.connectionCreated( connection );
@@ -167,10 +163,9 @@ public class ClientConnectionManager
         else
         {
             if( logger.isInfoEnabled())
-            {
-                logger.info("ClientConnectionManager: found conn to target " +
-                            c.getInfo());
-            }
+                logger.info("ClientConnectionManager: found "
+                            + c.getGIOPConnection().toString());
+
         }
 
         c.incClients();
@@ -186,9 +181,8 @@ public class ClientConnectionManager
         if ( c.decClients() )
         {
             if (logger.isDebugEnabled())
-            {
-                logger.debug ("releasing connection to " + c.getInfo());
-            }
+                logger.debug ("ClientConnectionManager: releasing " 
+                              + c.getGIOPConnection().toString());
             c.close();
             connections.remove(c.getRegisteredProfile());
         }
@@ -196,12 +190,9 @@ public class ClientConnectionManager
         {
             // not sure if this should be a warning or even an error
             if (logger.isDebugEnabled())
-            {
-                logger.debug ("cannot release connection to " 
-                              + c.getInfo() + 
-                              " (still has " + c.numClients()
-                              + " clients)");
-            }
+                logger.debug ("ClientConnectionManager: cannot release "
+                              + c.getGIOPConnection().toString()
+                              + " (still has " + c.numClients() + " client(s))");
         }
     }
 
@@ -212,12 +203,6 @@ public class ClientConnectionManager
     public synchronized void removeConnection(ClientConnection c)
     {
         connections.remove( c.getRegisteredProfile() );
-    }
-
-    public synchronized void addConnection( GIOPConnection connection )
-    {
-        addConnection(connection,
-                      connection.getTransport().get_server_profile() );
     }
 
     public synchronized void addConnection( GIOPConnection connection,
