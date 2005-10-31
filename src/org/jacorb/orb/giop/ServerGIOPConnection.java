@@ -29,7 +29,7 @@ import org.jacorb.orb.iiop.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.17 2005-10-26 10:21:34 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.18 2005-10-31 11:31:53 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -92,8 +92,8 @@ public class ServerGIOPConnection
         if( tryDiscard() )
         {
             if (logger.isDebugEnabled())
-                logger.debug("ServerGIOPConnection.tryClose() " +
-                             this.toString() + " will send close connection");
+                logger.debug(this.toString() 
+                             + ": tryClose() -- will send close connection");
                 
             sendCloseConnection();
 
@@ -109,8 +109,8 @@ public class ServerGIOPConnection
         else
         {
             if (logger.isDebugEnabled())
-                logger.debug("ServerGIOPConnection.tryClose() " +
-                             this.toString() + " cannot close connection");
+                logger.debug(this.toString()
+                             + ": tryClose() -- cannot close connection");
                 
             return false;
         }
@@ -200,6 +200,9 @@ public class ServerGIOPConnection
      */
     protected void readTimedOut()
     {
+        if (logger.isDebugEnabled())
+            logger.debug (this.toString() + ": readTimedOut()");
+        
         if( closeOnReadTimeout )
         {
             // we get here if we have sent a CloseConnection message
@@ -221,6 +224,8 @@ public class ServerGIOPConnection
      */
     protected void streamClosed()
     {
+        if (logger.isDebugEnabled())
+            logger.debug (this.toString() + ": streamClosed()");
         close();
     }
     
@@ -236,4 +241,11 @@ public class ServerGIOPConnection
         }
     }
 
+    public String toString()
+    {
+        return "ServerGIOPConnection to "
+              + profile.toString()
+              + " (" + Integer.toHexString(this.hashCode()) + ")";
+    }
+    
 }// ServerGIOPConnection
