@@ -28,7 +28,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.11 2005-10-25 12:27:49 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.12 2005-10-31 11:32:29 andre.spiegel Exp $
  */
 
 public class GIOPConnectionManager 
@@ -170,6 +170,9 @@ public class GIOPConnectionManager
         {
             server_giop_connections.add( connection );
         }
+        
+        if (logger.isDebugEnabled())
+            logger.debug ("GIOPConnectionManager: created new " + connection.toString());
         
         return connection;
     }
