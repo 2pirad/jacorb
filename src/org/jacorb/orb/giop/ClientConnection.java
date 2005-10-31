@@ -37,7 +37,7 @@ import org.omg.CONV_FRAME.*;
  * Created: Sat Aug 18 18:37:56 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.57 2005-10-26 10:38:50 andre.spiegel Exp $
+ * @version $Id: ClientConnection.java,v 1.58 2005-10-31 11:33:35 andre.spiegel Exp $
  */
 
 public class ClientConnection
@@ -399,7 +399,7 @@ public class ClientConnection
     {
         if (logger.isInfoEnabled())
         {
-            logger.info("Received CloseConnection message");
+            logger.info("Received CloseConnection on " + connection.toString());
         }
 
         if( client_initiated )
