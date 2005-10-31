@@ -27,7 +27,7 @@ import org.apache.avalon.framework.configuration.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.14 2005-10-26 10:21:34 andre.spiegel Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.15 2005-10-31 11:28:56 andre.spiegel Exp $
  */
 
 public class ClientGIOPConnection
@@ -66,6 +66,9 @@ public class ClientGIOPConnection
      */
     protected void readTimedOut()
     {
+        if (logger.isDebugEnabled())
+            logger.debug (this.toString() + ": readTimedOut()");
+        
         synchronized( pendingUndecidedSync )
         {
             if (ignore_pending_messages_on_timeout)
@@ -75,6 +78,15 @@ public class ClientGIOPConnection
             else if (! hasPendingMessages())
             {
                 closeAllowReopen();
+            }
+            else
+            {
+                if (logger.isDebugEnabled())
+                    logger.debug 
+                    (
+                        this.toString() 
+                        + ": cannot close because there are pending messages"
+                    );
             }
         }
     }
@@ -86,6 +98,9 @@ public class ClientGIOPConnection
      */
     protected void streamClosed()
     {
+        if (logger.isDebugEnabled())
+            logger.debug (this.toString() + ": streamClosed()");
+        
         closeAllowReopen();
 
         if( connection_listener != null )
@@ -101,6 +116,9 @@ public class ClientGIOPConnection
      */
     public void closeAllowReopen()
     {
+        if (logger.isDebugEnabled())
+            logger.debug (this.toString() + ": closeAllowReopen()");
+        
         try
         {
             synchronized (connect_sync)
@@ -116,6 +134,13 @@ public class ClientGIOPConnection
         {
             releaseWriteLock();
         }
+    }
+    
+    public String toString()
+    {
+        return "ClientGIOPConnection to "
+             + profile.toString()
+             + " (" + Integer.toHexString(this.hashCode()) + ")"; 
     }
 
 }// ClientGIOPConnection
