@@ -23,7 +23,7 @@ package org.jacorb.notification.util;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractPoolablePool.java,v 1.1 2005-04-17 17:17:53 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolablePool.java,v 1.2 2005-11-11 19:39:15 alphonse.bendt Exp $
  */
 
 public abstract class AbstractPoolablePool extends AbstractObjectPool
@@ -38,12 +38,12 @@ public abstract class AbstractPoolablePool extends AbstractObjectPool
         super(name);
     }
 
-    public void passivateObject(Object o)
+    public void doPassivateObject(Object o)
     {
         ((AbstractPoolable) o).reset();
     }
 
-    public void activateObject(Object o)
+    public void doActivateObject(Object o)
     {
         ((AbstractPoolable) o).setObjectPool(this);
     }
