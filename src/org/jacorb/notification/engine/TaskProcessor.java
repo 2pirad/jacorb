@@ -28,14 +28,12 @@ import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.27 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.28 2005-11-11 19:37:44 alphonse.bendt Exp $
  */
 
 public interface TaskProcessor
 {
     TaskFactory getTaskFactory();
-
-    TaskExecutor getFilterTaskExecutor();
 
     /**
      * process a Message. the various settings for the Message

@@ -28,9 +28,9 @@ import edu.emory.mathcs.backport.java.util.concurrent.Executor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.9 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: TaskExecutor.java,v 1.10 2005-11-11 19:37:44 alphonse.bendt Exp $
  */
 public interface TaskExecutor extends Executor, Disposable, NotifyingDisposable
 {
-    boolean isTaskQueued();
+    // empty
 }

@@ -32,7 +32,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTask.java,v 1.20 2005-08-21 13:30:16 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTask.java,v 1.21 2005-11-11 19:37:44 alphonse.bendt Exp $
  */
 
 public class FilterProxySupplierTask extends AbstractFilterTask
@@ -75,11 +75,12 @@ public class FilterProxySupplierTask extends AbstractFilterTask
         }
     }
 
-    public static final AlternateMessageMap EMPTY_MAP = new AlternateMessageMap(
-            Collections.EMPTY_MAP)
+    public static final AlternateMessageMap EMPTY_MAP = 
+        new AlternateMessageMap(Collections.EMPTY_MAP)
     {
         public void clear()
         {
+            // nothing to do
         }
     };
 
@@ -138,7 +139,14 @@ public class FilterProxySupplierTask extends AbstractFilterTask
             }
         } catch (UnsupportedFilterableData e)
         {
-            //             logger_.error("error evaluating PriorityFilter", e);
+            if (logger_.isDebugEnabled())
+            {
+                logger_.debug("unable to evaluate PriorityFilter", e);
+            }
+            else if (logger_.isInfoEnabled())
+            {
+                logger_.info("unable to evaluate PriorityFilter");
+            }
         }
 
         return _currentMessage;
@@ -168,7 +176,14 @@ public class FilterProxySupplierTask extends AbstractFilterTask
 
         } catch (UnsupportedFilterableData e)
         {
-            //             logger_.error("error evaluating PriorityFilter", e);
+            if (logger_.isDebugEnabled())
+            {
+                logger_.debug("unable to evaluate PriorityFilter", e);
+            }
+            else if (logger_.isInfoEnabled())
+            {
+                logger_.info("unable to evaluate PriorityFilter");
+            }
         }
 
         return _currentMessage;

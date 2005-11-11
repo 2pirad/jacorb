@@ -46,7 +46,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskProcessor.java,v 1.12 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskProcessor.java,v 1.13 2005-11-11 19:37:44 alphonse.bendt Exp $
  */
 
 public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManageable, DefaultTaskProcessorMBean
@@ -136,7 +136,6 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManag
     /**
      * TaskExecutor used to invoke match-Operation on filters
      */
-    private TaskExecutor filterTaskExecutor_;
 
     /**
      * TaskExecutor used to invoke pull-Operation on PullSuppliers.
@@ -151,7 +150,7 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManag
     /**
      * TaskFactory that is used to create new Tasks.
      */
-    private DefaultTaskFactory taskFactory_;
+    private final TaskFactory taskFactory_;
 
     private final DisposableManager disposables_ = new DisposableManager();
 
@@ -164,7 +163,7 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManag
     /**
      * Start ClockDaemon Set up TaskExecutors Set up TaskFactory
      */
-    public DefaultTaskProcessor(Configuration config)
+    public DefaultTaskProcessor(Configuration config, TaskFactory taskFactory)
     {
         clockDaemon_ = Executors.newSingleThreadScheduledExecutor(
                 new ThreadFactory()
@@ -183,25 +182,18 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManag
 
         pullWorkerPoolSize_ = config.getAttributeAsInteger(Attributes.PULL_POOL_WORKERS,
                         Default.DEFAULT_PULL_POOL_SIZE);
+        
         pullTaskExecutor_ = new DefaultTaskExecutor("PullThread", pullWorkerPoolSize_, true);
 
         filterWorkerPoolSize_ = config.getAttributeAsInteger(Attributes.FILTER_POOL_WORKERS,
                         Default.DEFAULT_FILTER_POOL_SIZE);
-        filterTaskExecutor_ = new DefaultTaskExecutor("FilterThread", filterWorkerPoolSize_);
-
-        taskFactory_ = new DefaultTaskFactory(this);
-
-        taskFactory_.configure(config);
+        
+        taskFactory_ = taskFactory;
     }
 
     public TaskFactory getTaskFactory()
     {
         return taskFactory_;
-    }
-
-    public TaskExecutor getFilterTaskExecutor()
-    {
-        return filterTaskExecutor_;
     }
 
     /**
@@ -215,11 +207,7 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManag
 
         clockDaemon_.shutdown();
 
-        filterTaskExecutor_.dispose();
-
         pullTaskExecutor_.dispose();
-
-        taskFactory_.dispose();
 
         disposables_.dispose();
         
