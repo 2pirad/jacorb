@@ -30,7 +30,7 @@ import org.apache.avalon.framework.configuration.*;
  * 
  *
  * @author Nicolas Noffke / Andre Spiegel 
- * @version $Id: ConnectionBase.java,v 1.1 2004-08-25 09:31:41 simon.mcqueen Exp $
+ * @version $Id: ConnectionBase.java,v 1.2 2005-11-11 19:31:44 alphonse.bendt Exp $
  */
 
 public abstract class ConnectionBase
@@ -65,6 +65,7 @@ public abstract class ConnectionBase
     
     protected ConnectionBase()
     {
+        super();
     }
     
     /**
@@ -79,12 +80,11 @@ public abstract class ConnectionBase
         this.profile = other.profile;
     }
     
-    public void configure(Configuration configuration)
+    public void configure(Configuration config)
         throws ConfigurationException
     {
-        this.configuration = (org.jacorb.config.Configuration)configuration;
-        logger = this.configuration.getNamedLogger(
-                 this.configuration.getLoggerName(this.getClass()));
+        configuration = (org.jacorb.config.Configuration)config;
+        logger = configuration.getNamedLogger(configuration.getLoggerName(getClass()));
 
         if( configuration.getAttribute("jacorb.debug.dump_outgoing_messages","off").equals("on"))
         {
