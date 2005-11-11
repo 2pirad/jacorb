@@ -1,4 +1,4 @@
-// $Id: tcl.g,v 1.4 2005-08-21 13:25:11 alphonse.bendt Exp $
+// $Id: tcl.g,v 1.5 2005-11-11 19:25:06 alphonse.bendt Exp $
 
 header {
 package org.jacorb.notification.filter.etcl;
@@ -175,7 +175,7 @@ expr
     ;
 
 term
-    : factor_not ((MULT^ |DIV^)factor_not)*
+    : factor_not ((MULT^ |DIV^) factor_not)*
     ;
 
 factor_not

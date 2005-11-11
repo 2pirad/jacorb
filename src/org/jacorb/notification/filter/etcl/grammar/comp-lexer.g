@@ -1,4 +1,4 @@
-// $Id: comp-lexer.g,v 1.3 2005-08-21 13:25:11 alphonse.bendt Exp $
+// $Id: comp-lexer.g,v 1.4 2005-11-11 19:25:06 alphonse.bendt Exp $
 
 header {
 package org.jacorb.notification.filter.etcl;
@@ -120,9 +120,6 @@ TYPE_ID    : "_type_id";
 REPO_ID    : "_repos_id";
 LENGTH     : "_length";
 
-// STRING
-//     : '\''! TEXTCHARS '\''!
-//     ;
 
 IDENTIFIER
 options {testLiterals=true;}
@@ -151,20 +148,6 @@ NUMBER
     | ('1'..'9') (DIGIT)*
     ;
 
-// protected TEXTCHARS
-//     : // empty
-//     | TEXTCHAR TEXTCHARS
-//     ;
-
-// protected TEXTCHAR
-//     : ALPHA
-//     | DIGIT
-//     | OTHER
-//     | OTHER_TEXT
-//     | ' '
-//     | SPECIAL
-//     ;
-
 protected DIGITS
     : (DIGIT)+
     ;
@@ -181,13 +164,3 @@ protected OTHER
      : ('_'|':'|'/')
      ;
 
-// // these may appear within text but not within identifiers
-// protected OTHER_TEXT
-//     : ('.')
-//     ;
-
-// protected SPECIAL
-//      : '\\'!
-//         ( '\''
-//         | '\\' )
-//      ;
