@@ -15,6 +15,7 @@ import junit.framework.*;
 import org.jacorb.test.common.*;
 
 import org.jacorb.config.Configuration;
+import org.jacorb.config.JacORBConfiguration;
 
 /**
  * GIOPConnectionTest.java
@@ -24,7 +25,7 @@ import org.jacorb.config.Configuration;
  *
  * @jacorb-client-since 2.2
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.23 2005-05-13 13:30:53 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.24 2005-11-11 19:32:56 alphonse.bendt Exp $
  */
 
 public class GIOPConnectionTest 
@@ -37,7 +38,7 @@ public class GIOPConnectionTest
         throws Exception
     {
         orb = (ORB) ORB.init(new String[0], null);
-        config = Configuration.getConfiguration(null, orb, false);
+        config = JacORBConfiguration.getConfiguration(null, orb, false);
     }
 
     public static Test suite()

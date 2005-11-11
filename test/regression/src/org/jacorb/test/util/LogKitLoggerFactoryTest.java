@@ -26,6 +26,7 @@ import junit.framework.TestSuite;
 
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.Configuration;
+import org.jacorb.config.JacORBConfiguration;
 
 import org.jacorb.test.common.*;
 
@@ -33,7 +34,7 @@ import org.jacorb.test.common.*;
  *  Unit Test for class LogKitLoggerFactory
  * @jacorb-since 2.2
  * @author Alphonse Bendt
- * @version $Id: LogKitLoggerFactoryTest.java,v 1.6 2005-05-16 17:38:36 andre.spiegel Exp $
+ * @version $Id: LogKitLoggerFactoryTest.java,v 1.7 2005-11-11 19:32:39 alphonse.bendt Exp $
  */
 
 public class LogKitLoggerFactoryTest 
@@ -65,7 +66,7 @@ public class LogKitLoggerFactoryTest
         props.setProperty("jacorb.trailingspace.test1", "INFO ");
         props.setProperty("jacorb.trailingspace.test2", "INFO");
 
-        config =  Configuration.getConfiguration(props, null, false);
+        config =  JacORBConfiguration.getConfiguration(props, null, false);
 
         defaultPriority = config.getAttributeAsInteger("jacorb.log.default.verbosity",0);
     }
