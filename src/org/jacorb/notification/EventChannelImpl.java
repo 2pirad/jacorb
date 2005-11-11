@@ -54,7 +54,7 @@ import org.picocontainer.MutablePicoContainer;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: EventChannelImpl.java,v 1.30 2005-10-27 21:34:18 alphonse.bendt Exp $
+ * @version $Id: EventChannelImpl.java,v 1.31 2005-11-11 19:35:29 alphonse.bendt Exp $
  */
 
 public class EventChannelImpl extends AbstractEventChannel implements EventChannelOperations, EventChannelImplMBean
@@ -132,7 +132,7 @@ public class EventChannelImpl extends AbstractEventChannel implements EventChann
         final MutablePicoContainer _adminContainer = PicoContainerFactory
                 .createChildContainer(container_);
         
-        IEventChannel _channelAdapter = new IEventChannel()
+        final IEventChannel _channelAdapter = new IEventChannel()
         {
             public int getAdminID()
             {
@@ -270,6 +270,15 @@ public class EventChannelImpl extends AbstractEventChannel implements EventChann
     public String getMBeanType()
     {
         return "EventChannel";
+    }
+    
+    /**
+     * @jmx.managed-attribute   access = "read-only"
+     *                          currencyTimeLimit = "2147483647"
+     */
+    public String getIOR()
+    {
+        return orb_.object_to_string(thisRef_);
     }
 }
 

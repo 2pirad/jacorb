@@ -50,7 +50,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelImpl.java,v 1.8 2005-08-21 13:29:03 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelImpl.java,v 1.9 2005-11-11 19:35:29 alphonse.bendt Exp $
  */
 
 public class TypedEventChannelImpl extends AbstractEventChannel implements
@@ -223,5 +223,14 @@ public class TypedEventChannelImpl extends AbstractEventChannel implements
     public String getMBeanType()
     {
         return "TypedEventChannel";
+    }
+    
+    /**
+     * @jmx.managed-attribute   access = "read-only"
+     *                          currencyTimeLimit = "2147483647"
+     */
+    public String getIOR()
+    {
+        return orb_.object_to_string(thisRef_);
     }
 }
