@@ -41,7 +41,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessage.java,v 1.15 2005-10-27 21:34:52 alphonse.bendt Exp $
+ * @version $Id: AnyMessage.java,v 1.16 2005-11-11 19:35:01 alphonse.bendt Exp $
  */
 
 public class AnyMessage extends AbstractMessage
@@ -89,10 +89,8 @@ public class AnyMessage extends AbstractMessage
     }
 
 
-    public synchronized void reset()
+    public void doReset()
     {
-        super.reset();
-
         anyValue_ = null;
         structuredEventValue_ = null;
         typedEventValue_ = null;

@@ -44,7 +44,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.26 2005-04-27 10:32:27 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.27 2005-11-11 19:35:01 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
@@ -367,12 +367,19 @@ public abstract class AbstractMessage extends AbstractPoolable
      */
     protected int referenced_ = 0;
 
-    public void reset()
+    public synchronized final void reset()
     {
         referenced_ = 0;
         currentFilterStage_ = null;
+        
+        doReset();
     }
 
+    protected void doReset()
+    {
+        // no operation
+    }
+    
     /**
      * Add a reference on this NotificationEvent. After Usage removeReference must be called.
      */
