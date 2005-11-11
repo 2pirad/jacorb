@@ -41,13 +41,13 @@ import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultMessageFactory.java,v 1.6 2005-10-27 21:39:06 alphonse.bendt Exp $
+ * @version $Id: DefaultMessageFactory.java,v 1.7 2005-11-11 19:38:42 alphonse.bendt Exp $
  */
 
 public class DefaultMessageFactory implements Disposable, MessageFactory
 {
-    private final AbstractObjectPool typedEventMessagePool_ = new AbstractPoolablePool(
-            "TypedEventMessagePool")
+    private final AbstractObjectPool typedEventMessagePool_ = 
+        new AbstractPoolablePool("TypedEventMessagePool")
     {
         public Object newInstance()
         {
@@ -55,7 +55,8 @@ public class DefaultMessageFactory implements Disposable, MessageFactory
         }
     };
 
-    private final AbstractObjectPool anyMessagePool_ = new AbstractPoolablePool("AnyMessagePool")
+    private final AbstractObjectPool anyMessagePool_ = 
+        new AbstractPoolablePool("AnyMessagePool")
     {
         public Object newInstance()
         {
@@ -63,8 +64,8 @@ public class DefaultMessageFactory implements Disposable, MessageFactory
         }
     };
 
-    private final AbstractObjectPool structuredEventMessagePool_ = new AbstractPoolablePool(
-            "StructuredEventMessagePool")
+    private final AbstractObjectPool structuredEventMessagePool_ = 
+        new AbstractPoolablePool("StructuredEventMessagePool")
     {
         public Object newInstance()
         {
@@ -127,8 +128,8 @@ public class DefaultMessageFactory implements Disposable, MessageFactory
             return newMessage(structuredEvent.remainder_of_body, consumer);
         }
 
-        StructuredEventMessage _mesg = (StructuredEventMessage) structuredEventMessagePool_
-                .lendObject();
+        StructuredEventMessage _mesg = 
+            (StructuredEventMessage) structuredEventMessagePool_.lendObject();
 
         _mesg.setFilterStage(consumer.getFirstStage());
 
@@ -221,8 +222,8 @@ public class DefaultMessageFactory implements Disposable, MessageFactory
             return newMessage(structuredEvent.remainder_of_body);
         }
 
-        StructuredEventMessage _mesg = (StructuredEventMessage) structuredEventMessagePool_
-                .lendObject();
+        StructuredEventMessage _mesg = 
+            (StructuredEventMessage) structuredEventMessagePool_.lendObject();
 
         _mesg.setStructuredEvent(structuredEvent, false, false);
 

@@ -29,15 +29,13 @@ import org.jacorb.notification.conf.Attributes;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotifyServer.java,v 1.2 2005-10-19 22:16:55 alphonse.bendt Exp $
+ * @version $Id: NotifyServer.java,v 1.3 2005-11-11 19:35:45 alphonse.bendt Exp $
  */
 
 public class NotifyServer
 {
-    private static org.omg.CORBA.ORB orb = null;
     private static org.jacorb.config.Configuration configuration = null;
 
-    /** the specific logger for this component */
     private static Logger logger = null;
 
     /** the file name int which the IOR will be stored */
@@ -47,7 +45,6 @@ public class NotifyServer
     private static Properties props = new Properties();
 
     public static void configure(Configuration myConfiguration)
-        throws ConfigurationException
     {
         configuration = (org.jacorb.config.Configuration)myConfiguration;
         logger = 
@@ -57,7 +54,6 @@ public class NotifyServer
             configuration.getAttribute("jacorb.notify.ior_filename", "./notify.ior");
         fileNameTyped = 
             configuration.getAttribute("jacorb.notifyTyped.ior_filename", "./notify.ior");
-
     }
     
     public static AbstractChannelFactory newFactory( org.omg.CORBA.ORB orb, org.omg.PortableServer.POA rootPOA ) throws Exception
