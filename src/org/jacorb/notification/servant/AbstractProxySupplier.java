@@ -72,7 +72,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.25 2005-10-27 21:39:06 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.26 2005-11-11 19:23:51 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -529,5 +529,14 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
     public final MessageConsumer getMessageConsumer()
     {
         return this;
+    }
+    
+    /**
+     * @jmx.managed-operation   impact = "ACTION"
+     *                          description = "delete all queued Messages"
+     */
+    public void clearPendingMessageQueue()
+    {
+        pendingMessages_.clear();
     }
 }
