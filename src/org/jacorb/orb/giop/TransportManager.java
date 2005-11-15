@@ -40,7 +40,7 @@ import org.jacorb.util.ObjectUtil;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.20 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: TransportManager.java,v 1.21 2005-11-15 14:19:31 andre.spiegel Exp $
  * */
 
 public class TransportManager
@@ -158,7 +158,7 @@ public class TransportManager
      * Returns an ETF Factories object for the given tag, or null
      * if no Factories class has been defined for this tag.
      */
-    public org.omg.ETF.Factories getFactories(int tag)
+    public synchronized org.omg.ETF.Factories getFactories(int tag)
     {
         if (factoriesMap == null)
         {
@@ -172,7 +172,7 @@ public class TransportManager
      * in the same order as they were specified in the
      * jacorb.transport.factories property.
      */
-    public List getFactoriesList()
+    public synchronized List getFactoriesList()
     {
         if (factoriesList == null)
         {
