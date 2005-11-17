@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.55 2005-10-02 20:33:40 alphonse.bendt Exp $ -->
+   <!-- $Id: build.xml,v 1.56 2005-11-17 20:15:46 alphonse.bendt Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -73,7 +73,7 @@
        <jar jarfile="${lib}/jacorb.jar"
       basedir="${classdir}"
       includes="org/jacorb/**,org/omg/**"
-      excludes="org/jacorb/idl/**,org/jacorb/demo/**,org/jacorb/test/**"
+      excludes="org/jacorb/idl/**,org/jacorb/demo/**,org/jacorb/test/**, org/jacorb/notification/jmx/jboss/**"
       manifest="${basedir}/etc/jacorb_jar.manifest"
       index="true"
       />
