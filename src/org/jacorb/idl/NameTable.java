@@ -24,12 +24,13 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.24 2005-10-03 20:41:48 andre.spiegel Exp $
+ * @version $Id: NameTable.java,v 1.25 2005-11-19 18:53:52 brose Exp $
  *
  */
 
-import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.StringTokenizer;
 
 class NameTable
 {
@@ -47,8 +48,6 @@ class NameTable
      */
 
     private static Hashtable operationSources = new Hashtable();
-
-    private static String s = "";
 
     public static Hashtable parsed_interfaces = new Hashtable();
 
