@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.36 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: IdlSymbol.java,v 1.37 2005-11-19 18:48:24 brose Exp $
  */
 
 public class IdlSymbol
@@ -155,11 +155,13 @@ public class IdlSymbol
 
     public void escapeName()
     {
-        if( !name.startsWith( "_" ) &&
+        if( !isEscaped() &&
             // Not escaping Messaging.ExceptionHolder
             !pack_name.startsWith( "org.omg.Messaging" ) &&
             lexer.strictJavaEscapeCheck( name ) )
         {
+            if(name.indexOf('.') > 0)
+                logger.warn("Dots within a simple name!");
             name = "_" + name;
         }
     }
