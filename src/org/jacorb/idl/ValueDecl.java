@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.43 2005-11-15 13:13:05 alphonse.bendt Exp $
+ * @version $Id: ValueDecl.java,v 1.44 2005-11-19 20:59:04 brose Exp $
  */
 
 public class ValueDecl
@@ -535,7 +535,18 @@ public class ValueDecl
                         {
                             // stateful base valuetypes are mapped to classes, so
                             // we "extend"
-                            extendsBuffer.append(", " + scopedName.toString());
+                            //
+                            // applied patch by Thomas Leineweber for bug #492
+                            // 
+                            if (first)
+                            {
+                                extendsBuffer.append(scopedName.toString());
+                                first = false;
+                            }
+                            else
+                            {
+                                extendsBuffer.append(", " + scopedName.toString());
+                            }                            
                         }
                     }
 
