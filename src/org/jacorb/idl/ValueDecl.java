@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.44 2005-11-19 20:59:04 brose Exp $
+ * @version $Id: ValueDecl.java,v 1.45 2005-11-19 21:04:40 brose Exp $
  */
 
 public class ValueDecl
@@ -407,6 +407,12 @@ public class ValueDecl
             return;
         }
 
+        //no code generation for forward declarations (bug #539)
+        if (!hasBody)
+        {
+            return;
+        }
+                
         try
         {
             String path = parser.out_dir
