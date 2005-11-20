@@ -35,20 +35,8 @@ import org.omg.IOP.Codec;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: ServerContextTransferInterceptor.java,v 1.10 2004-04-28 12:37:29 brose Exp $
- *
- * Changes made by Vladimir Mencl <vladimir.mencl@mff.cuni.cz> (2002/05/01)
- *
- *   * set transaction context in receive_request into internal structures of 
- *     Current (TransactionCurrentImpl) using resume()
- *
- *   * reset transaction context when a request terminates (either through 
- *     send_reply, send_exception or send_other) using suspend()
- *
- *   * accesses Current only through CosTransactions::Current interface
- *     (without typecasting to TransactionCurrentImpl)
+ * @version $Id: ServerContextTransferInterceptor.java,v 1.11 2005-11-20 13:47:16 andre.spiegel Exp $
  */
-
 public class ServerContextTransferInterceptor 
     extends org.omg.CORBA.LocalObject 
     implements ServerRequestInterceptor
