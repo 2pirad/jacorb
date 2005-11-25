@@ -30,7 +30,7 @@ import org.jacorb.orb.CDRInputStream;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.4 2005-11-21 20:50:24 phil.mesnier Exp $
+ * @version $Id: IIOPAddress.java,v 1.5 2005-11-25 20:35:06 phil.mesnier Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -297,6 +297,8 @@ public class IIOPAddress
         if (colon > 0) {
             source_name = s.substring(0,colon);
         }
+        else
+            source_name = "";
         if (colon < s.length()-1)
             p = Integer.parseInt(s.substring(colon+1));
 
