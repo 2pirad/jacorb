@@ -30,18 +30,18 @@ import java.util.*;
  * Created: Fri Jun  9 15:09:01 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPool.java,v 1.13 2004-12-11 21:12:13 andre.spiegel Exp $
+ * $Id: ThreadPool.java,v 1.14 2005-11-26 14:30:49 alphonse.bendt Exp $
  */
 public class ThreadPool
 {
-    private int max_threads = 0;
-    private int max_idle_threads = 0;
+    private final int max_threads;
+    private final int max_idle_threads;
 
     private int total_threads = 0;
     private int idle_threads = 0;
 
-    private LinkedList job_queue = null;
-    private ConsumerFactory factory = null;
+    private final LinkedList job_queue;
+    private final ConsumerFactory factory;
 
     public ThreadPool( ConsumerFactory factory )
     {
