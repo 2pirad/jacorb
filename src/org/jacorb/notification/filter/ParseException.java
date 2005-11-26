@@ -22,22 +22,26 @@ package org.jacorb.notification.filter;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ParseException.java,v 1.4 2005-05-01 21:51:46 alphonse.bendt Exp $
+ * @version $Id: ParseException.java,v 1.5 2005-11-26 14:32:27 alphonse.bendt Exp $
  */
 
-public class ParseException extends Exception {
-
+public class ParseException extends Exception 
+{
     private static final long serialVersionUID = 1L;
     
     private final Exception nested_;
-
-    public ParseException(Exception e) {
+    private final String expression_;
+    
+    public ParseException(String expression, Exception e) 
+    {
         super();
 
         nested_ = e;
+        expression_ = expression;
     }
 
-    public String getMessage() {
-        return nested_.getMessage();
+    public String getMessage() 
+    {
+        return "parse " + expression_ + " caused:\n" + nested_.getMessage();
     }
 }
