@@ -26,7 +26,7 @@ import org.jacorb.notification.util.WeakCacheWildcardMap;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Default.java,v 1.10 2005-04-27 10:33:43 alphonse.bendt Exp $
+ * @version $Id: Default.java,v 1.11 2005-12-01 21:00:24 alphonse.bendt Exp $
  */
 
 public interface Default
@@ -76,7 +76,7 @@ public interface Default
 
     String DEFAULT_DISPOSE_PROXY_CALLS_DISCONNECT = "on";
 
-    String DEFAULT_LAZY_DEFAULT_ADMIN_INIT = "on";
+    boolean DEFAULT_LAZY_DEFAULT_ADMIN_INIT = true;
 
     String DEFAULT_REJECT_NEW_EVENTS = "off";
 
