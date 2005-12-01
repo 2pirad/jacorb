@@ -24,11 +24,11 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: IProxyConsumer.java,v 1.1 2005-10-27 21:39:06 alphonse.bendt Exp $
+ * @version $Id: IProxyConsumer.java,v 1.2 2005-12-01 21:02:11 alphonse.bendt Exp $
  */
 
 public interface IProxyConsumer {
     boolean getStartTimeSupported();
-    boolean getTimeOutSupported();
+    boolean getStopTimeSupported();
     FilterStage getFirstStage();
 }

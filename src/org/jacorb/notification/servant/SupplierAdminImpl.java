@@ -59,7 +59,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminImpl.java,v 1.7 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminImpl.java,v 1.8 2005-12-01 21:02:11 alphonse.bendt Exp $
  */
 
 public class SupplierAdminImpl extends AbstractSupplierAdmin implements SupplierAdminOperations,
@@ -222,6 +222,8 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
 
             _servant.setSubsequentDestinations(CollectionsWrapper.singletonList(this));
 
+            configureQoS(_servant);
+            
             addProxyToMap(_servant, pushServants_, modifyProxiesLock_);
 
             return org.omg.CosEventChannelAdmin.ProxyPushConsumerHelper.narrow(_servant.activate());
@@ -250,9 +252,9 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
 
             _servant.setSubsequentDestinations(CollectionsWrapper.singletonList(this));
 
-            addProxyToMap(_servant, pushServants_, modifyProxiesLock_);
+            configureQoS(_servant);
 
-            _servant.set_qos(get_qos());
+            addProxyToMap(_servant, pushServants_, modifyProxiesLock_);
 
             return org.omg.CosEventChannelAdmin.ProxyPullConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)

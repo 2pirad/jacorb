@@ -25,12 +25,11 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.5 2005-04-10 14:31:57 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.6 2005-12-01 21:03:01 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
 {
-
     public PackageTest(String name)
     {
         super(name);

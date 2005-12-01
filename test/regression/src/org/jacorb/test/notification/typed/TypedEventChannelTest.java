@@ -40,7 +40,7 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedEventChannelFactoryHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelTest.java,v 1.2 2005-10-02 15:20:31 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelTest.java,v 1.3 2005-12-01 21:03:01 alphonse.bendt Exp $
  */
 public class TypedEventChannelTest extends TestCase
 {
@@ -135,6 +135,22 @@ public class TypedEventChannelTest extends TestCase
         assertEquals(id.value, ids[0]);
         
         assertEquals(admin, objectUnderTest_.get_supplieradmin(id.value));
+    }
+    
+    public void testInterFilterGroupOperator() throws Exception
+    {
+        IntHolder id = new IntHolder();
+        org.omg.CosTypedNotifyChannelAdmin.TypedConsumerAdmin admin1 = objectUnderTest_.new_for_typed_notification_consumers(InterFilterGroupOperator.OR_OP, id);
+        assertEquals(InterFilterGroupOperator.OR_OP, admin1.MyOperator());
+        
+        org.omg.CosTypedNotifyChannelAdmin.TypedSupplierAdmin admin2 = objectUnderTest_.new_for_typed_notification_suppliers(InterFilterGroupOperator.OR_OP, id);
+        assertEquals(InterFilterGroupOperator.OR_OP, admin2.MyOperator());
+
+        org.omg.CosTypedNotifyChannelAdmin.TypedConsumerAdmin admin3 = objectUnderTest_.new_for_typed_notification_consumers(InterFilterGroupOperator.AND_OP, id);
+        assertEquals(InterFilterGroupOperator.AND_OP, admin3.MyOperator());
+        
+        org.omg.CosTypedNotifyChannelAdmin.TypedSupplierAdmin admin4 = objectUnderTest_.new_for_typed_notification_suppliers(InterFilterGroupOperator.AND_OP, id);
+        assertEquals(InterFilterGroupOperator.AND_OP, admin4.MyOperator());
     }
     
     public static Test suite()

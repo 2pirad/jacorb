@@ -44,7 +44,7 @@ import org.omg.CosNotifyFilter.Filter;
  * process.
  * 
  * @author Alphonse Bendt
- * @version $Id: NotifyServerTestCase.java,v 1.3 2005-10-08 11:06:36 alphonse.bendt Exp $
+ * @version $Id: NotifyServerTestCase.java,v 1.4 2005-12-01 21:03:01 alphonse.bendt Exp $
  */
 public abstract class NotifyServerTestCase extends ClientServerTestCase
 {
@@ -121,7 +121,7 @@ public abstract class NotifyServerTestCase extends ClientServerTestCase
             String[] testMethods) throws Exception
     {
         Constructor _ctor = clazz.getConstructor(new Class[] { String.class,
-                NotifyServerTestSetup.class });
+                setup.getClass() });
 
         for (int x = 0; x < testMethods.length; ++x)
         {

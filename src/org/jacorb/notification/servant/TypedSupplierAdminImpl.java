@@ -44,7 +44,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImpl.java,v 1.6 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImpl.java,v 1.7 2005-12-01 21:02:11 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         TypedSupplierAdminOperations
@@ -98,7 +98,7 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         } catch (Exception e)
         {
             logger_.error("unable to create typed notification push consumer", e);
-            throw new INTERNAL();
+            throw new INTERNAL(e.getMessage());
         }
     }
 
@@ -129,7 +129,7 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         {
             logger_.error("unable to create typed notification push consumer", e);
 
-            throw new INTERNAL();
+            throw new INTERNAL(e.getMessage());
         }
     }
 

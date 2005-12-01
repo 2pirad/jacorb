@@ -31,6 +31,7 @@ import org.jacorb.test.notification.NotificationTestCase;
 import org.jacorb.test.notification.NotificationTestCaseSetup;
 import org.omg.CORBA.IntHolder;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
+import org.omg.CosNotifyChannelAdmin.InterFilterGroupOperator;
 import org.omg.CosTypedNotifyChannelAdmin.TypedConsumerAdmin;
 import org.omg.CosTypedNotifyChannelAdmin.TypedConsumerAdminHelper;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullSupplier;
@@ -39,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedConsumerAdminImplTest.java,v 1.8 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: TypedConsumerAdminImplTest.java,v 1.9 2005-12-01 21:03:01 alphonse.bendt Exp $
  */
 
 public class TypedConsumerAdminImplTest extends NotificationTestCase
@@ -86,7 +87,7 @@ public class TypedConsumerAdminImplTest extends NotificationTestCase
                 getMessageFactory(), (OfferManager) container_
                         .getComponentInstance(OfferManager.class), (SubscriptionManager) container_
                         .getComponentInstance(SubscriptionManager.class), mockChannel);
-
+        objectUnderTest_.setInterFilterGroupOperator(InterFilterGroupOperator.AND_OP);
         consumerAdmin_ = TypedConsumerAdminHelper.narrow(objectUnderTest_.activate());
     }
 

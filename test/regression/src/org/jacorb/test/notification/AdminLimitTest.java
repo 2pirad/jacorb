@@ -39,6 +39,7 @@ import org.omg.CosNotifyChannelAdmin.AdminLimitExceeded;
 import org.omg.CosNotifyChannelAdmin.ClientType;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdminOperations;
 import org.omg.CosNotifyChannelAdmin.EventChannel;
+import org.omg.CosNotifyChannelAdmin.InterFilterGroupOperator;
 import org.omg.CosNotifyChannelAdmin.ProxySupplier;
 import org.picocontainer.MutablePicoContainer;
 
@@ -46,7 +47,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.21 2005-10-02 15:20:41 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.22 2005-12-01 21:03:01 alphonse.bendt Exp $
  */
 
 public class AdminLimitTest extends NotificationTestCase
@@ -101,6 +102,7 @@ public class AdminLimitTest extends NotificationTestCase
                         .getComponentInstance(OfferManager.class), (SubscriptionManager) getPicoContainer()
                         .getComponentInstance(SubscriptionManager.class));
 
+        objectUnderTest_.setInterFilterGroupOperator(InterFilterGroupOperator.AND_OP);
         objectUnderTest_.set_qos(_qosSettings.get_qos());
 
         consumerAdmin_ = objectUnderTest_;

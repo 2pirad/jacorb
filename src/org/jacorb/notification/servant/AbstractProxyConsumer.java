@@ -60,7 +60,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.17 2005-10-27 21:39:06 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.18 2005-12-01 21:02:11 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxyConsumer extends AbstractProxy implements IProxyConsumer,
@@ -126,6 +126,8 @@ public abstract class AbstractProxyConsumer extends AbstractProxy implements IPr
     {
         public void actionPropertySetChanged(PropertySet source)
         {
+            logger_.debug("PropertySet changed !!!");
+            
             configureStartTimeSupported();
 
             configureStopTimeSupported();
@@ -150,6 +152,7 @@ public abstract class AbstractProxyConsumer extends AbstractProxy implements IPr
 
     private void configureStopTimeSupported()
     {
+        logger_.debug("QoSSettings: " + qosSettings_);
         try
         {
             isStopTimeSupported_.set(qosSettings_.get(StopTimeSupported.value).extract_boolean());
@@ -193,7 +196,7 @@ public abstract class AbstractProxyConsumer extends AbstractProxy implements IPr
      * @jmx.managed-attribute description = "Does this ProxyConsumer support the per Message Option TimeOut"
      *                        access = "read-only"
      */
-    public boolean getTimeOutSupported()
+    public boolean getStopTimeSupported()
     {
         return isStopTimeSupported_.get();
     }
