@@ -41,7 +41,7 @@ import org.omg.CosNotification.StructuredEventHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultMessageFactory.java,v 1.7 2005-11-11 19:38:42 alphonse.bendt Exp $
+ * @version $Id: DefaultMessageFactory.java,v 1.8 2005-12-01 21:01:05 alphonse.bendt Exp $
  */
 
 public class DefaultMessageFactory implements Disposable, MessageFactory
@@ -134,7 +134,7 @@ public class DefaultMessageFactory implements Disposable, MessageFactory
         _mesg.setFilterStage(consumer.getFirstStage());
 
         _mesg.setStructuredEvent(structuredEvent, consumer.getStartTimeSupported(), consumer
-                .getTimeOutSupported());
+                .getStopTimeSupported());
 
         return _mesg.getHandle();
     }
