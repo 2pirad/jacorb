@@ -27,11 +27,11 @@ import org.omg.CosNotifyFilter.MappingFilter;
 
 /**
  * Abstraction of a ProxyConsumer, SupplierAdmin, ConsumerAdmin,
- * ProxySupplier. This Interface provides uniform access to use
- * these Classes during processing of a Message.
+ * ProxySupplier. This Interface provides uniform access the methods
+ * which are relevant during processing of a Message.
  *
  * @author Alphonse Bendt
- * @version $Id: FilterStage.java,v 1.9 2005-08-21 13:30:01 alphonse.bendt Exp $
+ * @version $Id: FilterStage.java,v 1.10 2005-12-01 21:01:21 alphonse.bendt Exp $
  */
 
 public interface FilterStage extends FilterStageSource
