@@ -44,7 +44,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.27 2005-11-11 19:35:01 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.28 2005-12-01 20:52:38 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
@@ -272,17 +272,17 @@ public abstract class AbstractMessage extends AbstractPoolable
             return isInvalid_;
         }
 
-        public void setMessageStateListener(MessageStateListener l)
+        public void setMessageStateListener(MessageStateListener listener)
         {
-            eventStateListener_ = l;
+            eventStateListener_ = listener;
         }
 
         public MessageStateListener removeMessageStateListener()
         {
-            MessageStateListener _l = eventStateListener_;
+            MessageStateListener _listener = eventStateListener_;
             eventStateListener_ = null;
 
-            return _l;
+            return _listener;
         }
 
         public synchronized void actionTimeout()
