@@ -46,7 +46,6 @@ import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.MaxEventsPerConsumer;
 import org.omg.CosNotification.OrderPolicy;
 import org.omg.CosNotification.Property;
-import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ObtainInfoMode;
 import org.omg.CosNotifyComm.InvalidEventType;
@@ -72,7 +71,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.26 2005-11-11 19:23:51 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.27 2005-12-02 21:08:40 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -192,7 +191,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
 
     private PropertySetAdapter eventQueueConfigurationChangedCB = new PropertySetAdapter()
     {
-        public void actionPropertySetChanged(PropertySet source) throws UnsupportedQoS
+        public void actionPropertySetChanged(PropertySet source)
         {
             configureEventQueue();
         }

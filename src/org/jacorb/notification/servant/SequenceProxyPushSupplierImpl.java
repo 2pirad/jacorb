@@ -39,7 +39,6 @@ import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.MaximumBatchSize;
 import org.omg.CosNotification.PacingInterval;
 import org.omg.CosNotification.StructuredEvent;
-import org.omg.CosNotification.UnsupportedQoS;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPushSupplierHelper;
@@ -59,7 +58,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicLong;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.21 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.22 2005-12-02 21:08:40 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -123,7 +122,7 @@ public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier imp
         
         qosSettings_.addPropertySetListener(MaximumBatchSize.value, new PropertySetAdapter()
         {
-            public void actionPropertySetChanged(PropertySet source) throws UnsupportedQoS
+            public void actionPropertySetChanged(PropertySet source)
             {
                 configureMaxBatchSize();
             }
@@ -131,7 +130,7 @@ public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier imp
 
         qosSettings_.addPropertySetListener(PacingInterval.value, new PropertySetAdapter()
         {
-            public void actionPropertySetChanged(PropertySet source) throws UnsupportedQoS
+            public void actionPropertySetChanged(PropertySet source)
             {
                 configurePacingInterval();
             }

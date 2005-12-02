@@ -60,7 +60,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.18 2005-12-01 21:02:11 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.19 2005-12-02 21:08:40 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxyConsumer extends AbstractProxy implements IProxyConsumer,
@@ -126,8 +126,6 @@ public abstract class AbstractProxyConsumer extends AbstractProxy implements IPr
     {
         public void actionPropertySetChanged(PropertySet source)
         {
-            logger_.debug("PropertySet changed !!!");
-            
             configureStartTimeSupported();
 
             configureStopTimeSupported();
