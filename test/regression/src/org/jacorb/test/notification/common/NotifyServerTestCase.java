@@ -21,10 +21,7 @@
 
 package org.jacorb.test.notification.common;
 
-import java.lang.reflect.Constructor;
-
 import junit.framework.Test;
-import junit.framework.TestSuite;
 
 import org.jacorb.test.common.ClientServerTestCase;
 import org.jacorb.test.common.TestUtils;
@@ -44,7 +41,7 @@ import org.omg.CosNotifyFilter.Filter;
  * process.
  * 
  * @author Alphonse Bendt
- * @version $Id: NotifyServerTestCase.java,v 1.4 2005-12-01 21:03:01 alphonse.bendt Exp $
+ * @version $Id: NotifyServerTestCase.java,v 1.5 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public abstract class NotifyServerTestCase extends ClientServerTestCase
 {
@@ -101,32 +98,7 @@ public abstract class NotifyServerTestCase extends ClientServerTestCase
     public static Test suite(String suiteName, Class clazz, String testMethodPrefix)
             throws Exception
     {
-        if (!NotifyServerTestCase.class.isAssignableFrom(clazz))
-        {
-            throw new IllegalArgumentException("Class " + clazz + " is not derived from " + NotifyServerTestCase.class.getName());
-        }
-        
-        TestSuite _suite = new TestSuite(suiteName);
-
-        NotifyServerTestSetup _setup = new NotifyServerTestSetup(_suite);
-
-        String[] _methodNames = TestUtils.getTestMethods(clazz, testMethodPrefix);
-
-        addToSuite(_suite, _setup, clazz, _methodNames);
-
-        return _setup;
-    }
-
-    private static void addToSuite(TestSuite suite, NotifyServerTestSetup setup, Class clazz,
-            String[] testMethods) throws Exception
-    {
-        Constructor _ctor = clazz.getConstructor(new Class[] { String.class,
-                setup.getClass() });
-
-        for (int x = 0; x < testMethods.length; ++x)
-        {
-            suite.addTest((Test) _ctor.newInstance(new Object[] { testMethods[x], setup }));
-        }
+        return TestUtils.suite(clazz, NotifyServerTestSetup.class, suiteName, testMethodPrefix);
     }
 
     /**

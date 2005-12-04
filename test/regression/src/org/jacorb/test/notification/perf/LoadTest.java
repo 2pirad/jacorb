@@ -27,10 +27,10 @@ import java.util.List;
 import junit.framework.Test;
 import junit.textui.TestRunner;
 
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
 import org.jacorb.test.notification.StructuredPushReceiver;
 import org.jacorb.test.notification.StructuredPushSender;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.ORB;
@@ -45,7 +45,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: LoadTest.java,v 1.2 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: LoadTest.java,v 1.3 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class LoadTest extends NotificationTestCase
 {

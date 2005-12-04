@@ -34,6 +34,8 @@ import org.jacorb.notification.interfaces.ProxyEventListener;
 import org.jacorb.notification.servant.ConsumerAdminImpl;
 import org.jacorb.notification.servant.IEventChannel;
 import org.jacorb.notification.util.QoSPropertySet;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.IntHolder;
 import org.omg.CosNotifyChannelAdmin.AdminLimitExceeded;
 import org.omg.CosNotifyChannelAdmin.ClientType;
@@ -47,7 +49,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.22 2005-12-01 21:03:01 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.23 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 
 public class AdminLimitTest extends NotificationTestCase

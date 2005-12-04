@@ -25,13 +25,15 @@ import junit.framework.Test;
 import org.jacorb.notification.AnyMessage;
 import org.jacorb.notification.NoTranslationException;
 import org.jacorb.notification.interfaces.Message;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AnyMessageTest.java,v 1.4 2005-02-14 00:15:46 alphonse.bendt Exp $
+ * @version $Id: AnyMessageTest.java,v 1.5 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class AnyMessageTest extends NotificationTestCase
 {

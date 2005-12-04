@@ -28,8 +28,8 @@ import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.container.RepositoryComponentAdapter;
 import org.jacorb.notification.servant.IEventChannel;
 import org.jacorb.notification.servant.TypedSupplierAdminImpl;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.IntHolder;
 import org.omg.CosNotifyChannelAdmin.InterFilterGroupOperator;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullConsumer;
@@ -40,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImplTest.java,v 1.9 2005-12-01 21:03:01 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImplTest.java,v 1.10 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImplTest extends NotificationTestCase
 {

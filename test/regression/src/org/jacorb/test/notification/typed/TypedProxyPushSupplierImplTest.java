@@ -35,8 +35,8 @@ import org.jacorb.notification.TypedEventMessage;
 import org.jacorb.notification.engine.DirectExecutorPushTaskExecutorFactory;
 import org.jacorb.notification.servant.ITypedAdmin;
 import org.jacorb.notification.servant.TypedProxyPushSupplierImpl;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.Any;
 import org.omg.CosEventChannelAdmin.TypeError;
 import org.omg.CosEventComm.Disconnected;
@@ -56,7 +56,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.10 2005-10-02 15:20:31 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.11 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class TypedProxyPushSupplierImplTest extends NotificationTestCase
 {

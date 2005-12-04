@@ -23,6 +23,8 @@ package org.jacorb.test.notification;
 import junit.framework.Test;
 
 import org.jacorb.notification.TypedEventMessage;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.jacorb.test.notification.typed.CoffeeHelper;
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.EventType;
@@ -33,7 +35,7 @@ import org.omg.CosNotification.StructuredEvent;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventMessageTest.java,v 1.6 2005-05-01 21:14:29 alphonse.bendt Exp $
+ * @version $Id: TypedEventMessageTest.java,v 1.7 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class TypedEventMessageTest extends NotificationTestCase
 {

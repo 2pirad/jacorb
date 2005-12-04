@@ -32,15 +32,15 @@ import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.IAdmin;
 import org.jacorb.notification.servant.StructuredProxyPushSupplierImpl;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.TRANSIENT;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyComm.StructuredPushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.5 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.6 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 {

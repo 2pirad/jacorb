@@ -30,8 +30,8 @@ import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.ITypedAdmin;
 import org.jacorb.notification.servant.TypedProxyPullConsumerImpl;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.StringHolder;
 import org.omg.CORBA.TRANSIENT;
@@ -51,7 +51,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.10 2005-10-02 15:20:31 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.11 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class TypedProxyPullConsumerImplTest extends NotificationTestCase
 {

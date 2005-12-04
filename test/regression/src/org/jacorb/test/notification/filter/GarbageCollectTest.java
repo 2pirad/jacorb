@@ -31,8 +31,8 @@ import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.filter.DefaultFilterFactoryDelegate;
 import org.jacorb.notification.filter.FilterFactoryImpl;
 import org.jacorb.notification.util.WeakCacheWildcardMap;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.omg.CosNotifyFilter.Filter;
@@ -42,7 +42,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: GarbageCollectTest.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: GarbageCollectTest.java,v 1.4 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class GarbageCollectTest extends NotificationTestCase
 {

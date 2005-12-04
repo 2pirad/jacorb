@@ -31,8 +31,8 @@ import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.ITypedAdmin;
 import org.jacorb.notification.servant.TypedProxyPushConsumerImpl;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CosNotification.EventType;
@@ -47,7 +47,7 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.8 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.9 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 {

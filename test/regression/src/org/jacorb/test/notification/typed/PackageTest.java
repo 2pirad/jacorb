@@ -25,7 +25,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.6 2005-12-01 21:03:01 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.7 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
@@ -46,7 +46,9 @@ public class PackageTest extends TestCase
         suite.addTest(TypedConsumerAdminImplTest.suite());
         suite.addTest(TypedSupplierAdminImplTest.suite());
         suite.addTest(TypedEventChannelTest.suite());
-
+        suite.addTest(TypedEventChannelFactoryIntegrationTest.suite());
+        suite.addTest(TypedEventChannelIntegrationTest.suite());
+        
         return suite;
     }
 }

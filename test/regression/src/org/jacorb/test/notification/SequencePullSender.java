@@ -2,6 +2,7 @@ package org.jacorb.test.notification;
 
 import junit.framework.Assert;
 
+import org.jacorb.test.notification.common.NotificationTestUtils;
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.ORB;
@@ -24,7 +25,7 @@ import org.omg.CosNotifyComm.SequencePullSupplierPOATie;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequencePullSender.java,v 1.7 2005-05-01 21:14:29 alphonse.bendt Exp $
+ * @version $Id: SequencePullSender.java,v 1.8 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 
 public class SequencePullSender extends Thread implements SequencePullSupplierOperations,

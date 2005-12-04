@@ -26,6 +26,8 @@ import junit.framework.Test;
 
 import org.jacorb.notification.NoTranslationException;
 import org.jacorb.notification.StructuredEventMessage;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.jacorb.util.Time;
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.Property;
@@ -35,7 +37,7 @@ import org.omg.TimeBase.UtcTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredEventMessageTest.java,v 1.5 2005-12-01 21:03:01 alphonse.bendt Exp $
+ * @version $Id: StructuredEventMessageTest.java,v 1.6 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class StructuredEventMessageTest extends NotificationTestCase
 {

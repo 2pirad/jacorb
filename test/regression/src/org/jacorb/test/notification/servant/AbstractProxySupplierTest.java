@@ -29,8 +29,8 @@ import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.AbstractProxySupplier;
 import org.jacorb.notification.servant.IAdmin;
-import org.jacorb.test.notification.NotificationTestCase;
-import org.jacorb.test.notification.NotificationTestCaseSetup;
+import org.jacorb.test.notification.common.NotificationTestCase;
+import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.Object;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
@@ -39,7 +39,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplierTest.java,v 1.6 2005-10-27 21:41:51 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplierTest.java,v 1.7 2005-12-04 22:19:27 alphonse.bendt Exp $
  */
 public class AbstractProxySupplierTest extends NotificationTestCase
 {
