@@ -40,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelFactoryImpl.java,v 1.9 2005-08-21 13:29:03 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelFactoryImpl.java,v 1.10 2005-12-04 22:17:49 alphonse.bendt Exp $
  */
 
 public class TypedEventChannelFactoryImpl extends AbstractChannelFactory implements
@@ -88,7 +88,7 @@ public class TypedEventChannelFactoryImpl extends AbstractChannelFactory impleme
 
     public TypedEventChannel get_typed_event_channel(int id) throws ChannelNotFound
     {
-        return TypedEventChannelHelper.narrow(get_event_channel_servant(id));
+        return TypedEventChannelHelper.narrow(get_event_channel_servant(id).activate());
     }
 
     public Servant getServant()
