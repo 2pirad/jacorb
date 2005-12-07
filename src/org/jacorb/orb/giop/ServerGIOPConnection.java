@@ -29,7 +29,7 @@ import org.jacorb.orb.iiop.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.18 2005-10-31 11:31:53 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.19 2005-12-07 16:03:22 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -243,9 +243,12 @@ public class ServerGIOPConnection
 
     public String toString()
     {
-        return "ServerGIOPConnection to "
-              + profile.toString()
-              + " (" + Integer.toHexString(this.hashCode()) + ")";
+        if (profile != null)
+          return "ServerGIOPConnection to "
+                + profile.toString()
+                + " (" + Integer.toHexString(this.hashCode()) + ")";
+        else
+          return super.toString();
     }
     
 }// ServerGIOPConnection
