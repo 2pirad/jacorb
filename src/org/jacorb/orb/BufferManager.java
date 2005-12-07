@@ -36,7 +36,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
  * shared BuffferManager across all ORBs in a process.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.19 2004-10-07 16:29:08 simon.mcqueen Exp $
+ * @version $Id: BufferManager.java,v 1.20 2005-12-07 15:20:35 andre.spiegel Exp $
 */
 
 public final class BufferManager
@@ -99,7 +99,7 @@ public final class BufferManager
      * configures the singleton
      */
  
-    private void singletonConfigure(Configuration configuration)
+    private synchronized void singletonConfigure(Configuration configuration)
         throws ConfigurationException
     {
         time = 
@@ -299,7 +299,7 @@ public final class BufferManager
         }
     }
 
-    public void release()
+    public synchronized void release()
     {
         // printStatistics();
 	for( int i= MAX; i > 0; )
