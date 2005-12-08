@@ -33,7 +33,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddress2Test.java,v 1.1 2005-09-27 20:57:22 phil.mesnier Exp $
+ * @version $Id: AlternateIIOPAddress2Test.java,v 1.2 2005-12-08 03:56:55 phil.mesnier Exp $
  */
 public class AlternateIIOPAddress2Test extends ClientServerTestCase
 {
@@ -69,12 +69,13 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
 
     public static Test suite()
     {
-        TestSuite suite = new JacORBTestSuite("Test TAG_ALTERNATE_IIOP_ADDRESS",
+        TestSuite suite = new JacORBTestSuite("Test TAG_ALTERNATE_IIOP_ADDRESS(2) ",
                                               AlternateIIOPAddress2Test.class);
 
         Properties client_props = new Properties();
         client_props.setProperty ("jacorb.retries", "0");
         client_props.setProperty ("jacorb.retry_interval", "50");
+        client_props.setProperty ("jacorb.connection.client.connect_timeout","5000");
 
         Properties server_props = new Properties();
         server_props.setProperty
@@ -121,11 +122,15 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         try
         {
             int result = s.ping (123);
-            fail ("TRANSIENT exception expected");
+            fail ("TRANSIENT or TIMEOUT  exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
         {
-            // ok
+            // ok - unable to resolve the address
+        }
+        catch (org.omg.CORBA.TIMEOUT ex)
+        {
+            // ok - client connection timeout configured.
         }
     }
 
@@ -136,11 +141,15 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         try
         {
             int result = s.ping (4);
-            fail ("TRANSIENT exception expected");
+            fail ("TRANSIENT or TIMEOUT  exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
         {
-            // ok
+            // ok - unable to resolve the address
+        }
+        catch (org.omg.CORBA.TIMEOUT ex)
+        {
+            // ok - client connection timeout configured.
         }
     }
 
@@ -173,13 +182,16 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         try
         {
             int result = s.ping (33);
-            fail ("TRANSIENT exception expected");
+            fail ("TRANSIENT or TIMEOUT  exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
         {
-            // ok
+            // ok - unable to resolve the address
         }
-
+        catch (org.omg.CORBA.TIMEOUT ex)
+        {
+            // ok - client connection timeout configured.
+        }
     }
 
 }
