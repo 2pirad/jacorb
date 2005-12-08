@@ -36,7 +36,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.17 2005-11-21 20:50:24 phil.mesnier Exp $
+ * @version $Id: IIOPProfile.java,v 1.18 2005-12-08 04:00:33 phil.mesnier Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase
@@ -263,6 +263,9 @@ public class IIOPProfile
     public Object clone() throws CloneNotSupportedException
     {
         IIOPProfile result = (IIOPProfile)super.clone();  // bitwise copy
+
+        result.primaryAddress = new IIOPAddress(primaryAddress.getHostname(),
+                                                primaryAddress.getPort());
 
         result.version = new org.omg.GIOP.Version(this.version.major,
                                                    this.version.minor);

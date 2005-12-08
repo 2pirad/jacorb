@@ -30,7 +30,7 @@ import org.jacorb.orb.CDRInputStream;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.5 2005-11-25 20:35:06 phil.mesnier Exp $
+ * @version $Id: IIOPAddress.java,v 1.6 2005-12-08 04:00:33 phil.mesnier Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -278,7 +278,11 @@ public class IIOPAddress
 
     public int hashCode()
     {
+        if (this.source_name != null)
         return this.source_name.hashCode() + port;
+        else if (this.host != null)
+            return this.host.hashCode() + port;
+        else return port;
     }
 
     public String toString()
