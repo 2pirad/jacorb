@@ -38,7 +38,7 @@ import java.util.*;
  * "ORBPolicyManager."
  *
  * @author Gerald Brose, mailto:gerald.brose@acm.org
- * @version $Id: PolicyManager.java,v 1.3 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: PolicyManager.java,v 1.4 2005-12-08 03:59:17 phil.mesnier Exp $
  */
 
 public class PolicyManager 
@@ -97,7 +97,7 @@ public class PolicyManager
         org.omg.CORBA.Policy[] result = 
             (org.omg.CORBA.Policy[])policyList.toArray( new org.omg.CORBA.Policy[]{});
 
-        if (logger.isDebugEnabled())
+        if (logger.isDebugEnabled() && result.length > 0)
             logger.debug("get_policy_overrides returns " + result.length + " policies");
 
         return result;
