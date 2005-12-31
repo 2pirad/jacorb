@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.16 2005-12-01 21:02:11 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.17 2005-12-31 00:12:57 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,
@@ -282,7 +282,6 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
     {
         return (EventChannel) eventChannelReference_.get();
     }
-
     
     public final int MyID()
     {
