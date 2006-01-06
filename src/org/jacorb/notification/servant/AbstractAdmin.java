@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.17 2005-12-31 00:12:57 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.18 2006-01-06 10:14:09 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,
@@ -592,7 +592,7 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
             fireProxyCreated(proxy);
         }
 
-        // this hook is run when proxy.dispose() is called.
+        
         // it removes proxy from map again.
         proxy.registerDisposable(new Disposable()
         {
@@ -606,19 +606,6 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
                 }
             }
         });
-    }
-
-    public final List getProxies()
-    {
-        List _list = new ArrayList();
-
-        synchronized (modifyProxiesLock_)
-        {
-            _list.addAll(pullServants_.values());
-            _list.addAll(pushServants_.values());
-        }
-
-        return _list;
     }
 
     protected MutablePicoContainer newContainerForNotifyStyleProxy()
