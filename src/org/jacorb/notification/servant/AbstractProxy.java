@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.22 2005-12-01 21:02:11 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.23 2006-01-06 10:14:50 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -330,7 +330,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
             }
         } catch (Exception e)
         {
-            logger_.error("disconnect_client raised an unexpected error: ignore", e);
+            logger_.info("disconnect_client raised an unexpected error: will be ignored", e);
         } finally
         {
             connected_.set(false);
