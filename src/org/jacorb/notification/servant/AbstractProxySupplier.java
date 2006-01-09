@@ -71,7 +71,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.27 2005-12-02 21:08:40 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.28 2006-01-09 21:39:51 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -486,6 +486,11 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
         return offerListener_;
     }
 
+    protected final void clientDisconnected()
+    {
+        offerListener_ = null;
+    }
+    
     public void connectClient(org.omg.CORBA.Object client)
     {
         super.connectClient(client);

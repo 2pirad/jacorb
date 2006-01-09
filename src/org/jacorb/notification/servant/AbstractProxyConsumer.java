@@ -60,7 +60,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.19 2005-12-02 21:08:40 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.20 2006-01-09 21:39:36 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxyConsumer extends AbstractProxy implements IProxyConsumer,
@@ -321,6 +321,11 @@ public abstract class AbstractProxyConsumer extends AbstractProxy implements IPr
         }
     }
 
+    protected final void clientDisconnected()
+    {
+        subscriptionListener_ = null;
+    }
+    
     protected void connectClient(org.omg.CORBA.Object client)
     {
         super.connectClient(client);
