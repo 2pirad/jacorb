@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.51 2005-10-31 11:30:41 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.52 2006-01-09 16:32:54 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -840,8 +840,6 @@ public abstract class GIOPConnection
                         if (logger.isDebugEnabled())
                             logger.debug(this.toString()
                                          + ": sendMessage() -- failed to open transport");
-                        do_close = true;
-                        connect_sync.notifyAll();
                         throw ex;
                     }
                 }
