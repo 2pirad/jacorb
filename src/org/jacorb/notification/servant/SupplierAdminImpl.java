@@ -59,7 +59,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminImpl.java,v 1.8 2005-12-01 21:02:11 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminImpl.java,v 1.9 2006-01-10 23:04:45 alphonse.bendt Exp $
  */
 
 public class SupplierAdminImpl extends AbstractSupplierAdmin implements SupplierAdminOperations,
@@ -194,7 +194,7 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
     private AbstractProxy obtain_notification_push_consumer_servant(ClientType clientType)
             throws Exception
     {
-        AbstractProxy _servant = newProxyPushConsumer(clientType);
+        final AbstractProxy _servant = newProxyPushConsumer(clientType);
 
         configureInterFilterGroupOperator(_servant);
 
@@ -336,10 +336,9 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
     /**
      * factory method to create new ProxyPushConsumerServants.
      */
-    AbstractProxy newProxyPushConsumer(ClientType clientType)
+    private AbstractProxy newProxyPushConsumer(ClientType clientType)
     {
         final AbstractProxyConsumer _servant;
-
         final Class _proxyClazz;
 
         switch (clientType.value()) {
