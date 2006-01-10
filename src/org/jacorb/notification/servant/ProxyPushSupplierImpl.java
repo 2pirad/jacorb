@@ -45,7 +45,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.19 2005-10-27 21:39:06 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.20 2006-01-10 23:05:55 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -153,11 +153,6 @@ public class ProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
             thisServant_ = new ProxyPushSupplierPOATie(this);
         }
         return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return ProxyPushSupplierHelper.narrow(getServant()._this_object(getORB()));
     }
 
     public long getCost()

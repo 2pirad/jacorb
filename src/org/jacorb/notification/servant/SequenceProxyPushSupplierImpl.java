@@ -58,7 +58,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicLong;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.22 2005-12-02 21:08:40 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.23 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -363,8 +363,4 @@ public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier imp
         return timeSpent_;
     }
     
-    public org.omg.CORBA.Object activate()
-    {
-        return SequenceProxyPushSupplierHelper.narrow(getServant()._this_object(getORB()));
-    }
 }

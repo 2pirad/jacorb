@@ -41,7 +41,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushSupplierImpl.java,v 1.11 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushSupplierImpl.java,v 1.12 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 public class ECProxyPushSupplierImpl extends ProxyPushSupplierImpl implements
         ProxyPushSupplierOperations, ECProxyPushSupplierImplMBean
@@ -70,8 +70,4 @@ public class ECProxyPushSupplierImpl extends ProxyPushSupplierImpl implements
         return thisServant_;
     }
 
-    public org.omg.CORBA.Object activate()
-    {
-        return ProxyPushSupplierHelper.narrow(getServant()._this_object(getORB()));
-    }
 }

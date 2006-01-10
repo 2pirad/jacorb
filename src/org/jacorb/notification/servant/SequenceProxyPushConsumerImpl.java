@@ -46,7 +46,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.12 2005-10-27 21:39:06 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.13 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl extends AbstractProxyConsumer implements
@@ -115,10 +115,5 @@ public class SequenceProxyPushConsumerImpl extends AbstractProxyConsumer impleme
         }
 
         return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return ProxyConsumerHelper.narrow(getServant()._this_object(getORB()));
     }
 }

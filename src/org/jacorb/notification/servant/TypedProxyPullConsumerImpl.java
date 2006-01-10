@@ -60,7 +60,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImpl.java,v 1.11 2006-01-06 10:17:21 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImpl.java,v 1.12 2006-01-10 23:05:55 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -269,11 +269,6 @@ public class TypedProxyPullConsumerImpl extends AbstractProxyConsumer implements
     public ProxyType MyType()
     {
         return ProxyType.PULL_TYPED;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return TypedProxyPullConsumerHelper.narrow(getServant()._this_object(getORB()));
     }
 
     public void disconnectClient()

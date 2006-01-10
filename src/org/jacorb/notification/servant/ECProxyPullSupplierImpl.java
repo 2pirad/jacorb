@@ -37,7 +37,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullSupplierImpl.java,v 1.8 2005-02-20 21:45:26 alphonse.bendt Exp $
+ * @version $Id: ECProxyPullSupplierImpl.java,v 1.9 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 
 public class ECProxyPullSupplierImpl extends ProxyPullSupplierImpl implements
@@ -63,10 +63,5 @@ public class ECProxyPullSupplierImpl extends ProxyPullSupplierImpl implements
             thisServant_ = new ProxyPullSupplierPOATie(this);
         }
         return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return ProxyPullSupplierHelper.narrow(getServant()._this_object(getORB()));
     }
 }

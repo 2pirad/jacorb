@@ -44,7 +44,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.14 2005-08-22 18:17:15 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.15 2006-01-10 23:05:55 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -166,8 +166,4 @@ public class SequenceProxyPullSupplierImpl extends AbstractProxySupplier impleme
         return 0;
     }
 
-    public Object activate()
-    {
-        return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
-    }
 }

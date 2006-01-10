@@ -58,7 +58,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImpl.java,v 1.9 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImpl.java,v 1.10 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImpl extends AbstractProxyConsumer implements
         TypedProxyPushConsumerOperations, ITypedProxy, TypedProxyPushConsumerImplMBean
@@ -247,11 +247,6 @@ public class TypedProxyPushConsumerImpl extends AbstractProxyConsumer implements
         return thisServant_;
     }
 
-    public org.omg.CORBA.Object activate()
-    {
-        return TypedProxyPushConsumerHelper.narrow(getServant()._this_object(getORB()));
-    }
-    
     /**
      * @jmx.managed-attribute
      *                        access = "read-only"

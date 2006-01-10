@@ -50,7 +50,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.19 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.20 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -189,11 +189,6 @@ public class StructuredProxyPushSupplierImpl extends AbstractProxyPushSupplier i
         return thisServant_;
     }
 
-    public org.omg.CORBA.Object activate()
-    {
-        return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
-    }
-    
     protected long getCost()
     {
         return timeSpent_;

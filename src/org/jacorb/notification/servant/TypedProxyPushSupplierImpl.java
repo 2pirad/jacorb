@@ -55,7 +55,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImpl.java,v 1.13 2005-10-27 21:39:06 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImpl.java,v 1.14 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 
 public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -128,11 +128,6 @@ public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implem
         return ProxyType.PUSH_TYPED;
     }
 
-
-    public org.omg.CORBA.Object activate()
-    {
-        return TypedProxyPushSupplierHelper.narrow(getServant()._this_object(getORB()));
-    }
 
     public void isIDLAssignable(final String ifName) throws IllegalArgumentException
     {

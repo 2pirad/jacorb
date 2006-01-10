@@ -45,7 +45,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.13 2005-08-21 13:33:00 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.14 2006-01-10 23:05:55 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl extends AbstractProxyConsumer implements
@@ -109,10 +109,5 @@ public class StructuredProxyPushConsumerImpl extends AbstractProxyConsumer imple
             thisServant_ = new StructuredProxyPushConsumerPOATie(this);
         }
         return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return ProxyConsumerHelper.narrow(getServant()._this_object(getORB()));
     }
 }

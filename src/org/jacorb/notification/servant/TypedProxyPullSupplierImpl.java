@@ -74,7 +74,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImpl.java,v 1.12 2005-12-02 21:08:40 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImpl.java,v 1.13 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -437,11 +437,6 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
         }
         
         return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return TypedProxyPullSupplierHelper.narrow(getServant()._this_object(getORB()));
     }
 
     public void queueMessage(Message message)

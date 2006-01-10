@@ -43,7 +43,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.14 2005-08-22 18:17:15 alphonse.bendt Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.15 2006-01-10 23:05:54 alphonse.bendt Exp $
  */
 
 public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -174,11 +174,6 @@ public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
         return thisServant_;
     }
 
-    public org.omg.CORBA.Object activate()
-    {
-        return ProxySupplierHelper.narrow(getServant()._this_object(getORB()));
-    }
-    
     protected long getCost()
     {
         return 0;
