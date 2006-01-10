@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.24 2006-01-09 21:38:14 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.25 2006-01-10 21:37:13 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -327,8 +327,6 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
                 logger_.info("disconnect_client");
 
                 disconnectClient();
-                
-                client_ = null;
             }
         } catch (Exception e)
         {
@@ -336,6 +334,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
         } finally
         {
             connected_.set(false);
+            client_ = null;
         }
     }
 
