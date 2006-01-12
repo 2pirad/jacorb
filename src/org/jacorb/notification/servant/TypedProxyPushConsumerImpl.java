@@ -46,7 +46,6 @@ import org.omg.CosEventComm.PushSupplier;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.SupplierAdmin;
 import org.omg.CosTypedEventChannelAdmin.InterfaceNotSupported;
-import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerHelper;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerOperations;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerPOATie;
 import org.omg.PortableServer.DynamicImplementation;
@@ -58,7 +57,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImpl.java,v 1.10 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImpl.java,v 1.11 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImpl extends AbstractProxyConsumer implements
         TypedProxyPushConsumerOperations, ITypedProxy, TypedProxyPushConsumerImplMBean
@@ -238,13 +237,9 @@ public class TypedProxyPushConsumerImpl extends AbstractProxyConsumer implements
         }
     }
 
-    public Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new TypedProxyPushConsumerPOATie(this);
-        }
-        return thisServant_;
+        return new TypedProxyPushConsumerPOATie(this);
     }
 
     /**

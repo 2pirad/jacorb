@@ -36,14 +36,13 @@ import org.omg.CosEventComm.PullConsumer;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ProxyPullSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPullSupplierPOATie;
-import org.omg.CosNotifyChannelAdmin.ProxySupplierHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.15 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.16 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -165,13 +164,9 @@ public class ProxyPullSupplierImpl extends AbstractProxySupplier implements
         // as we do not actively deliver events we can ignore this
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new ProxyPullSupplierPOATie(this);
-        }
-        return thisServant_;
+        return new ProxyPullSupplierPOATie(this);
     }
 
     protected long getCost()

@@ -44,7 +44,6 @@ import org.omg.CosNotification.Property;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosTypedEventComm.TypedPushConsumer;
-import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushSupplierHelper;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushSupplierOperations;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushSupplierPOATie;
 import org.omg.PortableServer.POA;
@@ -55,7 +54,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImpl.java,v 1.14 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImpl.java,v 1.15 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -244,14 +243,9 @@ public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implem
         }
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new TypedProxyPushSupplierPOATie(this);
-        }
-
-        return thisServant_;
+        return new TypedProxyPushSupplierPOATie(this);
     }
 
     protected long getCost()

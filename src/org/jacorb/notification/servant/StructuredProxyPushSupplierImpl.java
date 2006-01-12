@@ -35,7 +35,6 @@ import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
-import org.omg.CosNotifyChannelAdmin.ProxySupplierHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPushSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPushSupplierPOATie;
@@ -50,7 +49,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.20 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImpl.java,v 1.21 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -180,13 +179,9 @@ public class StructuredProxyPushSupplierImpl extends AbstractProxyPushSupplier i
         pushConsumer_ = NULL_CONSUMER;
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new StructuredProxyPushSupplierPOATie(this);
-        }
-        return thisServant_;
+        return new StructuredProxyPushSupplierPOATie(this);
     }
 
     protected long getCost()

@@ -31,7 +31,6 @@ import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PushSupplier;
-import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyPushConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPushConsumerPOATie;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
@@ -44,7 +43,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.14 2006-01-10 23:05:55 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.15 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class ProxyPushConsumerImpl extends AbstractProxyConsumer implements
@@ -110,14 +109,8 @@ public class ProxyPushConsumerImpl extends AbstractProxyConsumer implements
         connectClient(pushSupplier);
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new ProxyPushConsumerPOATie(this);
-        }
-
-        return thisServant_;
+        return new ProxyPushConsumerPOATie(this);
     }
-
 }

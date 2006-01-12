@@ -35,7 +35,6 @@ import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PullSupplier;
-import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyPullConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPullConsumerPOATie;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
@@ -47,7 +46,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ProxyPullConsumerImpl.java,v 1.15 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPullConsumerImpl.java,v 1.16 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class ProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -138,14 +137,9 @@ public class ProxyPullConsumerImpl extends AbstractProxyConsumer implements
         pollTaskUtility_.stopTask();
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new ProxyPullConsumerPOATie(this);
-        }
-
-        return thisServant_;
+        return new ProxyPullConsumerPOATie(this);
     }
 
     // //////////////////////////////////////

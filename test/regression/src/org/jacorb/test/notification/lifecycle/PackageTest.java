@@ -1,9 +1,7 @@
-package org.jacorb.notification.servant;
-
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004 Gerald Brose.
+ *   Copyright (C) 1999-2006 Gerald Brose
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -18,17 +16,18 @@ package org.jacorb.notification.servant;
  *   You should have received a copy of the GNU Library General Public
  *   License along with this library; if not, write to the Free
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
  */
 
+package org.jacorb.test.notification.lifecycle;
 
-/**
- * @author Alphonse Bendt
- * @version $Id: ManageableServant.java,v 1.6 2005-04-10 14:27:09 alphonse.bendt Exp $
- */
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
-public interface ManageableServant {
-
-    org.omg.CORBA.Object activate();
-
-    void deactivate();
+public class PackageTest 
+{
+    public static Test suite() throws Exception
+    {
+        return new TestSuite(ServantLifecycleControlTest.class);
+    }
 }

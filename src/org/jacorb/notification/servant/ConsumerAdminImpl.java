@@ -67,7 +67,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminImpl.java,v 1.9 2006-01-10 23:03:40 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminImpl.java,v 1.10 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOperations,
@@ -89,10 +89,6 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
 
     private static final FilterstageWithMessageConsumerComparator FILTERSTAGE_COMPARATOR = new FilterstageWithMessageConsumerComparator();
     
-    private final ConsumerAdmin thisRef_;
-
-    protected final Servant thisServant_;
-
     private final FilterStageListManager listManager_;
 
     private MappingFilter priorityFilter_;
@@ -140,12 +136,10 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
 
         addProxyEventListener(this);
 
-        thisServant_ = createServant();
-
-        thisRef_ = ConsumerAdminHelper.narrow(getServant()._this_object(getORB()));
+        ConsumerAdmin _thisRef = ConsumerAdminHelper.narrow(activate());
 
         container_.registerComponent(new CachingComponentAdapter(new CORBAObjectComponentAdapter(
-                ConsumerAdmin.class, thisRef_)));
+                ConsumerAdmin.class, _thisRef)));
 
         registerDisposable(new Disposable()
         {
@@ -158,19 +152,9 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
 
     ////////////////////////////////////////
 
-    protected Servant createServant()
+    public Servant newServant()
     {
         return new ConsumerAdminPOATie(this);
-    }
-
-    public final Servant getServant()
-    {
-        return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return thisRef_;
     }
 
     public void subscription_change(EventType[] added, EventType[] removed) throws InvalidEventType

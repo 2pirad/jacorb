@@ -34,8 +34,6 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullConsumer;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullConsumerHelper;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumer;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerHelper;
-import org.omg.CosTypedNotifyChannelAdmin.TypedSupplierAdmin;
-import org.omg.CosTypedNotifyChannelAdmin.TypedSupplierAdminHelper;
 import org.omg.CosTypedNotifyChannelAdmin.TypedSupplierAdminOperations;
 import org.omg.CosTypedNotifyChannelAdmin.TypedSupplierAdminPOATie;
 import org.omg.PortableServer.POA;
@@ -44,30 +42,23 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImpl.java,v 1.7 2005-12-01 21:02:11 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImpl.java,v 1.8 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         TypedSupplierAdminOperations
 {
-    private final TypedSupplierAdmin thisRef_;
-
     public TypedSupplierAdminImpl(IEventChannel channelServant, ORB orb, POA poa,
             Configuration config, MessageFactory messageFactory, OfferManager offerManager,
             SubscriptionManager subscriptionManager)
     {
         super(channelServant, orb, poa, config, messageFactory, offerManager, subscriptionManager);
 
-        thisRef_ = TypedSupplierAdminHelper.narrow(getServant()._this_object(getORB()));
+        activate();
     }
 
-    protected Servant createServant()
+    public Servant newServant()
     {
         return new TypedSupplierAdminPOATie(this);
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return thisRef_;
     }
 
     public TypedProxyPushConsumer obtain_typed_notification_push_consumer(String type, IntHolder id)

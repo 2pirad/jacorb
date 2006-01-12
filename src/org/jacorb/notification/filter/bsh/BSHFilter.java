@@ -51,7 +51,7 @@ import bsh.Interpreter;
  * <code>jacorb.notification.filter.plugin.BSH=org.jacorb.notification.filter.bsh.BSHFilter</code>
  * 
  * @author Alphonse Bendt
- * @version $Id: BSHFilter.java,v 1.4 2005-10-19 22:18:20 alphonse.bendt Exp $
+ * @version $Id: BSHFilter.java,v 1.5 2006-01-12 22:35:15 alphonse.bendt Exp $
  */
 public class BSHFilter extends AbstractFilter
 {
@@ -65,7 +65,7 @@ public class BSHFilter extends AbstractFilter
     public BSHFilter(Configuration config, EvaluationContextFactory evaluationContextFactory,
             MessageFactory messageFactory, ORB orb, POA poa) throws ConfigurationException
     {
-        super(config, evaluationContextFactory, messageFactory, orb, poa);
+        super(config, evaluationContextFactory, messageFactory, poa);
     }
 
     public String constraint_grammar()

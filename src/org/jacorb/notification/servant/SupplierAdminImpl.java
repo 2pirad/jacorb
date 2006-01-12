@@ -59,15 +59,13 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminImpl.java,v 1.9 2006-01-10 23:04:45 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminImpl.java,v 1.10 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class SupplierAdminImpl extends AbstractSupplierAdmin implements SupplierAdminOperations,
         Disposable, SupplierAdminImplMBean
 {
     private FilterStageSource subsequentFilterStagesSource_;
-
-    private final Servant thisServant_;
 
     private final SupplierAdmin thisCorbaRef_;
 
@@ -79,9 +77,7 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
     {
         super(channelServant, orb, poa, config, messageFactory, offerManager, subscriptionManager);
 
-        thisServant_ = createServant();
-
-        thisCorbaRef_ = SupplierAdminHelper.narrow(getServant()._this_object(getORB()));
+        thisCorbaRef_ = SupplierAdminHelper.narrow(activate());
 
         container_.registerComponent(new CachingComponentAdapter(new CORBAObjectComponentAdapter(
                 SupplierAdmin.class, thisCorbaRef_)));
@@ -95,19 +91,9 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
         });
     }
 
-    protected Servant createServant()
+    public Servant newServant()
     {
         return new SupplierAdminPOATie(this);
-    }
-
-    public Servant getServant()
-    {
-        return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return thisCorbaRef_;
     }
 
     public void offer_change(EventType[] added, EventType[] removed) throws InvalidEventType

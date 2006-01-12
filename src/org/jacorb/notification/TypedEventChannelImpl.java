@@ -50,7 +50,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelImpl.java,v 1.10 2005-12-01 20:59:47 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelImpl.java,v 1.11 2006-01-12 22:35:15 alphonse.bendt Exp $
  */
 
 public class TypedEventChannelImpl extends AbstractEventChannel implements
@@ -104,22 +104,16 @@ public class TypedEventChannelImpl extends AbstractEventChannel implements
         }
     }
 
-    private final TypedEventChannel thisRef_;
-
     private final TypedEventChannelFactory typedEventChannelFactory_;
-
-    private final Servant thisServant_;
 
     public TypedEventChannelImpl(IFactory factory, ORB orb, POA poa, Configuration config,
             FilterFactory filterFactory, TypedEventChannelFactory factoryRef)
     {
         super(factory, orb, poa, config, filterFactory);
 
-        thisServant_ = new TypedEventChannelPOATie(this);
+        TypedEventChannel _thisRef = TypedEventChannelHelper.narrow(activate());
 
-        thisRef_ = TypedEventChannelHelper.narrow(getServant()._this_object(orb_));
-
-        container_.registerComponent(new CORBAObjectComponentAdapter(TypedEventChannel.class, thisRef_));
+        container_.registerComponent(new CORBAObjectComponentAdapter(TypedEventChannel.class, _thisRef));
 
         typedEventChannelFactory_ = factoryRef;
     }
@@ -175,14 +169,9 @@ public class TypedEventChannelImpl extends AbstractEventChannel implements
         return org.omg.CosTypedEventChannelAdmin.TypedSupplierAdminHelper.narrow(default_supplier_admin());
     }
 
-    protected Servant getServant()
+    public Servant newServant()
     {
-        return thisServant_;
-    }
-
-    public org.omg.CORBA.Object activate()
-    {
-        return thisRef_;
+        return new TypedEventChannelPOATie(this);
     }
 
     public AbstractSupplierAdmin newSupplierAdmin(final int id)
@@ -223,6 +212,6 @@ public class TypedEventChannelImpl extends AbstractEventChannel implements
      */
     public String getIOR()
     {
-        return orb_.object_to_string(thisRef_);
+        return orb_.object_to_string(activate());
     }
 }

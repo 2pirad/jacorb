@@ -32,7 +32,6 @@ import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.StructuredEvent;
-import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPushConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPushConsumerPOATie;
@@ -46,7 +45,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.13 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.14 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushConsumerImpl extends AbstractProxyConsumer implements
@@ -107,13 +106,8 @@ public class SequenceProxyPushConsumerImpl extends AbstractProxyConsumer impleme
         destroy();
     }
 
-    public synchronized Servant getServant()
+    public synchronized Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new SequenceProxyPushConsumerPOATie(this);
-        }
-
-        return thisServant_;
+        return new SequenceProxyPushConsumerPOATie(this);
     }
 }

@@ -39,7 +39,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplierTest.java,v 1.7 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplierTest.java,v 1.8 2006-01-12 22:35:31 alphonse.bendt Exp $
  */
 public class AbstractProxySupplierTest extends NotificationTestCase
 {
@@ -100,12 +100,7 @@ public class AbstractProxySupplierTest extends NotificationTestCase
                 // ignored
             }
 
-            protected Servant getServant()
-            {
-                return null;
-            }
-
-            public Object activate()
+            public Servant newServant()
             {
                 return null;
             }
@@ -151,10 +146,6 @@ public class AbstractProxySupplierTest extends NotificationTestCase
 
     public void testDisposeDisposesPendingMessages() throws Exception
     {
-        mockPOA_.servant_to_id(null);
-        controlPOA_.setMatcher(MockControl.ALWAYS_MATCHER);
-        controlPOA_.setReturnValue(new byte[] { 1 });
-
         mockMessage_.clone();
         controlMessage_.setReturnValue(mockMessage_);
 

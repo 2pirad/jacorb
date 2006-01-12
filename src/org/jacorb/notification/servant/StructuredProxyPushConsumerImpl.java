@@ -31,7 +31,6 @@ import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.StructuredEvent;
-import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPushConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPushConsumerPOATie;
@@ -45,7 +44,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.14 2006-01-10 23:05:55 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushConsumerImpl.java,v 1.15 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPushConsumerImpl extends AbstractProxyConsumer implements
@@ -102,12 +101,8 @@ public class StructuredProxyPushConsumerImpl extends AbstractProxyConsumer imple
         logger_.info("connect structured_push_supplier");
     }
 
-    public synchronized Servant getServant()
+    public synchronized Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new StructuredProxyPushConsumerPOATie(this);
-        }
-        return thisServant_;
+        return new StructuredProxyPushConsumerPOATie(this);
     }
 }

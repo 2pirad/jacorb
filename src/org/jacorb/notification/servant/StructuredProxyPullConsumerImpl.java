@@ -35,7 +35,6 @@ import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.StructuredEvent;
-import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.StructuredProxyPullConsumerPOATie;
@@ -49,7 +48,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.16 2006-01-10 23:05:55 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPullConsumerImpl.java,v 1.17 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class StructuredProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -130,14 +129,9 @@ public class StructuredProxyPullConsumerImpl extends AbstractProxyConsumer imple
         pollUtil_.stopTask();
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new StructuredProxyPullConsumerPOATie(this);
-        }
-
-        return thisServant_;
+        return new StructuredProxyPullConsumerPOATie(this);
     }
 
     public MessageSupplierDelegate.PullResult pullMessages() throws Disconnected

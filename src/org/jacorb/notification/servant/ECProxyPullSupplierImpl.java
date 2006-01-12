@@ -27,7 +27,6 @@ import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
-import org.omg.CosEventChannelAdmin.ProxyPullSupplierHelper;
 import org.omg.CosEventChannelAdmin.ProxyPullSupplierOperations;
 import org.omg.CosEventChannelAdmin.ProxyPullSupplierPOATie;
 import org.omg.CosEventComm.PullConsumer;
@@ -37,7 +36,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullSupplierImpl.java,v 1.9 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: ECProxyPullSupplierImpl.java,v 1.10 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class ECProxyPullSupplierImpl extends ProxyPullSupplierImpl implements
@@ -56,12 +55,8 @@ public class ECProxyPullSupplierImpl extends ProxyPullSupplierImpl implements
         connect_any_pull_consumer(pullConsumer);
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new ProxyPullSupplierPOATie(this);
-        }
-        return thisServant_;
+        return new ProxyPullSupplierPOATie(this);
     }
 }

@@ -37,7 +37,7 @@ import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.container.BiDirGiopPOAComponentAdapter;
 import org.jacorb.notification.container.PicoContainerFactory;
 import org.jacorb.notification.interfaces.Disposable;
-import org.jacorb.notification.servant.ManageableServant;
+import org.jacorb.notification.lifecycle.ManageableServant;
 import org.jacorb.notification.util.AdminPropertySet;
 import org.jacorb.notification.util.DisposableManager;
 import org.jacorb.notification.util.PropertySet;
@@ -73,7 +73,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.17 2005-10-19 22:17:10 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.18 2006-01-12 22:35:15 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable

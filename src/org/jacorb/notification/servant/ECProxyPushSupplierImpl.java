@@ -28,7 +28,6 @@ import org.jacorb.notification.engine.PushTaskExecutorFactory;
 import org.jacorb.notification.engine.TaskProcessor;
 import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
-import org.omg.CosEventChannelAdmin.ProxyPushSupplierHelper;
 import org.omg.CosEventChannelAdmin.ProxyPushSupplierOperations;
 import org.omg.CosEventChannelAdmin.ProxyPushSupplierPOATie;
 import org.omg.CosEventComm.PushConsumer;
@@ -41,7 +40,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ECProxyPushSupplierImpl.java,v 1.12 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: ECProxyPushSupplierImpl.java,v 1.13 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 public class ECProxyPushSupplierImpl extends ProxyPushSupplierImpl implements
         ProxyPushSupplierOperations, ECProxyPushSupplierImplMBean
@@ -61,13 +60,9 @@ public class ECProxyPushSupplierImpl extends ProxyPushSupplierImpl implements
         connect_any_push_consumer(pushConsumer);
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new ProxyPushSupplierPOATie(this);
-        }
-        return thisServant_;
+        return new ProxyPushSupplierPOATie(this);
     }
 
 }

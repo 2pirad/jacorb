@@ -33,7 +33,6 @@ import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PushConsumer;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
-import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.ProxyPushSupplierPOATie;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
@@ -45,7 +44,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.20 2006-01-10 23:05:55 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.21 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -146,13 +145,9 @@ public class ProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
         schedulePush();
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new ProxyPushSupplierPOATie(this);
-        }
-        return thisServant_;
+        return new ProxyPushSupplierPOATie(this);
     }
 
     public long getCost()

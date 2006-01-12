@@ -38,7 +38,7 @@ import org.omg.PortableServer.POA;
  * @jboss.xmbean             
  *              
  * @author Alphonse Bendt
- * @version $Id: ETCLFilter.java,v 1.3 2005-08-21 13:24:38 alphonse.bendt Exp $
+ * @version $Id: ETCLFilter.java,v 1.4 2006-01-12 22:35:15 alphonse.bendt Exp $
  */
 public class ETCLFilter extends AbstractFilter implements ETCLFilterMBean
 {
@@ -49,7 +49,7 @@ public class ETCLFilter extends AbstractFilter implements ETCLFilterMBean
             MessageFactory messageFactory, 
             ORB orb, POA poa) throws ConfigurationException
     {
-        super(config, evaluationContextFactory, messageFactory, orb, poa);
+        super(config, evaluationContextFactory, messageFactory, poa);
     }
 
     public FilterConstraint newFilterConstraint(ConstraintExp constraintExp)

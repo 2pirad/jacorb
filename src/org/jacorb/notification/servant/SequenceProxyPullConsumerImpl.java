@@ -35,7 +35,6 @@ import org.omg.CORBA.ORB;
 import org.omg.CosEventChannelAdmin.AlreadyConnected;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosNotification.StructuredEvent;
-import org.omg.CosNotifyChannelAdmin.ProxyConsumerHelper;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPullConsumerOperations;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPullConsumerPOATie;
@@ -49,7 +48,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.14 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullConsumerImpl.java,v 1.15 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPullConsumerImpl extends AbstractProxyConsumer implements
@@ -109,14 +108,9 @@ public class SequenceProxyPullConsumerImpl extends AbstractProxyConsumer impleme
         sequencePullSupplier_ = null;
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new SequenceProxyPullConsumerPOATie(this);
-        }
-
-        return thisServant_;
+        return new SequenceProxyPullConsumerPOATie(this);
     }
 
     public MessageSupplierDelegate.PullResult pullMessages() throws Disconnected

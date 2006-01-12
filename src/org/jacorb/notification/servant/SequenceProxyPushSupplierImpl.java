@@ -41,7 +41,6 @@ import org.omg.CosNotification.PacingInterval;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyChannelAdmin.ProxyType;
-import org.omg.CosNotifyChannelAdmin.SequenceProxyPushSupplierHelper;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPushSupplierOperations;
 import org.omg.CosNotifyChannelAdmin.SequenceProxyPushSupplierPOATie;
 import org.omg.CosNotifyComm.SequencePushConsumer;
@@ -58,7 +57,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicLong;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.23 2006-01-10 23:05:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.24 2006-01-12 22:34:54 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -348,14 +347,9 @@ public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier imp
         return false;
     }
 
-    public synchronized Servant getServant()
+    public Servant newServant()
     {
-        if (thisServant_ == null)
-        {
-            thisServant_ = new SequenceProxyPushSupplierPOATie(this);
-        }
-
-        return thisServant_;
+        return new SequenceProxyPushSupplierPOATie(this);
     }
 
     protected long getCost()
