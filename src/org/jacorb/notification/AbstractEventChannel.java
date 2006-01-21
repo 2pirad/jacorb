@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractEventChannel.java,v 1.11 2006-01-12 22:35:15 alphonse.bendt Exp $
+ * @version $Id: AbstractEventChannel.java,v 1.12 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public abstract class AbstractEventChannel implements IServantLifecyle, JMXManageable
@@ -225,7 +225,7 @@ public abstract class AbstractEventChannel implements IServantLifecyle, JMXManag
             }
         };
         
-        servantLifecyle_ = new ServantLifecyleControl(this);
+        servantLifecyle_ = new ServantLifecyleControl(this, config);
     }
 
     ////////////////////////////////////////

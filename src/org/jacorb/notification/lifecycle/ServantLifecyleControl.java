@@ -21,6 +21,9 @@
 
 package org.jacorb.notification.lifecycle;
 
+import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.notification.conf.Attributes;
+import org.jacorb.notification.conf.Default;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 import org.omg.PortableServer.POAPackage.ObjectNotActive;
@@ -29,22 +32,30 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ServantLifecyleControl.java,v 1.1 2006-01-12 22:32:47 alphonse.bendt Exp $
+ * @version $Id: ServantLifecyleControl.java,v 1.2 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public class ServantLifecyleControl implements ManageableServant
 {
     private final IServantLifecyle delegate_;
 
+    private final boolean runGCDuringDeactivation_;
+    
     private org.omg.CORBA.Object thisRef_;
 
     private Servant thisServant_;
 
-    public ServantLifecyleControl(IServantLifecyle delegate)
+    public ServantLifecyleControl(IServantLifecyle delegate, Configuration config)
     {
-        delegate_ = delegate;
+        this(delegate, config.getAttribute(Attributes.RUN_SYSTEM_GC, Default.DEFAULT_RUN_SYSTEM_GC).equalsIgnoreCase("on"));
     }
 
+    public ServantLifecyleControl(IServantLifecyle delegate, boolean runGCDuringDeactivation)
+    {
+        delegate_ = delegate;
+        runGCDuringDeactivation_ = runGCDuringDeactivation;
+    }
+    
     public synchronized org.omg.CORBA.Object activate()
     {
         if (thisRef_ == null)
@@ -96,6 +107,12 @@ public class ServantLifecyleControl implements ManageableServant
             {
                 thisRef_ = null;
                 thisServant_ = null;
+                
+                if (runGCDuringDeactivation_)
+                {
+                    System.runFinalization();
+                    System.gc();
+                }
             }
         }
     }

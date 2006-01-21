@@ -26,7 +26,7 @@ import org.jacorb.notification.util.WeakCacheWildcardMap;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Default.java,v 1.11 2005-12-01 21:00:24 alphonse.bendt Exp $
+ * @version $Id: Default.java,v 1.12 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public interface Default
@@ -95,4 +95,6 @@ public interface Default
     long DEFAULT_DEAD_FILTER_INTERVAL = 0;
 
     boolean DEFAULT_USE_GC = false;
+
+    String DEFAULT_RUN_SYSTEM_GC = "off";
 }

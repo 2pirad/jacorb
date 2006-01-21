@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.19 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.20 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,
@@ -209,7 +209,7 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
 
         subscriptionManager_ = subscriptionManager;
         
-        servantLifecycle_ = new ServantLifecyleControl(this);
+        servantLifecycle_ = new ServantLifecyleControl(this, config);
     }
 
     public final void registerDisposable(Disposable disposable)

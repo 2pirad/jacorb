@@ -124,7 +124,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.locks.ReentrantReadWriteLo
  * 
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: AbstractFilter.java,v 1.9 2006-01-12 22:35:15 alphonse.bendt Exp $
+ * @version $Id: AbstractFilter.java,v 1.10 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public abstract class AbstractFilter implements GCDisposable, IServantLifecyle, 
@@ -207,7 +207,7 @@ public abstract class AbstractFilter implements GCDisposable, IServantLifecyle,
         maxIdleTime_ = config.getAttributeAsLong(Attributes.DEAD_FILTER_INTERVAL,
                 Default.DEFAULT_DEAD_FILTER_INTERVAL);
         
-        servantLifecyle_ = new ServantLifecyleControl(this);
+        servantLifecyle_ = new ServantLifecyleControl(this, config);
     }
 
     public final Servant newServant()

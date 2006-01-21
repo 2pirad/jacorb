@@ -50,7 +50,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.6 2006-01-12 22:35:15 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.7 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable, IServantLifecyle
@@ -172,7 +172,7 @@ public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable, I
             _gcThread.start();
         }
         
-        servantLifecycle_ = new ServantLifecyleControl(this);
+        servantLifecycle_ = new ServantLifecyleControl(this, config);
     }
 
     public final void addDisposeHook(Disposable d)

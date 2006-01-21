@@ -23,7 +23,7 @@ package org.jacorb.notification.conf;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Attributes.java,v 1.9 2005-04-27 10:33:43 alphonse.bendt Exp $
+ * @version $Id: Attributes.java,v 1.10 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public interface Attributes
@@ -119,4 +119,6 @@ public interface Attributes
     String RETRY_STRATEGY_FACTORY = "jacorb.notification.proxysupplier.retrystrategy_factory";
 
     String DEAD_FILTER_INTERVAL = "jacorb.notification.filter.dead_interval";
+
+    String RUN_SYSTEM_GC = "jacorb.notification.servant.deactivate.run_system_gc";
 }

@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.27 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.28 2006-01-21 00:45:41 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -135,7 +135,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
 
     protected Configuration config_;
     
-    private final ServantLifecyleControl servantLifecycle_ = new ServantLifecyleControl(this);
+    private final ServantLifecyleControl servantLifecycle_;
     
     // //////////////////////////////////////
 
@@ -167,6 +167,8 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
 
         qosSettings_ = new QoSPropertySet(conf, QoSPropertySet.PROXY_QOS);
 
+        servantLifecycle_ = new ServantLifecyleControl(this, conf);
+        
         configure(conf);
     }
 
