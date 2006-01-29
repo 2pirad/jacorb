@@ -37,7 +37,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CallbackManager.java,v 1.4 2005-10-19 22:18:04 alphonse.bendt Exp $
+ * @version $Id: CallbackManager.java,v 1.5 2006-01-29 21:20:46 alphonse.bendt Exp $
  */
 public class CallbackManager extends EventTypeSet implements Disposable
 {
@@ -101,7 +101,7 @@ public class CallbackManager extends EventTypeSet implements Disposable
                 notifySubscribe.subscription_change(added, removed);
             } catch (InvalidEventType e)
             {
-                logger_.error("error during subscription_change", e);
+                logger_.warn("error during subscription_change", e);
             }
         }
     }

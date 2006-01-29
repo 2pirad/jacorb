@@ -36,7 +36,7 @@ import org.omg.CosNotifyComm.NotifySubscribeOperations;
  * requests.
  * 
  * @author Alphonse Bendt
- * @version $Id: SubscriptionManager.java,v 1.9 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: SubscriptionManager.java,v 1.10 2006-01-29 21:19:23 alphonse.bendt Exp $
  */
 
 public class SubscriptionManager extends EventTypeSet implements NotifySubscribeOperations
@@ -94,7 +94,7 @@ public class SubscriptionManager extends EventTypeSet implements NotifySubscribe
                     _listener.subscription_change(added, removed);
                 } catch (Exception e)
                 {
-                    logger_.error("subscription_change failed for " + _listener, e);
+                    logger_.warn("subscription_change failed for " + _listener, e);
                 }
             }
         }
