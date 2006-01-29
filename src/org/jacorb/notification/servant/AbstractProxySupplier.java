@@ -71,7 +71,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.28 2006-01-09 21:39:51 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.29 2006-01-29 21:20:09 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -459,10 +459,10 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
                             removeListener();
                         } catch (InvalidEventType e)
                         {
-                            logger_.error("invalid event type", e);
+                            logger_.warn("invalid event type", e);
                         } catch (Exception e)
                         {
-                            logger_.error("offer_change failed", e);
+                            logger_.warn("offer_change failed", e);
                         }
                     }
                 };
