@@ -73,7 +73,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.18 2006-01-12 22:35:15 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.19 2006-01-31 21:05:33 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -600,7 +600,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
 
     public void registerName(Properties props) throws Exception
     {
-        registerName(props.getProperty(Attributes.REGISTER_NAME_ID), props.getProperty(
+        registerName(props.getProperty(Attributes.REGISTER_NAME_ID, null), props.getProperty(
                 Attributes.REGISTER_NAME_KIND, ""));
     }
 

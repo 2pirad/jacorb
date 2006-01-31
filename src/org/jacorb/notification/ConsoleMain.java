@@ -27,7 +27,7 @@ import org.jacorb.notification.conf.Attributes;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ConsoleMain.java,v 1.5 2005-10-28 11:41:56 alphonse.bendt Exp $
+ * @version $Id: ConsoleMain.java,v 1.6 2006-01-31 21:05:33 alphonse.bendt Exp $
  */
 
 public class ConsoleMain
@@ -109,6 +109,13 @@ public class ConsoleMain
 
     public static void addCOSNamingName(Properties props, String name)
     {
+        if (name == null || name.length() == 0)
+        {
+            props.remove(Attributes.REGISTER_NAME_ID);
+            props.remove(Attributes.REGISTER_NAME_KIND);
+            return;
+        }
+        
         int index = name.indexOf(".");
         if (name.lastIndexOf(".") != index)
         {
