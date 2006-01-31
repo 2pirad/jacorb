@@ -37,7 +37,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.16 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: FilterManager.java,v 1.17 2006-01-31 21:04:12 alphonse.bendt Exp $
  */
 
 public class FilterManager implements FilterAdminOperations
@@ -89,13 +89,13 @@ public class FilterManager implements FilterAdminOperations
     {
         Integer _key = newFilterID();
 
-        if (logger_.isWarnEnabled())
+        if (logger_.isInfoEnabled())
         {
             try
             {
                 if (!((org.omg.CORBA.portable.ObjectImpl) filter)._is_local())
                 {
-                    logger_.warn("filter is not local!");
+                    logger_.info("filter is not local!");
                 }
             } catch (Exception e)
             {
