@@ -32,7 +32,7 @@ import org.omg.CosNotifyFilter.InvalidGrammar;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WhiteBoard.java,v 1.4 2004-04-28 13:52:02 alphonse.bendt Exp $
+ * @version $Id: WhiteBoard.java,v 1.5 2006-02-02 19:39:35 phil.mesnier Exp $
  */
 
 public class WhiteBoard
@@ -110,7 +110,6 @@ public class WhiteBoard
 	    _constraints[0] = new ConstraintExp();
 	    _constraints[0].event_types = new EventType[] {new EventType(EVENT_DOMAIN, "*")};
 	    _constraints[0].constraint_expr = "$.header.variable_header(" + WORKGROUP_ID + ") != " + _id.intValue();
-
 
 	    _filter.add_constraints(_constraints);
 
@@ -264,4 +263,3 @@ class LocalRegistrationInfo {
     int consumerAdmin_;
     int supplierAdmin_;
 }
-
