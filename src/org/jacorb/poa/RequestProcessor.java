@@ -51,7 +51,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.31 2004-12-11 22:31:34 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.32 2006-02-05 21:40:34 alphonse.bendt Exp $
  */
 
 public class RequestProcessor
@@ -177,17 +177,17 @@ public class RequestProcessor
      * initializes the request processor
      */
 
-    void init(RequestController controller,
-              ServerRequest request,
-              Servant servant,
-              ServantManager servantManager)
+    void init(RequestController requestController,
+              ServerRequest serverRequest,
+              Servant srvnt,
+              ServantManager manager)
     {
-        this.controller = controller;
-        this.request = request;
-        this.servant = servant;
-        this.servantManager = servantManager;
+        this.controller = requestController;
+        this.request = serverRequest;
+        this.servant = srvnt;
+        this.servantManager = manager;
         cookieHolder = null;
-        logger = controller.getLogger();
+        logger = requestController.getLogger();
     }
 
     private void clear()
@@ -697,11 +697,11 @@ public class RequestProcessor
 
     public void run()
     {
-        while (!terminate)
+        while (true)
         {
             synchronized (this)
             {
-                while (! start)
+                while (!terminate && !start)
                 {
                     try
                     {
@@ -709,12 +709,13 @@ public class RequestProcessor
                     }
                     catch (InterruptedException e)
                     {
+                        // ignored
                     }
-                    
-                    if (terminate)
-                    {
-                        return;
-                    }
+                }
+                
+                if (terminate)
+                {
+                    return;
                 }
             }
 
@@ -734,7 +735,6 @@ public class RequestProcessor
             {
                 process();
                 controller.returnResult (request);
-
             }
 
             // return the request to the request controller
