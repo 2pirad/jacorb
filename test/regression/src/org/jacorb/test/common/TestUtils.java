@@ -35,7 +35,7 @@ import junit.framework.TestSuite;
  * Utility class used to setup JUnit-TestSuite
  * 
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.4 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.5 2006-02-06 23:49:19 alphonse.bendt Exp $
  */
 
 public class TestUtils
@@ -119,7 +119,12 @@ public class TestUtils
         return (TestSetup) ctor.newInstance(new Object[] { suite });
     }
 
-    private static void addToSuite(TestSuite suite, TestSetup setup, Class clazz,
+    public static void addToSuite(TestSuite suite, TestSetup setup, Class clazz) throws Exception
+    {
+        addToSuite(suite, setup, clazz, getTestMethods(clazz));
+    }
+    
+    public static void addToSuite(TestSuite suite, TestSetup setup, Class clazz,
             String[] testMethods) throws Exception
     {
         Constructor _ctor = clazz.getConstructor(new Class[] { String.class, setup.getClass() });
