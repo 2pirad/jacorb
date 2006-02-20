@@ -30,7 +30,7 @@ import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractRetryStrategyTest.java,v 1.2 2005-04-27 10:50:49 alphonse.bendt Exp $
+ * @version $Id: AbstractRetryStrategyTest.java,v 1.3 2006-02-20 19:28:27 alphonse.bendt Exp $
  */
 public abstract class AbstractRetryStrategyTest extends TestCase
 {
@@ -40,15 +40,6 @@ public abstract class AbstractRetryStrategyTest extends TestCase
     protected MockControl controlPushOperation_;
 
     protected AbstractRetryStrategy objectUnderTest_;
-
-    /**
-     * Constructor for AbstractRetryStrategyTest.
-     * @param name
-     */
-    public AbstractRetryStrategyTest(String name)
-    {
-        super(name);
-    }
 
     protected final void setUp() throws Exception
     {

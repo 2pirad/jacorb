@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.28 2006-01-21 00:45:41 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.29 2006-02-20 19:26:11 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -353,7 +353,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
 
         container_.dispose();
 
-        List list = container_.getComponentInstancesOfType(IContainer.class);
+        final List list = container_.getComponentInstancesOfType(IContainer.class);
         for (Iterator i = list.iterator(); i.hasNext();)
         {
             IContainer element = (IContainer) i.next();

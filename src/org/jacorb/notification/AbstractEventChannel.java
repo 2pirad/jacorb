@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractEventChannel.java,v 1.12 2006-01-21 00:45:41 alphonse.bendt Exp $
+ * @version $Id: AbstractEventChannel.java,v 1.13 2006-02-20 19:25:07 alphonse.bendt Exp $
  */
 
 public abstract class AbstractEventChannel implements IServantLifecyle, JMXManageable
@@ -561,7 +561,7 @@ public abstract class AbstractEventChannel implements IServantLifecyle, JMXManag
     /**
      * fetch the List of all ConsumerAdmins that are connected to this EventChannel.
      */
-    List getAllConsumerAdmins()
+    private List getAllConsumerAdmins()
     {
         return listManager_.getList();
     }

@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.20 2006-01-21 00:45:41 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.21 2006-02-20 19:26:11 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,
@@ -614,7 +614,7 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
 
         final IAdmin _admin = (IAdmin) _container.getComponentInstanceOfType(IAdmin.class);
 
-        ITypedAdmin _typedAdmin = new ITypedAdminImpl(_admin, _container, supportedInterface);
+        final ITypedAdmin _typedAdmin = new ITypedAdminImpl(_admin, _container, supportedInterface);
 
         _container.registerComponentInstance(ITypedAdmin.class, _typedAdmin);
 
@@ -623,9 +623,9 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
 
     private MutablePicoContainer newContainerForProxy(boolean isIDPublic)
     {
-        int proxyID = getProxyID();
+        final int _proxyID = getProxyID();
 
-        return newContainerForProxy(proxyID, isIDPublic);
+        return newContainerForProxy(_proxyID, isIDPublic);
     }
 
     private MutablePicoContainer newContainerForProxy(final int proxyID, final boolean isIDPublic)
