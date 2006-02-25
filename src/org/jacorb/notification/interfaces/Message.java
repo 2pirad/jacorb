@@ -36,7 +36,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Message.java,v 1.8 2005-02-14 00:09:05 alphonse.bendt Exp $
+ * @version $Id: Message.java,v 1.9 2006-02-25 15:28:40 alphonse.bendt Exp $
  */
 
 public interface Message extends Disposable
@@ -139,6 +139,9 @@ public interface Message extends Disposable
 
     int getType();
 
-
+    
     void actionTimeout();
+    
+    
+    long getReceiveTimestamp();
 }

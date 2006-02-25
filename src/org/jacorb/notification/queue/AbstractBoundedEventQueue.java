@@ -29,15 +29,13 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractBoundedEventQueue.java,v 1.10 2005-10-23 19:12:02 alphonse.bendt Exp $
+ * @version $Id: AbstractBoundedEventQueue.java,v 1.11 2006-02-25 15:28:40 alphonse.bendt Exp $
  */
 
 public abstract class AbstractBoundedEventQueue implements MessageQueue
 {
     private final Object lock_;
-
     private final int capacity_;
-
     private final List listeners_ = new ArrayList();
     private final EventQueueOverflowStrategy overflowStrategy_;
 
@@ -152,7 +150,7 @@ public abstract class AbstractBoundedEventQueue implements MessageQueue
             lock_.wait();
         }
 
-        return getOldestElement();
+        return getNextElement();
     }
 
     public void put(Message event)
@@ -174,7 +172,7 @@ public abstract class AbstractBoundedEventQueue implements MessageQueue
     
     private void fireMessageDiscarded()
     {
-        Iterator i = listeners_.iterator();
+        final Iterator i = listeners_.iterator();
         
         while(i.hasNext())
         {

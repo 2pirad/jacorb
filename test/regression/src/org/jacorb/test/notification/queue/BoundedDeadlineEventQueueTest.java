@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BoundedDeadlineEventQueueTest.java,v 1.3 2005-10-02 15:20:31 alphonse.bendt Exp $
+ * @version $Id: BoundedDeadlineEventQueueTest.java,v 1.4 2006-02-25 15:29:00 alphonse.bendt Exp $
  */
 public class BoundedDeadlineEventQueueTest extends TestCase
 {
@@ -49,11 +49,6 @@ public class BoundedDeadlineEventQueueTest extends TestCase
     private MockControl controlMessage3_;
 
     private Message mockMessage3_;
-
-    public BoundedDeadlineEventQueueTest(String name)
-    {
-        super(name);
-    }
 
     protected void setUp()
     {
@@ -170,7 +165,8 @@ public class BoundedDeadlineEventQueueTest extends TestCase
     }
 
     /**
-     * test to provoke a bug i have found by poking around in the sources. size of array returned by
+     * test to provoke a bug i have found by poking around in the sources. 
+     * size of array returned by
      * getEvents was size +1. also entries in queue could get lost.
      */
     public void testGetEvents() throws Exception

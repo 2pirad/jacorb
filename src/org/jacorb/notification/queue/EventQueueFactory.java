@@ -42,7 +42,7 @@ import org.omg.CosNotification.PriorityOrder;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventQueueFactory.java,v 1.11 2005-02-14 00:11:10 alphonse.bendt Exp $
+ * @version $Id: EventQueueFactory.java,v 1.12 2006-02-25 15:28:40 alphonse.bendt Exp $
  */
 
 public class EventQueueFactory implements Configurable
@@ -105,7 +105,7 @@ public class EventQueueFactory implements Configurable
 
     private void setDiscardPolicy(String s)
     {
-        String policy = s.toLowerCase().trim();
+        final String policy = s.toLowerCase().trim();
 
         if (mapDiscardPolicyNameToValue.containsKey(policy))
         {
@@ -119,7 +119,7 @@ public class EventQueueFactory implements Configurable
 
     private void setOrderPolicy(String s)
     {
-        String policy = s.toLowerCase().trim();
+        final String policy = s.toLowerCase().trim();
 
         if (mapOrderPolicyNameToValue.containsKey(policy))
         {
@@ -189,7 +189,7 @@ public class EventQueueFactory implements Configurable
         // fallthrough. will default to FifoOrder
 
         case FifoOrder.value:
-            queue = new BoundedFifoEventQueue(maxEventsPerConsumer, _overflowStrategy);
+            queue = new BoundedReceiveTimeEventQueue(maxEventsPerConsumer, _overflowStrategy);
             break;
 
         case PriorityOrder.value:
@@ -205,7 +205,7 @@ public class EventQueueFactory implements Configurable
                     + " OrderPolicyValue: " + shortOrderPolicy + " unknown");
         }
 
-        return new BasicMessageQueueAdapter(queue);
+        return new DefaultMessageQueueAdapter(queue);
     }
 
     private static short orderPolicyNameToValue(String orderPolicyName)
