@@ -29,15 +29,10 @@ import org.jacorb.notification.util.WildcardMap;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WeakCacheWildcardMapTest.java,v 1.1 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: WeakCacheWildcardMapTest.java,v 1.2 2006-02-25 15:24:04 alphonse.bendt Exp $
  */
 public class WeakCacheWildcardMapTest extends AbstractWildcardMapTest
 {
-    public WeakCacheWildcardMapTest(String name)
-    {
-        super(name);
-    }
-
     public WildcardMap newWildcardMap()
     {
         return new WeakCacheWildcardMap();
