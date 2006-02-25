@@ -40,7 +40,7 @@ import org.omg.CosNotifyComm.StructuredPushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.6 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.7 2006-02-25 14:19:42 alphonse.bendt Exp $
  */
 public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 {
@@ -52,9 +52,6 @@ public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 
     private TaskProcessor mockTaskProcessor_;
 
-    /*
-     * @see TestCase#setUp()
-     */
     protected void setUpTest() throws Exception
     {
         MockControl controlAdmin = MockControl.createControl(IAdmin.class);

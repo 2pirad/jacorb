@@ -30,20 +30,11 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxySupplierTaskTest.java,v 1.3 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: FilterProxySupplierTaskTest.java,v 1.4 2006-02-25 14:21:30 alphonse.bendt Exp $
  */
 public class FilterProxySupplierTaskTest extends AbstractFilterTaskTestCase
 {
     private FilterProxySupplierTask objectUnderTest_;
-
-    /**
-     * Constructor for FilterProxySupplierTaskTest.
-     * @param name
-     */
-    public FilterProxySupplierTaskTest(String name)
-    {
-        super(name);
-    }
     
     protected AbstractFilterTask newObjectUnderTest()
     {

@@ -35,7 +35,7 @@ import org.omg.CosNotifyFilter.FilterOperations;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterUsageDecoratorTest.java,v 1.1 2005-03-31 20:19:50 alphonse.bendt Exp $
+ * @version $Id: FilterUsageDecoratorTest.java,v 1.2 2006-02-25 14:20:38 alphonse.bendt Exp $
  */
 public class FilterUsageDecoratorTest extends TestCase
 {
@@ -47,9 +47,6 @@ public class FilterUsageDecoratorTest extends TestCase
 
     private Any any_;
 
-    /*
-     * @see TestCase#setUp()
-     */
     protected void setUp() throws Exception
     {
         super.setUp();
@@ -60,16 +57,6 @@ public class FilterUsageDecoratorTest extends TestCase
         mockFilterOperations_ = (FilterOperations) controlFilterOperations_.getMock();
 
         objectUnderTest_ = new FilterUsageDecorator(mockFilterOperations_);
-    }
-
-    /**
-     * Constructor for FilterUsageDecoratorTest.
-     * 
-     * @param name
-     */
-    public FilterUsageDecoratorTest(String name)
-    {
-        super(name);
     }
 
     public void testFilterOperationsAreDelegated() throws Exception

@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PushOperationTest.java,v 1.7 2005-08-21 13:36:18 alphonse.bendt Exp $
+ * @version $Id: PushOperationTest.java,v 1.8 2006-02-25 14:21:30 alphonse.bendt Exp $
  */
 public class PushOperationTest extends TestCase
 {
@@ -82,10 +82,5 @@ public class PushOperationTest extends TestCase
         TestSuite suite = new TestSuite(PushOperationTest.class);
 
         return suite;
-    }
-
-    public static void main(String[] args)
-    {
-        junit.textui.TestRunner.run(suite());
     }
 }

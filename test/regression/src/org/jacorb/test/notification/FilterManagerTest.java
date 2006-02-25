@@ -32,7 +32,7 @@ import org.omg.CosNotifyFilter.FilterNotFound;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManagerTest.java,v 1.2 2005-05-01 21:14:29 alphonse.bendt Exp $
+ * @version $Id: FilterManagerTest.java,v 1.3 2006-02-25 14:22:35 alphonse.bendt Exp $
  */
 public class FilterManagerTest extends TestCase
 {
@@ -58,11 +58,6 @@ public class FilterManagerTest extends TestCase
     {
         controlFilter_.verify();
         super.tearDown();
-    }
-
-    public FilterManagerTest(String name)
-    {
-        super(name);
     }
 
     public void testAdd_filter() throws Exception

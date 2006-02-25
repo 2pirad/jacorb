@@ -25,16 +25,11 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.7 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.8 2006-02-25 14:18:53 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
 {
-    public PackageTest(String name)
-    {
-        super(name);
-    }
-
     public static TestSuite suite() throws Exception
     {
         TestSuite suite = new TestSuite("TypedEventChannel Tests");

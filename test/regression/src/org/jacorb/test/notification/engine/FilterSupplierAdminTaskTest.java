@@ -29,27 +29,13 @@ import org.jacorb.notification.engine.FilterSupplierAdminTask;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterSupplierAdminTaskTest.java,v 1.2 2005-04-27 10:50:49 alphonse.bendt Exp $
+ * @version $Id: FilterSupplierAdminTaskTest.java,v 1.3 2006-02-25 14:21:30 alphonse.bendt Exp $
  */
 public class FilterSupplierAdminTaskTest extends AbstractFilterTaskTestCase
 {
-    private FilterSupplierAdminTask objectUnderTest_;
-
-    /**
-     * Constructor for FilterSupplierAdminTaskTest.
-     * 
-     * @param name
-     */
-    public FilterSupplierAdminTaskTest(String name)
-    {
-        super(name);
-    }
-
     protected AbstractFilterTask newObjectUnderTest()
     {
-        objectUnderTest_ = new FilterSupplierAdminTask(mockTaskFactory_, mockTaskExecutor_);
-        
-        return objectUnderTest_;
+        return new FilterSupplierAdminTask(mockTaskFactory_, mockTaskExecutor_);
     }
 
     public static Test suite()

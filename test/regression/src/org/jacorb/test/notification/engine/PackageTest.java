@@ -27,16 +27,11 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.7 2005-04-27 10:50:49 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.8 2006-02-25 14:21:30 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
 {
-    public PackageTest(String name)
-    {
-        super(name);
-    }
-
     public static Test suite() throws Exception
     {
         TestSuite _suite = new TestSuite("Tests in Package org.jacorb.test.notification.engine");

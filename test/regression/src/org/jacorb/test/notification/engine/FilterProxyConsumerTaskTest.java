@@ -33,7 +33,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterProxyConsumerTaskTest.java,v 1.2 2005-04-27 10:50:49 alphonse.bendt Exp $
+ * @version $Id: FilterProxyConsumerTaskTest.java,v 1.3 2006-02-25 14:21:30 alphonse.bendt Exp $
  */
 public class FilterProxyConsumerTaskTest extends AbstractFilterTaskTestCase
 {
@@ -128,16 +128,6 @@ public class FilterProxyConsumerTaskTest extends AbstractFilterTaskTestCase
         controlFilterStage_.verify();
 
         controlMessage_.verify();
-    }
-
-    /**
-     * Constructor for FilterProxyConsumerTaskTest.
-     * 
-     * @param name
-     */
-    public FilterProxyConsumerTaskTest(String name)
-    {
-        super(name);
     }
 
     public static Test suite()

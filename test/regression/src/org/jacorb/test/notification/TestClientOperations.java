@@ -9,11 +9,11 @@ import org.omg.CosNotifyFilter.FilterNotFound;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TestClientOperations.java,v 1.4 2004-08-01 17:55:27 alphonse.bendt Exp $
+ * @version $Id: TestClientOperations.java,v 1.5 2006-02-25 14:22:35 alphonse.bendt Exp $
  */
 
-public interface TestClientOperations {
-
+public interface TestClientOperations 
+{
     boolean isConnected();
     boolean isEventHandled();
     boolean isError();
@@ -25,5 +25,4 @@ public interface TestClientOperations {
                AdminNotFound;
 
     void shutdown() throws FilterNotFound;
-
 }

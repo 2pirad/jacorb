@@ -34,7 +34,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTaskTestCase.java,v 1.2 2005-04-16 23:22:20 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTaskTestCase.java,v 1.3 2006-02-25 14:21:30 alphonse.bendt Exp $
  */
 public abstract class AbstractFilterTaskTestCase extends TestCase
 {
@@ -53,11 +53,6 @@ public abstract class AbstractFilterTaskTestCase extends TestCase
     protected MockControl controlTaskProcessor_;
     
     private AbstractFilterTask objectUnderTest_;
-    
-    public AbstractFilterTaskTestCase(String name)
-    {
-        super(name);
-    }
     
     protected final void setUp() throws Exception
     {

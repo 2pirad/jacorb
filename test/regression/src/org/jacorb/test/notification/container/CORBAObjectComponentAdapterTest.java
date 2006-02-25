@@ -35,7 +35,7 @@ import org.picocontainer.defaults.DefaultPicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CORBAObjectComponentAdapterTest.java,v 1.1 2005-04-27 10:50:27 alphonse.bendt Exp $
+ * @version $Id: CORBAObjectComponentAdapterTest.java,v 1.2 2006-02-25 14:21:45 alphonse.bendt Exp $
  */
 public class CORBAObjectComponentAdapterTest extends TestCase
 {
@@ -86,11 +86,6 @@ public class CORBAObjectComponentAdapterTest extends TestCase
             // expected
         }
         controlObject.verify();
-    }
-
-    public CORBAObjectComponentAdapterTest(String name)
-    {
-        super(name);
     }
 
     public static Test suite()

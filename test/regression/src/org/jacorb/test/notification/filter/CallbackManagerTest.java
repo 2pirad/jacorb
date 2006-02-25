@@ -32,7 +32,7 @@ import org.omg.CosNotifyComm.NotifySubscribe;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CallbackManagerTest.java,v 1.1 2005-02-14 00:17:14 alphonse.bendt Exp $
+ * @version $Id: CallbackManagerTest.java,v 1.2 2006-02-25 14:20:38 alphonse.bendt Exp $
  */
 public class CallbackManagerTest extends TestCase
 {
@@ -51,11 +51,6 @@ public class CallbackManagerTest extends TestCase
         objectUnderTest_ = new CallbackManager();
         controlSubscription_ = MockControl.createControl(NotifySubscribe.class);
         mockSubscription_ = (NotifySubscribe) controlSubscription_.getMock();
-    }
-
-    public CallbackManagerTest(String name)
-    {
-        super(name);
     }
 
     public void testAttach_callback()
