@@ -57,7 +57,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicLong;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.24 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushSupplierImpl.java,v 1.25 2006-03-03 19:56:11 alphonse.bendt Exp $
  */
 
 public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -203,7 +203,7 @@ public class SequenceProxyPushSupplierImpl extends AbstractProxyPushSupplier imp
                 deliverPendingMessagesInternal(_structuredEvents);
             } catch (Exception e)
             {
-                PushSequenceOperation _failedOperation = new PushSequenceOperation(
+                final PushSequenceOperation _failedOperation = new PushSequenceOperation(
                         _structuredEvents);
 
                 handleFailedPushOperation(_failedOperation, e);

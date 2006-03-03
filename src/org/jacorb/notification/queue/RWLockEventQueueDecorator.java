@@ -33,7 +33,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.locks.ReentrantReadWriteLo
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RWLockEventQueueDecorator.java,v 1.7 2006-02-25 15:28:40 alphonse.bendt Exp $
+ * @version $Id: RWLockEventQueueDecorator.java,v 1.8 2006-03-03 19:54:48 alphonse.bendt Exp $
  */
 public class RWLockEventQueueDecorator implements MessageQueueAdapter
 {
@@ -73,7 +73,7 @@ public class RWLockEventQueueDecorator implements MessageQueueAdapter
 
         try
         {
-            for (Iterator i = listeners_.iterator(); i.hasNext();)
+            for (final Iterator i = listeners_.iterator(); i.hasNext();)
             {
                 delegate_.removeDiscardListener((DiscardListener) i.next());
             }

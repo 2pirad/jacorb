@@ -71,7 +71,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.29 2006-01-29 21:20:09 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.30 2006-03-03 19:56:11 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -155,7 +155,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
         qosSettings_.addPropertySetListener(new String[] { OrderPolicy.value, DiscardPolicy.value,
                 MaxEventsPerConsumer.value }, eventQueueConfigurationChangedCB);
 
-        MessageQueueAdapter initialEventQueue = 
+        final MessageQueueAdapter initialEventQueue = 
             getMessageQueueFactory().newMessageQueue(qosSettings_);
 
         pendingMessages_ = new RWLockEventQueueDecorator(initialEventQueue);
@@ -178,7 +178,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
      */
     private final void configureEventQueue()
     {
-        MessageQueueAdapter _newQueue = getMessageQueueFactory().newMessageQueue(qosSettings_);
+        final MessageQueueAdapter _newQueue = getMessageQueueFactory().newMessageQueue(qosSettings_);
 
         try
         {
@@ -244,9 +244,9 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
      */
     public void setMaxEventsPerConsumer(int max)
     {
-        Any any = getORB().create_any();
+        final Any any = getORB().create_any();
         any.insert_long(max);
-        Property prop = new Property(MaxEventsPerConsumer.value, any);
+        final Property prop = new Property(MaxEventsPerConsumer.value, any);
         qosSettings_.set_qos(new Property[] { prop });
     }
 

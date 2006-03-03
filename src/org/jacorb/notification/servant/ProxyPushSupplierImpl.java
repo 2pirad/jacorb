@@ -44,7 +44,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImpl.java,v 1.21 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImpl.java,v 1.22 2006-03-03 19:56:11 alphonse.bendt Exp $
  */
 
 public class ProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -100,7 +100,7 @@ public class ProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
             deliverMessageInternal(message);
         } catch (Exception e)
         {
-            PushAnyOperation _failedOperation = new PushAnyOperation(message);
+            final PushAnyOperation _failedOperation = new PushAnyOperation(message);
 
             handleFailedPushOperation(_failedOperation, e);
         }
