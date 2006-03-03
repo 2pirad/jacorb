@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.29 2006-02-20 19:26:11 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.30 2006-03-03 21:07:04 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -552,7 +552,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
 
     public final String getJMXObjectName()
     {
-        return "proxy=" + getMBeanName() + ", " + parentMBean_;
+        return parentMBean_ + ", proxy=" + getMBeanName();
     }
     
     public final String getMBeanName()

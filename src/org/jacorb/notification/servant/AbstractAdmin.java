@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.21 2006-02-20 19:26:11 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.22 2006-03-03 21:07:04 alphonse.bendt Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,
@@ -668,7 +668,7 @@ public abstract class AbstractAdmin implements QoSAdminOperations,
     
     public final String getJMXObjectName()
     {
-        return "admin=" + getMBeanName() + ", " + parentMBean_;
+        return parentMBean_ + ", admin=" + getMBeanName();
     }
 
     public final String getMBeanName()
