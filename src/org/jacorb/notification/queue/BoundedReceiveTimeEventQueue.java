@@ -28,14 +28,14 @@ import org.jacorb.notification.interfaces.Message;
  * added messages by their receivetimestamp attribute.
  * 
  * @author Alphonse Bendt
- * @version $Id: BoundedReceiveTimeEventQueue.java,v 1.1 2006-02-25 15:28:40 alphonse.bendt Exp $
+ * @version $Id: BoundedReceiveTimeEventQueue.java,v 1.2 2006-03-04 19:34:59 alphonse.bendt Exp $
  */
 public class BoundedReceiveTimeEventQueue extends AbstractBoundedEventHeap
 {
     public BoundedReceiveTimeEventQueue( int maxSize,
                                       EventQueueOverflowStrategy overflowStrategy )
     {
-        super(maxSize, overflowStrategy, new Object(), QueueUtil.ASCENDING_RECEIVE_TIME_COMPARATOR);
+        super(maxSize, overflowStrategy, new Object(), QueueUtil.ASCENDING_INSERT_ORDER_COMPARATOR);
     }
     
     protected Message getEarliestTimeout()
@@ -50,12 +50,12 @@ public class BoundedReceiveTimeEventQueue extends AbstractBoundedEventHeap
 
     protected Message getOldestElement()
     {
-        return removeFirstElement(QueueUtil.DESCENDING_INSERT_ORDER_COMPARATOR);
+        return getNextHeapElement();
     }
 
     protected Message getYoungestElement()
     {
-        return removeFirstElement(QueueUtil.ASCENDING_INSERT_ORDER_COMPARATOR);  
+        return removeFirstElement(QueueUtil.DESCENDING_INSERT_ORDER_COMPARATOR);  
     }
 
     public String getOrderPolicyName()
