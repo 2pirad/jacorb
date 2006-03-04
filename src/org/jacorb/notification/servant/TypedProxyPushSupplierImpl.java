@@ -54,7 +54,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImpl.java,v 1.16 2006-03-03 19:56:11 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImpl.java,v 1.17 2006-03-04 19:34:06 alphonse.bendt Exp $
  */
 
 public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -155,16 +155,16 @@ public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implem
 
     public void pushPendingData()
     {
-        final Message[] messages = getAllMessages();
-
-        for (int i = 0; i < messages.length; ++i)
+        Message _message = null;
+        
+        while((_message = getMessageNoBlock()) != null)
         {
             try
             {
-                deliverMessageWithRetry(messages[i]);
+                deliverMessageWithRetry(_message);
             } finally
             {
-                messages[i].dispose();
+                _message.dispose();
             }
         }
     }
