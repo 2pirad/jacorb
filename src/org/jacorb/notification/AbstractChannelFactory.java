@@ -73,7 +73,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.19 2006-01-31 21:05:33 alphonse.bendt Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.20 2006-03-04 02:09:37 alphonse.bendt Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -155,8 +155,9 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
         disposableManager_.addDisposable(new Disposable() {
             public void dispose()
             {
-                POA _poa = (POA) container_.getComponentInstanceOfType(POA.class);
-                _poa.destroy(false, true);
+                final POA _poa = (POA) container_.getComponentInstanceOfType(POA.class);
+                
+                _poa.destroy(true, false);
             }
         });
 
@@ -434,7 +435,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
         // shut down the Notification Service.
         // otherwise ORB.shutdown() would be called inside
         // a remote invocation which causes an exception.
-        Thread _shutdown = new Thread()
+        final Thread _shutdown = new Thread()
         {
             public void run()
             {
