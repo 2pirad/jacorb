@@ -32,7 +32,6 @@ import org.jacorb.notification.filter.EvaluationResult;
 import org.jacorb.notification.filter.FilterConstraint;
 import org.jacorb.notification.interfaces.EvaluationContextFactory;
 import org.jacorb.notification.interfaces.Message;
-import org.omg.CORBA.ORB;
 import org.omg.CosNotifyFilter.ConstraintExp;
 import org.omg.PortableServer.POA;
 
@@ -51,7 +50,7 @@ import bsh.Interpreter;
  * <code>jacorb.notification.filter.plugin.BSH=org.jacorb.notification.filter.bsh.BSHFilter</code>
  * 
  * @author Alphonse Bendt
- * @version $Id: BSHFilter.java,v 1.5 2006-01-12 22:35:15 alphonse.bendt Exp $
+ * @version $Id: BSHFilter.java,v 1.6 2006-03-05 13:48:19 alphonse.bendt Exp $
  */
 public class BSHFilter extends AbstractFilter
 {
@@ -63,7 +62,7 @@ public class BSHFilter extends AbstractFilter
      * in the appropiate values (as long as they are registered).
      */
     public BSHFilter(Configuration config, EvaluationContextFactory evaluationContextFactory,
-            MessageFactory messageFactory, ORB orb, POA poa) throws ConfigurationException
+            MessageFactory messageFactory, POA poa) throws ConfigurationException
     {
         super(config, evaluationContextFactory, messageFactory, poa);
     }
