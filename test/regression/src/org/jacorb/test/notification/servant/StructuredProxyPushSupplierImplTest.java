@@ -40,7 +40,7 @@ import org.omg.CosNotifyComm.StructuredPushConsumer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.7 2006-02-25 14:19:42 alphonse.bendt Exp $
+ * @version $Id: StructuredProxyPushSupplierImplTest.java,v 1.8 2006-03-06 19:54:20 alphonse.bendt Exp $
  */
 public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 {
@@ -175,7 +175,7 @@ public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 
         objectUnderTest_.queueMessage(mockMessage);
 
-        objectUnderTest_.pushPendingData();
+        objectUnderTest_.pushEvent();
 
         controlMessage.verify();
 
@@ -221,7 +221,7 @@ public class StructuredProxyPushSupplierImplTest extends NotificationTestCase
 
         objectUnderTest_.queueMessage(mockMessage);
 
-        objectUnderTest_.pushPendingData();
+        objectUnderTest_.pushEvent();
 
         controlMessage.verify();
 
