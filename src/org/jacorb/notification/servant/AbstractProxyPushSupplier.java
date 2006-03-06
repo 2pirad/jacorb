@@ -21,6 +21,9 @@
 
 package org.jacorb.notification.servant;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.jacorb.notification.OfferManager;
@@ -55,7 +58,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicReference;
  *                     ProxyPushConsumer failed" notificationType = "java.lang.String"
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyPushSupplier.java,v 1.6 2006-03-03 19:55:15 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyPushSupplier.java,v 1.7 2006-03-06 19:53:46 alphonse.bendt Exp $
  */
 public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier implements
         IProxyPushSupplier
@@ -80,9 +83,28 @@ public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier im
     {
         public void doPush()
         {
-            pushPendingData();
+            if (isEnabled())
+            {
+                pushEvent();
+            }
         }
 
+        public void cancel()
+        {
+            // ignore, only depends on settings of ProxyPushSupplier
+        }
+    };
+    
+    private final PushTaskExecutor.PushTask flushTask_ = new PushTaskExecutor.PushTask()
+    {
+        public void doPush()
+        {
+            if (isEnabled())
+            {
+                flushPendingEvents();
+            }
+        }
+        
         public void cancel()
         {
             // ignore, only depends on settings of ProxyPushSupplier
@@ -115,7 +137,9 @@ public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier im
             return;
         }
 
-        sendNotification(NOTIFY_PUSH_FAILED, "Push Operation failed");
+        StringWriter out = new StringWriter();
+        error.printStackTrace(new PrintWriter(out));
+        sendNotification(NOTIFY_PUSH_FAILED, "Push Operation failed", out.toString());
 
         pushErrors_.getAndIncrement();
 
@@ -226,17 +250,33 @@ public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier im
 
     public final void schedulePush()
     {
-        if (!isDestroyed() && !isSuspended() && isEnabled())
+        if (isEnabled())
         {
-            schedulePush(pushTask_);
+            scheduleTask(pushTask_);
+        }
+    }
+    
+    public void scheduleFlush()
+    {
+        scheduleTask(flushTask_);
+    }
+
+    public final void scheduleTask(PushTaskExecutor.PushTask pushTask)
+    {
+        if (!isDestroyed() && !isSuspended())
+        {
+            pushTaskExecutor_.executePush(pushTask);
         }
     }
 
-    public final void schedulePush(PushTaskExecutor.PushTask pushTask)
+    public void flushPendingEvents()
     {
-        pushTaskExecutor_.executePush(pushTask);
+        while (pushEvent())
+        {
+            // nothing
+        }
     }
-
+    
     public final void messageQueued()
     {
         if (isEnabled())
@@ -260,6 +300,7 @@ public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier im
 
         if (_wasEnabled)
         {
+            //pushTaskExecutor_.clearQueue();
             logger_.debug("Disabled Delivery to ProxySupplier");
         }
     }

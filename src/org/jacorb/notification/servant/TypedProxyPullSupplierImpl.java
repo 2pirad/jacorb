@@ -73,7 +73,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImpl.java,v 1.14 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImpl.java,v 1.15 2006-03-06 19:53:46 alphonse.bendt Exp $
  */
 
 public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
@@ -266,7 +266,7 @@ public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements
 
         for (int x = 0; x < operation.parameters.length; ++x)
         {
-            DynAny _dynAny = dynAnyFactory_
+            final DynAny _dynAny = dynAnyFactory_
                     .create_dyn_any_from_type_code(operation.parameters[x].type);
 
             _expectedParams

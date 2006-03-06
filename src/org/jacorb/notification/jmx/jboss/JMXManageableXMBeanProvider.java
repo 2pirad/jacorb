@@ -49,7 +49,7 @@ import org.picocontainer.PicoContainer;
  * JBoss specific DynamicMBeanProvider.
  * 
  * @author Alphonse Bendt
- * @version $Id: JMXManageableXMBeanProvider.java,v 1.1 2005-08-21 13:31:34 alphonse.bendt Exp $
+ * @version $Id: JMXManageableXMBeanProvider.java,v 1.2 2006-03-06 19:53:46 alphonse.bendt Exp $
  */
 public class JMXManageableXMBeanProvider implements DynamicMBeanProvider
 {
@@ -86,6 +86,11 @@ public class JMXManageableXMBeanProvider implements DynamicMBeanProvider
                             oldValue == null ? null : oldValue.getClass().getName(), 
                             oldValue, 
                             newValue));
+                }
+
+                public void sendJMXNotification(String type, String message, Object payload)
+                {
+                    sendJMXNotification(type, message);
                 }});
         }
         

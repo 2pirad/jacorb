@@ -54,7 +54,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImpl.java,v 1.17 2006-03-04 19:34:06 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImpl.java,v 1.18 2006-03-06 19:53:46 alphonse.bendt Exp $
  */
 
 public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implements
@@ -153,23 +153,25 @@ public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implem
     }
 
 
-    public void pushPendingData()
+    public boolean pushEvent()
     {
-        Message _message = null;
-        
-        while((_message = getMessageNoBlock()) != null)
+        final Message _message = getMessageNoBlock();
+
+        if (_message != null)
         {
             try
             {
-                deliverMessageWithRetry(_message);
+                return deliverMessageWithRetry(_message);
             } finally
             {
                 _message.dispose();
             }
         }
-    }
 
-    private void deliverMessageWithRetry(Message message)
+        return false;
+    }
+    
+    private boolean deliverMessageWithRetry(Message message)
     {
         try
         {
@@ -211,11 +213,15 @@ public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implem
             try
             {
                 deliverMessageInternal(_request);
+                
+                return true;
             } catch (Exception t)
             {
                 final PushTypedOperation _failedOperation = new PushTypedOperation(_request);
 
                 handleFailedPushOperation(_failedOperation, t);
+                
+                return false;
             }
         } catch (NoTranslationException e)
         {
@@ -223,6 +229,8 @@ public class TypedProxyPushSupplierImpl extends AbstractProxyPushSupplier implem
             // nothing will be delivered to the consumer
 
             logger_.info("No Translation possible", e);
+            
+            return true;
         }
     }
 

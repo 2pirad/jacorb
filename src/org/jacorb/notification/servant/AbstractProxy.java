@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.30 2006-03-03 21:07:04 alphonse.bendt Exp $
+ * @version $Id: AbstractProxy.java,v 1.31 2006-03-06 19:53:46 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -584,6 +584,14 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
         if (jmxCallback_ != null)
         {
             jmxCallback_.sendJMXNotification(type, message);
+        }
+    }
+    
+    protected void sendNotification(String type, String message, Object payload)
+    {
+        if (jmxCallback_ != null)
+        {
+            jmxCallback_.sendJMXNotification(type, message, payload);
         }
     }
     
