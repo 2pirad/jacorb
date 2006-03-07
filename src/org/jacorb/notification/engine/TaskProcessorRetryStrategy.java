@@ -26,7 +26,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.14 2006-03-06 19:53:46 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.15 2006-03-07 19:23:47 alphonse.bendt Exp $
  */
 public class TaskProcessorRetryStrategy extends AbstractRetryStrategy implements
         PushTaskExecutor.PushTask
@@ -87,7 +87,8 @@ public class TaskProcessorRetryStrategy extends AbstractRetryStrategy implements
                 if (pushSupplier_.isRetryAllowed())
                 {
                     pushOperation_.invokePush();
-                    pushSupplier_.flushPendingEvents();
+                    
+                    pushSupplier_.scheduleFlush();
                 }
 
                 dispose();
