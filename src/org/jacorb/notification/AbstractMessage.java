@@ -44,7 +44,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.29 2006-02-25 15:28:40 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.30 2006-03-08 20:39:10 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
@@ -563,6 +563,10 @@ public abstract class AbstractMessage extends AbstractPoolable
                 // no problem
                 // error means false
                 logger_.info("unsupported filterable data. match result defaults to false.", e);
+            }
+            catch (Exception e)
+            {
+                logger_.warn("unexpected error during match. match result defaults to false", e);
             }
         }
 
