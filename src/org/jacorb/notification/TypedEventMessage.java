@@ -41,7 +41,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventMessage.java,v 1.5 2005-11-11 19:35:01 alphonse.bendt Exp $
+ * @version $Id: TypedEventMessage.java,v 1.6 2006-03-08 20:38:30 alphonse.bendt Exp $
  */
 
 public class TypedEventMessage extends AbstractMessage
@@ -206,7 +206,7 @@ public class TypedEventMessage extends AbstractMessage
             if (parameters_[x].name.equals(headerName))
             {
                 EvaluationResult _result = new EvaluationResult();
-                _result.addAny(parameters_[x].value);
+                _result.setAny(parameters_[x].value);
 
                 return _result;
             }

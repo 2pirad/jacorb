@@ -31,7 +31,7 @@ import org.omg.TimeBase.UtcTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CurrentTimeNode.java,v 1.7 2005-10-08 11:06:12 alphonse.bendt Exp $
+ * @version $Id: CurrentTimeNode.java,v 1.8 2006-03-08 20:38:30 alphonse.bendt Exp $
  */
 
 public class CurrentTimeNode extends ETCLComponentName
@@ -52,7 +52,7 @@ public class CurrentTimeNode extends ETCLComponentName
 
         UtcTHelper.insert(_curAny, _curtime);
 
-        _result.addAny(_curAny);
+        _result.setAny(_curAny);
 
         return _result;
     }
