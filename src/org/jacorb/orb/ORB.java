@@ -58,7 +58,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.131 2005-11-21 20:50:24 phil.mesnier Exp $
+ * @version $Id: ORB.java,v 1.132 2006-03-16 12:34:32 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -1217,7 +1217,9 @@ public final class ORB
             }
             else if( identifier.equals("ORBPolicyManager") )
             {
-                return getPolicyManager();
+                if (policyManager == null)
+                    policyManager = new PolicyManager(this);
+                return policyManager;
             }
             else if( identifier.equals("CodecFactory") )
             {
@@ -1237,6 +1239,12 @@ public final class ORB
         }
     }
 
+    /**
+     * Returns the PolicyManager for ORB-wide policies.  A PolicyManager
+     * is only created if it is accessed via resolve_initial_references().
+     * If no PolicyManager has been created yet, this method returns null.
+     */
+    
     PolicyManager getPolicyManager()
     {
         return policyManager;
@@ -1510,8 +1518,6 @@ public final class ORB
 
     private void internalInit()
     {
-        policyManager = new PolicyManager( this );
-
         try
         {
             clientConnectionManager =
