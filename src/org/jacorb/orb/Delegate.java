@@ -51,7 +51,7 @@ import org.omg.PortableServer.Servant;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.114 2006-02-06 23:33:34 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.115 2006-03-16 12:36:33 andre.spiegel Exp $
  *
  */
 
@@ -537,11 +537,11 @@ public final class Delegate
 
     public org.omg.CORBA.Policy get_client_policy(int policy_type)
     {
-        Integer key = new Integer(policy_type);
         Policy result = null;
 
         if (policy_overrides != null)
         {
+            Integer key = new Integer(policy_type);
             result = (Policy)policy_overrides.get(key);
         }
         
@@ -552,10 +552,13 @@ public final class Delegate
             // TODO: currently not implemented
 
             // check at the ORB-level
-            org.omg.CORBA.Policy[] orbPolicies = 
-                orb.getPolicyManager().get_policy_overrides(new int[]{policy_type});            
-            if ( orbPolicies!= null && orbPolicies.length == 1)
-                result =  orbPolicies[0];
+            org.omg.CORBA.PolicyManager pm = orb.getPolicyManager();
+            if (pm != null)
+            {
+                Policy[] orbPolicies = pm.get_policy_overrides (new int[] {policy_type});
+                if (orbPolicies!= null && orbPolicies.length == 1)
+                    result = orbPolicies[0];
+            }
         }
         
         return result;
