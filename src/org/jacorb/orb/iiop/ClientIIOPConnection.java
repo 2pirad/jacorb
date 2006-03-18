@@ -44,7 +44,7 @@ import org.omg.CORBA.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.18 2006-03-18 16:14:40 andre.spiegel Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.19 2006-03-18 17:13:14 andre.spiegel Exp $
  */
 
 public class ClientIIOPConnection
@@ -274,7 +274,10 @@ public class ClientIIOPConnection
 
                 final String ipAddress = address.getIP();
                 final int port = (use_ssl) ? ssl_port : address.getPort();
-                connection_info = ipAddress + ":" + port;
+                if (ipAddress.indexOf(':') == -1)
+                    connection_info = ipAddress + ":" + port;
+                else
+                    connection_info = "[" + ipAddress + "]:" + port;
 
                 if (logger.isDebugEnabled())
                 {
