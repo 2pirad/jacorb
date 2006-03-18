@@ -44,7 +44,7 @@ import org.omg.CORBA.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.17 2006-02-02 20:36:54 phil.mesnier Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.18 2006-03-18 16:14:40 andre.spiegel Exp $
  */
 
 public class ClientIIOPConnection
@@ -285,31 +285,33 @@ public class ClientIIOPConnection
 
                 if( time_out > 0 )
                 {
-                   //set up connect with an extra thread
-                   //if thread returns within time_out it notifies current thread
-                   //if not this thread will cancel the connect-thread
-                   //this is necessary since earlier JDKs didnt support connect()
-                   //with time_out
-                   final ClientIIOPConnection self = this;
-                   Thread thread =
-                       new Thread( new  Runnable()
-                                                    {
-                                                       public void run()
-                                                       {
-                                   try {
-                                       socket = factory.createSocket(ipAddress,
-                                                                     port);
-                                                          }
-                                   catch (Exception e) {
-                                                             exception = e;
-                                                          }
-                                   finally {
-                                       synchronized (self) {
-                                                                self.notify();
-                                                             }
-                                                          }
-                                                       }
-                                                    } );
+                    //set up connect with an extra thread
+                    //if thread returns within time_out it notifies current thread
+                    //if not this thread will cancel the connect-thread
+                    //this is necessary since earlier JDKs didnt support connect()
+                    //with time_out
+                    final ClientIIOPConnection self = this;
+                    Thread thread = new Thread ( new Runnable()
+                    {
+                        public void run()
+                        {
+                            try
+                            {
+                                socket = factory.createSocket(ipAddress, port);
+                            }
+                            catch (Exception e)
+                            {
+                                exception = e;
+                            }
+                            finally
+                            {
+                                synchronized (self)
+                                {
+                                    self.notify();
+                                }
+                            }
+                        }
+                    } );
                    thread.setDaemon(true);
                    try
                    {
