@@ -22,7 +22,7 @@ package org.jacorb.orb.rmi;
 
 /**
  * @author Gerald Brose
- * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.2 2006-02-06 23:28:54 alphonse.bendt Exp $
+ * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.3 2006-03-18 17:18:02 andre.spiegel Exp $
  */
 
 import java.rmi.Remote;
@@ -298,9 +298,9 @@ public class PortableRemoteObjectDelegateImpl implements javax.rmi.CORBA.Portabl
     {
         final StringBuffer buffer = new StringBuffer(name.length() + 2 + suffix.length());
         final int idx = name.lastIndexOf('.') + 1;
-        buffer.append(name, 0, idx);
+        buffer.append(name.substring(0, idx));
         buffer.append("_");
-        buffer.append(name, idx, name.length());
+        buffer.append(name.substring(idx, name.length()));
         buffer.append("_");
         buffer.append(suffix);
         
