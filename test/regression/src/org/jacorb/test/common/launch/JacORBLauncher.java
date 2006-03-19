@@ -36,7 +36,7 @@ import org.jacorb.test.common.*;
  * invoke the launch() method on the resulting object.
  * 
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: JacORBLauncher.java,v 1.2 2005-08-28 11:02:39 andre.spiegel Exp $
+ * @version $Id: JacORBLauncher.java,v 1.3 2006-03-19 10:02:40 andre.spiegel Exp $
  */
 public abstract class JacORBLauncher
 {
@@ -83,7 +83,7 @@ public abstract class JacORBLauncher
     {
         return ((String[])l.toArray (new String[0]));
     }
-
+    
     /**
      * Loads and returns the properties defined in the file test.properties
      * in the regression suite.
@@ -96,7 +96,7 @@ public abstract class JacORBLauncher
             {
                 InputStream in = new FileInputStream
                 (
-                    TestUtils.testHome() + "/test.properties"
+                    TestUtils.osDependentPath(TestUtils.testHome() + "/test.properties")
                 );
                 testProperties = new Properties();
                 testProperties.load (in);
@@ -128,7 +128,7 @@ public abstract class JacORBLauncher
         }
         return versions;
     }
-
+    
     /**
      * Returns a launcher for the specified JacORB version.
      * If coverage is true, sets up the launcher to that
@@ -185,16 +185,29 @@ public abstract class JacORBLauncher
     private static String getCVSHome()
     {
         String testHome = TestUtils.testHome();
-        Pattern homePattern = Pattern.compile 
-        (
-            "^(.*?)/test/regression"
-        );
-        Matcher m = homePattern.matcher (testHome);
-        if (m.matches())
-            return m.group(1);
-        else
+        String patternString;
+        String separator = System.getProperty("file.separator");
+        
+        // "\" must be escaped
+        if (separator.equals("\\")) 
+        {
+            patternString = "\\test\\regression";
+        }
+        else 
+        {
+            patternString = "/test/regression";
+        }
+        
+        int index;
+        if ((testHome != null) && ((index=testHome.indexOf(patternString)) != -1))
+        {
+            return testHome.substring(0,index);
+        }
+        else 
+        {
             throw new RuntimeException ("couldn't find CVS home: "
-                                        + testHome);
+                                            + testHome);
+        }
     }
-    
+   
 }
