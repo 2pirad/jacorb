@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.34 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: EnumType.java,v 1.35 2006-04-26 15:55:22 andre.spiegel Exp $
  */
 
 public class EnumType
@@ -359,6 +359,18 @@ public class EnumType
         pw.println("\t\t}");
         pw.println("\t}");
 
+        pw.println("\tpublic String toString()");
+        pw.println("\t{");
+        pw.println("\t\tswitch (value) {");
+        for (Enumeration e = enumlist.v.elements(); e.hasMoreElements();)
+        {
+            String label = (String) e.nextElement();
+            pw.println("\t\t\tcase _" + label + ": return \"" + label + "\";");
+        }
+        pw.println("\t\t\tdefault: throw new org.omg.CORBA.BAD_PARAM();");
+        pw.println("\t\t}");
+        pw.println("\t}");
+        
         pw.println("\tprotected " + name + "(int i)");
         pw.println("\t{");
         pw.println("\t\tvalue = i;");
