@@ -34,7 +34,7 @@ import org.omg.CORBA.ValueMember;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.40 2005-10-27 21:31:58 alphonse.bendt Exp $
+ * @version $Id: TypeCode.java,v 1.41 2006-04-26 15:35:48 andre.spiegel Exp $
  */
 
 public class TypeCode
@@ -1205,7 +1205,8 @@ public class TypeCode
 
         try
         {
-            while (tc.kind() == org.omg.CORBA.TCKind.tk_alias)
+            while (tc.kind() == org.omg.CORBA.TCKind.tk_alias 
+                || tc.kind() == org.omg.CORBA.TCKind.tk_value_box)
                 tc = tc.content_type();
         }
         catch (org.omg.CORBA.TypeCodePackage.BadKind bk)
@@ -1455,6 +1456,7 @@ public class TypeCode
             {
             case   TCKind._tk_struct:
             case   TCKind._tk_union:
+            case   TCKind._tk_value:
                tc.resolveRecursion (actual);
                break;
             case   TCKind._tk_sequence:
