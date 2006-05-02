@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.90 2005-06-10 10:02:27 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.91 2006-05-02 15:35:55 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -633,23 +633,33 @@ public class CDRInputStream
         throws java.io.IOException
     {
         if( b == null )
-            throw new NullPointerException();
-
+        {
+        	throw new java.io.IOException("buffer may not be null");
+        }
+        
         if( off < 0 ||
             len < 0 ||
             off + len > b.length )
-            throw new IndexOutOfBoundsException();
-
+        {
+        	throw new java.io.IOException("buffer index out of bounds");
+        }
+        
         if( len == 0 )
+        {
             return 0;
-
+        }
+        
         if( available() < 1 )
+        {
             return -1;
-
+        }
+        
         if( closed )
+        {
             throw new java.io.IOException("Stream already closed!");
-
-        int min = ( len < available() ? len : available());
+        }
+        
+        int min = Math.min(len, available());
         System.arraycopy(buffer, index, b, off, min );
         pos += min;
         index += min;
