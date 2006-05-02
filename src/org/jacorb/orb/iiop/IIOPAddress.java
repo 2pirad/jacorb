@@ -30,7 +30,7 @@ import org.jacorb.orb.CDRInputStream;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.7 2006-03-18 17:15:06 andre.spiegel Exp $
+ * @version $Id: IIOPAddress.java,v 1.8 2006-05-02 14:46:25 andre.spiegel Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -45,6 +45,7 @@ public class IIOPAddress
     private boolean unresolvable = false;
 
     private boolean dnsEnabled = false;
+    private boolean hideZoneID = true;
     private Logger logger;
 
     /**
@@ -81,6 +82,8 @@ public class IIOPAddress
         logger = this.configuration.getNamedLogger("jacorb.iiop.address");
         dnsEnabled =
             configuration.getAttribute("jacorb.dns.enable","off").equals("on");
+        hideZoneID =
+            configuration.getAttribute("jacorb.ipv6.hide_zoneid","on").equals("on");
     }
 
     /*
@@ -141,21 +144,22 @@ public class IIOPAddress
                 try 
                 {
                     host = InetAddress.getByName(source_name);
-            }
+                }
                 catch (UnknownHostException ex) 
                 {
-                if (logger != null && logger.isWarnEnabled())
-                    logger.warn ("init_host, " + source_name + " unresolvable" );
-                unresolvable = true;
-                try {
+                    if (logger != null && logger.isWarnEnabled())
+                        logger.warn ("init_host, " + source_name + " unresolvable" );
+                    unresolvable = true;
+                    try 
+                    {
                         host = InetAddress.getByName(null); //localhost
-                }
+                    }
                     catch (UnknownHostException ex2) 
                     {
+                    }
+                }
             }
-        }
-    }
-                else
+            else
             {
                 if (logger != null && logger.isWarnEnabled())
                     logger.warn ("init_host, " + source_name + 
@@ -305,7 +309,21 @@ public class IIOPAddress
 
     public void write (CDROutputStream cdr)
     {
-        cdr.write_string(getHostname());
+        //If host name contains a zone ID, we need to remove it.
+        //This would be used to write the address on an IOR or other
+        //things that could be used off-host.  Writing a link-local zone
+        //ID would break the client.  Site-local zone IDs are still used, 
+        //but deprecated.  For now, we will ignore site-local zone IDs.
+        String hostname = getHostname();
+        if (hideZoneID) 
+        {
+            int zoneIndex;
+            if ((zoneIndex=hostname.indexOf('%')) != -1)
+            {
+                hostname = hostname.substring(0, zoneIndex);
+            }
+        }
+        cdr.write_string(hostname);
         cdr.write_ushort( (short) port);
     }
 
