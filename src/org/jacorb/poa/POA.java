@@ -44,7 +44,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.54 2005-09-29 00:27:47 francisco Exp $
+ * @version $Id: POA.java,v 1.55 2006-05-09 12:33:59 alphonse.bendt Exp $
  */
 
 public class POA
@@ -301,6 +301,16 @@ public class POA
             requestController.getPoolManager().addRPPoolManagerListener((RPPoolManagerListener)listener);
     }
 
+    /**
+     * Called from Delegate. To ensure thread safety we use the AOM::incarnate method
+     * when activating a servant with the ServantActivator.
+     */
+    public Servant _incarnateServant(byte[] oid, ServantActivator sa)
+        throws org.omg.PortableServer.ForwardRequest
+    {
+        return aom.incarnate(oid, sa, this);
+    }
+    
     /**
      * called from orb, returns a registered child poa,
      * if no child poa exists a adapter activator will used
