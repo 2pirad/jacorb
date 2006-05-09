@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.34 2005-09-27 19:24:27 francisco Exp $
+ * @version $Id: ServerRequest.java,v 1.35 2006-05-09 14:47:55 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -422,9 +422,6 @@ public class ServerRequest
             // operations using SyncScope SYNC_WITH_SERVER, and does
             // not do any harm.
             return out;
-
-        if( !stream_based )
-            throw new INTERNAL("ServerRequest not stream-based!");
 
         out =
             new ReplyOutputStream(requestId(),
