@@ -51,7 +51,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.33 2006-02-06 23:29:56 alphonse.bendt Exp $
+ * @version $Id: RequestProcessor.java,v 1.34 2006-05-09 12:34:42 alphonse.bendt Exp $
  */
 
 public class RequestProcessor
@@ -229,8 +229,6 @@ public class RequestProcessor
 
                 request.setSystemException(new org.omg.CORBA.OBJ_ADAPTER());
             }
-
-            controller.getORB().set_delegate(servant);        // set the orb
         }
         catch (org.omg.CORBA.SystemException e)
         {
