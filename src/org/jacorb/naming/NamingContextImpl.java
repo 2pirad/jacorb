@@ -35,7 +35,7 @@ import org.apache.avalon.framework.configuration.*;
  *      The implementation for the CORBAService Naming
  *
  *      @author Gerald Brose
- *      @version $Id: NamingContextImpl.java,v 1.26 2005-06-01 10:03:50 andre.spiegel Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.27 2006-05-10 15:42:31 andre.spiegel Exp $
  */
 
 public class NamingContextImpl
@@ -49,7 +49,7 @@ public class NamingContextImpl
     private Hashtable contexts = new Hashtable();
 
     /** configuration */
-    private org.jacorb.config.Configuration configuration = null;
+    private transient org.jacorb.config.Configuration configuration = null;
 
     /** no tests of bound objects for existence */
     private boolean noPing = false;
