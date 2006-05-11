@@ -38,7 +38,7 @@ import org.jacorb.test.common.TestUtils;
  * been overwritten.
  * 
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.2 2005-10-15 20:05:22 alphonse.bendt Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.3 2006-05-11 13:01:38 alphonse.bendt Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {
@@ -77,6 +77,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
         suite.addTest(new ValidIDLWithExtraSetupTest("-DBLUB", testHome + "/idl/compiler/misc/defined.idl"));
         suite.addTest(new ValidIDLWithExtraSetupTest("-I" + testHome + "/../../idl/omg", testHome + "/idl/compiler/misc/Interoperability.idl"));
         suite.addTest(new ValidIDLWithExtraSetupTest("-DDefB", testHome + "/idl/compiler/misc/Ping1.idl"));
+        suite.addTest(new ValidIDLWithExtraSetupTest("-ami_callback", testHome + "/idl/compiler/misc/ami.idl"));
         
         return suite;
     }
