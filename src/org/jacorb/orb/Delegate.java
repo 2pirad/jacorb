@@ -52,7 +52,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.116 2006-05-09 12:33:06 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.117 2006-05-11 09:03:07 alphonse.bendt Exp $
  *
  */
 
@@ -1512,7 +1512,15 @@ public final class Delegate
                                          replyEndTime,
                                          p.get_object_key(),
                                          p.getEffectiveProfile().version().minor );
-
+            
+            try{
+            // TODO
+                ros.configure(configuration);
+            } catch (ConfigurationException e)
+            {
+                throw new RuntimeException();
+            }
+            
             // CodeSets are only negotiated once per connection,
             // not for each individual request
             // (CORBA 3.0, 13.10.2.6, second paragraph).
