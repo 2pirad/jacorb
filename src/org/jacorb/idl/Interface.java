@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.63 2006-02-05 20:39:30 alphonse.bendt Exp $
+ * @version $Id: Interface.java,v 1.64 2006-05-11 12:50:33 alphonse.bendt Exp $
  */
 
 import java.io.File;
@@ -127,10 +127,10 @@ public class Interface
         {
             if (logger.isDebugEnabled())
             {
-                logger.debug("Illegal inheritance spec, not a constr. type but " +
+                logger.debug("Illegal inheritance spec in Interface.unwindTypeDefs, not a constr. type but " +
                              resolvedTSpec.getClass() + ", name " + scopedName );
             }
-            parser.fatal_error("Illegal inheritance spec (not a constr. type): " +
+            parser.fatal_error("Illegal inheritance spec in Interface.unwindTypeDefs (not a constr. type): " +
                                inheritanceSpec, token);
         }
 
@@ -576,10 +576,15 @@ public class Interface
                 while (e.hasMoreElements())
                 {
 		    ScopedName sne = (ScopedName) e.nextElement();
-		    ConstrTypeSpec ts = unwindTypedefs(sne);
-
-                    ps.print(", " + ts);
-		    
+		    if (sne.resolvedTypeSpec() instanceof ReplyHandlerTypeSpec && parser.generate_ami_callback)
+		    {
+                        ps.print(", " + sne);
+		    }
+		    else
+		    {
+                        ConstrTypeSpec ts = unwindTypedefs(sne);
+                        ps.print(", " + ts);
+		    }
                 }
             }
         }
@@ -641,9 +646,15 @@ public class Interface
                 }
                 else
                 {
-                    ConstrTypeSpec ts = unwindTypedefs(sne);
-
-                    ps.print(ts + "Operations");
+                    if (sne.resolvedTypeSpec() instanceof ReplyHandlerTypeSpec && parser.generate_ami_callback)
+                    {
+                        ps.print(sne + "Operations");
+                    }
+                    else
+                    {
+                        ConstrTypeSpec ts = unwindTypedefs(sne);
+                        ps.print(ts + "Operations");
+                    }
                 }
 
                 if (e.hasMoreElements())
