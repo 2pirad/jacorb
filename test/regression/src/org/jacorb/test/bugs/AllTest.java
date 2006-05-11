@@ -21,13 +21,15 @@ package org.jacorb.test.bugs;
  */
 
 import junit.framework.*;
+
+import org.jacorb.test.bugs.bugjac10.TypeCodeTestCase;
 import org.jacorb.test.common.*;
 
 /**
  * Test suite for all bug tests.
  * 
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.9 2005-05-13 14:17:50 andre.spiegel Exp $
+ * @version $Id: AllTest.java,v 1.10 2006-05-11 09:15:52 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -49,7 +51,8 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(org.jacorb.test.bugs.bug387.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug401.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug532.TestCase.suite());
-
+      suite.addTest(org.jacorb.test.bugs.bug619.TestCase.suite());
+      suite.addTest(TypeCodeTestCase.suite());
       return suite;
    }
 }
