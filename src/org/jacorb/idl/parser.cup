@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.87 2005-10-03 21:03:53 andre.spiegel Exp $
+ * $Id: parser.cup,v 1.88 2006-05-11 08:38:35 nick.cross Exp $
  */
 
 action code
@@ -532,7 +532,7 @@ parser code
     private static void version()
     {
         System.out.println("JacORB IDL compiler V" +  compiler_version +
-                           ",\n   (C) Gerald Brose, FU Berlin/XTRADYNE Technologies, " +
+                           ",\n   (C) The JacORB Project contributors, " +
                            yearString + ".");
     }
 
