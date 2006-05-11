@@ -45,7 +45,7 @@ import org.omg.PortableServer._ServantActivatorLocalBase;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.33 2005-09-10 18:35:46 brose Exp $
+ *  @version $Id: NameServer.java,v 1.34 2006-05-11 09:35:10 andre.spiegel Exp $
  */
 
 
@@ -337,6 +337,20 @@ public class NameServer
                 logger.info("NS up");
             }
 
+            // This shutdown hook fixes the fact that servants aren't being
+            // etherealized because orb.shutdown is not getting called
+            // when ns is killed.
+            Thread shutdownHook = new Thread()
+            {
+               public void run()
+               {
+                  logger.info( "shutdownHook invoked" );
+                  orb.shutdown( true );
+               }
+            };
+            Runtime.getRuntime().addShutdownHook( shutdownHook );
+
+
             /* either block indefinitely or time out */
 
             if( time_out == 0 )
@@ -348,6 +362,17 @@ public class NameServer
             /* shutdown. This will etherealize all servants, thus
                saving their state */
             orb.shutdown( true );
+
+            try
+            {
+               Runtime.getRuntime().removeShutdownHook( shutdownHook );
+            }
+            catch( Exception removeShutdownHookException )
+            {
+               // removeShutdownHook will throw ignorable illegal state
+               // exception if got here via signal.  Ignore exception.
+            }
+
 
             //      System.exit(0);
         }
