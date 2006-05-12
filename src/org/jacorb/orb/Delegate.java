@@ -52,7 +52,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.117 2006-05-11 09:03:07 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.118 2006-05-12 14:39:54 alphonse.bendt Exp $
  *
  */
 
@@ -1502,7 +1502,8 @@ public final class Delegate
             ParsedIOR p = getParsedIOR();
 
             RequestOutputStream ros =
-                new RequestOutputStream( connection,
+                new RequestOutputStream( orb,
+                                         connection,
                                          connection.getId(),
                                          operation,
                                          responseExpected,
@@ -1510,8 +1511,7 @@ public final class Delegate
                                          getRequestStartTime(),
                                          requestEndTime,
                                          replyEndTime,
-                                         p.get_object_key(),
-                                         p.getEffectiveProfile().version().minor );
+                                         p.get_object_key(), p.getEffectiveProfile().version().minor );
             
             try{
             // TODO

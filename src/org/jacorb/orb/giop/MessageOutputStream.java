@@ -30,7 +30,7 @@ import org.jacorb.orb.CDROutputStream;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.14 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: MessageOutputStream.java,v 1.15 2006-05-12 14:39:53 alphonse.bendt Exp $
  */
 
 public class MessageOutputStream
@@ -38,7 +38,12 @@ public class MessageOutputStream
 {
     public MessageOutputStream()
     {
-        super( (org.omg.CORBA.ORB) null );
+        this( (org.omg.CORBA.ORB) null );
+    }
+
+    public MessageOutputStream(org.omg.CORBA.ORB orb)
+    {
+        super(orb);
     }
 
     /**

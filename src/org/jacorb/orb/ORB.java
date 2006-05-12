@@ -43,6 +43,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
 import org.omg.CORBA.INITIALIZE;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.BAD_QOS;
+import org.omg.CORBA.MARSHAL;
 import org.omg.CORBA.TypeCode;
 import org.omg.CORBA.BooleanHolder;
 import org.omg.CORBA.ORBPackage.InvalidName;
@@ -58,7 +59,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.132 2006-03-16 12:34:32 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.133 2006-05-12 14:39:54 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1244,7 +1245,7 @@ public final class ORB
      * is only created if it is accessed via resolve_initial_references().
      * If no PolicyManager has been created yet, this method returns null.
      */
-    
+
     PolicyManager getPolicyManager()
     {
         return policyManager;
@@ -1997,9 +1998,26 @@ public final class ORB
         public java.io.Serializable read_value
           (org.omg.CORBA_2_3.portable.InputStream is)
         {
-            StreamableValue value =
+            java.lang.Object implObj = instantiate (implementationClass);
+
+            if (implObj instanceof org.omg.CORBA.portable.Streamable)
+            {
+                StreamableValue value =
                 (StreamableValue)instantiate (implementationClass);
-            return is.read_value(value);
+
+                return is.read_value(value);
+            }
+            else if (implObj instanceof org.omg.CORBA.portable.CustomValue )
+            {
+                ((org.omg.CORBA.portable.CustomValue)implObj).unmarshal(
+                    new DataInputStream(is));
+
+                return ((org.omg.CORBA.portable.CustomValue)implObj);
+            }
+            else
+            {
+                throw new MARSHAL ("Unknown Value type " + implObj);
+            }
         }
 
     }

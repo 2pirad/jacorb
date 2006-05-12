@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.92 2006-05-11 08:44:25 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.93 2006-05-12 14:39:54 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -634,31 +634,31 @@ public class CDRInputStream
     {
         if( b == null )
         {
-        	throw new java.io.IOException("buffer may not be null");
+            throw new java.io.IOException("buffer may not be null");
         }
-        
+
         if( off < 0 ||
             len < 0 ||
             off + len > b.length )
         {
-        	throw new java.io.IOException("buffer index out of bounds");
+            throw new java.io.IOException("buffer index out of bounds");
         }
-        
+
         if( len == 0 )
         {
             return 0;
         }
-        
+
         if( available() < 1 )
         {
             return -1;
         }
-        
+
         if( closed )
         {
             throw new java.io.IOException("Stream already closed!");
         }
-        
+
         int min = Math.min(len, available());
         System.arraycopy(buffer, index, b, off, min );
         pos += min;
@@ -2375,10 +2375,18 @@ public class CDRInputStream
         {
             register_value(value);
             ((org.omg.CORBA.portable.Streamable)value)._read(this);
-            return value;
+        }
+        else if (value instanceof org.omg.CORBA.portable.CustomValue )
+        {
+            register_value(value);
+            ( ( org.omg.CORBA.portable.CustomValue ) value ).unmarshal(
+                    new DataInputStream( this ) );
         }
         else
+        {
             throw new BAD_PARAM("read_value is only implemented for Streamables");
+        }
+        return value;
     }
 
     /**

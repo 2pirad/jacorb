@@ -29,7 +29,7 @@ import org.jacorb.orb.*;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.20 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.21 2006-05-12 14:39:53 alphonse.bendt Exp $
  *
  */
 public class ReplyOutputStream
@@ -38,13 +38,24 @@ public class ReplyOutputStream
     private boolean is_locate_reply = false;
     private Logger logger;
 
-    public ReplyOutputStream ( int request_id,
+    public ReplyOutputStream (
+            int request_id,
+            ReplyStatusType_1_2 reply_status,
+            int giop_minor,
+            boolean is_locate_reply,
+            Logger logger)
+    {
+        this(null, request_id, reply_status, giop_minor, is_locate_reply, logger);
+    }
+
+    public ReplyOutputStream ( ORB orb,
+                               int request_id,
                                ReplyStatusType_1_2 reply_status,
                                int giop_minor,
                                boolean is_locate_reply,
                                Logger logger)
     {
-        super();
+        super(orb);
 
         this.is_locate_reply = is_locate_reply;
 
