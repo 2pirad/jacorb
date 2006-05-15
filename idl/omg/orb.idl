@@ -3,7 +3,7 @@
 // by other modules. This file is for declaration
 // purposes only!!
 
-// $Id: orb.idl,v 1.8 2004-02-02 08:56:54 gerald Exp $
+// $Id: orb.idl,v 1.9 2006-05-15 08:08:52 alphonse.bendt Exp $
 
 #ifndef _ORB_IDL
 #define _ORB_IDL
@@ -172,7 +172,7 @@ module CORBA
       public wstring value;
    };
 
-
+   exception WrongTransaction {};
 };
 
 
