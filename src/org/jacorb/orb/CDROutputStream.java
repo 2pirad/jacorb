@@ -44,7 +44,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.104 2006-05-12 14:39:53 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.105 2006-05-15 12:58:30 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -247,7 +247,9 @@ public class CDROutputStream
     public org.omg.CORBA.ORB orb()
     {
         if (orb == null)
-            orb = org.omg.CORBA.ORB.init();
+        {
+            orb = org.omg.CORBA.ORB.init((String[])null, null);
+        }
         return orb;
     }
 
@@ -741,7 +743,7 @@ public class CDROutputStream
             {
                 throw new MARSHAL(e.toString());
             }
-            return new CDRInputStream(orb, baos.toByteArray());
+            return new CDRInputStream(orb(), baos.toByteArray());
         }
         else
         {
@@ -2053,7 +2055,7 @@ public class CDROutputStream
                 {
                     String id = tc.id();
                     org.omg.CORBA.portable.BoxedValueHelper helper =
-                        ((org.jacorb.orb.ORB)orb).getBoxedValueHelper(id);
+                        ((org.jacorb.orb.ORB)orb()).getBoxedValueHelper(id);
                     if (helper == null)
                         throw new RuntimeException
                             ("No BoxedValueHelper for id " + id);
