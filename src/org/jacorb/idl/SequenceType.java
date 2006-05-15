@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.38 2005-10-09 21:23:25 alphonse.bendt Exp $
+ * @version $Id: SequenceType.java,v 1.39 2006-05-15 14:35:52 alphonse.bendt Exp $
  */
 
 public class SequenceType
@@ -263,10 +263,7 @@ public class SequenceType
         String s = full_name();
         if (pack_name.length() > 0)
         {
-            if (!s.startsWith("org.omg"))
-            {
-                s = omg_package_prefix + s;
-            }
+            s = getFullName(s);
         }
 
         return s + "Holder";
@@ -281,10 +278,7 @@ public class SequenceType
         String s = full_name();
         if (pack_name.length() > 0)
         {
-            if (!s.startsWith("org.omg"))
-            {
-                s = omg_package_prefix + s;
-            }
+            s = getFullName(s);
         }
 
         return s + "Helper";

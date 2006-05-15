@@ -3,7 +3,7 @@
 // by other modules. This file is for declaration
 // purposes only!!
 
-// $Id: orb.idl,v 1.9 2006-05-15 08:08:52 alphonse.bendt Exp $
+// $Id: orb.idl,v 1.10 2006-05-15 14:35:52 alphonse.bendt Exp $
 
 #ifndef _ORB_IDL
 #define _ORB_IDL
@@ -168,9 +168,10 @@ module CORBA
    pseudo interface ExceptionList {};
 
 
-   valuetype WStringValue {
-      public wstring value;
-   };
+   // Taken from 04-03-12 CORBA 3.0.3
+   valuetype StringValue string;
+   valuetype WStringValue wstring;
+
 
    exception WrongTransaction {};
 };

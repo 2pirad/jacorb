@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.37 2005-11-19 18:48:24 brose Exp $
+ * @version $Id: IdlSymbol.java,v 1.38 2006-05-15 14:35:52 alphonse.bendt Exp $
  */
 
 public class IdlSymbol
@@ -637,6 +637,21 @@ public class IdlSymbol
     {
         return parser.generateIncluded() && !( inhibitionFlag );
     }
+
+    protected String getFullName(String fullName)
+    {
+        if (fullName.startsWith("org.omg"))
+        {
+            return fullName;
+        }
+
+        if (fullName.startsWith("java.lang"))
+        {
+            return fullName;
+        }
+        return omg_package_prefix + fullName;
+    }
+
 
     /**
      * let the visitor pattern do its work...

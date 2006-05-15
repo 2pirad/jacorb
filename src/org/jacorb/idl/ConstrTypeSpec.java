@@ -23,7 +23,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.22 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.23 2006-05-15 14:35:52 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
@@ -72,13 +72,7 @@ public class ConstrTypeSpec
 
     public String toString()
     {
-        String n = typeName();
-        if( !n.startsWith( "org.omg" ) )
-        {
-            return omgPrefix() + n;
-        }
-        else
-            return n;
+        return getFullName(typeName());
     }
 
     public String typeName()

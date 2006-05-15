@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.48 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.49 2006-05-15 14:35:52 alphonse.bendt Exp $
  */
 
 public class AliasTypeSpec
@@ -60,19 +60,17 @@ public class AliasTypeSpec
     {
         if (pack_name.length() > 0)
         {
-            String s =
+            String fullName =
                 ScopedName.unPseudoName(pack_name + "." + name);
 
-            if (!s.startsWith("org.omg"))
-            {
-                return omg_package_prefix + s;
-            }
-            else
-                return s;
+            return getFullName(fullName);
         }
         else
+        {
             return ScopedName.unPseudoName(name);
+        }
     }
+
 
     /**
      * @return the type name of this alias, which is the name of the

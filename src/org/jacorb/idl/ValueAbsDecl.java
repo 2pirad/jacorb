@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.21 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.22 2006-05-15 14:35:52 alphonse.bendt Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -117,13 +117,7 @@ public class ValueAbsDecl
 
     public String toString()
     {
-        String n = typeName();
-        if (!n.startsWith("org.omg"))
-        {
-            return omgPrefix() + n;
-        }
-        else
-            return n;
+        return getFullName(typeName());
     }
 
 

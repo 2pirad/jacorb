@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.64 2006-05-11 12:50:33 alphonse.bendt Exp $
+ * @version $Id: Interface.java,v 1.65 2006-05-15 14:35:52 alphonse.bendt Exp $
  */
 
 import java.io.File;
@@ -223,14 +223,7 @@ public class Interface
 
     public String toString()
     {
-        String n = typeName();
-
-        if (!n.startsWith("org.omg"))
-        {
-            return omgPrefix() + n;
-        }
-        else
-            return n;
+        return getFullName(typeName());
     }
 
     public void set_included(boolean i)
@@ -575,16 +568,16 @@ public class Interface
 
                 while (e.hasMoreElements())
                 {
-		    ScopedName sne = (ScopedName) e.nextElement();
-		    if (sne.resolvedTypeSpec() instanceof ReplyHandlerTypeSpec && parser.generate_ami_callback)
-		    {
+                    ScopedName sne = (ScopedName) e.nextElement();
+                    if (sne.resolvedTypeSpec() instanceof ReplyHandlerTypeSpec && parser.generate_ami_callback)
+                    {
                         ps.print(", " + sne);
-		    }
-		    else
-		    {
+                    }
+                    else
+                    {
                         ConstrTypeSpec ts = unwindTypedefs(sne);
                         ps.print(", " + ts);
-		    }
+                    }
                 }
             }
         }

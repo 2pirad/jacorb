@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.25 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: FixedPointType.java,v 1.26 2006-05-15 14:35:52 alphonse.bendt Exp $
  */
 
 public class FixedPointType
@@ -62,15 +62,13 @@ public class FixedPointType
         if (pack_name.length() > 0)
         {
             String s = ScopedName.unPseudoName(pack_name + "." + name);
-            if (!s.startsWith("org.omg"))
-            {
-                return omg_package_prefix + s;
-            }
-            else
-                return s;
+
+            return getFullName(s);
         }
         else
+        {
             return ScopedName.unPseudoName(name);
+        }
     }
 
     public String typeName()
