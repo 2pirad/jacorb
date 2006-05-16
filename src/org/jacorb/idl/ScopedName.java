@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.35 2006-05-15 14:35:52 alphonse.bendt Exp $
+ * @version $Id: ScopedName.java,v 1.36 2006-05-16 14:19:40 alphonse.bendt Exp $
  *
  */
 
@@ -67,13 +67,15 @@ public class ScopedName
     {
         String n = unPseudo( name );
         if( n.endsWith( "PackagePackage" ) || !n.startsWith( "_" ) && n.endsWith( "Package" ) )
+        {
             n = n.substring( 0, n.lastIndexOf( "Package" ) );
+        }
         return n;
     }
 
     private static String unPseudo( String name )
     {
-        if( name.charAt( 0 ) == '.' )
+        if (name.length() > 0 && name.charAt( 0 ) == '.' )
         {
             name = name.substring( 1 );
         }

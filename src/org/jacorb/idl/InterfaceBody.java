@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.27 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: InterfaceBody.java,v 1.28 2006-05-16 14:19:40 alphonse.bendt Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -37,8 +37,7 @@ public class InterfaceBody
     public Interface my_interface;
     SymbolList inheritance_spec = null;
     private Operation[] methods = null;
-    private boolean checking = false;
-    private String waitingName;
+    private String waitingName = "";
 
     /** list of parse threads created and either active or still blocked */
     public static Vector parseThreads = new Vector();
@@ -46,7 +45,6 @@ public class InterfaceBody
     public class ParseThread
         extends Thread
     {
-
         InterfaceBody b = null;
         private boolean running = false;
         private boolean incremented = false;
@@ -199,11 +197,10 @@ public class InterfaceBody
                 o = parser.get_pending( scoped_name.resolvedName() );
                 pending = pending || ( o != null );
             }
-            ParseThread p = null;
             if( pending )
             {
                 parser.set_pending( full_name() );
-                p = new ParseThread( this );
+                new ParseThread( this );
             }
             else
             {
