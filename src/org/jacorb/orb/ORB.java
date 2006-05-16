@@ -55,7 +55,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.134 2006-05-16 07:49:12 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.135 2006-05-16 07:52:24 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -2185,22 +2185,19 @@ public final class ORB
         (org.omg.CORBA.OperationDef oper)
     {
         int no = 0;
-        org.omg.CORBA.Any any;
-        org.omg.CORBA.ParameterDescription[] params = null;
-        org.omg.CORBA.ParameterDescription param;
-        org.omg.CORBA.NVList list;
+        final org.omg.CORBA.ParameterDescription[] params = oper.params ();
 
-        params = oper.params ();
         if (params != null)
         {
             no = params.length;
         }
-        list = new org.jacorb.orb.NVList (this, no);
+
+        final org.omg.CORBA.NVList list = new org.jacorb.orb.NVList (this, no);
 
         for (int i = 0; i < no; i++)
         {
-            param = params[i];
-            any = create_any ();
+            org.omg.CORBA.ParameterDescription param = params[i];
+            org.omg.CORBA.Any any = create_any ();
             any.type (param.type);
             switch (param.mode.value())
             {
