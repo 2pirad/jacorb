@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.39 2006-05-16 10:05:45 alphonse.bendt Exp $
+ * @version $Id: IdlSymbol.java,v 1.40 2006-05-16 10:40:40 alphonse.bendt Exp $
  */
 
 public class IdlSymbol
@@ -638,15 +638,22 @@ public class IdlSymbol
         return parser.generateIncluded() && !( inhibitionFlag );
     }
 
-    protected String getFullName(String fullName)
+    /**
+     * this method will prepend the
+     * specified name with the omg prefix if
+     * necessary
+     *
+     * @return the full qualified java name
+     */
+    protected String getFullName(String name)
     {
-        if (!fullName.startsWith("org.omg") && !fullName.startsWith ("java.lang"))
+        if (!name.startsWith("org.omg") && !name.startsWith ("java.lang"))
         {
-            return omgPrefix() + fullName;
+            return omgPrefix() + name;
         }
         else
         {
-            return fullName;
+            return name;
         }
     }
 
