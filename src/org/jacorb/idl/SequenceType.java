@@ -28,7 +28,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.39 2006-05-15 14:35:52 alphonse.bendt Exp $
+ * @version $Id: SequenceType.java,v 1.40 2006-05-16 10:40:20 alphonse.bendt Exp $
  */
 
 public class SequenceType
@@ -217,7 +217,6 @@ public class SequenceType
     public String printWriteStatement(String var_name, String streamname)
     {
         StringBuffer sb = new StringBuffer();
-        String type = typeName();
         if (length != 0)
         {
             sb.append("\t\tif (" + var_name + ".length > " + length + ")\n");
