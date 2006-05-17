@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.24 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: TypeSpec.java,v 1.25 2006-05-17 11:12:05 alphonse.bendt Exp $
  */
 
 
@@ -126,9 +126,8 @@ public class TypeSpec
         }
         catch( NullPointerException np )
         {
-            np.printStackTrace();
             org.jacorb.idl.parser.fatal_error( "Compiler Error for " +
-                                               type_spec + " " + typeName(), null );
+                                               type_spec + " " + typeName() + " " + np.getMessage(), null );
         }
         return null;
     }

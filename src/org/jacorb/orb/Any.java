@@ -27,7 +27,7 @@ import java.util.*;
  * CORBA any
  *
  * @author Gerald Brose
- * $Id: Any.java,v 1.43 2006-05-16 14:19:40 alphonse.bendt Exp $
+ * $Id: Any.java,v 1.44 2006-05-17 11:13:41 alphonse.bendt Exp $
  */
 
 public final class Any
@@ -937,7 +937,6 @@ public final class Any
             }
             catch( Exception e )
             {
-                e.printStackTrace();
                 throw new INTERNAL( e.getMessage());
             }
         case TCKind._tk_value:

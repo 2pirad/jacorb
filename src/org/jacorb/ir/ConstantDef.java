@@ -32,7 +32,7 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  * JacORB implementation of IR ConstantDef objects
  * @author  Gerald Brose
- * @version $Id: ConstantDef.java,v 1.13 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ConstantDef.java,v 1.14 2006-05-17 11:13:11 alphonse.bendt Exp $
  */
 
 public class ConstantDef
@@ -88,10 +88,10 @@ public class ConstantDef
 
         try
         {
-            typeCode = TypeCodeUtil.getTypeCode( field.getType(), 
-                                                 null, 
+            typeCode = TypeCodeUtil.getTypeCode( field.getType(),
+                                                 null,
                                                  this.logger );
-            
+
             if (this.logger.isDebugEnabled())
             {
                 this.logger.debug("New ConstantDef " + absolute_name());
@@ -129,8 +129,8 @@ public class ConstantDef
             {
                 name( classId.substring( classId.lastIndexOf('.')+1));
                 String path = classId.substring(0, classId.lastIndexOf('.'));
-				id = "IDL:" + path.replace('.','/') + "/" + name + ":" + version;
-				absolute_name = myContainer.absolute_name() + "::" + name;
+                id = "IDL:" + path.replace('.','/') + "/" + name + ":" + version;
+                absolute_name = myContainer.absolute_name() + "::" + name;
             }
             else
             {
@@ -139,13 +139,13 @@ public class ConstantDef
                 id = "IDL:" + name + ":" + version;
                 absolute_name = "::" + name;
             }
-            typeCode = TypeCodeUtil.getTypeCode( field.getType(), 
-                                                 null, 
+            typeCode = TypeCodeUtil.getTypeCode( field.getType(),
+                                                 null,
                                                  this.logger );
         }
         catch ( Exception e )
         {
-            e.printStackTrace();
+            logger.debug("unexpected exception", e);
             throw new INTF_REPOS( ErrorMsg.IR_Not_Implemented,
                                   org.omg.CORBA.CompletionStatus.COMPLETED_NO);
         }
@@ -184,7 +184,7 @@ public class ConstantDef
         }
         catch ( Exception e )
         {
-            e.printStackTrace();
+            logger.debug("unexpected exception", e);
         }
         defined = true;
     }

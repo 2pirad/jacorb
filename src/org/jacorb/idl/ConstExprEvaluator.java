@@ -36,7 +36,7 @@ import java.lang.Double;
  * When the getValue() is called, a Double object is returned.
  * If it returns null, an error occured.<p>
 
- * @version $Id: ConstExprEvaluator.java,v 1.4 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ConstExprEvaluator.java,v 1.5 2006-05-17 11:11:47 alphonse.bendt Exp $
  * @author  Gerald Brose,
  *          The-Son LAI <a href="mailto:Lts@writeme.com">Lts@writeme.com</a>
  */
@@ -102,7 +102,9 @@ public class ConstExprEvaluator
     public Double getValue()
     {
         if (expression == null)
+        {
             return null;
+        }
 
         try
         {
@@ -111,7 +113,8 @@ public class ConstExprEvaluator
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            lexer.emit_error("unexpected exception: " + e.getMessage());
+            // TODO throw exception?
             return null;
         }
     }

@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.90 2006-05-12 07:55:25 alphonse.bendt Exp $
+ * $Id: parser.cup,v 1.91 2006-05-17 11:16:39 alphonse.bendt Exp $
  */
 
 action code
@@ -185,7 +185,6 @@ parser code
         }
         catch( Exception e )
         {
-            e.printStackTrace();
             lexer.emit_error( "Exception: " + e.toString() );
             usage( argv, e.getMessage() );
         }

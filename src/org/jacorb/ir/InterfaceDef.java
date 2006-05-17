@@ -41,7 +41,7 @@ import org.apache.avalon.framework.logger.Logger;
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.20 2004-10-18 13:12:41 simon.mcqueen Exp $
+ * @version $Id: InterfaceDef.java,v 1.21 2006-05-17 11:13:11 alphonse.bendt Exp $
  */
 
 public class InterfaceDef
@@ -374,9 +374,9 @@ public class InterfaceDef
             if( value == null || !((String)value).startsWith("attribute"))
             {
                 ops.addElement(
-                     new OperationDef( methods[i], 
-                                       theClass, 
-                                       irHelperClass, 
+                     new OperationDef( methods[i],
+                                       theClass,
+                                       irHelperClass,
                                        myReference,
                                        this.logger,
                                        this.loader,
@@ -555,7 +555,7 @@ public class InterfaceDef
             }
             catch( Exception exc )
             {
-                exc.printStackTrace();
+                logger.error("unexpected exception", exc);
             }
         }
         base_interfaces = new org.omg.CORBA.InterfaceDef[ v.size() ];
@@ -720,7 +720,7 @@ public class InterfaceDef
     {
         if (this.logger.isDebugEnabled())
         {
-            this.logger.debug("Is interface " + id() + "  a " + 
+            this.logger.debug("Is interface " + id() + "  a " +
                               interface_id + "?");
         }
 
@@ -737,7 +737,7 @@ public class InterfaceDef
         }
         if (this.logger.isDebugEnabled())
         {
-            this.logger.debug( "Interface " + id() + " is not a " + 
+            this.logger.debug( "Interface " + id() + " is not a " +
                                interface_id );
         }
         return false;
@@ -820,7 +820,7 @@ public class InterfaceDef
                 if (this.logger.isDebugEnabled())
                 {
                     this.logger.debug("Interface " + this.name +
-                                             " top " + top_level_name + 
+                                             " top " + top_level_name +
                                       " not found");
                 }
                 return null;
