@@ -27,7 +27,7 @@ import org.omg.DynamicAny.*;
  * CORBA DynValue
  *
  * @author Nick Cross
- * @version $Id: DynValue.java,v 1.1 2006-05-16 13:22:05 alphonse.bendt Exp $
+ * @version $Id: DynValue.java,v 1.2 2006-05-17 08:39:02 alphonse.bendt Exp $
  */
 
 public final class DynValue
@@ -37,7 +37,9 @@ public final class DynValue
     private static final String DYN_VALUE_NYI =
         ("DynValue is not yet implemented in Jacorb");
 
-    DynValue() {}
+    private DynValue() {
+        super(null, null, null);
+    }
 
     public java.lang.String current_member_name()
         throws TypeMismatch, InvalidValue
