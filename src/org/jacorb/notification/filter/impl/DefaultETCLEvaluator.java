@@ -48,9 +48,9 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * Provide the Basic operations needed to evaluate filter expressions on Anys.
- * 
+ *
  * @author Alphonse Bendt
- * @version $Id: DefaultETCLEvaluator.java,v 1.3 2005-10-08 09:59:55 alphonse.bendt Exp $
+ * @version $Id: DefaultETCLEvaluator.java,v 1.4 2006-05-17 13:07:57 alphonse.bendt Exp $
  */
 
 public class DefaultETCLEvaluator implements ETCLEvaluator
@@ -442,7 +442,7 @@ public class DefaultETCLEvaluator implements ETCLEvaluator
     {
         try
         {
-            final DynSequence _dynSequence = DynSequenceHelper.narrow(toDynAny(sequence));            
+            final DynSequence _dynSequence = DynSequenceHelper.narrow(toDynAny(sequence));
 
             _dynSequence.rewind();
 
@@ -457,7 +457,7 @@ public class DefaultETCLEvaluator implements ETCLEvaluator
                     return EvaluationResult.BOOL_TRUE;
                 }
             } while (_dynSequence.next());
-                
+
             return EvaluationResult.BOOL_FALSE;
         } catch (TypeMismatch e)
         {
@@ -518,7 +518,7 @@ public class DefaultETCLEvaluator implements ETCLEvaluator
                         break SWITCH_LABEL;
                     }
                 } while (_dynStruct.next());
-                
+
                 throw new EvaluationException("struct has no member " + _strippedIdentifier);
 
             case TCKind._tk_union:
@@ -631,6 +631,6 @@ public class DefaultETCLEvaluator implements ETCLEvaluator
 
     private static EvaluationException newEvaluationException(Exception e)
     {
-        return new EvaluationException(e.getMessage());
+        return new EvaluationException(e.toString());
     }
 }

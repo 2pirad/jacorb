@@ -24,7 +24,7 @@ import org.apache.regexp.RESyntaxException;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JakartaRegexpPatternWrapper.java,v 1.4 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: JakartaRegexpPatternWrapper.java,v 1.5 2006-05-17 13:09:56 alphonse.bendt Exp $
  */
 public class JakartaRegexpPatternWrapper extends PatternWrapper {
 
@@ -37,7 +37,7 @@ public class JakartaRegexpPatternWrapper extends PatternWrapper {
             }
         catch ( RESyntaxException e )
             {
-                throw new RuntimeException( e.getMessage() );
+                throw new RuntimeException( e.toString() );
             }
     }
 

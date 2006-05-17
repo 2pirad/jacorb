@@ -31,7 +31,7 @@ import org.jacorb.orb.*;
  * CORBA DynArray
  *
  * @author Gerald Brose
- * @version $Id: DynArray.java,v 1.17 2006-05-17 08:39:02 alphonse.bendt Exp $
+ * @version $Id: DynArray.java,v 1.18 2006-05-17 13:15:27 alphonse.bendt Exp $
  */
 
 public final class DynArray
@@ -71,16 +71,14 @@ public final class DynArray
                     members[i] = dynFactory.create_dyn_any_from_type_code( elementType ).to_any();
                 }
             }
-            catch( org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode itc )
+            catch( org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode e )
             {
-                logger.debug("DynArray", itc);
-                throw new INTERNAL(itc.getMessage());
+                throw unexpectedException(e);
             }
         }
-        catch( org.omg.CORBA.TypeCodePackage.BadKind bk )
+        catch( org.omg.CORBA.TypeCodePackage.BadKind e )
         {
-            logger.debug("DynArray", bk);
-            throw new INTERNAL(bk.getMessage());
+            throw unexpectedException(e);
         }
    }
 

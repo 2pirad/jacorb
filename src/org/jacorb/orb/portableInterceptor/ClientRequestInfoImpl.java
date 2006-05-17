@@ -37,7 +37,7 @@ import org.jacorb.orb.iiop.IIOPProfile;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.27 2005-05-12 21:59:12 andre.spiegel Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.28 2006-05-17 13:17:43 alphonse.bendt Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -135,10 +135,7 @@ public class ClientRequestInfoImpl
             }
             catch (Exception e)
             {
-                if( logger.isDebugEnabled() )
-                {
-                    logger.debug(e.getMessage());
-                }
+                logger.debug("unexpected exception", e);
             }
         }
         //exceptions will be set when available

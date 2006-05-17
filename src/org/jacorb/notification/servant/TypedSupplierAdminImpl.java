@@ -42,7 +42,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedSupplierAdminImpl.java,v 1.8 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: TypedSupplierAdminImpl.java,v 1.9 2006-05-17 13:09:39 alphonse.bendt Exp $
  */
 public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         TypedSupplierAdminOperations
@@ -89,7 +89,7 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         } catch (Exception e)
         {
             logger_.error("unable to create typed notification push consumer", e);
-            throw new INTERNAL(e.getMessage());
+            throw new INTERNAL(e.toString());
         }
     }
 
@@ -120,7 +120,7 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
         {
             logger_.error("unable to create typed notification push consumer", e);
 
-            throw new INTERNAL(e.getMessage());
+            throw new INTERNAL(e.toString());
         }
     }
 
@@ -134,7 +134,7 @@ public class TypedSupplierAdminImpl extends SupplierAdminImpl implements
     {
         throw new NO_IMPLEMENT();
     }
-    
+
     public String getMBeanType()
     {
         return "TypedSupplierAdmin";

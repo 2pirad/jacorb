@@ -40,18 +40,18 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedConsumerAdminImpl.java,v 1.7 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: TypedConsumerAdminImpl.java,v 1.8 2006-05-17 13:09:39 alphonse.bendt Exp $
  */
 public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         TypedConsumerAdminOperations
 {
     public TypedConsumerAdminImpl(ORB orb, POA poa, Configuration config,
             MessageFactory messageFactory, OfferManager offerManager,
-            SubscriptionManager subscriptionManager, 
+            SubscriptionManager subscriptionManager,
             IEventChannel channelServant)
     {
         super(channelServant, orb, poa, config, messageFactory, offerManager, subscriptionManager);
-  
+
         activate();
     }
 
@@ -75,7 +75,7 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         {
             logger_.fatalError("obtain_typed_notification_pull_supplier", e);
 
-            throw new UNKNOWN(e.getMessage());
+            throw new UNKNOWN(e.toString());
         }
     }
 
@@ -84,9 +84,9 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
     {
         final MutablePicoContainer _containerForProxy =
             newContainerForTypedProxy(type);
-        
+
         _containerForProxy.registerComponentImplementation(AbstractProxySupplier.class, TypedProxyPullSupplierImpl.class);
-        
+
         AbstractProxySupplier _servant = (AbstractProxySupplier) _containerForProxy
                 .getComponentInstanceOfType(AbstractProxySupplier.class);
 
@@ -114,7 +114,7 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         {
             logger_.fatalError("obtain_typed_notification_pull_supplier", e);
 
-            throw new UNKNOWN(e.getMessage());
+            throw new UNKNOWN(e.toString());
         }
     }
 
@@ -123,9 +123,9 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
     {
         final MutablePicoContainer _containerForProxy =
             newContainerForTypedProxy(type);
-        
+
         _containerForProxy.registerComponentImplementation(AbstractProxySupplier.class, TypedProxyPushSupplierImpl.class);
-        
+
         AbstractProxySupplier _servant = (AbstractProxySupplier) _containerForProxy
                 .getComponentInstanceOfType(AbstractProxySupplier.class);
 
@@ -139,8 +139,8 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
 
         return _servant;
     }
-    
-    
+
+
     public org.omg.CosEventChannelAdmin.ProxyPushSupplier obtain_typed_push_supplier(String type)
     {
         throw new NO_IMPLEMENT();
@@ -151,7 +151,7 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
     {
         throw new NO_IMPLEMENT();
     }
-    
+
     public String getMBeanType()
     {
         return "TypedConsumerAdmin";

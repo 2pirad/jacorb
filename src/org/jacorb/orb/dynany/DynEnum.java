@@ -30,7 +30,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author Gerald Brose
- * @version $Id: DynEnum.java,v 1.16 2006-05-17 08:39:02 alphonse.bendt Exp $
+ * @version $Id: DynEnum.java,v 1.17 2006-05-17 13:15:27 alphonse.bendt Exp $
  */
 
 public final class DynEnum
@@ -71,13 +71,11 @@ public final class DynEnum
        }
        catch( org.omg.CORBA.TypeCodePackage.BadKind e )
        {
-           logger.debug("DynEnum.constructor", e);
-           throw new INTERNAL(e.getMessage());
+           throw unexpectedException(e);
        }
        catch( org.omg.CORBA.TypeCodePackage.Bounds e )
        {
-           logger.debug("DynEnum.constructor", e);
-           throw new INTERNAL(e.getMessage());
+           throw unexpectedException(e);
        }
   }
 

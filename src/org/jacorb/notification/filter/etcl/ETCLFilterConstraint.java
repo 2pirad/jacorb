@@ -34,7 +34,7 @@ import org.omg.CosNotifyFilter.InvalidConstraint;
  * Representation of a ETCL Filter Constraint.
  *
  * @author Alphonse Bendt
- * @version $Id: ETCLFilterConstraint.java,v 1.4 2005-10-27 21:39:39 alphonse.bendt Exp $
+ * @version $Id: ETCLFilterConstraint.java,v 1.5 2006-05-17 13:07:40 alphonse.bendt Exp $
  */
 
 public class ETCLFilterConstraint implements FilterConstraint
@@ -70,11 +70,11 @@ public class ETCLFilterConstraint implements FilterConstraint
         }
         catch ( StaticTypeException e )
         {
-            throw new InvalidConstraint( e.getMessage(), constraintExp );
+            throw new InvalidConstraint( e.toString(), constraintExp );
         }
         catch ( ParseException e )
         {
-            throw new InvalidConstraint( e.getMessage(), constraintExp );
+            throw new InvalidConstraint( e.toString(), constraintExp );
         }
     }
 

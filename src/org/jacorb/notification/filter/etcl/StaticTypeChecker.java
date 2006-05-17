@@ -23,7 +23,7 @@ package org.jacorb.notification.filter.etcl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StaticTypeChecker.java,v 1.6 2005-08-21 13:24:38 alphonse.bendt Exp $
+ * @version $Id: StaticTypeChecker.java,v 1.7 2006-05-17 13:07:40 alphonse.bendt Exp $
  */
 
 public class StaticTypeChecker extends AbstractTCLVisitor
@@ -35,7 +35,7 @@ public class StaticTypeChecker extends AbstractTCLVisitor
             rootNode.acceptPostOrder(this);
         } catch (VisitorException e)
         {
-            throw new StaticTypeException(e.getMessage());
+            throw new StaticTypeException(e.toString());
         }
     }
 

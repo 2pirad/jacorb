@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.93 2006-05-12 14:39:54 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.94 2006-05-17 13:14:37 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -178,7 +178,7 @@ public class CDRInputStream
                 }
                 catch( ConfigurationException ce )
                 {
-                    throw new INTERNAL("ConfigurationException: " + ce.getMessage());
+                    throw new INTERNAL("ConfigurationException: " + ce);
                 }
             }
         }

@@ -28,16 +28,16 @@ import org.omg.ETF.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.7 2005-09-27 20:52:18 phil.mesnier Exp $
+ * @version $Id: IIOPFactories.java,v 1.8 2006-05-17 13:17:28 alphonse.bendt Exp $
  */
-public class IIOPFactories 
+public class IIOPFactories
     extends org.jacorb.orb.etf.FactoriesBase
 {
     static
     {
         connectionClz = ClientIIOPConnection.class;
         listenerClz = IIOPListener.class;
-        profileClz = IIOPProfile.class;   
+        profileClz = IIOPProfile.class;
         addressClz = IIOPAddress.class;
     }
 
@@ -46,13 +46,13 @@ public class IIOPFactories
     {
         if (tagged_profile.value.tag != TAG_INTERNET_IOP.value)
         {
-            throw new org.omg.CORBA.BAD_PARAM 
-                ("wrong profile for IIOP transport, tag: " 
+            throw new org.omg.CORBA.BAD_PARAM
+                ("wrong profile for IIOP transport, tag: "
                  + tagged_profile.value.tag);
         }
         else
         {
-            IIOPProfile result = 
+            IIOPProfile result =
                 new IIOPProfile(tagged_profile.value.profile_data);
             try
             {
@@ -88,7 +88,7 @@ public class IIOPFactories
             }
             catch(ConfigurationException e)
             {
-                throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + e.getMessage());
+                throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + e);
             }
 
             return result;

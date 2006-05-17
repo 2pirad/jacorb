@@ -28,7 +28,7 @@ import org.jacorb.notification.interfaces.Message;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventNameShorthandNode.java,v 1.7 2005-10-27 21:39:39 alphonse.bendt Exp $
+ * @version $Id: EventNameShorthandNode.java,v 1.8 2006-05-17 13:07:40 alphonse.bendt Exp $
  */
 
 public class EventNameShorthandNode extends ETCLComponentName
@@ -46,7 +46,7 @@ public class EventNameShorthandNode extends ETCLComponentName
         catch (Exception e)
         {
             // should never happen
-            throw new RuntimeException(e.getMessage());
+            throw new RuntimeException(e.toString());
         }
     }
 
@@ -80,7 +80,7 @@ public class EventNameShorthandNode extends ETCLComponentName
     {
         final Message _event = context.getCurrentMessage();
         final EvaluationResult _result;
-        
+
         switch (_event.getType())
         {
             case Message.TYPE_ANY:

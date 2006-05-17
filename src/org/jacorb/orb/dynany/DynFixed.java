@@ -30,7 +30,7 @@ import java.math.BigDecimal;
  * CORBA DynFixed
  *
  * @author Jason Courage
- * @version $Id: DynFixed.java,v 1.8 2006-05-17 08:39:02 alphonse.bendt Exp $
+ * @version $Id: DynFixed.java,v 1.9 2006-05-17 13:15:27 alphonse.bendt Exp $
  */
 
 public final class DynFixed
@@ -86,7 +86,7 @@ public final class DynFixed
       }
       catch( Exception e)
       {
-         throw new InvalidValue(e.getMessage());
+         throw new InvalidValue(e.toString());
       }
    }
 

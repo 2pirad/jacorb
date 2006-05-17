@@ -44,7 +44,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.105 2006-05-15 12:58:30 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.106 2006-05-17 13:14:37 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -226,7 +226,7 @@ public class CDROutputStream
             }
             catch( ConfigurationException ce )
             {
-                throw new INTERNAL("ConfigurationException: " + ce.getMessage());
+                throw new INTERNAL("ConfigurationException: " + ce);
             }
         }
     }

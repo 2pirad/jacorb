@@ -33,7 +33,7 @@ import org.jacorb.config.Configuration;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.18 2006-05-17 09:54:46 alphonse.bendt Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.19 2006-05-17 13:18:01 alphonse.bendt Exp $
  */
 
 public class IORInterceptorInitializer
@@ -65,7 +65,7 @@ public class IORInterceptorInitializer
         catch (Exception e)
         {
             logger.error("unexpected exception", e);
-            throw new INTERNAL(e.getMessage());
+            throw new INTERNAL(e.toString());
         }
     }
 

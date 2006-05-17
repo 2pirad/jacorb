@@ -37,7 +37,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.20 2006-05-17 09:54:46 alphonse.bendt Exp $
+ * @version $Id: IIOPProfile.java,v 1.21 2006-05-17 13:17:28 alphonse.bendt Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase
@@ -426,7 +426,7 @@ public class IIOPProfile
             catch ( Exception ex )
             {
                 logger.debug("unexpected exception", ex);
-                throw new INTERNAL(ex.getMessage());
+                throw new INTERNAL(ex.toString());
             }
         }
         return -1;

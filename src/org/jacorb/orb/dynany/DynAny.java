@@ -29,7 +29,7 @@ import org.jacorb.orb.TypeCode;
  * CORBA DynAny
  *
  * @author Gerald Brose
- * @version $Id: DynAny.java,v 1.23 2006-05-17 08:39:02 alphonse.bendt Exp $
+ * @version $Id: DynAny.java,v 1.24 2006-05-17 13:15:27 alphonse.bendt Exp $
  */
 public class DynAny
    extends org.omg.CORBA.LocalObject
@@ -122,7 +122,7 @@ public class DynAny
       }
       catch( Exception e)
       {
-         throw new InvalidValue(e.getMessage());
+         throw new InvalidValue(e.toString());
       }
    }
 
@@ -785,6 +785,6 @@ public class DynAny
    protected final INTERNAL unexpectedException(Exception cause)
    {
        logger.debug("An unexpected error occured", cause);
-       return new INTERNAL(cause.getMessage());
+       return new INTERNAL(cause.toString());
    }
 }

@@ -41,7 +41,7 @@ import org.jacorb.util.ObjectUtil;
  * on the other it enforces an upper limit on the open transports.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.22 2006-05-15 07:21:11 alphonse.bendt Exp $
+ * @version $Id: TransportManager.java,v 1.23 2006-05-17 13:17:05 alphonse.bendt Exp $
  * */
 
 public class TransportManager
@@ -123,11 +123,9 @@ public class TransportManager
             }
             catch (Exception e)
             {
+                logger.error("SSL support is on, but the ssl socket factory can't be instantiated", e);
 
-                if (logger.isErrorEnabled())
-                    logger.error(e.getMessage());
-
-                throw new RuntimeException( "SSL support is on, but the ssl socket factory can't be instantiated ("+ e.getMessage()+")!" );
+                throw new RuntimeException( "SSL support is on, but the ssl socket factory can't be instantiated ("+ e.toString()+")!" );
             }
         }
 

@@ -26,7 +26,7 @@ import gnu.regexp.REMatch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: GNUPatternWrapper.java,v 1.7 2005-02-14 00:13:05 alphonse.bendt Exp $
+ * @version $Id: GNUPatternWrapper.java,v 1.8 2006-05-17 13:09:56 alphonse.bendt Exp $
  */
 
 public class GNUPatternWrapper extends PatternWrapper
@@ -40,7 +40,7 @@ public class GNUPatternWrapper extends PatternWrapper
             pattern_ = new gnu.regexp.RE(patternString);
         } catch (REException e)
         {
-            throw new RuntimeException(e.getMessage());
+            throw new RuntimeException(e.toString());
         }
     }
 

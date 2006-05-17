@@ -29,8 +29,8 @@ import antlr.Token;
 
 /**
  * A simple node to represent DIV operation
- * 
- * @version $Id: DivOperator.java,v 1.6 2005-08-21 13:24:38 alphonse.bendt Exp $
+ *
+ * @version $Id: DivOperator.java,v 1.7 2006-05-17 13:07:40 alphonse.bendt Exp $
  */
 
 public class DivOperator extends BinaryOperator
@@ -54,7 +54,7 @@ public class DivOperator extends BinaryOperator
             return EvaluationResult.div(left, rightVal);
         } catch (ArithmeticException e)
         {
-            throw new EvaluationException(e.getMessage());
+            throw new EvaluationException(e.toString());
         }
     }
 

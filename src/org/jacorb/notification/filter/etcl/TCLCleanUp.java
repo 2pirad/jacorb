@@ -27,7 +27,7 @@ import antlr.collections.AST;
  * Visitor for TCL Trees. Does some Restructuration of a TCL Tree.
  *
  * @author Alphonse Bendt
- * @version $Id: TCLCleanUp.java,v 1.5 2005-02-14 00:07:08 alphonse.bendt Exp $
+ * @version $Id: TCLCleanUp.java,v 1.6 2006-05-17 13:07:40 alphonse.bendt Exp $
  */
 
 public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenTypes
@@ -40,7 +40,7 @@ public class TCLCleanUp extends AbstractTCLVisitor implements TCLParserTokenType
         }
         catch ( VisitorException e )
         {
-            throw new RuntimeException(e.getMessage());
+            throw new RuntimeException(e.toString());
         }
     }
 
