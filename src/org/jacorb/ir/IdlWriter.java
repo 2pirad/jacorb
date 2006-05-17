@@ -32,7 +32,7 @@ import org.omg.DynamicAny.*;
  * This class prints IDL from IR-Descriptions to PrintStreams
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IdlWriter.java,v 1.12 2006-05-17 11:13:11 alphonse.bendt Exp $
+ * @version $Id: IdlWriter.java,v 1.13 2006-05-17 12:57:44 alphonse.bendt Exp $
  */
 
 public class IdlWriter
@@ -66,7 +66,7 @@ public class IdlWriter
         }
         catch( org.omg.CORBA.ORBPackage.InvalidName e )
         {
-            throw new INTERNAL(e.getMessage());
+            throw new INTERNAL(e.toString());
         }
 
         if( ir == null )
