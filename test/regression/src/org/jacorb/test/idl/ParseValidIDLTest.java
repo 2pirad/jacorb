@@ -41,7 +41,7 @@ import org.jacorb.test.common.TestUtils;
  * load and inspect the compiled classes.
  *
  * @author Alphonse Bendt
- * @version $Id: ParseValidIDLTest.java,v 1.4 2006-05-16 11:17:02 alphonse.bendt Exp $
+ * @version $Id: ParseValidIDLTest.java,v 1.5 2006-05-17 13:23:37 alphonse.bendt Exp $
  */
 public class ParseValidIDLTest extends AbstractIDLTestcase
 {
@@ -58,7 +58,7 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
         try
         {
             // test if a verify_ method is available and invoke it
-            String file = idlFile.getName().replace(".", "_");
+            String file = idlFile.getName().replaceAll("\\.", "_");
             Method method = getClass().getMethod("verify_" + file, new Class[] {ClassLoader.class});
             method.invoke(this, new Object[] {cl});
         }
