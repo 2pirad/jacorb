@@ -45,7 +45,7 @@ import org.omg.PortableServer._ServantActivatorLocalBase;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.34 2006-05-11 09:35:10 andre.spiegel Exp $
+ *  @version $Id: NameServer.java,v 1.35 2006-05-17 21:50:11 alphonse.bendt Exp $
  */
 
 
@@ -68,6 +68,7 @@ public class NameServer
     private static int time_out = 0;
 
     static String name_delimiter = "/";
+    private static boolean printIOR;
 
 
     public static void configure(Configuration myConfiguration)
@@ -77,6 +78,8 @@ public class NameServer
         logger = 
             configuration.getNamedLogger("jacorb.naming");
 
+        printIOR = configuration.getAttributeAsBoolean("jacorb.naming.print_ior", false);
+        
         time_out = 
             configuration.getAttributeAsInteger("jacorb.naming.time_out",0);
 
@@ -218,7 +221,7 @@ public class NameServer
                 new ObjectOutputStream(fout);
 
                 /* save state */
-                out.writeObject((NamingContextImpl)servant);
+                out.writeObject(servant);
                 if (logger.isDebugEnabled())
                 {
                     logger.debug("Saved state for servant " + oidStr);
@@ -324,6 +327,11 @@ public class NameServer
 
                     out.println( orb.object_to_string(obj) );
                     out.close();
+                }
+                
+                if (printIOR)
+                {
+                    System.out.println("SERVER IOR: " + orb.object_to_string(obj));
                 }
             }
             catch ( Exception e )
