@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author Gerald Brose
- * @version $Id: DynUnion.java,v 1.25 2006-05-17 08:39:02 alphonse.bendt Exp $
+ * @version $Id: DynUnion.java,v 1.26 2006-05-18 14:14:21 alphonse.bendt Exp $
  */
 
 public final class DynUnion
@@ -125,7 +125,7 @@ public final class DynUnion
          org.omg.CORBA.portable.InputStream is =
             value.create_input_stream();
 
-         discriminator = org.omg.CORBA.ORB.init().create_any();
+         discriminator = orb.create_any();
          discriminator.type( type().discriminator_type());
 
          discriminator.read_value(is, type().discriminator_type());
@@ -135,7 +135,7 @@ public final class DynUnion
          {
             if( type().member_label(i).equal( discriminator ))
             {
-               member_any = org.omg.CORBA.ORB.init().create_any();
+               member_any = orb.create_any();
                member_any.read_value( is, type().member_type(i) );
                memberName = type().member_name(i);
                memberIndex = i;
@@ -148,7 +148,7 @@ public final class DynUnion
             int def_idx = type().default_index();
             if( def_idx != -1 )
             {
-               member_any = org.omg.CORBA.ORB.init().create_any();
+               member_any = orb.create_any();
                member_any.read_value( is, type().member_type(def_idx) );
                memberName = type().member_name(def_idx);
                memberIndex = def_idx;
@@ -193,7 +193,7 @@ public final class DynUnion
                       (CDRInputStream) member.to_any().create_input_stream());
 
       org.jacorb.orb.Any out_any =
-         (org.jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
+         (org.jacorb.orb.Any)orb.create_any();
 
       out_any.type( type() );
       out_any.read_value( new CDRInputStream( orb, os.getBufferCopy()), type());

@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.94 2006-05-17 13:14:37 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.95 2006-05-18 14:14:21 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -940,6 +940,13 @@ public class CDRInputStream
 
     public final org.omg.CORBA.Object read_Object()
     {
+        if (! (orb instanceof org.jacorb.orb.ORB))
+        {
+            throw new MARSHAL
+                ( "Cannot use the singleton ORB to receive object references, "
+                       + "please initialize a full ORB instead.");
+        }
+
         handle_chunking();
 
         org.omg.IOP.IOR ior = org.omg.IOP.IORHelper.read(this);
@@ -951,14 +958,7 @@ public class CDRInputStream
         }
         else
         {
-            if( !(orb instanceof org.jacorb.orb.ORB))
-            {
-                throw new MARSHAL( "Cannot use the singleton ORB to receive object references, please initialize a full ORB instead.");
-            }
-            else
-            {
-                return ((org.jacorb.orb.ORB)orb)._getObject( pior );
-            }
+            return ((org.jacorb.orb.ORB)orb)._getObject( pior );
         }
     }
 

@@ -31,7 +31,7 @@ import org.jacorb.orb.*;
  * CORBA DynArray
  *
  * @author Gerald Brose
- * @version $Id: DynArray.java,v 1.18 2006-05-17 13:15:27 alphonse.bendt Exp $
+ * @version $Id: DynArray.java,v 1.19 2006-05-18 14:14:21 alphonse.bendt Exp $
  */
 
 public final class DynArray
@@ -108,7 +108,7 @@ public final class DynArray
 
          for( int i = 0 ; i < limit; i++ )
          {
-            members[i] = org.omg.CORBA.ORB.init().create_any();
+            members[i] = orb.create_any();
             members[i].read_value(in, elementType);
          }
       }

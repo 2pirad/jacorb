@@ -30,7 +30,7 @@ import org.jacorb.orb.*;
  * CORBA DynEnum
  *
  * @author Gerald Brose
- * @version $Id: DynEnum.java,v 1.17 2006-05-17 13:15:27 alphonse.bendt Exp $
+ * @version $Id: DynEnum.java,v 1.18 2006-05-18 14:14:21 alphonse.bendt Exp $
  */
 
 public final class DynEnum
@@ -138,7 +138,7 @@ public final class DynEnum
       out.write_long( enumValue );
 
       org.jacorb.orb.Any out_any =
-         (org.jacorb.orb.Any)org.omg.CORBA.ORB.init().create_any();
+         (org.jacorb.orb.Any)orb.create_any();
       out_any.type(type());
       out_any.read_value( new CDRInputStream(orb, out.getBufferCopy()), type());
       return out_any;
