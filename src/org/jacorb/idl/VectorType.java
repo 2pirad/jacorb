@@ -27,7 +27,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.14 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: VectorType.java,v 1.15 2006-05-18 12:53:17 alphonse.bendt Exp $
  */
 
 
@@ -115,7 +115,8 @@ public abstract class VectorType
         else if( ts instanceof BaseType ||
                 ts instanceof TypeCodeTypeSpec ||
                 ts instanceof ConstrTypeSpec || // for value types
-                ts instanceof TemplateTypeSpec )
+                ts instanceof TemplateTypeSpec ||
+                ts instanceof ObjectTypeSpec)
         {
             return ts.getTypeCodeExpression();
         }
