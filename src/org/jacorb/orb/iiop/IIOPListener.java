@@ -38,7 +38,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.26 2006-05-17 13:17:28 alphonse.bendt Exp $
+ * @version $Id: IIOPListener.java,v 1.27 2006-05-18 15:39:58 alphonse.bendt Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -285,12 +285,24 @@ public class IIOPListener
     {
         if (acceptor != null)
         {
+
             if (address.getPort() == 0)
+            {
                 address.setPort(((Acceptor)acceptor).getLocalAddress().getPort());
+            }
+            else
+            {
+                if (logger.isDebugEnabled())
+                {
+                    logger.debug ("Using port " + address.getPort());
+                }
+            }
         }
         else if (sslAcceptor == null)
+        {
             throw new org.omg.CORBA.INITIALIZE
                 ("no acceptors found, cannot create address profile");
+        }
 
         IIOPProfile result = new IIOPProfile(address,null);
         if (sslAcceptor != null && generateSSLComponents)
