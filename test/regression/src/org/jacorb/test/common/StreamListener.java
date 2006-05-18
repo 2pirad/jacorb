@@ -27,9 +27,9 @@ import java.io.*;
  * in its own thread of control.  It copies anything that it reads from the
  * stream to its own standard output stream.  There is a special function
  * that allows you to capture an IOR from the <code>InputStream</code>.
- * 
+ *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: StreamListener.java,v 1.5 2005-10-08 18:03:58 alphonse.bendt Exp $
+ * @version $Id: StreamListener.java,v 1.6 2006-05-18 12:06:14 alphonse.bendt Exp $
  */
 public class StreamListener extends Thread
 {
@@ -37,7 +37,7 @@ public class StreamListener extends Thread
     private String id = null;
     private String ior = null;
     private String exception = null;
-    
+
     public StreamListener(InputStream stream, String id)
     {
         this.in = new BufferedReader(new InputStreamReader(stream));
@@ -69,12 +69,12 @@ public class StreamListener extends Thread
             return ior;
         }
     }
-    
+
 
     public String getException(long timeout)
     {
         long waitUntil = System.currentTimeMillis() + timeout;
-        
+
         synchronized(this)
         {
             while(exception == null && System.currentTimeMillis() < waitUntil)
@@ -87,11 +87,11 @@ public class StreamListener extends Thread
                     // ignore
                 }
             }
-            
+
             return exception;
         }
     }
-    
+
     public void run()
     {
         while (true)
@@ -111,7 +111,7 @@ public class StreamListener extends Thread
                         this.notifyAll();
                     }
                 }
-                else if (line.indexOf("Exception") >=0 )
+                else if (line.matches("^(\\w+\\.)+\\w+: .*"))
                 {
                     synchronized(this)
                     {
@@ -127,7 +127,7 @@ public class StreamListener extends Thread
             }
             catch (Exception ex)
             {
-                //System.out.println("Exception reading from server: " + ex);
+                System.out.println("Exception reading from server: " + ex);
                 System.out.println("StreamListener exiting");
                 break;
             }
