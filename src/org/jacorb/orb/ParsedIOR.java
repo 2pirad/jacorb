@@ -43,7 +43,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.66 2006-05-15 07:19:11 alphonse.bendt Exp $
+ * @version $Id: ParsedIOR.java,v 1.67 2006-05-18 14:40:44 alphonse.bendt Exp $
  */
 
 public class ParsedIOR
@@ -421,8 +421,16 @@ public class ParsedIOR
 
     private void parse_stringified_ior(String object_reference)
     {
+        int length = object_reference.length();
+        int cnt    = (length - 4) / 2;
+
+        if ( ( length % 2 ) != 0 )
+        {
+            throw new BAD_PARAM("Odd number of characters within object reference");
+        }
+
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        int cnt = (object_reference.length() - 4) / 2;
+
         for (int j = 0; j < cnt; j++)
         {
             char c1 = object_reference.charAt(j * 2 + 4);
