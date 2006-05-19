@@ -20,15 +20,12 @@ package org.jacorb.orb.dii;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 import org.omg.CORBA.Any;
-import org.omg.CORBA.TypeCode;
 import org.omg.CORBA.NVList;
 import org.omg.CORBA.NamedValue;
 import org.omg.CORBA.portable.*;
 
 import org.jacorb.orb.portableInterceptor.*;
-import org.jacorb.orb.ParsedIOR;
 import org.jacorb.orb.giop.*;
-import org.jacorb.orb.*;
 
 import java.util.Enumeration;
 
@@ -36,7 +33,7 @@ import java.util.Enumeration;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.16 2004-06-09 05:34:28 andre.spiegel Exp $
+ * @version $Id: Request.java,v 1.17 2006-05-19 19:31:24 alphonse.bendt Exp $
  */
 
 public class Request
@@ -76,7 +73,7 @@ public class Request
         object_key = obj_key;
         operation = op;
         exceptions = new ExceptionList();
-        arguments = (NVList)orb.create_list(10);
+        arguments = orb.create_list(10);
         Any a = orb.create_any();
 
         /* default return type is void */
@@ -100,7 +97,7 @@ public class Request
         object_key = obj_key;
         operation = op;
         exceptions = new ExceptionList();
-        arguments = (NVList)args;
+        arguments = args;
         ctx = c;
         result_value = (org.jacorb.orb.NamedValue)result;
     }
@@ -291,6 +288,7 @@ public class Request
                     }
                     catch (org.omg.CORBA.TypeCodePackage.BadKind ex)
                     {
+                        // ignored
                     }
                     catch (org.omg.CORBA.Bounds ex)
                     {
@@ -377,7 +375,10 @@ public class Request
                 {
                     deferred_caller.join();
                 }
-                catch ( InterruptedException i ){}
+                catch ( InterruptedException i )
+                {
+                    // ignored
+                }
             }
             deferred_caller = null;
             orb.removeRequest( this );
