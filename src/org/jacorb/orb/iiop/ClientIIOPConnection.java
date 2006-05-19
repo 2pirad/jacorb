@@ -44,7 +44,7 @@ import org.omg.CORBA.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.19 2006-03-18 17:13:14 andre.spiegel Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.20 2006-05-19 19:34:40 alphonse.bendt Exp $
  */
 
 public class ClientIIOPConnection
@@ -167,7 +167,8 @@ public class ClientIIOPConnection
                         logger.info("Connected to " + connection_info +
                                     " from local port " +
                                     socket.getLocalPort() +
-                                    ( this.isSSL() ? " via SSL" : "" ));
+                                    ( this.isSSL() ? " via SSL" : "" ) +
+                                    ( (timeout != 0) ? " Timeout: " + timeout : ""));
                     }
 
                     connected = true;
