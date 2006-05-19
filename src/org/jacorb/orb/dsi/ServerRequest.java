@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.38 2006-05-19 19:32:09 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.39 2006-05-19 20:14:50 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -200,11 +200,11 @@ public class ServerRequest
         if( args != null )
         {
             in.mark(0);
-            for( java.util.Enumeration e = args.enumerate();
-                 e.hasMoreElements(); )
+            for( Iterator e = args.iterator();
+                 e.hasNext(); )
             {
                 org.omg.CORBA.NamedValue nv =
-                    (org.omg.CORBA.NamedValue)e.nextElement();
+                    (org.omg.CORBA.NamedValue)e.next();
 
                 if( nv.flags() != org.omg.CORBA.ARG_OUT.value )
                 {
@@ -359,11 +359,11 @@ public class ServerRequest
 
                         if( args != null )
                         {
-                            for( java.util.Enumeration e = args.enumerate();
-                                 e.hasMoreElements(); )
+                            for( Iterator e = args.iterator();
+                                 e.hasNext(); )
                             {
                                 org.jacorb.orb.NamedValue nv =
-                                    (org.jacorb.orb.NamedValue)e.nextElement();
+                                    (org.jacorb.orb.NamedValue)e.next();
 
                                 if( nv.flags() != org.omg.CORBA.ARG_IN.value )
                                 {
