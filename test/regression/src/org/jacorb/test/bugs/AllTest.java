@@ -24,13 +24,14 @@ import junit.framework.*;
 
 import org.jacorb.test.bugs.bugjac10.TypeCodeTestCase;
 import org.jacorb.test.bugs.bugjac69.InvalidIORTest;
+import org.jacorb.test.bugs.bugjac81.BoundedStringTest;
 import org.jacorb.test.common.*;
 
 /**
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.11 2006-05-18 14:40:44 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.12 2006-05-19 13:49:37 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -55,6 +56,8 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(org.jacorb.test.bugs.bug619.TestCase.suite());
       suite.addTest(TypeCodeTestCase.suite());
       suite.addTestSuite(InvalidIORTest.class);
+      suite.addTestSuite(BoundedStringTest.class);
+
       return suite;
    }
 }

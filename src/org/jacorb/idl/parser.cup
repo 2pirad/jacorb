@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.93 2006-05-18 14:38:43 alphonse.bendt Exp $
+ * $Id: parser.cup,v 1.94 2006-05-19 13:49:37 alphonse.bendt Exp $
  */
 
 action code
@@ -2038,10 +2038,12 @@ sequence_type ::=
 // # 62
 string_type ::=
           STRING LESSTHAN positive_int_const:pic GREATERTHAN
-          {: RESULT.max = pic.const_expr; :}
+          {:
+               RESULT.setSize(pic.const_expr);
+          :}
         | WSTRING LESSTHAN positive_int_const:pic GREATERTHAN
           {:
-                RESULT.max = pic.const_expr;
+                RESULT.setSize(pic.const_expr);
                 RESULT.setWide();
           :}
         | STRING
