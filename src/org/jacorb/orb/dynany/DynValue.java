@@ -27,7 +27,7 @@ import org.omg.DynamicAny.*;
  * CORBA DynValue
  *
  * @author Nick Cross
- * @version $Id: DynValue.java,v 1.2 2006-05-17 08:39:02 alphonse.bendt Exp $
+ * @version $Id: DynValue.java,v 1.3 2006-05-19 22:23:31 alphonse.bendt Exp $
  */
 
 public final class DynValue

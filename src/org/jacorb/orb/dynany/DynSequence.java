@@ -33,7 +33,7 @@ import java.util.*;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.22 2006-05-17 09:26:29 alphonse.bendt Exp $
+ * @version $Id: DynSequence.java,v 1.23 2006-05-19 22:23:31 alphonse.bendt Exp $
  */
 
 public final class DynSequence
@@ -48,7 +48,7 @@ public final class DynSequence
                 org.omg.CORBA.TypeCode type,
                 org.omg.CORBA.ORB orb,
                 Logger logger )
-           throws InvalidValue, TypeMismatch
+           throws TypeMismatch
    {
        super(dynFactory, orb, logger);
 
@@ -142,7 +142,7 @@ public final class DynSequence
       for( int i = 0; i < length; i++)
       {
          out.write_value( elementType,
-                         (CDRInputStream)((Any)members.get(i)).create_input_stream());
+                          ((Any)members.get(i)).create_input_stream());
       }
 
       CDRInputStream is = new CDRInputStream( orb, out.getBufferCopy());

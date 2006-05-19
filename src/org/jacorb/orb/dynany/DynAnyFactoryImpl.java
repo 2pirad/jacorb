@@ -27,7 +27,7 @@ import org.jacorb.orb.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: DynAnyFactoryImpl.java,v 1.15 2006-05-17 08:39:02 alphonse.bendt Exp $
+ * @version $Id: DynAnyFactoryImpl.java,v 1.16 2006-05-19 22:23:31 alphonse.bendt Exp $
  */
 
 public class DynAnyFactoryImpl
@@ -131,15 +131,10 @@ public class DynAnyFactoryImpl
                     throw new InconsistentTypeCode();
             }
         }
-        catch( org.omg.DynamicAny.DynAnyPackage.InvalidValue iv )
-        {
-            logger.error("unable to create DynAny from TypeCode", iv);
-        }
         catch( org.omg.DynamicAny.DynAnyPackage.TypeMismatch itc )
         {
             throw new InconsistentTypeCode();
         }
-        return null;
     }
 }
 

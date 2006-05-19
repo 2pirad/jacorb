@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author Gerald Brose
- * @version $Id: DynUnion.java,v 1.26 2006-05-18 14:14:21 alphonse.bendt Exp $
+ * @version $Id: DynUnion.java,v 1.27 2006-05-19 22:23:31 alphonse.bendt Exp $
  */
 
 public final class DynUnion
@@ -48,7 +48,7 @@ public final class DynUnion
              org.omg.CORBA.TypeCode tc,
              org.omg.CORBA.ORB orb,
              Logger logger  )
-    throws InvalidValue, TypeMismatch
+    throws TypeMismatch
    {
        super(dynFactory, orb, logger);
 
@@ -187,10 +187,10 @@ public final class DynUnion
       CDROutputStream os = new CDROutputStream();
 
       os.write_value( discriminator.type(),
-                      (CDRInputStream)discriminator.create_input_stream() );
+                      discriminator.create_input_stream() );
 
       os.write_value( member.type(),
-                      (CDRInputStream) member.to_any().create_input_stream());
+                      member.to_any().create_input_stream());
 
       org.jacorb.orb.Any out_any =
          (org.jacorb.orb.Any)orb.create_any();
@@ -854,16 +854,14 @@ public final class DynUnion
       {
          return get_discriminator();
       }
-      else
+
+      try
       {
-         try
-         {
-            return member();
-         }
-         catch( org.omg.DynamicAny.DynAnyPackage.InvalidValue e )
-         {
-             throw unexpectedException(e);
-         }
+          return member();
+      } 
+      catch (org.omg.DynamicAny.DynAnyPackage.InvalidValue e)
+      {
+          throw unexpectedException(e);
       }
-   }
+    }
 }

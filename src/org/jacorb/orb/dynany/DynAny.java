@@ -29,7 +29,7 @@ import org.jacorb.orb.TypeCode;
  * CORBA DynAny
  *
  * @author Gerald Brose
- * @version $Id: DynAny.java,v 1.24 2006-05-17 13:15:27 alphonse.bendt Exp $
+ * @version $Id: DynAny.java,v 1.25 2006-05-19 22:23:31 alphonse.bendt Exp $
  */
 public class DynAny
    extends org.omg.CORBA.LocalObject
@@ -697,12 +697,12 @@ public class DynAny
       }
    }
 
-   private org.omg.CORBA.Any defaultValue(org.omg.CORBA.TypeCode typeCode)
+   private org.omg.CORBA.Any defaultValue(org.omg.CORBA.TypeCode type)
       throws org.omg.DynamicAny.DynAnyPackage.TypeMismatch
    {
       org.omg.CORBA.Any _any = orb.create_any();
-      _any.type( typeCode );
-      switch( typeCode.kind().value() )
+      _any.type( type );
+      switch( type.kind().value() )
       {
       case TCKind._tk_boolean :
          _any.insert_boolean(false);
@@ -771,13 +771,11 @@ public class DynAny
    // to allow compilation on J2SDK 1.4.2
 
    public void insert_val(java.io.Serializable value)
-        throws TypeMismatch
    {
        throw new NO_IMPLEMENT("DynAny::insert_val not implemented.");
    }
 
    public java.io.Serializable get_val()
-        throws TypeMismatch
    {
         throw new NO_IMPLEMENT("DynAny::get_val not implemented");
    }
