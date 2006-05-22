@@ -29,7 +29,7 @@ import java.io.*;
  * that allows you to capture an IOR from the <code>InputStream</code>.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: StreamListener.java,v 1.6 2006-05-18 12:06:14 alphonse.bendt Exp $
+ * @version $Id: StreamListener.java,v 1.7 2006-05-22 15:28:53 nick.cross Exp $
  */
 public class StreamListener extends Thread
 {
@@ -37,6 +37,7 @@ public class StreamListener extends Thread
     private String id = null;
     private String ior = null;
     private String exception = null;
+    private boolean destroyed;
 
     public StreamListener(InputStream stream, String id)
     {
@@ -92,6 +93,18 @@ public class StreamListener extends Thread
         }
     }
 
+
+    /**
+     * <code>setDestroyed</code> is called by ClientServerSetup when it is destroying
+     * a subprocess. This is useful to signify to the streams that the process they
+     * are listening to is about to 'go'.
+     */
+    public void setDestroyed()
+    {
+        destroyed = true;
+    }
+
+
     public void run()
     {
         while (true)
@@ -124,6 +137,24 @@ public class StreamListener extends Thread
                 {
                     System.out.println("[ SERVER " + id + " " + line + " ]");
                 }
+            }
+            catch (IOException ex)
+            {
+                System.out.println("IOException reading from server: " + ex);
+                break;
+            }
+            catch (NullPointerException ex)
+            {
+                System.out.println("NullPointerException reading from server.");
+                if (destroyed)
+                {
+                    System.out.println ("Server has been destroyed so likely this is JDK bugs 4956099, 4505257 or 4728096");
+                }
+                else
+                {
+                    ex.printStackTrace();
+                }
+                break;
             }
             catch (Exception ex)
             {
