@@ -30,7 +30,7 @@ import java.util.*;
  * Created: Fri Jun  9 15:09:01 2000
  *
  * @author Nicolas Noffke
- * $Id: ThreadPool.java,v 1.15 2006-01-11 11:16:11 andre.spiegel Exp $
+ * @version $Id: ThreadPool.java,v 1.16 2006-05-22 15:03:50 alphonse.bendt Exp $
  */
 public class ThreadPool
 {
@@ -43,33 +43,16 @@ public class ThreadPool
     private final LinkedList job_queue;
     private final ConsumerFactory factory;
 
-    public ThreadPool( ConsumerFactory factory )
-    {
-        this( new LinkedList (),
-              factory,
-              10,
-              10 );
-    }
+    private final String namePrefix;
+    private int threadCount = 0;
 
-    public ThreadPool( ConsumerFactory factory,
+    public ThreadPool( String threadNamePrefix,
+                       ConsumerFactory factory,
                        int max_threads,
                        int max_idle_threads)
     {
-        this
-        (
-            new LinkedList (),
-            factory,
-            max_threads,
-            max_idle_threads
-        );
-    }
-
-    private ThreadPool( LinkedList job_queue,
-                        ConsumerFactory factory,
-                        int max_threads,
-                        int max_idle_threads)
-    {
-        this.job_queue = job_queue;
+        namePrefix = threadNamePrefix;
+        this.job_queue = new LinkedList ();
         this.factory = factory;
         this.max_threads = max_threads;
         this.max_idle_threads = max_idle_threads;
@@ -89,7 +72,7 @@ public class ThreadPool
          * max_idle_threads despite the fact that enough threads once existed to
          * handle the queued jobs, the excess jobs will be blocked until the
          * jobs taking up the max_idle_threads complete.
-         * 
+         *
          * Also, checking the idle_thread count every time the thread is
          * notified and the job queue is empty ensures that the surplus idle
          * threads get cleaned up more quickly, otherwise idle threads can only
@@ -144,10 +127,10 @@ public class ThreadPool
 
     private void createNewThread()
     {
-        Thread t = 
-            new Thread( new ConsumerTie( this, factory.create() ));
-        t.setDaemon( true );
-        t.start();
+        Thread thread = new Thread( new ConsumerTie( this, factory.create() ));
+        thread.setName(namePrefix + (threadCount++));
+        thread.setDaemon( true );
+        thread.start();
 
         total_threads++;
     }

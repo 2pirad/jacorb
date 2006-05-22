@@ -53,7 +53,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.26 2006-05-17 13:14:37 alphonse.bendt Exp $
+ * @version $Id: ReplyReceiver.java,v 1.27 2006-05-22 15:03:50 alphonse.bendt Exp $
  */
 
 public class ReplyReceiver
@@ -447,6 +447,7 @@ public class ReplyReceiver
 
         public Timer (UtcT endTime)
         {
+            super("ReplyReceiverTimer");
             this.endTime = endTime;
         }
 

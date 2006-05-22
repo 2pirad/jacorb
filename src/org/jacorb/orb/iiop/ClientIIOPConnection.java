@@ -44,7 +44,7 @@ import org.omg.CORBA.*;
  * Created: Sun Aug 12 20:56:32 2002
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.20 2006-05-19 19:34:40 alphonse.bendt Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.21 2006-05-22 15:03:50 alphonse.bendt Exp $
  */
 
 public class ClientIIOPConnection
@@ -316,6 +316,9 @@ public class ClientIIOPConnection
                             }
                         }
                     } );
+
+                    thread.setName("SocketConnectorThread");
+
                    thread.setDaemon(true);
                    try
                    {

@@ -44,7 +44,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.57 2006-05-17 13:18:25 alphonse.bendt Exp $
+ * @version $Id: POA.java,v 1.58 2006-05-22 15:03:49 alphonse.bendt Exp $
  */
 
 public class POA
@@ -973,6 +973,7 @@ public class POA
                 makeDestructionComplete();
             }
         };
+        thread.setName("POADestructor");
         thread.start();
         if (wait_for_completion)
         {
@@ -987,9 +988,13 @@ public class POA
     private byte[] extractWatermark(byte[] id)
     {
         if( id.length < watermark.length )
+        {
             return new byte[0];
+        }
         else
+        {
             return IdUtil.extract(id, id.length-watermark.length, watermark.length);
+        }
     }
 
 

@@ -52,7 +52,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.120 2006-05-22 13:44:14 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.121 2006-05-22 15:03:50 alphonse.bendt Exp $
  *
  */
 
@@ -1015,7 +1015,8 @@ public final class Delegate
             {
                 connection.sendRequest (ros, false);
             }
-        }).start();
+        },
+        "PassToTransport").start();
     }
 
     private boolean try_rebind()
@@ -1253,7 +1254,7 @@ public final class Delegate
             // If it fails fall back to a remote call.
             catch (Exception e)
             {
-            	logger.debug("trying is_a remotely");
+                logger.debug("trying is_a remotely");
             }
         }
 

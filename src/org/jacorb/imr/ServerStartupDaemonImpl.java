@@ -26,7 +26,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  *
- * $Id: ServerStartupDaemonImpl.java,v 1.14 2004-05-06 12:39:59 nicolas Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.15 2006-05-22 15:03:49 alphonse.bendt Exp $
  *
  */
 
@@ -93,23 +93,23 @@ public class ServerStartupDaemonImpl
             throw new ConfigurationException("Caught Exception", e);
         }
 
-        stdout_pool = new ThreadPool( new OutputForwarderFactory( new InputStreamSelector(){
-                public InputStream getInputStream( Process p )
-                {
-                    return p.getInputStream();
-                }
-            }),
-                                      100, //max threads
-                                      10 );//max idle threads
+        stdout_pool = new ThreadPool( null,
+                                      new OutputForwarderFactory( new InputStreamSelector(){
+                                            public InputStream getInputStream( Process p )
+                                            {
+                                                return p.getInputStream();
+                                            }
+                                        }), //max threads
+                                      100, 10 );//max idle threads
 
-        stderr_pool = new ThreadPool( new OutputForwarderFactory( new InputStreamSelector(){
-                public InputStream getInputStream( Process p )
-                {
-                    return p.getErrorStream();
-                }
-            }),
-                                      100, //max threads
-                                      10 );//max idle threads
+        stderr_pool = new ThreadPool( null,
+                                      new OutputForwarderFactory( new InputStreamSelector(){
+                                            public InputStream getInputStream( Process p )
+                                            {
+                                                return p.getErrorStream();
+                                            }
+                                        }), //max threads
+                                      100, 10 );//max idle threads
 
     }
 

@@ -38,9 +38,9 @@ import org.apache.avalon.framework.configuration.*;
  * delegates everything to the standard IIOP classes.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: WIOPFactories.java,v 1.5 2004-07-29 09:30:20 simon.mcqueen Exp $
+ * @version $Id: WIOPFactories.java,v 1.6 2006-05-22 15:03:50 alphonse.bendt Exp $
  */
-public class WIOPFactories 
+public class WIOPFactories
     extends _FactoriesLocalBase
     implements Configurable
 {
@@ -76,7 +76,7 @@ public class WIOPFactories
                                      int stacksize,
                                      short base_priority)
     {
-        IIOPListener delegate = new IIOPListener(orb)
+        IIOPListener delegate = new IIOPListener()
         {
             protected Connection createServerConnection (Socket socket,
                                                          boolean is_ssl)

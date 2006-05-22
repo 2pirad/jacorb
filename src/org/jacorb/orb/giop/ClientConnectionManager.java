@@ -42,7 +42,7 @@ import org.jacorb.util.ObjectUtil;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.24 2006-05-17 13:17:05 alphonse.bendt Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.25 2006-05-22 15:03:50 alphonse.bendt Exp $
  *
  */
 
@@ -85,7 +85,7 @@ public class ClientConnectionManager
         throws ConfigurationException
     {
         // Moved from the constructor to facilitate logging.
-        receptor_pool = MessageReceptorPool.getInstance(myConfiguration);
+        receptor_pool = new MessageReceptorPool("ClientMessageReceptor", myConfiguration);
 
         this.configuration = (org.jacorb.config.Configuration)myConfiguration;
         logger = configuration.getNamedLogger("jacorb.orb.giop");
