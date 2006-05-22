@@ -23,6 +23,7 @@ package org.jacorb.test.bugs;
 import junit.framework.*;
 
 import org.jacorb.test.bugs.bugjac10.TypeCodeTestCase;
+import org.jacorb.test.bugs.bugjac45.BugJac45Test;
 import org.jacorb.test.bugs.bugjac69.InvalidIORTest;
 import org.jacorb.test.bugs.bugjac81.BoundedStringTest;
 import org.jacorb.test.common.*;
@@ -31,7 +32,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.12 2006-05-19 13:49:37 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.13 2006-05-22 10:22:35 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -57,6 +58,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(TypeCodeTestCase.suite());
       suite.addTestSuite(InvalidIORTest.class);
       suite.addTestSuite(BoundedStringTest.class);
+      suite.addTestSuite(BugJac45Test.class);
 
       return suite;
    }

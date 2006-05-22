@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.95 2006-05-18 14:14:21 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.96 2006-05-22 10:22:35 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -1098,6 +1098,16 @@ public class CDRInputStream
         {
             size --;
         }
+
+        if(start + size > buffer.length)
+        {
+            if (logger.isDebugEnabled())
+            {
+                logger.debug( "Size (" + size + ") invalid for string extraction from buffer length of " + buffer.length + " from position " + start);
+            }
+            throw new MARSHAL ("Invalid size for string extraction");
+        }
+
         try {
           result = new String (buffer, start, size, csname);
         }
