@@ -21,6 +21,7 @@ package org.jacorb.notification.filter;
  *
  */
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -43,13 +44,13 @@ import org.omg.TimeBase.UtcT;
 /**
  * @todo remove the static dependeny to package filter.etcl.
  * @author Alphonse Bendt
- * @version $Id: EvaluationContext.java,v 1.10 2005-10-08 11:06:12 alphonse.bendt Exp $
+ * @version $Id: EvaluationContext.java,v 1.11 2006-05-23 10:40:35 alphonse.bendt Exp $
  */
 
 public class EvaluationContext extends AbstractPoolable
 {
     private Message message_;
-    
+
     private final ETCLEvaluator etclEvaluator_;
 
     private final Map resultCache_;
@@ -57,7 +58,7 @@ public class EvaluationContext extends AbstractPoolable
     private final Map anyCache_;
 
     private final CurrentTimeUtil currentTimeUtil_;
-    
+
     ////////////////////////////////////////
 
     public EvaluationContext(ETCLEvaluator evaluator, CurrentTimeUtil currentTimeUtil)
@@ -65,10 +66,10 @@ public class EvaluationContext extends AbstractPoolable
         etclEvaluator_ = evaluator;
         currentTimeUtil_ = currentTimeUtil;
 
-        resultCache_ = new WeakHashMap();
-        anyCache_ = new WeakHashMap();
+        resultCache_ = new HashMap();
+        anyCache_ = new HashMap();
     }
-    
+
     public EvaluationContext(ETCLEvaluator evaluator)
     {
         this(evaluator, CurrentTimeUtil.LOCAL_TIME);
@@ -92,7 +93,7 @@ public class EvaluationContext extends AbstractPoolable
     {
         return currentTimeUtil_.getCurrentTime();
     }
-    
+
     public Message getCurrentMessage()
     {
         return message_;
@@ -268,7 +269,7 @@ public class EvaluationContext extends AbstractPoolable
                 storeAny(_currentPath.toString(), _any);
                 _currentAny = _any;
             }
-            
+
             _currentOperator = (AbstractTCLNode) _currentOperator.getNextSibling();
         }
 
