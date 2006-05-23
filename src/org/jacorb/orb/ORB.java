@@ -55,7 +55,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.139 2006-05-23 08:37:09 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.140 2006-05-23 14:44:41 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -161,10 +161,12 @@ public final class ORB
 
     private boolean bidir_giop = false;
 
+    private final byte[] serverId =
+        String.valueOf((long)(Math.random()*9999999999L)).getBytes();
 
     public ORB()
     {
-        super();
+        super(false);
     }
 
     /**
@@ -2406,7 +2408,7 @@ public final class ORB
 
     }
 
-        public void connect(org.omg.CORBA.Object obj)
+    public void connect(org.omg.CORBA.Object obj)
     {
         if (!(obj instanceof org.omg.CORBA.portable.ObjectImpl))
             throw new BAD_PARAM("connect parameter must extend " +
@@ -2484,4 +2486,8 @@ public final class ORB
         }
     }
 
+    public byte[] getServerId()
+    {
+        return serverId;
+    }
 }
