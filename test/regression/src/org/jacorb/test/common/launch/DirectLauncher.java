@@ -30,7 +30,7 @@ import org.jacorb.test.common.TestUtils;
  * with appropriate arguments.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: DirectLauncher.java,v 1.5 2006-05-22 15:28:53 nick.cross Exp $
+ * @version $Id: DirectLauncher.java,v 1.6 2006-05-23 13:08:29 nick.cross Exp $
  */
 public class DirectLauncher extends JacORBLauncher
 {
@@ -54,6 +54,7 @@ public class DirectLauncher extends JacORBLauncher
         String javaHome = System.getProperty("java.home");
         String javaCommand = javaHome + "/bin/java";
         cmdList.add (javaCommand);
+        cmdList.add ("-Xbootclasspath/p:" + fullClasspath);
         cmdList.add ("-classpath");
         cmdList.add (fullClasspath);
         cmdList.add ("-Dorg.omg.CORBA.ORBClass=org.jacorb.orb.ORB");
