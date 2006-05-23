@@ -55,7 +55,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.140 2006-05-23 14:44:41 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.141 2006-05-23 18:25:45 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -829,7 +829,7 @@ public final class ORB
     {
         if (poaCurrent == null)
         {
-            poaCurrent = org.jacorb.poa.Current._Current_init();
+            poaCurrent = new org.jacorb.poa.Current();
         }
         return poaCurrent;
     }
