@@ -55,7 +55,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.138 2006-05-19 08:08:29 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.139 2006-05-23 08:37:09 nick.cross Exp $
  */
 
 public final class ORB
@@ -164,16 +164,17 @@ public final class ORB
 
     public ORB()
     {
+        super();
     }
 
     /**
      * configure the ORB
      */
-
     public void configure(Configuration myConfiguration)
         throws ConfigurationException
     {
         super.configure(myConfiguration);
+
         this.configuration =
             (org.jacorb.config.Configuration)myConfiguration;
         logger =
@@ -2245,10 +2246,18 @@ public final class ORB
         String[] names = config.getAttributeNames();
         String prefix = "jacorb.orb.objectKeyMap.";
         for (int i = 0; i < names.length; i++)
+        {
             if (names[i].startsWith (prefix))
-                objectKeyMap.put(names[i].substring (prefix.length()),
-                                 config.getAttribute (names[i],""));
+            {
+                objectKeyMap.put
+                (
+                    names[i].substring (prefix.length()),
+                    config.getAttribute (names[i],"")
+                );
+            }
+        }
     }
+
 
     /**
      * <code>addObjectKey </code> is a proprietary method that allows the

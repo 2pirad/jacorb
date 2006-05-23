@@ -37,41 +37,45 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.40 2006-05-22 09:57:18 alphonse.bendt Exp $
+ * @version $Id: ORBSingleton.java,v 1.41 2006-05-23 08:37:09 nick.cross Exp $
  */
 
 public class ORBSingleton
     extends org.omg.CORBA_2_5.ORB
 {
-    private boolean doStrictCheckOnTypecodeCreation = false;
+    private boolean doStrictCheckOnTypecodeCreation;
     private final Logger logger;
 
     public ORBSingleton()
     {
         super();
 
-        Properties emptyProps = new Properties();
-
         try
         {
-            Configuration configuration = JacORBConfiguration.getConfiguration(emptyProps,
-                    null,
-                    false);
+            // Don't call configure method as if this has been called from ORB::ctor
+            // class construction order can cause issues.
+            Configuration configuration = JacORBConfiguration.getConfiguration
+                (null, null, false);
 
-            logger = ((org.jacorb.config.Configuration)configuration).getNamedLogger("jacorb.orb.singleton");
+            logger = ((org.jacorb.config.Configuration)configuration).getNamedLogger
+                ("jacorb.orb.singleton");
 
-            configure(configuration);
-        } catch (ConfigurationException e)
+            doStrictCheckOnTypecodeCreation = configuration.getAttribute
+                ("jacorb.interop.strict_check_on_tc_creation", "on").equalsIgnoreCase("on");
+        }
+        catch (ConfigurationException e)
         {
             throw new INTERNAL(e.toString());
         }
+
     }
+
 
     protected void configure(Configuration configuration)
         throws ConfigurationException
     {
-        doStrictCheckOnTypecodeCreation =
-            configuration.getAttribute("jacorb.interop.strict_check_on_tc_creation", "on").equalsIgnoreCase("on");
+        doStrictCheckOnTypecodeCreation = configuration.getAttribute
+            ("jacorb.interop.strict_check_on_tc_creation", "on").equalsIgnoreCase("on");
     }
 
 
