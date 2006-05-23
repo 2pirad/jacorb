@@ -62,16 +62,16 @@ import org.omg.PortableServer.POA;
  * <li>queue management,
  * <li>error threshold settings.
  * </ul>
- * 
+ *
  * @jmx.mbean extends = "AbstractProxyMBean"
  * @jboss.xmbean
- * 
+ *
  * @--jmx.notification    name = "notification.proxy.message_discarded"
  *                      description = "queue overflow causes messages to be discarded"
  *                      notificationType = "java.lang.String"
- * 
+ *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.30 2006-03-03 19:56:11 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.31 2006-05-23 10:50:35 alphonse.bendt Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,
@@ -97,6 +97,12 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
                         + " Message(s) discarded. Queue Limit: " + maxSize);
                 sendTimestamp_ = System.currentTimeMillis();
                 discardedMessagesSinceLastBroadcast_ = 1;
+
+                if (logger_.isInfoEnabled())
+                {
+                    logger_.info(discardedMessagesSinceLastBroadcast_
+                            + " Message(s) discarded. Queue Limit: " + maxSize);
+                }
             }
             else
             {
@@ -155,7 +161,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
         qosSettings_.addPropertySetListener(new String[] { OrderPolicy.value, DiscardPolicy.value,
                 MaxEventsPerConsumer.value }, eventQueueConfigurationChangedCB);
 
-        final MessageQueueAdapter initialEventQueue = 
+        final MessageQueueAdapter initialEventQueue =
             getMessageQueueFactory().newMessageQueue(qosSettings_);
 
         pendingMessages_ = new RWLockEventQueueDecorator(initialEventQueue);
@@ -271,7 +277,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
 
     /**
      * put a copy of the Message in the queue of pending Messages.
-     * 
+     *
      * @param message
      *            the <code>Message</code> to queue.
      */
@@ -490,7 +496,7 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
     {
         offerListener_ = null;
     }
-    
+
     public void connectClient(org.omg.CORBA.Object client)
     {
         super.connectClient(client);
@@ -524,17 +530,17 @@ public abstract class AbstractProxySupplier extends AbstractProxy implements Mes
     {
         return true;
     }
-    
+
     public final List getSubsequentFilterStages()
     {
         return CollectionsWrapper.singletonList(this);
     }
-    
+
     public final MessageConsumer getMessageConsumer()
     {
         return this;
     }
-    
+
     /**
      * @jmx.managed-operation   impact = "ACTION"
      *                          description = "delete all queued Messages"
