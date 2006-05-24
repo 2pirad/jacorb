@@ -36,7 +36,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.43 2006-05-23 15:55:27 alphonse.bendt Exp $
+ * @version $Id: ORBSingleton.java,v 1.44 2006-05-24 12:31:02 alphonse.bendt Exp $
  */
 
 public class ORBSingleton
@@ -69,6 +69,9 @@ public class ORBSingleton
 
                 doStrictCheckOnTypecodeCreation = configuration.getAttribute
                     ("jacorb.interop.strict_check_on_tc_creation", "on").equalsIgnoreCase("on");
+
+                logger.debug("jacorb.interop.strict_check_on_tc_creation set to " + doStrictCheckOnTypecodeCreation);
+                logger.info("created ORBSingleton");
             }
         }
         catch (ConfigurationException e)
