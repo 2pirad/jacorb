@@ -31,7 +31,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.6 2006-05-24 12:27:16 alphonse.bendt Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.7 2006-05-24 13:32:18 alphonse.bendt Exp $
  */
 
 public class JacORBConfiguration
@@ -487,8 +487,17 @@ public class JacORBConfiguration
         Properties result = null;
         try
         {
-            java.net.URL url =
-                Thread.currentThread().getContextClassLoader().getResource(name);
+            final ClassLoader cl;
+
+            if (Thread.currentThread().getContextClassLoader() != null)
+            {
+                cl = Thread.currentThread().getContextClassLoader();
+            }
+            else
+            {
+                cl = JacORBConfiguration.class.getClassLoader();
+            }
+            java.net.URL url = cl.getResource(name);
             if (url!=null)
             {
                 result = new Properties();
