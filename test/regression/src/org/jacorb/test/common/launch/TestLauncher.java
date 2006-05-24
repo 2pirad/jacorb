@@ -49,7 +49,7 @@ import org.jacorb.util.ObjectUtil;
  * of the TESTSUITE to execute (e.g. org.jacorb.test.AllTest).
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: TestLauncher.java,v 1.6 2006-05-23 13:32:05 nick.cross Exp $
+ * @version $Id: TestLauncher.java,v 1.7 2006-05-24 10:38:25 alphonse.bendt Exp $
  */
 public class TestLauncher
 {
@@ -222,6 +222,7 @@ public class TestLauncher
         props.put("jacorb.test.client.version", getClientVersion());
         props.put("jacorb.test.server.version", getServerVersion());
         props.put("EXCLUDE_SERVICES", System.getProperty("EXCLUDE_SERVICES", "false"));
+        props.put("jacorb.test.verbose", System.getProperty("jacorb.test.verbose"));
         props.put("jacorb.test.outputfile.testname",
                   System.getProperty("jacorb.test.outputfile.testname" , "false"));
         try

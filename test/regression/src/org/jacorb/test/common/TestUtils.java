@@ -39,7 +39,7 @@ import java.util.Properties;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.7 2006-05-23 14:55:09 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.8 2006-05-24 10:38:25 alphonse.bendt Exp $
  */
 
 public class TestUtils
@@ -49,6 +49,11 @@ public class TestUtils
     private static String testHome = null;
     private static String systemRoot = null;
     private static final boolean verbose = "true".equalsIgnoreCase(System.getProperty("jacorb.test.verbose"));
+
+    static
+    {
+        log("jacorb.test.verbose is set to true");
+    }
 
     /**
      * this method returns a List of all public Methods which Names start with the Prefix "test" and
