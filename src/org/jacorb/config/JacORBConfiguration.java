@@ -31,7 +31,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.8 2006-05-24 14:05:00 alphonse.bendt Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.9 2006-05-24 15:16:58 alphonse.bendt Exp $
  */
 
 public class JacORBConfiguration
@@ -530,7 +530,6 @@ public class JacORBConfiguration
      *
      * @since 2.0 beta 3
      */
-
     private void initLogging()
     {
         String logFileName =
@@ -551,10 +550,13 @@ public class JacORBConfiguration
                 }
                 else
                 {
-                    if (logFileName.indexOf('/') > 0)
+                    final File file = new File(logFileName);
+                    final String parent = file.getParent();
+
+//                  TODO add unique part to the logFileName
+                    if (parent != null)
                     {
-                        logFileName = logFileName.substring(0, logFileName.lastIndexOf('/')); // TODO what if path is specified in windows notation?
-                        logFileName += singletonLogFile; // TODO add unique part
+                        logFileName += singletonLogFile;
                     }
                     else
                     {
