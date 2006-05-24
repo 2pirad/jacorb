@@ -31,7 +31,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.5 2006-05-23 15:55:27 alphonse.bendt Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.6 2006-05-24 12:27:16 alphonse.bendt Exp $
  */
 
 public class JacORBConfiguration
@@ -547,7 +547,7 @@ public class JacORBConfiguration
                     serverId = getAttribute("jacorb.logfile.singleton", "orbsingleton");
                 }
                 String implName = getAttribute("jacorb.implname", serverId);
-                logFileName += implName;
+                logFileName += implName + ".log";
             }
         }
 
