@@ -31,7 +31,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.7 2006-05-24 13:32:18 alphonse.bendt Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.8 2006-05-24 14:05:00 alphonse.bendt Exp $
  */
 
 public class JacORBConfiguration
@@ -541,20 +541,33 @@ public class JacORBConfiguration
 
         if ( !logFileName.equals(""))
         {
-            // Convert $implname postfix to implementation name
-            if (logFileName.endsWith("$implname"))
+            if (orb == null)
             {
-                logFileName = logFileName.substring (0, logFileName.length () - 9);
-
-                final String serverId;
-                if (orb != null)
+                final String singletonLogFile = getAttribute("jacorb.logfile.singleton", "");
+                if (singletonLogFile.equals(""))
                 {
-                    serverId = new String(orb.getServerId());
+                    // setting to "" effectively disables logging for the singleton orb.
+                    logFileName = "";
                 }
                 else
                 {
-                    serverId = getAttribute("jacorb.logfile.singleton", "orbsingleton");
+                    if (logFileName.indexOf('/') > 0)
+                    {
+                        logFileName = logFileName.substring(0, logFileName.lastIndexOf('/')); // TODO what if path is specified in windows notation?
+                        logFileName += singletonLogFile; // TODO add unique part
+                    }
+                    else
+                    {
+                        logFileName = singletonLogFile;
+                    }
                 }
+            }
+            else if (logFileName.endsWith("$implname"))
+            {
+                // Convert $implname postfix to implementation name
+                logFileName = logFileName.substring (0, logFileName.length () - 9);
+
+                final String serverId = new String(orb.getServerId());
                 String implName = getAttribute("jacorb.implname", serverId);
                 logFileName += implName + ".log";
             }
