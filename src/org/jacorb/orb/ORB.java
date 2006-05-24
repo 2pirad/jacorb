@@ -32,6 +32,8 @@ import org.jacorb.orb.policies.*;
 import org.jacorb.orb.dii.Request;
 import org.jacorb.orb.giop.*;
 import org.jacorb.orb.portableInterceptor.*;
+import org.jacorb.poa.RPPoolManager;
+import org.jacorb.poa.RPPoolManagerFactory;
 import org.jacorb.poa.util.POAUtil;
 
 import org.apache.avalon.framework.logger.*;
@@ -55,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.141 2006-05-23 18:25:45 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.142 2006-05-24 09:22:51 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -164,6 +166,8 @@ public final class ORB
     private final byte[] serverId =
         String.valueOf((long)(Math.random()*9999999999L)).getBytes();
 
+    private RPPoolManagerFactory poolManagerFactory;
+
     public ORB()
     {
         super(false);
@@ -264,6 +268,8 @@ public final class ORB
         }
 
         configureObjectKeyMap(configuration);
+
+        poolManagerFactory = new RPPoolManagerFactory(this);
     }
 
     private void printVersion(org.jacorb.config.Configuration configuration)
@@ -1762,10 +1768,7 @@ public final class ORB
             basicAdapter.stopListeners();
         }
 
-        if (logger.isDebugEnabled())
-        {
-            logger.debug("ORB going shutdown (cleaning up ORB...)");
-        }
+        logger.debug("ORB going shutdown (cleaning up ORB...)");
 
         if (giop_connection_manager != null)
         {
@@ -1774,6 +1777,8 @@ public final class ORB
         clientConnectionManager.shutdown();
         knownReferences.clear();
         bufferManager.release();
+
+        poolManagerFactory.destroy();
 
         /* notify all threads waiting for shutdown to complete */
 
@@ -2489,5 +2494,10 @@ public final class ORB
     public byte[] getServerId()
     {
         return serverId;
+    }
+
+    public RPPoolManager newRPPoolManager(boolean isSingleThreaded)
+    {
+        return poolManagerFactory.newRPPoolManager(isSingleThreaded);
     }
 }

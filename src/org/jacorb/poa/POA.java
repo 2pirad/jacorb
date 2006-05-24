@@ -44,7 +44,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.59 2006-05-23 14:44:41 alphonse.bendt Exp $
+ * @version $Id: POA.java,v 1.60 2006-05-24 09:22:51 alphonse.bendt Exp $
  */
 
 public class POA
@@ -233,7 +233,7 @@ public class POA
         aom = isRetain() ? new AOM( isUniqueId(), isSingleThreadModel(), logger) : null;
 
         // GB: modified
-        requestController = new RequestController(this, orb, aom);
+        requestController = new RequestController(this, orb, aom, orb.newRPPoolManager(isSingleThreadModel()));
         requestController.configure(configuration);
 
         poaManager.registerPOA(this);
@@ -1498,15 +1498,15 @@ public class POA
                     logger.debug(logPrefix + "... done");
             }
 
-            /* stop the request processor threads */
-            if (!isSingleThreadModel())
+            if (logger.isDebugEnabled())
             {
-                if (logger.isDebugEnabled())
-                    logger.debug(logPrefix + "remove all processors from the pool ...");
-                requestController.clearUpPool();
+                logger.debug(logPrefix + "remove all processors from the pool ...");
+            }
+            requestController.clearUpPool();
 
-                if (logger.isDebugEnabled())
-                    logger.debug(logPrefix + "... done");
+            if (logger.isDebugEnabled())
+            {
+                logger.debug(logPrefix + "... done");
             }
 
             /* stop the request controller */
