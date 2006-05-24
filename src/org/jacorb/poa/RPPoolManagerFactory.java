@@ -12,7 +12,7 @@ import org.jacorb.orb.ORB;
  * or return a shared instance.
  *
  * @author Alphonse Bendt
- * @version $Id: RPPoolManagerFactory.java,v 1.2 2006-05-24 09:23:57 alphonse.bendt Exp $
+ * @version $Id: RPPoolManagerFactory.java,v 1.3 2006-05-24 09:25:00 alphonse.bendt Exp $
  */
 public class RPPoolManagerFactory
 {
