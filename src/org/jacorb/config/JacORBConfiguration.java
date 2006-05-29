@@ -33,7 +33,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.10 2006-05-29 08:58:01 alphonse.bendt Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.11 2006-05-29 15:10:39 alphonse.bendt Exp $
  */
 
 public class JacORBConfiguration
@@ -745,5 +745,23 @@ public class JacORBConfiguration
         }
 
         return defaultValue;
+    }
+
+
+    public List getAttributeNamesWithPrefix(String prefix)
+    {
+        final List attributesWithPrefix = new ArrayList();
+
+        final String[] allAttributes = getAttributeNames();
+
+        for (int x = 0; x < allAttributes.length; ++x)
+        {
+            if (allAttributes[x].startsWith(prefix))
+            {
+                attributesWithPrefix.add(allAttributes[x]);
+            }
+        }
+
+        return Collections.unmodifiableList(attributesWithPrefix);
     }
 }
