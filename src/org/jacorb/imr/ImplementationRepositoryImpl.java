@@ -52,7 +52,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.58 2006-05-22 15:03:49 alphonse.bendt Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.59 2006-05-29 10:15:57 alphonse.bendt Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1087,7 +1087,7 @@ public class ImplementationRepositoryImpl
             throws ConfigurationException
         {
             // Moved from the constructor to facilitate logging.
-            receptor_pool = new MessageReceptorPool("ImplementationRepository", myConfiguration);
+            receptor_pool = new MessageReceptorPool("server", "ImplementationRepository", myConfiguration);
 
             try
             {
