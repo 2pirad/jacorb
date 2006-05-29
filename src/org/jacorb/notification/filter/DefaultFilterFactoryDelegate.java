@@ -45,7 +45,7 @@ import org.picocontainer.defaults.ConstructorInjectionComponentAdapterFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultFilterFactoryDelegate.java,v 1.3 2005-08-21 13:25:53 alphonse.bendt Exp $
+ * @version $Id: DefaultFilterFactoryDelegate.java,v 1.4 2006-05-29 15:11:14 alphonse.bendt Exp $
  */
 public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Disposable
 {
@@ -66,7 +66,7 @@ public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Dis
     public DefaultFilterFactoryDelegate(IContainer container, Configuration config, ComponentAdapterFactory componentAdapterFactory)
     {
         componentAdapterFactory_ = componentAdapterFactory;
-        
+
         container_ = container;
 
         MutablePicoContainer parent = container.getContainer();
@@ -79,7 +79,7 @@ public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Dis
 
         loadFilterPlugins(config);
     }
-    
+
     public DefaultFilterFactoryDelegate(IContainer container, Configuration config)
     {
         this(container, config, new ConstructorInjectionComponentAdapterFactory());
@@ -92,14 +92,15 @@ public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Dis
 
     private void loadFilterPlugins(Configuration conf)
     {
+        org.jacorb.config.Configuration config = (org.jacorb.config.Configuration)conf;
         ComponentAdapter etclCA = componentAdapterFactory_.createComponentAdapter(ETCLFilter.CONSTRAINT_GRAMMAR, ETCLFilter.class, null);
-        
+
         // add default ETCL Filter
         filterPico_.registerComponent(etclCA);
 
         availableFilters_.add(ETCLFilter.CONSTRAINT_GRAMMAR);
 
-        Iterator i = getAttributeNamesWithPrefix(conf, Attributes.FILTER_PLUGIN_PREFIX).iterator();
+        Iterator i = config.getAttributeNamesWithPrefix(Attributes.FILTER_PLUGIN_PREFIX).iterator();
 
         while (i.hasNext())
         {
@@ -114,7 +115,7 @@ public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Dis
                 _clazzName = conf.getAttribute(key);
 
                 Class _clazz = ObjectUtil.classForName(_clazzName);
-                
+
                 ComponentAdapter customCA = componentAdapterFactory_.createComponentAdapter(_grammar, _clazz, null);
 
                 filterPico_.registerComponent(customCA);
@@ -167,22 +168,5 @@ public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Dis
         AbstractFilter _filter = create_filter_servant(grammar);
 
         return new MappingFilterImpl(orb_, config, _filter, any);
-    }
-
-    static List getAttributeNamesWithPrefix(Configuration configuration, String prefix)
-    {
-        final List _attributesWithPrefix = new ArrayList();
-
-        final String[] _allAttributes = configuration.getAttributeNames();
-
-        for (int x = 0; x < _allAttributes.length; ++x)
-        {
-            if (_allAttributes[x].startsWith(prefix))
-            {
-                _attributesWithPrefix.add(_allAttributes[x]);
-            }
-        }
-
-        return Collections.unmodifiableList(_attributesWithPrefix);
     }
 }
