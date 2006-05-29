@@ -29,7 +29,7 @@ import org.jacorb.util.threadpool.*;
  * MessageReceptorPool.java
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.11 2006-05-29 10:15:57 alphonse.bendt Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.12 2006-05-29 10:25:17 alphonse.bendt Exp $
  */
 
 public class MessageReceptorPool
@@ -47,7 +47,7 @@ public class MessageReceptorPool
      */
     public MessageReceptorPool(String config, String threadNamePrefix, Configuration myConfiguration)
     {
-        if (!config.equals("server") || !config.equals("client"))
+        if (!config.equals("server") && !config.equals("client"))
         {
             throw new IllegalArgumentException("must be client or server");
         }
