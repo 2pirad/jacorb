@@ -39,7 +39,7 @@ import org.jacorb.test.orb.rmi.Outer.StaticInner;
  * @see SunSunRMITest
  * @see JacORBJacORBRMITest
  *
- * @version $Id: RMITest.java,v 1.9 2006-05-30 12:41:52 alphonse.bendt Exp $
+ * @version $Id: RMITest.java,v 1.10 2006-05-30 18:35:15 alphonse.bendt Exp $
  */
 public abstract class RMITest extends ClientServerTestCase
 {
@@ -360,7 +360,7 @@ public abstract class RMITest extends ClientServerTestCase
     /**
      * this test is currently failing between
      * JacORB and Sun ORB.
-     * @see testPassSerializable0
+     * @see #testPassSerializable0
      */
     public void testPassSerializable1() throws Exception
     {
