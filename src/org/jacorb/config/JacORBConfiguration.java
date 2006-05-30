@@ -33,7 +33,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.11 2006-05-29 15:10:39 alphonse.bendt Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.12 2006-05-30 15:13:28 nick.cross Exp $
  */
 
 public class JacORBConfiguration
@@ -554,16 +554,26 @@ public class JacORBConfiguration
                 }
                 else
                 {
-                    final File file = new File(logFileName);
-                    final String parent = file.getParent();
-
-                    if (parent != null)
+                    // If it ends with implname File can't handle it so do it manually.
+                    if (logFileName.endsWith ("$implname"))
                     {
-                        logFileName += singletonLogFile + dateFormatter.format(new Date()) + ".log";
+                        logFileName = logFileName.substring
+                            (0, logFileName.indexOf("$implname") - 1);
+                        logFileName += File.separatorChar + singletonLogFile + dateFormatter.format(new Date()) + ".log";
                     }
                     else
                     {
-                        logFileName = singletonLogFile + dateFormatter.format(new Date()) + ".log";
+                        final File file = new File(logFileName);
+                        final String parent = file.getParent();
+
+                        if (parent != null)
+                        {
+                            logFileName += singletonLogFile + dateFormatter.format(new Date()) + ".log";
+                        }
+                        else
+                        {
+                            logFileName = singletonLogFile + dateFormatter.format(new Date()) + ".log";
+                        }
                     }
                 }
             }
@@ -603,7 +613,6 @@ public class JacORBConfiguration
         {
             System.err.println("Configuration Error, could not create logger!");
         }
-
         if (!logFileName.equals(""))
         {
             try
