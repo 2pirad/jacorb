@@ -39,7 +39,7 @@ import java.util.Properties;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.8 2006-05-24 10:38:25 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.9 2006-05-30 12:05:06 alphonse.bendt Exp $
  */
 
 public class TestUtils
@@ -141,19 +141,30 @@ public class TestUtils
         return (TestSetup) ctor.newInstance(new Object[] { suite });
     }
 
-    public static void addToSuite(TestSuite suite, TestSetup setup, Class clazz) throws Exception
+    public static void addToSuite(TestSuite suite, TestSetup setup, Class clazz)
     {
         addToSuite(suite, setup, clazz, getTestMethods(clazz));
     }
 
-    public static void addToSuite(TestSuite suite, TestSetup setup, Class clazz,
-            String[] testMethods) throws Exception
+    public static void addToSuite(TestSuite suite, TestSetup setup, Class clazz, String methodPrefix)
     {
-        Constructor _ctor = clazz.getConstructor(new Class[] { String.class, setup.getClass() });
+        addToSuite(suite, setup, clazz, getTestMethods(clazz, methodPrefix));
+    }
 
-        for (int x = 0; x < testMethods.length; ++x)
+    public static void addToSuite(TestSuite suite, TestSetup setup, Class clazz,
+            String[] testMethods)
+    {
+        try
         {
-            suite.addTest((Test) _ctor.newInstance(new Object[] { testMethods[x], setup }));
+            Constructor _ctor = clazz.getConstructor(new Class[] { String.class, setup.getClass() });
+
+            for (int x = 0; x < testMethods.length; ++x)
+            {
+                suite.addTest((Test) _ctor.newInstance(new Object[] { testMethods[x], setup }));
+            }
+        } catch (Exception e)
+        {
+            throw new RuntimeException(e.toString());
         }
     }
 
