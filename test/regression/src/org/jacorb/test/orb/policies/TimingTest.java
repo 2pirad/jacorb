@@ -13,7 +13,7 @@ import org.jacorb.util.Time;
 
 /**
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: TimingTest.java,v 1.10 2005-05-13 13:44:14 andre.spiegel Exp $
+ * @version $Id: TimingTest.java,v 1.11 2006-05-30 10:03:54 alphonse.bendt Exp $
  */
 public class TimingTest extends CallbackTestCase
 {
@@ -225,24 +225,17 @@ public class TimingTest extends CallbackTestCase
     /**
      * Set all timing policies to values that will be met by the invocation.
      */
-    public void test_all_policies_sync_ok()
+    public void test_all_policies_sync_ok() throws Exception
     {
         clearPolicies (server);
         setRequestStartTime (server, System.currentTimeMillis());
-        setRequestEndTime (server, System.currentTimeMillis() + 200);
-        setRelativeRequestTimeout (server, System.currentTimeMillis() + 300);
+        setRequestEndTime (server, System.currentTimeMillis() + 400);
+        setRelativeRequestTimeout (server, System.currentTimeMillis() + 600);
         setReplyStartTime (server, System.currentTimeMillis());
-        setReplyEndTime (server, System.currentTimeMillis() + 400);
-        setRelativeRoundtripTimeout(server, System.currentTimeMillis() + 350);
+        setReplyEndTime (server, System.currentTimeMillis() + 800);
+        setRelativeRoundtripTimeout(server, System.currentTimeMillis() + 700);
 
-        try
-        {
-            int result = server.operation (434, 50);
-        }
-        catch (org.omg.CORBA.TIMEOUT t)
-        {
-            fail ("should not have been a TIMEOUT");
-        }
+        assertEquals(434, server.operation (434, 50));
     }
 
 
