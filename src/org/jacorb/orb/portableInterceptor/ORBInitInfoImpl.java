@@ -37,7 +37,7 @@ import org.jacorb.orb.ORB;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.14 2006-05-29 15:12:57 alphonse.bendt Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.15 2006-06-01 10:08:55 alphonse.bendt Exp $
  */
 
 public class ORBInitInfoImpl
@@ -99,33 +99,29 @@ public class ORBInitInfoImpl
      * a List.
      */
 
-    private void merge(List target, Map source)
+    private List merge(List target, Map source)
     {
-        target.addAll(source.values());
+        List result = new ArrayList(target);
+        result.addAll(source.values());
+        return result;
     }
 
     public List getClientInterceptors()
     {
-        merge(anonymous_client_interceptors,
-              named_client_interceptors);
-
-        return anonymous_client_interceptors;
+        return merge(anonymous_client_interceptors,
+                named_client_interceptors);
     }
 
     public List getServerInterceptors()
     {
-        merge(anonymous_server_interceptors,
-              named_server_interceptors);
-
-        return anonymous_server_interceptors;
+        return merge(anonymous_server_interceptors,
+                named_server_interceptors);
     }
 
     public List getIORInterceptors()
     {
-        merge(anonymous_ior_interceptors,
-              named_ior_interceptors);
-
-        return anonymous_ior_interceptors;
+        return merge(anonymous_ior_interceptors,
+                named_ior_interceptors);
     }
 
     public Map getPolicyFactories()
@@ -229,6 +225,7 @@ public class ORBInitInfoImpl
     public String[] arguments()
     {
         checkIsValid();
+
         return orb._args ;
     }
 
@@ -250,6 +247,7 @@ public class ORBInitInfoImpl
     public String orb_id()
     {
         checkIsValid();
+
         return ORB.orb_id;
     }
 
