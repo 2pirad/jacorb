@@ -1,5 +1,5 @@
 %
-% $Id: configuration.tex,v 1.17 2006-05-29 08:58:01 alphonse.bendt Exp $
+% $Id: configuration.tex,v 1.18 2006-06-01 13:26:07 alphonse.bendt Exp $
 %
 
 This chapter explains the general mechanism for configuring JacORB
@@ -573,6 +573,10 @@ typecodes  & boolean & off \\
 \hline
 \verb"jacorb.cachePoaNames" & Whether to cache scoped poa
 names & boolean & off \\
+\hline
+\verb"jacorb.orb_initializer"
+\verb".fail_on_error" & Control, if failing ORBInitializers should make the
+complete {\tt ORB.init()} fail. & boolean & off \\
 \hline
 \verb"jacorb.interop.indirec"
 \verb"tion_encoding_disable" & Turn off indirection encoding for
