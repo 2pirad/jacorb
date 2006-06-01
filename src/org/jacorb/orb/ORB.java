@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.143 2006-05-29 15:12:57 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.144 2006-06-01 08:51:20 nick.cross Exp $
  */
 
 public final class ORB
@@ -163,8 +163,16 @@ public final class ORB
 
     private boolean bidir_giop = false;
 
-    private final byte[] serverId =
-        String.valueOf((long)(Math.random()*9999999999L)).getBytes();
+    /**
+     * <code>serverIdStr</code> is a unique ID that will be used to identify this
+     * server.
+     */
+    private final String serverIdStr = String.valueOf((long)(Math.random()*9999999999L));
+
+    /**
+     * <code>serverId</code> is the bytes form of serverIdStr.
+     */
+    private final byte[] serverId = serverIdStr.getBytes();
 
     private RPPoolManagerFactory poolManagerFactory;
 
@@ -427,8 +435,6 @@ public final class ORB
             return null;
         }
 
-        // String orbImplName = Environment.getProperty( "jacorb.implname", "" );
-
         try
         {
             refImplName =
@@ -445,7 +451,7 @@ public final class ORB
 
         if( refImplName == null )
         {
-            if( implName.length() > 0 )
+            if( implName.length() > 0 || serverIdStr.length() > 0)
             {
                 if( logger.isDebugEnabled() )
                 {
@@ -456,7 +462,8 @@ public final class ORB
         }
         else
         {
-            if( !(implName.equals( refImplName ) ))
+            if( !(implName.equals(refImplName)) &&
+                !(serverIdStr.equals(refImplName)) )  
             {
                 if( logger.isDebugEnabled() )
                 {
