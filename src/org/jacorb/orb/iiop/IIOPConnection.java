@@ -22,35 +22,30 @@ package org.jacorb.orb.iiop;
 
 import java.net.*;
 
-import org.apache.avalon.framework.logger.Logger;
-
 /**
  * IIOPConnection.java
  *
- *
- * Created: Sun Aug 12 20:18:47 2002
- *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.9 2005-10-25 14:31:13 andre.spiegel Exp $
+ * @version $Id: IIOPConnection.java,v 1.10 2006-06-02 10:37:46 alphonse.bendt Exp $
  */
 
 public abstract class IIOPConnection
     extends org.jacorb.orb.etf.StreamConnectionBase
 {
     protected Socket socket;
-    
+
     protected boolean use_ssl;
-    
+
     public IIOPConnection (IIOPConnection other)
     {
         super((org.jacorb.orb.etf.StreamConnectionBase)other);
         this.use_ssl = other.use_ssl;
     }
-        
+
     public IIOPConnection()
     {
     }
-        
+
     public boolean isSSL()
     {
         return use_ssl;
@@ -63,17 +58,21 @@ public abstract class IIOPConnection
             try
             {
                 if (logger.isInfoEnabled())
-                            logger.info ("Socket timeout set to " + timeout + " ms");
+                {
+                    logger.info ("Socket timeout set to " + timeout + " ms");
+                }
                 socket.setSoTimeout(timeout);
             }
             catch( SocketException se )
             {
                 if (logger.isInfoEnabled())
+                {
                     logger.info("SocketException", se);
+                }
             }
         }
     }
-    
+
     protected int getTimeout()
     {
         try
@@ -85,5 +84,4 @@ public abstract class IIOPConnection
             throw to_COMM_FAILURE (ex);
         }
     }
-
 }
