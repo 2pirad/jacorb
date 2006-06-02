@@ -36,7 +36,7 @@ import java.lang.Double;
  * When the getValue() is called, a Double object is returned.
  * If it returns null, an error occured.<p>
 
- * @version $Id: ConstExprEvaluator.java,v 1.5 2006-05-17 11:11:47 alphonse.bendt Exp $
+ * @version $Id: ConstExprEvaluator.java,v 1.6 2006-06-02 13:02:56 alphonse.bendt Exp $
  * @author  Gerald Brose,
  *          The-Son LAI <a href="mailto:Lts@writeme.com">Lts@writeme.com</a>
  */
@@ -181,8 +181,6 @@ public class ConstExprEvaluator
         operators[7]  = new Operator("*"  , 2, 10);
         operators[8]  = new Operator("/"  , 2, 10);
         operators[9]  = new Operator("%"  , 2, 10);
-
-
     }
 
     /**
@@ -325,13 +323,12 @@ public class ConstExprEvaluator
                         nRight = null;
                         return;
                     }
-                    else
-                        throw new Exception("Error during parsing... missing brackets in [" + s + "]");
+
+                    throw new Exception("Error during parsing... missing brackets in [" + s + "]");
                 }
                 // two operands
                 else if ( startOperator > 0 && nOperator.getType() == 2 )
                 {
-                    nOperator = nOperator;
                     nLeft   =
                     new Node( this, s.substring(0,  startOperator), nLevel + 1 );
                     nRight   =
