@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.59 2006-05-17 07:58:37 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.60 2006-06-07 13:10:59 nick.cross Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -315,7 +315,7 @@
          <sourcePath path="${src}"/>
          <auxClasspath path="${classpath}"/>
          <systemProperty name="findbugs.de.comment" value="true"/>
-         <class location="${basedir}/classes/org/jacorb/imrutility"/>
+         <class location="${basedir}/classes/org/jacorb/imr"/>
          <class location="${basedir}/classes/org/jacorb/orb"/>
          <class location="${basedir}/classes/org/jacorb/poa"/>
          <class location="${basedir}/classes/org/jacorb/security"/>
