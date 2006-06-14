@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.46 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: StructType.java,v 1.47 2006-06-14 12:32:15 alphonse.bendt Exp $
  */
 
 public class StructType
@@ -294,21 +294,14 @@ public class StructType
         {
             return this.getRecursiveTypeCodeExpression();
         }
-        else
-        {
-            return this.getTypeCodeExpression();
-        }
+
+        return this.getTypeCodeExpression();
     }
 
 
     private void printClassComment(String className, PrintWriter ps)
     {
-        ps.println("/**");
-        ps.println(" *\tGenerated from IDL definition of " +
-                (exc ? "exception " : "struct ") + "\"" +
-                className + "\"");
-        ps.println(" *\t@author JacORB IDL compiler ");
-        ps.println(" */\n");
+        printClassComment((exc ? "exception" : "struct"), className, ps);
     }
 
     private void printHolderClass(String className, PrintWriter ps)

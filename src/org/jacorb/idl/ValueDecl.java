@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.46 2006-05-16 08:34:33 alphonse.bendt Exp $
+ * @version $Id: ValueDecl.java,v 1.47 2006-06-14 12:33:00 alphonse.bendt Exp $
  */
 
 public class ValueDecl
@@ -460,11 +460,7 @@ public class ValueDecl
 
     private void printClassComment(PrintWriter out)
     {
-        out.println("/**");
-        out.println(" *\tGenerated from IDL definition of valuetype " +
-                    "\"" + name + "\"");
-        out.println(" *\t@author JacORB IDL compiler ");
-        out.println(" */\n");
+        printClassComment("valuetype", name, out);
     }
 
     /**

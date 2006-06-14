@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.22 2006-05-15 14:35:52 alphonse.bendt Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.23 2006-06-14 12:33:00 alphonse.bendt Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -280,13 +280,9 @@ public class ValueAbsDecl
     }
 
 
-    private void printClassComment(String className, PrintWriter ps)
+    protected final void printClassComment(String className, PrintWriter ps)
     {
-        ps.println("/**");
-        ps.println(" *\tGenerated from IDL definition of abstract value type " +
-                   "\"" + className + "\"");
-        ps.println(" *\t@author JacORB IDL compiler ");
-        ps.println(" */\n");
+        printClassComment("abstract value type", className, ps);
     }
 
     /**
