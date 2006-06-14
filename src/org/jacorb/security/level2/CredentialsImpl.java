@@ -32,7 +32,7 @@ import java.math.BigInteger;
 /**
  *  JacORB implementation of security Credentials
  *
- *  $Id: CredentialsImpl.java,v 1.12 2004-05-06 12:40:01 nicolas Exp $
+ *  $Id: CredentialsImpl.java,v 1.13 2006-06-14 12:11:02 alphonse.bendt Exp $
  *
  */
 
@@ -179,7 +179,7 @@ public class CredentialsImpl
     /**
      * can be used in access control decisions or auditing
      *
-     * @param attributes - the set of attributes whose values are desired.
+     * @param types - the set of attributes whose values are desired.
      *                     If this list is empty, all attributes are returned
      *
      * @return The requested set of attributes reflecting the state
