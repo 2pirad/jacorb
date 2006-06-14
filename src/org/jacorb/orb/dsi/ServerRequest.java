@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.39 2006-05-19 20:14:50 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.40 2006-06-14 12:01:17 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -349,7 +349,6 @@ public class ServerRequest
                 {
                     if( status == ReplyStatusType_1_2._USER_EXCEPTION )
                     {
-                        out.write_string( ex.type().id() );
                         ex.write_value( out );
                     }
                     else if( status == ReplyStatusType_1_2._NO_EXCEPTION )
@@ -431,13 +430,8 @@ public class ServerRequest
                                   in.isLocateRequest(),
                                   logger );
 
-        try
-        {
-            out.configure(orb.getConfiguration());
-        } catch (ConfigurationException e)
-        {
-            throw new RuntimeException();
-        }
+        out.configure(orb.getConfiguration());
+
         return out;
     }
 
