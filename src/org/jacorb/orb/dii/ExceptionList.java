@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004 Gerald Brose.
+ *   Copyright (C) 1997-2006 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -22,51 +22,51 @@ package org.jacorb.orb.dii;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ExceptionList.java,v 1.9 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: ExceptionList.java,v 1.10 2006-06-14 11:58:48 alphonse.bendt Exp $
  */
 
 import java.util.*;
 
-public class ExceptionList 
-	extends org.omg.CORBA.ExceptionList 
+public class ExceptionList
+    extends org.omg.CORBA.ExceptionList
 {
-	private Vector list = new Vector();
+    private Vector list = new Vector();
 
-	public int count()
-	{
-		return list.size();
-	}
+    public int count()
+    {
+        return list.size();
+    }
 
-	public void add(org.omg.CORBA.TypeCode tc )
-	{
-		list.addElement( tc );
-	}
+    public void add(org.omg.CORBA.TypeCode tc )
+    {
+        list.addElement( tc );
+    }
 
-	public org.omg.CORBA.TypeCode item(int index) 
-		throws org.omg.CORBA.Bounds
-	{
-		try 
-		{
-			return (org.omg.CORBA.TypeCode)list.elementAt(index);
-		}
-		catch ( ArrayIndexOutOfBoundsException e )
-		{
-			throw new org.omg.CORBA.Bounds();
-		}
-	}
+    public org.omg.CORBA.TypeCode item(int index)
+        throws org.omg.CORBA.Bounds
+    {
+        try
+        {
+            return (org.omg.CORBA.TypeCode)list.elementAt(index);
+        }
+        catch ( ArrayIndexOutOfBoundsException e )
+        {
+            throw new org.omg.CORBA.Bounds();
+        }
+    }
 
-	public void remove(int index) 
-		throws org.omg.CORBA.Bounds
-	{
-		try 
-		{
-			list.removeElementAt(index);
-		} 
-		catch ( ArrayIndexOutOfBoundsException e )
-		{
-			throw new org.omg.CORBA.Bounds();
-		}
-	}
+    public void remove(int index)
+        throws org.omg.CORBA.Bounds
+    {
+        try
+        {
+            list.removeElementAt(index);
+        }
+        catch ( ArrayIndexOutOfBoundsException e )
+        {
+            throw new org.omg.CORBA.Bounds();
+        }
+    }
 }
 
 

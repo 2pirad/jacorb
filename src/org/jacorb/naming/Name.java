@@ -31,7 +31,7 @@ import  org.omg.CosNaming.NamingContextPackage.*;
  * between Names and their string representation
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Name.java,v 1.13 2006-05-19 08:40:06 alphonse.bendt Exp $
+ * @version $Id: Name.java,v 1.14 2006-06-14 11:56:28 alphonse.bendt Exp $
  */
 
 public class Name
@@ -52,7 +52,6 @@ public class Name
 
     /**
      *	create a name from an array of NameComponents
-     *	@param org.omg.CosNaming.NameComponent[] n
      */
 
     public Name(NameComponent[] n)
@@ -75,7 +74,6 @@ public class Name
 
     /**
      *	create a name from a stringified name
-     *	@param String structured_name
      */
 
     public Name(String string_name)
@@ -86,8 +84,6 @@ public class Name
 
     /**
      *	create a name from a singleNameComponent
-     *	@param org.omg.CosNaming.NameComponent n
-     *
      */
 
     public Name(org.omg.CosNaming.NameComponent n)
@@ -145,10 +141,7 @@ public class Name
                 throw new INTERNAL(e.toString());
             }
         }
-        else
-        {
-            return null;
-        }
+        return null;
     }
 
     public boolean equals( Object obj )

@@ -3,7 +3,7 @@ package org.jacorb.orb.dii;
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004 Gerald Brose.
+ *   Copyright (C) 1997-2006 Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -19,6 +19,7 @@ package org.jacorb.orb.dii;
  *   License along with this library; if not, write to the Free
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
+
 import org.omg.CORBA.Any;
 import org.omg.CORBA.NVList;
 import org.omg.CORBA.NamedValue;
@@ -27,21 +28,20 @@ import org.omg.CORBA.portable.*;
 import org.jacorb.orb.portableInterceptor.*;
 import org.jacorb.orb.giop.*;
 
-import java.util.Enumeration;
 import java.util.Iterator;
 
 /**
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.18 2006-05-19 20:14:50 alphonse.bendt Exp $
+ * @version $Id: Request.java,v 1.19 2006-06-14 11:58:48 alphonse.bendt Exp $
  */
 
 public class Request
     extends org.omg.CORBA.Request
 {
     private org.jacorb.orb.NamedValue result_value;
-    private org.omg.CORBA.ExceptionList exceptions;
+    private final org.omg.CORBA.ExceptionList exceptions;
     private org.omg.CORBA.ContextList contexts;
     private org.omg.CORBA.Context ctx;
     private Thread deferred_caller;
@@ -274,7 +274,7 @@ public class Request
                 org.omg.CORBA.Any any;
                 org.omg.CORBA.TypeCode tc;
                 String id = ae.getId ();
-                int count = (exceptions == null) ? 0 : exceptions.count ();
+                int count = exceptions.count ();
 
                 for (int i = 0; i < count; i++)
                 {
