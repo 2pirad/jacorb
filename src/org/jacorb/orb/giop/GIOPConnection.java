@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.52 2006-01-09 16:32:54 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.53 2006-06-14 12:03:49 alphonse.bendt Exp $
  */
 
 public abstract class GIOPConnection
@@ -825,7 +825,7 @@ public abstract class GIOPConnection
                 tcs_negotiated = false;
 
                 if (logger.isDebugEnabled())
-                    logger.debug(this.toString() 
+                    logger.debug(this.toString()
                                  + ": sendMessage() -- opening transport");
 
                 synchronized (connect_sync)
@@ -865,9 +865,10 @@ public abstract class GIOPConnection
     public final boolean isSSL()
     {
         if (transport instanceof IIOPConnection)
+        {
             return ((IIOPConnection)transport).isSSL();
-        else
-            return false;
+        }
+        return false;
     }
 
     public void close()
@@ -977,5 +978,5 @@ public abstract class GIOPConnection
         }
         cubbyholes[id] = obj;
     }
-    
+
 }// GIOPConnection

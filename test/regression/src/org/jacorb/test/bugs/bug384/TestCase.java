@@ -22,7 +22,6 @@ package org.jacorb.test.bugs.bug384;
 
 import junit.framework.*;
 
-import org.omg.CORBA.*;
 import org.jacorb.test.common.*;
 import org.omg.PortableServer.*;
 
@@ -32,7 +31,7 @@ import org.omg.PortableServer.*;
  * results for both local and non-local objects.
  *
  * @author Gerald Brose
- * @version $Id: TestCase.java,v 1.4 2003-10-30 10:03:13 nick.cross Exp $
+ * @version $Id: TestCase.java,v 1.5 2006-06-14 12:14:40 alphonse.bendt Exp $
  */
 
 public class TestCase
@@ -52,13 +51,13 @@ public class TestCase
     {
         testObject = setup.getServerObject();
         orb = org.omg.CORBA.ORB.init( new String[0], null);
-	try
-	{
-	    poa = POAHelper.narrow( orb.resolve_initial_references("RootPOA"));
+    try
+    {
+        poa = POAHelper.narrow( orb.resolve_initial_references("RootPOA"));
 
-	    poa.the_POAManager().activate();
+        poa.the_POAManager().activate();
 
-	    localTestObject =
+        localTestObject =
                 poa.servant_to_reference( new TestObjectImpl());
         }
         catch( Exception e )

@@ -24,7 +24,6 @@ package org.jacorb.test.idl;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import junit.framework.Test;
@@ -42,7 +41,7 @@ import org.jacorb.test.common.TestUtils;
  * been overwritten.
  *
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.7 2006-05-29 11:40:14 alphonse.bendt Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.8 2006-06-14 12:13:51 alphonse.bendt Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {

@@ -23,13 +23,11 @@ package org.jacorb.orb.giop;
 import org.apache.avalon.framework.configuration.*;
 import org.apache.avalon.framework.logger.Logger;
 
-import java.io.*;
-
 import org.jacorb.orb.iiop.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.19 2005-12-07 16:03:22 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.20 2006-06-14 12:03:49 alphonse.bendt Exp $
  */
 
 public class ServerGIOPConnection
@@ -92,9 +90,9 @@ public class ServerGIOPConnection
         if( tryDiscard() )
         {
             if (logger.isDebugEnabled())
-                logger.debug(this.toString() 
+                logger.debug(this.toString()
                              + ": tryClose() -- will send close connection");
-                
+
             sendCloseConnection();
 
             closeOnReadTimeout = true;
@@ -106,14 +104,12 @@ public class ServerGIOPConnection
 
             return true;
         }
-        else
+        if (logger.isDebugEnabled())
         {
-            if (logger.isDebugEnabled())
-                logger.debug(this.toString()
-                             + ": tryClose() -- cannot close connection");
-                
-            return false;
+            logger.debug(this.toString()
+                    + ": tryClose() -- cannot close connection");
         }
+        return false;
     }
 
 
@@ -135,10 +131,7 @@ public class ServerGIOPConnection
 
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
 
@@ -202,7 +195,7 @@ public class ServerGIOPConnection
     {
         if (logger.isDebugEnabled())
             logger.debug (this.toString() + ": readTimedOut()");
-        
+
         if( closeOnReadTimeout )
         {
             // we get here if we have sent a CloseConnection message
@@ -228,10 +221,10 @@ public class ServerGIOPConnection
             logger.debug (this.toString() + ": streamClosed()");
         close();
     }
-    
+
     /**
-     * @overrides close in GIOPConnection
-     */   
+     * @see GIOPConnection#close()
+     */
     public void close()
     {
         super.close();
@@ -244,11 +237,12 @@ public class ServerGIOPConnection
     public String toString()
     {
         if (profile != null)
+        {
           return "ServerGIOPConnection to "
                 + profile.toString()
                 + " (" + Integer.toHexString(this.hashCode()) + ")";
-        else
-          return super.toString();
+        }
+        return super.toString();
     }
-    
+
 }// ServerGIOPConnection
