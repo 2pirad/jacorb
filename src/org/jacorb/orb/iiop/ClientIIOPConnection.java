@@ -40,18 +40,15 @@ import org.omg.CORBA.*;
 /**
  * ClientIIOPConnection.java
  *
- *
- * Created: Sun Aug 12 20:56:32 2002
- *
- * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.21 2006-05-22 15:03:50 alphonse.bendt Exp $
+ * @author Nicolas Noffke
+ * @author Andre Spiegel
+ * @version $Id: ClientIIOPConnection.java,v 1.22 2006-06-14 12:52:13 alphonse.bendt Exp $
  */
 
 public class ClientIIOPConnection
     extends IIOPConnection
     implements Configurable
 {
-    //private IIOPProfile target_profile;
     private int timeout = 0;
 
     private int     ssl_port = -1;
@@ -434,18 +431,28 @@ public class ClientIIOPConnection
      */
     private void checkSSL()
     {
+        // Check if SSL profile
+        if (((IIOPProfile)profile).getSSL () == null)
+        {
+            return;
+        }
+
         CompoundSecMechList sas;
-        try {
+        try
+        {
             sas = (CompoundSecMechList)((IIOPProfile)profile).getComponent
                                            (TAG_CSI_SEC_MECH_LIST.value,
                                             CompoundSecMechListHelper.class);
-        } catch (Throwable ex) {
+        }
+        catch (Throwable ex)
+        {
             logger.info("Not able to process security mech. component");
             return;
         }
 
         TLS_SEC_TRANS tls = null;
-        if (sas != null && sas.mechanism_list[0].transport_mech.tag == TAG_TLS_SEC_TRANS.value) {
+        if (sas != null && sas.mechanism_list[0].transport_mech.tag == TAG_TLS_SEC_TRANS.value)
+        {
             try
             {
                 byte[] tagData = sas.mechanism_list[0].transport_mech.component_data;

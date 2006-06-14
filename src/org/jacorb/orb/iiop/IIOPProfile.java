@@ -37,7 +37,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.21 2006-05-17 13:17:28 alphonse.bendt Exp $
+ * @version $Id: IIOPProfile.java,v 1.22 2006-06-14 12:52:13 alphonse.bendt Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase
@@ -444,12 +444,13 @@ public class IIOPProfile
         {
             return getTLSPortFromCSIComponent();
         }
-        else
+
+        int port = ssl.port;
+        if (port < 0)
         {
-            int port = ssl.port;
-            if (port < 0) port += 65536;
-            return port;
+            port += 65536;
         }
+        return port;
     }
 
     /**
