@@ -30,7 +30,6 @@ import org.omg.IOP.*;
 import org.omg.RTCORBA.ProtocolProperties;
 
 import org.jacorb.orb.iiop.*;
-import org.apache.avalon.framework.configuration.*;
 
 /**
  * WIOP is wrapper around an IIOP transport.  To the ORB, it looks like
@@ -38,13 +37,13 @@ import org.apache.avalon.framework.configuration.*;
  * delegates everything to the standard IIOP classes.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: WIOPFactories.java,v 1.6 2006-05-22 15:03:50 alphonse.bendt Exp $
+ * @version $Id: WIOPFactories.java,v 1.7 2006-06-14 12:45:48 alphonse.bendt Exp $
  */
 public class WIOPFactories
     extends _FactoriesLocalBase
     implements Configurable
 {
-    public static boolean transportInUse = false;
+    private static boolean transportInUse = false;
     private final int tag = 7;
     org.jacorb.config.Configuration configuration;
     org.jacorb.orb.ORB orb;
@@ -126,4 +125,13 @@ public class WIOPFactories
         throw new org.omg.CORBA.NO_IMPLEMENT();
     }
 
+    public synchronized static void setTransportInUse(boolean transportInUse)
+    {
+        WIOPFactories.transportInUse = transportInUse;
+    }
+
+    public synchronized static boolean isTransportInUse()
+    {
+        return transportInUse;
+    }
 }

@@ -24,7 +24,7 @@ import org.omg.ETF.*;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: WIOPConnection.java,v 1.1 2003-07-11 00:20:33 andre.spiegel Exp $
+ * @version $Id: WIOPConnection.java,v 1.2 2006-06-14 12:45:48 alphonse.bendt Exp $
  */
 public class WIOPConnection extends _ConnectionLocalBase
 {
@@ -44,7 +44,7 @@ public class WIOPConnection extends _ConnectionLocalBase
                        int length,
                        long time_out)
     {
-        WIOPFactories.transportInUse = true;
+        WIOPFactories.setTransportInUse(true);
         delegate.write (is_first, is_last, data, offset, length, time_out);
     }
 
@@ -54,7 +54,7 @@ public class WIOPConnection extends _ConnectionLocalBase
                       int max_length,
                       long time_out)
     {
-        WIOPFactories.transportInUse = true;
+        WIOPFactories.setTransportInUse(true);
         delegate.read (data, offset, min_length, max_length, time_out);
     }
 
