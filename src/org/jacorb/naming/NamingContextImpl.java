@@ -36,7 +36,7 @@ import org.apache.avalon.framework.configuration.*;
  *      The implementation for the CORBAService Naming
  *
  *      @author Gerald Brose
- *      @version $Id: NamingContextImpl.java,v 1.29 2006-05-19 08:40:27 alphonse.bendt Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.30 2006-06-14 11:56:56 alphonse.bendt Exp $
  */
 
 public class NamingContextImpl
@@ -730,7 +730,6 @@ public class NamingContextImpl
     void init(org.omg.PortableServer.POA poa)
     {
         this.poa = poa;
-        ((org.jacorb.orb.ORB)orb).set_delegate(this);
 
         /**
          * Recreate tables. For serialization, object references
