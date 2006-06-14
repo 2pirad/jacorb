@@ -33,7 +33,7 @@ import org.jacorb.config.Configuration;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.19 2006-05-17 13:18:01 alphonse.bendt Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.20 2006-06-14 12:06:24 alphonse.bendt Exp $
  */
 
 public class IORInterceptorInitializer
@@ -41,7 +41,7 @@ public class IORInterceptorInitializer
     implements ORBInitializer
 {
     /**
-     * Adds the SSLComponentInterceptor and the CodeSetInfoInterceptor
+     * Adds the CodeSetInfoInterceptor
      * to the set of IORInterceptors.
      *
      * @param info the info object.
@@ -55,7 +55,7 @@ public class IORInterceptorInitializer
         try
         {
             int giop_minor =
-                config.getAttributeAsInteger("jacorb.giop_minor_version",2);
+                config.getAttributeAsInteger("jacorb.giop_minor_version", 2);
 
             if( giop_minor > 0 )
             {
