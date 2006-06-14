@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.17 2004-04-28 12:37:28 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.18 2006-06-14 12:54:22 alphonse.bendt Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -18,7 +18,7 @@
 
 
 <!--   <target name="all" depends="init,leveltwo,aux,ssl,sas"/> -->
-   <target name="all" depends="init,leveltwo,aux,ssl"/>
+   <target name="all" depends="init,leveltwo,aux,gui,ssl"/>
 
 
    <target name="ssl">
@@ -42,10 +42,15 @@
    <!-- principal_authenticator & util classes -->
    <target name="aux" depends="check-iaik" if="iaik.present">
       <antcall target="jacorb-javac">
-         <param name="javac-includes" value="org/jacorb/security/level2/PrincipalAuthenticatorImpl.java,org/jacorb/security/util/*.java"/>
+          <param name="javac-includes" value="org/jacorb/security/level2/PrincipalAuthenticatorImpl.java"/>
       </antcall>
    </target>
 
+    <target name="gui" depends="check-iaik" if="iaik.present" unless="cdc-build">
+        <antcall target="jacorb-javac">
+            <param name="javac-includes" value="org/jacorb/security/util/*.java"/>
+        </antcall>
+    </target>
 
    <target name="clean" depends="init">
       <delete dir="${classdir}/org/jacorb/security"/>
