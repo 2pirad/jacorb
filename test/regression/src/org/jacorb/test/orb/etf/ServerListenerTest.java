@@ -31,7 +31,7 @@ import org.jacorb.test.orb.etf.wiop.WIOPFactories;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: ServerListenerTest.java,v 1.1 2003-08-11 09:19:56 andre.spiegel Exp $
+ * @version $Id: ServerListenerTest.java,v 1.2 2006-06-14 12:44:43 alphonse.bendt Exp $
  */
 public class ServerListenerTest extends ClientServerTestCase
 {
@@ -44,13 +44,13 @@ public class ServerListenerTest extends ClientServerTestCase
     
     public void setUp() throws Exception
     {
-        WIOPFactories.transportInUse = false;
+        WIOPFactories.setTransportInUse(false);
         server = BasicServerHelper.narrow( setup.getServerObject() );
     }
 
     public void tearDown() throws Exception
     {
-        WIOPFactories.transportInUse = false;
+        WIOPFactories.setTransportInUse(false);
     }
 
     public static Test suite()
@@ -83,7 +83,7 @@ public class ServerListenerTest extends ClientServerTestCase
     public void testConnection()
     {
         server.ping();
-        assertFalse (WIOPFactories.transportInUse);
+        assertFalse (WIOPFactories.isTransportInUse());
     }
 
 
