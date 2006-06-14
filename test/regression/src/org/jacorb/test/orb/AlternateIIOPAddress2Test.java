@@ -33,7 +33,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddress2Test.java,v 1.2 2005-12-08 03:56:55 phil.mesnier Exp $
+ * @version $Id: AlternateIIOPAddress2Test.java,v 1.3 2006-06-14 12:43:37 alphonse.bendt Exp $
  */
 public class AlternateIIOPAddress2Test extends ClientServerTestCase
 {
@@ -84,7 +84,7 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         server_props.setProperty ("OAAddress", LISTEN_EP);
 
         ClientServerSetup setup =
-        	new ClientServerSetup (suite,
+            new ClientServerSetup (suite,
                                    "org.jacorb.test.orb.IIOPAddressServerImpl",
                                    client_props,
                                    server_props);
@@ -121,7 +121,7 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         Sample s = server.getObject();
         try
         {
-            int result = s.ping (123);
+            s.ping (123);
             fail ("TRANSIENT or TIMEOUT  exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
@@ -140,7 +140,7 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         Sample s = server.getObject();
         try
         {
-            int result = s.ping (4);
+            s.ping (4);
             fail ("TRANSIENT or TIMEOUT  exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
@@ -181,7 +181,7 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         Sample s = server.getObject();
         try
         {
-            int result = s.ping (33);
+            s.ping (33);
             fail ("TRANSIENT or TIMEOUT  exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
