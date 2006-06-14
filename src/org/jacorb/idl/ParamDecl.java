@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ParamDecl.java,v 1.21 2005-10-03 21:19:25 andre.spiegel Exp $
+ * @version $Id: ParamDecl.java,v 1.22 2006-06-14 12:28:51 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
@@ -129,9 +129,10 @@ public class ParamDecl
     public String printWriteStatement( String name, String ps )
     {
         if( paramAttribute != ParamDecl.MODE_IN )
+        {
             return paramTypeSpec.typeSpec().printWriteStatement( name + ".value", ps );
-        else
-            return paramTypeSpec.typeSpec().printWriteStatement( name, ps );
+        }
+        return paramTypeSpec.typeSpec().printWriteStatement( name, ps );
     }
 
     public String printReadExpression( String ps )
@@ -164,7 +165,6 @@ public class ParamDecl
 
     /**
      * @param ps
-     * @param string
      */
     public void printExtractArgumentStatement(PrintWriter ps)
     {
@@ -174,11 +174,8 @@ public class ParamDecl
         paramTypeSpec.typeSpec().printExtractResult(ps, varname + ".value", anyname, paramTypeSpec.toString());
     }
 
-
     public void accept( IDLTreeVisitor visitor )
     {
         visitor.visitParamDecl( this );
     }
-
-
 }

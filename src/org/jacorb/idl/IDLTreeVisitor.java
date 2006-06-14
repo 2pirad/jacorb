@@ -21,20 +21,16 @@ package org.jacorb.idl;
  */
 
 
-import java.io.PrintWriter;
-import java.util.*;
-
-import org.apache.log.*;
 
 
 /**
  * Generic API used by the IDL compiler to call backend code
  * generators. Extend this interface for your own code
- * generator backends. To plug into the compiler, use the 
+ * generator backends. To plug into the compiler, use the
  * IDL compiler option "-backend <classname>"
  *
  * @author Gerald Brose, XTRADYNE Technologies.
- * @version $Id: IDLTreeVisitor.java,v 1.5 2004-10-18 11:07:31 simon.mcqueen Exp $ 
+ * @version $Id: IDLTreeVisitor.java,v 1.6 2006-06-14 12:27:13 alphonse.bendt Exp $
  */
 
 public interface IDLTreeVisitor
@@ -51,9 +47,8 @@ public interface IDLTreeVisitor
     /**
      * Visit a module
      *
-     * @param spec The module node from the compiler's AST
+     * @param mod The module node from the compiler's AST
      */
-
     void visitModule( Module mod );
 
 

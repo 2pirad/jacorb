@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.26 2005-10-27 21:23:53 alphonse.bendt Exp $
+ * @version $Id: TypeDeclaration.java,v 1.27 2006-06-14 12:32:32 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
@@ -91,10 +91,11 @@ public class TypeDeclaration
     public String getRecursiveTypeCodeExpression()
     {
         if( type_decl == null )
+        {
             return "org.omg.CORBA.ORB.init().create_recursive_tc "
             + "(\"" + id() + "\")";
-        else
-            return type_decl.getRecursiveTypeCodeExpression();
+        }
+        return type_decl.getRecursiveTypeCodeExpression();
     }
 
     /**
@@ -106,9 +107,10 @@ public class TypeDeclaration
     public String getTypeCodeExpression( Set knownTypes )
     {
         if( type_decl instanceof Value )
+        {
             return type_decl.getTypeCodeExpression( knownTypes );
-        else
-            return type_decl.getTypeCodeExpression();
+        }
+        return type_decl.getTypeCodeExpression();
     }
 
     /**
@@ -152,7 +154,7 @@ public class TypeDeclaration
         {
             throw new NoHelperException();
         }
-        
+
         return type_decl.helperName();
     }
 
@@ -211,5 +213,4 @@ public class TypeDeclaration
     {
         type_decl.printExtractResult(ps, resultname, anyname, resulttype);
     }
-
 }

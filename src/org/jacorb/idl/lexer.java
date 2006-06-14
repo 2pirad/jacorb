@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.48 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: lexer.java,v 1.49 2006-06-14 12:22:29 alphonse.bendt Exp $
  * @author Gerald Brose
  *
  */
@@ -424,9 +424,7 @@ public class lexer
      *  current line number and the position in the line.  Error messages
      *  are printed on standard error (System.err).
      * @param message the message to print.
-     * @param p_info an optional PositionInfo object
      */
-
     public static void emit_error( String message )
     {
         if (parser.getLogger().isErrorEnabled())
