@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.39 2005-10-03 21:21:03 andre.spiegel Exp $
+ * @version $Id: OpDecl.java,v 1.40 2006-06-14 12:28:34 alphonse.bendt Exp $
  */
 
 public class OpDecl
@@ -301,13 +301,15 @@ public class OpDecl
                 ps.print( "\t\t\t\t" );
                 for( int i = 0; i < exceptIds.length; i++ )
                 {
+                    if (i > 0)
+                    {
+                        ps.print( "\t\t\t\telse " );
+                    }
                     ps.println( "if( _id.equals(\"" + exceptIds[ i ] + "\"))" );
                     ps.println( "\t\t\t\t{" );
                     ps.println( "\t\t\t\t\tthrow " + classNames[ i ] + "Helper.read(_ax.getInputStream());" );
                     ps.println( "\t\t\t\t}" );
-                    ps.print( "\t\t\t\telse " );
                 }
-                ps.print( "\n\t" );
             }
             ps.println( "\t\t\t\tthrow new RuntimeException(\"Unexpected exception \" + _id );" );
             ps.println( "\t\t\t}" );
@@ -341,7 +343,7 @@ public class OpDecl
         if( opAttribute == 0 &&
             !( opTypeSpec.typeSpec() instanceof VoidTypeSpec ) )
         {
-            ps.print( "\t\t\t" + opTypeSpec.toString() + " _result;" );
+            ps.println( "\t\t\t" + opTypeSpec.toString() + " _result;" );
         }
 
         ps.println( "\t\t\ttry" );
@@ -350,10 +352,12 @@ public class OpDecl
         if( opAttribute == 0 &&
             !( opTypeSpec.typeSpec() instanceof VoidTypeSpec ) )
         {
-            ps.print( "\t\t\t_result = " );
+            ps.print( "\t\t\t\t_result = " );
         }
         else
-            ps.print( "\t\t\t" );
+        {
+            ps.print( "\t\t\t\t" );
+        }
 
         ps.print( "_localServant." + name + "(" );
 
@@ -497,7 +501,7 @@ public class OpDecl
             if( p.paramAttribute != ParamDecl.MODE_IN )
             {
                 p.printExtractArgumentStatement(ps);
-            } 
+            }
         }
 
         //get the result
