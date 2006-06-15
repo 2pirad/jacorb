@@ -45,7 +45,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.97 2006-05-31 13:08:14 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.98 2006-06-15 15:53:35 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -353,7 +353,6 @@ public class CDRInputStream
     }
 
     public void close()
-        throws IOException
     {
         // Don't need to call super.close as super is noop.
         if( closed )

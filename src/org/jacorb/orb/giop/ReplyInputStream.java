@@ -21,17 +21,20 @@ package org.jacorb.orb.giop;
  */
 
 import org.jacorb.orb.SystemExceptionHelper;
-import org.jacorb.util.*;
-
-import org.omg.GIOP.*;
-import org.omg.IOP.*;
 import org.omg.CORBA.MARSHAL;
 import org.omg.CORBA.portable.ApplicationException;
+import org.omg.GIOP.MsgType_1_1;
+import org.omg.GIOP.ReplyHeader_1_0;
+import org.omg.GIOP.ReplyHeader_1_0Helper;
+import org.omg.GIOP.ReplyHeader_1_2;
+import org.omg.GIOP.ReplyHeader_1_2Helper;
+import org.omg.GIOP.ReplyStatusType_1_2;
+import org.omg.IOP.ServiceContext;
 import org.omg.PortableServer.ForwardRequest;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyInputStream.java,v 1.22 2004-11-18 23:27:20 andre.spiegel Exp $
+ * @version $Id: ReplyInputStream.java,v 1.23 2006-06-15 15:56:27 alphonse.bendt Exp $
  *
  */
 
@@ -172,10 +175,6 @@ public class ReplyInputStream
         try
         {
             close();
-        }
-        catch( java.io.IOException iox )
-        {
-            //ignore
         }
         finally
         {

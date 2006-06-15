@@ -20,15 +20,25 @@ package org.jacorb.orb.giop;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.orb.*;
 import org.omg.CORBA.MARSHAL;
-import org.omg.GIOP.*;
+import org.omg.GIOP.LocateRequestHeader_1_0;
+import org.omg.GIOP.LocateRequestHeader_1_0Helper;
+import org.omg.GIOP.LocateRequestHeader_1_2;
+import org.omg.GIOP.LocateRequestHeader_1_2Helper;
+import org.omg.GIOP.MsgType_1_1;
+import org.omg.GIOP.RequestHeader_1_0;
+import org.omg.GIOP.RequestHeader_1_0Helper;
+import org.omg.GIOP.RequestHeader_1_1;
+import org.omg.GIOP.RequestHeader_1_1Helper;
+import org.omg.GIOP.RequestHeader_1_2;
+import org.omg.GIOP.RequestHeader_1_2Helper;
+import org.omg.GIOP.TargetAddress;
 import org.omg.IOP.ServiceContext;
 
 /**
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.18 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: RequestInputStream.java,v 1.19 2006-06-15 15:56:27 alphonse.bendt Exp $
  *
  */
 
@@ -177,10 +187,6 @@ public class RequestInputStream
         try
         {
             close();
-        }
-        catch( java.io.IOException iox )
-        {
-            //ignore
         }
         finally
         {
