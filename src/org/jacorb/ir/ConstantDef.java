@@ -32,16 +32,13 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  * JacORB implementation of IR ConstantDef objects
  * @author  Gerald Brose
- * @version $Id: ConstantDef.java,v 1.14 2006-05-17 11:13:11 alphonse.bendt Exp $
+ * @version $Id: ConstantDef.java,v 1.15 2006-06-15 16:43:14 alphonse.bendt Exp $
  */
 
 public class ConstantDef
     extends Contained
     implements org.omg.CORBA.ConstantDefOperations
 {
-    protected static char 	    fileSeparator =
-        System.getProperty("file.separator").charAt(0);
-
     private Field                       field;
     private org.omg.CORBA.TypeCode      typeCode;
     private org.omg.CORBA.IDLType       type_def;
