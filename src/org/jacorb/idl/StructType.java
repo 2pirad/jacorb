@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.48 2006-06-15 09:51:35 alphonse.bendt Exp $
+ * @version $Id: StructType.java,v 1.49 2006-06-15 11:20:12 alphonse.bendt Exp $
  */
 
 public class StructType
@@ -515,6 +515,7 @@ public class StructType
             {
                 printToString(fullClassName, ps);
                 printEquals(fullClassName, ps);
+                printHashCode(fullClassName, ps);
             }
 
             // print a constructor for class member initialization
@@ -580,6 +581,15 @@ public class StructType
         }
         ps.println("}");
     }
+
+    /**
+     * TODO need to implement this method
+     * as equals is overridden.
+     */
+    private void printHashCode(String fullClassName, PrintWriter ps)
+    {
+    }
+
 
     /**
      * Generates code from this AST class
