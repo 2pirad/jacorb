@@ -26,12 +26,13 @@ import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.TaggedComponentList;
 
+import org.omg.CORBA.MARSHAL;
 import org.omg.ETF.*;
 import org.omg.IOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.3 2006-06-14 12:01:38 alphonse.bendt Exp $
+ * @version $Id: ProfileBase.java,v 1.4 2006-06-15 15:56:07 alphonse.bendt Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase
@@ -255,6 +256,11 @@ public abstract class ProfileBase
         readAddressProfile(in);
 
         int length = in.read_ulong();
+
+        if (in.available() < length)
+        {
+            throw new MARSHAL("Unable to extract object key. Only " + in.available() + " available and trying to assign " + length);
+        }
 
         objectKey = new byte[length];
         in.read_octet_array(objectKey, 0, length);
