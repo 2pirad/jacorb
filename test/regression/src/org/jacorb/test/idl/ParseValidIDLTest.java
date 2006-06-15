@@ -22,7 +22,6 @@
 package org.jacorb.test.idl;
 
 import java.io.File;
-import java.lang.reflect.Method;
 
 import junit.framework.Test;
 
@@ -41,7 +40,7 @@ import org.jacorb.test.common.TestUtils;
  * load and inspect the compiled classes.
  *
  * @author Alphonse Bendt
- * @version $Id: ParseValidIDLTest.java,v 1.6 2006-06-14 12:13:41 alphonse.bendt Exp $
+ * @version $Id: ParseValidIDLTest.java,v 1.7 2006-06-15 09:52:32 alphonse.bendt Exp $
  */
 public class ParseValidIDLTest extends AbstractIDLTestcase
 {
@@ -59,17 +58,7 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
         runJacIDL(false);
         ClassLoader cl = compileGeneratedSources(false);
 
-        try
-        {
-            // test if a verify_ method is available and invoke it
-            String file = idlFile.getName().replaceAll("\\.", "_");
-            Method method = getClass().getMethod("verify_" + file, new Class[] {ClassLoader.class});
-            method.invoke(this, new Object[] {cl});
-        }
-        catch (NoSuchMethodException e)
-        {
-            // ignored
-        }
+        invokeVerifyMethod(cl);
 
         // if a test fails the directory
         // will not be deleted. this way
@@ -77,6 +66,7 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
         deleteRecursively(dirCompilation);
         deleteRecursively(dirGeneration);
     }
+
 
     /**
      * related to RT#1445. forward declarations in idl led
