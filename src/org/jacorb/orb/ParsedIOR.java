@@ -43,7 +43,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ParsedIOR.java,v 1.68 2006-06-14 12:40:37 alphonse.bendt Exp $
+ * @version $Id: ParsedIOR.java,v 1.69 2006-06-15 13:51:46 alphonse.bendt Exp $
  */
 
 public class ParsedIOR
@@ -202,10 +202,28 @@ public class ParsedIOR
         this.logger = logger;
     }
 
+    /**
+     * <code>equals</code> contract is that they have the same IOR string and the
+     * same effective profile. i.e. if one profile is SSL enabled then this will
+     * return false.
+     *
+     * @param o an <code>Object</code> value
+     * @return a <code>boolean</code> value
+     */
     public boolean equals( Object o )
     {
-        return o instanceof ParsedIOR &&
-            ((ParsedIOR) o).ior_str.equals( ior_str );
+        if (o == null)
+        {
+            return false;
+        }
+
+        return
+        (
+            (o instanceof ParsedIOR)                                &&
+            ((ParsedIOR)o).getIORString().equals(getIORString())    &&
+            effectiveProfile != null                                &&
+            effectiveProfile.is_match (((ParsedIOR)o).effectiveProfile)
+        );
     }
 
     /**
