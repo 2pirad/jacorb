@@ -29,7 +29,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Nick Cross
- * @version $Id: SSLRandom.java,v 1.1 2006-06-14 12:49:22 alphonse.bendt Exp $
+ * @version $Id: SSLRandom.java,v 1.2 2006-06-15 15:57:44 alphonse.bendt Exp $
  */
 public class SSLRandom implements Configurable
 {
@@ -72,6 +72,11 @@ public class SSLRandom implements Configurable
         {
             // Retrieve the class name from the configuration.
             randomImpl = (JSRandom) config.getAttributeAsObject("jacorb.security.randomClassPlugin");
+
+            if (logger.isDebugEnabled())
+            {
+                logger.debug("Using JSRandom " + config.getAttribute("jacorb.security.randomClassPlugin") + " implemented by " + randomImpl);
+            }
         }
         catch (ConfigurationException e)
         {
