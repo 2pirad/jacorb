@@ -24,6 +24,7 @@ import junit.framework.*;
 
 import org.jacorb.test.bugs.bugjac10.TypeCodeTestCase;
 import org.jacorb.test.bugs.bugjac149.ObjectReplacementTest;
+import org.jacorb.test.bugs.bugjac182.BugJac182Test;
 import org.jacorb.test.bugs.bugjac303.BugJac303Test;
 import org.jacorb.test.bugs.bugjac45.BugJac45Test;
 import org.jacorb.test.bugs.bugjac69.InvalidIORTest;
@@ -34,7 +35,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.15 2006-06-15 12:02:06 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.16 2006-06-15 15:58:34 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -63,6 +64,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTestSuite(BugJac45Test.class);
       suite.addTestSuite(BugJac303Test.class);
       suite.addTest(ObjectReplacementTest.suite());
+      suite.addTest(BugJac182Test.suite());
 
       return suite;
    }
