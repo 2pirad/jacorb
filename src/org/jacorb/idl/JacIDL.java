@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.26 2006-05-19 13:03:48 alphonse.bendt Exp $
+ * @version $Id: JacIDL.java,v 1.27 2006-06-15 09:51:35 alphonse.bendt Exp $
  */
 
 public class JacIDL
@@ -60,6 +60,7 @@ public class JacIDL
     private boolean _ami_callback;
     private boolean _force_overwrite;
     private boolean _unchecked_narrow;
+    private boolean _generateEnhanced;
     private boolean _generatediistubs;
 
     private List _defines = new ArrayList();
@@ -243,6 +244,14 @@ public class JacIDL
         _unchecked_narrow = flag;
     }
 
+    /**
+     * Sets the flag to generated enhanced stubs
+     */
+    public void setGenerateEnhanced (boolean flag)
+    {
+        _generateEnhanced = flag;
+    }
+
     public void setGenerateDIIStubs(boolean flag)
     {
         _generatediistubs = flag;
@@ -342,6 +351,8 @@ public class JacIDL
         parser.forceOverwrite = _force_overwrite;
 
         parser.useUncheckedNarrow = _unchecked_narrow;
+
+        parser.generateEnhanced = _generateEnhanced;
 
         parser.generateDiiStubs = _generatediistubs;
 
