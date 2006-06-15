@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.40 2006-06-14 12:01:17 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.41 2006-06-15 15:55:46 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -417,10 +417,12 @@ public class ServerRequest
         stream_based = true;
 
         if( out != null )
+        {
             // The reply was already created.  This happens in oneway
             // operations using SyncScope SYNC_WITH_SERVER, and does
             // not do any harm.
             return out;
+        }
 
         out =
             new ReplyOutputStream(orb,
