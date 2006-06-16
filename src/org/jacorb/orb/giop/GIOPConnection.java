@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.53 2006-06-14 12:03:49 alphonse.bendt Exp $
+ * @version $Id: GIOPConnection.java,v 1.54 2006-06-16 22:17:05 alphonse.bendt Exp $
  */
 
 public abstract class GIOPConnection
@@ -76,7 +76,7 @@ public abstract class GIOPConnection
     private boolean tcs_negotiated = false;
 
     //map request id (Integer) to ByteArrayInputStream
-    private Hashtable fragments = null;
+    private final Map fragments = new HashMap();
     private BufferManager buf_mg = null;
 
     private boolean dump_incoming = false;
@@ -128,7 +128,6 @@ public abstract class GIOPConnection
         this.reply_listener = reply_listener;
         this.statistics_provider = statistics_provider;
 
-        fragments = new Hashtable();
         buf_mg = BufferManager.getInstance();
         //sasContexts = new Hashtable();
 
@@ -144,7 +143,6 @@ public abstract class GIOPConnection
             configuration.getAttribute("jacorb.debug.dump_incoming_messages","off").equals("on");
         timeout =
             configuration.getAttributeAsInteger("jacorb.connection.client.connect_timeout", 0);
-
     }
 
 
