@@ -52,7 +52,7 @@ import org.omg.PortableServer.POA;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose
- * @version $Id: BasicAdapter.java,v 1.52 2006-06-14 12:40:37 alphonse.bendt Exp $
+ * @version $Id: BasicAdapter.java,v 1.53 2006-06-16 08:03:40 nick.cross Exp $
  */
 
 public class BasicAdapter
@@ -403,6 +403,7 @@ public class BasicAdapter
         {
             ((Listener)i.next()).destroy();
         }
+        receptor_pool.shutdown();
     }
 
     /**

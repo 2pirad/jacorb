@@ -27,7 +27,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:44:26 2000
  *
  * @author Nicolas Noffke
- * $Id: ConsumerTie.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
+ * $Id: ConsumerTie.java,v 1.10 2006-06-16 08:02:21 nick.cross Exp $
  */
 
 public  class ConsumerTie
@@ -43,35 +43,33 @@ public  class ConsumerTie
         this.pool = pool;
         this.delegate = delegate;
     }
-	
+
     public void run()
     {
-        try
+        while( run )
         {
-            while( run )
+            try
             {
                 Object job = pool.getJob();
-      
+
                 if( job == null )
                 {
                     /*
                      * job == null is sent by the pool, if there are
                      * too much idle threads. Therefore we exit.
                      */
-                    return;
+                    break;
                 }
                 else
                 {
                     delegate.doWork( job );
                 }
             }
+            catch( Exception e )
+            {
+                pool.getLogger().debug("ConsumerTie caught", e);
+            }
         }
-        catch( Exception e )
-        {
-            return;
-        }
+        pool.getLogger().info ("ConsumerTie exited");
     }
 } // ConsumerTie
-
-
-

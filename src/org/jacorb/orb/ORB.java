@@ -58,7 +58,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.147 2006-06-14 12:40:37 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.148 2006-06-16 08:03:40 nick.cross Exp $
  */
 
 public final class ORB
@@ -1784,7 +1784,10 @@ public final class ORB
         }
 
         if( rootpoa != null )
+        {
             rootpoa.destroy(true, wait_for_completion);
+            rootpoa = null;
+        }
 
         if( basicAdapter != null )
         {

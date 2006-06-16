@@ -35,7 +35,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.27 2006-05-29 11:08:26 alphonse.bendt Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.28 2006-06-16 08:02:21 nick.cross Exp $
  */
 
 public class ClientConnectionManager
@@ -205,5 +205,6 @@ public class ClientConnectionManager
         }
 
         connections.clear();
+        receptor_pool.shutdown();
     }
 }

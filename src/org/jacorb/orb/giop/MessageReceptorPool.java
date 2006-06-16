@@ -29,7 +29,7 @@ import org.jacorb.util.threadpool.*;
  * MessageReceptorPool.java
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.12 2006-05-29 10:25:17 alphonse.bendt Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.13 2006-06-16 08:02:21 nick.cross Exp $
  */
 
 public class MessageReceptorPool
@@ -69,7 +69,7 @@ public class MessageReceptorPool
         }
 
         pool =
-            new ThreadPool( threadNamePrefix,
+            new ThreadPool( configuration, threadNamePrefix,
                                new ConsumerFactory(){
                                     public Consumer create()
                                     {
@@ -83,5 +83,15 @@ public class MessageReceptorPool
     public void connectionCreated( GIOPConnection conn )
     {
         pool.putJob( conn );
+    }
+
+
+    /**
+     * <code>shutdown</code> allows the ReceptorPool to be shutdown
+     * so that new ORB.init's will use fresh pools
+     */
+    public void shutdown()
+    {
+        pool.shutdown();
     }
 }// MessageReceptorPool

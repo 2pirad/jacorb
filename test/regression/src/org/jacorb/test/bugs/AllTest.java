@@ -35,7 +35,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.16 2006-06-15 15:58:34 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.17 2006-06-16 08:03:40 nick.cross Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -56,6 +56,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(org.jacorb.test.bugs.bug384.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug387.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug401.TestCase.suite());
+      suite.addTestSuite(org.jacorb.test.bugs.bug459.TestCase.class);
       suite.addTest(org.jacorb.test.bugs.bug532.TestCase.suite());
       suite.addTest(org.jacorb.test.bugs.bug619.TestCase.suite());
       suite.addTest(TypeCodeTestCase.suite());
@@ -69,4 +70,3 @@ public class AllTest extends JacORBTestSuite
       return suite;
    }
 }
-
