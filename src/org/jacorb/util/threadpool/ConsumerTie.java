@@ -27,7 +27,7 @@ package org.jacorb.util.threadpool;
  * Created: Fri Jun  9 15:44:26 2000
  *
  * @author Nicolas Noffke
- * $Id: ConsumerTie.java,v 1.10 2006-06-16 08:02:21 nick.cross Exp $
+ * $Id: ConsumerTie.java,v 1.11 2006-06-16 22:17:37 alphonse.bendt Exp $
  */
 
 public  class ConsumerTie
@@ -60,10 +60,8 @@ public  class ConsumerTie
                      */
                     break;
                 }
-                else
-                {
-                    delegate.doWork( job );
-                }
+                
+                delegate.doWork( job );
             }
             catch( Exception e )
             {

@@ -29,16 +29,12 @@ import org.jacorb.util.threadpool.Consumer;
  * Created: Sat Aug 18 10:52:45 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.10 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: MessageReceptor.java,v 1.11 2006-06-16 22:17:23 alphonse.bendt Exp $
  */
 
 public class MessageReceptor 
     implements Consumer  
 {
-    public MessageReceptor()
-    {        
-    }
-    
     // implementation of org.jacorb.util.threadpool.Consumer interface
     
     /**
