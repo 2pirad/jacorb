@@ -28,11 +28,8 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  * ThreadPool.java
  *
- *
- * Created: Fri Jun  9 15:09:01 2000
- *
  * @author Nicolas Noffke
- * @version $Id: ThreadPool.java,v 1.17 2006-06-16 08:02:21 nick.cross Exp $
+ * @version $Id: ThreadPool.java,v 1.18 2006-06-16 22:41:29 alphonse.bendt Exp $
  */
 public class ThreadPool
 {
@@ -122,6 +119,7 @@ public class ThreadPool
             }
             catch( InterruptedException e )
             {
+                // ignored
             }
         }
         //pool is to be shut down completely
@@ -139,7 +137,7 @@ public class ThreadPool
         }
         return job_queue.removeFirst();
     }
-
+    
     public synchronized void putJob( Object job )
     {
         job_queue.add(job);
