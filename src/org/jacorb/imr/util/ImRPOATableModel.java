@@ -25,13 +25,16 @@ import org.jacorb.imr.*;
 import javax.swing.event.*;
 /**
  * This is the model for the POA table. It does
- * not write back data since the entries in the POA 
+ * not write back data since the entries in the POA
  * table are not editable.
  *
  * @author Nicolas Noffke
- * 
+ *
  * $Log: ImRPOATableModel.java,v $
- * Revision 1.7  2004-05-06 12:39:59  nicolas
+ * Revision 1.8  2006-06-16 12:36:28  alphonse.bendt
+ * fixed some findbugs warnings
+ *
+ * Revision 1.7  2004/05/06 12:39:59  nicolas
  * Updated Copyright notice to 2004
  *
  * Revision 1.6  2002/12/20 18:29:04  nicolas
@@ -73,10 +76,10 @@ public class ImRPOATableModel extends AbstractTableModel {
      * @param poas an array containing the POAs to display.
      */
     public void setPOAs(POAInfo[] poas){
-	if (m_poas != poas){
-	    m_poas = poas;
-	    fireTableChanged(new TableModelEvent(this));
-	}
+    if (m_poas != poas){
+        m_poas = poas;
+        fireTableChanged(new TableModelEvent(this));
+    }
     }
 
     /**
@@ -85,10 +88,10 @@ public class ImRPOATableModel extends AbstractTableModel {
      * @return int the number of rows of this table.
      */
     public int getRowCount(){
-	if (m_poas == null)
-	    return 0;
-	else
-	    return m_poas.length;
+    if (m_poas == null)
+        return 0;
+    else
+        return m_poas.length;
     }
 
     /**
@@ -97,7 +100,7 @@ public class ImRPOATableModel extends AbstractTableModel {
      * @return int the number of columns of this table.
      */
     public int getColumnCount(){
-	return m_columns.length;
+    return m_columns.length;
     }
 
     /**
@@ -107,7 +110,7 @@ public class ImRPOATableModel extends AbstractTableModel {
      * @return the columns name.
      */
     public String getColumnName(int column){
-	return m_columns[column];
+    return m_columns[column];
     }
 
     /**
@@ -117,17 +120,17 @@ public class ImRPOATableModel extends AbstractTableModel {
      * @return the Class object for the column.
      */
     public Class getColumnClass(int index){
-	if (index == 0 || index == 1)
-	    return String.class;
+    if (index == 0 || index == 1)
+        return String.class;
 
-	else if (index == 2)
-	    return  Integer.class;
+    else if (index == 2)
+        return  Integer.class;
 
-	else if (index == 3)
-	    return Boolean.class;
+    else if (index == 3)
+        return Boolean.class;
 
-	else    
-	    return Object.class;
+    else
+        return Object.class;
     }
 
     /**
@@ -138,19 +141,19 @@ public class ImRPOATableModel extends AbstractTableModel {
      * @return Object the cells value.
      */
     public Object getValueAt(int row, int column){
-	if (column == 0)
-	    return m_poas[row].name;
+    if (column == 0)
+        return m_poas[row].name;
 
-	else if (column == 1)
-	    return m_poas[row].host;
+    else if (column == 1)
+        return m_poas[row].host;
 
-	else if (column == 2)
-	    return new Integer(m_poas[row].port);
+    else if (column == 2)
+        return new Integer(m_poas[row].port);
 
-	else if (column == 3)
-	    return new Boolean(m_poas[row].active);
+    else if (column == 3)
+        return Boolean.valueOf(m_poas[row].active);
 
-	return new Object();
+    return new Object();
     }
 
     /**
@@ -159,11 +162,11 @@ public class ImRPOATableModel extends AbstractTableModel {
      * @return a server name.
      */
     public String getServerName(){
-	if (m_poas == null || m_poas.length == 0)
-	    return null;
-	else
-	    //all POAs in one array have the same server
-	    return m_poas[0].server;
+    if (m_poas == null || m_poas.length == 0)
+        return null;
+    else
+        //all POAs in one array have the same server
+        return m_poas[0].server;
     }
 } // ImRPOATableModel
 

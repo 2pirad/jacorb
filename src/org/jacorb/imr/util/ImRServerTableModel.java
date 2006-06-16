@@ -30,7 +30,7 @@ import javax.swing.event.*;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImRServerTableModel.java,v 1.8 2006-06-14 11:54:40 alphonse.bendt Exp $
+ * $Id: ImRServerTableModel.java,v 1.9 2006-06-16 12:36:28 alphonse.bendt Exp $
  */
 
 public class ImRServerTableModel extends AbstractTableModel {
@@ -132,10 +132,10 @@ public class ImRServerTableModel extends AbstractTableModel {
         return m_servers[row].command;
 
     else if (column == 3)
-        return new Boolean(m_servers[row].active);
+        return Boolean.valueOf(m_servers[row].active);
 
     else if (column == 4)
-        return new Boolean(m_servers[row].holding);
+        return Boolean.valueOf(m_servers[row].holding);
 
     return new Object();
     }
