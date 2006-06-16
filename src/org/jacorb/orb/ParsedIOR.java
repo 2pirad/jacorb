@@ -43,7 +43,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose
- * @version $Id: ParsedIOR.java,v 1.70 2006-06-15 15:55:24 alphonse.bendt Exp $
+ * @version $Id: ParsedIOR.java,v 1.71 2006-06-16 12:36:58 alphonse.bendt Exp $
  */
 
 public class ParsedIOR
@@ -724,7 +724,7 @@ public class ParsedIOR
     {
         public static String read (org.omg.CORBA.portable.InputStream in)
         {
-            return new String (in.read_string());
+            return in.read_string();
         }
     }
 

@@ -44,7 +44,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.60 2006-05-24 09:22:51 alphonse.bendt Exp $
+ * @version $Id: POA.java,v 1.61 2006-06-16 12:37:18 alphonse.bendt Exp $
  */
 
 public class POA
@@ -230,7 +230,7 @@ public class POA
 
         watermark = generateWatermark();
 
-        aom = isRetain() ? new AOM( isUniqueId(), isSingleThreadModel(), logger) : null;
+        aom = isRetain() ? new AOM( isUniqueId(), logger) : null;
 
         // GB: modified
         requestController = new RequestController(this, orb, aom, orb.newRPPoolManager(isSingleThreadModel()));

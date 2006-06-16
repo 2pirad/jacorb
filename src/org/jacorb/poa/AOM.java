@@ -42,7 +42,7 @@ import org.apache.avalon.framework.logger.Logger;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.30 2006-05-23 12:50:04 nick.cross Exp $
+ * @version $Id: AOM.java,v 1.31 2006-06-16 12:37:18 alphonse.bendt Exp $
  */
 
 public class AOM
@@ -50,7 +50,6 @@ public class AOM
     private AOMListener         aomListener;
 
     private boolean             unique;
-    private boolean             singleThreaded;
     private Logger            logger;
 
     // an ObjectID can appear only once, but an servant can have multiple ObjectId's
@@ -70,17 +69,11 @@ public class AOM
         in remove() */
     private Object              deactivationListLock = new Object();
 
-    private AOM()
-    {
-    }
-
     protected AOM( boolean _unique,
-                   boolean single_threaded,
                    Logger _logger
                  )
     {
         unique = _unique;
-        singleThreaded = single_threaded;
         logger = _logger;
 
         if (unique)
@@ -119,7 +112,7 @@ public class AOM
                (
                    servantMap != null &&
                    servantMap.get( servant ) != null &&
-                   deactivationList.contains((ByteArrayKey)servantMap.get( servant ))
+                   deactivationList.contains(servantMap.get( servant ))
                ))
         {
             try
