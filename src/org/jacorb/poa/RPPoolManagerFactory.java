@@ -12,7 +12,7 @@ import org.jacorb.orb.ORB;
  * or return a shared instance.
  *
  * @author Alphonse Bendt
- * @version $Id: RPPoolManagerFactory.java,v 1.3 2006-05-24 09:25:00 alphonse.bendt Exp $
+ * @version $Id: RPPoolManagerFactory.java,v 1.4 2006-06-19 10:29:53 alphonse.bendt Exp $
  */
 public class RPPoolManagerFactory
 {
@@ -45,14 +45,14 @@ public class RPPoolManagerFactory
             throw new ConfigurationException("jacorb.poa.thread_pool_max must be >= " + threadPoolMin + "(jacorb.poa.thread_pool_min)" );
         }
 
-        boolean isPoolShared = configuration.getAttributeAsBoolean("jacorb.poa.thread_pool_shared", false);
+        boolean poolsShouldBeShared = configuration.getAttributeAsBoolean("jacorb.poa.thread_pool_shared", false);
 
         if (logger.isDebugEnabled())
         {
-            logger.debug("RequestProcessorPoolFactory settings: thread_pool_min=" + threadPoolMin + " thread_pool_max=" + threadPoolMax + " thread_pool_shared=" + isPoolShared);
+            logger.debug("RequestProcessorPoolFactory settings: thread_pool_min=" + threadPoolMin + " thread_pool_max=" + threadPoolMax + " thread_pool_shared=" + poolsShouldBeShared);
         }
 
-        if (isPoolShared)
+        if (poolsShouldBeShared)
         {
             delegate = new SharedPoolFactory();
         }
