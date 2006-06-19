@@ -34,7 +34,7 @@ import org.omg.CORBA.ValueMember;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.42 2006-05-16 14:19:40 alphonse.bendt Exp $
+ * @version $Id: TypeCode.java,v 1.43 2006-06-19 10:30:17 alphonse.bendt Exp $
  */
 
 public class TypeCode
@@ -784,7 +784,9 @@ public class TypeCode
         throws org.omg.CORBA.TypeCodePackage.BadKind
     {
         if( kind != TCKind._tk_fixed )
+        {
             throw new org.omg.CORBA.TypeCodePackage.BadKind();
+        }
         return digits;
     }
 
@@ -792,7 +794,9 @@ public class TypeCode
         throws org.omg.CORBA.TypeCodePackage.BadKind
     {
         if( kind != TCKind._tk_fixed )
+        {
             throw new org.omg.CORBA.TypeCodePackage.BadKind();
+        }
         return scale;
     }
 
