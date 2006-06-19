@@ -20,15 +20,14 @@
 
 package org.jacorb.idl;
 
-
 /**
  * constant type
  *
  * @author Gerald Brose
- * @version $Id: ConstType.java,v 1.12 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ConstType.java,v 1.13 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class ConstType
+public class ConstType
         extends IdlSymbol
 {
     TypeSpec symbol;
@@ -65,6 +64,3 @@ class ConstType
         return symbol.toString();
     }
 }
-
-
-

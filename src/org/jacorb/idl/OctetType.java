@@ -24,14 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: OctetType.java,v 1.13 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: OctetType.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
-
 
 class OctetType
         extends BaseType
 {
-
     public OctetType( int num )
     {
         super( num );
@@ -91,12 +89,10 @@ class OctetType
     {
     }
 
-
     public String holderName()
     {
         return "org.omg.CORBA.ByteHolder";
     }
-
 
     public String printReadExpression( String strname )
     {
@@ -134,12 +130,4 @@ class OctetType
     {
         ps.println("\t\t" + resultname + " = " + anyname + "." + printExtractExpression() + "();");
     }
-
 }
-
-
-
-
-
-
-

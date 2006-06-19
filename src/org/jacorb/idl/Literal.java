@@ -27,10 +27,10 @@ import java.math.BigInteger;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.24 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: Literal.java,v 1.25 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class Literal
+public class Literal
     extends IdlSymbol
 {
     private static BigInteger maximum;

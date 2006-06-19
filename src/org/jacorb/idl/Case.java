@@ -24,13 +24,12 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.16 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: Case.java,v 1.17 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class Case
+public class Case
     extends IdlSymbol
 {
-
     /** the labels for this case */
     public SymbolList case_label_list = null;
 
@@ -189,7 +188,7 @@ class Case
                     {
                         try
                         {
-                            int testme = Integer.parseInt( literal.string );
+                            Integer.parseInt( literal.string );
                         }
                         catch( NumberFormatException ne )
                         {
@@ -254,6 +253,4 @@ class Case
     {
         element_spec.print( ps );
     }
-
-
 }

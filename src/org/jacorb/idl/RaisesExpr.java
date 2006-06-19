@@ -25,13 +25,12 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.15 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: RaisesExpr.java,v 1.16 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class RaisesExpr
+public class RaisesExpr
         extends IdlSymbol
 {
-
     public Vector nameList;
 
     public RaisesExpr( int num )
@@ -116,7 +115,7 @@ class RaisesExpr
         nameList = new Vector();
         for( Enumeration e = h.keys(); e.hasMoreElements(); )
         {
-            nameList.addElement( h.get( (String)e.nextElement() ) );
+            nameList.addElement( h.get( e.nextElement() ) );
         }
         h.clear();
         String[] classes = getExceptionClassNames();
@@ -129,17 +128,16 @@ class RaisesExpr
         }
     }
 
-
     public void print( PrintWriter ps )
     {
         Enumeration e = nameList.elements();
         if( e.hasMoreElements() )
         {
-            ps.print( " throws " + ( (ScopedName)e.nextElement() ) );
+            ps.print( " throws " + e.nextElement() );
         }
         for( ; e.hasMoreElements(); )
         {
-            ps.print( "," + ( (ScopedName)e.nextElement() ) );
+            ps.print( "," + e.nextElement() );
         }
     }
 }

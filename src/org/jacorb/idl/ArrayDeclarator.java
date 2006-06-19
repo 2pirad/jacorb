@@ -22,13 +22,13 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ArrayDeclarator.java,v 1.18 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ArrayDeclarator.java,v 1.19 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
 import java.util.*;
 
-class ArrayDeclarator
+public class ArrayDeclarator
     extends Declarator
 {
     public SymbolList fixed_array_size_list;
@@ -79,11 +79,16 @@ class ArrayDeclarator
     String full_name()
     {
         if( name.length() == 0 )
+        {
             return null;
+        }
+
         if( pack_name.length() > 0 )
+        {
             return pack_name + "." + name;
-        else
-            return name;
+        }
+
+        return name;
     }
 
     public void parse()
@@ -103,7 +108,9 @@ class ArrayDeclarator
     public void setEnclosingSymbol( IdlSymbol s )
     {
         if( enclosing_symbol != null && enclosing_symbol != s )
+        {
             throw new RuntimeException( "Compiler Error: trying to reassign container for " + name );
+        }
         enclosing_symbol = s;
     }
 
@@ -135,5 +142,4 @@ class ArrayDeclarator
     public void print( PrintWriter ps )
     {
     }
-
 }

@@ -24,13 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: XorExpr.java,v 1.13 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: XorExpr.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class XorExpr
+public class XorExpr
         extends IdlSymbol
 {
-
     public XorExpr xor_expr = null;
     public AndExpr and_expr;
 
@@ -107,13 +106,3 @@ class XorExpr
         return and_expr.get_token();
     }
 }
-
-
-
-
-
-
-
-
-
-

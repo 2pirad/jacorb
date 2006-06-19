@@ -24,15 +24,13 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: BooleanType.java,v 1.12 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: BooleanType.java,v 1.13 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-
-class BooleanType
+public class BooleanType
         extends BaseType
         implements SwitchTypeSpec
 {
-
     public BooleanType( int num )
     {
         super( num );
@@ -58,14 +56,12 @@ class BooleanType
         return 8;
     }
 
-
     public String toString()
     {
         return typeName();
     }
 
     public void parse()
-
     {
     }
 
@@ -78,7 +74,6 @@ class BooleanType
     {
         return strname + ".read_boolean()";
     }
-
 
     public String printWriteStatement( String var_name, String strname )
     {
@@ -108,9 +103,7 @@ class BooleanType
                     + printInsertExpression() + "(" + varname + ");");
 
     }
-   
 
-   
     public void printExtractResult(PrintWriter ps,
                                    String resultname,
                                    String anyname,
@@ -118,9 +111,4 @@ class BooleanType
     {
         ps.println("\t\t" + resultname + " = " + anyname + "." + printExtractExpression() + "();");
     }
-
-
 }
-
-
-

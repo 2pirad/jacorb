@@ -22,11 +22,10 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TemplateTypeSpec.java,v 1.13 2006-05-19 13:49:37 alphonse.bendt Exp $
+ * @version $Id: TemplateTypeSpec.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-
-class TemplateTypeSpec
+public class TemplateTypeSpec
     extends SimpleTypeSpec
 {
     protected boolean typedefd = false;
@@ -53,7 +52,6 @@ class TemplateTypeSpec
     {
         typedefd = true;
     }
-
 
     public boolean basic()
     {

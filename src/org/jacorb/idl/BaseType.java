@@ -24,13 +24,12 @@ package org.jacorb.idl;
  * Represents IDL base types
  *
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.19 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: BaseType.java,v 1.20 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
-
 
 import java.io.PrintWriter;
 
-class BaseType
+public class BaseType
     extends SimpleTypeSpec
 {
     public BaseType( int num )
@@ -38,8 +37,8 @@ class BaseType
         super( num );
     }
 
-    /** 
-     * ignore, these types don't need to know their package 
+    /**
+     * ignore, these types don't need to know their package
      */
 
     public void setPackage( String s )
@@ -132,8 +131,6 @@ class BaseType
         return type_spec.typeName();
     }
 
-
-
     public String id()
     {
         return "IDL:*primitive*:1.0";
@@ -146,7 +143,4 @@ class BaseType
     public void print( PrintWriter ps )
     {
     }
-
-
 }
-

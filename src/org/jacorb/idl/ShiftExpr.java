@@ -22,15 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ShiftExpr.java,v 1.13 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ShiftExpr.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
 
-class ShiftExpr
+public class ShiftExpr
         extends IdlSymbol
 {
-
     public ShiftExpr shift_expr = null;
     public AddExpr add_expr;
     public String operator;
@@ -109,11 +108,3 @@ class ShiftExpr
         return add_expr.get_token();
     }
 }
-
-
-
-
-
-
-
-

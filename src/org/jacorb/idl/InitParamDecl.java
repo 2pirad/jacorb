@@ -22,15 +22,14 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: InitParamDecl.java,v 1.6 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: InitParamDecl.java,v 1.7 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
 
-class InitParamDecl
+public class InitParamDecl
         extends ParamDecl
 {
-
     public InitParamDecl( int num )
     {
         super( num );
@@ -45,7 +44,6 @@ class InitParamDecl
             pack_name = s;
         paramTypeSpec.setPackage( s );
     }
-
 
     public void parse()
     {
@@ -77,12 +75,4 @@ class InitParamDecl
     {
         return paramTypeSpec.typeSpec().printReadExpression( ps );
     }
-
 }
-
-
-
-
-
-
-

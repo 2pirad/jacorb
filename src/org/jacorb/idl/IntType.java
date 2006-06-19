@@ -22,10 +22,9 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: IntType.java,v 1.13 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: IntType.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
-
-class IntType
+public class IntType
     extends BaseType
     implements SwitchTypeSpec
 {
@@ -40,7 +39,9 @@ class IntType
     {
         unsigned = true;
         if( type_spec != null )
+        {
             ( (IntType)type_spec ).setUnsigned();
+        }
     }
 
     public boolean isSwitchable()
@@ -48,6 +49,3 @@ class IntType
         return true;
     }
 }
-
-
-

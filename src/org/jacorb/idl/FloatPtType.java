@@ -22,11 +22,10 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatPtType.java,v 1.11 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: FloatPtType.java,v 1.12 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-
-class FloatPtType
+public class FloatPtType
     extends BaseType
 {
     public FloatPtType( int num )
@@ -39,8 +38,3 @@ class FloatPtType
         return type_spec.holderName();
     }
 }
-
-
-
-
-

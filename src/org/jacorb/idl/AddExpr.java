@@ -24,11 +24,10 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AddExpr.java,v 1.15 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: AddExpr.java,v 1.16 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class AddExpr
-    extends IdlSymbol
+public class AddExpr extends IdlSymbol
 {
     public AddExpr add_expr = null;
     public String operator;
@@ -85,11 +84,12 @@ class AddExpr
         {
             int z = add_expr.pos_int_const();
             if( operator.equals( "-" ) )
+            {
                 z *= -1;
+            }
             return z + y;
         }
-        else
-            return y;
+        return y;
     }
 
     public String value()
@@ -101,7 +101,6 @@ class AddExpr
         }
         return x + mult_expr.value();
     }
-
 
     public String toString()
     {
@@ -118,4 +117,3 @@ class AddExpr
         return mult_expr.get_token();
     }
 }
-

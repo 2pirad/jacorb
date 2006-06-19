@@ -24,13 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnaryExpr.java,v 1.13 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: UnaryExpr.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class UnaryExpr
+public class UnaryExpr
         extends IdlSymbol
 {
-
     public String unary_op = "";
     public PrimaryExpr primary_expr;
 
@@ -71,12 +70,12 @@ class UnaryExpr
         if( !unary_op.equals( "" ) )
         {
             if( unary_op.equals( "-" ) )
+            {
                 return y * -1;
-            else
-                return y;
-        }
-        else
+            }
             return y;
+        }
+        return y;
     }
 
     public String value()
@@ -93,13 +92,7 @@ class UnaryExpr
     {
         return primary_expr.get_token();
     }
-
-
 }
-
-
-
-
 
 
 

@@ -24,13 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FloatType.java,v 1.13 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: FloatType.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class FloatType
+public class FloatType
     extends FloatPtType
 {
-
     public FloatType( int num )
     {
         super( num );
@@ -44,7 +43,6 @@ class FloatType
     /**
      * get this types's mapped Java name
      */
-
     public String getJavaTypeName()
     {
         return "float";
@@ -53,12 +51,10 @@ class FloatType
     /**
      * get this symbol's IDL type name
      */
-
     public String getIDLTypeName()
-    {        
+    {
         return "float";
     }
-
 
     public TypeSpec typeSpec()
     {
@@ -113,8 +109,6 @@ class FloatType
 
     }
 
-
-
     public void printExtractResult(PrintWriter ps,
                                    String resultname,
                                    String anyname,
@@ -122,11 +116,4 @@ class FloatType
     {
         ps.println("\t\t" + resultname+" = " + anyname + "." + printExtractExpression() + "();");
     }
-
-
 }
-
-
-
-
-

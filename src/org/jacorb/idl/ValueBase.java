@@ -22,10 +22,10 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBase.java,v 1.2 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: ValueBase.java,v 1.3 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class ValueBase
+public class ValueBase
     extends BaseType
 {
     public ValueBase( int num )
@@ -76,7 +76,7 @@ class ValueBase
      */
     public String getTypeCodeExpression()
     {
-        return "org.omg.CORBA.ORB.init().create_value_tc(\"" + id() + 
+        return "org.omg.CORBA.ORB.init().create_value_tc(\"" + id() +
             "\",\"ValueBase\", org.omg.CORBA.VM_NONE.value, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.tk_null), new org.omg.CORBA.ValueMember[]{} )";
     }
 
@@ -101,12 +101,7 @@ class ValueBase
 
     public String printWriteStatement( String var_name, String streamname )
     {
-        return "((org.omg.CORBA_2_3.portable.OutputStream)" + streamname + 
+        return "((org.omg.CORBA_2_3.portable.OutputStream)" + streamname +
             ").write_value(" + var_name + ");";
     }
-
-
 }
-
-
-

@@ -22,14 +22,12 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointConstType.java,v 1.10 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: FixedPointConstType.java,v 1.11 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-
-class FixedPointConstType
+public class FixedPointConstType
         extends BaseType
 {
-
     public FixedPointConstType( int num )
     {
         super( num );
@@ -74,7 +72,6 @@ class FixedPointConstType
         return "org.omg.CORBA.FixedHolder";
     }
 
-
     public String printReadExpression( String strname )
     {
         return strname + ".read_fixed()";
@@ -85,10 +82,3 @@ class FixedPointConstType
         return strname + ".write_fixed(" + var_name + ");";
     }
 }
-
-
-
-
-
-
-

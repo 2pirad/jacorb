@@ -24,13 +24,12 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.16 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ConstExpr.java,v 1.17 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class ConstExpr
+public class ConstExpr
     extends IdlSymbol
 {
-
     public OrExpr or_expr;
 
     public ConstExpr( int num )
@@ -68,7 +67,6 @@ class ConstExpr
         return or_expr.get_token();
     }
 
-
     public String value()
     {
         return or_expr.value();
@@ -84,4 +82,3 @@ class ConstExpr
         or_expr.setPackage( s );
     }
 }
-

@@ -21,19 +21,14 @@
 /**
  * The classes for the IDL parse tree
  * @author Gerald Brose
- * @version $Id: NameAlreadyDefined.java,v 1.10 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: NameAlreadyDefined.java,v 1.11 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
 package org.jacorb.idl;
 
-class NameAlreadyDefined
+public class NameAlreadyDefined
         extends java.lang.Exception
 {
-
-    public NameAlreadyDefined()
-    {
-    }
-
     public NameAlreadyDefined( String s )
     {
         super( s );

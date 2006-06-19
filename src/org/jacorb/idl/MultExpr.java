@@ -24,13 +24,11 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: MultExpr.java,v 1.14 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: MultExpr.java,v 1.15 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class MultExpr
-        extends IdlSymbol
+public class MultExpr extends IdlSymbol
 {
-
     public String operator;
     public MultExpr mult_expr = null;
     public UnaryExpr unary_expr;
@@ -49,7 +47,6 @@ class MultExpr
         }
         unary_expr.print( ps );
     }
-
 
     public void setDeclaration( ConstDecl declared_in )
     {
@@ -119,6 +116,4 @@ class MultExpr
     {
         return unary_expr.get_token();
     }
-
 }
-

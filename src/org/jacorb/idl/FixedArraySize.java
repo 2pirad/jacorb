@@ -23,10 +23,10 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedArraySize.java,v 1.11 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: FixedArraySize.java,v 1.12 2006-06-19 10:34:57 alphonse.bendt Exp $
  */
 
-class FixedArraySize
+public class FixedArraySize
     extends IdlSymbol
 {
     public PosIntConst pos_int_const;
