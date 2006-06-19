@@ -43,7 +43,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.108 2006-06-15 12:01:30 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.109 2006-06-19 13:29:37 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -2522,7 +2522,7 @@ public class CDROutputStream
                             ValueHandler.getRMIRepositoryID(newValue.getClass());
                         repository_ids =
                             (new_rep_id == null) ? null : new String []{new_rep_id};
-                        cls = value.getClass();
+                        cls = newValue.getClass();
                         codebase = ValueHandler.getCodebase(cls);
                     }
 
@@ -2531,7 +2531,6 @@ public class CDROutputStream
 
                     if (newValue != value)
                     {
-
                         // look at the new value
                         Integer index = (Integer)getValueMap().get(newValue);
                         if (index != null)
