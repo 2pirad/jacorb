@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.18 2006-05-29 11:40:14 alphonse.bendt Exp $
+ * @version $Id: Module.java,v 1.19 2006-06-20 09:57:40 alphonse.bendt Exp $
  */
 
 import java.io.File;
@@ -177,5 +177,8 @@ public class Module
         visitor.visitModule(this);
     }
 
-
+    public String toString()
+    {
+        return "module " + name;
+    }
 }
