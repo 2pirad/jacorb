@@ -29,7 +29,7 @@ import org.jacorb.util.threadpool.*;
  * MessageReceptorPool.java
  *
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.13 2006-06-16 08:02:21 nick.cross Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.14 2006-06-20 13:24:41 alphonse.bendt Exp $
  */
 
 public class MessageReceptorPool
@@ -69,15 +69,16 @@ public class MessageReceptorPool
         }
 
         pool =
-            new ThreadPool( configuration, threadNamePrefix,
-                               new ConsumerFactory(){
-                                    public Consumer create()
-                                    {
-                                        return new MessageReceptor();
-                                    }
-                                },
-                                maxConnectionThreads,
-                                maxIdleThreads ); //max idle threads
+            new ThreadPool( configuration,
+                            threadNamePrefix,
+                            new ConsumerFactory(){
+                                public Consumer create()
+                                {
+                                    return new MessageReceptor();
+                                }
+                            },
+                            maxConnectionThreads,
+                            maxIdleThreads ); //max idle threads
     }
 
     public void connectionCreated( GIOPConnection conn )
