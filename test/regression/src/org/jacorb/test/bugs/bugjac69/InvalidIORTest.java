@@ -31,7 +31,7 @@ import org.omg.CORBA.ORB;
  * are a GIOP UDP protocol.
  *
  * @author Nick Cross
- * @version $Id: InvalidIORTest.java,v 1.1 2006-05-18 14:40:44 alphonse.bendt Exp $
+ * @version $Id: InvalidIORTest.java,v 1.2 2006-06-20 13:41:02 alphonse.bendt Exp $
  */
 public class InvalidIORTest extends TestCase
 {
