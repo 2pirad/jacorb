@@ -43,7 +43,7 @@ import org.omg.CORBA.Any;
  * been overwritten.
  *
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.9 2006-06-15 09:52:32 alphonse.bendt Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.10 2006-06-20 15:05:22 alphonse.bendt Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {
@@ -168,6 +168,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
         suite.addTest(new ValidIDLWithExtraSetupTest("-I" + TEST_HOME + "/../../idl/omg", "bugJac307.idl"));
         suite.addTest(new ValidIDLWithExtraSetupTest(new String[] {"-ir", "-i2jpackage", "AlarmIRPSystem:org._3gpp.AlarmIRPSystem"}, "bugJac101.idl"));
         suite.addTest(new ValidIDLWithExtraSetupTest("-genEnhanced", "bugJac149.idl"));
+        suite.addTest(new ValidIDLWithExtraSetupTest(new String[] {"-ami_callback", "-diistub"}, "ami.idl"));
 
         return suite;
     }

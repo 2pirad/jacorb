@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderTypeSpec.java,v 1.9 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: ExceptionHolderTypeSpec.java,v 1.10 2006-06-20 15:05:22 alphonse.bendt Exp $
  */
 
 import java.io.PrintWriter;
@@ -30,7 +30,6 @@ import java.io.PrintWriter;
 public class ExceptionHolderTypeSpec
     extends TypeSpec
 {
-
     public ExceptionHolderTypeSpec( int num )
     {
         super( num );
@@ -129,7 +128,8 @@ public class ExceptionHolderTypeSpec
                                    String anyname,
                                    String varname)
     {
-        throw new RuntimeException( "Should not be called" );
+        String helpername = typeName() + "Helper";
+        ps.println("\t\t" + helpername + ".insert(" + anyname + ", " + varname + " );");
     }
 
 
@@ -138,7 +138,6 @@ public class ExceptionHolderTypeSpec
                                    String anyname,
                                    String resulttype)
     {
-        throw new RuntimeException( "Should not be called" );
+        throw new RuntimeException( "ExceptionHolderTypeSpec.printExtractResult: Should not be called" );
     }
-
 }
