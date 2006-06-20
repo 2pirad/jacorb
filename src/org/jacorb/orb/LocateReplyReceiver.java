@@ -20,19 +20,15 @@ package org.jacorb.orb;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.orb.*;
-import org.jacorb.orb.giop.MessageInputStream;
 import org.jacorb.orb.giop.LocateReplyInputStream;
-import org.jacorb.util.*;
 
-import org.omg.GIOP.*;
 import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * A special ReplyPlaceholder that receives LocateReplies.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: LocateReplyReceiver.java,v 1.7 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: LocateReplyReceiver.java,v 1.8 2006-06-20 07:52:12 alphonse.bendt Exp $
  */
 public class LocateReplyReceiver
     extends org.jacorb.orb.giop.ReplyPlaceholder
@@ -46,8 +42,8 @@ public class LocateReplyReceiver
      * This method blocks until a reply becomes available.
      */
     public synchronized LocateReplyInputStream getReply()
-	throws RemarshalException
+    throws RemarshalException
     {
-        return (LocateReplyInputStream)getInputStream();
+        return (LocateReplyInputStream)getInputStream(false);
     }
 }

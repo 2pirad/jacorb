@@ -22,7 +22,6 @@ package org.jacorb.orb.giop;
 
 import org.jacorb.orb.*;
 
-import org.omg.GIOP.*;
 import org.omg.CORBA.portable.RemarshalException;
 
 /**
@@ -31,7 +30,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.20 2004-05-19 11:25:47 andre.spiegel Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.21 2006-06-20 07:52:12 alphonse.bendt Exp $
  */
 public abstract class ReplyPlaceholder
 {
@@ -46,11 +45,11 @@ public abstract class ReplyPlaceholder
 
     /**
      * self-configuring c'tor
-     */ 
+     */
 
     public ReplyPlaceholder(ORB orb)
     {
-        timeout = 
+        timeout =
             orb.getConfiguration().getAttributeAsInteger("jacorb.connection.client.pending_reply_timeout", 0);
     }
 
@@ -74,20 +73,12 @@ public abstract class ReplyPlaceholder
         }
     }
 
-
     public synchronized void retry()
     {
         remarshalException = true;
         ready = true;
         notify();
     }
-
-//     public synchronized void timeout()
-//     {
-//         timeoutException = true;
-//         ready = true;
-//         notify();
-//     }
 
     /**
      * Non-public implementation of the blocking method that
@@ -96,14 +87,14 @@ public abstract class ReplyPlaceholder
      * name, that does any specific processing of the reply before
      * returning it to the caller.
      */
-    protected synchronized MessageInputStream getInputStream()
+    protected synchronized MessageInputStream getInputStream(boolean hasTimeoutPolicy)
         throws RemarshalException
     {
         while( !ready )
         {
             try
             {
-                if( timeout > 0 )
+                if( timeout > 0 && !hasTimeoutPolicy)
                 {
                     wait( timeout ); //wait only "timeout" long
 
@@ -120,7 +111,9 @@ public abstract class ReplyPlaceholder
                 }
             }
             catch( InterruptedException e )
-            {}
+            {
+                // ignored
+            }
         }
 
         if( remarshalException )

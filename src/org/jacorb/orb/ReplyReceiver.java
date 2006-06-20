@@ -53,7 +53,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.28 2006-06-16 12:36:58 alphonse.bendt Exp $
+ * @version $Id: ReplyReceiver.java,v 1.29 2006-06-20 07:52:12 alphonse.bendt Exp $
  */
 
 public class ReplyReceiver
@@ -268,7 +268,7 @@ public class ReplyReceiver
            // Map to RemarshalException to force rebind attempt.
            try
            {
-               getInputStream();  // block until reply is available
+               getInputStream(timer != null);  // block until reply is available
            }
            catch (org.omg.CORBA.COMM_FAILURE ex)
            {
@@ -276,11 +276,8 @@ public class ReplyReceiver
                {
                    throw new RemarshalException();
                }
-               else
-               {
-                   //rethrow
-                   throw ex;
-               }
+               //rethrow
+               throw ex;
            }
         }
         catch ( SystemException se )
