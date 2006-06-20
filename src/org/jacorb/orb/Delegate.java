@@ -52,7 +52,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.126 2006-06-20 09:31:08 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.127 2006-06-20 09:58:47 alphonse.bendt Exp $
  *
  */
 
@@ -954,12 +954,14 @@ public final class Delegate
         {
             interceptors.handle_send_request();
         }
-        // If we are throwing a system exception then this will disrupt the call path.
-        // Therefore nullify localInterceptors so it doesn't appear we are still in an
-        // interceptor call.
         catch (RuntimeException e)
         {
-            localInterceptors.set (null);
+            // If we are throwing a system exception then this will disrupt the call path.
+            // Therefore nullify localInterceptors so it doesn't appear we are still in an
+            // interceptor call. RemarshalExceptions are explicitely not caught, because in
+            // that case, localInterceptors must stay set
+
+            localInterceptors.set(null);
             throw e;
         }
 
