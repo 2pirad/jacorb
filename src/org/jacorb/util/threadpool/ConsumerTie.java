@@ -24,18 +24,15 @@ package org.jacorb.util.threadpool;
 /**
  * ConsumerTie.java
  *
- * Created: Fri Jun  9 15:44:26 2000
- *
  * @author Nicolas Noffke
- * $Id: ConsumerTie.java,v 1.11 2006-06-16 22:17:37 alphonse.bendt Exp $
+ * $Id: ConsumerTie.java,v 1.12 2006-06-20 15:26:04 alphonse.bendt Exp $
  */
 
 public  class ConsumerTie
     implements Runnable
 {
-    private boolean run = true;
-    private ThreadPool pool = null;
-    private Consumer delegate = null;
+    private final ThreadPool pool;
+    private final Consumer delegate;
 
     public ConsumerTie( ThreadPool pool,
                         Consumer delegate )
@@ -46,7 +43,7 @@ public  class ConsumerTie
 
     public void run()
     {
-        while( run )
+        while( true )
         {
             try
             {
@@ -60,7 +57,7 @@ public  class ConsumerTie
                      */
                     break;
                 }
-                
+
                 delegate.doWork( job );
             }
             catch( Exception e )
