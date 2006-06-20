@@ -15,7 +15,7 @@ import org.omg.CORBA.ORB;
  * the ORB times out client and/or server side.
  *
  * @author Nick Cross
- * @version $Id: BugJac192Test.java,v 1.1 2006-06-20 09:30:48 alphonse.bendt Exp $
+ * @version $Id: BugJac192Test.java,v 1.2 2006-06-20 14:11:04 alphonse.bendt Exp $
  */
 public class BugJac192Test extends ClientServerTestCase
 {
@@ -108,19 +108,6 @@ public class BugJac192Test extends ClientServerTestCase
      */
     public void test_contexts()
     {
-        try
-        {
-            boolean result = server.test192Op();
-
-            if ( ! result)
-            {
-                fail ("Failure when propagating service context.");
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            fail ("Exception was thrown " + e);
-        }
+        assertTrue("Failure when propagating service context.", server.test192Op());
     }
 }
