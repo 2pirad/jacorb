@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.30 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: ConstDecl.java,v 1.31 2006-06-20 10:52:57 alphonse.bendt Exp $
  */
 
 import java.io.File;
@@ -200,10 +200,7 @@ public class ConstDecl extends Declaration
                 if (!pack_name.equals(""))
                     pw.println("package " + pack_name + ";");
 
-                pw.println("/**");
-                pw.println(" * Automatically generated from IDL const definition ");
-                pw.println(" * @author JacORB IDL compiler ");
-                pw.println(" */\n");
+                printClassComment("const", className, pw);
 
                 pw.println("public interface " + className);
                 pw.println("{");
