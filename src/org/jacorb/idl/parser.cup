@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.96 2006-06-15 09:51:35 alphonse.bendt Exp $
+ * $Id: parser.cup,v 1.97 2006-06-20 09:27:56 alphonse.bendt Exp $
  */
 
 action code
@@ -1995,8 +1995,8 @@ case_label_list ::=
 element_spec ::=
         type_spec:ts declarator:dc
                 {:
-                        RESULT.t.type_spec = ts;
-                        RESULT.d = dc;
+                        RESULT.typeSpec.type_spec = ts;
+                        RESULT.declarator = dc;
                 :}
         ;
 
