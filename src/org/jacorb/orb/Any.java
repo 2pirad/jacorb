@@ -29,7 +29,7 @@ import java.util.*;
  * CORBA any
  *
  * @author Gerald Brose
- * $Id: Any.java,v 1.47 2006-06-19 10:30:17 alphonse.bendt Exp $
+ * $Id: Any.java,v 1.48 2006-06-21 07:47:07 alphonse.bendt Exp $
  */
 
 public final class Any
@@ -248,7 +248,7 @@ public final class Any
 
     public void insert_long (int i)
     {
-        value = Integer.valueOf(i);
+        value = new Integer(i);
         typeCode = orb.get_primitive_tc (TCKind.tk_long);
     }
 
@@ -266,7 +266,7 @@ public final class Any
 
     public void insert_ulong (int i)
     {
-        value = Integer.valueOf(i);
+        value = new Integer(i);
         typeCode = orb.get_primitive_tc( TCKind.tk_ulong );
     }
 
