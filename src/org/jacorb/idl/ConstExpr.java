@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstExpr.java,v 1.17 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: ConstExpr.java,v 1.18 2006-06-21 09:53:36 alphonse.bendt Exp $
  */
 
 public class ConstExpr
@@ -52,7 +52,7 @@ public class ConstExpr
         or_expr.print( ps );
     }
 
-    int pos_int_const()
+    public int pos_int_const()
     {
         return or_expr.pos_int_const();
     }
@@ -76,9 +76,13 @@ public class ConstExpr
     {
         s = parser.pack_replace( s );
         if( pack_name.length() > 0 )
+        {
             pack_name = s + "." + pack_name;
+        }
         else
+        {
             pack_name = s;
+        }
         or_expr.setPackage( s );
     }
 }
