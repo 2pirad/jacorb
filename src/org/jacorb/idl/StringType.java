@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: StringType.java,v 1.16 2006-06-15 16:41:23 alphonse.bendt Exp $
+ * @version $Id: StringType.java,v 1.17 2006-06-21 09:53:56 alphonse.bendt Exp $
  */
 
 public class StringType
@@ -191,5 +191,10 @@ public class StringType
    public void setSize(ConstExpr max_)
    {
        max = max_;
+   }
+
+   public ConstExpr getSize()
+   {
+       return max;
    }
 }
