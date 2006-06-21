@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: LongType.java,v 1.16 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: LongType.java,v 1.17 2006-06-21 09:53:04 alphonse.bendt Exp $
  */
 
 public class LongType
@@ -68,7 +68,7 @@ public class LongType
     {
         if( unsigned )
         {
-            return "ulong";
+            return "unsigned long";
         }
         return "long";
     }

@@ -26,7 +26,7 @@ import java.io.PrintWriter;
  * Represents IDL long long and unsigned long long types
  *
  * @author Gerald Brose
- * @version $Id: LongLongType.java,v 1.16 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: LongLongType.java,v 1.17 2006-06-21 09:53:04 alphonse.bendt Exp $
  */
 
 public class LongLongType
@@ -67,9 +67,9 @@ public class LongLongType
     {
         if( unsigned )
         {
-            return "ulonglong";
+            return "unsigned long long";
         }
-        return "longlong";
+        return "long long";
     }
 
     public boolean basic()

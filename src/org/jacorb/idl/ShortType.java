@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: ShortType.java,v 1.15 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: ShortType.java,v 1.16 2006-06-21 09:53:04 alphonse.bendt Exp $
  */
 
 public class ShortType
@@ -57,7 +57,7 @@ public class ShortType
     {
         if( unsigned )
         {
-            return "ushort";
+            return "unsigned short";
         }
         return "short";
     }
