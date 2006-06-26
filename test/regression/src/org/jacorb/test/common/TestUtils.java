@@ -25,6 +25,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import junit.extensions.TestSetup;
@@ -39,7 +40,7 @@ import java.util.Properties;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.11 2006-06-15 12:02:45 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.12 2006-06-26 08:06:26 alphonse.bendt Exp $
  */
 
 public class TestUtils
@@ -346,5 +347,21 @@ public class TestUtils
             props.setProperty("org.omg.CORBA.ORBSingletonClass", "com.sun.corba.se.internal.corba.ORBSingleton");
         }
         return props;
+    }
+
+    public static List propsToArgList (Properties props)
+    {
+        List result = new ArrayList();
+    
+        if (props == null) return result;
+    
+        for (Iterator i = props.keySet().iterator(); i.hasNext();)
+        {
+            String key = (String)i.next();
+            String value = props.getProperty(key);
+            result.add ("-D" + key + "=" + value);
+        }
+    
+        return result;
     }
 }
