@@ -26,6 +26,7 @@ import org.jacorb.test.bugs.bugjac10.TypeCodeTestCase;
 import org.jacorb.test.bugs.bugjac149.ObjectReplacementTest;
 import org.jacorb.test.bugs.bugjac174.InvalidIORTest_bug174;
 import org.jacorb.test.bugs.bugjac178.POAThreadingTest;
+import org.jacorb.test.bugs.bugjac181.BugJac181Test;
 import org.jacorb.test.bugs.bugjac182.BugJac182Test;
 import org.jacorb.test.bugs.bugjac192.BugJac192Test;
 import org.jacorb.test.bugs.bugjac220.BugJac220Test;
@@ -41,7 +42,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.23 2006-06-21 11:37:57 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.24 2006-06-26 08:07:18 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -78,6 +79,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTestSuite(InvalidIORTest_bug174.class);
       suite.addTest(BugJac220Test.suite());
       suite.addTestSuite(BugJac305Test.class);
+      suite.addTest(BugJac181Test.suite());
 
       return suite;
    }
