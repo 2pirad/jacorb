@@ -44,7 +44,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.61 2006-06-16 12:37:18 alphonse.bendt Exp $
+ * @version $Id: POA.java,v 1.62 2006-06-26 13:46:50 alphonse.bendt Exp $
  */
 
 public class POA
@@ -1297,7 +1297,14 @@ public class POA
         return shutdownState >= POAConstants.DESTRUCTION_APPARENT;
     }
 
-    protected boolean isDestructionComplete()
+    /**
+     * <code>isDestructionComplete</code> returns whether the POA has been
+     * completely destroyed (including finishing outstanding requests). This
+     * is public not protected as it is called from orb/Delegate.
+     *
+     * @return a <code>boolean</code> value.
+     */
+    public boolean isDestructionComplete()
     {
         return shutdownState >= POAConstants.DESTRUCTION_COMPLETE;
     }

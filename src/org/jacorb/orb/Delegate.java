@@ -52,7 +52,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.128 2006-06-20 15:04:19 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.129 2006-06-26 13:46:50 alphonse.bendt Exp $
  *
  */
 
@@ -1260,8 +1260,13 @@ public final class Delegate
            type ids, so ask the object itself */
 
         // If local object call _is_a directly
-        if (is_really_local (self))
+        if (is_really_local(self))
         {
+            if (logger.isDebugEnabled())
+            {
+                logger.debug("Located " + self + " on local POA; assuming local.");
+            }
+
             org.omg.PortableServer.Servant servant;
             org.omg.CORBA.portable.ServantObject so;
 
@@ -1273,6 +1278,7 @@ public final class Delegate
             {
                 throw new OBJ_ADAPTER( "Servant from pre_invoke was null" );
             }
+
             try
             {
                 servant = (org.omg.PortableServer.Servant)so.servant;
