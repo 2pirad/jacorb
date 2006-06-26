@@ -37,7 +37,7 @@ import java.io.IOException;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.27 2006-06-15 09:51:35 alphonse.bendt Exp $
+ * @version $Id: JacIDL.java,v 1.28 2006-06-26 14:37:45 alphonse.bendt Exp $
  */
 
 public class JacIDL
@@ -428,20 +428,29 @@ public class JacIDL
             }
 
         }
-        catch (IOException e)
+        catch (IOException ex)
         {
-            e.printStackTrace();
-            throw new BuildException(e.toString());
+            if (_debuglevel >= 3)
+            {
+                ex.printStackTrace();
+            }
+            throw new BuildException();
         }
-        catch (ParseException e)
+        catch (ParseException ex)
         {
-            e.printStackTrace();
-            throw new BuildException(e.toString());
+            if (_debuglevel >= 3)
+            {
+                ex.printStackTrace();
+            }
+            throw new BuildException();
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            e.printStackTrace();
-            throw new BuildException(e.toString());
+            if (_debuglevel >= 3)
+            {
+                ex.printStackTrace();
+            }
+            throw new BuildException();
         }
     }
 

@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.49 2006-06-15 11:20:12 alphonse.bendt Exp $
+ * @version $Id: StructType.java,v 1.50 2006-06-26 14:37:45 alphonse.bendt Exp $
  */
 
 public class StructType
@@ -605,7 +605,8 @@ public class StructType
 
         if (!parsed)
         {
-            throw new ParseException ("Unparsed Struct!");
+            lexer.restorePosition(myPosition);
+            parser.fatal_error ("Unparsed Struct!", token);
         }
 
         // no code generation for included definitions

@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel, Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.23 2006-06-14 12:33:00 alphonse.bendt Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.24 2006-06-26 14:37:44 alphonse.bendt Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -144,8 +144,8 @@ public class ValueAbsDecl
         }
         catch (IllegalRedefinition ill)
         {
-            parser.fatal_error("Illegal Redefinition of  " +
-                               ill.oldDef + " in nested scope as " + ill.newDef, token);
+            parser.fatal_error("Cannot redefine " + token.str_val +
+                    " in nested scope as " + ill.newDef, token);
         }
         catch (NameAlreadyDefined nad)
         {
