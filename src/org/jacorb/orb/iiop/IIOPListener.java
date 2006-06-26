@@ -40,7 +40,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.30 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: IIOPListener.java,v 1.31 2006-06-26 10:06:35 alphonse.bendt Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -354,6 +354,7 @@ public class IIOPListener
         extends org.jacorb.orb.etf.ListenerBase.Acceptor
     {
         private final Object runSync = new Object();
+        private final boolean keepAlive;
         protected ServerSocket serverSocket;
 
         protected boolean terminated = false;
@@ -370,6 +371,8 @@ public class IIOPListener
             // initialization deferred to init() method due to JDK bug
             setDaemon(true);
             setName(name);
+
+            keepAlive = configuration.getAttributeAsBoolean("jacorb.connection.server.keepalive", false);
         }
 
         public void init()
@@ -534,6 +537,7 @@ public class IIOPListener
             throws IOException
         {
              socket.setSoTimeout(serverTimeout);
+             socket.setKeepAlive(keepAlive);
 
              SSLListenerUtil.addListener(orb, socket);
 
