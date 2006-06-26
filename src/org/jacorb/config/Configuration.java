@@ -56,7 +56,7 @@ import org.jacorb.orb.ORB;
  * retreive their Logger objects.
  *
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.17 2006-05-29 15:10:40 alphonse.bendt Exp $
+ * @version $Id: Configuration.java,v 1.18 2006-06-26 06:51:46 alphonse.bendt Exp $
  */
 
 public interface Configuration
@@ -97,6 +97,8 @@ public interface Configuration
      */
 
     Object getAttributeAsObject( String key ) throws ConfigurationException;
+
+    Object getAttributeAsObject( String key, String defaultValue) throws ConfigurationException;
 
     boolean getAttributeAsBoolean(String key)
         throws ConfigurationException;
