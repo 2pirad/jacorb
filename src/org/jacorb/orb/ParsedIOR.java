@@ -43,7 +43,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose
- * @version $Id: ParsedIOR.java,v 1.71 2006-06-16 12:36:58 alphonse.bendt Exp $
+ * @version $Id: ParsedIOR.java,v 1.72 2006-06-26 07:28:35 alphonse.bendt Exp $
  */
 
 public class ParsedIOR
@@ -247,14 +247,14 @@ public class ParsedIOR
                 }
                 default:
                 {
-                    org.omg.ETF.Factories f =
+                    org.omg.ETF.Factories factories =
                         orb.getTransportManager().getFactories (tag);
-                    if (f != null)
+                    if (factories != null)
                     {
                         TaggedProfileHolder tp =
                             new TaggedProfileHolder (_ior.profiles[i]);
                         profiles.add
-                            (f.demarshal_profile
+                            (factories.demarshal_profile
                                 (tp,
                                  new TaggedComponentSeqHolder()));
                     }
