@@ -31,6 +31,7 @@ import org.jacorb.imr.AdminPackage.*;
 import org.jacorb.orb.*;
 import org.jacorb.orb.giop.*;
 import org.jacorb.orb.iiop.*;
+import org.jacorb.orb.listener.NullTCPConnectionListener;
 
 import org.jacorb.poa.util.POAUtil;
 
@@ -52,7 +53,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.60 2006-06-14 11:54:07 alphonse.bendt Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.61 2006-06-26 08:09:30 alphonse.bendt Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1202,7 +1203,8 @@ public class ImplementationRepositoryImpl
 
                     org.jacorb.orb.iiop.ServerIIOPConnection transport =
                         new ServerIIOPConnection (socket,
-                                                  false); // no SSL
+                                                  false,
+                                                  new NullTCPConnectionListener() ); // TODO // no SSL
                     transport.configure(configuration);
 
                     GIOPConnection connection =

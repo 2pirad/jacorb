@@ -20,13 +20,16 @@
 
 package org.jacorb.orb.iiop;
 
+import java.io.IOException;
 import java.net.*;
+
+import org.jacorb.orb.listener.SSLListenerUtil;
 
 /**
  * IIOPConnection.java
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.10 2006-06-02 10:37:46 alphonse.bendt Exp $
+ * @version $Id: IIOPConnection.java,v 1.11 2006-06-26 08:09:30 alphonse.bendt Exp $
  */
 
 public abstract class IIOPConnection
@@ -38,7 +41,7 @@ public abstract class IIOPConnection
 
     public IIOPConnection (IIOPConnection other)
     {
-        super((org.jacorb.orb.etf.StreamConnectionBase)other);
+        super(other);
         this.use_ssl = other.use_ssl;
     }
 
@@ -73,6 +76,13 @@ public abstract class IIOPConnection
         }
     }
 
+    protected final org.omg.CORBA.COMM_FAILURE to_COMM_FAILURE(IOException ex, Socket socket)
+    {
+        SSLListenerUtil.processException(orb, this, socket, ex);
+
+        return to_COMM_FAILURE(ex);
+    }
+
     protected int getTimeout()
     {
         try
@@ -81,7 +91,7 @@ public abstract class IIOPConnection
         }
         catch (SocketException ex)
         {
-            throw to_COMM_FAILURE (ex);
+            throw to_COMM_FAILURE (ex, socket);
         }
     }
 }

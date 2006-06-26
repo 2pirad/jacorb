@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004 Gerald Brose.
+ *   Copyright (C) The JacORB project, 1997-2006.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@ import org.omg.ETF.Profile;
 
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopbackConnection.java,v 1.1 2005-08-04 05:04:50 francisco Exp $
+ * @version $Id: IIOPLoopbackConnection.java,v 1.2 2006-06-26 08:09:30 alphonse.bendt Exp $
  */
 public class IIOPLoopbackConnection
     extends org.jacorb.orb.etf.StreamConnectionBase
@@ -46,7 +46,7 @@ public class IIOPLoopbackConnection
             throw new INITIALIZE("Could not create loopback pipe connection");
         }
     }
-    
+
     public void close()
     {
         try
@@ -55,7 +55,7 @@ public class IIOPLoopbackConnection
             {
                 in_stream.close();
             }
-    
+
             if(out_stream != null)
             {
                 out_stream.close();
@@ -66,18 +66,18 @@ public class IIOPLoopbackConnection
             throw to_COMM_FAILURE(ioe);
         }
     }
-    
+
     protected void setTimeout(final int timeout)
     {
         // Can't handle timeout
     }
-    
+
     protected int getTimeout()
     {
         // Can't handle timeout
         return 0;
     }
-    
+
     public void connect(final Profile server_profile, final long time_out)
     {
         // Can't handle reconnect

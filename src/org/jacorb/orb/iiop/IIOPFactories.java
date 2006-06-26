@@ -27,7 +27,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.9 2006-06-02 12:26:39 alphonse.bendt Exp $
+ * @version $Id: IIOPFactories.java,v 1.10 2006-06-26 08:09:30 alphonse.bendt Exp $
  */
 public class IIOPFactories
     extends org.jacorb.orb.etf.FactoriesBase
@@ -38,6 +38,11 @@ public class IIOPFactories
         listenerClz = IIOPListener.class;
         profileClz = IIOPProfile.class;
         addressClz = IIOPAddress.class;
+    }
+
+    public IIOPFactories()
+    {
+        super();
     }
 
 /*    public Profile demarshal_profile(TaggedProfileHolder tagged_profile,
@@ -92,18 +97,21 @@ public class IIOPFactories
 
             return result;
         }
-        else
-            return null;
+        return null;
     }
 
     public int match_tag(String address)
     {
-        if (address == null) return -1;
+        if (address == null)
+        {
+            return -1;
+        }
         int colon = address.indexOf (':');
         String token = address.substring (0,colon).toLowerCase();
         if (token.equals ("iiop") || token.equals ("ssliop"))
+        {
             return colon+1;
-        else
-            return -1;
+        }
+        return -1;
     }
 }
