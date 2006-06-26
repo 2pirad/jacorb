@@ -1,7 +1,7 @@
 /*
  *        JacORB - a free Java ORB
  *
- *   Copyright (C) 1997-2004 Gerald Brose.
+ *   Copyright (C) The JacORB project, 1997-2006.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -28,7 +28,7 @@ import org.jacorb.util.ObjectUtil;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: StreamConnectionBase.java,v 1.4 2006-06-02 10:36:46 alphonse.bendt Exp $
+ * @version $Id: StreamConnectionBase.java,v 1.5 2006-06-26 07:55:19 alphonse.bendt Exp $
  */
 
 public abstract class StreamConnectionBase
@@ -140,7 +140,7 @@ public abstract class StreamConnectionBase
         }
         catch (IOException ex)
         {
-            throw to_COMM_FAILURE (ex);
+            throw to_COMM_FAILURE(ex);
         }
 
     }
@@ -153,8 +153,8 @@ public abstract class StreamConnectionBase
             {
                 if (logger.isInfoEnabled())
                 {
-                    byte[] b = b_out.toByteArray();
-                    logger.info("sendMessages(): " + ObjectUtil.bufToString(b, 0, b.length) );
+                    byte[] buffer = b_out.toByteArray();
+                    logger.info("sendMessages(): " + ObjectUtil.bufToString(buffer, 0, buffer.length) );
                 }
                 b_out.reset();
             }
@@ -162,7 +162,7 @@ public abstract class StreamConnectionBase
         }
         catch (IOException ex)
         {
-            throw to_COMM_FAILURE (ex);
+            throw to_COMM_FAILURE(ex);
         }
     }
 
@@ -179,8 +179,7 @@ public abstract class StreamConnectionBase
         }
         catch (IOException ex)
         {
-            throw to_COMM_FAILURE (ex);
+            throw to_COMM_FAILURE(ex);
         }
     }
 }
-

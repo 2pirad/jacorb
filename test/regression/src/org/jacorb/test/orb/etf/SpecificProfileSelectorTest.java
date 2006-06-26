@@ -6,7 +6,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import org.jacorb.orb.ORBConstants;
-import org.jacorb.orb.iiop.IIOPFactories;
 import org.jacorb.test.BasicServer;
 import org.jacorb.test.BasicServerHelper;
 import org.jacorb.test.common.ClientServerSetup;
@@ -24,7 +23,7 @@ import org.omg.RTCORBA.RTORBHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SpecificProfileSelectorTest.java,v 1.2 2006-06-15 15:58:45 alphonse.bendt Exp $
+ * @version $Id: SpecificProfileSelectorTest.java,v 1.3 2006-06-26 07:59:11 alphonse.bendt Exp $
  */
 public class SpecificProfileSelectorTest extends ClientServerTestCase
 {

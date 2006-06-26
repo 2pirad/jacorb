@@ -23,10 +23,12 @@ package org.jacorb.orb.factory;
 import java.net.*;
 import java.io.IOException;
 
+/**
+ * @author Steve Osselton
+ * @version $Id: DefaultSocketFactory.java,v 1.5 2006-06-26 07:55:50 alphonse.bendt Exp $
+ */
 public class DefaultSocketFactory implements SocketFactory
 {
-    public DefaultSocketFactory () {}
-
     public Socket createSocket (String host, int port)
         throws IOException, UnknownHostException
     {
