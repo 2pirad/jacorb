@@ -58,7 +58,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.149 2006-06-27 07:43:47 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.150 2006-06-27 09:33:24 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1050,15 +1050,23 @@ public final class ORB
      */
     private TaggedComponent create_ORB_TYPE_ID()
     {
-        CDROutputStream orbIDComponentDataStream = new CDROutputStream( this );
-        orbIDComponentDataStream.beginEncapsulatedArray();
-        orbIDComponentDataStream.write_long( ORBConstants.JACORB_ORB_ID );
+        final CDROutputStream out = new CDROutputStream( this );
 
-        return new TaggedComponent
-        (
-            TAG_ORB_TYPE.value,
-            orbIDComponentDataStream.getBufferCopy()
-        );
+        try
+        {
+            out.beginEncapsulatedArray();
+            out.write_long( ORBConstants.JACORB_ORB_ID );
+
+            return new TaggedComponent
+            (
+                    TAG_ORB_TYPE.value,
+                    out.getBufferCopy()
+            );
+        }
+        finally
+        {
+            out.close();
+        }
     }
 
     /**

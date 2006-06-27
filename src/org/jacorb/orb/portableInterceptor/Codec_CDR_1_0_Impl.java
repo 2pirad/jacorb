@@ -32,51 +32,64 @@ import org.jacorb.orb.CDROutputStream;
  * See PI SPec p.10-77ff
  *
  * @author Nicolas Noffke
- * @version $Id: Codec_CDR_1_0_Impl.java,v 1.11 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: Codec_CDR_1_0_Impl.java,v 1.12 2006-06-27 09:34:40 alphonse.bendt Exp $
  */
 
 public class Codec_CDR_1_0_Impl
     extends org.omg.CORBA.LocalObject
     implements Codec
 {
+    private final ORB orb;
 
-    private ORB orb = null;
-
-    public Codec_CDR_1_0_Impl(ORB orb) 
+    public Codec_CDR_1_0_Impl(ORB orb)
     {
         this.orb = orb;
     }
 
     // implementation of org.omg.IOP.CodecOperations interface
 
-    public Any decode(byte[] data) 
+    public Any decode(byte[] data)
         throws FormatMismatch
     {
-        CDRInputStream in = new CDRInputStream(orb, data);
+        final CDRInputStream in = new CDRInputStream(orb, data);
 
-        in.openEncapsulatedArray();
-        Any result = in.read_any();
+        try
+        {
+            in.openEncapsulatedArray();
+            Any result = in.read_any();
 
-        //not necessary, since stream is never used again
-        //in.closeEncapsulation();
+            //not necessary, since stream is never used again
+            //in.closeEncapsulation();
 
-        return result;
+            return result;
+        }
+        finally
+        {
+            in.close();
+        }
     }
 
 
     public Any decode_value(byte[] data, TypeCode tc)
         throws FormatMismatch, TypeMismatch
     {
-        CDRInputStream in = new CDRInputStream(orb, data);
+        final CDRInputStream in = new CDRInputStream(orb, data);
 
-        in.openEncapsulatedArray();
-        Any result = orb.create_any();
-        result.read_value(in, tc);
+        try
+        {
+            in.openEncapsulatedArray();
+            Any result = orb.create_any();
+            result.read_value(in, tc);
 
-        //not necessary, since stream is never used again
-        //in.closeEncasupaltion();
+            //not necessary, since stream is never used again
+            //in.closeEncasupaltion();
 
-        return result;
+            return result;
+        }
+        finally
+        {
+            in.close();
+        }
     }
 
     public byte[] encode(Any data)

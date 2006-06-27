@@ -42,7 +42,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.41 2006-06-15 15:55:46 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.42 2006-06-27 09:34:00 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -483,11 +483,19 @@ public class ServerRequest
      */
     private ServiceContext createExceptionDetailMessage (String message)
     {
-        CDROutputStream out = new CDROutputStream();
-        out.beginEncapsulatedArray();
-        out.write_wstring(message);
-        return new ServiceContext (org.omg.IOP.ExceptionDetailMessage.value,
-                                   out.getBufferCopy());
+        final CDROutputStream out = new CDROutputStream();
+
+        try
+        {
+            out.beginEncapsulatedArray();
+            out.write_wstring(message);
+            return new ServiceContext(org.omg.IOP.ExceptionDetailMessage.value,
+                    out.getBufferCopy());
+        }
+        finally
+        {
+            out.close();
+        }
     }
 
     public void setLocationForward(org.omg.PortableServer.ForwardRequest r)

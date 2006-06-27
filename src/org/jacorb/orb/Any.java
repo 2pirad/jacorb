@@ -29,7 +29,7 @@ import java.util.*;
  * CORBA any
  *
  * @author Gerald Brose
- * $Id: Any.java,v 1.48 2006-06-21 07:47:07 alphonse.bendt Exp $
+ * $Id: Any.java,v 1.49 2006-06-27 09:33:24 alphonse.bendt Exp $
  */
 
 public final class Any
@@ -943,9 +943,16 @@ public final class Any
                         toUse = ((CDROutputStream)output).orb();
                     }
                     CDROutputStream os = (CDROutputStream)value;
-                    CDRInputStream in = new CDRInputStream(toUse, os.getBufferCopy());
+                    final CDRInputStream in = new CDRInputStream(toUse, os.getBufferCopy());
 
-                    in.read_value (typeCode, output);
+                    try
+                    {
+                        in.read_value (typeCode, output);
+                    }
+                    finally
+                    {
+                        in.close();
+                    }
                 }
                 break;
             }

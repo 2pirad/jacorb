@@ -27,7 +27,7 @@ import org.jacorb.orb.iiop.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.20 2006-06-14 12:03:49 alphonse.bendt Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.21 2006-06-27 09:34:31 alphonse.bendt Exp $
  */
 
 public class ServerGIOPConnection
@@ -45,7 +45,6 @@ public class ServerGIOPConnection
     };
 
     private GIOPConnectionManager manager = null;
-    private Logger logger = null;
     private boolean closeOnReadTimeout = false;
     private boolean delayClose = false;
 
@@ -66,7 +65,7 @@ public class ServerGIOPConnection
         throws ConfigurationException
     {
         super.configure(configuration);
-        logger = ((org.jacorb.config.Configuration)configuration).getNamedLogger("jacorb.giop.conn");
+
         delayClose =
             configuration.getAttribute("jacorb.connection.delay_close","off").equals("on");
     }

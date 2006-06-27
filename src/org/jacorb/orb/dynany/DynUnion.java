@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author Gerald Brose
- * @version $Id: DynUnion.java,v 1.27 2006-05-19 22:23:31 alphonse.bendt Exp $
+ * @version $Id: DynUnion.java,v 1.28 2006-06-27 09:34:10 alphonse.bendt Exp $
  */
 
 public final class DynUnion
@@ -180,24 +180,38 @@ public final class DynUnion
    /**
     * @return an Any that holds a copy of this union
     */
-
    public org.omg.CORBA.Any to_any()
    {
-      checkDestroyed ();
-      CDROutputStream os = new CDROutputStream();
+       checkDestroyed ();
+       final CDROutputStream out = new CDROutputStream();
 
-      os.write_value( discriminator.type(),
-                      discriminator.create_input_stream() );
+       try
+       {
+           out.write_value( discriminator.type(),
+                   discriminator.create_input_stream() );
 
-      os.write_value( member.type(),
-                      member.to_any().create_input_stream());
+           out.write_value( member.type(),
+                   member.to_any().create_input_stream());
 
-      org.jacorb.orb.Any out_any =
-         (org.jacorb.orb.Any)orb.create_any();
+           org.omg.CORBA.Any out_any = orb.create_any();
 
-      out_any.type( type() );
-      out_any.read_value( new CDRInputStream( orb, os.getBufferCopy()), type());
-      return out_any;
+           out_any.type( type() );
+           final CDRInputStream in = new CDRInputStream( orb, out.getBufferCopy());
+
+           try
+           {
+               out_any.read_value( in, type());
+               return out_any;
+           }
+           finally
+           {
+               in.close();
+           }
+       }
+       finally
+       {
+           out.close();
+       }
    }
 
    /**
@@ -858,7 +872,7 @@ public final class DynUnion
       try
       {
           return member();
-      } 
+      }
       catch (org.omg.DynamicAny.DynAnyPackage.InvalidValue e)
       {
           throw unexpectedException(e);

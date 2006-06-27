@@ -36,20 +36,17 @@ import org.omg.GIOP.TargetAddress;
 import org.omg.IOP.ServiceContext;
 
 /**
- *
  * @author Gerald Brose, FU Berlin
- * @version $Id: RequestInputStream.java,v 1.19 2006-06-15 15:56:27 alphonse.bendt Exp $
- *
+ * @version $Id: RequestInputStream.java,v 1.20 2006-06-27 09:34:31 alphonse.bendt Exp $
  */
-
 public class RequestInputStream
     extends ServiceContextTransportingInputStream
 {
-    private static byte[] reserved = new byte[3];
+    private static final byte[] reserved = new byte[3];
 
-    private boolean is_locate_request = false;
+    private final boolean is_locate_request;
 
-    public RequestHeader_1_2 req_hdr = null;
+    public final RequestHeader_1_2 req_hdr;
 
     public RequestInputStream( org.omg.CORBA.ORB orb, byte[] buf )
     {
@@ -108,6 +105,8 @@ public class RequestInputStream
                     throw new MARSHAL( "Unknown GIOP minor version: " + giop_minor );
                 }
             }
+
+            is_locate_request = false;
         }
         else if( Messages.getMsgType( buffer ) == MsgType_1_1._LocateRequest )
         {
