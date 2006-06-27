@@ -43,7 +43,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.109 2006-06-19 13:29:37 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.110 2006-06-27 09:28:00 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -637,7 +637,7 @@ public class CDROutputStream
     public byte[] getBufferCopy()
     {
         ByteArrayOutputStream bos =
-            new ByteArrayOutputStream();
+            new ByteArrayOutputStream(size());
 
         try
         {
