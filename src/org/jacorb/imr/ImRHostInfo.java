@@ -1,4 +1,3 @@
-package org.jacorb.imr;
 /*
  *        JacORB - a free Java ORB
  *
@@ -20,6 +19,8 @@ package org.jacorb.imr;
  *
  */
 
+package org.jacorb.imr;
+
 import org.omg.CORBA.ORB;
 
 /**
@@ -29,16 +30,17 @@ import org.omg.CORBA.ORB;
  *
  * @author Nicolas Noffke
  *
- * @version $Id: ImRHostInfo.java,v 1.11 2006-06-14 11:54:07 alphonse.bendt Exp $
+ * @version $Id: ImRHostInfo.java,v 1.12 2006-06-27 12:54:33 alphonse.bendt Exp $
  */
-
 public class ImRHostInfo
     implements java.io.Serializable
 {
-    protected String host;
+    public static final long serialVersionUID = 1l;
+
+    protected final String host;
 
     private ServerStartupDaemon ssd_ref;
-    private String object_string;
+    private final String object_string;
 
     private boolean reconnect = false;
 
@@ -81,7 +83,9 @@ public class ImRHostInfo
         throws ServerStartupFailed
     {
         if (reconnect)
+        {
             ssd_ref = ServerStartupDaemonHelper.narrow(orb.string_to_object(object_string));
+        }
 
         ssd_ref.start_server(command);
     }
@@ -97,5 +101,3 @@ public class ImRHostInfo
         out.defaultWriteObject();
     }
 } // ImRHostInfo
-
-

@@ -26,10 +26,8 @@ import org.jacorb.config.Configuration;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
- * ThreadPool.java
- *
  * @author Nicolas Noffke
- * @version $Id: ThreadPool.java,v 1.19 2006-06-21 09:30:27 alphonse.bendt Exp $
+ * @version $Id: ThreadPool.java,v 1.20 2006-06-27 12:55:54 alphonse.bendt Exp $
  */
 public class ThreadPool
 {
@@ -48,7 +46,7 @@ public class ThreadPool
     /**
      * <code>logger</code> is the logger for threadpool.
      */
-    private Logger logger;
+    private final Logger logger;
 
     /**
      * <code>shutdown</code> denotes whether to shutdown the pool.
