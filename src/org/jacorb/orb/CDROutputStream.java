@@ -43,7 +43,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.110 2006-06-27 09:28:00 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.111 2006-06-27 12:54:47 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -2177,7 +2177,9 @@ public class CDROutputStream
             write_previous_chunk_size();
             if ((value instanceof org.omg.CORBA.portable.IDLEntity) ||
                 (value instanceof java.lang.String))
+            {
                 write_long (0x7fffff00 | chunkingFlag);
+            }
             else
             {
                 // repository id is required for RMI: types
