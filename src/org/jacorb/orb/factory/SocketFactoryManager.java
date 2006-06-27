@@ -35,7 +35,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Steve Osselton
- * @version $Id: SocketFactoryManager.java,v 1.13 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: SocketFactoryManager.java,v 1.14 2006-06-27 10:38:44 alphonse.bendt Exp $
  */
 public class SocketFactoryManager
     implements Configurable
@@ -264,9 +264,13 @@ public class SocketFactoryManager
                 try
                 {
                     // First try getting constructor with ORB parameter
-                    ctor = factoryClazz.getConstructor (new Class[] { ORB.class });
+                    ctor = factoryClazz.getConstructor(new Class[] { ORB.class });
                 }
-                catch (Exception ex)
+                catch (NoSuchMethodException e)
+                {
+                    // ignore
+                }
+                catch (SecurityException e)
                 {
                     // Ignore
                 }

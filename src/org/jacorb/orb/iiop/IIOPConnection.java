@@ -29,7 +29,7 @@ import org.jacorb.orb.listener.SSLListenerUtil;
  * IIOPConnection.java
  *
  * @author Nicolas Noffke / Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.11 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: IIOPConnection.java,v 1.12 2006-06-27 10:40:32 alphonse.bendt Exp $
  */
 
 public abstract class IIOPConnection
@@ -83,7 +83,7 @@ public abstract class IIOPConnection
         return to_COMM_FAILURE(ex);
     }
 
-    protected int getTimeout()
+    protected synchronized int getTimeout()
     {
         try
         {
