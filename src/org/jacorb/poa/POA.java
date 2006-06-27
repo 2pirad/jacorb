@@ -44,7 +44,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.62 2006-06-26 13:46:50 alphonse.bendt Exp $
+ * @version $Id: POA.java,v 1.63 2006-06-27 10:39:01 alphonse.bendt Exp $
  */
 
 public class POA
@@ -414,7 +414,9 @@ public class POA
         throws WrongAdapter
     {
         if (!configured)
+        {
             throw new Error("POA: not configured!");
+        }
 
         synchronized(poaDestructionLog)
         {
