@@ -28,7 +28,7 @@ import org.jacorb.orb.iiop.IIOPProfile;
 
 /**
  * @author Steve Osselton
- * @version $Id: SpecificProfileSelector.java,v 1.1 2006-06-14 12:40:37 alphonse.bendt Exp $
+ * @version $Id: SpecificProfileSelector.java,v 1.2 2006-06-27 10:56:54 alphonse.bendt Exp $
  */
 public class SpecificProfileSelector implements ProfileSelector
 {
@@ -81,7 +81,7 @@ public class SpecificProfileSelector implements ProfileSelector
                             ((iiopProfile.getSSL () == null) ||
                                     // SSL port contains a valid value but further check is required
                                     // see if protection is enabled.
-                                    (((iiopProfile.getSSL ()).target_requires |
+                                    (((iiopProfile.getSSL()).target_requires &
                                             org.omg.Security.NoProtection.value) != 0))
                     )
                     {
