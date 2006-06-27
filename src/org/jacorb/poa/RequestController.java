@@ -38,7 +38,7 @@ import java.util.*;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann
- * @version $Id: RequestController.java,v 1.33 2006-05-24 09:22:51 alphonse.bendt Exp $
+ * @version $Id: RequestController.java,v 1.34 2006-06-27 10:51:19 alphonse.bendt Exp $
  */
 
 public final class RequestController
@@ -570,19 +570,21 @@ public final class RequestController
     {
         synchronized (queueLog)
         {
-            if ((requestQueue.isEmpty() || poa.isHolding() || waitForShutdownCalled) &&
+            if (logger.isDebugEnabled())
+            {
+                logger.debug("waiting for queue");
+            }
+
+            while ((requestQueue.isEmpty() || poa.isHolding() || waitForShutdownCalled) &&
                 !terminate)
             {
                 try
                 {
-                    if (logger.isDebugEnabled())
-                    {
-                        logger.debug("waiting for queue");
-                    }
                     queueLog.wait();
                 }
                 catch (java.lang.InterruptedException e)
                 {
+                    // ignored
                 }
             }
         }

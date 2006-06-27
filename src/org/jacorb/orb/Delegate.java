@@ -20,6 +20,7 @@ package org.jacorb.orb;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
@@ -52,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.129 2006-06-26 13:46:50 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.130 2006-06-27 10:50:41 alphonse.bendt Exp $
  *
  */
 
@@ -1306,9 +1307,9 @@ public final class Delegate
                 final String classname = RepositoryID.className( ids[0], "Stub", null );
 
                 int lastDot = classname.lastIndexOf( '.' );
-                StringBuffer scn = new StringBuffer( classname.substring( 0, lastDot + 1) );
-                scn.append( '_' );
-                scn.append( classname.substring( lastDot + 1 ) );
+                StringBuffer buffer = new StringBuffer( classname.substring( 0, lastDot + 1) );
+                buffer.append( '_' );
+                buffer.append( classname.substring( lastDot + 1 ) );
 
                 // This will only work if there is a correspondence between the Java class
                 // name and the Repository ID. If prefixes have been using then this mapping
@@ -1320,11 +1321,11 @@ public final class Delegate
                 Class stub=null;
                 try
                 {
-                    stub = ObjectUtil.classForName( scn.toString());
+                    stub = ObjectUtil.classForName( buffer.toString());
                 }
                 catch (ClassNotFoundException e)
                 {
-                    stub = ObjectUtil.classForName("org.omg.stub."+scn.toString());
+                    stub = ObjectUtil.classForName("org.omg.stub."+buffer.toString());
                 }
 
                 Method idm = stub.getMethod ( "_ids", (Class[]) null );
@@ -1339,10 +1340,30 @@ public final class Delegate
                 }
             }
             // If it fails fall back to a remote call.
-            catch (Exception e)
+            catch (ClassNotFoundException e)
             {
-                logger.debug("trying is_a remotely");
+                // ignore
             }
+            catch (IllegalArgumentException e)
+            {
+                // ignore
+            } catch (SecurityException e)
+            {
+                // ignore
+            } catch (NoSuchMethodException e)
+            {
+                // ignore
+            } catch (IllegalAccessException e)
+            {
+                // ignore
+            } catch (InvocationTargetException e)
+            {
+                // ignore
+            } catch (InstantiationException e)
+            {
+                // ignore
+            }
+            logger.debug("trying is_a remotely");
         }
 
         org.omg.CORBA.portable.OutputStream os;

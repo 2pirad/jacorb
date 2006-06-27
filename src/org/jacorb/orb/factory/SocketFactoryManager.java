@@ -35,7 +35,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Steve Osselton
- * @version $Id: SocketFactoryManager.java,v 1.14 2006-06-27 10:38:44 alphonse.bendt Exp $
+ * @version $Id: SocketFactoryManager.java,v 1.15 2006-06-27 10:51:07 alphonse.bendt Exp $
  */
 public class SocketFactoryManager
     implements Configurable
@@ -83,7 +83,6 @@ public class SocketFactoryManager
     private String serverSocketFactoryClassName = null;
     private String socketFactoryClassName = null;
     private String portMin = null;
-    boolean configured = false;
     private String sslServerSocketFactoryClazz;
     private SocketFactory sslSocketFactory;
     private String sslSocketFactoryClazz;
@@ -141,8 +140,6 @@ public class SocketFactoryManager
                 throw new ConfigurationException("SSL support is on, but the property \"" + SSL_SOCKET_FACTORY + "\" is not set");
             }
         }
-
-        configured = true;
     }
 
 
