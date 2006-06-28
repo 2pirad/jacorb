@@ -29,7 +29,7 @@ import java.util.*;
  * CORBA any
  *
  * @author Gerald Brose
- * $Id: Any.java,v 1.49 2006-06-27 09:33:24 alphonse.bendt Exp $
+ * $Id: Any.java,v 1.50 2006-06-28 12:39:20 alphonse.bendt Exp $
  */
 
 public final class Any
@@ -701,9 +701,13 @@ public final class Any
     public org.omg.CORBA.portable.OutputStream create_output_stream()
     {
         if(!( orb instanceof org.jacorb.orb.ORB ))
+        {
             value = new CDROutputStream();
+        }
         else
+        {
             value = new CDROutputStream(orb);
+        }
         return (CDROutputStream)value;
     }
 

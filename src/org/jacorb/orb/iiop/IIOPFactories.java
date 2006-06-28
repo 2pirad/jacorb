@@ -27,7 +27,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.10 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: IIOPFactories.java,v 1.11 2006-06-28 12:42:22 alphonse.bendt Exp $
  */
 public class IIOPFactories
     extends org.jacorb.orb.etf.FactoriesBase
@@ -38,11 +38,6 @@ public class IIOPFactories
         listenerClz = IIOPListener.class;
         profileClz = IIOPProfile.class;
         addressClz = IIOPAddress.class;
-    }
-
-    public IIOPFactories()
-    {
-        super();
     }
 
 /*    public Profile demarshal_profile(TaggedProfileHolder tagged_profile,

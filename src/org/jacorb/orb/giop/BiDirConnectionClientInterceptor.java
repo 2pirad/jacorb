@@ -24,60 +24,57 @@ import org.jacorb.orb.*;
 import org.jacorb.orb.portableInterceptor.*;
 
 import org.omg.PortableInterceptor.*;
-import org.omg.IOP.Codec;
 import org.omg.IOP.*;
 import org.omg.IIOP.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionClientInterceptor.java,v 1.9 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: BiDirConnectionClientInterceptor.java,v 1.10 2006-06-28 12:41:44 alphonse.bendt Exp $
  */
-
 public class BiDirConnectionClientInterceptor
     extends DefaultClientInterceptor
 {
-    private String name = "BiDirConnectionClientInterceptor";
+    private static final String name = "BiDirConnectionClientInterceptor";
 
-    private Codec codec = null;    
-    private ORB orb = null;
+    private final ORB orb;
 
     private ServiceContext bidir_ctx = null;
 
-    public BiDirConnectionClientInterceptor( ORB orb, Codec codec ) 
+    public BiDirConnectionClientInterceptor( ORB orb )
     {
         this.orb = orb;
-        this.codec = codec;
     }
 
-    public String name() 
+    public String name()
     {
         return name;
     }
 
     public void destroy()
     {
+        // nothing to do
     }
 
-    public void send_request( ClientRequestInfo ri ) 
+    public void send_request( ClientRequestInfo ri )
         throws ForwardRequest
     {
         //only send a BiDir service context if our orb allows it, and
         //the connection was initiated in this process
 
-        if( orb.useBiDirGIOP() && 
+        if( orb.useBiDirGIOP() &&
             ((ClientRequestInfoImpl) ri).connection.isClientInitiated() )
         {
             if( bidir_ctx == null )
             {
                 BasicAdapter ba = orb.getBasicAdapter();
-                
+
                 ListenPoint lp = new ListenPoint( ba.getAddress(),
                                                   (short) ba.getPort() );
 
                 ListenPoint[] points = null;
                 if( ba.hasSSLListener() )
-                {   
-                    ListenPoint ssl_lp = 
+                {
+                    ListenPoint ssl_lp =
                         new ListenPoint( ba.getAddress(),
                                          (short) ba.getSSLPort() );
 
@@ -88,11 +85,11 @@ public class BiDirConnectionClientInterceptor
                     points = new ListenPoint[]{ lp };
                 }
 
-                BiDirIIOPServiceContext b = 
+                BiDirIIOPServiceContext b =
                     new BiDirIIOPServiceContext( points );
                 org.omg.CORBA.Any any = orb.create_any();
                 BiDirIIOPServiceContextHelper.insert( any, b );
-                
+
                 CDROutputStream cdr_out = new CDROutputStream();
 
                 cdr_out.beginEncapsulatedArray();
@@ -101,7 +98,7 @@ public class BiDirConnectionClientInterceptor
                 bidir_ctx = new ServiceContext( BI_DIR_IIOP.value,
                                                 cdr_out.getBufferCopy() );
             }
-            
+
             ri.add_request_service_context( bidir_ctx, true );
 
             //if this connection isn't "bidir'ed" yet, do so now
@@ -113,5 +110,4 @@ public class BiDirConnectionClientInterceptor
             }
         }
     }
-} // BiDirConnectionClientInterceptor
-
+}

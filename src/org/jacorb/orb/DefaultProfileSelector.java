@@ -1,6 +1,5 @@
 package org.jacorb.orb;
 
-
 /*
  *        JacORB  - a free Java ORB
  *
@@ -21,23 +20,24 @@ package org.jacorb.orb;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.util.*;
-import org.omg.ETF.Profile;
+import java.util.List;
+
 import org.jacorb.orb.giop.ClientConnectionManager;
+import org.omg.ETF.Profile;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: DefaultProfileSelector.java,v 1.4 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: DefaultProfileSelector.java,v 1.5 2006-06-28 12:39:20 alphonse.bendt Exp $
  */
 public class DefaultProfileSelector implements ProfileSelector
 {
-
-    public Profile selectProfile (List profiles, ClientConnectionManager ccm) 
+    public Profile selectProfile (List profiles, ClientConnectionManager ccm)
     {
         if (profiles.size() > 0)
+        {
             return (Profile)profiles.get(0);
-        else
-            return null;
-    }
+        }
 
+        return null;
+    }
 }

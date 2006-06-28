@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.48 2006-06-21 11:37:57 alphonse.bendt Exp $
+ * @version $Id: ValueDecl.java,v 1.49 2006-06-28 12:38:24 alphonse.bendt Exp $
  */
 
 public class ValueDecl
@@ -466,11 +466,6 @@ public class ValueDecl
     public String printReadStatement(String var_name, String streamname)
     {
         return var_name + " = " + printReadExpression(streamname);
-    }
-
-    private void printClassComment(PrintWriter out)
-    {
-        printClassComment("valuetype", name, out);
     }
 
     /**

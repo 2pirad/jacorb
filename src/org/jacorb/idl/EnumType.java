@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.36 2006-06-14 12:26:27 alphonse.bendt Exp $
+ * @version $Id: EnumType.java,v 1.37 2006-06-28 12:38:24 alphonse.bendt Exp $
  */
 
 public class EnumType
@@ -165,10 +165,8 @@ public class EnumType
         {
             return fullName.substring(fullName.lastIndexOf('.') + 1);
         }
-        else
-        {
-            return fullName;
-        }
+
+        return fullName;
     }
 
     public String printReadExpression(String streamname)

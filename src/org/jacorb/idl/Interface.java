@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.68 2006-06-26 14:37:44 alphonse.bendt Exp $
+ * @version $Id: Interface.java,v 1.69 2006-06-28 12:38:24 alphonse.bendt Exp $
  */
 
 import java.io.File;
@@ -496,8 +496,8 @@ public class Interface
         }
 
         printPackage(ps);
-        printClassComment(name, ps);
         printSuperclassImports(ps);
+        printClassComment(name, ps);
 
         if (is_pseudo)
         {
@@ -614,9 +614,9 @@ public class Interface
         }
 
         printPackage(ps);
-        printClassComment(name, ps);
         printSuperclassImports(ps);
         printImport(ps);
+        printClassComment(name, ps);
 
         ps.println("public interface " + name + "Operations");
 
@@ -1115,9 +1115,8 @@ public class Interface
         }
 
         printPackage(ps);
-        printClassComment(name, ps);
-
         printImport(ps);
+        printClassComment(name, ps);
 
         ps.print("public abstract class " + name + "POA");
         ps.println("\n\textends org.omg.PortableServer.Servant");

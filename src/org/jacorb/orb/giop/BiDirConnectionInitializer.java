@@ -29,7 +29,7 @@ import org.omg.BiDirPolicy.BIDIRECTIONAL_POLICY_TYPE;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionInitializer.java,v 1.11 2006-05-17 09:54:46 alphonse.bendt Exp $
+ * @version $Id: BiDirConnectionInitializer.java,v 1.12 2006-06-28 12:41:43 alphonse.bendt Exp $
  */
 
 public class BiDirConnectionInitializer
@@ -47,8 +47,8 @@ public class BiDirConnectionInitializer
                                              (byte) 1, (byte) 0);
             Codec codec = info.codec_factory().create_codec(encoding);
 
-            info.add_client_request_interceptor( new BiDirConnectionClientInterceptor( orb, codec ));
-            info.add_server_request_interceptor( new BiDirConnectionServerInterceptor( orb, codec ));
+            info.add_client_request_interceptor( new BiDirConnectionClientInterceptor( orb ));
+            info.add_server_request_interceptor( new BiDirConnectionServerInterceptor( orb ));
 
             info.register_policy_factory( BIDIRECTIONAL_POLICY_TYPE.value,
                                           new BiDirPolicyFactory() );

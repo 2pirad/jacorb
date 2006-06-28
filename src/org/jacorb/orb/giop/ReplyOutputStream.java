@@ -21,21 +21,25 @@ package org.jacorb.orb.giop;
  */
 
 import java.io.IOException;
-import org.apache.avalon.framework.logger.Logger;
 
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.orb.ORB;
+import org.jacorb.orb.SystemExceptionHelper;
 import org.omg.CORBA.MARSHAL;
-import org.omg.GIOP.*;
-import org.jacorb.orb.*;
+import org.omg.GIOP.LocateStatusType_1_2;
+import org.omg.GIOP.MsgType_1_1;
+import org.omg.GIOP.ReplyStatusType_1_0;
+import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
- * @author Gerald Brose, FU Berlin 1999
- * @version $Id: ReplyOutputStream.java,v 1.22 2006-06-27 09:34:31 alphonse.bendt Exp $
+ * @author Gerald Brose
+ * @version $Id: ReplyOutputStream.java,v 1.23 2006-06-28 12:41:43 alphonse.bendt Exp $
  *
  */
 public class ReplyOutputStream
     extends ServiceContextTransportingOutputStream
 {
-    private boolean is_locate_reply = false;
+    private final boolean is_locate_reply;
     private final Logger logger;
 
     public ReplyOutputStream (

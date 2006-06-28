@@ -20,41 +20,36 @@
 
 package org.jacorb.orb.giop;
 
-import org.omg.BiDirPolicy.*;
-import org.omg.CORBA.NO_IMPLEMENT;
+import org.omg.BiDirPolicy.BIDIRECTIONAL_POLICY_TYPE;
+import org.omg.BiDirPolicy.BOTH;
+import org.omg.BiDirPolicy.BidirectionalPolicy;
 import org.omg.CORBA.Policy;
 
-import org.omg.CORBA.LocalObject;
-
 /**
- * BiDirPolicy.java
- *
- *
- * Created: Mon Sep  3 18:39:06 2002
- *
  * @author Nicolas Noffke
- * @version $Id: BiDirPolicy.java,v 1.7 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: BiDirPolicy.java,v 1.8 2006-06-28 12:41:43 alphonse.bendt Exp $
  */
 
-public class BiDirPolicy 
-    extends org.omg.CORBA.LocalObject 
+public class BiDirPolicy
+    extends org.omg.CORBA.LocalObject
     implements BidirectionalPolicy
 {
-    private short value;
+    private final short policyValue;
 
     public BiDirPolicy( short value )
     {
-        this.value = value;
+        super();
+        this.policyValue = value;
     }
 
     public boolean useBiDirGIOP()
     {
-        return value == BOTH.value;
+        return policyValue == BOTH.value;
     }
 
     public short value()
     {
-        return value;
+        return policyValue;
     }
 
     public int policy_type()
@@ -64,11 +59,11 @@ public class BiDirPolicy
 
     public Policy copy()
     {
-        return new BiDirPolicy( value );
+        return new BiDirPolicy( policyValue );
     }
 
     public void destroy()
     {
+        // nothing to do
     }
-}// BiDirPolicy
-
+}

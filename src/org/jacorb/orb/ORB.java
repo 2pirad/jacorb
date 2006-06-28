@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.152 2006-06-27 12:55:27 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.153 2006-06-28 12:39:20 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -719,9 +719,8 @@ public final class ORB
                 if (poa.isSSLRequired())
                 {
                     ((ProfileBase)profile).patchPrimaryAddress(null);
+                }
             }
-        }
-
         }
 
         TaggedComponentList multipleComponents = new TaggedComponentList();
@@ -1028,7 +1027,8 @@ public final class ORB
         {
             profile.patchPrimaryAddress(imrProxyAddress);
         }
-        else if (!_transient && useIMR ) {
+        else if (!_transient && useIMR )
+        {
             getImR();
 
             // The double call to patchPrimaryAddress ensures that either the

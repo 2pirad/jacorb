@@ -20,17 +20,16 @@
 
 package org.jacorb.orb.dii;
 
-/**
- * @author Gerald Brose, FU Berlin
- * @version $Id: ExceptionList.java,v 1.10 2006-06-14 11:58:48 alphonse.bendt Exp $
- */
-
 import java.util.*;
 
+/**
+ * @author Gerald Brose
+ * @version $Id: ExceptionList.java,v 1.11 2006-06-28 12:40:16 alphonse.bendt Exp $
+ */
 public class ExceptionList
     extends org.omg.CORBA.ExceptionList
 {
-    private Vector list = new Vector();
+    private final Vector list = new Vector();
 
     public int count()
     {
@@ -68,11 +67,3 @@ public class ExceptionList
         }
     }
 }
-
-
-
-
-
-
-
-

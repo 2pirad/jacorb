@@ -37,7 +37,7 @@ import org.omg.RTCORBA.ProtocolProperties;
  * to IIOPProfile.
  *
  * @author Nick Cross
- * @version $Id: DIOPFactories.java,v 1.3 2006-06-14 11:59:05 alphonse.bendt Exp $
+ * @version $Id: DIOPFactories.java,v 1.4 2006-06-28 12:40:13 alphonse.bendt Exp $
  */
 public class DIOPFactories extends org.omg.ETF._FactoriesLocalBase
 {
@@ -54,17 +54,25 @@ public class DIOPFactories extends org.omg.ETF._FactoriesLocalBase
      */
     private static DIOPFactories factory;
 
+    private DIOPFactories()
+    {
+        super();
+        // use factory method instead
+    }
 
     /**
      * <code>getDIOPFactory</code> returns the cached instance.
      */
     public static DIOPFactories getDIOPFactory()
     {
-        if (factory == null)
+        synchronized(DIOPFactories.class)
         {
-            factory = new DIOPFactories();
+            if (factory == null)
+            {
+                factory = new DIOPFactories();
+            }
+            return factory;
         }
-        return factory;
     }
 
 
@@ -103,14 +111,20 @@ public class DIOPFactories extends org.omg.ETF._FactoriesLocalBase
 
     public Profile decode_corbaloc (String corbaloc)
     {
-        int colon = corbaloc.indexOf (':');
-        String token = corbaloc.substring (0,colon).toLowerCase();
+        final int colon = corbaloc.indexOf (':');
+        final String token = corbaloc.substring (0,colon).toLowerCase();
+        final Profile result;
+
         if (token.length() == 0 ||
-            token.equals ("diop"))
+            "diop".equals(token))
         {
-            return new IIOPProfile(corbaloc);
+            result = new IIOPProfile(corbaloc);
+        }
+        else
+        {
+            result = null;
         }
 
-        return null;
+        return result;
     }
 }

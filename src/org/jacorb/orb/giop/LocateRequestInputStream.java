@@ -29,16 +29,13 @@ import org.omg.GIOP.MsgType_1_1;
 import org.omg.GIOP.TargetAddress;
 
 /**
- *
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateRequestInputStream.java,v 1.17 2006-06-15 15:56:27 alphonse.bendt Exp $
- *
+ * @version $Id: LocateRequestInputStream.java,v 1.18 2006-06-28 12:41:44 alphonse.bendt Exp $
  */
-
 public class LocateRequestInputStream
     extends MessageInputStream
 {
-    public LocateRequestHeader_1_2 req_hdr = null;
+    public final LocateRequestHeader_1_2 req_hdr;
 
     public LocateRequestInputStream( org.omg.CORBA.ORB orb, byte[] buf )
     {

@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.50 2006-06-14 12:26:09 alphonse.bendt Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.51 2006-06-28 12:38:24 alphonse.bendt Exp $
  */
 
 public class AliasTypeSpec
@@ -367,10 +367,8 @@ public class AliasTypeSpec
         {
             return originalType.holderName();
         }
-        else
-        {
-            return full_name() + "Holder";
-        }
+
+        return full_name() + "Holder";
     }
 
     /**
