@@ -52,15 +52,11 @@ import org.omg.SSLIOP.SSL;
 import org.omg.SSLIOP.SSLHelper;
 import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
-
 /**
- * ClientIIOPConnection.java
- *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.26 2006-06-28 12:42:22 alphonse.bendt Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.27 2006-06-29 15:17:13 alphonse.bendt Exp $
  */
-
 public class ClientIIOPConnection
     extends IIOPConnection
     implements Configurable
@@ -110,13 +106,6 @@ public class ClientIIOPConnection
         keepAlive = configuration.getAttributeAsBoolean("jacorb.connection.client.keepalive", false);
 
         connectionListener = transportManager.getSocketFactoryManager().getTCPListener();
-    }
-
-    public ClientIIOPConnection (ClientIIOPConnection other)
-    {
-        super (other);
-        this.timeout = other.timeout;
-        this.ssl_port = other.ssl_port;
     }
 
     /**
@@ -476,8 +465,6 @@ public class ClientIIOPConnection
         {
             if (socket != null)
             {
-                String localhost = getLocalhost();
-
                 connectionListener.connectionClosed
                 (
                     new TCPConnectionEvent
@@ -486,7 +473,7 @@ public class ClientIIOPConnection
                         socket.getInetAddress().toString(),
                         socket.getPort(),
                         socket.getLocalPort(),
-                        localhost
+                        getLocalhost()
                     )
                 );
             }

@@ -28,7 +28,7 @@ import org.jacorb.orb.listener.SSLListenerUtil;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.13 2006-06-28 12:42:23 alphonse.bendt Exp $
+ * @version $Id: IIOPConnection.java,v 1.14 2006-06-29 15:17:24 alphonse.bendt Exp $
  */
 public abstract class IIOPConnection
     extends org.jacorb.orb.etf.StreamConnectionBase
@@ -36,12 +36,6 @@ public abstract class IIOPConnection
     protected Socket socket;
 
     protected boolean use_ssl;
-
-    public IIOPConnection (IIOPConnection other)
-    {
-        super(other);
-        this.use_ssl = other.use_ssl;
-    }
 
     public IIOPConnection()
     {
