@@ -37,7 +37,7 @@ import org.apache.avalon.framework.logger.Logger;
  * on to the external SSLListener.
  *
  * @author Nick Cross
- * @version $Id: SSLHandshakeListener.java,v 1.1 2006-06-26 08:08:24 alphonse.bendt Exp $
+ * @version $Id: SSLHandshakeListener.java,v 1.2 2006-06-29 15:17:55 alphonse.bendt Exp $
  */
 public class SSLHandshakeListener implements HandshakeCompletedListener
 {
@@ -102,7 +102,7 @@ public class SSLHandshakeListener implements HandshakeCompletedListener
                 certs,
                 event.getSocket().getLocalPort(),
                 localhost,
-                null // TODO
+                null
             )
         );
     }
