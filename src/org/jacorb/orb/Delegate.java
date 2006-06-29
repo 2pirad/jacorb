@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.131 2006-06-29 10:25:00 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.132 2006-06-29 15:16:50 alphonse.bendt Exp $
  *
  */
 
@@ -963,22 +963,30 @@ public final class Delegate
             connection
         );
 
-        localInterceptors.set(interceptors);
+        if (orb.hasRequestInterceptors())
+        {
+            localInterceptors.set(interceptors);
 
-        try
+            try
+            {
+                interceptors.handle_send_request();
+            }
+            catch (RuntimeException e)
+            {
+                // If we are throwing a system exception then this will disrupt the call path.
+                // Therefore nullify localInterceptors so it doesn't appear we are still in an
+                // interceptor call. RemarshalExceptions are explicitely not caught, because in
+                // that case, localInterceptors must stay set
+
+                localInterceptors.set(null);
+                throw e;
+            }
+        }
+        else
         {
             interceptors.handle_send_request();
         }
-        catch (RuntimeException e)
-        {
-            // If we are throwing a system exception then this will disrupt the call path.
-            // Therefore nullify localInterceptors so it doesn't appear we are still in an
-            // interceptor call. RemarshalExceptions are explicitely not caught, because in
-            // that case, localInterceptors must stay set
 
-            localInterceptors.set(null);
-            throw e;
-        }
 
         try
         {
@@ -1049,7 +1057,10 @@ public final class Delegate
         }
         finally
         {
-            localInterceptors.set(null);
+            if (orb.hasRequestInterceptors())
+            {
+                localInterceptors.set(null);
+            }
         }
 
         if ( !async && receiver != null )
