@@ -39,6 +39,7 @@ import org.jacorb.orb.giop.TransportManager;
 import org.jacorb.orb.iiop.IIOPAddress;
 import org.jacorb.orb.iiop.IIOPListener;
 import org.jacorb.orb.iiop.IIOPProfile;
+import org.omg.CORBA.INTERNAL;
 import org.omg.ETF.Connection;
 import org.omg.ETF.Factories;
 import org.omg.ETF.Listener;
@@ -47,7 +48,7 @@ import org.omg.ETF.Listener;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose
- * @version $Id: BasicAdapter.java,v 1.57 2006-06-29 13:20:58 alphonse.bendt Exp $
+ * @version $Id: BasicAdapter.java,v 1.58 2006-06-29 15:49:45 nick.cross Exp $
  */
 public class BasicAdapter
     extends org.omg.ETF._HandleLocalBase
