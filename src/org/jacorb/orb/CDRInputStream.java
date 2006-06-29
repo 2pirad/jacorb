@@ -28,6 +28,7 @@ import org.apache.avalon.framework.logger.*;
 
 import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.util.ObjectUtil;
+import org.jacorb.util.Stack;
 import org.jacorb.util.ValueHandler;
 
 import org.omg.CORBA.BAD_PARAM;
@@ -46,7 +47,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.100 2006-06-29 07:03:53 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.101 2006-06-29 15:15:58 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -55,7 +56,6 @@ public class CDRInputStream
     /**
      * <code>encaps_stack</code> is used to saving/restoring
      * encapsulation information.
-     * TODO replace with unsynchronized version
      */
     private Stack encaps_stack;
 
