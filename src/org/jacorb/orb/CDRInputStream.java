@@ -46,7 +46,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.99 2006-06-28 12:39:20 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.100 2006-06-29 07:03:53 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -342,12 +342,16 @@ public class CDRInputStream
     public void close()
     {
         // Don't need to call super.close as super is noop.
+
         if( closed )
         {
             return;
         }
 
-        BufferManager.getInstance().returnBuffer(buffer);
+        // commented out as this caused test failures.
+        // as the buffer has been passed into this CDRInputStream
+        // we cannot assume ownership of the buffer here (alphonse).
+        // BufferManager.getInstance().returnBuffer(buffer);
 
         buffer = null;
         encaps_stack = null;
