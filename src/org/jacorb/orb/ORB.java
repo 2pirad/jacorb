@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.154 2006-06-29 10:23:58 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.155 2006-06-29 13:20:58 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -915,7 +915,9 @@ public final class ORB
         {
             rootpoa = org.jacorb.poa.POA._POA_init(this);
 
-            basicAdapter = new BasicAdapter( getTransportManager(),
+            basicAdapter = new BasicAdapter( this,
+                                             rootpoa,
+                                             getTransportManager(),
                                              getGIOPConnectionManager() );
 
             try
