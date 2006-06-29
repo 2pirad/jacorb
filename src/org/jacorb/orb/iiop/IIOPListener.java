@@ -45,7 +45,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.33 2006-06-29 13:20:58 alphonse.bendt Exp $
+ * @version $Id: IIOPListener.java,v 1.34 2006-06-29 15:17:40 alphonse.bendt Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -573,8 +573,6 @@ public class IIOPListener
 
              SSLListenerUtil.addListener(orb, socket);
 
-             String localhost = getLocalhost();
-
              socketFactoryManager.getTCPListener().connectionOpened
              (
                      new TCPConnectionEvent
@@ -583,7 +581,7 @@ public class IIOPListener
                              socket.getInetAddress().getHostAddress(),
                              socket.getPort(),
                              socket.getLocalPort(),
-                             localhost
+                             getLocalhost()
                      )
              );
         }
