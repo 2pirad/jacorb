@@ -8,7 +8,7 @@ import org.jacorb.orb.listener.TCPConnectionListener;
  * <code>TCPListener</code> is a simple implementation of a listener.
  *
  * @author Nick Cross
- * @version $Id: TCPListener.java,v 1.1 2006-06-26 08:07:18 alphonse.bendt Exp $
+ * @version $Id: TCPListener.java,v 1.2 2006-06-29 15:42:48 alphonse.bendt Exp $
  */
 public class TCPListener implements TCPConnectionListener
 {
@@ -61,5 +61,10 @@ public class TCPListener implements TCPConnectionListener
     {
         listenerClose = false;
         listenerOpen = false;
+    }
+
+    public boolean isListenerEnabled()
+    {
+        return true;
     }
 }

@@ -24,7 +24,7 @@ package org.jacorb.orb.listener;
  * empty implementation of the TCPConnectionListener interface
  *
  * @author Alphonse Bendt
- * @version $Id: NullTCPConnectionListener.java,v 1.1 2006-06-26 08:08:24 alphonse.bendt Exp $
+ * @version $Id: NullTCPConnectionListener.java,v 1.2 2006-06-29 15:42:48 alphonse.bendt Exp $
  */
 public class NullTCPConnectionListener implements TCPConnectionListener
 {
@@ -36,5 +36,10 @@ public class NullTCPConnectionListener implements TCPConnectionListener
     public void connectionClosed(TCPConnectionEvent e)
     {
         // empty implementation
+    }
+
+    public boolean isListenerEnabled()
+    {
+        return false;
     }
 }

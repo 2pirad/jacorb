@@ -41,11 +41,12 @@ import org.jacorb.orb.listener.DefaultAcceptorExceptionListener;
 import org.jacorb.orb.listener.NullAcceptorExceptionListener;
 import org.jacorb.orb.listener.SSLListenerUtil;
 import org.jacorb.orb.listener.TCPConnectionEvent;
+import org.jacorb.orb.listener.TCPConnectionListener;
 import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.34 2006-06-29 15:17:40 alphonse.bendt Exp $
+ * @version $Id: IIOPListener.java,v 1.35 2006-06-29 15:42:48 alphonse.bendt Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -353,6 +354,7 @@ public class IIOPListener
     public class Acceptor
         extends org.jacorb.orb.etf.ListenerBase.Acceptor
     {
+        final TCPConnectionListener tcpListener = socketFactoryManager.getTCPListener();
         private final Object runSync = new Object();
         private final boolean keepAlive;
         protected ServerSocket serverSocket;
@@ -573,17 +575,20 @@ public class IIOPListener
 
              SSLListenerUtil.addListener(orb, socket);
 
-             socketFactoryManager.getTCPListener().connectionOpened
-             (
-                     new TCPConnectionEvent
-                     (
-                             this,
-                             socket.getInetAddress().getHostAddress(),
-                             socket.getPort(),
-                             socket.getLocalPort(),
-                             getLocalhost()
-                     )
-             );
+             if (tcpListener.isListenerEnabled())
+             {
+                 tcpListener.connectionOpened
+                 (
+                         new TCPConnectionEvent
+                         (
+                                 this,
+                                 socket.getInetAddress().getHostAddress(),
+                                 socket.getPort(),
+                                 socket.getLocalPort(),
+                                 getLocalhost()
+                         )
+                 );
+             }
         }
 
         protected void deliverConnection(Socket socket)

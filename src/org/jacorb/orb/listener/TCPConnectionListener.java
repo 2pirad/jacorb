@@ -28,10 +28,12 @@ import java.util.EventListener;
  * events from JacORB.
  *
  * @author Nick Cross
- * @version $Id: TCPConnectionListener.java,v 1.1 2006-06-26 08:08:24 alphonse.bendt Exp $
+ * @version $Id: TCPConnectionListener.java,v 1.2 2006-06-29 15:42:48 alphonse.bendt Exp $
  */
 public interface TCPConnectionListener extends EventListener
 {
+    boolean isListenerEnabled();
+
     /**
      * <code>connectionOpened</code> will be called whenever a socket
      * is opened.

@@ -55,7 +55,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.27 2006-06-29 15:17:13 alphonse.bendt Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.28 2006-06-29 15:42:48 alphonse.bendt Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -388,7 +388,7 @@ public class ClientIIOPConnection
             }
             finally
             {
-                if (socket != null)
+                if (socket != null && connectionListener.isListenerEnabled())
                 {
                     connectionListener.connectionOpened
                     (
@@ -463,7 +463,7 @@ public class ClientIIOPConnection
         }
         finally
         {
-            if (socket != null)
+            if (socket != null && connectionListener.isListenerEnabled())
             {
                 connectionListener.connectionClosed
                 (

@@ -34,7 +34,7 @@ import org.jacorb.orb.listener.TCPConnectionListener;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.6 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.7 2006-06-29 15:42:48 alphonse.bendt Exp $
  */
 
 public class ServerIIOPConnection
@@ -111,20 +111,23 @@ public class ServerIIOPConnection
             }
             catch (IOException ex)
             {
-                throw to_COMM_FAILURE (ex, socket);
+                throw to_COMM_FAILURE(ex, socket);
             }
             finally
             {
-                tcpListener.connectionClosed(
-                        new TCPConnectionEvent
-                        (
-                                this,
-                                socket.getInetAddress().toString(),
-                                socket.getPort(),
-                                socket.getLocalPort(),
-                                getLocalhost()
-                        )
-                );
+                if (tcpListener.isListenerEnabled())
+                {
+                    tcpListener.connectionClosed(
+                            new TCPConnectionEvent
+                            (
+                                    this,
+                                    socket.getInetAddress().toString(),
+                                    socket.getPort(),
+                                    socket.getLocalPort(),
+                                    getLocalhost()
+                            )
+                    );
+                }
             }
         }
 
