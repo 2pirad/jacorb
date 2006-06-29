@@ -1,5 +1,5 @@
 %
-% $Id: configuration.tex,v 1.21 2006-06-26 10:06:35 alphonse.bendt Exp $
+% $Id: configuration.tex,v 1.22 2006-06-29 10:49:29 alphonse.bendt Exp $
 %
 
 This chapter explains the general mechanism for configuring JacORB
@@ -1015,6 +1015,8 @@ SSLSessionEvent which allows the following information to be retrieved:
     public String getRemoteIP()
     public int getRemotePort()
     public String getRemoteDN()
+            Deprecated - getPeerCertificateChain should be used instead
+    public Certificate [] getPeerCertificateChain()
     public int getLocalPort()
 \end{verbatim}
 \end{small}
