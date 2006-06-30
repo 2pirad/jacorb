@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.155 2006-06-29 13:20:58 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.156 2006-06-30 13:42:02 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1942,17 +1942,18 @@ public final class ORB
 
     public void perform_work ()
     {
-        if (!isRunning())
-        {
-            throw new org.omg.CORBA.BAD_INV_ORDER
-                (4, org.omg.CORBA.CompletionStatus.COMPLETED_NO);
-        }
+        work_pending();
     }
 
     public boolean work_pending ()
     {
         if (!isRunning())
         {
+            if (logger.isDebugEnabled())
+            {
+                logger.debug("ORB has been shutdown");
+            }
+
             throw new org.omg.CORBA.BAD_INV_ORDER
                 (4, org.omg.CORBA.CompletionStatus.COMPLETED_NO);
         }
