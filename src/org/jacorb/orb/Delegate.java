@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.132 2006-06-29 15:16:50 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.133 2006-06-30 13:42:30 alphonse.bendt Exp $
  *
  */
 
@@ -950,6 +950,8 @@ public final class Delegate
                                  boolean async )
         throws ApplicationException, RemarshalException
     {
+        checkORB();
+
         RequestOutputStream ros      = (RequestOutputStream)os;
         ReplyReceiver       receiver = null;
         final ClientInterceptorHandler interceptors = new ClientInterceptorHandler
@@ -1939,9 +1941,13 @@ public final class Delegate
         pending_replies_sync.openBarrier();
     }
 
+    /**
+     * Call work_pending as that does a simple boolean check to establish
+     * if the ORB has been shutdown - otherwise it throws BAD_INV_ORDER.
+     */
     private void checkORB()
     {
-        orb.perform_work();
+        orb.work_pending();
     }
 
     private static class Barrier
