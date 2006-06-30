@@ -32,7 +32,7 @@ import org.omg.CONV_FRAME.CodeSetComponentInfo;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.60 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: ClientConnection.java,v 1.61 2006-06-30 13:41:37 alphonse.bendt Exp $
  */
 
 public class ClientConnection
@@ -234,8 +234,9 @@ public class ClientConnection
     }
 
     /**
-     * Decrements the number of clients and returns true if the number
-     * reaches zero.
+     * This method decrements the number of clients.
+     *
+     * @return a <code>boolean</code> value, true if client_count is zero.
      */
     public synchronized boolean decClients()
     {
