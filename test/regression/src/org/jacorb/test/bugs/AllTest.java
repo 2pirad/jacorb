@@ -34,6 +34,8 @@ import org.jacorb.test.bugs.bugjac195.BugJac195Test;
 import org.jacorb.test.bugs.bugjac200.AcceptorExceptionListenerTest;
 import org.jacorb.test.bugs.bugjac220.BugJac220Test;
 import org.jacorb.test.bugs.bugjac235.BugJac235Test;
+import org.jacorb.test.bugs.bugjac251.BugJac251Test;
+import org.jacorb.test.bugs.bugjac257.BugJac257Test;
 import org.jacorb.test.bugs.bugjac303.BugJac303Test;
 import org.jacorb.test.bugs.bugjac305.BugJac305Test;
 import org.jacorb.test.bugs.bugjac45.BugJac45Test;
@@ -45,7 +47,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.27 2006-06-29 13:20:58 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.28 2006-06-30 13:25:44 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -86,6 +88,8 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(BugJac189Test.suite());
       suite.addTest(BugJac195Test.suite());
       suite.addTest(AcceptorExceptionListenerTest.suite());
+      suite.addTest(BugJac251Test.suite());
+      suite.addTest(BugJac257Test.suite());
 
       return suite;
    }
