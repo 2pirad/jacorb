@@ -18,18 +18,17 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.orb.factory;
 
-/* 
- * 
- * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.8 2004-05-06 12:40:00 nicolas Exp $
- */
+package org.jacorb.orb.factory;
 
 import java.net.*;
 
+/**
+ * @author Nicolas Noffke
+ * $Id: SSLServerSocketFactory.java,v 1.9 2006-06-30 11:09:13 alphonse.bendt Exp $
+ */
 public interface SSLServerSocketFactory
     extends ServerSocketFactory
 {
-    public boolean isSSL( ServerSocket socket );
+    boolean isSSL( ServerSocket socket );
 }

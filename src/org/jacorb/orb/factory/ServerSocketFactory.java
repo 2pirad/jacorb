@@ -30,16 +30,19 @@ package org.jacorb.orb.factory;
  * the code which asks for the sockets.
  *
  * @author Andre Benvenuti
- * $Id: ServerSocketFactory.java,v 1.9 2006-06-14 12:01:58 alphonse.bendt Exp $
+ * $Id: ServerSocketFactory.java,v 1.10 2006-06-30 11:09:13 alphonse.bendt Exp $
  */
 
 import java.net.*;
 import java.io.IOException;
 
+/**
+ * @author Gerald Brose
+ * @version $Id: ServerSocketFactory.java,v 1.10 2006-06-30 11:09:13 alphonse.bendt Exp $
+ */
 public interface ServerSocketFactory
 {
-
-    public ServerSocket createServerSocket ( int port )
+    ServerSocket createServerSocket (int port)
         throws IOException;
 
     /**
@@ -50,8 +53,8 @@ public interface ServerSocketFactory
      * @param backlog - how many connections are queued
      * @exception IOException - for networking errors
      */
-    public ServerSocket createServerSocket( int port,
-                                            int backlog )
+    ServerSocket createServerSocket(int port,
+                                    int backlog )
         throws IOException;
 
     /**
@@ -65,8 +68,8 @@ public interface ServerSocketFactory
      *
      * @exception IOException - for networking errors
      */
-    public ServerSocket createServerSocket( int port,
-                                            int backlog,
-                                            InetAddress ifAddress )
+    ServerSocket createServerSocket(int port,
+                                    int backlog,
+                                    InetAddress ifAddress)
         throws IOException;
 }
