@@ -29,19 +29,19 @@ import org.jacorb.util.threadpool.Consumer;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.12 2006-06-30 12:18:00 alphonse.bendt Exp $
+ * @version $Id: MessageReceptor.java,v 1.13 2006-07-03 12:59:03 alphonse.bendt Exp $
  */
 
 public class MessageReceptor
     implements Consumer
 {
     private final Logger logger;
-    private final boolean shouldEnhanceThreadName;
+    private final boolean enhanceThreadName;
 
     public MessageReceptor(Configuration configuration)
     {
         logger = configuration.getNamedLogger("jacorb.orb.giop");
-        shouldEnhanceThreadName = configuration.getAttributeAsBoolean("jacorb.enhanced_thread_name", false);
+        enhanceThreadName = configuration.getAttributeAsBoolean("jacorb.enhanced_thread_name", false);
     }
 
     public void doWork( Object job )
@@ -51,7 +51,7 @@ public class MessageReceptor
             final GIOPConnection connection = (GIOPConnection) job;
             final String oldName;
 
-            if (shouldEnhanceThreadName)
+            if (enhanceThreadName)
             {
                 oldName = Thread.currentThread().getName();
 
@@ -72,7 +72,7 @@ public class MessageReceptor
             }
             finally
             {
-                if (shouldEnhanceThreadName)
+                if (enhanceThreadName)
                 {
                     Thread.currentThread().setName(oldName);
                 }
