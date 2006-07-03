@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.30 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.31 2006-07-03 14:12:13 alphonse.bendt Exp $
  */
 
 public class ValueBoxDecl
@@ -250,10 +250,14 @@ public class ValueBoxDecl
     private void printHelperClass(String className, PrintWriter ps)
     {
         if (Environment.JAVA14 && pack_name.equals(""))
+        {
             lexer.emit_warn
                 ("No package defined for " + className + " - illegal in JDK1.4", token);
+        }
         if (!pack_name.equals(""))
+        {
             ps.println("package " + pack_name + ";");
+        }
 
         ps.println("public" + parser.getFinalString() + " class " + className + "Helper");
         ps.println("\timplements org.omg.CORBA.portable.BoxedValueHelper");
@@ -262,7 +266,23 @@ public class ValueBoxDecl
 
         String type = typeName();
 
-        TypeSpec.printHelperClassMethods( ps, type);
+        ps.println( "\tpublic static org.omg.CORBA.TypeCode type()" );
+        ps.println( "\t{" );
+        ps.println( "\t\treturn _type;" );
+        ps.println( "\t}" );
+
+        ps.println();
+
+        ps.println( "\tpublic static void insert (final org.omg.CORBA.Any any, final " + type + " s)" );
+        ps.println( "\t{" );
+        ps.println( "\t\tany.insert_Value(s, type());" );
+        ps.println( "\t}\n" );
+
+        ps.println( "\tpublic static " + type + " extract (final org.omg.CORBA.Any any)" );
+        ps.println( "\t{" );
+        ps.println( "\t\treturn (" + type + ") any.extract_Value();" );
+        ps.println( "\t}\n" );
+
 
         printIdMethod(ps); // inherited from IdlSymbol
 
