@@ -44,7 +44,7 @@ import org.omg.TimeBase.UtcTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: StopTimeTest.java,v 1.21 2006-05-30 18:34:59 alphonse.bendt Exp $
+ * @version $Id: StopTimeTest.java,v 1.22 2006-07-03 12:52:14 alphonse.bendt Exp $
  */
 
 public class StopTimeTest extends NotificationTestCase
@@ -92,7 +92,7 @@ public class StopTimeTest extends NotificationTestCase
 
         structuredEvent_.header.variable_header[0] = new Property(StopTime.value, _any);
 
-        StructuredEventMessage mesg = new StructuredEventMessage();
+        StructuredEventMessage mesg = new StructuredEventMessage(getORB());
         mesg.setStructuredEvent(structuredEvent_, true, true);
         final Message _event = mesg.getHandle();
 

@@ -56,7 +56,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.11 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.12 2006-07-03 12:52:14 alphonse.bendt Exp $
  */
 public class TypedProxyPushSupplierImplTest extends NotificationTestCase
 {
@@ -249,7 +249,7 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
     public void testPushStructured() throws Exception
     {
         // setup test data
-        StructuredEventMessage _event = new StructuredEventMessage();
+        StructuredEventMessage _event = new StructuredEventMessage(getORB());
 
         StructuredEvent _data = getTestUtils().getEmptyStructuredEvent();
 
@@ -309,17 +309,17 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
         _event.setAny(_any);
 
         final CountDownLatch _hasReceived = new CountDownLatch(1);
-        
+
         // setup mock
         MockCoffee _mockCoffee = new MockCoffee()
         {
             public void drinking_coffee(String name, int minutes)
             {
                 super.drinking_coffee(name, minutes);
-               
+
                 assertEquals("alphonse", name);
                 assertEquals(10, minutes);
-                
+
                 _hasReceived.countDown();
             }
         };
@@ -345,7 +345,7 @@ public class TypedProxyPushSupplierImplTest extends NotificationTestCase
         objectUnderTest_.getMessageConsumer().queueMessage(_event.getHandle());
 
         assertTrue(_hasReceived.await(5000, TimeUnit.MILLISECONDS));
-        
+
         // verify results
         _mockCoffee.verify();
     }
