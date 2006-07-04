@@ -44,7 +44,7 @@ import org.jacorb.util.ObjectUtil;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.12 2006-06-27 09:33:24 alphonse.bendt Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.13 2006-07-04 07:35:44 alphonse.bendt Exp $
  */
 public class ExceptionHolderImpl
     extends org.omg.Messaging.ExceptionHolder
@@ -107,24 +107,26 @@ public class ExceptionHolderImpl
     public void raise_exception()
         throws UserException
     {
-        CDRInputStream input =
-            new CDRInputStream (null, marshaled_exception, byte_order);
-        if ( is_system_exception )
+        final CDRInputStream input =
+            new CDRInputStream (marshaled_exception, byte_order);
+
+        try
         {
-            throw SystemExceptionHelper.read( input );
-        }
-        else
-        {
+            if ( is_system_exception )
+            {
+                throw SystemExceptionHelper.read( input );
+            }
+
             input.mark( 0 );
             String id = input.read_string();
+
             try
             {
                 input.reset();
             }
-            catch( IOException ioe )
+            catch( IOException e )
             {
-                if (logger.isWarnEnabled())
-                    logger.warn( "Unexpected IOException: " + ioe.getMessage() );
+                logger.warn( "Unexpected IOException: ", e);
             }
 
             org.omg.CORBA.UserException result = null;
@@ -137,6 +139,10 @@ public class ExceptionHolderImpl
                 throw new org.omg.CORBA.UnknownUserException();
             }
             throw result;
+        }
+        finally
+        {
+            input.close();
         }
     }
 
