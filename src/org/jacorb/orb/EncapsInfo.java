@@ -26,7 +26,7 @@ import java.util.*;
  * information the has to be saved for each encapsulation and
  * restored later
  * @author Gerald Brose
- * @version $Id: EncapsInfo.java,v 1.13 2004-08-14 15:48:22 andre.spiegel Exp $
+ * @version $Id: EncapsInfo.java,v 1.14 2006-07-04 14:30:58 alphonse.bendt Exp $
  */
 
 public class EncapsInfo
@@ -43,10 +43,10 @@ public class EncapsInfo
 
     public EncapsInfo(boolean le, int index, int start, int size)
     {
-	littleEndian = le;
-	this.index = index;
-	this.start = start;
-	this.size = size;
+        littleEndian = le;
+        this.index = index;
+        this.start = start;
+        this.size = size;
     }
 
     /**
@@ -62,8 +62,8 @@ public class EncapsInfo
     public EncapsInfo(int index, int start,
                       Map valueMap, Map repIdMap, Map codebaseMap)
     {
-	this.index = index;
-	this.start = start;
+        this.index = index;
+        this.start = start;
         this.valueMap = valueMap;
         this.repIdMap = repIdMap;
         this.codebaseMap = codebaseMap;
