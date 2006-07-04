@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.156 2006-06-30 13:42:02 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.157 2006-07-04 10:33:01 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -158,7 +158,7 @@ public final class ORB
     private RTORB rtORB;
 
     /* PolicyManagement */
-    private org.jacorb.orb.policies.PolicyManager policyManager = null;
+    private org.jacorb.orb.policies.PolicyManager policyManager;
 
     /* policy factories, from portable interceptor spec */
     private final Map policy_factories = Collections.synchronizedMap(new HashMap());
@@ -1236,7 +1236,7 @@ public final class ORB
         {
             if (policyManager == null)
             {
-                policyManager = new PolicyManager(this);
+                policyManager = new PolicyManager(this.getConfiguration());
             }
             return policyManager;
         }
