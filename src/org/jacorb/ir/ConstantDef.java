@@ -32,7 +32,7 @@ import org.apache.avalon.framework.logger.Logger;
 /**
  * JacORB implementation of IR ConstantDef objects
  * @author  Gerald Brose
- * @version $Id: ConstantDef.java,v 1.15 2006-06-15 16:43:14 alphonse.bendt Exp $
+ * @version $Id: ConstantDef.java,v 1.16 2006-07-04 07:35:20 alphonse.bendt Exp $
  */
 
 public class ConstantDef
@@ -176,7 +176,6 @@ public class ConstantDef
         try
         {
             value.insert_object(typeCode,
-                                orb,
                                 field.get(null) );
         }
         catch ( Exception e )
