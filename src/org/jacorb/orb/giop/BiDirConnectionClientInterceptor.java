@@ -29,7 +29,7 @@ import org.omg.IIOP.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionClientInterceptor.java,v 1.10 2006-06-28 12:41:44 alphonse.bendt Exp $
+ * @version $Id: BiDirConnectionClientInterceptor.java,v 1.11 2006-07-05 09:18:48 alphonse.bendt Exp $
  */
 public class BiDirConnectionClientInterceptor
     extends DefaultClientInterceptor
@@ -90,13 +90,20 @@ public class BiDirConnectionClientInterceptor
                 org.omg.CORBA.Any any = orb.create_any();
                 BiDirIIOPServiceContextHelper.insert( any, b );
 
-                CDROutputStream cdr_out = new CDROutputStream();
+                final CDROutputStream cdr_out = new CDROutputStream();
 
-                cdr_out.beginEncapsulatedArray();
-                BiDirIIOPServiceContextHelper.write( cdr_out, b );
+                try
+                {
+                    cdr_out.beginEncapsulatedArray();
+                    BiDirIIOPServiceContextHelper.write( cdr_out, b );
 
-                bidir_ctx = new ServiceContext( BI_DIR_IIOP.value,
-                                                cdr_out.getBufferCopy() );
+                    bidir_ctx = new ServiceContext( BI_DIR_IIOP.value,
+                            cdr_out.getBufferCopy() );
+                }
+                finally
+                {
+                    cdr_out.close();
+                }
             }
 
             ri.add_request_service_context( bidir_ctx, true );
