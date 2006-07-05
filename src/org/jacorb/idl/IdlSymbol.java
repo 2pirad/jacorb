@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.42 2006-06-28 12:38:24 alphonse.bendt Exp $
+ * @version $Id: IdlSymbol.java,v 1.43 2006-07-05 14:51:32 alphonse.bendt Exp $
  */
 
 public class IdlSymbol
@@ -665,7 +665,7 @@ public class IdlSymbol
     protected final void printClassComment(String type, String name, PrintWriter ps)
     {
         ps.println("/**");
-        ps.println(" *\tGenerated from IDL definition of " + type.trim() + " \"" + name + "\".");
+        ps.println(" *\tGenerated from IDL " + type.trim() + " \"" + name + "\".");
         ps.println(" *");
         ps.println(" *\t@author JacORB IDL compiler V " + parser.compiler_version);
         ps.println(" *\t@version generated at " + parser.currentDate);
