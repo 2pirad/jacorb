@@ -35,7 +35,7 @@ import org.omg.CORBA.ValueMember;
  * JacORB implementation of CORBA TypeCodes
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCode.java,v 1.45 2006-07-04 08:08:42 alphonse.bendt Exp $
+ * @version $Id: TypeCode.java,v 1.46 2006-07-05 08:38:18 alphonse.bendt Exp $
  */
 
 public class TypeCode
@@ -1285,7 +1285,7 @@ public class TypeCode
     }
 
     /**
-     * Creates a TypeCode for class `clz'.  `knownTypes' is a map
+     * Creates a TypeCode for class `clazz'.  `knownTypes' is a map
      * containing classes as keys and their corresponding type codes
      * as values.  If there is an entry for `clz' in `knownTypes',
      * then a recursive type code is returned for it.  If there is no
