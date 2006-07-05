@@ -37,7 +37,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.24 2006-06-28 12:42:22 alphonse.bendt Exp $
+ * @version $Id: IIOPProfile.java,v 1.25 2006-07-05 09:19:05 alphonse.bendt Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -233,16 +233,23 @@ public class IIOPProfile
             ssl.target_requires = get_ssl_options(propname);
 
             //create the tagged component containing the ssl struct
-            CDROutputStream out = new CDROutputStream();
-            out.beginEncapsulatedArray();
-            SSLHelper.write( out, ssl );
+            final CDROutputStream out = new CDROutputStream();
+            try
+            {
+                out.beginEncapsulatedArray();
+                SSLHelper.write( out, ssl );
 
-            // TAG_SSL_SEC_TRANS must be disambiguated in case OpenORB-generated
-            // OMG classes are in the classpath.
-            components.addComponent
+                // TAG_SSL_SEC_TRANS must be disambiguated in case OpenORB-generated
+                // OMG classes are in the classpath.
+                components.addComponent
                 (new TaggedComponent( org.omg.SSLIOP.TAG_SSL_SEC_TRANS.value,
-                                      out.getBufferCopy() )
-                 );
+                        out.getBufferCopy() )
+                );
+            }
+            finally
+            {
+                out.close();
+            }
         }
     }
 
