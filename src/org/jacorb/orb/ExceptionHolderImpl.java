@@ -44,7 +44,7 @@ import org.jacorb.util.ObjectUtil;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.13 2006-07-04 07:35:44 alphonse.bendt Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.14 2006-07-05 09:17:25 alphonse.bendt Exp $
  */
 public class ExceptionHolderImpl
     extends org.omg.Messaging.ExceptionHolder
@@ -83,9 +83,17 @@ public class ExceptionHolderImpl
         is_system_exception = true;
         byte_order          = false;
 
-        CDROutputStream output = new CDROutputStream();
-        SystemExceptionHelper.write(output, ex);
-        marshaled_exception = output.getBufferCopy();
+        final CDROutputStream output = new CDROutputStream();
+
+        try
+        {
+            SystemExceptionHelper.write(output, ex);
+            marshaled_exception = output.getBufferCopy();
+        }
+        finally
+        {
+            output.close();
+        }
     }
 
     /**
