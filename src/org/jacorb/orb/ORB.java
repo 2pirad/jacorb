@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.158 2006-07-05 13:10:32 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.159 2006-07-05 13:59:15 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -2546,6 +2546,11 @@ public final class ORB
         }
     }
 
+    public String getServerIdString()
+    {
+        return serverIdStr;
+    }
+
     public byte[] getServerId()
     {
         return serverId;
@@ -2554,5 +2559,10 @@ public final class ORB
     public RPPoolManager newRPPoolManager(boolean isSingleThreaded)
     {
         return poolManagerFactory.newRPPoolManager(isSingleThreaded);
+    }
+
+    public String getImplName()
+    {
+        return implName;
     }
 }
