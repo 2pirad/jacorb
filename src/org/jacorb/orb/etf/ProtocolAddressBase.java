@@ -30,7 +30,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Phil Mesnier
- * @version $Id: ProtocolAddressBase.java,v 1.2 2005-10-10 21:36:39 phil.mesnier Exp $
+ * @version $Id: ProtocolAddressBase.java,v 1.3 2006-07-05 09:18:32 alphonse.bendt Exp $
  *
  * provides an abstraction of a protocol specific address.
  * This is necessary to allow the ORB and other components deal with
@@ -61,10 +61,17 @@ public abstract class ProtocolAddressBase
 
     public byte [] toCDR ()
     {
-    	CDROutputStream out = new CDROutputStream();
-    	out.beginEncapsulatedArray();
-    	this.write(out);
-    	return out.getBufferCopy();
+        CDROutputStream out = new CDROutputStream();
+        try
+        {
+            out.beginEncapsulatedArray();
+            this.write(out);
+            return out.getBufferCopy();
+        }
+        finally
+        {
+            out.close();
+        }
     }
 
     // this must be defined for each subclass.
