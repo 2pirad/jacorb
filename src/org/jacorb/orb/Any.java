@@ -34,7 +34,7 @@ import java.util.*;
  * CORBA any
  *
  * @author Gerald Brose
- * $Id: Any.java,v 1.52 2006-07-04 07:34:58 alphonse.bendt Exp $
+ * $Id: Any.java,v 1.53 2006-07-05 09:17:01 alphonse.bendt Exp $
  */
 
 public final class Any
@@ -1124,8 +1124,15 @@ public final class Any
             out = new org.jacorb.orb.CDROutputStream();
         }
 
-        write_value(out);
-        return new org.jacorb.orb.CDRInputStream(orb, out.getBufferCopy());
+        try
+        {
+            write_value(out);
+            return new org.jacorb.orb.CDRInputStream(orb, out.getBufferCopy());
+        }
+        finally
+        {
+            out.close();
+        }
     }
 
     public void read_value (org.omg.CORBA.portable.InputStream input,
