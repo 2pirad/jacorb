@@ -33,7 +33,7 @@ import java.util.*;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.24 2006-06-27 09:34:10 alphonse.bendt Exp $
+ * @version $Id: DynSequence.java,v 1.25 2006-07-05 09:18:11 alphonse.bendt Exp $
  */
 
 public final class DynSequence
@@ -136,7 +136,7 @@ public final class DynSequence
       org.omg.CORBA.Any out_any = orb.create_any();
       out_any.type(type());
 
-      final CDROutputStream out = new CDROutputStream();
+      final CDROutputStream out = new CDROutputStream(orb);
       try
       {
           out.write_long( length );

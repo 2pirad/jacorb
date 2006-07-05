@@ -30,7 +30,7 @@ import org.jacorb.orb.*;
  * CORBA DynArray
  *
  * @author Gerald Brose
- * @version $Id: DynArray.java,v 1.21 2006-06-27 09:34:10 alphonse.bendt Exp $
+ * @version $Id: DynArray.java,v 1.22 2006-07-05 09:18:11 alphonse.bendt Exp $
  */
 
 public final class DynArray
@@ -123,7 +123,7 @@ public final class DynArray
        final org.omg.CORBA.Any out_any = orb.create_any();
        out_any.type( type());
 
-       final CDROutputStream out = new CDROutputStream();
+       final CDROutputStream out = new CDROutputStream(orb);
 
        try
        {

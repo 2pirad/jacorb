@@ -32,7 +32,7 @@ import org.omg.CORBA.TCKind;
  * CORBA DynUnion
  *
  * @author Gerald Brose
- * @version $Id: DynUnion.java,v 1.28 2006-06-27 09:34:10 alphonse.bendt Exp $
+ * @version $Id: DynUnion.java,v 1.29 2006-07-05 09:18:11 alphonse.bendt Exp $
  */
 
 public final class DynUnion
@@ -183,7 +183,7 @@ public final class DynUnion
    public org.omg.CORBA.Any to_any()
    {
        checkDestroyed ();
-       final CDROutputStream out = new CDROutputStream();
+       final CDROutputStream out = new CDROutputStream(orb);
 
        try
        {

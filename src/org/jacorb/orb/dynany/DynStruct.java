@@ -35,7 +35,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynStruct
  *
  * @author Gerald Brose
- * @version $Id: DynStruct.java,v 1.23 2006-06-27 09:34:10 alphonse.bendt Exp $
+ * @version $Id: DynStruct.java,v 1.24 2006-07-05 09:18:11 alphonse.bendt Exp $
  */
 
 public final class DynStruct
@@ -159,7 +159,7 @@ public final class DynStruct
         org.omg.CORBA.Any out_any = orb.create_any();
         out_any.type( type());
 
-        final CDROutputStream out = new CDROutputStream();
+        final CDROutputStream out = new CDROutputStream(orb);
 
         try
         {
