@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.157 2006-07-04 10:33:01 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.158 2006-07-05 13:10:32 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1871,13 +1871,13 @@ public final class ORB
 
             return _getObject(pior);
         }
-        catch (IllegalArgumentException iae)
+        catch (Exception e)
         {
             if (logger.isDebugEnabled())
             {
-                logger.debug(iae.getMessage());
+                logger.debug(e.getMessage());
             }
-            return null;
+            throw new BAD_PARAM(10, CompletionStatus.COMPLETED_NO);
         }
     }
 
