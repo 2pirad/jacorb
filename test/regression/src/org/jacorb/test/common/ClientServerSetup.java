@@ -79,10 +79,11 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.25 2006-07-06 12:35:47 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.26 2006-07-06 14:10:16 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
+    public static final String JACORB_REGRESSION_DISABLE_SECURITY = "jacorb.regression.disable_security";
     protected final String               servantName;
     protected Process                    serverProcess;
     protected StreamListener             outListener, errListener;
@@ -271,7 +272,7 @@ public class ClientServerSetup extends TestSetup {
         if (clientOrbProperties != null)
         {
             if (isPropertyTrue(clientOrbProperties.getProperty
-                            ("jacorb.regression.disable_security", "false")))
+                            (JACORB_REGRESSION_DISABLE_SECURITY, "false")))
             {
                 result = false;
             }
@@ -279,7 +280,7 @@ public class ClientServerSetup extends TestSetup {
         if (serverOrbProperties != null)
         {
             if (isPropertyTrue(serverOrbProperties.getProperty
-                            ("jacorb.regression.disable_security", "false")))
+                            (JACORB_REGRESSION_DISABLE_SECURITY, "false")))
             {
                 result = false;
             }
