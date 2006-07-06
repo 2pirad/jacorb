@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.159 2006-07-05 13:59:15 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.160 2006-07-06 10:37:35 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -2193,7 +2193,7 @@ public final class ORB
             }
             catch( ConfigurationException ce )
             {
-                throw new INTERNAL(ce.toString());
+                throw new INITIALIZE(ce.toString());
             }
         }
         return transport_manager;
