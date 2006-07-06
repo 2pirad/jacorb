@@ -1,5 +1,6 @@
 package org.jacorb.test.bugs.bugjac182;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import junit.framework.Test;
@@ -14,7 +15,7 @@ import org.jacorb.test.common.TestUtils;
  * the ORB times out client and/or server side.
  *
  * @author Nick Cross
- * @version $Id: BugJac182Test.java,v 1.1 2006-06-15 15:58:34 alphonse.bendt Exp $
+ * @version $Id: BugJac182Test.java,v 1.2 2006-07-06 12:34:43 alphonse.bendt Exp $
  */
 public class BugJac182Test extends ClientServerTestCase
 {
@@ -81,6 +82,11 @@ public class BugJac182Test extends ClientServerTestCase
                 public String getTestServerMain()
                 {
                     return BugJac182TestServerRunner.class.getName();
+                }
+
+                // override to do nothing!
+                protected void initSecurity() throws IOException
+                {
                 }
             };
 

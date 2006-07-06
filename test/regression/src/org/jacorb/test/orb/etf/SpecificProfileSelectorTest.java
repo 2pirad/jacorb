@@ -23,7 +23,7 @@ import org.omg.RTCORBA.RTORBHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SpecificProfileSelectorTest.java,v 1.3 2006-06-26 07:59:11 alphonse.bendt Exp $
+ * @version $Id: SpecificProfileSelectorTest.java,v 1.4 2006-07-06 12:38:28 alphonse.bendt Exp $
  */
 public class SpecificProfileSelectorTest extends ClientServerTestCase
 {
@@ -61,8 +61,13 @@ public class SpecificProfileSelectorTest extends ClientServerTestCase
         TestSuite suite = new TestSuite ("Profile Selector");
 
         // client ORB from setup is not used.
-        Properties clientProps = null;
+        Properties clientProps = new Properties();
 
+        // WIOP does not support SSL.
+        clientProps.setProperty("jacorb.regression.disable_security",
+                                "true");
+
+        
         Properties serverProps = new Properties();
         serverProps.setProperty("jacorb.transport.factories",
                                 "org.jacorb.orb.iiop.IIOPFactories," +

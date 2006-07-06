@@ -43,7 +43,7 @@ import org.omg.CORBA.ORB;
  *
  * @jacorb-since 2.2
  * @author Marc Heide
- * @version $Id: AlternateProfileTest.java,v 1.5 2005-12-08 03:56:55 phil.mesnier Exp $
+ * @version $Id: AlternateProfileTest.java,v 1.6 2006-07-06 12:37:43 alphonse.bendt Exp $
  */
 public class AlternateProfileTest extends ClientServerTestCase
 {
@@ -95,6 +95,12 @@ public class AlternateProfileTest extends ClientServerTestCase
              "org.jacorb.test.orb.IIOPProfileORBInitializer");
         server_props.setProperty ("OAPort", Integer.toString(CORRECT_PORT));
 
+        // If security is not disabled it will not use the above host/port
+        // combinations.
+        client_props.setProperty("jacorb.regression.disable_security",
+                                 "true");
+
+        
         ClientServerSetup setup =
          new ClientServerSetup (suite,
                                    "org.jacorb.test.orb.IIOPAddressServerImpl",

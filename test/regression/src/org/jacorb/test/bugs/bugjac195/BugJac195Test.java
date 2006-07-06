@@ -37,7 +37,7 @@ import org.jacorb.test.common.TestUtils;
  * connectionClosed events are reported correctly
  *
  * @author Carol Jordon
- * @version $Id: BugJac195Test.java,v 1.1 2006-06-29 10:41:53 alphonse.bendt Exp $
+ * @version $Id: BugJac195Test.java,v 1.2 2006-07-06 12:35:03 alphonse.bendt Exp $
  */
 public class BugJac195Test extends ClientServerTestCase
 {
@@ -61,6 +61,8 @@ public class BugJac195Test extends ClientServerTestCase
 
         Properties client_props = new Properties();
         Properties server_props = new Properties();
+
+        server_props.setProperty("jacorb.regression.disable_security", "true");
 
         server_props.setProperty ("OAPort",
                                   port);

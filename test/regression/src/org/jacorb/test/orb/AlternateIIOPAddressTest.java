@@ -33,7 +33,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddressTest.java,v 1.6 2005-12-08 03:56:55 phil.mesnier Exp $
+ * @version $Id: AlternateIIOPAddressTest.java,v 1.7 2006-07-06 12:37:25 alphonse.bendt Exp $
  */
 public class AlternateIIOPAddressTest extends ClientServerTestCase
 {
@@ -79,8 +79,14 @@ public class AlternateIIOPAddressTest extends ClientServerTestCase
            + "org.jacorb.test.orb.IIOPAddressORBInitializer", "");
         server_props.setProperty ("OAPort", Integer.toString(CORRECT_PORT));
 
+        // If security is not disabled it will not use the above host/port
+        // combinations.
+        client_props.setProperty("jacorb.regression.disable_security",
+                                 "true");
+
+        
         ClientServerSetup setup =
-        	new ClientServerSetup (suite,
+            new ClientServerSetup (suite,
                                    "org.jacorb.test.orb.IIOPAddressServerImpl",
                                    client_props,
                                    server_props);

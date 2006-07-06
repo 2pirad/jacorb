@@ -31,7 +31,7 @@ import org.jacorb.test.orb.etf.wiop.WIOPFactories;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: C_IIOP_S_WIOP.java,v 1.2 2006-06-14 12:44:43 alphonse.bendt Exp $
+ * @version $Id: C_IIOP_S_WIOP.java,v 1.3 2006-07-06 12:38:28 alphonse.bendt Exp $
  */
 public class C_IIOP_S_WIOP extends ClientServerTestCase
 {
@@ -64,6 +64,11 @@ public class C_IIOP_S_WIOP extends ClientServerTestCase
         Properties serverProps = new Properties();
         serverProps.setProperty("jacorb.transport.factories",
                           "org.jacorb.test.orb.etf.wiop.WIOPFactories");
+        
+        // WIOP does not support SSL.
+        clientProps.setProperty("jacorb.regression.disable_security",
+                                "true");
+
         
         ClientServerSetup setup = 
           new ClientServerSetup (suite,
