@@ -55,7 +55,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.28 2006-06-29 15:42:48 alphonse.bendt Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.29 2006-07-06 14:09:57 alphonse.bendt Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -518,9 +518,16 @@ public class ClientIIOPConnection
             try
             {
                 byte[] tagData = sas.mechanism_list[0].transport_mech.component_data;
-                CDRInputStream in = new CDRInputStream( (org.omg.CORBA.ORB)null, tagData );
-                in.openEncapsulatedArray();
-                tls = TLS_SEC_TRANSHelper.read( in );
+                final CDRInputStream in = new CDRInputStream( (org.omg.CORBA.ORB)null, tagData );
+                try
+                {
+                    in.openEncapsulatedArray();
+                    tls = TLS_SEC_TRANSHelper.read( in );
+                }
+                finally
+                {
+                    in.close();
+                }
             }
             catch ( Exception ex )
             {
