@@ -45,7 +45,7 @@ import javax.rmi.CORBA.Stub;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.13 2006-06-28 13:25:20 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.14 2006-07-06 14:10:29 alphonse.bendt Exp $
  */
 
 public class TestUtils
@@ -385,5 +385,10 @@ public class TestUtils
          }
 
          return (Stub) PortableRemoteObject.toStub(remote);
+    }
+
+    public static boolean isJDK13()
+    {
+        return JDK_13;
     }
 }
