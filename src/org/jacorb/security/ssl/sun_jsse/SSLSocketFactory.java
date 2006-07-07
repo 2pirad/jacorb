@@ -40,7 +40,7 @@ import javax.net.*;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.19 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * $Id: SSLSocketFactory.java,v 1.20 2006-07-07 10:56:41 alphonse.bendt Exp $
  */
 public class SSLSocketFactory
     extends SSLRandom
@@ -207,7 +207,7 @@ public class SSLSocketFactory
             //take trusted certificates from keystore
             if (logger.isInfoEnabled())
             {
-                logger.info("Loading certs from keystore " + key_store );
+                logger.info("Loading certs from keystore " + key_store.getType() );
             }
             tmf.init( key_store );
         }
