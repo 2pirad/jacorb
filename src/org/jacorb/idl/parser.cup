@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.99 2006-07-04 08:44:04 alphonse.bendt Exp $
+ * $Id: parser.cup,v 1.100 2006-07-07 11:53:49 alphonse.bendt Exp $
  */
 
 action code
@@ -144,7 +144,6 @@ parser code
         pending_interfaces = new Hashtable();
 
         currentDate = java.text.DateFormat.getDateTimeInstance().format(new java.util.Date());
-        pending_interfaces = new Hashtable();
 
         sloppy = false;
 
@@ -997,6 +996,8 @@ specification ::=
                 if( parser.pending_interfaces.size() > 0 &&
                     !parser.sloppy )
                 {
+                    parser.getLogger().debug("Pending Interfaces: " + parser.pending_interfaces);
+                    parser.getLogger().debug("sloppy" + parser.sloppy);
                     parser.fatal_error("Undefined interface: " +
                         (String)(parser.pending_interfaces.keys().nextElement()), null );
                 }
