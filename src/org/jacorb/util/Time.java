@@ -28,7 +28,7 @@ import org.jacorb.orb.*;
  * Contains static methods to handle CORBA time values.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: Time.java,v 1.9 2006-06-20 15:25:51 alphonse.bendt Exp $
+ * @version $Id: Time.java,v 1.10 2006-07-07 10:57:59 alphonse.bendt Exp $
  */
 public class Time
 {
@@ -165,7 +165,7 @@ public class Time
         CDROutputStream out = new CDROutputStream(buffer);
         out.beginEncapsulatedArray();
         UtcTHelper.write(out, time);
-        return buffer;
+        return out.getBufferCopy();
     }
 
     /**
