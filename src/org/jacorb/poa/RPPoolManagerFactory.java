@@ -12,7 +12,7 @@ import org.jacorb.orb.ORB;
  * or return a shared instance.
  *
  * @author Alphonse Bendt
- * @version $Id: RPPoolManagerFactory.java,v 1.4 2006-06-19 10:29:53 alphonse.bendt Exp $
+ * @version $Id: RPPoolManagerFactory.java,v 1.5 2006-07-07 12:09:50 alphonse.bendt Exp $
  */
 public class RPPoolManagerFactory
 {
@@ -82,6 +82,15 @@ public class RPPoolManagerFactory
                 {
                     // allow destruction by clients
                     destroy(true);
+                }
+
+                protected void warnPoolIsEmpty()
+                {
+                    // disable the warning
+                    // as this Pool is single threaded
+                    // by definition there's no point
+                    // in issueing a warning that you should increase
+                    // the pool size
                 }
             };
         }
