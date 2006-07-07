@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.57 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: GIOPConnection.java,v 1.52.2.1 2006-07-07 09:03:23 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -52,7 +52,7 @@ public abstract class GIOPConnection
     /**
      * Profile describing the remote endpoint of this connection.
      */
-    protected final org.omg.ETF.Profile    profile;
+    protected org.omg.ETF.Profile    profile   = null;
     protected org.omg.ETF.Connection transport = null;
 
     private RequestListener request_listener = null;
@@ -62,7 +62,7 @@ public abstract class GIOPConnection
     protected Object connect_sync = new Object();
 
     private boolean writer_active = false;
-    private final Object write_sync = new Object();
+    private Object write_sync = new Object();
 
     private org.jacorb.config.Configuration configuration;
     protected Logger logger;
@@ -70,22 +70,22 @@ public abstract class GIOPConnection
     /*
      * Connection OSF character formats.
      */
-    private int tcs = CodeSet.getTCSDefault();
-    private int tcsw = CodeSet.getTCSWDefault();
+    private int TCS = CodeSet.getTCSDefault();
+    private int TCSW = CodeSet.getTCSWDefault();
 
     private boolean tcs_negotiated = false;
 
     //map request id (Integer) to ByteArrayInputStream
-    private final Map fragments = new HashMap();
-    private final BufferManager buf_mg;
+    private Hashtable fragments = null;
+    private BufferManager buf_mg = null;
 
     private boolean dump_incoming = false;
     private long timeout = 0;
 
-    private final BufferHolder msg_header
+    private BufferHolder msg_header
         = new BufferHolder (new byte[Messages.MSG_HEADER_SIZE]);
 
-    private final BufferHolder inbuf = new BufferHolder();
+    private BufferHolder inbuf = new BufferHolder();
 
 
     //// support for SAS Stateful contexts
@@ -122,14 +122,13 @@ public abstract class GIOPConnection
                            ReplyListener reply_listener,
                            StatisticsProvider statistics_provider )
     {
-        super();
-
         this.profile = profile;
         this.transport = transport;
         this.request_listener = request_listener;
         this.reply_listener = reply_listener;
         this.statistics_provider = statistics_provider;
 
+        fragments = new Hashtable();
         buf_mg = BufferManager.getInstance();
         //sasContexts = new Hashtable();
 
@@ -145,23 +144,24 @@ public abstract class GIOPConnection
             configuration.getAttribute("jacorb.debug.dump_incoming_messages","off").equals("on");
         timeout =
             configuration.getAttributeAsInteger("jacorb.connection.client.connect_timeout", 0);
+
     }
 
 
     public final void setCodeSets( int TCS, int TCSW )
     {
-        this.tcs = TCS;
-        this.tcsw = TCSW;
+        this.TCS = TCS;
+        this.TCSW = TCSW;
     }
 
     public final int getTCS()
     {
-        return tcs;
+        return TCS;
     }
 
     public final int getTCSW()
     {
-        return tcsw;
+        return TCSW;
     }
 
     public final void markTCSNegotiated()
@@ -185,11 +185,11 @@ public abstract class GIOPConnection
 
     /**
      * Set the value of request_listener.
-     * @param listener  Value to assign to request_listener.
+     * @param v  Value to assign to request_listener.
      */
-    public final synchronized void setRequestListener( RequestListener  listener)
+    public final synchronized void setRequestListener( RequestListener  v )
     {
-        this.request_listener = listener;
+        this.request_listener = v;
     }
 
     /**
@@ -203,11 +203,11 @@ public abstract class GIOPConnection
 
     /**
      * Set the value of reply_listener.
-     * @param listener  Value to assign to reply_listener.
+     * @param v  Value to assign to reply_listener.
      */
-    public final synchronized void setReplyListener( ReplyListener listener)
+    public final synchronized void setReplyListener( ReplyListener  v )
     {
-        this.reply_listener = listener;
+        this.reply_listener = v;
     }
 
     public final void setConnectionListener( ConnectionListener connection_listener )
@@ -231,10 +231,7 @@ public abstract class GIOPConnection
                    !do_close)
             {
                 if (logger.isDebugEnabled())
-                {
                     logger.debug (this.toString() + ": will wait until connected");
-                }
-
                 try
                 {
                     connect_sync.wait();
@@ -270,8 +267,10 @@ public abstract class GIOPConnection
      * thread.
      *
      * @return a GIOP message or null.
+     * @exception IOException passed through from the underlying IO layer.
      */
     private byte[] getMessage()
+        throws IOException
     {
         //Wait until the actual socket connection is established. This
         //is necessary for the client side, so opening up a new
@@ -296,18 +295,14 @@ public abstract class GIOPConnection
         catch (org.omg.CORBA.COMM_FAILURE ex)
         {
             if (logger.isDebugEnabled())
-            {
                 logger.debug(this.toString() + ": getMessage() -- COMM_FAILURE");
-            }
             this.streamClosed();
             return null;
         }
         catch (org.omg.CORBA.TIMEOUT ex)
         {
             if (logger.isDebugEnabled())
-            {
                 logger.debug(this.toString() + ": getMessage() -- TIMEOUT");
-            }
             this.readTimedOut();
             return null;
         }
@@ -333,7 +328,7 @@ public abstract class GIOPConnection
                 if (logger.isDebugEnabled())
                 {
                     logger.debug("TCP_IP_GIOPTransport.getMessage() with header: \n" +
-                                 new String(header) + "\nsize : " + Messages.MSG_HEADER_SIZE );
+                                 header + "\nsize : " + Messages.MSG_HEADER_SIZE );
                 }
 
                 return null;
@@ -355,7 +350,7 @@ public abstract class GIOPConnection
             {
                 if (logger.isErrorEnabled())
                 {
-                    logger.error( "Failed to read GIOP message", ex);
+                    logger.error( "Failed to read GIOP message" );
                 }
                 return null;
             }
@@ -380,18 +375,24 @@ public abstract class GIOPConnection
             //this is the "good" exit point.
             return inbuf.value;
         }
-
-        if (logger.isErrorEnabled())
+        else
         {
-            logger.error( "Failed to read GIOP message, incorrect magic number" );
-        }
+            if (logger.isDebugEnabled())
+            {
+                logger.debug("GIOPConnection.getMessage(): invalid header read: " + msg_header.value );
+            }
 
-        if (logger.isDebugEnabled())
-        {
-            logger.debug("GIOPConnection.getMessage()" + msg_header.value );
+            if (logger.isErrorEnabled())
+            {
+                logger.error( "Failed to read GIOP message, incorrect magic number --> connection closed" );
+            }
+            //close transport connection, there is nearly no chance to sync with
+            //peer on this connection again
+            close();
+            //signal GIOPConnectionManager to throw this connection away
+            this.streamClosed();
+            return null;
         }
-
-        return null;
     }
 
     public final void receiveMessages()
@@ -407,8 +408,10 @@ public abstract class GIOPConnection
                     {
                         return;
                     }
-
-                    continue;
+                    else
+                    {
+                        continue;
+                    }
             }
 
             synchronized( pendingUndecidedSync )
@@ -444,20 +447,14 @@ public abstract class GIOPConnection
                             logger.warn( "Received a GIOP 1.0 message of type Fragment" );
                         }
 
-                        final MessageOutputStream out =
+                        MessageOutputStream out =
                             new MessageOutputStream();
+                        out.writeGIOPMsgHeader( MsgType_1_1._MessageError,
+                                                0 );
+                        out.insertMsgSize();
+                        sendMessage( out );
+                        buf_mg.returnBuffer( message );
 
-                        try
-                        {
-                            out.writeGIOPMsgHeader(MsgType_1_1._MessageError, 0);
-                            out.insertMsgSize();
-                            sendMessage( out );
-                            buf_mg.returnBuffer( message );
-                        }
-                        finally
-                        {
-                            out.close();
-                        }
                         continue;
                     }
 
@@ -479,7 +476,8 @@ public abstract class GIOPConnection
 
                     //for now, only GIOP 1.2 from here on
 
-                    Integer request_id = ObjectUtil.newInteger( Messages.getRequestId( message ));
+                    Integer request_id =
+                        new Integer( Messages.getRequestId( message ));
 
                     //sanity check
                     if( ! fragments.containsKey( request_id ))
@@ -511,14 +509,16 @@ public abstract class GIOPConnection
                         buf_mg.returnBuffer( message );
                         continue;
                     }
+                    else
+                    {
+                        buf_mg.returnBuffer( message );
 
-                    buf_mg.returnBuffer( message );
+                        //silently replace the original message buffer and type
+                        message = b_out.toByteArray();
+                        msg_type = Messages.getMsgType( message );
 
-                    //silently replace the original message buffer and type
-                    message = b_out.toByteArray();
-                    msg_type = Messages.getMsgType( message );
-
-                    fragments.remove( request_id );
+                        fragments.remove( request_id );
+                    }
                 }
                 else if( Messages.moreFragmentsFollow( message ) )
                 {
@@ -563,29 +563,30 @@ public abstract class GIOPConnection
 
                             continue;
                         }
-
-                        //GIOP 1.1 Fragmented messages currently not supported
-                        if (logger.isWarnEnabled())
+                        else //GIOP 1.1 Fragmented messages currently not supported
                         {
-                            logger.warn( "Received a fragmented GIOP 1.1 message" );
+                            if (logger.isWarnEnabled())
+                            {
+                                logger.warn( "Received a fragmented GIOP 1.1 message" );
+                            }
+
+                            int giop_minor = Messages.getGIOPMinor( message );
+
+                            ReplyOutputStream out =
+                                new ReplyOutputStream( Messages.getRequestId( message ),
+                                                       ReplyStatusType_1_2.SYSTEM_EXCEPTION,
+                                                       giop_minor,
+                                                       false,
+                                                       logger);//no locate reply
+
+                            SystemExceptionHelper.write( out,
+                                                         new NO_IMPLEMENT( 0, CompletionStatus.COMPLETED_NO ));
+
+                            sendMessage( out );
+                            buf_mg.returnBuffer( message );
+
+                            continue;
                         }
-
-                        int giop_minor = Messages.getGIOPMinor( message );
-
-                        ReplyOutputStream out =
-                            new ReplyOutputStream( Messages.getRequestId( message ),
-                                    ReplyStatusType_1_2.SYSTEM_EXCEPTION,
-                                    giop_minor,
-                                    false,
-                                    logger);//no locate reply
-
-                        SystemExceptionHelper.write( out,
-                                new NO_IMPLEMENT( 0, CompletionStatus.COMPLETED_NO ));
-
-                        sendMessage( out );
-                        buf_mg.returnBuffer( message );
-
-                        continue;
                     }
 
                     //check, that only the correct message types are fragmented
@@ -613,7 +614,7 @@ public abstract class GIOPConnection
 
                     //if we're here, it's the first part of a fragmented message
                     Integer request_id =
-                        new Integer( Messages.getRequestId( message )); // NOPMD
+                        new Integer( Messages.getRequestId( message ));
 
                     //sanity check
                     if( fragments.containsKey( request_id ))
@@ -779,13 +780,13 @@ public abstract class GIOPConnection
 
     /* pro forma implementations of io.OutputStream methods */
 
-    public final void write(int value)
+    public final void write(int i)
         throws java.io.IOException
     {
         throw new org.omg.CORBA.NO_IMPLEMENT();
     }
 
-    public final void write(byte[] value) throws java.io.IOException
+    public final void write(byte[] b) throws java.io.IOException
     {
         throw new org.omg.CORBA.NO_IMPLEMENT();
     }
@@ -828,10 +829,8 @@ public abstract class GIOPConnection
                 tcs_negotiated = false;
 
                 if (logger.isDebugEnabled())
-                {
-                    logger.debug(this.toString()
+                    logger.debug(this.toString() 
                                  + ": sendMessage() -- opening transport");
-                }
 
                 synchronized (connect_sync)
                 {
@@ -843,10 +842,8 @@ public abstract class GIOPConnection
                     catch (RuntimeException ex)
                     {
                         if (logger.isDebugEnabled())
-                        {
                             logger.debug(this.toString()
                                          + ": sendMessage() -- failed to open transport");
-                        }
                         throw ex;
                     }
                 }
@@ -872,10 +869,9 @@ public abstract class GIOPConnection
     public final boolean isSSL()
     {
         if (transport instanceof IIOPConnection)
-        {
             return ((IIOPConnection)transport).isSSL();
-        }
-        return false;
+        else
+            return false;
     }
 
     public void close()
@@ -969,9 +965,7 @@ public abstract class GIOPConnection
         if (id < 0 || id >= cubby_count)
         {
             if (logger.isErrorEnabled())
-            {
                 logger.error( "Get bad cubby id "+id+" (max="+cubby_count+")");
-            }
             return null;
         }
         return cubbyholes[id];
@@ -982,12 +976,10 @@ public abstract class GIOPConnection
         if (id < 0 || id >= cubby_count)
         {
            if (logger.isErrorEnabled())
-           {
                logger.error( "Set bad cubby id "+id+" (max="+cubby_count+")");
-           }
            return;
         }
         cubbyholes[id] = obj;
     }
-
+    
 }// GIOPConnection
