@@ -28,7 +28,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.28 2005-11-11 19:37:44 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.29 2006-07-07 12:38:44 alphonse.bendt Exp $
  */
 
 public interface TaskProcessor
@@ -48,16 +48,15 @@ public interface TaskProcessor
      * This method queues a Task to run runPullEvent on the specified
      * TimerEventSupplier
      */
-     void scheduleTimedPullTask( MessageSupplier dest )
-        throws InterruptedException;
+     void scheduleTimedPullTask( MessageSupplier dest );
 
     ////////////////////////////////////////
     // Timer Operations
     ////////////////////////////////////////
 
      ScheduledFuture executeTaskPeriodically( long intervall,
-				     Runnable task,
-				     boolean startImmediately );
+                     Runnable task,
+                     boolean startImmediately );
 
     ScheduledFuture executeTaskAfterDelay( long delay, Runnable task );
 }
