@@ -35,7 +35,6 @@ import org.omg.IOP.TaggedProfile;
 
 import org.jacorb.test.*;
 import org.jacorb.test.common.*;
-import org.omg.CORBA.ORB;
 
 /**
  * This test is similar to AlternateIIOPAddressTest, but it uses the
@@ -43,7 +42,7 @@ import org.omg.CORBA.ORB;
  *
  * @jacorb-since 2.2
  * @author Marc Heide
- * @version $Id: AlternateProfileTest.java,v 1.6 2006-07-06 12:37:43 alphonse.bendt Exp $
+ * @version $Id: AlternateProfileTest.java,v 1.7 2006-07-07 13:09:01 alphonse.bendt Exp $
  */
 public class AlternateProfileTest extends ClientServerTestCase
 {
@@ -100,7 +99,7 @@ public class AlternateProfileTest extends ClientServerTestCase
         client_props.setProperty("jacorb.regression.disable_security",
                                  "true");
 
-        
+
         ClientServerSetup setup =
          new ClientServerSetup (suite,
                                    "org.jacorb.test.orb.IIOPAddressServerImpl",
@@ -142,7 +141,7 @@ public class AlternateProfileTest extends ClientServerTestCase
         testNumberOfIIOPProfiles(1, s);
         try
         {
-            int result = s.ping (123);
+            s.ping (123);
             fail ("TRANSIENT or TIMEOUT exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
@@ -163,7 +162,7 @@ public class AlternateProfileTest extends ClientServerTestCase
 
         try
         {
-            int result = s.ping (4);
+            s.ping (4);
             fail ("TRANSIENT or TIMEOUT  exception expected");
         }
         catch (org.omg.CORBA.TRANSIENT ex)
