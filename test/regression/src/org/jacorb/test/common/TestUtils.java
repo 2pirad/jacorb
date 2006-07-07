@@ -45,7 +45,7 @@ import javax.rmi.CORBA.Stub;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.14 2006-07-06 14:10:29 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.15 2006-07-07 11:15:30 alphonse.bendt Exp $
  */
 
 public class TestUtils
@@ -390,5 +390,10 @@ public class TestUtils
     public static boolean isJDK13()
     {
         return JDK_13;
+    }
+
+    public static boolean isPropertyTrue(String value)
+    {
+        return "true".equalsIgnoreCase(value) || "on".equalsIgnoreCase(value) || "yes".equalsIgnoreCase(value);
     }
 }
