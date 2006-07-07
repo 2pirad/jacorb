@@ -49,7 +49,7 @@ import org.jacorb.util.ObjectUtil;
  * of the TESTSUITE to execute (e.g. org.jacorb.test.AllTest).
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: TestLauncher.java,v 1.8 2006-07-07 11:16:19 alphonse.bendt Exp $
+ * @version $Id: TestLauncher.java,v 1.9 2006-07-07 12:24:46 alphonse.bendt Exp $
  */
 public class TestLauncher
 {
@@ -178,7 +178,6 @@ public class TestLauncher
     public static String getOutFilename()
     {
         final String result;
-        final String fileExt = "-" + (isSSL ? "" : "no") + "ssl.txt";
         if ( ! outputFileTestName)
         {
             String dir = TestUtils.testHome() + "/output/" + testId;
@@ -188,11 +187,11 @@ public class TestLauncher
             {
                 dirF.mkdir();
             }
-            result = dir + "/report" + fileExt;
+            result = dir + "/report" + ".txt";
         }
         else
         {
-            result = TestUtils.testHome() + "/output/TEST-" + args[0] + fileExt;
+            result = TestUtils.testHome() + "/output/TEST-" + args[0] + ".txt";
         }
         return result;
     }
