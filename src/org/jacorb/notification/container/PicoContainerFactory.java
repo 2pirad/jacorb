@@ -44,14 +44,11 @@ import org.picocontainer.defaults.CachingComponentAdapterFactory;
 import org.picocontainer.defaults.ComponentAdapterFactory;
 import org.picocontainer.defaults.ConstructorInjectionComponentAdapter;
 import org.picocontainer.defaults.ConstructorInjectionComponentAdapterFactory;
-import org.picocontainer.defaults.DefaultLifecycleStrategy;
 import org.picocontainer.defaults.DefaultPicoContainer;
-import org.picocontainer.monitors.ConsoleComponentMonitor;
-import org.picocontainer.monitors.DefaultComponentMonitor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PicoContainerFactory.java,v 1.8 2006-05-23 10:40:35 alphonse.bendt Exp $
+ * @version $Id: PicoContainerFactory.java,v 1.9 2006-07-07 12:38:22 alphonse.bendt Exp $
  */
 public class PicoContainerFactory
 {
