@@ -28,7 +28,7 @@ import org.jacorb.orb.iiop.IIOPProfile;
 
 /**
  * @author Steve Osselton
- * @version $Id: SpecificProfileSelector.java,v 1.2 2006-06-27 10:56:54 alphonse.bendt Exp $
+ * @version $Id: SpecificProfileSelector.java,v 1.3 2006-07-07 10:55:07 alphonse.bendt Exp $
  */
 public class SpecificProfileSelector implements ProfileSelector
 {
@@ -49,17 +49,18 @@ public class SpecificProfileSelector implements ProfileSelector
       while (iter.hasNext ())
       {
          final Profile profile = (Profile) iter.next();
-         final int ptag = profile.tag ();
+         final int profileTag = profile.tag ();
 
          for (int i = 0; i < protocols.length; i++)
          {
-            final int tag = protocols[i].protocol_type;
-            if (ptag == tag)
+            final int tagToMatch = protocols[i].protocol_type;
+
+            if (profileTag == tagToMatch)
             {
                return profile;
             }
 
-            if (ptag == TAG_INTERNET_IOP.value)
+            if (profileTag == TAG_INTERNET_IOP.value)
             {
                 if (profile instanceof IIOPProfile)
                 {
@@ -67,7 +68,7 @@ public class SpecificProfileSelector implements ProfileSelector
                     IIOPProfile iiopProfile = (IIOPProfile) profile;
                     if
                     (
-                            (tag == ORBConstants.JAC_SSL_PROFILE_ID) &&
+                            (tagToMatch == ORBConstants.JAC_SSL_PROFILE_ID) &&
                             (iiopProfile.getSSL () != null)
                     )
                     {
@@ -77,7 +78,7 @@ public class SpecificProfileSelector implements ProfileSelector
                     // Special case check for IIOP profile not supporting SSL
                     if
                     (
-                            (tag == ORBConstants.JAC_NOSSL_PROFILE_ID) &&
+                            (tagToMatch == ORBConstants.JAC_NOSSL_PROFILE_ID) &&
                             ((iiopProfile.getSSL () == null) ||
                                     // SSL port contains a valid value but further check is required
                                     // see if protection is enabled.

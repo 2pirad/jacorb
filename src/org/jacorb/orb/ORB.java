@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.160 2006-07-06 10:37:35 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.161 2006-07-07 10:54:01 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1527,14 +1527,14 @@ public final class ORB
         try
         {
             configure( org.jacorb.config.JacORBConfiguration.getConfiguration(props,
-                                                                        this,
-                                                                        true)); //applet support
+                                                                             this,
+                                                                             true)); //applet support
         }
-        catch( ConfigurationException ce )
+        catch( ConfigurationException e )
         {
-            logger.fatalError("configuration exception during configure", ce);
+            logger.fatalError("configuration exception during configure", e);
 
-            throw new org.omg.CORBA.INITIALIZE( ce.toString() );
+            throw new org.omg.CORBA.INITIALIZE( e.toString() );
         }
 
         internalInit();

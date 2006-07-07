@@ -30,7 +30,7 @@ import org.jacorb.test.common.TestUtils;
  * with appropriate arguments.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: DirectLauncher.java,v 1.7 2006-06-26 08:06:26 alphonse.bendt Exp $
+ * @version $Id: DirectLauncher.java,v 1.8 2006-07-07 10:58:53 alphonse.bendt Exp $
  */
 public class DirectLauncher extends JacORBLauncher
 {
@@ -136,8 +136,10 @@ public class DirectLauncher extends JacORBLauncher
         }
         result = new File (jacorbHome, "classes/org");
         if (result.exists())
+        {
             return new File (jacorbHome, "classes").toString();
-        else
-            return new File (jacorbHome, "lib/jacorb.jar").toString();
+        }
+
+        return new File (jacorbHome, "lib/jacorb.jar").toString();
     }
 }
