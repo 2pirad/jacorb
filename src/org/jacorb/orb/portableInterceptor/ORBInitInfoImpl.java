@@ -37,7 +37,7 @@ import org.jacorb.orb.ORB;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.15 2006-06-01 10:08:55 alphonse.bendt Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.16 2006-07-07 10:55:57 alphonse.bendt Exp $
  */
 
 public class ORBInitInfoImpl
@@ -302,10 +302,4 @@ public class ORBInitInfoImpl
             throw new InvalidName();
         }
     }
-} // ORBInitInfoImpl
-
-
-
-
-
-
+}

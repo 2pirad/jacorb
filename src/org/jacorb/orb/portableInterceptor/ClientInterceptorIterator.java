@@ -31,7 +31,7 @@ import org.jacorb.orb.SystemExceptionHelper;
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.13 2006-06-15 13:51:46 alphonse.bendt Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.14 2006-07-07 10:55:57 alphonse.bendt Exp $
  */
 
 public class ClientInterceptorIterator
@@ -54,7 +54,7 @@ public class ClientInterceptorIterator
     }
 
     public void iterate(ClientRequestInfoImpl info, short op)
-    throws UserException
+        throws UserException
     {
         this.info = info;
         this.op = op;
@@ -81,7 +81,7 @@ public class ClientInterceptorIterator
      * nextElement() until !hasMoreElements().
      */
     protected void invoke(Interceptor interceptor)
-    throws UserException
+        throws UserException
     {
         info.caller_op = op;
 
@@ -129,6 +129,7 @@ public class ClientInterceptorIterator
             }
             catch(org.omg.CORBA.TypeCodePackage.BadKind _bk)
             {
+                logger.error("unexpected exception", _bk);
             }
         }
         catch (Exception e)
@@ -139,5 +140,3 @@ public class ClientInterceptorIterator
         info.caller_op = op;
     }
 } // ClientInterceptorIterator
-
-

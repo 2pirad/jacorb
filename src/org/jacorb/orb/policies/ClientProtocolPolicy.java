@@ -27,7 +27,7 @@ import org.omg.RTCORBA.ProtocolListHelper;
 
 /**
  * @author Steve Osselton
- * @version $Id: ClientProtocolPolicy.java,v 1.1 2006-06-14 12:40:37 alphonse.bendt Exp $
+ * @version $Id: ClientProtocolPolicy.java,v 1.2 2006-07-07 10:55:41 alphonse.bendt Exp $
  */
 public class ClientProtocolPolicy extends _ClientProtocolPolicyLocalBase
 {
@@ -35,12 +35,13 @@ public class ClientProtocolPolicy extends _ClientProtocolPolicyLocalBase
 
    public ClientProtocolPolicy(Protocol[] protos)
    {
-      this.protos = protos;
+       super();
+       this.protos = protos;
    }
 
    public ClientProtocolPolicy(org.omg.CORBA.Any any)
    {
-      this.protos = ProtocolListHelper.extract (any);
+      this(ProtocolListHelper.extract (any));
    }
 
    public int tag()

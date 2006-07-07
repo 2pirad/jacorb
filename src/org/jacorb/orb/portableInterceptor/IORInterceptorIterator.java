@@ -31,7 +31,7 @@ import org.jacorb.orb.standardInterceptors.CodeSetInfoInterceptor;
  * Created: Mon Apr 17 09:53:33 2000
  *
  * @author Nicolas Noffke
- * $Id: IORInterceptorIterator.java,v 1.10 2004-07-19 15:28:50 phil.mesnier Exp $
+ * $Id: IORInterceptorIterator.java,v 1.11 2006-07-07 10:55:57 alphonse.bendt Exp $
  */
 
 public class IORInterceptorIterator
@@ -66,10 +66,14 @@ public class IORInterceptorIterator
         try
         {
             if (interceptor instanceof CodeSetInfoInterceptor)
+            {
                 ((CodeSetInfoInterceptor) interceptor).
                     establish_components(info, profile_tags);
+            }
             else
+            {
                 ((IORInterceptor) interceptor).establish_components(info);
+            }
         }
         catch(Exception e)
         {

@@ -18,6 +18,7 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
+
 package org.jacorb.orb.portableInterceptor;
 
 import org.jacorb.orb.ORB;
@@ -31,7 +32,7 @@ import java.util.*;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.19 2006-06-15 13:51:46 alphonse.bendt Exp $
+ * @version $Id: InterceptorManager.java,v 1.20 2006-07-07 10:55:57 alphonse.bendt Exp $
  */
 
 public class InterceptorManager

@@ -28,14 +28,12 @@ import org.omg.PortableInterceptor.*;
  * A simple base class for user-defined server interceptors
  *
  * @author Gerald Brose.
- * @version $Id: DefaultServerInterceptor.java,v 1.7 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: DefaultServerInterceptor.java,v 1.8 2006-07-07 10:55:57 alphonse.bendt Exp $
  */
-
 public abstract class DefaultServerInterceptor
-    extends org.omg.CORBA.LocalObject 
+    extends org.omg.CORBA.LocalObject
     implements ServerRequestInterceptor
 {
-
     // InterceptorOperations interface
     public abstract String name();
 
@@ -43,7 +41,7 @@ public abstract class DefaultServerInterceptor
     {
     }
 
-    public void receive_request_service_contexts( ServerRequestInfo ri ) 
+    public void receive_request_service_contexts( ServerRequestInfo ri )
         throws ForwardRequest
     {
     }
@@ -62,15 +60,8 @@ public abstract class DefaultServerInterceptor
     {
     }
 
-    public void send_other(ServerRequestInfo ri) 
+    public void send_other(ServerRequestInfo ri)
         throws ForwardRequest
     {
     }
-
 }
-
-
-
-
-
-

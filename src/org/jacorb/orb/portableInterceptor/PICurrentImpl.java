@@ -31,13 +31,12 @@ import org.omg.CORBA.*;
  * See PI Spec p. 6-55ff
  *
  * @author Nicolas Noffke
- * @version $Id: PICurrentImpl.java,v 1.10 2006-06-27 07:44:04 alphonse.bendt Exp $
+ * @version $Id: PICurrentImpl.java,v 1.11 2006-07-07 10:55:57 alphonse.bendt Exp $
  */
 
 public class PICurrentImpl extends org.omg.CORBA.LocalObject
     implements org.omg.PortableInterceptor.Current
-    {
-
+{
     private final Any[] m_slots;
     private final ORB m_orb;
 
