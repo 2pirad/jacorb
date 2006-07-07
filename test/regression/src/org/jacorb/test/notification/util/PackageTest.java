@@ -27,9 +27,9 @@ import junit.framework.TestSuite;
 
 /**
  * PackageTest.java
- * 
+ *
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.4 2005-02-14 00:17:38 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.5 2006-07-07 13:23:34 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
@@ -49,10 +49,10 @@ public class PackageTest extends TestCase
         _suite.addTest(ThreadPoolTest.suite());
         _suite.addTest(ObjectPoolTest.suite());
         _suite.addTest(EventTypeUtilTest.suite());
-        _suite.addTest(WeakHashSetTest.suite());
+        _suite.addTestSuite(WeakHashSetTest.class);
         _suite.addTest(LogUtilTest.suite());
         _suite.addTest(DisposableManagerTest.suite());
-        
+
         return _suite;
     }
 }
