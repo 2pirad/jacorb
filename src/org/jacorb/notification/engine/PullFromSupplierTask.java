@@ -26,7 +26,7 @@ import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PullFromSupplierTask.java,v 1.16 2005-10-02 15:18:39 alphonse.bendt Exp $
+ * @version $Id: PullFromSupplierTask.java,v 1.17 2006-07-07 10:53:12 alphonse.bendt Exp $
  */
 
 public class PullFromSupplierTask extends AbstractTask
@@ -50,8 +50,6 @@ public class PullFromSupplierTask extends AbstractTask
     public void doWork() throws Disconnected
     {
         target_.runPullMessage();
-
-        dispose();
     }
 
     public void reset()
