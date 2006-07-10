@@ -40,7 +40,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.24 2006-07-05 13:59:15 alphonse.bendt Exp $
+ * @version $Id: ServerRequestListener.java,v 1.25 2006-07-10 08:56:00 alphonse.bendt Exp $
  */
 public class ServerRequestListener
     implements RequestListener, Configurable
@@ -146,6 +146,8 @@ public class ServerRequestListener
         }
 
         inputStream.setCodeSet( connection.getTCS(), connection.getTCSW() );
+
+        inputStream.updateMutatorConnection(connection);
 
         ServerRequest server_request = null;
 

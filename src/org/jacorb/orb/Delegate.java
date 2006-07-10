@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.133 2006-06-30 13:42:30 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.134 2006-07-10 08:56:00 alphonse.bendt Exp $
  *
  */
 
@@ -1071,6 +1071,8 @@ public final class Delegate
             // This call blocks until the reply arrives.
             org.omg.CORBA.portable.InputStream is = receiver.getReply();
 
+            ((CDRInputStream)is).updateMutatorConnection (connection.getGIOPConnection());
+
             return is;
         }
 
@@ -1679,6 +1681,8 @@ public final class Delegate
             //other hand, the server side must have already read the
             //header to discover the codeset service context.
             out.setCodeSet( connection.getTCS(), connection.getTCSW() );
+
+            out.updateMutatorConnection (connection.getGIOPConnection());
 
             return out;
         }

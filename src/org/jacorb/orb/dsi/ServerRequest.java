@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.43 2006-06-28 12:40:14 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.44 2006-07-10 08:56:00 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -449,6 +449,8 @@ public class ServerRequest
                                   inputStream.getGIOPMinor(),
                                   inputStream.isLocateRequest(),
                                   logger );
+
+        out.updateMutatorConnection(connection);
 
         out.configure(orb.getConfiguration());
 
