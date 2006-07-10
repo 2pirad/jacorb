@@ -24,8 +24,6 @@ import java.util.*;
 
 import org.apache.avalon.framework.logger.Logger;
 import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.DefaultConfiguration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 
 import org.jacorb.orb.giop.MessageInputStream;
 import org.jacorb.orb.giop.ReplyInputStream;
@@ -53,7 +51,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.30 2006-07-07 10:54:53 alphonse.bendt Exp $
+ * @version $Id: ReplyReceiver.java,v 1.31 2006-07-10 10:38:30 alphonse.bendt Exp $
  */
 
 public class ReplyReceiver
