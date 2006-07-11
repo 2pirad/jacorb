@@ -37,7 +37,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.25 2006-07-05 09:19:05 alphonse.bendt Exp $
+ * @version $Id: IIOPProfile.java,v 1.26 2006-07-11 13:16:45 alphonse.bendt Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -125,8 +125,8 @@ public class IIOPProfile
         String host = "127.0.0.1"; //default to localhost
         short port = 2809; // default IIOP port
 
-        int major = 1;
-        int minor = 2; // should this be 0? should it be configurable?
+        int major = 1; // should be 1 by default. see 13.6.10.3
+        int minor = 0; // should be 0 by default. see 13.6.10.3
 
         String errorstr =
             "Illegal IIOP protocol format in object address format: " + addr;
