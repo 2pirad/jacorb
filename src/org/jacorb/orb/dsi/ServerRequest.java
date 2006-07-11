@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.44 2006-07-10 08:56:00 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.45 2006-07-11 11:48:00 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -505,7 +505,7 @@ public class ServerRequest
      */
     private ServiceContext createExceptionDetailMessage (String message)
     {
-        final CDROutputStream out = new CDROutputStream();
+        final CDROutputStream out = new CDROutputStream(orb);
 
         try
         {
