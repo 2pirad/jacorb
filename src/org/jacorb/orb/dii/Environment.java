@@ -26,34 +26,35 @@ package org.jacorb.orb.dii;
  * DII requests.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Environment.java,v 1.8 2006-06-14 11:58:27 alphonse.bendt Exp $
+ * @version $Id: Environment.java,v 1.9 2006-07-11 11:47:21 alphonse.bendt Exp $
  */
 
 public class Environment
     extends org.omg.CORBA.Environment
 {
-    private java.lang.Exception ex;
+    private Exception exception;
 
-    public void exception( java.lang.Exception e)
+    public void exception(Exception exception)
     {
-        ex = e;
+        synchronized(this)
+        {
+            this.exception = exception;
+        }
     }
 
-    public java.lang.Exception exception()
+    public Exception exception()
     {
-        return ex;
+        synchronized (this)
+        {
+            return exception;
+        }
     }
 
     public void clear()
     {
-        ex = null;
+        synchronized (this)
+        {
+            exception = null;
+        }
     }
 }
-
-
-
-
-
-
-
-
