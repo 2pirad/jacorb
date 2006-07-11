@@ -35,7 +35,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.47 2006-07-10 13:33:51 alphonse.bendt Exp $
+ * @version $Id: ORBSingleton.java,v 1.48 2006-07-11 08:37:12 alphonse.bendt Exp $
  */
 
 public class ORBSingleton
@@ -153,8 +153,13 @@ public class ORBSingleton
     private void checkTCName (String name, boolean allowNull)
         throws BAD_PARAM
     {
-        if (name == null && !allowNull)
+        if (name == null)
         {
+            if (allowNull)
+            {
+                return;
+            }
+
             throw new BAD_PARAM("Illegal null IDL name",
                                 15,
                                 CompletionStatus.COMPLETED_NO );
