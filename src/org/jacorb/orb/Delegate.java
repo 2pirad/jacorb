@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.134 2006-07-10 08:56:00 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.135 2006-07-11 09:14:59 alphonse.bendt Exp $
  *
  */
 
@@ -641,7 +641,7 @@ public final class Delegate
             catch ( ApplicationException _ax )
             {
                 String _id = _ax.getId();
-                throw new RuntimeException( "Unexpected exception " + _id );
+                throw new INTERNAL( "Unexpected exception " + _id );
             }
 
         }
@@ -1413,7 +1413,7 @@ public final class Delegate
             }
             catch (ApplicationException ax)
             {
-                throw new RuntimeException ("Unexpected exception " + ax.getId());
+                throw new INTERNAL("Unexpected exception " + ax.getId());
             }
         }
     }
@@ -1525,7 +1525,7 @@ public final class Delegate
             }
             catch (ApplicationException e)
             {
-                throw new RuntimeException( "Unexpected exception " + e.getId() );
+                throw new INTERNAL( "Unexpected exception " + e.getId() );
             }
         }
     }
