@@ -42,7 +42,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Marc Heide
- * @version $Id: AlternateProfileTest.java,v 1.7 2006-07-07 13:09:01 alphonse.bendt Exp $
+ * @version $Id: AlternateProfileTest.java,v 1.8 2006-07-11 09:17:27 alphonse.bendt Exp $
  */
 public class AlternateProfileTest extends ClientServerTestCase
 {
@@ -102,9 +102,9 @@ public class AlternateProfileTest extends ClientServerTestCase
 
         ClientServerSetup setup =
          new ClientServerSetup (suite,
-                                   "org.jacorb.test.orb.IIOPAddressServerImpl",
-                                   client_props,
-                                   server_props);
+                                IIOPAddressServerImpl.class.getName(),
+                                client_props,
+                                server_props);
 
         suite.addTest (new AlternateProfileTest("test_ping", setup));
         suite.addTest (new AlternateProfileTest("test_primary_ok", setup));
