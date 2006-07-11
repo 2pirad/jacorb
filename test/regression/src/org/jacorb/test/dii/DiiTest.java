@@ -14,7 +14,7 @@ import org.omg.CORBA.Any;
  * converted from demo.dii
  *
  * @author Alphonse Bendt
- * @version $Id: DiiTest.java,v 1.1 2006-06-14 12:14:18 alphonse.bendt Exp $
+ * @version $Id: DiiTest.java,v 1.2 2006-07-11 11:49:10 alphonse.bendt Exp $
  */
 public class DiiTest extends ClientServerTestCase
 {
@@ -148,10 +148,9 @@ public class DiiTest extends ClientServerTestCase
 
     public void testSendRequestWhichCausesAnException()
     {
-        org.omg.CORBA.Request request = server._request("writeNumberWithEx");
-        request.add_in_arg().insert_long( 5 );
+        org.omg.CORBA.Request request = server._request("raiseException");
         org.omg.CORBA.ExceptionList exceptions = request.exceptions();
-        org.omg.CORBA.TypeCode tc =
+        org.omg.CORBA.TypeCode typeCode =
             orb.create_exception_tc(
                     DIIExceptionHelper.id(),
                     "e",
@@ -162,7 +161,7 @@ public class DiiTest extends ClientServerTestCase
                                     null)
                     }
             );
-        exceptions.add( tc );
+        exceptions.add( typeCode );
 
         request.invoke();
         Exception exception = request.env().exception();
