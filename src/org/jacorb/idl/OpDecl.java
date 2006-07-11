@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.41 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: OpDecl.java,v 1.42 2006-07-11 14:16:07 nick.cross Exp $
  */
 
 public class OpDecl
@@ -147,8 +147,18 @@ public class OpDecl
         for( Enumeration e = paramDecls.elements(); e.hasMoreElements(); )
         {
             ParamDecl param = (ParamDecl)e.nextElement();
+
+
+            String typeN = (param.paramTypeSpec.typeName().indexOf( "." ) < 0 ? param.paramTypeSpec.typeName() : param.paramTypeSpec.typeName().substring( param.paramTypeSpec.typeName().lastIndexOf( "." ) + 1 ));
+
+            if (typeN.toUpperCase().equals (param.simple_declarator.toString().toUpperCase()))
+            {
+                parser.error("In operation " + full_name() + " argument " + param.simple_declarator + " clashes with type " + param.paramTypeSpec.typeName());
+            }
+
             param.parse();
-            try
+
+try
             {
                 NameTable.define( full_name() + "." +
                                   param.simple_declarator.name(),

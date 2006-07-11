@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.26 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: NameTable.java,v 1.27 2006-07-11 14:16:07 nick.cross Exp $
  */
 
 import java.util.Enumeration;
@@ -157,6 +157,14 @@ public class NameTable
             {
                 // modules may be "reopened", no further checks or table entries
                 return;
+            }
+            // This check ensures that we can't redefine a name with a different type.
+            // We also need to ignore any pending forward declarations.
+            else if (names.containsKey (name) &&
+                     ! names.get(name).equals (kind) &&
+                     parser.get_pending (name) == null)
+            {
+                throw new IllegalRedefinition( name );
             }
             else if( !shadows.containsKey( name ) ||
                      kind.equals( "operation" ) ||
