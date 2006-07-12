@@ -59,7 +59,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.42 2006-07-12 09:25:22 alphonse.bendt Exp $
+ * @version $Id: PrintIOR.java,v 1.43 2006-07-12 09:26:52 alphonse.bendt Exp $
  */
 
 public class PrintIOR
@@ -166,7 +166,7 @@ public class PrintIOR
         out.println("TAG_INTERNET_IOP Profiles:");
         for( int i = 0; i < profiles.size(); i++ )
         {
-            out.print("\tProfile Id:  ");
+            out.println("\tProfile Id:  ");
 
             IIOPProfile profile = (IIOPProfile)profiles.get(i);
             out.println("\tIIOP Version :  " +
