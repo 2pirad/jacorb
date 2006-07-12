@@ -27,6 +27,7 @@ import org.omg.CORBA.NamedValue;
 import org.omg.CORBA.TCKind;
 import org.omg.CORBA.portable.*;
 
+import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.portableInterceptor.*;
 import org.jacorb.orb.giop.*;
@@ -37,7 +38,7 @@ import java.util.Iterator;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.22 2006-07-10 14:13:13 alphonse.bendt Exp $
+ * @version $Id: Request.java,v 1.23 2006-07-12 08:00:22 alphonse.bendt Exp $
  */
 public class Request
     extends org.omg.CORBA.Request
@@ -52,6 +53,10 @@ public class Request
     private final org.jacorb.orb.NamedValue result_value;
     private final org.omg.CORBA.ExceptionList exceptions;
     private final org.jacorb.orb.ORB orb;
+
+    // TODO need to remove some logging statements again or wrap them in isDebugEnabled
+    // added the extra log statements to trace a spurious test failure.
+    private final Logger logger;
 
     private org.omg.CORBA.ContextList contexts = new ContextListImpl();
     private org.omg.CORBA.Context context;
@@ -111,6 +116,8 @@ public class Request
         this.arguments = args;
         this.context = context;
         result_value = (org.jacorb.orb.NamedValue)result;
+
+        logger = orb.getConfiguration().getNamedLogger("jacorb.dii.request");
     }
 
     public org.omg.CORBA.Object target()
@@ -257,6 +264,7 @@ public class Request
 
                 try
                 {
+                    logger.debug("delegate.invoke(...)");
                     reply = delegate.invoke(target, out);
 
                     if( response_expected )
@@ -285,25 +293,34 @@ public class Request
                 }
                 catch (RemarshalException e)
                 {
+                    logger.debug("RemarshalException", e);
                     // Try again
                     continue;
                 }
                 catch (ApplicationException e)
                 {
+                    logger.debug("ApplicationException", e);
+
                     org.omg.CORBA.Any any;
-                    org.omg.CORBA.TypeCode tc;
+                    org.omg.CORBA.TypeCode typeCode;
                     String id = e.getId ();
                     int count = exceptions.count ();
+
+                    logger.debug("exceptions.count: " + count);
 
                     for (int i = 0; i < count; i++)
                     {
                         try
                         {
-                            tc = exceptions.item (i);
-                            if (id.equals (tc.id ()))
+                            typeCode = exceptions.item (i);
+
+                            logger.debug(typeCode + " == " + id + "?");
+
+                            if (id.equals (typeCode.id ()))
                             {
+                                logger.debug("YES");
                                 any = orb.create_any ();
-                                any.read_value (e.getInputStream (), tc);
+                                any.read_value (e.getInputStream (), typeCode);
                                 env.exception (new org.omg.CORBA.UnknownUserException (any));
                                 break;
                             }
@@ -322,6 +339,7 @@ public class Request
                 }
                 catch (Exception e)
                 {
+                    logger.debug("Exception", e);
                     env.exception (e);
                     break;
                 }
