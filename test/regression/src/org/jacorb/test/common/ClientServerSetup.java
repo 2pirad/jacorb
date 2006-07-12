@@ -79,7 +79,7 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.29 2006-07-12 08:01:58 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.30 2006-07-12 09:30:19 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -207,10 +207,12 @@ public class ClientServerSetup extends TestSetup {
             StringBuffer details = new StringBuffer();
             details.append("Details from Server OUT:");
             details.append(outListener.getBuffer());
+            details.append('\n');
             details.append("Details from Server ERR:");
             details.append(errListener.getBuffer());
+            details.append('\n');
 
-            fail("could not access IOR for Server " + servantName + " within " + iorWait + " millis.\nThis maybe caused by: " + exc + '\n' + details);
+            fail("could not access IOR for Server.\nServant: " + servantName + "\nTimeout: " + iorWait + " millis.\nThis maybe caused by: " + exc + '\n' + details);
         }
         resolveServerObject(ior);
     }
