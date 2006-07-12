@@ -1,5 +1,7 @@
 package org.jacorb.test.dii;
 
+import java.util.Properties;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -14,7 +16,7 @@ import org.omg.CORBA.Any;
  * converted from demo.dii
  *
  * @author Alphonse Bendt
- * @version $Id: DiiTest.java,v 1.2 2006-07-11 11:49:10 alphonse.bendt Exp $
+ * @version $Id: DiiTest.java,v 1.3 2006-07-12 08:02:17 alphonse.bendt Exp $
  */
 public class DiiTest extends ClientServerTestCase
 {
@@ -30,7 +32,11 @@ public class DiiTest extends ClientServerTestCase
     {
         TestSuite suite = new TestSuite("DII tests (" + DiiTest.class.getName() + ")");
 
-        ClientServerSetup setup = new ClientServerSetup(suite, DynamicServer.class.getName());
+        Properties props = new Properties();
+
+        props.put("jacorb.dii.request.log.verbosity", "4");
+
+        ClientServerSetup setup = new ClientServerSetup(suite, DynamicServer.class.getName(), props, props);
 
         TestUtils.addToSuite(suite, setup, DiiTest.class);
 
