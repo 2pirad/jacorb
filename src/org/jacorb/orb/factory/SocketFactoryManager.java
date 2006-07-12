@@ -21,6 +21,7 @@ package org.jacorb.orb.factory;
  */
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
@@ -35,7 +36,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Steve Osselton
- * @version $Id: SocketFactoryManager.java,v 1.16 2006-06-30 11:09:13 alphonse.bendt Exp $
+ * @version $Id: SocketFactoryManager.java,v 1.17 2006-07-12 14:18:31 alphonse.bendt Exp $
  */
 public class SocketFactoryManager
     implements Configurable
@@ -288,10 +289,25 @@ public class SocketFactoryManager
 
             return result;
         }
+        catch (InvocationTargetException e)
+        {
+            if (logger.isDebugEnabled())
+            {
+                logger.debug("there was an invocation failure with the socket factory " + className, e.getTargetException());
+            }
+
+            throw new org.omg.CORBA.INITIALIZE(
+                "there was an invocation failure with the " +
+                "socket factory " + className + ": " + e.getTargetException());
+        }
         catch (Exception ex)
         {
-            logger.debug("Failed to create custom socket factory", ex);
-            throw new IllegalArgumentException("Failed to create custom socket factory " +
+            if (logger.isDebugEnabled())
+            {
+                logger.debug("Failed to create custom socket factory " + className, ex);
+            }
+
+            throw new org.omg.CORBA.INITIALIZE("Failed to create custom socket factory " +
                     className + ": " + ex.toString());
         }
     }
