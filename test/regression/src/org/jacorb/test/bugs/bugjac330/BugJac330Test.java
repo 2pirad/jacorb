@@ -15,7 +15,7 @@ import org.omg.CORBA.NO_RESOURCES;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac330Test.java,v 1.1 2006-07-12 11:34:43 alphonse.bendt Exp $
+ * @version $Id: BugJac330Test.java,v 1.2 2006-07-12 13:40:46 alphonse.bendt Exp $
  */
 public class BugJac330Test extends ClientServerTestCase
 {
@@ -68,6 +68,7 @@ public class BugJac330Test extends ClientServerTestCase
         thread.join(timeout);
 
         assertTrue("ping command did not terminate within " + timeout + " ms", success[0] || exception[0] != null);
+        assertNotNull("request should have failed", exception[0]);
         assertEquals(NO_RESOURCES.class, exception[0].getClass());
     }
 }
