@@ -30,7 +30,7 @@ import org.jacorb.test.common.TestUtils;
  * with appropriate arguments.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: DirectLauncher.java,v 1.8 2006-07-07 10:58:53 alphonse.bendt Exp $
+ * @version $Id: DirectLauncher.java,v 1.9 2006-07-12 09:30:39 alphonse.bendt Exp $
  */
 public class DirectLauncher extends JacORBLauncher
 {
@@ -95,6 +95,9 @@ public class DirectLauncher extends JacORBLauncher
         try
         {
             String[] cmd = toStringArray(cmdList);
+
+            TestUtils.log("start TestServer: " + cmdList);
+
             Process proc = rt.exec (cmd, envp);
             return proc;
         }
@@ -122,10 +125,12 @@ public class DirectLauncher extends JacORBLauncher
         {
             result = new File (jacorbHome, "classes-instrumented");
             if (!result.exists())
+            {
                 System.out.println ("WARNING: JacORB installation "
                         + jacorbHome
                         + " is not instrumented; coverage "
                         + " will not be available");
+            }
             else
             {
                 String jacorbPath = result.toString();
