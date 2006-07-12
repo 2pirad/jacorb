@@ -34,7 +34,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientConnectionTimeoutTest.java,v 1.8 2006-07-06 14:10:58 alphonse.bendt Exp $
+ * @version $Id: ClientConnectionTimeoutTest.java,v 1.9 2006-07-12 09:48:45 alphonse.bendt Exp $
  */
 public class ClientConnectionTimeoutTest extends ClientServerTestCase
 {
@@ -64,7 +64,7 @@ public class ClientConnectionTimeoutTest extends ClientServerTestCase
 
         ClientServerSetup setup =
             new ClientServerSetup( suite,
-                                   "org.jacorb.test.orb.connection.ConnectionTimeoutServerImpl",
+                                   ConnectionTimeoutServerImpl.class.getName(),
                                    client_props,
                                    null );
 

@@ -34,7 +34,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerConnectionTimeoutTest.java,v 1.7 2006-07-06 14:10:58 alphonse.bendt Exp $
+ * @version $Id: ServerConnectionTimeoutTest.java,v 1.8 2006-07-12 09:48:45 alphonse.bendt Exp $
  */
 public class ServerConnectionTimeoutTest extends ClientServerTestCase
 {
@@ -54,8 +54,7 @@ public class ServerConnectionTimeoutTest extends ClientServerTestCase
     {
         TestSuite suite = new TestSuite( "Server connection idle-timeout tests" );
 
-        Properties server_props =
-            new Properties();
+        Properties server_props = new Properties();
         server_props.setProperty( "jacorb.connection.server.timeout", "1000" );
 
         if (TestUtils.isJDK13())
@@ -65,7 +64,7 @@ public class ServerConnectionTimeoutTest extends ClientServerTestCase
 
         ClientServerSetup setup =
             new ClientServerSetup( suite,
-                                   "org.jacorb.test.orb.connection.ConnectionTimeoutServerImpl",
+                                   ConnectionTimeoutServerImpl.class.getName(),
                                    null,
                                    server_props );
 
