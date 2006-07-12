@@ -79,7 +79,7 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.30 2006-07-12 09:30:19 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.31 2006-07-12 10:08:27 nick.cross Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -197,7 +197,7 @@ public class ClientServerSetup extends TestSetup {
                                           "ERR");
         outListener.start();
         errListener.start();
-        final int iorWait = 5000;
+        final int iorWait = 15000;
         String ior = outListener.getIOR(iorWait);
 
         if (ior == null)
