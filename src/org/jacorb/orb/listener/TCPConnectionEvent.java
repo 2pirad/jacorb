@@ -40,12 +40,14 @@ package org.jacorb.orb.listener;
 
 import java.util.EventObject;
 
+import org.jacorb.orb.iiop.IIOPConnection;
+
 /**
  * <code>TCPConnectionEvent</code> defines an event state object for a
  * TCP Socket Connection.
  *
  * @author Nick Cross
- * @version $Id: TCPConnectionEvent.java,v 1.1 2006-06-26 08:08:24 alphonse.bendt Exp $
+ * @version $Id: TCPConnectionEvent.java,v 1.2 2006-07-12 08:18:15 alphonse.bendt Exp $
  */
 public class TCPConnectionEvent extends EventObject
 {
@@ -82,6 +84,8 @@ public class TCPConnectionEvent extends EventObject
      *                 just been created and not connected.
      * @param localPort an <code>int</code> value
      * @param localIP a <String> value representing the local IP address
+     * @deprecated use the other c'tor
+     * TODO remove this c'tor. change callers to use the other one
      */
     public TCPConnectionEvent
         (Object source,
@@ -96,6 +100,16 @@ public class TCPConnectionEvent extends EventObject
         this.remotePort = remotePort;
         this.localPort  = localPort;
         this.localIP    = localIP;
+    }
+
+    public TCPConnectionEvent
+        (IIOPConnection source,
+         String remoteIP,
+         int remotePort,
+         int localPort,
+         String localIP)
+    {
+        this((Object)source, remoteIP, remotePort, localPort, localIP);
     }
 
 
