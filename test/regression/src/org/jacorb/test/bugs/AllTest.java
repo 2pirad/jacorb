@@ -50,7 +50,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.31 2006-07-10 10:38:48 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.32 2006-07-12 11:34:43 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -96,7 +96,8 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(BugJac262Test.suite());
       suite.addTestSuite(BugJac294Test.class);
       suite.addTest(BugJac319AbstractTest.suite());
-
+      suite.addTest(org.jacorb.test.bugs.bugjac330.BugJac330Suite.suite());
+      
       return suite;
    }
 }

@@ -36,7 +36,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.<br>
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.29 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.30 2006-07-12 11:34:43 alphonse.bendt Exp $
  */
 
 public class ClientConnectionManager
@@ -119,8 +119,8 @@ public class ClientConnectionManager
                             + clientConnection.getGIOPConnection().toString() );
             }
 
-            connections.put( profile, clientConnection );
             receptor_pool.connectionCreated( connection );
+            connections.put( profile, clientConnection );
         }
         else
         {

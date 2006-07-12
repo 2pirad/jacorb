@@ -27,7 +27,7 @@ import org.jacorb.util.threadpool.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.16 2006-06-30 12:18:00 alphonse.bendt Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.17 2006-07-12 11:34:43 alphonse.bendt Exp $
  */
 public class MessageReceptorPool
 {
@@ -53,7 +53,7 @@ public class MessageReceptorPool
             (org.jacorb.config.Configuration) myConfiguration;
 
         final int maxConnectionThreads =
-            configuration.getAttributeAsInteger("jacorb.connection." + config + ".max_threads", MAX_DEFAULT);
+            configuration.getAttributeAsInteger("jacorb.connection." + config + ".max_receptor_threads", MAX_DEFAULT);
 
         final int maxIdleThreads = configuration.getAttributeAsInteger("jacorb.connection." + config + ".max_idle_receptor_threads", MAX_IDLE_DEFAULT);
 
