@@ -13,7 +13,7 @@ import org.jacorb.util.Time;
 
 /**
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: TimingTest.java,v 1.13 2006-07-07 10:59:23 alphonse.bendt Exp $
+ * @version $Id: TimingTest.java,v 1.14 2006-07-12 09:48:25 alphonse.bendt Exp $
  */
 public class TimingTest extends CallbackTestCase
 {
@@ -645,7 +645,7 @@ public class TimingTest extends CallbackTestCase
         clearPolicies (server);
         setRelativeRoundtripTimeout (server, 50);
         ((_TimingServerStub)server).sendc_operation (ref (handler), 767, 100);
-        handler.wait_for_reply (200);
+        handler.wait_for_reply (400);
     }
 
     /**
