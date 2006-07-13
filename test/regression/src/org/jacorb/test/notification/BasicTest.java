@@ -31,17 +31,24 @@ import org.omg.PortableServer.POAHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BasicTest.java,v 1.2 2005-05-01 21:14:29 alphonse.bendt Exp $
+ * @version $Id: BasicTest.java,v 1.3 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class BasicTest extends TestCase
 {
     public void test_Is_JacORB_POA_a_POA() throws Exception
     {
         ORB orb = ORB.init(new String[0], null);
-        POA poa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
-        assertTrue(poa._is_a(POAHelper.id()));
+        try
+        {
+            POA poa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
+            assertTrue(poa._is_a(POAHelper.id()));
+        }
+        finally
+        {
+            orb.shutdown(true);
+        }
     }
-    
+
     public static Test suite() throws Exception
     {
         return new TestSuite(BasicTest.class);

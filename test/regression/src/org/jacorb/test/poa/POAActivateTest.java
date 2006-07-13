@@ -20,9 +20,7 @@ package org.jacorb.test.poa;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 import org.jacorb.test.orb.BasicServerImpl;
 import org.omg.CORBA.ORB;
@@ -36,7 +34,7 @@ import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
  * objects in order to ensure the threading is correct.
  *
  * @author Nick Cross
- * @version $Id: POAActivateTest.java,v 1.2 2006-05-17 15:15:55 alphonse.bendt Exp $
+ * @version $Id: POAActivateTest.java,v 1.3 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class POAActivateTest extends TestCase
 {

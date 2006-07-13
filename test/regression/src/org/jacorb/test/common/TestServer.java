@@ -47,7 +47,7 @@ import org.omg.PortableServer.Servant;
  * example).
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer.java,v 1.6 2006-05-30 12:04:44 alphonse.bendt Exp $
+ * @version $Id: TestServer.java,v 1.7 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class TestServer
 {
@@ -78,8 +78,10 @@ public class TestServer
             Class servantClass = Class.forName (className);
             Servant servant = ( Servant ) servantClass.newInstance();
 
-            if (servant instanceof Configurable)
+            if (servant instanceof Configurable && orb instanceof org.jacorb.orb.ORB)
+            {
                 ((Configurable)servant).configure (((org.jacorb.orb.ORB)orb).getConfiguration());
+            }
 
             // create the object reference
             org.omg.CORBA.Object obj = poa.servant_to_reference( servant );

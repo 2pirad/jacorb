@@ -79,7 +79,7 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.31 2006-07-12 10:08:27 nick.cross Exp $
+ * @version $Id: ClientServerSetup.java,v 1.32 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -224,6 +224,7 @@ public class ClientServerSetup extends TestSetup {
 
     public void tearDown() throws Exception
     {
+        clientOrb.shutdown(true);
         serverProcess.destroy();
         isProcessDestroyed = true;
         outListener.setDestroyed();

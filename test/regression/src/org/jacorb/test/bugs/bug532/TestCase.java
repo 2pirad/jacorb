@@ -29,9 +29,9 @@ import org.omg.CORBA.*;
  * to take account of deferred writes, so fails when byte[]s larger than
  * 4000 bytes are being sent. We saw that bug appearing in JBoss when we
  * could not insert into an Any a byte[] of size larger than 4000 bytes.
- * 
+ *
  * @author <a href="mailto:dimitris@jboss.org">Dimitris Andreadis</a>
- * @version $Id: TestCase.java,v 1.1 2005-03-27 19:00:21 francisco Exp $
+ * @version $Id: TestCase.java,v 1.2 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class TestCase extends junit.framework.TestCase
 {
@@ -49,23 +49,12 @@ public class TestCase extends junit.framework.TestCase
 
     public void testLargeByteArrayToAnyInsertion()
     {
-        try
-        {
-            ORB orb = org.omg.CORBA.ORB.init (new String[]{}, null);
+        ORB orb = org.omg.CORBA.ORB.init(new String[]{}, null);
 
-            byte[] bytes = new byte[4001];
-            Any any = orb.create_any();
-            ByteSequenceHelper.insert(any, bytes);         
-        }
-        catch (Exception e)
-        {
-            fail("Caught Exception while inserting large byte[] into an Any: " + e);
-        }
+        byte[] bytes = new byte[4001];
+        Any any = orb.create_any();
+        ByteSequenceHelper.insert(any, bytes);
+
+        orb.shutdown(true);
     }
-
-    public static void main(String[] args)
-    {
-        junit.textui.TestRunner.run(TestCase.class);
-    }
-
 }

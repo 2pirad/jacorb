@@ -34,7 +34,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CoreContainerFactoryTest.java,v 1.2 2005-04-27 10:50:27 alphonse.bendt Exp $
+ * @version $Id: CoreContainerFactoryTest.java,v 1.3 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class CoreContainerFactoryTest extends TestCase
 {
@@ -46,6 +46,11 @@ public class CoreContainerFactoryTest extends TestCase
     {
         orb_ = ORB.init(new String[0], null);
         picoContainer_ = PicoContainerFactory.createRootContainer((org.jacorb.orb.ORB)orb_);
+    }
+
+    protected void tearDown() throws Exception
+    {
+        orb_.shutdown(true);
     }
 
     public void testGetORB()
@@ -65,17 +70,17 @@ public class CoreContainerFactoryTest extends TestCase
     public void testGetConfiguration()
     {
         Configuration config = (Configuration) picoContainer_.getComponentInstance(Configuration.class);
-        
+
         assertNotNull(config);
     }
-    
+
     public void testGetFilterFactory()
     {
         FilterFactory filterFactory = (FilterFactory)picoContainer_.getComponentInstance(FilterFactory.class);
-        
+
         assertNotNull(filterFactory);
     }
-    
+
     public static Test suite()
     {
         return new TestSuite(CoreContainerFactoryTest.class);

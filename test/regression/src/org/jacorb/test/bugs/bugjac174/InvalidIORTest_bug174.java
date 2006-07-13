@@ -33,7 +33,7 @@ import org.omg.CORBA.ORB;
  * Invalid IOR (these contain corrupt buffer lengths)
  *
  * @author Nick Cross
- * @version $Id: InvalidIORTest_bug174.java,v 1.1 2006-06-20 13:40:48 alphonse.bendt Exp $
+ * @version $Id: InvalidIORTest_bug174.java,v 1.2 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class InvalidIORTest_bug174 extends TestCase
 {
@@ -54,6 +54,11 @@ public class InvalidIORTest_bug174 extends TestCase
     protected void setUp() throws Exception
     {
         orb = ORB.init(new String[0], null);
+    }
+
+    protected void tearDown() throws Exception
+    {
+        orb.shutdown(true);
     }
 
     /**

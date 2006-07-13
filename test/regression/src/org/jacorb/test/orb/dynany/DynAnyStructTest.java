@@ -38,7 +38,7 @@ import org.jacorb.test.StructTypeHelper;
  * DynAny tests for struct types.
  *
  * @author Gerald Brose
- * @version $Id: DynAnyStructTest.java,v 1.4 2006-07-12 09:55:40 alphonse.bendt Exp $
+ * @version $Id: DynAnyStructTest.java,v 1.5 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 
 public class DynAnyStructTest extends TestCase
@@ -60,6 +60,10 @@ public class DynAnyStructTest extends TestCase
        factory = DynAnyFactoryHelper.narrow(orb.resolve_initial_references("DynAnyFactory"));
    }
 
+   protected void tearDown() throws Exception
+   {
+       orb.shutdown(true);
+   }
 
    /**
     * Tests creating a DynAny object from an Any object using the

@@ -25,12 +25,12 @@ import junit.framework.*;
 import org.omg.CORBA.*;
 
 /**
- * Test for bug 228, checks whether factory methods do end up in the Helper 
+ * Test for bug 228, checks whether factory methods do end up in the Helper
  * class of a value type.  Also tests whether the ORB automatically finds
  * the DefaultFactory.
- * 
+ *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: TestCase.java,v 1.3 2003-10-27 12:15:38 andre.spiegel Exp $
+ * @version $Id: TestCase.java,v 1.4 2006-07-13 10:43:51 alphonse.bendt Exp $
  */
 public class TestCase extends junit.framework.TestCase
 {
@@ -49,15 +49,17 @@ public class TestCase extends junit.framework.TestCase
     public void testFactories()
     {
         ORB orb = org.omg.CORBA.ORB.init (new String[]{}, null);
-        
+
         Sample s = SampleHelper.init_1 (orb);
         assertNotNull(s);
-        
+
         s = SampleHelper.init_2 (orb, 1, 2.0, "blabla");
         assertNotNull(s);
         assertEquals (1, s.alpha);
         assertEquals (2.0, s.beta, 0.0);
         assertEquals ("blabla", s.gamma);
+
+        orb.shutdown(true);
     }
 
     public static void main(String[] args)
