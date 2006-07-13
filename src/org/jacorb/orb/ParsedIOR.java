@@ -44,7 +44,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose
- * @version $Id: ParsedIOR.java,v 1.76 2006-07-13 08:57:36 nick.cross Exp $
+ * @version $Id: ParsedIOR.java,v 1.77 2006-07-13 10:41:56 alphonse.bendt Exp $
  */
 
 public class ParsedIOR
@@ -514,7 +514,7 @@ public class ParsedIOR
         {
             if (logger.isDebugEnabled())
             {
-                logger.debug("Caught ", e);
+                logger.debug("Invalid IOR", e);
             }
             throw new BAD_PARAM("Invalid IOR " + e, 10, CompletionStatus.COMPLETED_NO);
         }
