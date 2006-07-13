@@ -21,7 +21,7 @@ import org.omg.Messaging.ExceptionHolder;
  * This must lead to TRANSIENT exceptions.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: QueueNoWaitTest.java,v 1.4 2006-07-11 14:24:37 alphonse.bendt Exp $
+ * @version $Id: QueueNoWaitTest.java,v 1.5 2006-07-13 08:46:21 nick.cross Exp $
  */
 public class QueueNoWaitTest extends CallbackTestCase
 {
@@ -45,6 +45,8 @@ public class QueueNoWaitTest extends CallbackTestCase
         props.setProperty ("jacorb.poa.queue_max", "10");
         props.setProperty ("jacorb.poa.queue_min", "1");
         props.setProperty ("jacorb.poa.queue_wait", "off");
+        props.setProperty ("jacorb.implname",
+                           "org.jacorb.test.orb.CallbackServerImplQueueNoWaitTest");
 
         ClientServerSetup setup =
             new ClientServerSetup( suite,

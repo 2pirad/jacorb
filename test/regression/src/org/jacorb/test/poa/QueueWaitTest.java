@@ -15,7 +15,7 @@ import org.omg.Messaging.*;
  * Despite a heavy request storm all requests should come through.
  *
  * @author Andre Spiegel
- * @version $Id: QueueWaitTest.java,v 1.4 2006-07-11 14:24:37 alphonse.bendt Exp $
+ * @version $Id: QueueWaitTest.java,v 1.5 2006-07-13 08:46:21 nick.cross Exp $
  */
 public class QueueWaitTest extends CallbackTestCase
 {
@@ -39,6 +39,8 @@ public class QueueWaitTest extends CallbackTestCase
         props.setProperty ("jacorb.poa.queue_max", "10");
         props.setProperty ("jacorb.poa.queue_min", "5");
         props.setProperty ("jacorb.poa.queue_wait", "on");
+        props.setProperty ("jacorb.implname",
+                           "org.jacorb.test.orb.CallbackServerImplQueueWaitTest");
 
         ClientServerSetup setup = new ClientServerSetup
             ( suite, "org.jacorb.test.orb.CallbackServerImpl",
