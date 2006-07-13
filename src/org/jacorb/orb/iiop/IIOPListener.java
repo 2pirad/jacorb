@@ -46,7 +46,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.35 2006-06-29 15:42:48 alphonse.bendt Exp $
+ * @version $Id: IIOPListener.java,v 1.36 2006-07-13 08:46:58 nick.cross Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -298,7 +298,7 @@ public class IIOPListener
         {
             if (logger.isErrorEnabled())
             {
-                logger.error("Could not create connection from socket: " + ex);
+                logger.error("Could not create connection from socket: ", ex);
             }
             return;
         }
