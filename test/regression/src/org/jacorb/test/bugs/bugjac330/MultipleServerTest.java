@@ -16,7 +16,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MultipleServerTest.java,v 1.4 2006-07-13 10:43:51 alphonse.bendt Exp $
+ * @version $Id: MultipleServerTest.java,v 1.5 2006-07-13 16:03:04 alphonse.bendt Exp $
  */
 public class MultipleServerTest extends TestCase
 {
@@ -150,8 +150,6 @@ public class MultipleServerTest extends TestCase
 
         final String threadName = "ClientMessageReceptor";
         assertTrue(isThereAThreadNamed(threadName));
-
-        dumpThread(threadName);
 
         server1._release();
 
