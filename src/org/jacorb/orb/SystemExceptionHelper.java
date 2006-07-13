@@ -29,7 +29,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SystemExceptionHelper.java,v 1.14 2006-07-10 13:34:12 alphonse.bendt Exp $
+ * @version $Id: SystemExceptionHelper.java,v 1.15 2006-07-13 09:33:12 nick.cross Exp $
  */
 
 public class SystemExceptionHelper
@@ -176,7 +176,7 @@ public class SystemExceptionHelper
 
     public static org.omg.CORBA.SystemException read(org.omg.CORBA.portable.InputStream in)
     {
-        final String className = className(in.read_string());
+        final String className = SystemExceptionHelper.className(in.read_string());
         final int minor = in.read_long();
         final org.omg.CORBA.CompletionStatus completed =
             org.omg.CORBA.CompletionStatusHelper.read(in);

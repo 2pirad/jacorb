@@ -28,7 +28,7 @@ import org.jacorb.orb.iiop.IIOPProfile;
 
 /**
  * @author Steve Osselton
- * @version $Id: SpecificProfileSelector.java,v 1.3 2006-07-07 10:55:07 alphonse.bendt Exp $
+ * @version $Id: SpecificProfileSelector.java,v 1.4 2006-07-13 09:33:12 nick.cross Exp $
  */
 public class SpecificProfileSelector implements ProfileSelector
 {
@@ -60,34 +60,32 @@ public class SpecificProfileSelector implements ProfileSelector
                return profile;
             }
 
-            if (profileTag == TAG_INTERNET_IOP.value)
+            if (profileTag == TAG_INTERNET_IOP.value &&
+                profile instanceof IIOPProfile)
             {
-                if (profile instanceof IIOPProfile)
+                // Special case check for IIOP profile supporting SSL
+                IIOPProfile iiopProfile = (IIOPProfile) profile;
+                if
+                (
+                    (tagToMatch == ORBConstants.JAC_SSL_PROFILE_ID) &&
+                    (iiopProfile.getSSL () != null)
+                )
                 {
-                    // Special case check for IIOP profile supporting SSL
-                    IIOPProfile iiopProfile = (IIOPProfile) profile;
-                    if
-                    (
-                            (tagToMatch == ORBConstants.JAC_SSL_PROFILE_ID) &&
-                            (iiopProfile.getSSL () != null)
-                    )
-                    {
-                        return profile;
-                    }
+                    return profile;
+                }
 
-                    // Special case check for IIOP profile not supporting SSL
-                    if
-                    (
-                            (tagToMatch == ORBConstants.JAC_NOSSL_PROFILE_ID) &&
-                            ((iiopProfile.getSSL () == null) ||
-                                    // SSL port contains a valid value but further check is required
-                                    // see if protection is enabled.
-                                    (((iiopProfile.getSSL()).target_requires &
-                                            org.omg.Security.NoProtection.value) != 0))
-                    )
-                    {
-                        return profile;
-                    }
+                // Special case check for IIOP profile not supporting SSL
+                if
+                (
+                    (tagToMatch == ORBConstants.JAC_NOSSL_PROFILE_ID) &&
+                    ((iiopProfile.getSSL () == null) ||
+                     // SSL port contains a valid value but further check is required
+                     // see if protection is enabled.
+                     (((iiopProfile.getSSL()).target_requires &
+                       org.omg.Security.NoProtection.value) != 0))
+                )
+                {
+                    return profile;
                 }
             }
          }
