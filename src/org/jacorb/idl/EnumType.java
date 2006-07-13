@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.37 2006-06-28 12:38:24 alphonse.bendt Exp $
+ * @version $Id: EnumType.java,v 1.38 2006-07-13 08:48:28 nick.cross Exp $
  */
 
 public class EnumType
@@ -204,10 +204,6 @@ public class EnumType
         return this.getTypeCodeExpression();
     }
 
-    private void printClassComment(String className, PrintWriter ps)
-    {
-        printClassComment("enum", className, ps);
-    }
 
     private void printHolderClass(String className, PrintWriter ps)
     {
@@ -217,7 +213,7 @@ public class EnumType
         if (!pack_name.equals(""))
             ps.println("package " + pack_name + ";");
 
-        printClassComment(className, ps);
+        printClassComment("enum", className, ps);
 
         ps.println("public" + parser.getFinalString() + " class " + className + "Holder");
         ps.println("\timplements org.omg.CORBA.portable.Streamable");
@@ -260,7 +256,7 @@ public class EnumType
         if (!pack_name.equals(""))
             ps.println("package " + pack_name + ";");
 
-        printClassComment(className, ps);
+        printClassComment("enum", className, ps);
 
         ps.println("public" + parser.getFinalString() + " class " + className + "Helper");
         ps.println("{");
@@ -319,7 +315,7 @@ public class EnumType
         if (!pack_name.equals(""))
             pw.println("package " + pack_name + ";");
 
-        printClassComment(className, pw);
+        printClassComment("enum", className, pw);
 
         pw.println("public" + parser.getFinalString() + " class " + className);
         pw.println("\timplements org.omg.CORBA.portable.IDLEntity\n{");
