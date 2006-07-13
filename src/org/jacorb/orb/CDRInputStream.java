@@ -48,7 +48,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.107 2006-07-10 08:56:00 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.108 2006-07-13 08:57:36 nick.cross Exp $
  */
 
 public class CDRInputStream
@@ -1223,7 +1223,7 @@ public class CDRInputStream
                         result = orb.create_recursive_tc(recursiveId);
                         break;
                     }
-                    catch(Throwable e)
+                    catch(org.omg.CORBA.SystemException e)
                     {
                         throw new MARSHAL(
                             "Failed to create recursive typecode: " +
@@ -1672,8 +1672,7 @@ public class CDRInputStream
      */
     private int calcSkipAmount(final int size, final int start_pos)
     {
-        int skipAmount = (size - ((pos - start_pos) - 4 - 4));
-        return skipAmount;
+        return (size - ((pos - start_pos) - 4 - 4));
     }
 
     /**

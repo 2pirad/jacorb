@@ -44,7 +44,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose
- * @version $Id: ParsedIOR.java,v 1.75 2006-07-07 10:54:17 alphonse.bendt Exp $
+ * @version $Id: ParsedIOR.java,v 1.76 2006-07-13 08:57:36 nick.cross Exp $
  */
 
 public class ParsedIOR
@@ -444,7 +444,9 @@ public class ParsedIOR
             catch(java.io.IOException ioe)
             {
                 if (logger.isDebugEnabled())
+                {
                     logger.debug("Error reading IOR/URL: ", ioe);
+                }
                 // ignore;
             }
             if (content == null)
@@ -542,7 +544,9 @@ public class ParsedIOR
             catch (Exception e)
             {
                 if (logger.isErrorEnabled())
+                {
                     logger.error(e.getMessage());
+                }
                 throw new IllegalArgumentException("Invalid corbaloc: URL");
             }
         }

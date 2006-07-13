@@ -30,7 +30,7 @@ import org.jacorb.orb.CDRInputStream;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.10 2006-07-07 10:55:29 alphonse.bendt Exp $
+ * @version $Id: IIOPAddress.java,v 1.11 2006-07-13 08:57:36 nick.cross Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -114,7 +114,8 @@ public class IIOPAddress
         }
         catch (UnknownHostException ex)
         {
-            try {
+            try
+            {
                 //get loopback
                 localhost = InetAddress.getByName(null);
             }
@@ -186,8 +187,8 @@ public class IIOPAddress
     {
         String host = in.read_string();
         short  port = in.read_ushort();
-        IIOPAddress addr = new IIOPAddress(host, port);
-        return addr;
+
+        return (new IIOPAddress(host, port));
     }
 
     /**

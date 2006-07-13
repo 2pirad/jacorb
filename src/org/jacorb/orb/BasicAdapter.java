@@ -48,7 +48,7 @@ import org.omg.ETF.Listener;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose
- * @version $Id: BasicAdapter.java,v 1.58 2006-06-29 15:49:45 nick.cross Exp $
+ * @version $Id: BasicAdapter.java,v 1.59 2006-07-13 08:57:36 nick.cross Exp $
  */
 public class BasicAdapter
     extends org.omg.ETF._HandleLocalBase
@@ -224,8 +224,7 @@ public class BasicAdapter
         IIOPListener listener = getIIOPListener();
         if (listener != null)
         {
-            IIOPProfile profile = (IIOPProfile)listener.endpoint();
-            return profile.getSSLPort();
+            return ((IIOPProfile)listener.endpoint()).getSSLPort();
         }
 
         throw new RuntimeException("Non-IIOP transport does not have an SSL port");

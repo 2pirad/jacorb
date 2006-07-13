@@ -40,7 +40,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.16 2006-07-11 07:43:49 alphonse.bendt Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.17 2006-07-13 08:57:36 nick.cross Exp $
  */
 public class ExceptionHolderImpl
     extends org.omg.Messaging.ExceptionHolder
@@ -169,8 +169,10 @@ public class ExceptionHolderImpl
         StringBuffer result = new StringBuffer();
         for (int i=0; i<marshaled_exception.length; i++)
         {
-            result.append (marshaled_exception[i] +
-                           "(" + (char)marshaled_exception[i] + ")  ");
+            result.append (marshaled_exception[i]);
+            result.append ('(');
+            result.append ((char)marshaled_exception[i]);
+            result.append (")  ");
         }
         return result.toString();
     }
