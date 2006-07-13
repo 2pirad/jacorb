@@ -42,7 +42,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Marc Heide
- * @version $Id: AlternateProfileTest.java,v 1.9 2006-07-11 11:49:45 alphonse.bendt Exp $
+ * @version $Id: AlternateProfileTest.java,v 1.10 2006-07-13 08:46:05 nick.cross Exp $
  */
 public class AlternateProfileTest extends ClientServerTestCase
 {
@@ -86,10 +86,13 @@ public class AlternateProfileTest extends ClientServerTestCase
         client_props.setProperty ("jacorb.retries", "0");
         client_props.setProperty ("jacorb.retry_interval", "50");
 
-        // This was originally two seconds but if the reg tests are run using the IMR we get
-        // TIMEOUT instead of TRANSIENT. Therefore this has been set to a much larger value.
-        client_props.setProperty ("jacorb.connection.client.pending_reply_timeout", "120000");
-        client_props.setProperty ("jacorb.connection.client.connect_timeout","5000");
+        // This was originally two seconds but if the reg tests are run using
+        // the IMR we get TIMEOUT instead of TRANSIENT. Therefore this has been
+        // set to a much larger value.
+        client_props.setProperty
+            ("jacorb.connection.client.pending_reply_timeout", "120000");
+        client_props.setProperty
+            ("jacorb.connection.client.connect_timeout","5000");
 
         Properties server_props = new Properties();
         server_props.setProperty
