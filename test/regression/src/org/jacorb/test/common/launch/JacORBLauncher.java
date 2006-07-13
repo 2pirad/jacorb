@@ -39,7 +39,7 @@ import org.jacorb.test.common.TestUtils;
  * invoke the launch() method on the resulting object.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: JacORBLauncher.java,v 1.5 2006-07-12 09:31:14 alphonse.bendt Exp $
+ * @version $Id: JacORBLauncher.java,v 1.6 2006-07-13 06:44:03 nick.cross Exp $
  */
 public abstract class JacORBLauncher
 {
@@ -176,7 +176,7 @@ public abstract class JacORBLauncher
         }
         catch (Exception ex)
         {
-            throw new IllegalArgumentException(ex);
+            throw new IllegalArgumentException(ex.toString());
         }
     }
 
