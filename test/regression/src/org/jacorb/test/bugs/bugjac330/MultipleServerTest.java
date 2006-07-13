@@ -14,7 +14,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MultipleServerTest.java,v 1.2 2006-07-12 13:40:46 alphonse.bendt Exp $
+ * @version $Id: MultipleServerTest.java,v 1.3 2006-07-13 07:22:43 alphonse.bendt Exp $
  */
 public class MultipleServerTest extends TestCase
 {
@@ -150,9 +150,17 @@ public class MultipleServerTest extends TestCase
 
         server1._release();
 
-        Thread.sleep(4000);
+        int retry = 0;
+        final int maxRetry = 15;
 
-        assertFalse(isThereAThreadNamed("ClientMessageReceptor"));
+        while( (retry++ < maxRetry) && isThereAThreadNamed("ClientMessageReceptor"))
+        {
+            // wait some time to allow the ClientMessageReceptor Thread to exit
+            Thread.sleep(1000);
+            System.gc();
+        }
+
+        assertFalse("there should be no idle thread", isThereAThreadNamed("ClientMessageReceptor"));
     }
 
     private boolean isThereAThreadNamed(String name)
