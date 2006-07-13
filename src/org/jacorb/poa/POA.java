@@ -45,7 +45,7 @@ import java.util.*;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.64 2006-07-11 09:17:12 alphonse.bendt Exp $
+ * @version $Id: POA.java,v 1.65 2006-07-13 08:46:37 nick.cross Exp $
  */
 
 public class POA
@@ -773,6 +773,10 @@ public class POA
 
             if (index != -1)
             {
+                if (logger.isDebugEnabled())
+                {
+                    logger.debug("Policy list invalid at index " + index);
+                }
                 throw new InvalidPolicy(index);
             }
 
