@@ -36,7 +36,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Steve Osselton
- * @version $Id: SocketFactoryManager.java,v 1.17 2006-07-12 14:18:31 alphonse.bendt Exp $
+ * @version $Id: SocketFactoryManager.java,v 1.18 2006-07-13 08:47:21 nick.cross Exp $
  */
 public class SocketFactoryManager
     implements Configurable
@@ -293,12 +293,12 @@ public class SocketFactoryManager
         {
             if (logger.isDebugEnabled())
             {
-                logger.debug("there was an invocation failure with the socket factory " + className, e.getTargetException());
+                logger.debug("there was an invocation failure with the socket factory " + className, e.getCause());
             }
 
             throw new org.omg.CORBA.INITIALIZE(
                 "there was an invocation failure with the " +
-                "socket factory " + className + ": " + e.getTargetException());
+                "socket factory " + className + ": " + e.getCause());
         }
         catch (Exception ex)
         {
