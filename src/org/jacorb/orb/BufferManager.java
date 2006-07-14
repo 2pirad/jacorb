@@ -36,7 +36,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
  * shared BuffferManager across all ORBs in a process.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.24 2006-07-11 11:46:20 alphonse.bendt Exp $
+ * @version $Id: BufferManager.java,v 1.25 2006-07-14 12:36:23 alphonse.bendt Exp $
 */
 
 public final class BufferManager
@@ -76,7 +76,7 @@ public final class BufferManager
     private static int time = 0;
 
     /** the singleton instance */
-    private static BufferManager singleton = new BufferManager();
+    private final static BufferManager singleton = new BufferManager();
 
     private static boolean configured = false;
 
@@ -84,7 +84,7 @@ public final class BufferManager
      * configures the BufferManager, in turn configures the singleton.
      * Must be called before getInstance() !
      */
-    public static void configure(Configuration configuration)
+    public synchronized static void configure(Configuration configuration)
     {
         singleton.singletonConfigure(configuration);
         configured = true;
@@ -92,13 +92,14 @@ public final class BufferManager
 
     private BufferManager()
     {
+        super();
     }
 
     /**
      * configures the singleton
      */
 
-    private synchronized void singletonConfigure(Configuration configuration)
+    private void singletonConfigure(Configuration configuration)
     {
         time =
             configuration.getAttributeAsInteger("jacorb.bufferManagerMaxFlush", 0);
@@ -152,8 +153,8 @@ public final class BufferManager
      * @throws BAD_INV_ORDER if not previously configured
      */
 
-    public static BufferManager getInstance()
-        throws  BAD_INV_ORDER
+    public synchronized static BufferManager getInstance()
+        throws BAD_INV_ORDER
     {
         if (!configured)
         {
