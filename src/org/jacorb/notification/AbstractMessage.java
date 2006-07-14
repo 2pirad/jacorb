@@ -35,7 +35,6 @@ import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.util.AbstractPoolable;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.AnyHolder;
-import org.omg.CORBA.ORB;
 import org.omg.CosNotification.Property;
 import org.omg.CosNotification.StructuredEvent;
 import org.omg.CosNotifyFilter.Filter;
@@ -44,7 +43,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractMessage.java,v 1.31 2006-07-03 12:51:42 alphonse.bendt Exp $
+ * @version $Id: AbstractMessage.java,v 1.32 2006-07-14 12:05:19 alphonse.bendt Exp $
  */
 
 public abstract class AbstractMessage extends AbstractPoolable
