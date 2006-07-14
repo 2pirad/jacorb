@@ -32,7 +32,7 @@ import org.jacorb.imr.AdminPackage.*;
  * that blocks until the server is released.
  *
  * @author Nicolas Noffke
- * @version $Id: ImRServerInfo.java,v 1.13 2006-06-27 12:54:33 alphonse.bendt Exp $
+ * @version $Id: ImRServerInfo.java,v 1.14 2006-07-14 11:41:38 alphonse.bendt Exp $
  */
 public class ImRServerInfo
     implements java.io.Serializable
@@ -95,7 +95,7 @@ public class ImRServerInfo
         final POAInfo[] _info;
         synchronized(poas)
         {
-            ImRPOAInfo[] _poas = (ImRPOAInfo[]) poas.toArray(new POAInfo[poas.size()]);
+            ImRPOAInfo[] _poas = (ImRPOAInfo[]) poas.toArray(new ImRPOAInfo[poas.size()]);
 
              _info = new POAInfo[_poas.length];
             for (int i = 0; i < _info.length; i++)
