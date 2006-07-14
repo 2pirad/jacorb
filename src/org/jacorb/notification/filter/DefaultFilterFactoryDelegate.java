@@ -22,7 +22,6 @@
 package org.jacorb.notification.filter;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -45,7 +44,7 @@ import org.picocontainer.defaults.ConstructorInjectionComponentAdapterFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultFilterFactoryDelegate.java,v 1.4 2006-05-29 15:11:14 alphonse.bendt Exp $
+ * @version $Id: DefaultFilterFactoryDelegate.java,v 1.5 2006-07-14 08:54:37 alphonse.bendt Exp $
  */
 public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Disposable
 {
