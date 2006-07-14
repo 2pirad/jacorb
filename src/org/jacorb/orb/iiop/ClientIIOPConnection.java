@@ -55,7 +55,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.29 2006-07-06 14:09:57 alphonse.bendt Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.30 2006-07-14 12:24:19 alphonse.bendt Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -426,28 +426,36 @@ public class ClientIIOPConnection
 
     public synchronized void close()
     {
+        if (!connected)
+        {
+            return;
+        }
+
         try
         {
-            if (connected)
+            if (socket != null)
             {
-                if (socket != null)
-                {
-                    socket.close();
-                }
+                socket.close();
+            }
 
-                //this will cause exceptions when trying to read from
-                //the streams. Better than "nulling" them.
-                if( in_stream != null )
-                {
-                    in_stream.close();
-                }
-                if( out_stream != null )
-                {
-                    out_stream.close();
-                }
+            //this will cause exceptions when trying to read from
+            //the streams. Better than "nulling" them.
+            if( in_stream != null )
+            {
+                in_stream.close();
+            }
+            if( out_stream != null )
+            {
+                out_stream.close();
+            }
 
-                //for testing purposes
-                --openTransports;
+            //for testing purposes
+            --openTransports;
+
+            if (logger.isInfoEnabled())
+            {
+                logger.info("Client-side TCP transport to " +
+                        connection_info + " closed.");
             }
 
             connected = false;
@@ -477,12 +485,6 @@ public class ClientIIOPConnection
                     )
                 );
             }
-        }
-
-        if (logger.isInfoEnabled())
-        {
-            logger.info("Client-side TCP transport to " +
-                        connection_info + " closed.");
         }
     }
 
