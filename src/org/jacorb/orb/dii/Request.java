@@ -38,7 +38,7 @@ import java.util.Iterator;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.23 2006-07-12 08:00:22 alphonse.bendt Exp $
+ * @version $Id: Request.java,v 1.24 2006-07-14 12:02:41 nick.cross Exp $
  */
 public class Request
     extends org.omg.CORBA.Request
@@ -325,9 +325,9 @@ public class Request
                                 break;
                             }
                         }
-                        catch (org.omg.CORBA.TypeCodePackage.BadKind ex)
+                        catch (org.omg.CORBA.TypeCodePackage.BadKind ex) // NOPMD
                         {
-                            // ignored
+                            // Ignored
                         }
                         catch (org.omg.CORBA.Bounds ex)
                         {

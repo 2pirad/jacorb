@@ -32,7 +32,7 @@ import java.util.*;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.20 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version $Id: InterceptorManager.java,v 1.21 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public class InterceptorManager
@@ -159,7 +159,7 @@ public class InterceptorManager
      */
     public IORInterceptorIterator getIORIterator()
     {
-        return new IORInterceptorIterator(ior_interceptors, profile_tags);
+        return new IORInterceptorIterator(logger, ior_interceptors, profile_tags);
     }
 
 

@@ -1,3 +1,5 @@
+package org.jacorb.orb.portableInterceptor;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,7 +20,6 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.orb.portableInterceptor;
 
 import java.util.Enumeration;
 
@@ -44,7 +45,7 @@ import org.omg.PortableServer.Servant;
  * See PI Spec p.5-50ff
  *
  * @author Nicolas Noffke
- * @version $Id: ServerRequestInfoImpl.java,v 1.17 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version $Id: ServerRequestInfoImpl.java,v 1.18 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public class ServerRequestInfoImpl

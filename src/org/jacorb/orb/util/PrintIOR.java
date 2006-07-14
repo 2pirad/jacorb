@@ -59,7 +59,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.44 2006-07-12 09:36:24 nick.cross Exp $
+ * @version $Id: PrintIOR.java,v 1.45 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public class PrintIOR
@@ -176,16 +176,8 @@ public class PrintIOR
             }
 
             out.println("\tPort:\t\t\t" + port );
-            try
-            {
-                out.println("\tObject key (URL):\t" +
-                                   CorbaLoc.parseKey( pior.get_object_key()));
-            }
-            catch( Exception e )
-            {
-                // ignore, object key not in url format
-            }
-            out.print("\tObject key (hex):\t0x" );
+            out.println("\tObject key (URL):\t" + CorbaLoc.parseKey( pior.get_object_key()));
+            out.print  ("\tObject key (hex):\t0x" );
             dumpHex( pior.get_object_key(), out);
             out.println();
 

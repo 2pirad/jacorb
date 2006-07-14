@@ -24,6 +24,7 @@ package org.jacorb.orb.portableInterceptor;
 import org.omg.PortableInterceptor.*;
 import org.omg.CORBA.UserException;
 import org.jacorb.orb.standardInterceptors.CodeSetInfoInterceptor;
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * IORInterceptorIterator.java
@@ -31,7 +32,7 @@ import org.jacorb.orb.standardInterceptors.CodeSetInfoInterceptor;
  * Created: Mon Apr 17 09:53:33 2000
  *
  * @author Nicolas Noffke
- * $Id: IORInterceptorIterator.java,v 1.11 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * $Id: IORInterceptorIterator.java,v 1.12 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public class IORInterceptorIterator
@@ -39,17 +40,20 @@ public class IORInterceptorIterator
 {
     private IORInfoImpl info = null;
     private int[] profile_tags = null;
+    private final Logger logger;
 
-    public IORInterceptorIterator(Interceptor[] interceptors)
+    public IORInterceptorIterator(Logger logger, Interceptor[] interceptors)
     {
         super(interceptors);
+        this.logger = logger;
     }
 
-    public IORInterceptorIterator(Interceptor[] interceptors,
+    public IORInterceptorIterator(Logger logger, Interceptor[] interceptors,
                                   int[] ptags )
     {
         super(interceptors);
         profile_tags = ptags;
+        this.logger = logger;
     }
 
     public void iterate(IORInfoImpl info)
@@ -77,6 +81,7 @@ public class IORInterceptorIterator
         }
         catch(Exception e)
         {
+            logger.error("unexpected exception during invoke", e);
         }
     }
 } // IORInterceptorIterator

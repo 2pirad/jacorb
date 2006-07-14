@@ -1,3 +1,5 @@
+package org.jacorb.orb.standardInterceptors;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,7 +20,6 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.orb.standardInterceptors;
 
 import org.apache.avalon.framework.logger.*;
 
@@ -33,7 +34,7 @@ import org.jacorb.config.Configuration;
  * used by JacORB.
  *
  * @author Nicolas Noffke
- * @version $Id: IORInterceptorInitializer.java,v 1.20 2006-06-14 12:06:24 alphonse.bendt Exp $
+ * @version $Id: IORInterceptorInitializer.java,v 1.21 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public class IORInterceptorInitializer

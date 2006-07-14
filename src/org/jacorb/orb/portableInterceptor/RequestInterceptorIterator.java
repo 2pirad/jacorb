@@ -1,3 +1,5 @@
+package org.jacorb.orb.portableInterceptor;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -18,7 +20,6 @@
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package org.jacorb.orb.portableInterceptor;
 
 import org.omg.PortableInterceptor.Interceptor;
 
@@ -27,7 +28,7 @@ import org.omg.PortableInterceptor.Interceptor;
  * of RequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: RequestInterceptorIterator.java,v 1.8 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version  $Id: RequestInterceptorIterator.java,v 1.9 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public abstract class RequestInterceptorIterator

@@ -1,3 +1,5 @@
+package org.jacorb.orb.standardInterceptors;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -19,7 +21,6 @@
  *
  */
 
-package org.jacorb.orb.standardInterceptors; // NOPMD
 
 import org.apache.avalon.framework.logger.Logger;
 import org.apache.avalon.framework.configuration.ConfigurationException;
@@ -63,7 +64,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.21 2006-06-28 12:42:49 alphonse.bendt Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.22 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public class SASComponentInterceptor

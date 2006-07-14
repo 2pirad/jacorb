@@ -1,3 +1,5 @@
+package org.jacorb.orb.standardInterceptors;
+
 /*
  *        JacORB - a free Java ORB
  *
@@ -19,7 +21,6 @@
  *
  */
 
-package org.jacorb.orb.standardInterceptors; // NOPMD
 
 import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
@@ -34,7 +35,7 @@ import org.omg.PortableInterceptor.IORInterceptor;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.23 2006-06-28 12:42:49 alphonse.bendt Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.24 2006-07-14 12:02:41 nick.cross Exp $
  */
 
 public class CodeSetInfoInterceptor
