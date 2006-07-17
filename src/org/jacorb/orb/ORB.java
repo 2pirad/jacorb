@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.163 2006-07-12 08:00:04 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.164 2006-07-17 12:47:32 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1760,7 +1760,7 @@ public final class ORB
             {
                 if (failOnORBInitializerError)
                 {
-                    logger.error("unable to build ORBInitializer from class" + name + ": Aborting", e);
+                    logger.error("unable to build ORBInitializer from class " + name + ": Aborting", e);
 
                     throw new INITIALIZE(e.toString());
                 }
