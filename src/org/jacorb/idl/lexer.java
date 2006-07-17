@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.49 2006-06-14 12:22:29 alphonse.bendt Exp $
+ * @version $Id: lexer.java,v 1.50 2006-07-17 16:28:38 nick.cross Exp $
  * @author Gerald Brose
  *
  */
@@ -627,7 +627,8 @@ public class lexer
             {
                 if( !conditionalCompilation )
                     return;
-                advance();      // skip ' '
+                // Swallow between include and < or "
+                swallow_whitespace();
                 boolean useIncludePath = ( next_char == '<' );
                 advance(); // skip `\"' or '<'
 
