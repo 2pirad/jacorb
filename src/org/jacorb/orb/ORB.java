@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.164 2006-07-17 12:47:32 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.165 2006-07-17 15:42:19 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -2462,7 +2462,7 @@ public final class ORB
     static class HandlerWrapper extends org.omg.PortableServer.Servant
                                 implements org.omg.CORBA.portable.InvokeHandler
     {
-        private org.omg.CORBA.portable.InvokeHandler wrappedHandler;
+        private final org.omg.CORBA.portable.InvokeHandler wrappedHandler;
 
         public HandlerWrapper(org.omg.CORBA.portable.ObjectImpl objectImpl)
         {
