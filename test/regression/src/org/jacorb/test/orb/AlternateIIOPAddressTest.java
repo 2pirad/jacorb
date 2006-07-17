@@ -39,7 +39,7 @@ import org.omg.CORBA.OBJECT_NOT_EXIST;
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddressTest.java,v 1.11 2006-07-12 08:02:56 alphonse.bendt Exp $
+ * @version $Id: AlternateIIOPAddressTest.java,v 1.12 2006-07-17 11:13:15 alphonse.bendt Exp $
  */
 public class AlternateIIOPAddressTest extends ClientServerTestCase
 {
@@ -153,18 +153,6 @@ public class AlternateIIOPAddressTest extends ClientServerTestCase
         catch (org.omg.CORBA.TIMEOUT ex)
         {
             // ok - client connection timeout configured.
-        }
-        catch (OBJECT_NOT_EXIST e)
-        {
-            ParsedIOR ior = new ParsedIOR(sample.toString(), setup.getClientOrb(), new NullLogger());
-            final ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-            PrintWriter out = new PrintWriter(outStream);
-            PrintIOR.printIOR(ior, setup.getClientOrb(), out);
-            out.flush();
-            out.close();
-            String decoded = outStream.toString();
-
-            fail(e.toString() + "\nshould not happen: trying to connect object on non existent port:\n" + decoded);
         }
     }
 
