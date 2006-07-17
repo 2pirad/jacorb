@@ -43,7 +43,7 @@ import org.omg.CORBA.Any;
  * been overwritten.
  *
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.11 2006-07-11 14:16:07 nick.cross Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.12 2006-07-17 09:08:37 alphonse.bendt Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {
@@ -91,7 +91,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
      */
     public void testMiscParseGood() throws Exception
     {
-        runJacIDL(false);
+        runJacIDL(false, false);
         ClassLoader cl = compileGeneratedSources(false);
 
         invokeVerifyMethod(cl);
