@@ -53,7 +53,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.62 2006-06-27 09:27:12 alphonse.bendt Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.63 2006-07-17 10:31:18 nick.cross Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1393,9 +1393,9 @@ public class ImplementationRepositoryImpl
             if (_poa == null)
             {
                 sendSysException(
-                    new org.omg.CORBA.OBJECT_NOT_EXIST( "POA " +
-                                                        _poa_name +
-                                                        " unknown" ),
+                    new org.omg.CORBA.TRANSIENT( "POA " +
+                                                 _poa_name +
+                                                 " unknown" ),
                     connection,
                     request_id,
                     giop_minor );
