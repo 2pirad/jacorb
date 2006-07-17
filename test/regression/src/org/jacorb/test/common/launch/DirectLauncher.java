@@ -30,7 +30,7 @@ import org.jacorb.test.common.TestUtils;
  * with appropriate arguments.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: DirectLauncher.java,v 1.9 2006-07-12 09:30:39 alphonse.bendt Exp $
+ * @version $Id: DirectLauncher.java,v 1.10 2006-07-17 10:32:11 nick.cross Exp $
  */
 public class DirectLauncher extends JacORBLauncher
 {
@@ -61,20 +61,12 @@ public class DirectLauncher extends JacORBLauncher
         cmdList.add ("-Dorg.omg.CORBA.ORBSingletonClass=org.jacorb.orb.ORBSingleton");
         cmdList.addAll (TestUtils.propsToArgList(props));
         cmdList.add ("-Djacorb.home=" + jacorbHome);
-        cmdList.add (mainClass);
-        cmdList.addAll (Arrays.asList(args));
-        cmdList.add ("formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter");
-        cmdList.add ("showoutput=true");
-        cmdList.add ("printsummary=withOutAndErr");
-        String[] envp;
 
         if (TestUtils.isWindows())
         {
-            envp = new String[3];
-            envp[0] = "JACORB_HOME=" + jacorbHome;
             try
             {
-                envp[1] = "SystemRoot=" + TestUtils.systemRoot();
+                cmdList.add ("-DSystemRoot=" + TestUtils.systemRoot());
             }
             catch (RuntimeException e)
             {
@@ -84,21 +76,21 @@ public class DirectLauncher extends JacORBLauncher
             {
                 System.out.println("WARNING: caught IOException when reading SystemRoot: " + e.getMessage());
             }
-            envp[2] = "JACORB_TEST_HOME=" + TestUtils.testHome();
         }
-        else
-        {
-            envp = new String[1];
-            envp[0] = "JACORB_HOME=" + jacorbHome;
 
-        }
+        cmdList.add (mainClass);
+        cmdList.addAll (Arrays.asList(args));
+        cmdList.add ("formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter");
+        cmdList.add ("showoutput=true");
+        cmdList.add ("printsummary=withOutAndErr");
+
         try
         {
             String[] cmd = toStringArray(cmdList);
 
             TestUtils.log("start TestServer: " + cmdList);
 
-            Process proc = rt.exec (cmd, envp);
+            Process proc = rt.exec (cmd);
             return proc;
         }
         catch (IOException ex)
