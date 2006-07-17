@@ -34,7 +34,7 @@ import java.util.*;
  * CORBA any
  *
  * @author Gerald Brose
- * $Id: Any.java,v 1.54 2006-07-10 13:34:12 alphonse.bendt Exp $
+ * $Id: Any.java,v 1.55 2006-07-17 15:41:48 alphonse.bendt Exp $
  */
 
 public final class Any
@@ -1525,9 +1525,16 @@ public final class Any
             }
             checkStreamClass ((org.omg.CORBA.portable.OutputStream)value);
             CDROutputStream out = (CDROutputStream) value;
-            CDRInputStream in = new CDRInputStream(toUse, out.getBufferCopy ());
+            final CDRInputStream in = new CDRInputStream(toUse, out.getBufferCopy ());
 
-            in.read_value (typeCode, output);
+            try
+            {
+                in.read_value (typeCode, output);
+            }
+            finally
+            {
+                in.close();
+            }
         }
         else
         {
