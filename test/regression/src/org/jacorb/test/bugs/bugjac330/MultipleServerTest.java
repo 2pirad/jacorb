@@ -17,7 +17,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MultipleServerTest.java,v 1.6 2006-07-14 10:43:39 alphonse.bendt Exp $
+ * @version $Id: MultipleServerTest.java,v 1.7 2006-07-17 13:32:57 alphonse.bendt Exp $
  */
 public class MultipleServerTest extends TestCase
 {
@@ -35,11 +35,15 @@ public class MultipleServerTest extends TestCase
         // invoke their lifecyle methods explicitely.
         TestSuite dummySuite = new TestSuite();
 
-        setup1 = new ClientServerSetup(dummySuite, BasicServerImpl.class.getName());
+        Properties props = new Properties();
+        props.put(ClientServerSetup.JACORB_REGRESSION_DISABLE_IMR, "true");
+        props.put(ClientServerSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
+
+        setup1 = new ClientServerSetup(dummySuite, BasicServerImpl.class.getName(), props, null);
         setup1.setUp();
         server1IOR = setup1.getClientOrb().object_to_string(setup1.getServerObject());
 
-        setup2 = new ClientServerSetup(dummySuite, BasicServerImpl.class.getName());
+        setup2 = new ClientServerSetup(dummySuite, BasicServerImpl.class.getName(), props, null);
         setup2.setUp();
         server2IOR = setup2.getClientOrb().object_to_string(setup2.getServerObject());
     }
