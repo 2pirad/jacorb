@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.57 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: GIOPConnection.java,v 1.58 2006-07-17 15:43:39 alphonse.bendt Exp $
  */
 
 public abstract class GIOPConnection
@@ -388,7 +388,7 @@ public abstract class GIOPConnection
 
         if (logger.isDebugEnabled())
         {
-            logger.debug("GIOPConnection.getMessage()" + msg_header.value );
+            logger.debug("GIOPConnection.getMessage()" + ObjectUtil.bufToString(msg_header.value, 0, 4));
         }
 
         return null;
