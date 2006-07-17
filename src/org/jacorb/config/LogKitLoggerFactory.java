@@ -53,7 +53,7 @@ import java.io.*;
  * property, if it's set. If not, the default is 0.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.5 2006-06-21 14:45:48 alphonse.bendt Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.6 2006-07-17 09:05:30 alphonse.bendt Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -222,8 +222,8 @@ public class LogKitLoggerFactory
             // use default LogTarget
             if (defaultTarget == null)
             {
-            logger.setLogTargets(new LogTarget[] { consoleTarget } );
-        }
+                logger.setLogTargets(new LogTarget[] { consoleTarget } );
+            }
             else
             {
                 logger.setLogTargets(new LogTarget[] { defaultTarget } );
@@ -258,9 +258,13 @@ public class LogKitLoggerFactory
                 int priorityForLogger =
                     configuration.getAttributeAsInteger( prefix + ".log.verbosity");
                 if (priorityForLogger > 4)
+                {
                     priorityForLogger = 4;
+                }
                 else if (priorityForLogger < 0)
+                {
                     priorityForLogger = 0;
+                }
                 return priorityForLogger;
             }
             catch( ConfigurationException ce )
