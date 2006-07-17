@@ -55,7 +55,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.30 2006-07-14 12:24:19 alphonse.bendt Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.31 2006-07-17 15:44:11 alphonse.bendt Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -531,9 +531,9 @@ public class ClientIIOPConnection
                     in.close();
                 }
             }
-            catch ( Exception ex )
+            catch ( Exception e )
             {
-                logger.warn("Error parsing TLS_SEC_TRANS: "+ex);
+                logger.warn("Error parsing TLS_SEC_TRANS: "+e);
             }
         }
 

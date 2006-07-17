@@ -38,7 +38,7 @@ import java.util.Iterator;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.24 2006-07-14 12:02:41 nick.cross Exp $
+ * @version $Id: Request.java,v 1.25 2006-07-17 15:43:05 alphonse.bendt Exp $
  */
 public class Request
     extends org.omg.CORBA.Request
@@ -427,7 +427,7 @@ public class Request
         }
     }
 
-    public boolean poll_response()
+    public synchronized boolean poll_response()
     {
         if( ! immediate && ! deferred )
         {
@@ -469,7 +469,7 @@ public class Request
         deferred = true;
     }
 
-    private void finish()
+    private synchronized void finish()
     {
         finished = true;
     }

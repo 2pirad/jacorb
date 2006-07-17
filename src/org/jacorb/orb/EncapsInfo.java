@@ -26,14 +26,14 @@ import java.util.*;
  * information the has to be saved for each encapsulation and
  * restored later
  * @author Gerald Brose
- * @version $Id: EncapsInfo.java,v 1.14 2006-07-04 14:30:58 alphonse.bendt Exp $
+ * @version $Id: EncapsInfo.java,v 1.15 2006-07-17 15:43:05 alphonse.bendt Exp $
  */
 
 public class EncapsInfo
 {
     public boolean littleEndian;
-    public int index;
-    public int start;
+    public final int index;
+    public final int start;
     public int size;
     public Map valueMap;
     public Map repIdMap;
