@@ -38,7 +38,7 @@ import java.util.Iterator;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.25 2006-07-17 15:43:05 alphonse.bendt Exp $
+ * @version $Id: Request.java,v 1.26 2006-07-18 10:05:40 alphonse.bendt Exp $
  */
 public class Request
     extends org.omg.CORBA.Request
@@ -60,7 +60,7 @@ public class Request
 
     private org.omg.CORBA.ContextList contexts = new ContextListImpl();
     private org.omg.CORBA.Context context;
-    private Thread deferred_caller;
+    private Caller deferred_caller;
     private org.omg.CORBA.portable.InputStream reply;
 
     /* state of request object */
@@ -375,6 +375,7 @@ public class Request
     private static class Caller extends Thread
     {
         private final Request request;
+        private boolean active = true;
 
         public Caller( Request client )
         {
@@ -385,6 +386,30 @@ public class Request
         {
             request._invoke(true);
             request.finish();
+
+            synchronized(request)
+            {
+                active = false;
+                request.notifyAll();
+            }
+        }
+
+        public void joinWithCaller()
+        {
+            synchronized(request)
+            {
+                while(active)
+                {
+                    try
+                    {
+                        request.wait();
+                    }
+                    catch(InterruptedException e) // NOPMD
+                    {
+                        // ignored
+                    }
+                }
+            }
         }
     }
 
@@ -411,19 +436,9 @@ public class Request
 
         if( deferred_caller != null )
         {
-            if ( deferred_caller.isAlive() )
-            {
-                try
-                {
-                    deferred_caller.join();
-                }
-                catch ( InterruptedException i )
-                {
-                    // ignored
-                }
-            }
-            deferred_caller = null;
-            orb.removeRequest( this );
+           deferred_caller.joinWithCaller();
+           deferred_caller = null;
+           orb.removeRequest( this );
         }
     }
 
