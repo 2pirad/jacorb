@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.50 2006-07-17 16:28:38 nick.cross Exp $
+ * @version $Id: lexer.java,v 1.51 2006-07-18 15:18:12 alphonse.bendt Exp $
  * @author Gerald Brose
  *
  */
@@ -162,6 +162,7 @@ public class lexer
         /* set up the keyword table */
 
         keywords.put( "abstract", new Integer( sym.ABSTRACT ) );
+        keywords.put( "AbstractBase", new Integer( sym.ABSTRACTBASE ) );
         keywords.put( "any", new Integer( sym.ANY ) );
         keywords.put( "attribute", new Integer( sym.ATTRIBUTE ) );
         keywords.put( "boolean", new Integer( sym.BOOLEAN ) );
