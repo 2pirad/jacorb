@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.53 2006-07-13 08:48:28 nick.cross Exp $
+ * @version $Id: StructType.java,v 1.54 2006-07-18 13:05:35 alphonse.bendt Exp $
  */
 
 public class StructType
@@ -764,7 +764,7 @@ public class StructType
                 String fname = className + ".java";
                 File f = new File(dir, fname);
 
-                if (forwardDecl != true && GlobalInputStream.isMoreRecentThan(f))
+                if (!forwardDecl && GlobalInputStream.isMoreRecentThan(f))
                 {
                     // print the mapped java class
                     PrintWriter printWriter = new PrintWriter(new java.io.FileWriter(f));
@@ -775,7 +775,7 @@ public class StructType
                 fname = className + "Holder.java";
                 f = new File(dir, fname);
 
-                if (forwardDecl != true && GlobalInputStream.isMoreRecentThan(f))
+                if (!forwardDecl  && GlobalInputStream.isMoreRecentThan(f))
                 {
                     // print the mapped holder class unless it is for
                     // a system exception
@@ -791,7 +791,7 @@ public class StructType
                 fname = className + "Helper.java";
                 f = new File(dir, fname);
 
-                if (forwardDecl != true && GlobalInputStream.isMoreRecentThan(f))
+                if (!forwardDecl && GlobalInputStream.isMoreRecentThan(f))
                 {
                     // print the mapped helper class
                     PrintWriter printWriter = new PrintWriter(new java.io.FileWriter(f));
