@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.101 2006-07-18 15:18:12 alphonse.bendt Exp $
+ * $Id: parser.cup,v 1.102 2006-07-19 08:06:54 alphonse.bendt Exp $
  */
 
 action code
@@ -818,7 +818,7 @@ terminal org.jacorb.idl.runtime.token
   INOUT, INTERFACE, LOCAL, LONG, MODULE, NATIVE, OBJECT, OCTET, ONEWAY, OUT,
   PRIVATE, PUBLIC, PSEUDO, RAISES, READONLY, SEQUENCE, SHORT, STRING,
   STRUCT, SUPPORTS, SWITCH, TRUE, TRUNCATABLE, TYPEDEF, UNSIGNED, UNION,
-  ABSTRACTBASE, VALUEBASE, VALUETYPE, VOID, WCHAR, WSTRING,
+  VALUEBASE, VALUETYPE, VOID, WCHAR, WSTRING,
   SEMI, COMMA, STAR, DOT, COLON, EQUALS, PLUS, MINUS, LPAREN, RPAREN,
   LCBRACE, RCBRACE, LSBRACE, RSBRACE, LESSTHAN, GREATERTHAN, QUOTE, DBLQUOTE,
   BSLASH, BAR, CIRCUM, AMPERSAND, SLASH, PERCENT, TILDE, DBLCOLON,
@@ -1747,7 +1747,6 @@ base_type_spec ::=
         | octet_type:s {: RESULT.type_spec = s; :}
         | any_type:s {: RESULT.type_spec = s; :}
         | VALUEBASE:s {: RESULT.type_spec = new ValueBase(sym.VALUEBASE); :}
-        | ABSTRACTBASE:s {: RESULT.type_spec = new AbstractBase(sym.ABSTRACTBASE); :}
         ;
 
 // #32
