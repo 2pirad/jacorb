@@ -40,7 +40,7 @@ import org.jacorb.test.common.TestUtils;
  * load and inspect the compiled classes.
  *
  * @author Alphonse Bendt
- * @version $Id: ParseValidIDLTest.java,v 1.10 2006-07-19 08:49:11 alphonse.bendt Exp $
+ * @version $Id: ParseValidIDLTest.java,v 1.11 2006-07-19 13:57:14 alphonse.bendt Exp $
  */
 public class ParseValidIDLTest extends AbstractIDLTestcase
 {
@@ -79,13 +79,11 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
      */
     private boolean shouldSpawnJacIDLProcess(File idlFile)
     {
-        if (idlFile.getName().endsWith("basetypes.idl"))
-        {
-            TestUtils.verbose = true;
-            return true;
-        }
+//        if (idlFile.getName().endsWith("basetypes.idl"))
+//        {
+//            return true;
+//        }
 
-        TestUtils.verbose = false;
         return false;
     }
 
