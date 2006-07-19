@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.165 2006-07-17 15:42:19 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.166 2006-07-19 08:16:41 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1242,12 +1242,14 @@ public final class ORB
         }
         else if( identifier.equals("SecurityCurrent") )
         {
-            if( securityCurrent == null )
-            {
-                securityCurrent = new org.jacorb.security.level2.CurrentImpl (this);
-                ((org.jacorb.security.level2.CurrentImpl)securityCurrent).init();
-            }
-            obj = securityCurrent;
+//            if( securityCurrent == null )
+//            {
+//                securityCurrent = new org.jacorb.security.level2.CurrentImpl (this);
+//                ((org.jacorb.security.level2.CurrentImpl)securityCurrent).init();
+//            }
+//            obj = securityCurrent;
+            // TODO level2 security was removed.
+            throw new InvalidName();
         }
         else if( identifier.equals("DynAnyFactory") )
         {
