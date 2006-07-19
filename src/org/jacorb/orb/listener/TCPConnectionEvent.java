@@ -47,7 +47,7 @@ import org.jacorb.orb.iiop.IIOPConnection;
  * TCP Socket Connection.
  *
  * @author Nick Cross
- * @version $Id: TCPConnectionEvent.java,v 1.3 2006-07-19 15:25:46 alphonse.bendt Exp $
+ * @version $Id: TCPConnectionEvent.java,v 1.4 2006-07-19 15:28:29 alphonse.bendt Exp $
  */
 public class TCPConnectionEvent extends EventObject
 {
@@ -77,7 +77,7 @@ public class TCPConnectionEvent extends EventObject
      * Creates a new <code>TCPConnectionEvent</code> instance passing in the
      * source of the event and relevant connection data.
      *
-     * @param source an <code>Object</code> value
+     * @param source an <code>IIOPConnection</code> value
      * @param remoteIP a <code>String</code> value, maybe blank if a Socket has
      *                 just been created and not connected.
      * @param remotePort an <code>int</code> value, maybe -1 if a Socket has
