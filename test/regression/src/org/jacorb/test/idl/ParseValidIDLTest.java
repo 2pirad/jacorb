@@ -24,7 +24,6 @@ package org.jacorb.test.idl;
 import java.io.File;
 
 import junit.framework.Test;
-import junit.framework.TestSuite;
 
 import org.jacorb.test.common.TestUtils;
 
@@ -41,7 +40,7 @@ import org.jacorb.test.common.TestUtils;
  * load and inspect the compiled classes.
  *
  * @author Alphonse Bendt
- * @version $Id: ParseValidIDLTest.java,v 1.9 2006-07-17 09:08:20 alphonse.bendt Exp $
+ * @version $Id: ParseValidIDLTest.java,v 1.10 2006-07-19 08:49:11 alphonse.bendt Exp $
  */
 public class ParseValidIDLTest extends AbstractIDLTestcase
 {
@@ -82,9 +81,11 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
     {
         if (idlFile.getName().endsWith("basetypes.idl"))
         {
+            TestUtils.verbose = true;
             return true;
         }
 
+        TestUtils.verbose = false;
         return false;
     }
 
@@ -103,12 +104,8 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
 
     public static Test suite()
     {
-        TestSuite suite = new TestSuite();
-
         final String dir = TestUtils.testHome() + "/idl/compiler/succeed";
 
-        suite.addTest(suite(dir, ParseValidIDLTest.class));
-
-        return suite;
+        return suite(dir, ParseValidIDLTest.class);
     }
 }

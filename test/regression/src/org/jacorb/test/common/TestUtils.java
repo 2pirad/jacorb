@@ -45,7 +45,7 @@ import javax.rmi.CORBA.Stub;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.15 2006-07-07 11:15:30 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.16 2006-07-19 08:49:11 alphonse.bendt Exp $
  */
 
 public class TestUtils
@@ -54,12 +54,12 @@ public class TestUtils
 
     private static String testHome = null;
     private static String systemRoot = null;
-    private static final boolean verbose = "true".equalsIgnoreCase(System.getProperty("jacorb.test.verbose"));
+    public static boolean verbose = "true".equalsIgnoreCase(System.getProperty("jacorb.test.verbose"));
 
     private static final boolean JDK_13 =
         (
             System.getProperty ("java.version").indexOf("1.3") != -1 ||
-            "CVM".equals((String)System.getProperty ("java.vm.name"))
+            "CVM".equals(System.getProperty ("java.vm.name"))
         );
 
 
