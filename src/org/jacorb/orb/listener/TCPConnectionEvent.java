@@ -47,7 +47,7 @@ import org.jacorb.orb.iiop.IIOPConnection;
  * TCP Socket Connection.
  *
  * @author Nick Cross
- * @version $Id: TCPConnectionEvent.java,v 1.2 2006-07-12 08:18:15 alphonse.bendt Exp $
+ * @version $Id: TCPConnectionEvent.java,v 1.3 2006-07-19 15:25:46 alphonse.bendt Exp $
  */
 public class TCPConnectionEvent extends EventObject
 {
@@ -84,24 +84,7 @@ public class TCPConnectionEvent extends EventObject
      *                 just been created and not connected.
      * @param localPort an <code>int</code> value
      * @param localIP a <String> value representing the local IP address
-     * @deprecated use the other c'tor
-     * TODO remove this c'tor. change callers to use the other one
      */
-    public TCPConnectionEvent
-        (Object source,
-         String remoteIP,
-         int remotePort,
-         int localPort,
-         String localIP)
-    {
-        super (source);
-
-        this.remoteIP   = remoteIP;
-        this.remotePort = remotePort;
-        this.localPort  = localPort;
-        this.localIP    = localIP;
-    }
-
     public TCPConnectionEvent
         (IIOPConnection source,
          String remoteIP,
@@ -109,7 +92,12 @@ public class TCPConnectionEvent extends EventObject
          int localPort,
          String localIP)
     {
-        this((Object)source, remoteIP, remotePort, localPort, localIP);
+        super(source);
+
+        this.remoteIP   = remoteIP;
+        this.remotePort = remotePort;
+        this.localPort  = localPort;
+        this.localIP    = localIP;
     }
 
 

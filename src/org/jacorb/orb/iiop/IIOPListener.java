@@ -46,7 +46,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.36 2006-07-13 08:46:58 nick.cross Exp $
+ * @version $Id: IIOPListener.java,v 1.37 2006-07-19 15:25:46 alphonse.bendt Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -315,7 +315,24 @@ public class IIOPListener
                                                  boolean is_ssl)
         throws IOException
     {
-        ServerIIOPConnection result = new ServerIIOPConnection(socket, is_ssl, socketFactoryManager.getTCPListener());
+        final TCPConnectionListener tcpListener = socketFactoryManager.getTCPListener();
+        ServerIIOPConnection result = new ServerIIOPConnection(socket, is_ssl, tcpListener);
+
+        if (tcpListener.isListenerEnabled())
+        {
+            tcpListener.connectionOpened
+            (
+                    new TCPConnectionEvent
+                    (
+                            result,
+                            socket.getInetAddress().getHostAddress(),
+                            socket.getPort(),
+                            socket.getLocalPort(),
+                            getLocalhost()
+                    )
+            );
+        }
+
         try
         {
             result.configure(configuration);
@@ -354,7 +371,6 @@ public class IIOPListener
     public class Acceptor
         extends org.jacorb.orb.etf.ListenerBase.Acceptor
     {
-        final TCPConnectionListener tcpListener = socketFactoryManager.getTCPListener();
         private final Object runSync = new Object();
         private final boolean keepAlive;
         protected ServerSocket serverSocket;
@@ -565,9 +581,9 @@ public class IIOPListener
         /**
          * Template method that sets up the socket right after the
          * connection has been established.  Subclass implementations
-         * must call super.setup() first.
+         * may implement their own logic by overriding doSetup
          */
-        protected void setup(Socket socket)
+        protected final void setup(Socket socket)
             throws IOException
         {
              socket.setSoTimeout(serverTimeout);
@@ -575,20 +591,12 @@ public class IIOPListener
 
              SSLListenerUtil.addListener(orb, socket);
 
-             if (tcpListener.isListenerEnabled())
-             {
-                 tcpListener.connectionOpened
-                 (
-                         new TCPConnectionEvent
-                         (
-                                 this,
-                                 socket.getInetAddress().getHostAddress(),
-                                 socket.getPort(),
-                                 socket.getLocalPort(),
-                                 getLocalhost()
-                         )
-                 );
-             }
+             doSetup(socket);
+        }
+
+        protected void doSetup(Socket socket)
+        {
+            // empty to be overridden
         }
 
         protected void deliverConnection(Socket socket)
