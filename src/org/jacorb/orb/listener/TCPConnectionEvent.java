@@ -19,27 +19,8 @@
  */
 
 package org.jacorb.orb.listener;
-/*
- *
- *   Copyright (C) The JacORB project, 1997-2006.
- *
- *   This library is free software; you can redistribute it and/or
- *   modify it under the terms of the GNU Library General Public
- *   License as published by the Free Software Foundation; either
- *   version 2 of the License, or (at your option) any later version.
- *
- *   This library is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *   Library General Public License for more details.
- *
- *   You should have received a copy of the GNU Library General Public
- *   License along with this library; if not, write to the Free
- *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
 
 import java.util.EventObject;
-
 import org.jacorb.orb.iiop.IIOPConnection;
 
 /**
@@ -47,7 +28,7 @@ import org.jacorb.orb.iiop.IIOPConnection;
  * TCP Socket Connection.
  *
  * @author Nick Cross
- * @version $Id: TCPConnectionEvent.java,v 1.4 2006-07-19 15:28:29 alphonse.bendt Exp $
+ * @version $Id: TCPConnectionEvent.java,v 1.5 2006-07-19 15:29:08 alphonse.bendt Exp $
  */
 public class TCPConnectionEvent extends EventObject
 {
