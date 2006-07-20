@@ -49,7 +49,7 @@ import org.jacorb.util.ObjectUtil;
  * of the TESTSUITE to execute (e.g. org.jacorb.test.AllTest).
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: TestLauncher.java,v 1.10 2006-07-17 12:30:18 alphonse.bendt Exp $
+ * @version $Id: TestLauncher.java,v 1.11 2006-07-20 13:27:49 alphonse.bendt Exp $
  */
 public class TestLauncher
 {
@@ -241,6 +241,9 @@ public class TestLauncher
             props.put("javax.rmi.CORBA.UtilClass",
                       "org.jacorb.test.orb.rmi.FixSunDelegateBug");
             System.err.println("Using org.jacorb.test.orb.rmi.FixSunDelegateBug");
+        }
+        catch(NoClassDefFoundError e)
+        {
         }
         catch(Exception e)
         {
