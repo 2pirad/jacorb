@@ -81,13 +81,14 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.36 2006-07-20 11:41:45 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.37 2006-07-20 12:11:16 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
     public static final String JACORB_REGRESSION_DISABLE_SECURITY = "jacorb.regression.disable_security";
     public static final String JACORB_REGRESSION_DISABLE_IMR = "jacorb.regression.disable_imr";
 
+    private final long testTimeout;
     protected final String               servantName;
     protected Process                    serverProcess;
     private boolean isProcessDestroyed = false;
@@ -124,6 +125,17 @@ public class ClientServerSetup extends TestSetup {
                                  "org.jacorb.orb.ORB");
         clientOrbProperties.put ("org.omg.CORBA.ORBSingletonClass",
                                  "org.jacorb.orb.ORBSingleton");
+
+        long parseLong;
+        try
+        {
+            parseLong = Long.parseLong(System.getProperty("java.test.timeout"));
+        }
+        catch (Exception e)
+        {
+            parseLong = 15000;
+        }
+        testTimeout = parseLong;
     }
 
     public ClientServerSetup( Test test,
@@ -211,18 +223,17 @@ public class ClientServerSetup extends TestSetup {
                                           "ERR");
         outListener.start();
         errListener.start();
-        final int iorWait = 15000;
-        String ior = outListener.getIOR(iorWait);
+        String ior = outListener.getIOR(testTimeout);
 
         if (ior == null)
         {
-            String exc = errListener.getException(2000);
+            String exc = errListener.getException(testTimeout);
 
             String details = dumpStreamListener();
 
-            fail("could not access IOR for Server.\nServant: " + servantName + "\nTimeout: " + iorWait + " millis.\nThis maybe caused by: " + exc + '\n' + details);
+            fail("could not access IOR for Server.\nServant: " + servantName + "\nTimeout: " + testTimeout + " millis.\nThis maybe caused by: " + exc + '\n' + details);
         }
-       
+
         resolveServerObject(ior);
     }
 
