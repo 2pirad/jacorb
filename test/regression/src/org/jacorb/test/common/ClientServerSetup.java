@@ -81,7 +81,7 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.34 2006-07-17 13:32:57 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.35 2006-07-20 10:29:49 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -219,10 +219,10 @@ public class ClientServerSetup extends TestSetup {
             String exc = errListener.getException(2000);
 
             StringBuffer details = new StringBuffer();
-            details.append("Details from Server OUT:");
+            details.append("Details from Server OUT:\n");
             details.append(outListener.getBuffer());
             details.append('\n');
-            details.append("Details from Server ERR:");
+            details.append("Details from Server ERR:\n");
             details.append(errListener.getBuffer());
             details.append('\n');
 
