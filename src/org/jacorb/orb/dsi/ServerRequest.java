@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.45 2006-07-11 11:48:00 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.46 2006-07-20 11:16:01 alphonse.bendt Exp $
  */
 
 public class ServerRequest
@@ -662,7 +662,7 @@ public class ServerRequest
         if (out == null)
         {
             out = new ReplyOutputStream(requestId(),
-                                        ReplyStatusType_1_2.NO_EXCEPTION,
+                                        status(),
                                         inputStream.getGIOPMinor(),
                                         inputStream.isLocateRequest(),
                                         logger );
