@@ -29,7 +29,7 @@ import java.io.*;
  * that allows you to capture an IOR from the <code>InputStream</code>.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: StreamListener.java,v 1.9 2006-07-10 10:39:18 alphonse.bendt Exp $
+ * @version $Id: StreamListener.java,v 1.10 2006-07-20 11:41:45 alphonse.bendt Exp $
  */
 public class StreamListener extends Thread
 {
@@ -123,6 +123,7 @@ public class StreamListener extends Thread
                 String line = in.readLine();
                 buffer.append(line);
                 buffer.append('\n');
+
                 if (line == null)
                 {
                     break;
@@ -174,5 +175,20 @@ public class StreamListener extends Thread
                 break;
             }
         }
+    }
+
+    public String toString()
+    {
+        StringBuffer details = new StringBuffer();
+        details.append("Details from " + id + ":\n");
+        details.append("Active: " + active + "\n");
+        details.append("IOR: " + ior + "\n");
+        details.append("Exception: " + exception + "\n");
+        details.append("Raw Buffer:\n");
+        details.append(getBuffer());
+        details.append('.');
+        details.append('\n');
+
+        return details.toString();
     }
 }
