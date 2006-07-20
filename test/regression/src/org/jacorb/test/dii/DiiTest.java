@@ -17,7 +17,7 @@ import org.omg.CORBA.WrongTransaction;
  * converted from demo.dii
  *
  * @author Alphonse Bendt
- * @version $Id: DiiTest.java,v 1.6 2006-07-20 10:09:38 alphonse.bendt Exp $
+ * @version $Id: DiiTest.java,v 1.7 2006-07-20 11:16:26 alphonse.bendt Exp $
  */
 public class DiiTest extends ClientServerTestCase
 {
@@ -34,8 +34,6 @@ public class DiiTest extends ClientServerTestCase
         TestSuite suite = new TestSuite("DII tests (" + DiiTest.class.getName() + ")");
 
         Properties props = new Properties();
-
-        props.put("org.omg.PortableInterceptor.ORBInitializerClass.bidir_init", "null");
 
         ClientServerSetup setup = new ClientServerSetup(suite, DynamicServer.class.getName(), props, props);
 
@@ -208,7 +206,5 @@ public class DiiTest extends ClientServerTestCase
         DIIException ex = DIIExceptionHelper.extract(any);
 
         assertEquals("TestException", ex.why);
-
-        Thread.sleep(2000);
     }
 }
