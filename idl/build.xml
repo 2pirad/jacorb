@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB idl build file                     -->
-   <!-- $Id: build.xml,v 1.55 2006-05-18 14:11:01 alphonse.bendt Exp $ -->
+   <!-- $Id: build.xml,v 1.56 2006-07-20 11:46:28 nick.cross Exp $ -->
    <!-- ==================================================== -->
 
    &common;
@@ -323,11 +323,11 @@
 
     <target name="property">
         <jacidl generateir="true"
-             srcdir="idl"
-            omgprefix="true"
-            includepath="${idl}/omg"
-            includes="**/omg/CosProperty.idl"
-            destdir="${src}/generated"/>
+                srcdir="idl"
+                omgprefix="true"
+                includepath="${idl}/omg"
+                includes="**/omg/CosPropertyService.idl"
+                destdir="${src}/generated"/>
 
         <antcall target="jacorb-javac">
             <param name="javac-src" value="${src}/generated"/>
