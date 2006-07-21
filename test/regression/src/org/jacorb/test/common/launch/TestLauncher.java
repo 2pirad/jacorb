@@ -49,7 +49,7 @@ import org.jacorb.util.ObjectUtil;
  * of the TESTSUITE to execute (e.g. org.jacorb.test.AllTest).
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: TestLauncher.java,v 1.11 2006-07-20 13:27:49 alphonse.bendt Exp $
+ * @version $Id: TestLauncher.java,v 1.12 2006-07-21 07:11:04 alphonse.bendt Exp $
  */
 public class TestLauncher
 {
@@ -116,6 +116,7 @@ public class TestLauncher
         out.println("  Coverage:         " + (getCoverage() ? "yes" : "no"));
         out.println("  SSL:              " + (isSSL ? "yes" : "no"));
         out.println("  IMR:              " + (useIMR ? "yes" : "no"));
+        out.println("  Timeout:          " + ClientServerSetup.getTestTimeout());
         out.println();
         out.println("-------------------------------------------------------------------------------");
     }
@@ -234,6 +235,7 @@ public class TestLauncher
         props.put("jacorb.test.outputfile.testname",
                   System.getProperty("jacorb.test.outputfile.testname" , "false"));
         props.put("jacorb.test.ssl", System.getProperty("jacorb.test.ssl"));
+        props.put("jacorb.test.timeout", System.getProperty("jacorb.test.timeout"));
 
         try
         {
