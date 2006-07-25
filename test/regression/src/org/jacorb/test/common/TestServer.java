@@ -47,7 +47,7 @@ import org.omg.PortableServer.Servant;
  * example).
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer.java,v 1.7 2006-07-13 10:43:51 alphonse.bendt Exp $
+ * @version $Id: TestServer.java,v 1.8 2006-07-25 12:00:46 alphonse.bendt Exp $
  */
 public class TestServer
 {
@@ -58,6 +58,8 @@ public class TestServer
         {
             //init ORB
             ORB orb = ORB.init( args, null );
+
+            log("init ORB");
 
             try
             {
@@ -74,13 +76,21 @@ public class TestServer
                 POAHelper.narrow( orb.resolve_initial_references( "RootPOA" ));
             poa.the_POAManager().activate();
 
+            log("init POA");
+
             String className = args[0];
+
+            log("use ServantClass: " + className);
+
             Class servantClass = Class.forName (className);
             Servant servant = ( Servant ) servantClass.newInstance();
+
+            log("using Servant: " + servant);
 
             if (servant instanceof Configurable && orb instanceof org.jacorb.orb.ORB)
             {
                 ((Configurable)servant).configure (((org.jacorb.orb.ORB)orb).getConfiguration());
+                log("configured Servant");
             }
 
             // create the object reference
@@ -107,5 +117,10 @@ public class TestServer
                 System.err.println ("TestServer error " + e);
             }
         }
+    }
+
+    private static void log(String msg)
+    {
+        TestUtils.log("TestServer: " + msg);
     }
 }
