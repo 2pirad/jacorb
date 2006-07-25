@@ -81,7 +81,7 @@ import org.jacorb.test.common.launch.*;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.38 2006-07-21 07:10:45 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.39 2006-07-25 10:54:39 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -233,7 +233,7 @@ public class ClientServerSetup extends TestSetup {
 
         if (ior == null)
         {
-            String exc = errListener.getException(testTimeout);
+            String exc = errListener.getException(1000);
 
             String details = dumpStreamListener();
 
