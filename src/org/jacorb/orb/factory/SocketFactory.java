@@ -42,13 +42,16 @@ import java.io.IOException;
 
 /**
  * @author Gerald Brose
- * @version $Id: SocketFactory.java,v 1.6 2006-06-30 11:09:13 alphonse.bendt Exp $
+ * @version $Id: SocketFactory.java,v 1.7 2006-07-25 15:43:20 alphonse.bendt Exp $
  */
 public interface SocketFactory
 {
     Socket createSocket(String host,
                         int port )
         throws IOException, UnknownHostException;
+
+    Socket createSocket(String host, int port, int timeout)
+        throws IOException;
 
     boolean isSSL( Socket socket );
 }
