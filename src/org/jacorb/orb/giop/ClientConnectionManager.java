@@ -33,10 +33,10 @@ import org.omg.CORBA.BAD_PARAM;
 import org.omg.ETF.Factories;
 
 /**
- * This class manages connections.<br>
+ * This class manages connections.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.30 2006-07-12 11:34:43 alphonse.bendt Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.31 2006-07-26 07:27:26 alphonse.bendt Exp $
  */
 
 public class ClientConnectionManager
@@ -198,7 +198,7 @@ public class ClientConnectionManager
         }
     }
 
-    public void shutdown()
+    public synchronized void shutdown()
     {
         /* release all open connections */
 
