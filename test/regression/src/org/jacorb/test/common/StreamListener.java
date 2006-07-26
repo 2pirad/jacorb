@@ -33,7 +33,7 @@ import java.util.Date;
  * that allows you to capture an IOR from the <code>InputStream</code>.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: StreamListener.java,v 1.11 2006-07-25 11:59:05 alphonse.bendt Exp $
+ * @version $Id: StreamListener.java,v 1.12 2006-07-26 16:04:27 alphonse.bendt Exp $
  */
 public class StreamListener extends Thread
 {
@@ -64,19 +64,19 @@ public class StreamListener extends Thread
         {
             while (ior == null && System.currentTimeMillis() < waitUntil)
             {
-                final long waitTime = waitUntil - System.currentTimeMillis();
+//                final long waitTime = waitUntil - System.currentTimeMillis();
 
-                if (waitTime > 0)
-                {
+//                if (waitTime > 0)
+//                {
                     try
                     {
-                        this.wait(waitTime);
+                        this.wait(1000);
                     }
                     catch (InterruptedException ex)
                     {
                         // ignore
                     }
-                }
+//                }
             }
 
             return ior;
