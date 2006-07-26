@@ -42,16 +42,37 @@ import java.io.IOException;
 
 /**
  * @author Gerald Brose
- * @version $Id: SocketFactory.java,v 1.7 2006-07-25 15:43:20 alphonse.bendt Exp $
+ * @version $Id: SocketFactory.java,v 1.8 2006-07-26 09:16:58 alphonse.bendt Exp $
  */
+
 public interface SocketFactory
 {
+    /**
+     * create a connected stream Socket.
+     *
+     * @param host the host name
+     * @param port the port number
+     * @return a connected stream Socket
+     * @throws IOException
+     */
     Socket createSocket(String host,
                         int port )
-        throws IOException, UnknownHostException;
+        throws IOException;
 
+    /**
+     * create a connected stream Socket.
+     *
+     * @param host the host name
+     * @param port the port number
+     * @param timeout the timeout value to be used in milliseconds
+     * @return a connected stream Socket
+     * @throws IOException
+     */
     Socket createSocket(String host, int port, int timeout)
         throws IOException;
 
+    /**
+     * @return true if the specified socket supports SSL.
+     */
     boolean isSSL( Socket socket );
 }
