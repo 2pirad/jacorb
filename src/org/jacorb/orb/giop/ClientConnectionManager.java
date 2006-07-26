@@ -36,7 +36,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.31 2006-07-26 07:27:26 alphonse.bendt Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.32 2006-07-26 07:38:56 alphonse.bendt Exp $
  */
 
 public class ClientConnectionManager
@@ -47,15 +47,15 @@ public class ClientConnectionManager
     /** connection mgmt. */
     private final Map connections = new HashMap();
 
-    private RequestListener request_listener = null;
+    private RequestListener request_listener;
 
-    private MessageReceptorPool receptor_pool = null;
+    private MessageReceptorPool receptor_pool;
 
     private final TransportManager transport_manager;
     private final GIOPConnectionManager giop_connection_manager;
 
     /** the configuration object  */
-    private Logger logger = null;
+    private Logger logger;
 
     public ClientConnectionManager( ORB orb,
                                     TransportManager transport_manager,
