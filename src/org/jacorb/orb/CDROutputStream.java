@@ -45,7 +45,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.114 2006-07-10 08:56:00 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.115 2006-07-26 08:02:25 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -824,7 +824,9 @@ public class CDROutputStream
        (final char[] value, final int offset, final int length)
     {
         if( value == null )
+        {
             throw new MARSHAL( "Null References" );
+        }
 
         //no alignment necessary
         check( length );
@@ -983,12 +985,16 @@ public class CDROutputStream
        (final char[] value, final int offset, final int length)
     {
         if( value == null )
+        {
             throw new MARSHAL("Null References");
+        }
 
         check( length * 3 );
 
         for( int i = offset; i < offset+length; i++)
+        {
             write_wchar( value[i] );
+        }
     }
 
     public final void write_wstring(final String s)

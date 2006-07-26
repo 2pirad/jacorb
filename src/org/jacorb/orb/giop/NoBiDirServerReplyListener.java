@@ -20,29 +20,19 @@
 
 package org.jacorb.orb.giop;
 
-
 /**
- * NoBiDirServerReplyListener.java
- *
- *
- * Created: Sat Aug 18 17:12:10 2002
- *
  * @author Nicolas Noffke
- * @version $Id: NoBiDirServerReplyListener.java,v 1.9 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: NoBiDirServerReplyListener.java,v 1.10 2006-07-26 08:02:25 alphonse.bendt Exp $
  */
 
-public class NoBiDirServerReplyListener 
+public class NoBiDirServerReplyListener
     implements ReplyListener
 {
-    public NoBiDirServerReplyListener ()
-    {        
-    }
-
     public void replyReceived( byte[] reply,
                                GIOPConnection connection )
     {
     }
-        
+
     public void locateReplyReceived( byte[] reply,
                                      GIOPConnection connection )
     {
@@ -52,13 +42,4 @@ public class NoBiDirServerReplyListener
                                          GIOPConnection connection )
     {
     }
-    
-}// NoBiDirServerReplyListener
-
-
-
-
-
-
-
-
+}

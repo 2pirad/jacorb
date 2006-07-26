@@ -44,7 +44,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose
- * @version $Id: ParsedIOR.java,v 1.77 2006-07-13 10:41:56 alphonse.bendt Exp $
+ * @version $Id: ParsedIOR.java,v 1.78 2006-07-26 08:02:25 alphonse.bendt Exp $
  */
 
 public class ParsedIOR
@@ -274,7 +274,9 @@ public class ParsedIOR
                     else
                     {
                         if (logger.isDebugEnabled())
+                        {
                             logger.debug("No transport available for profile tag " + tag);
+                        }
                     }
                     break;
                 }
@@ -327,7 +329,9 @@ public class ParsedIOR
             catch (Exception e)
             {
                 if (logger.isErrorEnabled())
-                    logger.error(e.getMessage());
+                {
+                    logger.error("Error in building IIOP-IOR", e);
+                }
                 throw new org.omg.CORBA.UNKNOWN("Error in building IIOP-IOR");
             }
         }
@@ -554,7 +558,9 @@ public class ParsedIOR
         {
             Profile profile = corbaLoc.profileList[0];
             if (profile == null)
+            {
                 return; // could not decode any address in list
+            }
 
             profile.set_object_key(corbaLoc.getKey());
             ior = createObjectIOR(profile);

@@ -38,7 +38,7 @@ import java.util.Iterator;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.26 2006-07-18 10:05:40 alphonse.bendt Exp $
+ * @version $Id: Request.java,v 1.27 2006-07-26 08:02:25 alphonse.bendt Exp $
  */
 public class Request
     extends org.omg.CORBA.Request
@@ -58,7 +58,7 @@ public class Request
     // added the extra log statements to trace a spurious test failure.
     private final Logger logger;
 
-    private org.omg.CORBA.ContextList contexts = new ContextListImpl();
+    private final org.omg.CORBA.ContextList contexts = new ContextListImpl();
     private org.omg.CORBA.Context context;
     private Caller deferred_caller;
     private org.omg.CORBA.portable.InputStream reply;

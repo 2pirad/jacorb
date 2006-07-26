@@ -22,7 +22,7 @@ package org.jacorb.orb.rmi;
 
 /**
  * @author Gerald Brose
- * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.4 2006-05-17 09:54:46 alphonse.bendt Exp $
+ * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.5 2006-07-26 08:07:17 alphonse.bendt Exp $
  */
 
 import java.rmi.Remote;
@@ -223,10 +223,12 @@ public class PortableRemoteObjectDelegateImpl implements javax.rmi.CORBA.Portabl
             catch (ClassNotFoundException e)
             {
                 throw new java.rmi.server.ExportException("ClassNotFoundException: ", e );
-            } catch (InstantiationException e)
+            }
+            catch (InstantiationException e)
             {
                 throw new java.rmi.server.ExportException("InstantiationException: ", e);
-            } catch (IllegalAccessException e)
+            }
+            catch (IllegalAccessException e)
             {
                 throw new java.rmi.server.ExportException("IllegalAccessException: ", e);
             }
@@ -282,7 +284,7 @@ public class PortableRemoteObjectDelegateImpl implements javax.rmi.CORBA.Portabl
 
     private String newRMIStubName(final String repoID)
     {
-        final String clazzName = repoID.substring(4, repoID.lastIndexOf(":"));
+        final String clazzName = repoID.substring(4, repoID.lastIndexOf(':'));
         return newRMIClassName(clazzName, "Stub");
     }
 
@@ -291,9 +293,9 @@ public class PortableRemoteObjectDelegateImpl implements javax.rmi.CORBA.Portabl
         final StringBuffer buffer = new StringBuffer(name.length() + 2 + suffix.length());
         final int idx = name.lastIndexOf('.') + 1;
         buffer.append(name.substring(0, idx));
-        buffer.append("_");
+        buffer.append('_');
         buffer.append(name.substring(idx, name.length()));
-        buffer.append("_");
+        buffer.append('_');
         buffer.append(suffix);
 
         return buffer.toString();
