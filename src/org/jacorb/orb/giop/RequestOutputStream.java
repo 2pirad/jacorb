@@ -49,7 +49,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.31 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: RequestOutputStream.java,v 1.32 2006-07-26 11:05:21 nick.cross Exp $
  */
 public class RequestOutputStream
     extends ServiceContextTransportingOutputStream
@@ -244,27 +244,9 @@ public class RequestOutputStream
         if (!conn.isTCSNegotiated())
         {
             // encapsulate context
-            final CDROutputStream out = new CDROutputStream();
-
-            try
-            {
-                out.beginEncapsulatedArray();
-                CodeSetContextHelper.write
-                (
-                        out,
-                        new CodeSetContext(conn.getTCS(), conn.getTCSW())
-                );
-                addServiceContext(new ServiceContext
-                        (
-                                org.omg.IOP.CodeSets.value,
-                                out.getBufferCopy()
-                        ));
-                conn.markTCSNegotiated();
-            }
-            finally
-            {
-                out.close();
-            }
+            addServiceContext (CodeSet.createCodesetContext (conn.getTCS(), conn.getTCSW()));
+                       
+            conn.markTCSNegotiated();
         }
         super.write_to(conn);
     }
