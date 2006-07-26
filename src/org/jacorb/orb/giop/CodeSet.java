@@ -43,7 +43,7 @@ import org.jacorb.orb.CDROutputStream;
 
 /**
  * @author Gerald Brose
- * @version $Id: CodeSet.java,v 1.21 2006-07-26 11:42:16 alphonse.bendt Exp $
+ * @version $Id: CodeSet.java,v 1.22 2006-07-26 13:24:38 nick.cross Exp $
  */
 public class CodeSet
 {
@@ -163,7 +163,12 @@ public class CodeSet
         }
         else
         {
-            logger.warn("CodeSet is configured already. Further attempts to configure CodeSet will be ignored!");
+            if (logger.isDebugEnabled())
+            {
+                logger.debug
+                    ("CodeSet is already configured; further attempts to reconfigure will be ignored!");
+            }
+
         }
     }
 
