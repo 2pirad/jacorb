@@ -27,7 +27,7 @@ import org.omg.CosNaming.NamingContextExtHelper;
 
 /**
  * @author Gerald Brose
- * @version $Id: TracingServiceImpl.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: TracingServiceImpl.java,v 1.10 2006-07-27 10:32:57 alphonse.bendt Exp $
  */
 public class TracingServiceImpl
     extends TracingServicePOA
@@ -142,32 +142,30 @@ public class TracingServiceImpl
         t.subtraces.addElement( nested );
     }
 
-
-
     public static void main( String[] args )
     {
-	org.omg.CORBA.ORB orb = org.omg.CORBA.ORB.init(args, null);
-	try
-	{
-       	    org.omg.PortableServer.POA poa =
-		org.omg.PortableServer.POAHelper.narrow(
-                                                        orb.resolve_initial_references("RootPOA"));
+        org.omg.CORBA.ORB orb = org.omg.CORBA.ORB.init(args, null);
+        try
+        {
+            org.omg.PortableServer.POA poa =
+                org.omg.PortableServer.POAHelper.narrow(
+                        orb.resolve_initial_references("RootPOA"));
 
-	    poa.the_POAManager().activate();
+            poa.the_POAManager().activate();
 
-	    org.omg.CORBA.Object o =
+            org.omg.CORBA.Object o =
                 poa.servant_to_reference(new TracingServiceImpl());
 
             NamingContextExt nc =
                 NamingContextExtHelper.narrow(orb.resolve_initial_references("NameService"));
             nc.bind( nc.to_name("tracing.service"), o);
-	    poa.the_POAManager().activate();
-	}
-	catch ( Exception e )
-	{
-	    e.printStackTrace();
-	}
-	orb.run();
+            poa.the_POAManager().activate();
+        }
+        catch ( Exception e )
+        {
+            e.printStackTrace();
+        }
+        orb.run();
     }
 }
 

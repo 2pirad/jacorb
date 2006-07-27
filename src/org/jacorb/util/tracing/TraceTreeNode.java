@@ -26,11 +26,8 @@ import java.util.Vector;
 /**
  * TraceTreeNode.java
  *
- *
- * Created: Tue Jul 25 13:06:22 2000
- *
  * @author Nicolas Noffke
- * $Id: TraceTreeNode.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
+ * $Id: TraceTreeNode.java,v 1.10 2006-07-27 10:32:57 alphonse.bendt Exp $
  */
 public class TraceTreeNode
 {
@@ -47,20 +44,4 @@ public class TraceTreeNode
         this.tracer_id = tracer_id;
         subtraces = new Vector();
     }
-
-//      public TraceTreeNode(int tracer_id,
-//                           long client_time,
-//                           long server_time)
-//      {
-//          this(tracer_id);
-
-//          client_time = client_time;
-//          server_time = server_time;
-//      }
-} // TraceTreeNode
-
-
-
-
-
-
+}
