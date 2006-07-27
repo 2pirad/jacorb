@@ -38,12 +38,12 @@ import javax.net.*;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.19 2006-06-14 12:49:22 alphonse.bendt Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.20 2006-07-27 08:48:00 nick.cross Exp $
  */
 
 public class SSLServerSocketFactory
     extends SSLRandom
-    implements org.jacorb.orb.factory.SSLServerSocketFactory, Configurable
+    implements org.jacorb.orb.factory.ServerSocketFactory, Configurable
 {
     private ServerSocketFactory factory = null;
     private boolean require_mutual_auth = false;
