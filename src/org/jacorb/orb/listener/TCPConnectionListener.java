@@ -28,10 +28,18 @@ import java.util.EventListener;
  * events from JacORB.
  *
  * @author Nick Cross
- * @version $Id: TCPConnectionListener.java,v 1.2 2006-06-29 15:42:48 alphonse.bendt Exp $
+ * @version $Id: TCPConnectionListener.java,v 1.3 2006-07-27 09:07:59 alphonse.bendt Exp $
  */
 public interface TCPConnectionListener extends EventListener
 {
+    /**
+     * Check whether this Listener is enabled.
+     * This function is intended to lessen the computational
+     * cost of disabled listeners.
+     *
+     * @return true, if the listener is ready to receive notifications
+     * of socket events.
+     */
     boolean isListenerEnabled();
 
     /**
