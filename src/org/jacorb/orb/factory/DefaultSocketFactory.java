@@ -24,8 +24,10 @@ import java.net.*;
 import java.io.IOException;
 
 /**
+ * the default SocketFactory implementation.
+ *
  * @author Steve Osselton
- * @version $Id: DefaultSocketFactory.java,v 1.6 2006-07-25 15:43:21 alphonse.bendt Exp $
+ * @version $Id: DefaultSocketFactory.java,v 1.7 2006-07-27 07:48:54 alphonse.bendt Exp $
  */
 public class DefaultSocketFactory extends AbstractSocketFactory implements SocketFactory
 {
@@ -44,7 +46,7 @@ public class DefaultSocketFactory extends AbstractSocketFactory implements Socke
         return socket;
     }
 
-    public boolean isSSL (Socket socket)
+    public boolean isSSL(Socket socket)
     {
         return false;
     }

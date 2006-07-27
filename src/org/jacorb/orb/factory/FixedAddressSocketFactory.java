@@ -37,10 +37,14 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
  * and use the specified value to configure the sockets it creates.
  *
  * @author Nicolas Noffke
- * @version $Id: FixedAddressSocketFactory.java,v 1.3 2006-07-26 09:16:58 alphonse.bendt Exp $
+ * @version $Id: FixedAddressSocketFactory.java,v 1.4 2006-07-27 07:48:54 alphonse.bendt Exp $
  */
 public class FixedAddressSocketFactory extends AbstractSocketFactory implements SocketFactory, Configurable
 {
+    /**
+     * optional local address the socket should be bound to.
+     * may be null if no local address is specified.
+     */
     private InetAddress localEndpoint;
 
     public Socket createSocket(String host, int port)
