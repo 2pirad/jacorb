@@ -27,7 +27,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.11 2006-06-28 12:42:22 alphonse.bendt Exp $
+ * @version $Id: IIOPFactories.java,v 1.12 2006-07-27 13:50:35 nick.cross Exp $
  */
 public class IIOPFactories
     extends org.jacorb.orb.etf.FactoriesBase
@@ -77,8 +77,8 @@ public class IIOPFactories
         int colon = corbaloc.indexOf (':');
         String token = corbaloc.substring (0,colon).toLowerCase();
         if (token.length() == 0 ||
-            token.equals ("iiop") ||
-            token.equals ("ssliop"))
+            "iiop".equals (token) ||
+            "ssliop".equals (token))
         {
             IIOPProfile result = new IIOPProfile(corbaloc);
             try
@@ -103,7 +103,7 @@ public class IIOPFactories
         }
         int colon = address.indexOf (':');
         String token = address.substring (0,colon).toLowerCase();
-        if (token.equals ("iiop") || token.equals ("ssliop"))
+        if ("iiop".equals (token) || "ssliop".equals (token))
         {
             return colon+1;
         }

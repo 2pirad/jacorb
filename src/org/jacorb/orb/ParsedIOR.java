@@ -44,7 +44,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose
- * @version $Id: ParsedIOR.java,v 1.78 2006-07-26 08:02:25 alphonse.bendt Exp $
+ * @version $Id: ParsedIOR.java,v 1.79 2006-07-27 13:50:35 nick.cross Exp $
  */
 
 public class ParsedIOR
@@ -131,16 +131,27 @@ public class ParsedIOR
         switch (addr.discriminator())
         {
             case KeyAddr.value:
+            {
                 return addr.object_key();
+            }
             case ProfileAddr.value:
+            {
                 tp = new TaggedProfile(addr.profile().tag, addr.profile().profile_data);
                 break;
+            }
             case ReferenceAddr.value:
+            {
                 IORAddressingInfo info = addr.ior();
                 tp = new TaggedProfile(info.ior.profiles[info.selected_profile_index].tag,
                                        info.ior.profiles[info.selected_profile_index].profile_data);
                 break;
+            }
+            default:
+            {
+                throw new BAD_PARAM ("Invalid value for TargetAddress discriminator");
+            }
         }
+
         TaggedProfileHolder profile = new TaggedProfileHolder(tp);
         org.omg.ETF.Factories profileFactory = orb.getTransportManager().getFactories(tp.tag);
         if (profileFactory != null)
@@ -395,7 +406,7 @@ public class ParsedIOR
 
     public boolean isNull()
     {
-        return ior.type_id.equals("") && ior.profiles.length == 0;
+        return "".equals (ior.type_id) && ior.profiles.length == 0;
     }
 
     /**
