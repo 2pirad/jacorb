@@ -6,19 +6,13 @@
 
   <!-- ==================================================== -->
   <!--             security build file                         -->
-  <!-- $Id: build.xml,v 1.18 2006-06-14 12:54:22 alphonse.bendt Exp $ -->
+  <!-- $Id: build.xml,v 1.19 2006-07-27 10:55:21 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    &common;
 
 
-   <target name="check-iaik">
-      <available classname="iaik.x509.X509Certificate" property="iaik.present" />
-   </target>
-
-
-<!--   <target name="all" depends="init,leveltwo,aux,ssl,sas"/> -->
-   <target name="all" depends="init,leveltwo,aux,gui,ssl"/>
+   <target name="all" depends="init,ssl,sas"/>
 
 
    <target name="ssl">
@@ -29,28 +23,6 @@
    <target name="sas">
            <ant antfile="${src}/org/jacorb/security/sas/build.xml" dir="${basedir}"/>
    </target>
-
-
-   <target name="leveltwo">
-      <antcall target="jacorb-javac">
-         <param name="javac-includes" value="org/jacorb/security/level2/*.java"/>
-         <param name="javac-excludes" value="org/jacorb/security/level2/PrincipalAuthenticatorImpl.java"/>
-      </antcall>
-   </target>
-
-
-   <!-- principal_authenticator & util classes -->
-   <target name="aux" depends="check-iaik" if="iaik.present">
-      <antcall target="jacorb-javac">
-          <param name="javac-includes" value="org/jacorb/security/level2/PrincipalAuthenticatorImpl.java"/>
-      </antcall>
-   </target>
-
-    <target name="gui" depends="check-iaik" if="iaik.present" unless="cdc-build">
-        <antcall target="jacorb-javac">
-            <param name="javac-includes" value="org/jacorb/security/util/*.java"/>
-        </antcall>
-    </target>
 
    <target name="clean" depends="init">
       <delete dir="${classdir}/org/jacorb/security"/>
