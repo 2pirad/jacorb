@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.64 2006-06-16 12:28:58 alphonse.bendt Exp $ -->
+   <!-- $Id: build.xml,v 1.65 2006-07-31 20:58:23 andre.spiegel Exp $ -->
    <!-- ==================================================== -->
 
     <property file="${basedir}/build.properties" />
@@ -16,8 +16,7 @@
 
    <!-- top-level target -->
    <target name="all" depends="init,compiler,omg_idl,jacorb,libs"
-           description="Build JacORB. Use -Ddebug=lines,vars,source to compile code with full debugging."/>
-
+           description="Build JacORB.  To build with debugging, use -Ddebug=true."/>
 
    <!-- ==================================================== -->
    <!--                   IDL compiler                       -->
