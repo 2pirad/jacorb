@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.60 2006-08-01 08:59:18 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.61 2006-08-01 09:31:43 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -870,6 +870,26 @@ public abstract class GIOPConnection
             {
                 getStatisticsProvider().flushed();
             }
+        }
+        catch (org.omg.CORBA.COMM_FAILURE e)
+        {
+            if (logger.isErrorEnabled())
+            {
+                logger.error( "Failed to write GIOP message due to COMM_FAILURE", e );
+            }
+            if( !do_close )
+            {
+                if (logger.isErrorEnabled())
+                {
+                    logger.error( "GIOP connection closed due to errors during sendMessage");
+                }
+                //close transport connection, there is nearly no chance to sync with
+                //peer on this connection again
+                close();
+                //signal GIOPConnectionManager to throw this connection away
+                this.streamClosed();
+            }
+            throw e;
         }
         finally
         {
