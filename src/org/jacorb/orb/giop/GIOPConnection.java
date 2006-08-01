@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * Created: Sun Aug 12 21:30:48 2002
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.59 2006-07-19 13:57:35 nick.cross Exp $
+ * @version $Id: GIOPConnection.java,v 1.60 2006-08-01 08:59:18 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -381,16 +381,25 @@ public abstract class GIOPConnection
             return inbuf.value;
         }
 
-        if (logger.isErrorEnabled())
-        {
-            logger.error( "Failed to read GIOP message, incorrect magic number" );
-        }
-
         if (logger.isDebugEnabled())
         {
-            logger.debug("GIOPConnection.getMessage()" + ObjectUtil.bufToString(msg_header.value, 0, 4));
+            logger.debug("GIOPConnection.getMessage(), invalid header read: " 
+                         + ObjectUtil.bufToString(msg_header.value, 0, 4));
         }
 
+        if (logger.isErrorEnabled())
+        {
+            logger.error( "Failed to read GIOP message, "
+                          + "incorrect magic number --> connection closed" );
+        }
+        
+        // close transport connection, there is nearly no chance to sync
+        // with peer on this connection again
+        close();
+        
+        // notify GIOPConnectionManager of close
+        this.streamClosed();
+ 
         return null;
     }
 
