@@ -48,7 +48,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.109 2006-07-26 11:05:21 nick.cross Exp $
+ * $Id: CDRInputStream.java,v 1.110 2006-08-02 13:30:48 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -171,6 +171,13 @@ public class CDRInputStream
      */
     private static final int MAX_BLOCK_SIZE = 0x7fffff00;
 
+    /**
+     * fixes RMI/IIOP related interoperability issues with the
+     * sun the orb that occured
+     * while receiving serialized collections.
+     * see mailing list for details:
+     * {@link http://lists.spline.inf.fu-berlin.de/mailman/htdig/jacorb-developer/2006-May/008251.html}
+     */
     private boolean sunInteropFix;
 
 
