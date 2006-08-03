@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.138 2006-07-13 12:57:00 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.139 2006-08-03 16:40:12 alphonse.bendt Exp $
  *
  */
 
@@ -216,11 +216,11 @@ public final class Delegate
 
         if (objectReference != null)
         {
-            _pior = new ParsedIOR( objectReference, orb, logger);
+            _pior = new ParsedIOR( orb, objectReference);
         }
         else if (ior!=null)
         {
-            _pior = new ParsedIOR( ior, orb, logger);
+            _pior = new ParsedIOR( orb, ior);
         }
         else if (_pior == null )
         {
@@ -415,7 +415,7 @@ public final class Delegate
 
         if (object_reference.indexOf( "IOR:" ) == 0)
         {
-            rebind(new ParsedIOR( object_reference, orb, logger));
+            rebind(new ParsedIOR( orb, object_reference));
         }
         else
         {
@@ -1209,7 +1209,7 @@ public final class Delegate
                 corbaloc.append( CorbaLoc.parseKey( object_key ) );
 
                 //rebind to the new IOR
-                rebind( new ParsedIOR( corbaloc.toString(), orb, logger));
+                rebind( new ParsedIOR( orb, corbaloc.toString()));
 
                 //clean up and start fresh
                 piorOriginal = null;
@@ -1431,8 +1431,8 @@ public final class Delegate
 
         if (self != obj)
         {
-            ParsedIOR pior1 = new ParsedIOR( obj.toString(), orb, logger );
-            ParsedIOR pior2 = new ParsedIOR( self.toString(), orb, logger );
+            ParsedIOR pior1 = new ParsedIOR( orb, obj.toString() );
+            ParsedIOR pior2 = new ParsedIOR( orb, self.toString() );
             result = pior2.getIDString().equals( pior1.getIDString() );
         }
 

@@ -53,7 +53,7 @@ import java.lang.reflect.Method;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.64 2006-07-17 10:38:56 alphonse.bendt Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.65 2006-08-03 16:40:12 alphonse.bendt Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1519,7 +1519,7 @@ public class ImplementationRepositoryImpl
 
                 org.omg.CORBA.Object _object =
                     orb.string_to_object(
-                        (new ParsedIOR( _ior, (org.jacorb.orb.ORB) orb, logger)).getIORString());
+                        (new ParsedIOR( (org.jacorb.orb.ORB) orb, _ior)).getIORString());
 
                 // Sort of busy waiting here, no other way possible
                 for( int _i = 0; _i < object_activation_retries; _i++ )

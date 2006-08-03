@@ -48,7 +48,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.110 2006-08-02 13:30:48 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.111 2006-08-03 16:40:12 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -1009,7 +1009,7 @@ public class CDRInputStream
             ior = mutator.mutateIncoming (ior);
         }
 
-        ParsedIOR pior = new ParsedIOR( ior, (org.jacorb.orb.ORB)orb, logger );
+        ParsedIOR pior = new ParsedIOR( (org.jacorb.orb.ORB)orb, ior );
 
         if( pior.isNull() )
         {

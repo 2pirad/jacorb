@@ -24,8 +24,6 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
-import org.apache.avalon.framework.logger.Logger;
-import org.easymock.MockControl;
 import org.jacorb.orb.ParsedIOR;
 import org.omg.CORBA.ORB;
 
@@ -34,13 +32,10 @@ import org.omg.CORBA.ORB;
  * are a GIOP UDP protocol.
  *
  * @author Nick Cross
- * @version $Id: DIOPIORTest.java,v 1.2 2006-07-07 13:13:19 alphonse.bendt Exp $
+ * @version $Id: DIOPIORTest.java,v 1.3 2006-08-03 16:40:12 alphonse.bendt Exp $
  */
 public class DIOPIORTest extends TestCase
 {
-    private static final MockControl loggerControl = MockControl.createNiceControl(Logger.class);
-    private static final Logger loggerMock = (Logger) loggerControl.getMock();
-
     private final org.omg.CORBA.ORB orb = ORB.init(new String[0], null);
 
     /**
@@ -55,7 +50,7 @@ public class DIOPIORTest extends TestCase
      */
     public void testDecode1 ()
     {
-        ParsedIOR pior = new ParsedIOR( ior, orb, loggerMock);
+        final ParsedIOR pior = new ParsedIOR((org.jacorb.orb.ORB) orb, ior);
 
         List bodies = pior.getProfiles();
 

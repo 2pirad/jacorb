@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.168 2006-07-27 13:50:35 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.169 2006-08-03 16:40:12 alphonse.bendt Exp $
  */
 
 public final class ORB
@@ -1888,7 +1888,7 @@ public final class ORB
 
         try
         {
-            ParsedIOR pior = new ParsedIOR( str, this, logger );
+            ParsedIOR pior = new ParsedIOR( this, str );
             if( pior.isNull() )
             {
                 return null;
@@ -2377,7 +2377,7 @@ public final class ORB
                     // the byte key.
                     try
                     {
-                        pIOR = new ParsedIOR( found, this, logger );
+                        pIOR = new ParsedIOR( this, found );
                         return pIOR.get_object_key();
                     }
                     catch ( IllegalArgumentException e )
