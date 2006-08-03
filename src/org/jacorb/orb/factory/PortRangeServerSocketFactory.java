@@ -28,10 +28,10 @@ import org.apache.avalon.framework.configuration.*;
 
 /**
  * @author Steve Osselton
- * @version $Id: PortRangeServerSocketFactory.java,v 1.7 2006-07-25 15:43:20 alphonse.bendt Exp $
+ * @version $Id: PortRangeServerSocketFactory.java,v 1.8 2006-08-03 10:31:24 alphonse.bendt Exp $
  */
 public class PortRangeServerSocketFactory
-    implements ServerSocketFactory
+    implements ServerSocketFactory, Configurable
 {
     public static final String MIN_PROP = "jacorb.net.server_socket_factory.port.min";
     public static final String MAX_PROP = "jacorb.net.server_socket_factory.port.max";
