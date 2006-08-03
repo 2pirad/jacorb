@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.42 2006-07-11 14:16:07 nick.cross Exp $
+ * @version $Id: OpDecl.java,v 1.43 2006-08-03 08:01:14 alphonse.bendt Exp $
  */
 
 public class OpDecl
@@ -615,10 +615,12 @@ try
         /* catch exceptions */
 
         ps.println( "\t\t\t}" );
-        ps.println( "\t\t\tcatch( org.omg.CORBA.portable.RemarshalException _rx ){}" );
+        ps.println( "\t\t\tcatch( org.omg.CORBA.portable.RemarshalException _rx )" );
+        ps.println( "\t\t\t{" );
+        ps.println( "\t\t\t}" );
+
         ps.println( "\t\t\tcatch( org.omg.CORBA.portable.ApplicationException _ax )" );
         ps.println( "\t\t\t{" );
-        ps.println( "\t\t\t\tString _id = _ax.getId();" );
         ps.println( "\t\t\t}" );
 
         ps.println( "\t\t}\n" ); // end while
