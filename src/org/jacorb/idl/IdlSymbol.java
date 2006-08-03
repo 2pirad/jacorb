@@ -30,7 +30,7 @@ import org.apache.log.*;
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.44 2006-07-13 08:48:28 nick.cross Exp $
+ * @version $Id: IdlSymbol.java,v 1.45 2006-08-03 12:31:17 alphonse.bendt Exp $
  */
 
 public class IdlSymbol
@@ -667,16 +667,16 @@ public class IdlSymbol
      * <code>printClassComment</code> is used by inherited classes to print
      * the class comment.
      *
-     * @param className a <code>String</code> value
+     * @param name a <code>String</code> value
      * @param ps a <code>PrintWriter</code> value
      */
     protected final void printClassComment(String type, String name, PrintWriter ps)
     {
         ps.println("/**");
-        ps.println(" *\tGenerated from IDL " + type.trim() + " \"" + name + "\".");
+        ps.println(" * Generated from IDL " + type.trim() + " \"" + name + "\".");
         ps.println(" *");
-        ps.println(" *\t@author JacORB IDL compiler V " + parser.compiler_version);
-        ps.println(" *\t@version generated at " + parser.currentDate);
+        ps.println(" * @author JacORB IDL compiler V " + parser.compiler_version);
+        ps.println(" * @version generated at " + parser.currentDate);
         ps.println(" */\n");
     }
 }
