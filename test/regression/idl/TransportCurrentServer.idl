@@ -1,0 +1,42 @@
+// -*- IDL -*-
+/**
+ * @file   TransportCurrentServer.idl
+ *
+ * $Id: TransportCurrentServer.idl,v 1.1 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ *
+ * Simple IDL file to test TranspotCurrent
+ * support.
+ *
+ * @author  Iliyan Jeliazkov <iliyan@ociweb.com>
+ */
+
+#pragma prefix "jacorb.org"
+
+module org
+{
+  module jacorb
+  {
+    module test
+    {
+      module orb
+      {
+        module transport
+        {
+          interface CurrentServer
+          {
+
+            const unsigned long ContextTag = 0xabcdef;
+
+            void invoked_by_client ();
+
+            void invoked_during_upcall ();
+
+            long self_test ();
+
+            oneway void shutdown ();
+          };
+        };
+      };
+    };
+  };
+};

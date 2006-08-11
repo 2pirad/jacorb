@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.139 2006-08-03 16:40:12 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.140 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
  *
  */
 
@@ -966,6 +966,8 @@ public final class Delegate
             piorOriginal,
             connection
         );
+
+        orb.notifyTransportListeners (connection.getGIOPConnection());
 
         if (orb.hasRequestInterceptors())
         {

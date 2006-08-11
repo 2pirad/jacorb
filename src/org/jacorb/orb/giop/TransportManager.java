@@ -36,6 +36,7 @@ import org.jacorb.orb.ORB;
 import org.jacorb.orb.ProfileSelector;
 import org.jacorb.orb.diop.DIOPFactories;
 import org.jacorb.orb.factory.SocketFactoryManager;
+import org.jacorb.orb.giop.TransportListener.Event;
 import org.jacorb.util.ObjectUtil;
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.ETF.Factories;
@@ -44,8 +45,12 @@ import org.omg.ETF.Factories;
  * This class manages Transports. On the one hand it creates them, and
  * on the other it enforces an upper limit on the open transports.
  *
+ * The class also receives notifications from threads that are about do use a 
+ * Transport and notifies any interested listeners. "Use" is defined as 
+ * sending (or handling) a request.
+ *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.26 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: TransportManager.java,v 1.27 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
  * */
 
 public class TransportManager
@@ -71,6 +76,12 @@ public class TransportManager
      * they were specified in the jacorb.transport.factories property.
      */
     private List factoriesList = null;
+
+    /**
+     * The first listener (in a chain of instances), representing 
+     * parties with interest in Transport events.
+     */
+    private TransportListener listener = null;
 
     public TransportManager( ORB orb )
     {
@@ -207,6 +218,43 @@ public class TransportManager
             throw new BAD_PARAM
                 ("could not instantiate Factories class " + className
                  + ", exception: " + e);
+        }
+    }
+
+	public void notifyTransportListeners(GIOPConnection giopc) {
+
+        if (listener != null)
+            listener.transportSelected (new Event (giopc));
+    }
+
+    public void addTransportListener(final TransportListener tl) {
+
+        if (logger.isInfoEnabled ())
+            logger.info ("Transport listener to add: " + tl);
+
+        if (tl == null) return;
+
+        synchronized (this) {
+            if (listener == null) {
+                listener = tl;
+            }
+            else {
+
+                listener = new TransportListener () {
+
+                    private final TransportListener next_ = listener;
+
+                    public void transportSelected(Event event) {
+
+                        try {
+                            tl.transportSelected (event);
+                        }
+                        finally {
+                            next_.transportSelected (event);
+                        }
+                    }
+                };
+            }
         }
     }
 }

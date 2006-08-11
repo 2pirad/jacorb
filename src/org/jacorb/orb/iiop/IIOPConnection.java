@@ -28,7 +28,7 @@ import org.jacorb.orb.listener.SSLListenerUtil;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.14 2006-06-29 15:17:24 alphonse.bendt Exp $
+ * @version $Id: IIOPConnection.java,v 1.15 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
  */
 public abstract class IIOPConnection
     extends org.jacorb.orb.etf.StreamConnectionBase
@@ -86,5 +86,9 @@ public abstract class IIOPConnection
         {
             throw to_COMM_FAILURE (ex, socket);
         }
+    }
+
+    public Socket getSocket() {
+        return socket;
     }
 }

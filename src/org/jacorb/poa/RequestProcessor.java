@@ -51,7 +51,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.36 2006-07-20 16:08:57 nick.cross Exp $
+ * @version $Id: RequestProcessor.java,v 1.37 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
  */
 
 public class RequestProcessor
@@ -491,6 +491,9 @@ public class RequestProcessor
     private void process()
     {
         ServerRequestInfoImpl info = null;
+
+        // Notify parties interested in using information about a Transport
+        controller.getORB().notifyTransportListeners(request.getConnection());
 
         if (controller.getORB().hasServerRequestInterceptors())
         {

@@ -34,7 +34,7 @@ import org.jacorb.orb.listener.TCPConnectionListener;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.7 2006-06-29 15:42:48 alphonse.bendt Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.8 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
  */
 
 public class ServerIIOPConnection
@@ -83,11 +83,6 @@ public class ServerIIOPConnection
         }
     }
 
-
-    public Socket getSocket()
-    {
-        return socket;
-    }
 
     public synchronized void close()
     {

@@ -26,7 +26,7 @@ import org.jacorb.orb.iiop.IIOPConnection;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.22 2006-06-28 12:41:44 alphonse.bendt Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.23 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
  */
 
 public class ServerGIOPConnection
@@ -151,9 +151,9 @@ public class ServerGIOPConnection
 
             transport.flush();
 
-            if (statistics_provider != null)
+            if (getStatisticsProviderAdapter() != null)
             {
-                statistics_provider.flushed();
+                getStatisticsProviderAdapter().flushed();
             }
 
             if( delayClose && transport instanceof IIOPConnection )

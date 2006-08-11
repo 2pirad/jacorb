@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.169 2006-08-03 16:40:12 alphonse.bendt Exp $
+ * @version $Id: ORB.java,v 1.170 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
  */
 
 public final class ORB
@@ -2588,8 +2588,14 @@ public final class ORB
         return poolManagerFactory.newRPPoolManager(isSingleThreaded);
     }
 
+  public void notifyTransportListeners(GIOPConnection gc) {
+    
+    transport_manager.notifyTransportListeners (gc);
+  }
+
     public String getImplName()
     {
         return implName;
     }
+
 }
