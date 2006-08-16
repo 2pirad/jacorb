@@ -50,7 +50,7 @@ import org.omg.ETF.Factories;
  * sending (or handling) a request.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.27 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: TransportManager.java,v 1.28 2006-08-16 17:46:36 iliyan.jeliazkov Exp $
  * */
 
 public class TransportManager
@@ -223,38 +223,44 @@ public class TransportManager
 
 	public void notifyTransportListeners(GIOPConnection giopc) {
 
-        if (listener != null)
+        if (listener != null) {
             listener.transportSelected (new Event (giopc));
-    }
-
-    public void addTransportListener(final TransportListener tl) {
-
-        if (logger.isInfoEnabled ())
-            logger.info ("Transport listener to add: " + tl);
-
-        if (tl == null) return;
-
-        synchronized (this) {
-            if (listener == null) {
-                listener = tl;
-            }
-            else {
-
-                listener = new TransportListener () {
-
-                    private final TransportListener next_ = listener;
-
-                    public void transportSelected(Event event) {
-
-                        try {
-                            tl.transportSelected (event);
-                        }
-                        finally {
-                            next_.transportSelected (event);
-                        }
-                    }
-                };
-            }
         }
     }
+
+    public void addTransportListener(TransportListener tl) {
+
+        if (logger.isInfoEnabled ()) {
+            logger.info ("Transport listener to add: " + tl);
+        }
+
+        if (tl != null) {
+            addTransportListenerImpl (tl);
+        }
+    }
+
+    private synchronized void addTransportListenerImpl(final TransportListener tl) {
+
+        if (listener == null) {
+            listener = tl;
+        }
+        else {
+
+            listener = new TransportListener () {
+
+                private final TransportListener next_ = listener;
+
+                public void transportSelected(Event event) {
+
+                    try {
+                        tl.transportSelected (event);
+                    }
+                    finally {
+                        next_.transportSelected (event);
+                    }
+                }
+            };
+        }
+    }
+ 
 }
