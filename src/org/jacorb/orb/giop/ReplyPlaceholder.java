@@ -30,7 +30,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.22 2006-07-17 15:43:58 alphonse.bendt Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.23 2006-08-29 15:03:00 alphonse.bendt Exp $
  */
 public abstract class ReplyPlaceholder
 {
@@ -100,32 +100,27 @@ public abstract class ReplyPlaceholder
     protected MessageInputStream getInputStream(boolean hasTimeoutPolicy)
         throws RemarshalException
     {
+        final boolean _shouldUseTimeout = !hasTimeoutPolicy && timeout > 0;
+        final long _maxWait = _shouldUseTimeout ? System.currentTimeMillis() + timeout : Long.MAX_VALUE;
+        final long _timeout = _shouldUseTimeout ? timeout : 0;
+
         synchronized(lock)
         {
-            while( !ready )
+            try
             {
-                try
+                while(!ready && System.currentTimeMillis() < _maxWait)
                 {
-                    if( timeout > 0 && !hasTimeoutPolicy)
-                    {
-                        lock.wait( timeout ); //wait only "timeout" long
+                    lock.wait( _timeout );
+                }
+            }
+            catch( InterruptedException e )
+            {
+                // ignored
+            }
 
-                        //timeout
-                        if( ! ready )
-                        {
-                            ready = true; //break loop
-                            timeoutException = true;
-                        }
-                    }
-                    else
-                    {
-                        lock.wait(); //wait infinitely
-                    }
-                }
-                catch( InterruptedException e )
-                {
-                    // ignored
-                }
+            if (!ready && _shouldUseTimeout)
+            {
+                timeoutException = true;
             }
 
             if( remarshalException )
