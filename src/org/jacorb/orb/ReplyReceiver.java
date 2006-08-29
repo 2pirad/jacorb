@@ -51,7 +51,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.32 2006-07-17 15:43:05 alphonse.bendt Exp $
+ * @version $Id: ReplyReceiver.java,v 1.33 2006-08-29 15:02:17 alphonse.bendt Exp $
  */
 
 public class ReplyReceiver
@@ -99,12 +99,11 @@ public class ReplyReceiver
     }
 
     public void configure(org.apache.avalon.framework.configuration.Configuration configuration)
-        throws org.apache.avalon.framework.configuration.ConfigurationException
     {
         logger =
             ((org.jacorb.config.Configuration)configuration).getNamedLogger("jacorb.orb.rep_recv");
         retry_on_failure =
-            configuration.getAttribute("jacorb.connection.client.retry_on_failure","off").equals("on");
+            configuration.getAttributeAsBoolean("jacorb.connection.client.retry_on_failure", false);
     }
 
 
