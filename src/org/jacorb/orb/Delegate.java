@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.140 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: Delegate.java,v 1.141 2006-08-29 15:01:27 alphonse.bendt Exp $
  *
  */
 
@@ -1004,6 +1004,7 @@ public final class Delegate
             // response expected, synchronous or asynchronous
             receiver = new ReplyReceiver(this, ros.operation(), ros.getReplyEndTime(),
                     interceptors, replyHandler);
+            receiver.configure(configuration);
 
             // Store the receiver in pending_replies, so in the
             // case of a LocationForward a RemarshalException can
@@ -1103,6 +1104,8 @@ public final class Delegate
                                                        ros.getReplyEndTime(),
                                                        interceptors,
                                                        null);
+                rcv.configure(configuration);
+
                 connection.sendRequest (ros, rcv, ros.requestId(), true);
                 ReplyInputStream in = rcv.getReply();
                 interceptors.handle_receive_reply (in);
