@@ -24,7 +24,7 @@ package org.jacorb.poa.policy;
  * This class implements the implicit activation policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: ImplicitActivationPolicy.java,v 1.7 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: ImplicitActivationPolicy.java,v 1.8 2006-08-29 20:20:06 andre.spiegel Exp $
  */
 
 public class ImplicitActivationPolicy 
@@ -32,9 +32,6 @@ public class ImplicitActivationPolicy
 {
     private org.omg.PortableServer.ImplicitActivationPolicyValue value;
 
-    private ImplicitActivationPolicy() {
-    }
-	
     public ImplicitActivationPolicy(org.omg.PortableServer.ImplicitActivationPolicyValue _value) {
         value = _value;
     }

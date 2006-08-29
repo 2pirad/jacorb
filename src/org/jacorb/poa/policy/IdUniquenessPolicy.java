@@ -24,17 +24,13 @@ package org.jacorb.poa.policy;
  * This class implements the id uniqueness policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: IdUniquenessPolicy.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: IdUniquenessPolicy.java,v 1.10 2006-08-29 20:20:06 andre.spiegel Exp $
  */
 
 public class IdUniquenessPolicy 
     extends  org.omg.PortableServer._IdUniquenessPolicyLocalBase
 {
     private org.omg.PortableServer.IdUniquenessPolicyValue value;
-
-    private IdUniquenessPolicy() {
-    }
-
 
     public IdUniquenessPolicy(org.omg.PortableServer.IdUniquenessPolicyValue _value) {
         value = _value;

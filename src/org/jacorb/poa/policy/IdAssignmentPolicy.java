@@ -24,17 +24,13 @@ package org.jacorb.poa.policy;
  * This class implements the id assignment policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: IdAssignmentPolicy.java,v 1.9 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: IdAssignmentPolicy.java,v 1.10 2006-08-29 20:20:06 andre.spiegel Exp $
  */
 
 public class IdAssignmentPolicy 
     extends org.omg.PortableServer._IdAssignmentPolicyLocalBase
 {
     private org.omg.PortableServer.IdAssignmentPolicyValue value;
-
-    private IdAssignmentPolicy() {
-    }
-
 
     public IdAssignmentPolicy(org.omg.PortableServer.IdAssignmentPolicyValue _value) {
         value = _value;

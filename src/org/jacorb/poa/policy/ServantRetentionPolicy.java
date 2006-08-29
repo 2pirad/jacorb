@@ -24,16 +24,13 @@ package org.jacorb.poa.policy;
  * This class implements the servant retention policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: ServantRetentionPolicy.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: ServantRetentionPolicy.java,v 1.9 2006-08-29 20:20:06 andre.spiegel Exp $
  */
 
 public class ServantRetentionPolicy 
     extends org.omg.PortableServer._ServantRetentionPolicyLocalBase
 {
     private org.omg.PortableServer.ServantRetentionPolicyValue value;
-
-    private ServantRetentionPolicy() {
-    }
 
     public ServantRetentionPolicy(org.omg.PortableServer.ServantRetentionPolicyValue _value) {
         value = _value;

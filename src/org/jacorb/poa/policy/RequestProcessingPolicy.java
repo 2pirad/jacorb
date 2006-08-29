@@ -24,16 +24,13 @@ package org.jacorb.poa.policy;
  * This class implements the request processing policy.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessingPolicy.java,v 1.8 2004-05-06 12:40:01 nicolas Exp $
+ * @version $Id: RequestProcessingPolicy.java,v 1.9 2006-08-29 20:20:06 andre.spiegel Exp $
  */
 
 public class RequestProcessingPolicy
     extends org.omg.PortableServer._RequestProcessingPolicyLocalBase
 {
     private org.omg.PortableServer.RequestProcessingPolicyValue value;
-
-    private RequestProcessingPolicy() {
-    }
 
     public RequestProcessingPolicy(org.omg.PortableServer.RequestProcessingPolicyValue _value) {
         value = _value;
