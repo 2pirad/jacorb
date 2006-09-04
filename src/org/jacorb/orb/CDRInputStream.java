@@ -21,6 +21,7 @@ package org.jacorb.orb;
  */
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
 import org.apache.avalon.framework.configuration.*;
@@ -48,7 +49,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.111 2006-08-03 16:40:12 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.112 2006-09-04 13:25:44 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -2577,7 +2578,11 @@ public class CDRInputStream
                     break;
                 }
                 case TCKind._tk_value:      // 29
-                    // fallthrough
+                {
+                    Serializable val = read_value();
+                    ((org.omg.CORBA_2_3.portable.OutputStream)out).write_value(val, typeCode.id());
+                    break;
+                }
                 case TCKind._tk_value_box:  // 30
                 {
                     String id = typeCode.id();

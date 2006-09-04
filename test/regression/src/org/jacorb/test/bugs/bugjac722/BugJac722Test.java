@@ -33,7 +33,7 @@ import org.omg.CORBA.Any;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac722Test.java,v 1.1 2006-09-01 08:42:46 alphonse.bendt Exp $
+ * @version $Id: BugJac722Test.java,v 1.2 2006-09-04 13:25:44 alphonse.bendt Exp $
  */
 public class BugJac722Test extends ClientServerTestCase
 {
@@ -125,5 +125,20 @@ public class BugJac722Test extends ClientServerTestCase
        Whole bounced = WholeHelper.extract(server.bounce_any(any));
        assertEquals(headPart.m_value, bounced.m_headPart.m_value);
        assertEquals(tailPart.m_value, bounced.m_tailPart.m_value);
+   }
+
+   public void testPartStructInAny()
+   {
+       Part part = new PartImpl();
+       part.m_value = "head";
+
+       PartStruct struct = new PartStruct(part);
+
+       Any any = setup.getClientOrb().create_any();
+
+       PartStructHelper.insert(any, struct);
+
+       PartStruct bounced = PartStructHelper.extract(server.bounce_any(any));
+       assertEquals(part.m_value, bounced.m_part.m_value);
    }
 }

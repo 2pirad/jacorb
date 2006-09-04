@@ -46,7 +46,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.119 2006-09-01 08:42:46 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.120 2006-09-04 13:25:44 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -2428,7 +2428,11 @@ public class CDROutputStream
                     break;
                 }
                 case TCKind._tk_value:      // 29
-                    // fallthrough
+                {
+                    final Serializable val = ((org.omg.CORBA_2_3.portable.InputStream)input).read_value();
+                    write_value(val, typeCode.id());
+                    break;
+                }
                 case TCKind._tk_value_box:
                 {
                     String id = typeCode.id();
