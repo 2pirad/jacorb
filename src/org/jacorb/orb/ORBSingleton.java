@@ -35,7 +35,7 @@ import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.49 2006-07-11 09:15:47 alphonse.bendt Exp $
+ * @version $Id: ORBSingleton.java,v 1.50 2006-09-10 09:53:19 andre.spiegel Exp $
  */
 
 public class ORBSingleton
@@ -103,6 +103,13 @@ public class ORBSingleton
         }
     }
 
+    /**
+     * Returns the logger of this singleton ORB.  Used for testing.
+     */
+    public Logger getLogger()
+    {
+        return logger;
+    }
 
     /* factory methods: */
 
