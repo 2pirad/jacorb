@@ -28,7 +28,7 @@ import java.lang.reflect.*;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
- * @version $Id: Contained.java,v 1.13 2006-05-17 11:13:11 alphonse.bendt Exp $
+ * @version $Id: Contained.java,v 1.14 2006-10-11 20:33:00 iliyan.jeliazkov Exp $
  */
 
 public abstract class Contained
@@ -144,7 +144,8 @@ public abstract class Contained
                     return new org.jacorb.ir.ConstantDef( c,
                                                           _defined_in,
                                                           ir,
-                                                          logger);
+                                                          logger,
+                                                          poa);
                 }
                 catch( NoSuchFieldException nsfe )
                 {
