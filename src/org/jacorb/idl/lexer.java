@@ -44,7 +44,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.52 2006-07-19 08:06:05 alphonse.bendt Exp $
+ * @version $Id: lexer.java,v 1.53 2006-10-13 19:56:48 andre.spiegel Exp $
  * @author Gerald Brose
  *
  */
@@ -178,6 +178,7 @@ public class lexer
         keywords.put( "FALSE", new Integer( sym.FALSE ) );
         keywords.put( "fixed", new Integer( sym.FIXED ) );
         keywords.put( "float", new Integer( sym.FLOAT ) );
+        keywords.put( "getraises", new Integer( sym.GETRAISES ) );
         keywords.put( "in", new Integer( sym.IN ) );
         keywords.put( "inout", new Integer( sym.INOUT ) );
         keywords.put( "interface", new Integer( sym.INTERFACE ) );
@@ -195,6 +196,7 @@ public class lexer
         keywords.put( "raises", new Integer( sym.RAISES ) );
         keywords.put( "readonly", new Integer( sym.READONLY ) );
         keywords.put( "sequence", new Integer( sym.SEQUENCE ) );
+        keywords.put( "setraises", new Integer( sym.SETRAISES ) );
         keywords.put( "short", new Integer( sym.SHORT ) );
         keywords.put( "string", new Integer( sym.STRING ) );
         keywords.put( "struct", new Integer( sym.STRUCT ) );
