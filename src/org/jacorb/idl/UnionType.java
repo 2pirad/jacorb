@@ -27,16 +27,16 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.61 2006-07-13 08:48:28 nick.cross Exp $
+ * @version $Id: UnionType.java,v 1.62 2006-10-13 20:14:19 andre.spiegel Exp $
  */
 public class UnionType
     extends TypeDeclaration
     implements Scope
 {
     /** the union's discriminator's type spec */
-    TypeSpec switch_type_spec;
+    public TypeSpec switch_type_spec;
 
-    SwitchBody switch_body;
+    public SwitchBody switch_body;
     private boolean written = false;
 
     private ScopeData scopeData;

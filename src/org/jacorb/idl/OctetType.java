@@ -24,10 +24,10 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: OctetType.java,v 1.14 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: OctetType.java,v 1.15 2006-10-13 20:14:19 andre.spiegel Exp $
  */
 
-class OctetType
+public class OctetType
         extends BaseType
 {
     public OctetType( int num )

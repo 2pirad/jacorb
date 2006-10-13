@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.31 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.32 2006-10-13 20:14:19 andre.spiegel Exp $
  *
  */
 
@@ -35,7 +35,7 @@ public class ArrayTypeSpec
     ArrayDeclarator declarator = null;
     String typename = null;
     String dimensionStr = "";
-    int[] dims = null;
+    public int[] dims = null;
     int my_dim = 0;
     String typeSig;
 

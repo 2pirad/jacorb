@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.26 2006-05-15 14:35:52 alphonse.bendt Exp $
+ * @version $Id: FixedPointType.java,v 1.27 2006-10-13 20:14:19 andre.spiegel Exp $
  */
 
 public class FixedPointType
@@ -33,8 +33,8 @@ public class FixedPointType
 {
     public ConstExpr digit_expr = null;
     public ConstExpr scale_expr = null;
-    private int digits = 0;
-    private int scale = 0;
+    public int digits = 0;
+    public int scale = 0;
 
     public FixedPointType(int num)
     {
