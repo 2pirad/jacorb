@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: RaisesExpr.java,v 1.16 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: RaisesExpr.java,v 1.17 2006-10-13 20:01:48 andre.spiegel Exp $
  */
 
 public class RaisesExpr
@@ -38,7 +38,25 @@ public class RaisesExpr
         super( num );
         nameList = new Vector();
     }
+    
+    /**
+     * Constructs an empty RaisesExpr
+     */
+    public RaisesExpr()
+    {
+        this(new_num());
+    }
 
+    /**
+     * Constructs a 
+     * @param nameList
+     */
+    public RaisesExpr (Vector nameList)
+    {
+        super (new_num());
+        this.nameList = (Vector)nameList.clone();
+    }
+    
     public void setPackage( String s )
     {
         s = parser.pack_replace( s );
