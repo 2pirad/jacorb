@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: SymbolList.java,v 1.15 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: SymbolList.java,v 1.16 2006-10-13 20:02:44 andre.spiegel Exp $
  */
 
 public class SymbolList
@@ -37,6 +37,15 @@ public class SymbolList
     {
         super( num );
         v = new Vector();
+    }
+
+    /**
+     * Constructs a new SymbolList with a single element.
+     */
+    public SymbolList (SimpleDeclarator element)
+    {
+        this (new_num());
+        v.add (element);
     }
 
     public void setPackage( String s )
