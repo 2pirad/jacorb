@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.75 2006-10-13 20:04:47 andre.spiegel Exp $
+ * @version $Id: Interface.java,v 1.76 2006-10-14 12:25:25 andre.spiegel Exp $
  */
 
 import java.io.File;
@@ -1020,7 +1020,7 @@ public class Interface
                 if (ts instanceof ConstrTypeSpec)
                 {
                     Interface base = (Interface) ((ConstrTypeSpec) ts).c_type_spec;
-                    if (base.is_abstract)
+                    if (base.is_abstract || base.hasAbstractBase())
                     {
                         return true;
                     }
