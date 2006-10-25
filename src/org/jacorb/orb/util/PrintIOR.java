@@ -57,7 +57,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.46 2006-08-03 16:40:12 alphonse.bendt Exp $
+ * @version $Id: PrintIOR.java,v 1.47 2006-10-25 16:16:01 alphonse.bendt Exp $
  */
 
 public class PrintIOR
@@ -175,9 +175,9 @@ public class PrintIOR
             }
 
             out.println("\tPort:\t\t\t" + port );
-            out.println("\tObject key (URL):\t" + CorbaLoc.parseKey( pior.get_object_key()));
+            out.println("\tObject key (URL):\t" + CorbaLoc.parseKey( profile.get_object_key()));
             out.print  ("\tObject key (hex):\t0x" );
-            dumpHex( pior.get_object_key(), out);
+            dumpHex( profile.get_object_key(), out);
             out.println();
 
             if ( profile.version().minor >= ( char ) 1 )
