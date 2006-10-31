@@ -43,7 +43,7 @@ import org.jacorb.util.*;
  * information.
  *
  * @author Iliyan Jeliazkov
- * @version $Id: GIOPConnection.java,v 1.62 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: GIOPConnection.java,v 1.63 2006-10-31 16:37:15 andre.spiegel Exp $
  */
 
 final class StatisticsProviderAdapter implements StatisticsProvider
@@ -121,7 +121,7 @@ final class StatisticsProviderAdapter implements StatisticsProvider
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  * 
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.62 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: GIOPConnection.java,v 1.63 2006-10-31 16:37:15 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -989,6 +989,10 @@ public abstract class GIOPConnection
                 {
                     logger.error( "GIOP connection closed due to errors during sendMessage");
                 }
+                //release write lock to prevent dead locks to 
+                //reader thread which might try to close this socket too
+                //concurrently (unfortunately write lock is requested during streamClosed())
+                releaseWriteLock();
                 //close transport connection, there is nearly no chance to sync with
                 //peer on this connection again
                 close();
