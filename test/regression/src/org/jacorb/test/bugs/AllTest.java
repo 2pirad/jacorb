@@ -23,6 +23,7 @@ package org.jacorb.test.bugs;
 import junit.framework.*;
 
 import org.jacorb.test.bugs.bug400.Bug400Test;
+import org.jacorb.test.bugs.bug735.Bug735Test;
 import org.jacorb.test.bugs.bugjac10.TypeCodeTestCase;
 import org.jacorb.test.bugs.bugjac149.ObjectReplacementTest;
 import org.jacorb.test.bugs.bugjac174.InvalidIORTest_bug174;
@@ -52,7 +53,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.34 2006-09-01 08:42:46 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.35 2006-11-15 11:55:19 alphonse.bendt Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -101,6 +102,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(org.jacorb.test.bugs.bugjac330.BugJac330Suite.suite());
       suite.addTestSuite(Bug400Test.class);
       suite.addTest(BugJac722Test.suite());
+      suite.addTestSuite(Bug735Test.class);
 
       return suite;
    }

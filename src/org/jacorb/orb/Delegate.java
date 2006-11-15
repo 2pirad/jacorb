@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.141 2006-08-29 15:01:27 alphonse.bendt Exp $
+ * @version $Id: Delegate.java,v 1.142 2006-11-15 11:55:19 alphonse.bendt Exp $
  *
  */
 
@@ -1398,6 +1398,10 @@ public final class Delegate
                 // ignore
             }
             catch (InstantiationException e) // NOPMD
+            {
+                // ignore
+            }
+            catch (SystemException e) // NOPMD
             {
                 // ignore
             }
