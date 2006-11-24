@@ -34,7 +34,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.17 2006-10-12 12:14:58 andre.spiegel Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.18 2006-11-24 14:13:34 alphonse.bendt Exp $
  */
 
 public class JacORBConfiguration
@@ -345,7 +345,7 @@ public class JacORBConfiguration
            setAttributes(orbProperties);
        }
 
-       if (!loaded)
+       if (!loaded && logLevel > 0)
        {
            // print a warning....
            println("[ No configuration properties found for configuration " + name + " ]");
