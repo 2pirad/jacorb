@@ -46,7 +46,7 @@ import org.jacorb.orb.listener.SSLSessionListener;
  * to create sockets that support SSL.
  *
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.23 2006-07-27 09:08:19 alphonse.bendt Exp $
+ * $Id: SSLSocketFactory.java,v 1.24 2006-11-24 14:15:48 alphonse.bendt Exp $
  */
 public class SSLSocketFactory
     extends AbstractSocketFactory
@@ -165,7 +165,7 @@ public class SSLSocketFactory
         return socket;
     }
 
-    public Socket createSocket(String host, int port, int timeout) throws IOException
+    public Socket doCreateSocket(String host, int port, int timeout) throws IOException
     {
         SSLSocket socket = (SSLSocket)factory.createSocket();
         socket.connect(new InetSocketAddress(host, port), timeout);

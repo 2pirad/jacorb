@@ -27,7 +27,7 @@ import java.io.IOException;
  * the default SocketFactory implementation.
  *
  * @author Steve Osselton
- * @version $Id: DefaultSocketFactory.java,v 1.8 2006-07-27 09:08:43 alphonse.bendt Exp $
+ * @version $Id: DefaultSocketFactory.java,v 1.9 2006-11-24 14:15:37 alphonse.bendt Exp $
  */
 public class DefaultSocketFactory extends AbstractSocketFactory
 {
@@ -37,7 +37,7 @@ public class DefaultSocketFactory extends AbstractSocketFactory
         return new Socket (host, port);
     }
 
-    public Socket createSocket(String host, int port, int timeout) throws IOException, UnknownHostException
+    public Socket doCreateSocket(String host, int port, int timeout) throws IOException, UnknownHostException
     {
         final Socket socket = new Socket();
 

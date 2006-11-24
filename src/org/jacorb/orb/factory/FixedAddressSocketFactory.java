@@ -26,7 +26,6 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 
@@ -37,7 +36,7 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
  * and use the specified value to configure the sockets it creates.
  *
  * @author Nicolas Noffke
- * @version $Id: FixedAddressSocketFactory.java,v 1.5 2006-07-27 09:08:43 alphonse.bendt Exp $
+ * @version $Id: FixedAddressSocketFactory.java,v 1.6 2006-11-24 14:15:37 alphonse.bendt Exp $
  */
 public class FixedAddressSocketFactory extends AbstractSocketFactory
 {
@@ -64,7 +63,7 @@ public class FixedAddressSocketFactory extends AbstractSocketFactory
         return new Socket(host, port);
     }
 
-    public Socket createSocket(String host, int port, int timeout) throws IOException
+    public Socket doCreateSocket(String host, int port, int timeout) throws IOException
     {
         Socket socket = new Socket();
 
