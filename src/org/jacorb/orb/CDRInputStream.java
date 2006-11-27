@@ -49,7 +49,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.112 2006-09-04 13:25:44 alphonse.bendt Exp $
+ * $Id: CDRInputStream.java,v 1.113 2006-11-27 14:34:15 alphonse.bendt Exp $
  */
 
 public class CDRInputStream
@@ -826,7 +826,7 @@ public class CDRInputStream
         }
     }
 
-    public final java.math.BigDecimal read_fixed()
+    public final java.math.BigDecimal read_fixed(short digits, short scale)
     {
         handle_chunking();
 
@@ -839,19 +839,21 @@ public class CDRInputStream
         while(true)
         {
             c = (b & 0xF0) >>> 4;
-            sb.append(c );
+            sb.append(c);
+
             c = b & 0x0F;
             if( c == 0xC || c == 0xD )
             {
                 break;
             }
             sb.append(c );
+
             b = buffer[pos++];
             index++;
         }
 
         java.math.BigDecimal result =
-        new java.math.BigDecimal( new java.math.BigInteger( sb.toString()));
+        	new java.math.BigDecimal( new java.math.BigInteger( sb.toString()), scale);
 
         if( c == 0xD )
         {
