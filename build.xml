@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.67 2006-08-09 10:03:43 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.68 2006-11-27 14:35:47 alphonse.bendt Exp $ -->
    <!-- ==================================================== -->
 
     <property file="${basedir}/build.properties" />
@@ -50,7 +50,7 @@
    <!--                   OMG IDL files                      -->
    <!-- ==================================================== -->
 
-   <target name="omg_idl" depends="init">
+   <target name="omg_idl" depends="compiler">
       <ant antfile="${basedir}/idl/build.xml" dir="${basedir}"/>
    </target>
 
