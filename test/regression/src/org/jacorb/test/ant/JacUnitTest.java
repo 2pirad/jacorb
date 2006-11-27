@@ -38,7 +38,7 @@ import org.jacorb.test.common.TestUtils;
  * the JacORB regression test framework.
  *
  * @author Alphonse Bendt
- * @version $Id: JacUnitTest.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: JacUnitTest.java,v 1.2 2006-11-27 15:03:05 alphonse.bendt Exp $
  */
 public class JacUnitTest extends BuildFileTest
 {
@@ -115,7 +115,7 @@ public class JacUnitTest extends BuildFileTest
 
         expectPropertyUnset("jacunit-run", "jacunit.buildfailed");
 
-        assertTrue(getFullLog().contains(JUnitOK.class.getName()));
+        assertTrue(getFullLog().indexOf(JUnitOK.class.getName()) >= 0);
     }
 
     public void testErrorPropertyWithErrors() throws Exception
