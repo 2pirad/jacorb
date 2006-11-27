@@ -20,7 +20,6 @@ package org.jacorb.test.bugs.bugjac319;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.logger.NullLogger;
 import org.jacorb.orb.IORMutator;
 import org.jacorb.orb.ParsedIOR;
 import org.omg.CORBA.ORB;
@@ -31,7 +30,7 @@ import org.omg.IOP.IOR;
  * <code>MutatorImpl</code> is a sample Mutator implementation for testing.
  *
  * @author Nick Cross
- * @version $Id: MutatorImpl.java,v 1.2 2006-08-03 16:40:12 alphonse.bendt Exp $
+ * @version $Id: MutatorImpl.java,v 1.3 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class MutatorImpl extends IORMutator
 {

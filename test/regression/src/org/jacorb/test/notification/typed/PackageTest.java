@@ -20,17 +20,18 @@ package org.jacorb.test.notification.typed;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PackageTest.java,v 1.8 2006-02-25 14:18:53 alphonse.bendt Exp $
+ * @version $Id: PackageTest.java,v 1.9 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 
 public class PackageTest extends TestCase
 {
-    public static TestSuite suite() throws Exception
+    public static Test suite() throws Exception
     {
         TestSuite suite = new TestSuite("TypedEventChannel Tests");
 
@@ -43,7 +44,7 @@ public class PackageTest extends TestCase
         suite.addTest(TypedEventChannelTest.suite());
         suite.addTest(TypedEventChannelFactoryIntegrationTest.suite());
         suite.addTest(TypedEventChannelIntegrationTest.suite());
-        
+
         return suite;
     }
 }

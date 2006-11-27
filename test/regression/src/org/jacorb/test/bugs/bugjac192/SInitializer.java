@@ -1,5 +1,6 @@
 package org.jacorb.test.bugs.bugjac192;
 
+import org.jacorb.orb.portableInterceptor.ORBInitInfoImpl;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
 import org.omg.PortableInterceptor.ORBInitializer;
@@ -8,7 +9,7 @@ import org.omg.PortableInterceptor.ORBInitializer;
  * <code>SInitializer</code> is basic initializer to register the interceptor.
  *
  * @author Nick Cross
- * @version $Id: SInitializer.java,v 1.1 2006-06-20 09:30:48 alphonse.bendt Exp $
+ * @version $Id: SInitializer.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class SInitializer
     extends org.omg.CORBA.LocalObject
@@ -35,7 +36,7 @@ public class SInitializer
         {
             slotID = info.allocate_slot_id();
 
-            info.add_server_request_interceptor(new SInterceptor());
+            info.add_server_request_interceptor(new SInterceptor(((ORBInitInfoImpl)info).getORB()));
         }
         catch (DuplicateName e)
         {

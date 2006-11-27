@@ -25,7 +25,7 @@ import org.jacorb.config.JacORBConfiguration;
  *
  * @jacorb-client-since 2.2
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.27 2006-08-01 09:00:46 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.28 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 
 public class GIOPConnectionTest
@@ -43,7 +43,9 @@ public class GIOPConnectionTest
 
     protected void tearDown() throws Exception
     {
+        config = null;
         orb.shutdown(true);
+        orb = null;
     }
 
     public static Test suite()

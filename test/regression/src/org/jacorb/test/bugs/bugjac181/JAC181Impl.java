@@ -9,7 +9,7 @@ import org.omg.CORBA.ORB;
  * <code>JAC181Impl</code> is a basic server implementation.
  *
  * @author Nick Cross
- * @version $Id: JAC181Impl.java,v 1.1 2006-06-26 08:07:18 alphonse.bendt Exp $
+ * @version $Id: JAC181Impl.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class JAC181Impl extends JAC181POA implements Configurable
 {
@@ -22,8 +22,6 @@ public class JAC181Impl extends JAC181POA implements Configurable
      */
     public void ping1()
     {
-        System.err.println ("Called ping1!");
-
         Thread thread1 = new Thread("ORBDestroyThread")
         {
             public void run()

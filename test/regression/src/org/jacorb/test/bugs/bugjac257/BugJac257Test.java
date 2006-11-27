@@ -34,7 +34,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
  * an operation on an object.
  *
  * @author Nick Cross
- * @version $Id: BugJac257Test.java,v 1.1 2006-06-30 13:25:44 alphonse.bendt Exp $
+ * @version $Id: BugJac257Test.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class BugJac257Test extends ClientServerTestCase
 {
@@ -64,6 +64,11 @@ public class BugJac257Test extends ClientServerTestCase
     public void setUp() throws Exception
     {
         server = JAC257Helper.narrow( setup.getServerObject() );
+    }
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
     }
 
     /**

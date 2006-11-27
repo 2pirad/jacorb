@@ -17,7 +17,7 @@ import org.omg.CORBA.WrongTransaction;
  * converted from demo.dii
  *
  * @author Alphonse Bendt
- * @version $Id: DiiTest.java,v 1.7 2006-07-20 11:16:26 alphonse.bendt Exp $
+ * @version $Id: DiiTest.java,v 1.8 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class DiiTest extends ClientServerTestCase
 {
@@ -46,6 +46,13 @@ public class DiiTest extends ClientServerTestCase
     {
         server = setup.getServerObject();
         orb = setup.getClientOrb();
+    }
+
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
+        orb = null;
     }
 
 

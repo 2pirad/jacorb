@@ -20,6 +20,8 @@ package org.jacorb.test.notification.typed;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.Properties;
+
 import junit.framework.Test;
 
 import org.easymock.AbstractMatcher;
@@ -30,9 +32,11 @@ import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.servant.ITypedAdmin;
 import org.jacorb.notification.servant.TypedProxyPullConsumerImpl;
+import org.jacorb.test.common.ORBSetup;
 import org.jacorb.test.notification.common.NotificationTestCase;
 import org.jacorb.test.notification.common.NotificationTestCaseSetup;
 import org.omg.CORBA.IntHolder;
+import org.omg.CORBA.ORB;
 import org.omg.CORBA.StringHolder;
 import org.omg.CORBA.TRANSIENT;
 import org.omg.CosEventChannelAdmin.TypeError;
@@ -51,7 +55,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.11 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.12 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class TypedProxyPullConsumerImplTest extends NotificationTestCase
 {
@@ -85,8 +89,15 @@ public class TypedProxyPullConsumerImplTest extends NotificationTestCase
 
     private ScheduledFuture mockScheduledFuture_;
 
+    private ORBSetup myORB;
+
     public void setUpTest() throws Exception
     {
+    	Properties props = new Properties();
+    	props.setProperty("ORBInitRef.InterfaceRepository", getRepository().toString());
+    	myORB = new ORBSetup(this, props);
+    	myORB.setUp();
+
         controlScheduledFuture_ = MockControl.createControl(ScheduledFuture.class);
         mockScheduledFuture_ = (ScheduledFuture) controlScheduledFuture_.getMock();
         controlAdmin_ = MockControl.createNiceControl(ITypedAdmin.class);
@@ -132,10 +143,21 @@ public class TypedProxyPullConsumerImplTest extends NotificationTestCase
         pullCoffee_ = new PullCoffeePOATie(mockPullCoffee_)._this(getClientORB());
     }
 
+    protected void tearDownTest() throws Exception
+    {
+    	myORB.tearDown();
+    }
+
     public TypedProxyPullConsumerImplTest(String name, NotificationTestCaseSetup setup)
     {
         super(name, setup);
     }
+
+    public ORB getClientORB()
+    {
+    	return myORB.getORB();
+    }
+
 
     public void testId()
     {

@@ -33,7 +33,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddress2Test.java,v 1.4 2006-07-06 12:36:36 alphonse.bendt Exp $
+ * @version $Id: AlternateIIOPAddress2Test.java,v 1.5 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class AlternateIIOPAddress2Test extends ClientServerTestCase
 {
@@ -65,6 +65,7 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         // server.clearSocketAddress();
         server.setIORProtAddr (PROTOCOL + CORRECT_HOST + ":" + CORRECT_PORT);
         server.clearAlternateAddresses();
+        server = null;
     }
 
     public static Test suite()

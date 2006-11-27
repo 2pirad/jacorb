@@ -15,7 +15,7 @@ import org.omg.Messaging.*;
  * Despite a heavy request storm all requests should come through.
  *
  * @author Andre Spiegel
- * @version $Id: QueueWaitTest.java,v 1.5 2006-07-13 08:46:21 nick.cross Exp $
+ * @version $Id: QueueWaitTest.java,v 1.6 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class QueueWaitTest extends CallbackTestCase
 {
@@ -29,6 +29,11 @@ public class QueueWaitTest extends CallbackTestCase
     public void setUp() throws Exception
     {
         server = CallbackServerHelper.narrow( setup.getServerObject() );
+    }
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
     }
 
     public static Test suite()

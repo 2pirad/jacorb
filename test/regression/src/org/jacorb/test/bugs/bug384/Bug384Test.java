@@ -31,41 +31,38 @@ import org.omg.PortableServer.*;
  * results for both local and non-local objects.
  *
  * @author Gerald Brose
- * @version $Id: TestCase.java,v 1.6 2006-07-13 10:43:51 alphonse.bendt Exp $
+ * @version $Id: Bug384Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 
-public class TestCase
+public class Bug384Test
     extends ClientServerTestCase
 {
     private org.omg.CORBA.Object testObject;
     private org.omg.CORBA.Object localTestObject;
-    private org.omg.CORBA.ORB orb;
 
-    public TestCase( String name, ClientServerSetup setup )
+    public Bug384Test( String name, ClientServerSetup setup )
     {
         super( name, setup );
     }
 
-    public void setUp()
+    public void setUp() throws Exception
     {
         testObject = setup.getServerObject();
-        orb = org.omg.CORBA.ORB.init( new String[0], null);
 
-        try
-        {
-            POA poa = POAHelper.narrow( orb.resolve_initial_references("RootPOA"));
+        POA poa = setup.getClientRootPOA();
 
-            poa.the_POAManager().activate();
+        poa.the_POAManager().activate();
 
-            localTestObject =
-                poa.servant_to_reference( new TestObjectImpl());
-        }
-        catch( Exception e )
-        {
-            e.printStackTrace();
-        }
+        localTestObject =
+            poa.servant_to_reference( new TestObjectImpl());
     }
 
+    public void tearDown() throws Exception
+    {
+        testObject = null;
+        localTestObject._release();
+        localTestObject = null;
+    }
 
     public static Test suite()
     {
@@ -75,9 +72,7 @@ public class TestCase
             new ClientServerSetup( suite,
             "org.jacorb.test.bugs.bug384.TestObjectImpl" );
 
-        suite.addTest( new TestCase( "testNonLocalIsA", setup ));
-        suite.addTest( new TestCase( "testLocalIsA", setup ));
-        suite.addTest( new TestCase( "testMarshall", setup ));
+        TestUtils.addToSuite(suite, setup, Bug384Test.class);
 
         return setup;
     }
@@ -105,11 +100,5 @@ public class TestCase
         TestObject serverObj = TestObjectHelper.narrow( testObject );
         A[] result = serverObj.testMarshall();
         assertNotNull(result);
-    }
-
-    public void tearDown() throws Exception
-    {
-        orb.shutdown( true );
-        super.tearDown();
     }
 }

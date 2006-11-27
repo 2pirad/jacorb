@@ -13,12 +13,12 @@ import org.jacorb.test.common.*;
  * Tests for SyncScopePolicy.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: SyncScopeTest.java,v 1.3 2006-07-07 10:59:23 alphonse.bendt Exp $
+ * @version $Id: SyncScopeTest.java,v 1.4 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class SyncScopeTest extends ClientServerTestCase
 {
-    private SyncScopeServer server;
     private final int TIME = 300;
+    private SyncScopeServer server;
 
     public SyncScopeTest (String name, ClientServerSetup setup)
     {
@@ -28,6 +28,11 @@ public class SyncScopeTest extends ClientServerTestCase
     protected void setUp() throws Exception
     {
         server = SyncScopeServerHelper.narrow (setup.getServerObject());
+    }
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
     }
 
     public static Test suite()

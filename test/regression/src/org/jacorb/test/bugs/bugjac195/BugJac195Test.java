@@ -37,13 +37,13 @@ import org.jacorb.test.common.TestUtils;
  * connectionClosed events are reported correctly
  *
  * @author Carol Jordon
- * @version $Id: BugJac195Test.java,v 1.2 2006-07-06 12:35:03 alphonse.bendt Exp $
+ * @version $Id: BugJac195Test.java,v 1.3 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class BugJac195Test extends ClientServerTestCase
 {
     private JAC195Server server;
 
-    static String port = "50124";
+    final static String port = "50124";
 
     public BugJac195Test(String name, ClientServerSetup setup)
     {
@@ -53,6 +53,11 @@ public class BugJac195Test extends ClientServerTestCase
     public void setUp() throws Exception
     {
         server = JAC195ServerHelper.narrow( setup.getServerObject() );
+    }
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
     }
 
     public static Test suite()

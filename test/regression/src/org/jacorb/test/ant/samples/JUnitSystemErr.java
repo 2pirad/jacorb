@@ -1,9 +1,7 @@
-package org.jacorb.test.bugs.bugjac44;
-
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2001  Gerald Brose.
+ *   Copyright (C) 1997-2006 The JacORB project.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -20,15 +18,18 @@ package org.jacorb.test.bugs.bugjac44;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+package org.jacorb.test.ant.samples;
 
-import apmInterface.SA_Connection;
-
+import junit.framework.TestCase;
 
 /**
- *  Verifies that the IDL was generated into the correct package
- *  by the import statement above.
- *
+ * @author Alphonse Bendt
+ * @version $Id: JUnitSystemErr.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
-public class BugJac44
+public class JUnitSystemErr extends TestCase
 {
+    public void testSystemErr()
+    {
+        System.err.println("SYSTEM ERR");
+    }
 }

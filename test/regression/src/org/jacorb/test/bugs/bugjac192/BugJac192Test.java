@@ -15,7 +15,7 @@ import org.omg.CORBA.ORB;
  * the ORB times out client and/or server side.
  *
  * @author Nick Cross
- * @version $Id: BugJac192Test.java,v 1.3 2006-07-13 10:43:51 alphonse.bendt Exp $
+ * @version $Id: BugJac192Test.java,v 1.4 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class BugJac192Test extends ClientServerTestCase
 {
@@ -23,12 +23,6 @@ public class BugJac192Test extends ClientServerTestCase
      * <code>svcID</code> is the service context ID used by the interceptors.
      */
     public static final int svcID = 192;
-
-
-    /**
-     * <code>serverOrb</code> is a reference to the server ORB.
-     */
-    static ORB serverOrb;
 
 
     /**
@@ -61,10 +55,7 @@ public class BugJac192Test extends ClientServerTestCase
 
     protected void tearDown() throws Exception
     {
-        if (serverOrb != null)
-        {
-            serverOrb.shutdown(true);
-        }
+        server = null;
     }
 
     /**

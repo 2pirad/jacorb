@@ -13,7 +13,7 @@ import org.jacorb.util.Time;
 
 /**
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: TimingTest.java,v 1.14 2006-07-12 09:48:25 alphonse.bendt Exp $
+ * @version $Id: TimingTest.java,v 1.15 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class TimingTest extends CallbackTestCase
 {
@@ -27,6 +27,11 @@ public class TimingTest extends CallbackTestCase
     protected void setUp() throws Exception
     {
         server = TimingServerHelper.narrow (setup.getServerObject());
+    }
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
     }
 
     private class ReplyHandler

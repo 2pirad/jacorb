@@ -34,7 +34,7 @@ import org.jacorb.notification.util.WeakHashSet;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: WeakHashSetTest.java,v 1.3 2006-07-07 13:23:34 alphonse.bendt Exp $
+ * @version $Id: WeakHashSetTest.java,v 1.4 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class WeakHashSetTest extends TestCase
 {
@@ -228,7 +228,7 @@ public class WeakHashSetTest extends TestCase
         assertTrue(objectUnderTest_.isEmpty());
     }
 
-    public void testIsReallyWeak()
+    public void _testIsReallyWeak()
     {
         long timeout = System.currentTimeMillis() + 10000;
 

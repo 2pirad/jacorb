@@ -34,7 +34,7 @@ import org.jacorb.test.common.TestUtils;
  * of calls in single and multiple thread child POAs
  *
  * @author Nick Cross
- * @version $Id: POAThreadingTest.java,v 1.1 2006-06-19 12:47:27 alphonse.bendt Exp $
+ * @version $Id: POAThreadingTest.java,v 1.2 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class POAThreadingTest extends ClientServerTestCase
 {
@@ -62,6 +62,11 @@ public class POAThreadingTest extends ClientServerTestCase
     public void setUp() throws Exception
     {
         server = JAC178Helper.narrow( setup.getServerObject() );
+    }
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
     }
 
     public static Test suite()

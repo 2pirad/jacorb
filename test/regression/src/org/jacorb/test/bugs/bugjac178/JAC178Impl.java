@@ -19,7 +19,7 @@ import org.omg.PortableServer.POAHelper;
  * ORB_CTRL threading models within the POA.
  *
  * @author Nick Cross
- * @version $Id: JAC178Impl.java,v 1.1 2006-06-19 12:47:27 alphonse.bendt Exp $
+ * @version $Id: JAC178Impl.java,v 1.2 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class JAC178Impl extends JAC178POA implements Configurable
 {
@@ -65,8 +65,6 @@ public class JAC178Impl extends JAC178POA implements Configurable
         {
             // Create child using the supplied session ID
             Policy policies[] = new Policy[1];
-
-            System.err.println ("Creating child poa/object with sessionID " + sessionID);
 
             // The sessionID encodes which thread model to use (sneaky!).
             if (sessionID.startsWith ("Single"))

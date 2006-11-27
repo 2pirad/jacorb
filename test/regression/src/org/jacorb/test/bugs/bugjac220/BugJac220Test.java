@@ -29,7 +29,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Nick Cross
- * @version $Id: BugJac220Test.java,v 1.1 2006-06-21 09:41:06 alphonse.bendt Exp $
+ * @version $Id: BugJac220Test.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class BugJac220Test extends ClientServerTestCase
 {
@@ -56,6 +56,10 @@ public class BugJac220Test extends ClientServerTestCase
         server = TestEnumHelper.narrow( setup.getServerObject() );
     }
 
+    protected void tearDown() throws Exception
+    {
+        server = null;
+    }
 
     /**
      * <code>suite</code> sets up the server/client tests.

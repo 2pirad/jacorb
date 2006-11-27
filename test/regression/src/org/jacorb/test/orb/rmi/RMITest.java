@@ -40,7 +40,7 @@ import org.jacorb.test.orb.rmi.Outer.StaticInner;
  * @see JacORBJacORBRMITest
  * @see JacORBSunRMITest
  *
- * @version $Id: RMITest.java,v 1.11 2006-05-31 15:01:12 alphonse.bendt Exp $
+ * @version $Id: RMITest.java,v 1.12 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public abstract class RMITest extends ClientServerTestCase
 {
@@ -56,6 +56,11 @@ public abstract class RMITest extends ClientServerTestCase
         server = (RMITestInterface)javax.rmi.PortableRemoteObject.narrow(
                                                     setup.getServerObject(),
                                                     RMITestInterface.class);
+    }
+
+    protected void tearDown() throws Exception
+    {
+        server = null;
     }
 
     public void test_getString() throws Exception

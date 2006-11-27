@@ -28,13 +28,13 @@ import org.jacorb.test.common.*;
  * Tests marshaling of value box instances within structs within anys.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: TestCase.java,v 1.2 2003-11-11 23:25:15 andre.spiegel Exp $
+ * @version $Id: Bug387Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
-public class TestCase extends ClientServerTestCase
+public class Bug387Test extends ClientServerTestCase
 {
     private TestInterface server = null;
     
-    public TestCase (String name, ClientServerSetup setup)
+    public Bug387Test (String name, ClientServerSetup setup)
     {
         super (name, setup);
     }
@@ -51,12 +51,12 @@ public class TestCase extends ClientServerTestCase
             new ClientServerSetup(suite,
                                   "org.jacorb.test.bugs.bug387.TestInterfaceImpl");
 
-        suite.addTest(new TestCase("test_return_value", setup));
-        suite.addTest(new TestCase("test_return_null", setup));
-        suite.addTest(new TestCase("test_pass_value", setup));
-        suite.addTest(new TestCase("test_pass_null", setup));
-        suite.addTest(new TestCase("test_pass_unshared", setup));
-        suite.addTest(new TestCase("test_pass_shared", setup));
+        suite.addTest(new Bug387Test("test_return_value", setup));
+        suite.addTest(new Bug387Test("test_return_null", setup));
+        suite.addTest(new Bug387Test("test_pass_value", setup));
+        suite.addTest(new Bug387Test("test_pass_null", setup));
+        suite.addTest(new Bug387Test("test_pass_unshared", setup));
+        suite.addTest(new Bug387Test("test_pass_shared", setup));
         
         return setup;   
     }

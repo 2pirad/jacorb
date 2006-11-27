@@ -39,7 +39,7 @@ import org.omg.CORBA.OBJECT_NOT_EXIST;
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddressTest.java,v 1.12 2006-07-17 11:13:15 alphonse.bendt Exp $
+ * @version $Id: AlternateIIOPAddressTest.java,v 1.13 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class AlternateIIOPAddressTest extends ClientServerTestCase
 {
@@ -67,6 +67,7 @@ public class AlternateIIOPAddressTest extends ClientServerTestCase
         // server.clearSocketAddress();
         server.setIORAddress (CORRECT_HOST, CORRECT_PORT);
         server.clearAlternateAddresses();
+        server = null;
     }
 
     public static Test suite()
@@ -87,9 +88,8 @@ public class AlternateIIOPAddressTest extends ClientServerTestCase
 
         // If security is not disabled it will not use the above host/port
         // combinations.
-        client_props.setProperty("jacorb.regression.disable_security",
-                                 "true");
-
+        client_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
+        server_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
 
         ClientServerSetup setup =
             new ClientServerSetup (suite,

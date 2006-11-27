@@ -35,7 +35,7 @@ import org.omg.CORBA.ORB;
  * <code>ORBInitTest</code> tests ORBInit parsing
  *
  * @author Nick Cross
- * @version $Id: ORBInitTest.java,v 1.4 2006-07-13 10:43:51 alphonse.bendt Exp $
+ * @version $Id: ORBInitTest.java,v 1.5 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class ORBInitTest extends TestCase
 {
@@ -54,6 +54,7 @@ public class ORBInitTest extends TestCase
             ORB orb = (ORB) iter.next();
             orb.shutdown(true);
         }
+        orbs.clear();
     }
 
     /**
@@ -61,10 +62,9 @@ public class ORBInitTest extends TestCase
      */
     public void testParse1()
     {
-        String args[] = new String[3];
-        args[0] = "-ORBInitRef";
+        String args[] = new String[2];
+        args[0] = "-ORBInitRef.NameService";
         args[1] = "NameService";
-        args[2] = "foo.ior";
 
         try
         {

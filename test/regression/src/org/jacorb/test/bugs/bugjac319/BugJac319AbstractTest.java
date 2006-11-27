@@ -36,7 +36,7 @@ import org.jacorb.test.common.TestUtils;
  * it is turned off.
  *
  * @author Nick Cross
- * @version $Id: BugJac319AbstractTest.java,v 1.1 2006-07-10 08:56:00 alphonse.bendt Exp $
+ * @version $Id: BugJac319AbstractTest.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public abstract class BugJac319AbstractTest extends ClientServerTestCase
 {
@@ -57,10 +57,15 @@ public abstract class BugJac319AbstractTest extends ClientServerTestCase
         super(name, setup);
     }
 
-    public void setUp() throws Exception
+    public final void setUp() throws Exception
     {
         server = JAC319Helper.narrow( setup.getServerObject() );
         MutatorImpl.reset();
+    }
+
+    protected final void tearDown() throws Exception
+    {
+        server = null;
     }
 
     public static Test suite(boolean doMutate, Class clazz)

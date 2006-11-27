@@ -22,22 +22,18 @@ package org.jacorb.test.orb;
 
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.jacorb.orb.ParsedIOR;
-import org.omg.CORBA.ORB;
+import org.jacorb.test.common.ORBTestCase;
 
 /**
  * <code>DIOPIORTest</code> tests that JacORB can decode a DIOP IOR - this
  * are a GIOP UDP protocol.
  *
  * @author Nick Cross
- * @version $Id: DIOPIORTest.java,v 1.3 2006-08-03 16:40:12 alphonse.bendt Exp $
+ * @version $Id: DIOPIORTest.java,v 1.4 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
-public class DIOPIORTest extends TestCase
+public class DIOPIORTest extends ORBTestCase
 {
-    private final org.omg.CORBA.ORB orb = ORB.init(new String[0], null);
-
     /**
      * <code>testIOR</code> is a test DIOP ior to decode.
      */
@@ -56,10 +52,5 @@ public class DIOPIORTest extends TestCase
 
         assertNotNull("did not get bodies", bodies);
         assertTrue("did not get bodies", bodies.size() > 0);
-    }
-
-    protected void tearDown() throws Exception
-    {
-        orb.shutdown(true);
     }
 }

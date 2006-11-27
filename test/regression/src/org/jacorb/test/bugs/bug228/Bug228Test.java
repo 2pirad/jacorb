@@ -20,9 +20,7 @@ package org.jacorb.test.bugs.bug228;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import junit.framework.*;
-
-import org.omg.CORBA.*;
+import org.jacorb.test.common.ORBTestCase;
 
 /**
  * Test for bug 228, checks whether factory methods do end up in the Helper
@@ -30,26 +28,12 @@ import org.omg.CORBA.*;
  * the DefaultFactory.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: TestCase.java,v 1.4 2006-07-13 10:43:51 alphonse.bendt Exp $
+ * @version $Id: Bug228Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
-public class TestCase extends junit.framework.TestCase
+public class Bug228Test extends ORBTestCase
 {
-    public TestCase(String name)
-    {
-        super(name);
-    }
-
-    public static Test suite()
-    {
-        TestSuite suite = new TestSuite ("bug 228 valuetype factories in helper");
-        suite.addTest (new TestCase ("testFactories"));
-        return suite;
-    }
-
     public void testFactories()
     {
-        ORB orb = org.omg.CORBA.ORB.init (new String[]{}, null);
-
         Sample s = SampleHelper.init_1 (orb);
         assertNotNull(s);
 
@@ -58,13 +42,5 @@ public class TestCase extends junit.framework.TestCase
         assertEquals (1, s.alpha);
         assertEquals (2.0, s.beta, 0.0);
         assertEquals ("blabla", s.gamma);
-
-        orb.shutdown(true);
     }
-
-    public static void main(String[] args)
-    {
-        junit.textui.TestRunner.run(TestCase.class);
-    }
-
 }

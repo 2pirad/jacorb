@@ -25,6 +25,7 @@ import java.util.Properties;
 
 import junit.framework.TestCase;
 
+import org.omg.CORBA.INITIALIZE;
 import org.omg.CORBA.ORB;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
@@ -34,7 +35,7 @@ import org.omg.PortableServer.POAManager;
  * Tests the ORB's OAAddress property using an IPv6 address.
  *
  * @author Adam Mitz (mitza@ociweb.com)
- * @version $Id: OAAddressIPv6Test.java,v 1.1 2006-07-27 08:26:40 alphonse.bendt Exp $
+ * @version $Id: OAAddressIPv6Test.java,v 1.2 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class OAAddressIPv6Test extends TestCase
 {
@@ -45,13 +46,23 @@ public class OAAddressIPv6Test extends TestCase
         Properties server_props = new Properties();
         server_props.setProperty("OAAddress", LISTEN_EP_V6);
         ORB myorb = ORB.init((String[])null, server_props);
-        org.omg.CORBA.Object poa_obj =
-          myorb.resolve_initial_references("RootPOA");
-        POA root_poa = POAHelper.narrow(poa_obj);
-        POAManager pm = root_poa.the_POAManager();
-        SampleImpl servant = new SampleImpl();
-        root_poa.activate_object(servant);
-        pm.activate();
-        myorb.destroy();
+
+        try
+        {
+            org.omg.CORBA.Object poa_obj =
+                myorb.resolve_initial_references("RootPOA");
+            POA root_poa = POAHelper.narrow(poa_obj);
+            POAManager pm = root_poa.the_POAManager();
+            SampleImpl servant = new SampleImpl();
+            root_poa.activate_object(servant);
+            pm.activate();
+            myorb.destroy();
+        }
+        catch(INITIALIZE e)
+        {
+            // this exception is thrown if IPv6 is not available on the machine
+            // in this case the test can be ignored.
+            assertTrue(e.getMessage(), e.getMessage().indexOf("Protocol family unavailable") >= 0);
+        }
     }
 }

@@ -40,7 +40,7 @@ import org.jacorb.test.common.TestUtils;
  * load and inspect the compiled classes.
  *
  * @author Alphonse Bendt
- * @version $Id: ParseValidIDLTest.java,v 1.11 2006-07-19 13:57:14 alphonse.bendt Exp $
+ * @version $Id: ParseValidIDLTest.java,v 1.12 2006-11-27 14:45:19 alphonse.bendt Exp $
  */
 public class ParseValidIDLTest extends AbstractIDLTestcase
 {
@@ -66,8 +66,8 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
         // if a test fails the directory
         // will not be deleted. this way
         // the contents can be inspected.
-        deleteRecursively(dirCompilation);
-        deleteRecursively(dirGeneration);
+        TestUtils.deleteRecursively(dirCompilation);
+        TestUtils.deleteRecursively(dirGeneration);
     }
 
     /**
@@ -103,7 +103,6 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
     public static Test suite()
     {
         final String dir = TestUtils.testHome() + "/idl/compiler/succeed";
-
         return suite(dir, ParseValidIDLTest.class);
     }
 }

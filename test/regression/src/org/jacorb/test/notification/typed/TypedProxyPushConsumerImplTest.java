@@ -47,7 +47,7 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushConsumerHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.9 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushConsumerImplTest.java,v 1.10 2006-11-27 14:45:18 alphonse.bendt Exp $
  */
 public class TypedProxyPushConsumerImplTest extends NotificationTestCase
 {
@@ -187,9 +187,9 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
                 .getMock();
 
         controlPushSupplier.replay();
-        
+
         PushSupplierPOATie tie = new PushSupplierPOATie(mockPushSupplier);
-        
+
         proxyPushConsumer_.connect_typed_push_supplier(tie._this(getClientORB()));
 
         Any any = getORB().create_any();
@@ -205,7 +205,7 @@ public class TypedProxyPushConsumerImplTest extends NotificationTestCase
         {
             // expected
         }
-        
+
         controlPushSupplier.verify();
     }
 
