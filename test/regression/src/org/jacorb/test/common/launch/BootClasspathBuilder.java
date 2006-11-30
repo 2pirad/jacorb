@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BootClasspathBuilder.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: BootClasspathBuilder.java,v 1.2 2006-11-30 13:12:58 alphonse.bendt Exp $
  */
 public class BootClasspathBuilder
 {
@@ -82,6 +82,16 @@ public class BootClasspathBuilder
             }
         }
 
+        if (useCoverage)
+        {
+            final File emmaJar = new File(jacorbHome, "test/regression/lib/emma.jar");
+            if (!emmaJar.exists())
+            {
+                throw new IllegalArgumentException("cannot locate emma.jar at " + emmaJar);
+            }
+            entries.add(emmaJar.toString());
+        }
+
         final StringBuffer buffer = new StringBuffer();
         if (!entries.isEmpty())
         {
@@ -93,6 +103,7 @@ public class BootClasspathBuilder
                 buffer.append(entries.get(x));
             }
         }
+
         bootClasspath = buffer.toString();
     }
 
