@@ -29,9 +29,9 @@ import org.jacorb.notification.engine.AbstractRetryStrategy;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AlwaysDisposeRetryStrategyTest.java,v 1.3 2006-02-20 19:28:27 alphonse.bendt Exp $
+ * @version $Id: AlwaysDisposeRetryStrategyTest.java,v 1.4 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public class AlwaysDisposeRetryStrategyTest extends AbstractRetryStrategyTest
+public class AlwaysDisposeRetryStrategyTest extends AbstractRetryStrategyTestCase
 {
     public void testRetryDisposesOperationAndConsumer() throws Exception
     {

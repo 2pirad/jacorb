@@ -29,9 +29,9 @@ import org.jacorb.notification.util.WildcardMap;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultWildcardMapTest.java,v 1.2 2006-02-25 15:24:04 alphonse.bendt Exp $
+ * @version $Id: DefaultWildcardMapTest.java,v 1.3 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public class DefaultWildcardMapTest extends AbstractWildcardMapTest
+public class DefaultWildcardMapTest extends AbstractWildcardMapTestCase
 {
     WildcardMap newWildcardMap()
     {

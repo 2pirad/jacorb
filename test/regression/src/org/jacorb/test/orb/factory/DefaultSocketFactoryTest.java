@@ -5,9 +5,9 @@ import org.jacorb.orb.factory.SocketFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultSocketFactoryTest.java,v 1.1 2006-07-25 15:43:21 alphonse.bendt Exp $
+ * @version $Id: DefaultSocketFactoryTest.java,v 1.2 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public class DefaultSocketFactoryTest extends AbstractSocketFactoryTest
+public class DefaultSocketFactoryTest extends AbstractSocketFactoryTestCase
 {
     protected SocketFactory newObjectUnderTest()
     {

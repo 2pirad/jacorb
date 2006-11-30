@@ -12,9 +12,9 @@ import org.jacorb.orb.factory.SocketFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FixedAddressSocketFactoryTest.java,v 1.2 2006-07-26 09:16:29 alphonse.bendt Exp $
+ * @version $Id: FixedAddressSocketFactoryTest.java,v 1.3 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public class FixedAddressSocketFactoryTest extends AbstractSocketFactoryTest
+public class FixedAddressSocketFactoryTest extends AbstractSocketFactoryTestCase
 {
     protected SocketFactory newObjectUnderTest()
     {

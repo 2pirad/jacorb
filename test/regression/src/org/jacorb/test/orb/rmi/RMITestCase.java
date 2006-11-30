@@ -40,13 +40,13 @@ import org.jacorb.test.orb.rmi.Outer.StaticInner;
  * @see JacORBJacORBRMITest
  * @see JacORBSunRMITest
  *
- * @version $Id: RMITest.java,v 1.12 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: RMITestCase.java,v 1.1 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public abstract class RMITest extends ClientServerTestCase
+public abstract class RMITestCase extends ClientServerTestCase
 {
     private RMITestInterface server;
 
-    public RMITest(String name, ClientServerSetup setup)
+    public RMITestCase(String name, ClientServerSetup setup)
     {
         super(name, setup);
     }

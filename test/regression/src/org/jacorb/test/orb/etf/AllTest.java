@@ -25,7 +25,7 @@ import org.jacorb.test.common.*;
 
 /**
  * @jacorb-since 2.2
- * @version $Id: AllTest.java,v 1.5 2006-06-14 12:44:43 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.6 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
 public class AllTest extends JacORBTestSuite
 {
@@ -38,12 +38,12 @@ public class AllTest extends JacORBTestSuite
     {
         TestSuite suite = new AllTest("ETF Tests");
 
-        suite.addTest(C_WIOP_S_WIOP.suite());
-        suite.addTest(C_WIOP_S_IIOP_WIOP.suite());
-        suite.addTest(C_IIOP_WIOP_S_IIOP_WIOP.suite());
-        suite.addTest(C_IIOP_WIOP_S_WIOP_IIOP.suite());
-        suite.addTest(C_WIOP_IIOP_S_WIOP_IIOP.suite());
-        suite.addTest(C_IIOP_S_WIOP.suite());
+        suite.addTest(C_WIOP_S_WIOPTest.suite());
+        suite.addTest(C_WIOP_S_IIOP_WIOPTest.suite());
+        suite.addTest(C_IIOP_WIOP_S_IIOP_WIOPTest.suite());
+        suite.addTest(C_IIOP_WIOP_S_WIOP_IIOPTest.suite());
+        suite.addTest(C_WIOP_IIOP_S_WIOP_IIOPTest.suite());
+        suite.addTest(C_IIOP_S_WIOPTest.suite());
         suite.addTest(ProfileSelectorTest.suite());
         suite.addTest(ServerListenerTest.suite());
         suite.addTest(SpecificProfileSelectorTest.suite());

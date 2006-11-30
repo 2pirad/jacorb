@@ -25,10 +25,10 @@ import org.jacorb.notification.util.PatternWrapper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractPatternWrapperTest.java,v 1.5 2006-02-25 14:18:25 alphonse.bendt Exp $
+ * @version $Id: AbstractPatternWrapperTestCase.java,v 1.1 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
 
-public abstract class AbstractPatternWrapperTest extends TestCase
+public abstract class AbstractPatternWrapperTestCase extends TestCase
 {
     protected PatternWrapper objectUnderTest_;
 

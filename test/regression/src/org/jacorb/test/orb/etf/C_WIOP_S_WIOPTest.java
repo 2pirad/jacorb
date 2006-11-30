@@ -30,38 +30,34 @@ import org.jacorb.test.orb.etf.wiop.WIOPFactories;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: C_WIOP_IIOP_S_WIOP_IIOP.java,v 1.4 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: C_WIOP_S_WIOPTest.java,v 1.1 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public class C_WIOP_IIOP_S_WIOP_IIOP extends AbstractWIOPTestCase
+public class C_WIOP_S_WIOPTest extends AbstractWIOPTestCase
 {
-    public C_WIOP_IIOP_S_WIOP_IIOP (String name, ClientServerSetup setup)
+    public C_WIOP_S_WIOPTest (String name, ClientServerSetup setup)
     {
         super (name, setup);
     }
 
     public static Test suite()
     {
-        TestSuite suite = new TestSuite ("Client WIOP IIOP Server WIOP IIOP");
+        TestSuite suite = new TestSuite ("Client WIOP Server WIOP");
 
-        Properties clientProps = new Properties();
-        clientProps.setProperty("jacorb.transport.factories",
-                                "org.jacorb.test.orb.etf.wiop.WIOPFactories,"
-                              + "org.jacorb.orb.iiop.IIOPFactories");
-
-        Properties serverProps = new Properties();
-        serverProps.setProperty("jacorb.transport.factories",
-                                "org.jacorb.test.orb.etf.wiop.WIOPFactories," +                                "org.jacorb.orb.iiop.IIOPFactories");
+        Properties props = new Properties();
+        props.setProperty("jacorb.transport.factories",
+                          "org.jacorb.test.orb.etf.wiop.WIOPFactories");
 
         // WIOP does not support SSL.
-        clientProps.setProperty("jacorb.regression.disable_security",
-                                "true");
+        props.setProperty("jacorb.regression.disable_security",
+                          "true");
+
 
         ClientServerSetup setup =
           new ClientServerSetup (suite,
                                  "org.jacorb.test.orb.BasicServerImpl",
-                                 clientProps, serverProps);
+                                 props, props);
 
-        suite.addTest (new C_WIOP_IIOP_S_WIOP_IIOP ("testConnection", setup));
+        suite.addTest (new C_WIOP_S_WIOPTest ("testConnection", setup));
 
         return setup;
     }

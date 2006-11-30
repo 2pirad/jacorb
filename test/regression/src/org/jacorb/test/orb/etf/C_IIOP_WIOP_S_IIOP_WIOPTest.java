@@ -26,59 +26,46 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import org.jacorb.test.common.ClientServerSetup;
+import org.jacorb.test.orb.etf.wiop.WIOPFactories;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: C_IIOP_S_WIOP.java,v 1.4 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: C_IIOP_WIOP_S_IIOP_WIOPTest.java,v 1.1 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public class C_IIOP_S_WIOP extends AbstractWIOPTestCase
+public class C_IIOP_WIOP_S_IIOP_WIOPTest extends AbstractWIOPTestCase
 {
-    public C_IIOP_S_WIOP (String name, ClientServerSetup setup)
+    public C_IIOP_WIOP_S_IIOP_WIOPTest (String name, ClientServerSetup setup)
     {
         super (name, setup);
     }
 
     public static Test suite()
     {
-        TestSuite suite = new TestSuite ("Client IIOP Server WIOP");
+        TestSuite suite = new TestSuite ("Client IIOP WIOP Server IIOP WIOP");
 
         Properties clientProps = new Properties();
-        clientProps.setProperty ("jacorb.transport.factories",
-                                 "org.jacorb.orb.iiop.IIOPFactories");
+        clientProps.setProperty("jacorb.transport.factories",
+                                "org.jacorb.orb.iiop.IIOPFactories," +
+                                "org.jacorb.test.orb.etf.wiop.WIOPFactories");
 
         Properties serverProps = new Properties();
         serverProps.setProperty("jacorb.transport.factories",
-                          "org.jacorb.test.orb.etf.wiop.WIOPFactories");
-
-        // WIOP does not support SSL.
-        clientProps.setProperty("jacorb.regression.disable_security",
-                                "true");
-
+                                "org.jacorb.orb.iiop.IIOPFactories," +
+                                "org.jacorb.test.orb.etf.wiop.WIOPFactories");
 
         ClientServerSetup setup =
           new ClientServerSetup (suite,
                                  "org.jacorb.test.orb.BasicServerImpl",
                                  clientProps, serverProps);
 
-        suite.addTest (new C_IIOP_S_WIOP ("testConnection", setup));
+        suite.addTest (new C_IIOP_WIOP_S_IIOP_WIOPTest ("testConnection", setup));
 
         return setup;
     }
 
     public void testConnection()
     {
-        try
-        {
-            server.ping();
-            fail ("should have been a COMM_FAILURE");
-        }
-        catch (org.omg.CORBA.COMM_FAILURE ex)
-        {
-            // ok
-        }
-        catch (Exception ex)
-        {
-            fail ("expected COMM_FAILURE, got " + ex);
-        }
+        server.ping();
+        assertFalse (WIOPFactories.isTransportInUse());
     }
 }

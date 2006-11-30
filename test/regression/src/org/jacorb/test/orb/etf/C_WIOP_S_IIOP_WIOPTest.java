@@ -20,45 +20,50 @@ package org.jacorb.test.orb.etf;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.util.Properties;
+import java.util.*;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import junit.framework.*;
+import junit.extensions.*;
 
-import org.jacorb.test.common.ClientServerSetup;
+import org.jacorb.test.common.*;
+import org.jacorb.test.*;
 import org.jacorb.test.orb.etf.wiop.WIOPFactories;
 
 /**
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: C_IIOP_WIOP_S_IIOP_WIOP.java,v 1.3 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: C_WIOP_S_IIOP_WIOPTest.java,v 1.1 2006-11-30 13:40:35 alphonse.bendt Exp $
  */
-public class C_IIOP_WIOP_S_IIOP_WIOP extends AbstractWIOPTestCase
+public class C_WIOP_S_IIOP_WIOPTest extends AbstractWIOPTestCase
 {
-    public C_IIOP_WIOP_S_IIOP_WIOP (String name, ClientServerSetup setup)
+    public C_WIOP_S_IIOP_WIOPTest (String name, ClientServerSetup setup)
     {
         super (name, setup);
     }
 
     public static Test suite()
     {
-        TestSuite suite = new TestSuite ("Client IIOP WIOP Server IIOP WIOP");
+        TestSuite suite = new TestSuite ("Client WIOP Server IIOP WIOP");
 
         Properties clientProps = new Properties();
         clientProps.setProperty("jacorb.transport.factories",
-                                "org.jacorb.orb.iiop.IIOPFactories," +
                                 "org.jacorb.test.orb.etf.wiop.WIOPFactories");
 
         Properties serverProps = new Properties();
         serverProps.setProperty("jacorb.transport.factories",
-                                "org.jacorb.orb.iiop.IIOPFactories," +
-                                "org.jacorb.test.orb.etf.wiop.WIOPFactories");
+                                "org.jacorb.orb.iiop.IIOPFactories,"
+                              + "org.jacorb.test.orb.etf.wiop.WIOPFactories");
+
+        // WIOP does not support SSL.
+        clientProps.setProperty("jacorb.regression.disable_security",
+                                "true");
+
 
         ClientServerSetup setup =
           new ClientServerSetup (suite,
                                  "org.jacorb.test.orb.BasicServerImpl",
                                  clientProps, serverProps);
 
-        suite.addTest (new C_IIOP_WIOP_S_IIOP_WIOP ("testConnection", setup));
+        suite.addTest (new C_WIOP_S_IIOP_WIOPTest ("testConnection", setup));
 
         return setup;
     }
@@ -66,6 +71,9 @@ public class C_IIOP_WIOP_S_IIOP_WIOP extends AbstractWIOPTestCase
     public void testConnection()
     {
         server.ping();
-        assertFalse (WIOPFactories.isTransportInUse());
+        assertTrue (WIOPFactories.isTransportInUse());
     }
+
+
+
 }
