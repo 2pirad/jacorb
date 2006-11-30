@@ -35,7 +35,7 @@ import org.jacorb.test.common.launch.Launcher;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ServerSetup.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: ServerSetup.java,v 1.2 2006-11-30 13:13:50 alphonse.bendt Exp $
  */
 public class ServerSetup extends TestSetup
 {
@@ -133,6 +133,7 @@ public class ServerSetup extends TestSetup
         boolean coverage = TestUtils.getSystemPropertyAsBoolean("jacorb.test.coverage", false);
 
         Properties serverProperties = new Properties();
+        serverProperties.setProperty("jacorb.log.default.verbosity", "0");
         serverProperties.putAll (serverOrbProperties);
         serverProperties.put ("jacorb.implname", servantName);
 
@@ -140,6 +141,7 @@ public class ServerSetup extends TestSetup
         {
             String outDir = System.getProperty("jacorb.test.outdir");
             serverProperties.put ("emma.coverage.out.file", outDir + "/coverage-server.ec");
+            serverProperties.put("emma.verbosity.level", System.getProperty("emma.verbosity.level", "quiet") );
         }
 
         final Launcher launcher = JacORBLauncher.getLauncher (serverVersion,
