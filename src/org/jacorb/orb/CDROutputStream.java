@@ -47,7 +47,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.121 2006-11-27 14:34:15 alphonse.bendt Exp $
+ * @version $Id: CDROutputStream.java,v 1.122 2006-11-30 13:11:07 alphonse.bendt Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -315,7 +315,7 @@ public class CDROutputStream
     {
         if (valueMap == null)
         {
-            valueMap = ObjectUtil.createIdentityHashMap();
+            valueMap = new IdentityHashMap();
         }
         return valueMap;
     }
@@ -585,7 +585,7 @@ public class CDROutputStream
 
         // set up new indirection maps for this encapsulation
 
-        valueMap = ObjectUtil.createIdentityHashMap();
+        valueMap = new IdentityHashMap();
         repIdMap = new HashMap();
         codebaseMap = new HashMap();
 
@@ -1142,7 +1142,7 @@ public class CDROutputStream
 
     public final void write_fixed(BigDecimal value, short digits, short scale)
     {
-    	write_fixed(value);
+        write_fixed(value);
     }
 
     public final void write_fixed(final java.math.BigDecimal value)
