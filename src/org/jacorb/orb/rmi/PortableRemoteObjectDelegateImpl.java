@@ -22,7 +22,7 @@ package org.jacorb.orb.rmi;
 
 /**
  * @author Gerald Brose
- * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.5 2006-07-26 08:07:17 alphonse.bendt Exp $
+ * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.6 2006-12-06 00:13:57 alphonse.bendt Exp $
  */
 
 import java.rmi.Remote;
@@ -222,7 +222,7 @@ public class PortableRemoteObjectDelegateImpl implements javax.rmi.CORBA.Portabl
             }
             catch (ClassNotFoundException e)
             {
-                throw new java.rmi.server.ExportException("ClassNotFoundException: ", e );
+              //  throw new java.rmi.server.ExportException("ClassNotFoundException: ", e );
             }
             catch (InstantiationException e)
             {
