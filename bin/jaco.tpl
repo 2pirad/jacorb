@@ -4,10 +4,10 @@
 # @author Christoph Becker (PrismTech)
 # @author Alexander Fetke (PrismTech)
 # @author Alphonse Bendt (PrismTech)
-# @version $Id: jaco.tpl,v 1.1 2006-12-07 12:16:13 alphonse.bendt Exp $
+# @version $Id: jaco.tpl,v 1.2 2006-12-07 13:42:03 alphonse.bendt Exp $
 
 # use hardcoded settings if available (true/false)
-USE_HARDCODED=false
+USE_HARDCODED=true
 
 @RESOLVE_JACORB_HOME@
 
@@ -48,8 +48,8 @@ then
 fi
 
 # verbosity output
-echo "Using Java from  : $JRE_HOME"
-echo "Using JacORB from: $JACORB_HOME"
+#echo "Using Java from  : $JRE_HOME"
+#echo "Using JacORB from: $JACORB_HOME"
 
 # call java interpreter
 
@@ -58,6 +58,7 @@ classpath=$classpath:$JACORB_HOME/lib/logkit-1.2.jar
 classpath=$classpath:$JACORB_HOME/lib/avalon-framework-4.1.5.jar
 classpath=$classpath:$JRE_HOME/lib/rt.jar
 classpath=$classpath:$CLASSPATH
+
 
 exec "$JRE_HOME/bin/java"                                         \
     -Xbootclasspath/p:"$classpath"                                \
