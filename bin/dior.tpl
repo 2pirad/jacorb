@@ -1,10 +1,11 @@
 #!/bin/sh
 
 # decodes and prints the components of a stringified IOR
-# @version $Id: dior.tpl,v 1.2 2006-12-08 10:37:13 alphonse.bendt Exp $
+# @version $Id: dior.tpl,v 1.3 2006-12-15 14:27:24 alphonse.bendt Exp $
+# @DONT_EDIT@
 
-@RESOLVE_JACORB_HOME@
+@RESOLVE_JACO_CMD@
 
-JACO=${RESOLVED_JACORB_HOME}/bin/jaco
+JACO_CMD=${RESOLVED_JACO_CMD}
 
-$JACO org.jacorb.orb.util.PrintIOR "$@"
+$JACO_CMD org.jacorb.orb.util.PrintIOR "$@"
