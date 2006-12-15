@@ -4,7 +4,7 @@
 # @author Christoph Becker (PrismTech)
 # @author Alexander Fetke (PrismTech)
 # @author Alphonse Bendt (PrismTech)
-# @version $Id: jaco.tpl,v 1.3 2006-12-15 14:27:24 alphonse.bendt Exp $
+# @version $Id: jaco.tpl,v 1.4 2006-12-15 15:05:30 alphonse.bendt Exp $
 # @DONT_EDIT@
 
 @RESOLVE_JACORB_HOME@
@@ -14,9 +14,9 @@ JACORB_HOME=${RESOLVED_JACORB_HOME}
 JAVA_CMD=${RESOLVED_JAVA_CMD}
 
 # verbosity output
-echo    "using JAVA_CMD   : ${JAVA_CMD}"
-echo    "Using JacORB from: ${JACORB_HOME}"
-echo -e "using CLASSPATH  :\n\t`echo $CLASSPATH | sed -e 's/:/\n\t/g'`"
+#echo    "using JAVA_CMD   : ${JAVA_CMD}"
+#echo    "Using JacORB from: ${JACORB_HOME}"
+#echo -e "using CLASSPATH  :\n\t`echo $CLASSPATH | sed -e 's/:/\n\t/g'`"
 
 exec "$JAVA_CMD"                                                  \
     -Djava.endorsed.dirs="${JACORB_HOME}/lib"                     \
