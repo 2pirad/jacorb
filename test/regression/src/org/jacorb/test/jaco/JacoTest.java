@@ -12,7 +12,7 @@ import junit.framework.TestCase;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: JacoTest.java,v 1.2 2006-12-21 11:42:14 alphonse.bendt Exp $
+ * @version $Id: JacoTest.java,v 1.3 2006-12-21 14:57:16 alphonse.bendt Exp $
  */
 
 public class JacoTest extends TestCase
@@ -22,7 +22,11 @@ public class JacoTest extends TestCase
         File jaco = new File(TestUtils.jacorbHome(), "bin/jaco");
         String command = jaco + " " + JacoTestServer.class.getName();
 
-        Process process = Runtime.getRuntime().exec(command, new String[] {"CLASSPATH=" + TestUtils.testHome() + "/classes"});
+        Process process = Runtime.getRuntime().exec(command,
+                new String[] {
+                    "CLASSPATH=" + TestUtils.testHome() + "/classes",
+                    "JRE_HOME=" + System.getProperty("java.home")
+        });
 
         try
         {
