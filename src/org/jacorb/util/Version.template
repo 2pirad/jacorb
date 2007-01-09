@@ -24,7 +24,7 @@ package org.jacorb.util;
  * Holds the release date and version of JacORB. An attempt to bring more
  * maintainability to the versioning.
  * @author Gerald Brose
- * @version $Id: Version.java,v 1.33 2006-10-14 12:54:26 brose Exp $
+ * @version $Id: Version.template,v 1.1 2007-01-09 11:29:17 alphonse.bendt Exp $
  */
 public final class Version
 {
