@@ -31,7 +31,7 @@ import junit.extensions.*;
  * to a given client and server version.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: JacORBTestSuite.java,v 1.3 2006-07-11 11:48:54 alphonse.bendt Exp $
+ * @version $Id: JacORBTestSuite.java,v 1.4 2007-01-17 13:50:21 alphonse.bendt Exp $
  */
 public class JacORBTestSuite extends TestSuite implements JacORBTest
 {
@@ -149,7 +149,7 @@ public class JacORBTestSuite extends TestSuite implements JacORBTest
             TestAnnotations annotations = parser.getClassAnnotations();
             if (annotations == null || annotations.isApplicableTo (clientVersion, serverVersion))
             {
-                TestSuite ts = invokeSuiteMethod (clazz);
+                Test ts = invokeSuiteMethod (clazz);
                 super.addTest (ts);
             }
         }
@@ -164,14 +164,14 @@ public class JacORBTestSuite extends TestSuite implements JacORBTest
      * result.  If there is no suite() method, or the result of it is not
      * a TestSuite, this method throws a RuntimeException.
      */
-    private TestSuite invokeSuiteMethod(Class clazz)
+    private Test invokeSuiteMethod(Class clazz)
     {
         try
         {
             Method suiteMethod = clazz.getDeclaredMethod ("suite",
                                                       new Class[]{});
             Object result = suiteMethod.invoke(null, new Object[]{});
-            return (TestSuite)result;
+            return (Test)result;
         }
         catch (Exception ex)
         {
