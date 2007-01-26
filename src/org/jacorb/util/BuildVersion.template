@@ -23,11 +23,11 @@ package org.jacorb.util;
 /**
  * @author Alphonse Bendt
  * @author Andre Spiegel
- * @version $Id: BuildVersion.template,v 1.1 2007-01-17 12:18:34 alphonse.bendt Exp $
+ * @version $Id: BuildVersion.template,v 1.2 2007-01-26 09:27:33 alphonse.bendt Exp $
  */
 public final class BuildVersion
 {
-    private static final String versionInfo = "@VERSION_INFO@";
+    public static final String versionInfo = "@VERSION_INFO@";
 
     public static void main(String[] args)
     {
