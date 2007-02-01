@@ -3,7 +3,7 @@ package org.jacorb.test.orb.etf;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2005  Gerald Brose.
+ *   Copyright (C) 1997-2007  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -17,7 +17,8 @@ package org.jacorb.test.orb.etf;
  *
  *   You should have received a copy of the GNU Library General Public
  *   License along with this library; if not, write to the Free
- *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *   Software Foundation, 51 Franklin Street, Fifth Floor, Boston,
+ *   MA 02110-1301, USA.
  */
 
 import junit.framework.*;
@@ -25,7 +26,7 @@ import org.jacorb.test.common.*;
 
 /**
  * @jacorb-since 2.2
- * @version $Id: AllTest.java,v 1.6 2006-11-30 13:40:35 alphonse.bendt Exp $
+ * @version $Id: AllTest.java,v 1.7 2007-02-01 09:05:27 andre.spiegel Exp $
  */
 public class AllTest extends JacORBTestSuite
 {

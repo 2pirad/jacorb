@@ -3,7 +3,7 @@ package org.jacorb.test.orb.etf;
 /*
  *        JacORB  - a free Java ORB
  *
- *   Copyright (C) 1997-2003  Gerald Brose.
+ *   Copyright (C) 1997-2007  Gerald Brose.
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Library General Public
@@ -17,7 +17,8 @@ package org.jacorb.test.orb.etf;
  *
  *   You should have received a copy of the GNU Library General Public
  *   License along with this library; if not, write to the Free
- *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *   Software Foundation, 51 Franklin Street, Fifth Floor, Boston,
+ *   MA 02110-1301, USA.
  */
 
 import java.util.*;
@@ -30,8 +31,8 @@ import org.omg.ETF.Profile;
  * A ProfileSelector that always selects the WIOPProfile, no matter
  * where it is in the list.
  *
- * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: WIOPSelector.java,v 1.2 2003-08-15 11:28:00 andre.spiegel Exp $
+ * @author Andre Spiegel spiegel@gnu.org
+ * @version $Id: WIOPSelector.java,v 1.3 2007-02-01 09:05:27 andre.spiegel Exp $
  */
 public class WIOPSelector implements ProfileSelector
 {
