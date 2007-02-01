@@ -72,7 +72,7 @@ import org.omg.PortableServer.POA;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.40 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.41 2007-02-01 11:35:23 alphonse.bendt Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -197,8 +197,11 @@ public class ClientServerSetup extends TestSetup {
     {
         doTearDown();
 
-        serverObject._release();
-        serverObject = null;
+        if (serverObject != null)
+        {
+            serverObject._release();
+            serverObject = null;
+        }
 
         clientORBSetup.tearDown();
         serverSetup.tearDown();
