@@ -26,7 +26,7 @@ import org.omg.IOP.ServiceContext;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: Messages.java,v 1.18 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: Messages.java,v 1.19 2007-02-06 19:26:28 andre.spiegel Exp $
  *
  */
 public class Messages
@@ -219,6 +219,15 @@ public class Messages
         }
     }
 
+    public static final boolean matchGIOPMagic(byte[] buf)
+    {
+        // The values are hard-coded to support non-ASCII platforms.
+        return   (buf[0] == 0x47   // 'G'
+               && buf[1] == 0x49   // 'I'
+               && buf[2] == 0x4f   // 'O'
+               && buf[3] == 0x50); // 'P'
+    }
+    
     public static final boolean isLittleEndian( byte[] buf )
     {
         //this is new for GIOP 1.1/1.2
