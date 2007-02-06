@@ -36,79 +36,6 @@ import org.jacorb.orb.BufferManager;
 import org.jacorb.orb.iiop.*;
 import org.jacorb.util.*;
 
-
-/**
- * Class StatisticsProviderAdapter is responsible for managing 
- * the StatisticsProvider instances for collecting transport usage 
- * information.
- *
- * @author Iliyan Jeliazkov
- * @version $Id: GIOPConnection.java,v 1.63 2006-10-31 16:37:15 andre.spiegel Exp $
- */
-
-final class StatisticsProviderAdapter implements StatisticsProvider
-{
-    private int cardinality_;
-    private StatisticsProvider head_;
-    private StatisticsProviderAdapter tail_;
-
-    public StatisticsProviderAdapter (StatisticsProvider p)
-    {
-        this (p, null);
-    }
-
-    public StatisticsProviderAdapter (StatisticsProvider head, StatisticsProviderAdapter tail)
-    {
-        this.head_ = head;
-        this.tail_ = tail;
-        this.cardinality_ = (tail == null) ? 0 : tail.cardinality_ + 1;
-    }
-
-    public StatisticsProvider find (int cardinality)
-    {
-        if (this.cardinality_ == cardinality)
-            return this.head_;
-        
-        if (this.tail_ == null)
-            return null;
-        
-        return this.tail_.find (cardinality);
-    }
-
-    public void messageChunkSent(int size) {
-        try {
-            if(head_ != null)
-                head_.messageChunkSent(size);
-        }
-        finally {
-            if(tail_ != null)
-                tail_.messageChunkSent(size);
-        }
-    }
-
-    public void flushed() {
-        try {
-            if(head_ != null)
-                head_.flushed();
-        }
-        finally {
-            if(tail_ != null)
-                tail_.flushed();
-        }
-    }
-
-    public void messageReceived(int size) {
-        try {
-            if(head_ != null)
-                head_.messageReceived(size);
-        }
-        finally {
-            if(tail_ != null)
-                tail_.messageReceived(size);
-        }
-    }
-}
-
 /**
  * GIOPConnection.java
  *
@@ -121,7 +48,7 @@ final class StatisticsProviderAdapter implements StatisticsProvider
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  * 
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.63 2006-10-31 16:37:15 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.64 2007-02-06 18:17:57 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
