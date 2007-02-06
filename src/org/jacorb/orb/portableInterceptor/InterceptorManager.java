@@ -32,7 +32,7 @@ import java.util.*;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.21 2006-07-14 12:02:41 nick.cross Exp $
+ * @version $Id: InterceptorManager.java,v 1.22 2007-02-06 19:47:16 andre.spiegel Exp $
  */
 
 public class InterceptorManager
@@ -219,6 +219,10 @@ public class InterceptorManager
             {
                 ior_interceptors[ i ].destroy();
             }
+        }
+
+        if (null!=piCurrent.get()) {
+            removeTSCurrent();
         }
     }
 } // InterceptorManager
