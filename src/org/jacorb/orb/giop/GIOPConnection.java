@@ -48,7 +48,7 @@ import org.jacorb.util.*;
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  * 
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.65 2007-02-06 18:45:42 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.66 2007-02-06 19:27:28 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -355,8 +355,7 @@ public abstract class GIOPConnection
         //(minimally) decode GIOP message header. Main checks should
         //be done one layer above.
 
-        if( (char) header[0] == 'G' && (char) header[1] == 'I' &&
-            (char) header[2] == 'O' && (char) header[3] == 'P')
+        if (Messages.matchGIOPMagic(header))
         {
             //determine message size
             int msg_size = Messages.getMsgSize( header );
