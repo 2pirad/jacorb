@@ -26,7 +26,7 @@ package org.jacorb.imr;
  *
  * @author Nicolas Noffke
  *
- * $Id: ServerStartupDaemonImpl.java,v 1.17 2006-07-14 08:54:18 alphonse.bendt Exp $
+ * $Id: ServerStartupDaemonImpl.java,v 1.18 2007-02-06 23:47:53 andre.spiegel Exp $
  *
  */
 
@@ -148,7 +148,7 @@ public class ServerStartupDaemonImpl
         }
         catch (Exception _e)
         {
-            this.logger.debug("Caught Exception", _e);
+            this.logger.error("Server startup failed", _e);
             throw new ServerStartupFailed( _e.toString() );
         }
     }
@@ -214,7 +214,7 @@ public class ServerStartupDaemonImpl
             }
             catch( Exception _e )
             {
-                logger.debug("Caught Exception", _e);
+                logger.debug("Exception while forwarding server output", _e);
             }
 
             logger.debug("A server process exited");
