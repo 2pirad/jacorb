@@ -28,7 +28,7 @@ import org.omg.ETF.*;
  * a description of WIOP.
  * 
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: WIOPConnection.java,v 1.3 2007-02-01 09:05:27 andre.spiegel Exp $
+ * @version $Id: WIOPConnection.java,v 1.4 2007-02-06 09:17:10 andre.spiegel Exp $
  */
 public class WIOPConnection extends _ConnectionLocalBase
 {
@@ -52,14 +52,14 @@ public class WIOPConnection extends _ConnectionLocalBase
         delegate.write (is_first, is_last, data, offset, length, time_out);
     }
 
-    public void read (BufferHolder data,
-                      int offset,
-                      int min_length,
-                      int max_length,
-                      long time_out)
+    public int read (BufferHolder data,
+                     int offset,
+                     int min_length,
+                     int max_length,
+                     long time_out)
     {
         WIOPFactories.setTransportInUse(true);
-        delegate.read (data, offset, min_length, max_length, time_out);
+        return delegate.read (data, offset, min_length, max_length, time_out);
     }
 
     public void flush()
