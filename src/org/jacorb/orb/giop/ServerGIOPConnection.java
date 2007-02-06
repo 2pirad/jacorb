@@ -26,7 +26,7 @@ import org.jacorb.orb.iiop.IIOPConnection;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.23 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.24 2007-02-06 18:47:40 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -171,7 +171,11 @@ public class ServerGIOPConnection
         }
         catch( org.omg.CORBA.COMM_FAILURE e )
         {
-            logger.error("COMM_FAILURE" , e );
+            logger.error
+            (
+                "COMM_FAILURE in sendCloseConnection(), in " + this.toString(), 
+                e
+            );
         }
         finally
         {
