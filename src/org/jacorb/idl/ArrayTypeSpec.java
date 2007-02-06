@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.32 2006-10-13 20:14:19 andre.spiegel Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.33 2007-02-06 22:50:35 andre.spiegel Exp $
  *
  */
 
@@ -212,6 +212,11 @@ public class ArrayTypeSpec
         return originalType;
     }
 
+    public int getTCKind()
+    {
+    	return org.omg.CORBA.TCKind._tk_array;
+    }
+    
     public String helperName()
     {
         return ScopedName.unPseudoName(full_name()) + "Helper";

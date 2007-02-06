@@ -28,7 +28,7 @@ import java.util.Enumeration;
  * The compiler backend for the IDL/Java mapping
  *
  * @author Copyright (c) 1999-2004, Gerald Brose
- * @version $Id: JavaMappingGeneratingVisitor.java,v 1.6 2006-05-17 11:10:40 alphonse.bendt Exp $
+ * @version $Id: JavaMappingGeneratingVisitor.java,v 1.7 2007-02-06 22:50:35 andre.spiegel Exp $
  *
  */
 
@@ -328,4 +328,12 @@ public class JavaMappingGeneratingVisitor
             }
         }
     }
+
+	public void visitSimpleTypeSpec(SimpleTypeSpec typeDecl)
+	{
+	}
+
+	public void visitVectorType(VectorType typeDecl)
+	{
+	}
 }

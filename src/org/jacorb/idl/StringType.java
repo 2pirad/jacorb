@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: StringType.java,v 1.17 2006-06-21 09:53:56 alphonse.bendt Exp $
+ * @version $Id: StringType.java,v 1.18 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 
 public class StringType
@@ -75,6 +75,10 @@ public class StringType
         return this;
     }
 
+    public int getTCKind()
+    {
+    	return org.omg.CORBA.TCKind._tk_string;
+    }
 
     public void setEnclosingSymbol( IdlSymbol s )
     {

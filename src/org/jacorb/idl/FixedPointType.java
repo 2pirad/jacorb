@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: FixedPointType.java,v 1.27 2006-10-13 20:14:19 andre.spiegel Exp $
+ * @version $Id: FixedPointType.java,v 1.28 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 
 public class FixedPointType
@@ -81,6 +81,13 @@ public class FixedPointType
         return "fixed";
     }
 
+
+    public int getTCKind()
+    {
+    	return org.omg.CORBA.TCKind._tk_fixed;
+    }
+
+    
     public TypeSpec typeSpec()
     {
         return this;

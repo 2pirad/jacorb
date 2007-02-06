@@ -22,12 +22,22 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleTypeSpec.java,v 1.13 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: SimpleTypeSpec.java,v 1.14 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 public class SimpleTypeSpec extends TypeSpec
 {
     public SimpleTypeSpec( int num )
     {
         super( num );
+    }
+    
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitSimpleTypeSpec(this);
+    }
+
+    public int getTCKind()
+    {
+    	return type_spec.getTCKind();
     }
 }

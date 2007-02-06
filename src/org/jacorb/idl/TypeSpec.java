@@ -25,7 +25,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.25 2006-05-17 11:12:05 alphonse.bendt Exp $
+ * @version $Id: TypeSpec.java,v 1.26 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 
 
@@ -81,6 +81,16 @@ public class TypeSpec
         return type_spec.typeSpec();
     }
 
+    public int getTCKind()
+    {
+    	return type_spec.getTCKind();
+    }
+    	
+    public void accept( IDLTreeVisitor visitor )
+    {
+    	type_spec.accept(visitor);
+    }
+    
     public void setPackage( String s )
     {
         s = parser.pack_replace( s );

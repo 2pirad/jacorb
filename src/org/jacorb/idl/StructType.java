@@ -27,7 +27,7 @@ import java.util.*;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.54 2006-07-18 13:05:35 alphonse.bendt Exp $
+ * @version $Id: StructType.java,v 1.55 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 
 public class StructType
@@ -160,7 +160,11 @@ public class StructType
         return getJavaTypeName(); // TODO
     }
 
-
+    public int getTCKind()
+    {
+    	return org.omg.CORBA.TCKind._tk_struct;
+    }
+    
     public boolean basic()
     {
         return false;

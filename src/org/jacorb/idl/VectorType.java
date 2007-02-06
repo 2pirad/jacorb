@@ -27,7 +27,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.15 2006-05-18 12:53:17 alphonse.bendt Exp $
+ * @version $Id: VectorType.java,v 1.16 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 
 
@@ -188,5 +188,14 @@ public abstract class VectorType
         return typeName();
     }
 
+    public void accept( IDLTreeVisitor visitor )
+    {
+        visitor.visitVectorType(this);
+    }
+    
+    public int getTCKind()
+    {
+    	return org.omg.CORBA.TCKind._tk_array;
+    }
 
 }

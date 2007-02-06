@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: VoidTypeSpec.java,v 1.12 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: VoidTypeSpec.java,v 1.13 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 
 import java.io.PrintWriter;
@@ -40,6 +40,11 @@ public class VoidTypeSpec
         return "void";
     }
 
+    public int getTCKind()
+    {
+    	return org.omg.CORBA.TCKind._tk_void;
+    }
+    
     /**
      * @return true if this is a basic type
      */

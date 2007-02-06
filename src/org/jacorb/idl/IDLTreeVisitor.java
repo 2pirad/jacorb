@@ -30,7 +30,7 @@ package org.jacorb.idl;
  * IDL compiler option "-backend <classname>"
  *
  * @author Gerald Brose, XTRADYNE Technologies.
- * @version $Id: IDLTreeVisitor.java,v 1.6 2006-06-14 12:27:13 alphonse.bendt Exp $
+ * @version $Id: IDLTreeVisitor.java,v 1.7 2007-02-06 22:50:35 andre.spiegel Exp $
  */
 
 public interface IDLTreeVisitor
@@ -86,6 +86,12 @@ public interface IDLTreeVisitor
     void visitTypeDeclaration( TypeDeclaration typeDecl );
 
     void visitConstrTypeSpec( ConstrTypeSpec typeDecl );
+    
+    void visitSimpleTypeSpec( SimpleTypeSpec typeDecl );
+    
+    void visitVectorType( VectorType typeDecl );
+    
+    
 
 }
 
