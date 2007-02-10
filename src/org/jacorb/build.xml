@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--            JacORB ORB build file                         -->
-  <!-- $Id: build.xml,v 1.35 2006-08-16 17:44:57 iliyan.jeliazkov Exp $ -->
+  <!-- $Id: build.xml,v 1.36 2007-02-10 17:56:16 brose Exp $ -->
   <!-- ==================================================== -->
 
   &common;
@@ -21,7 +21,7 @@
       <ant antfile="${src}/org/jacorb/orb/build.xml" dir="${basedir}" target="template"/>
    </target>
 
-   <target name="subdirs" depends="template,config,util,orb,poa,imr,ir,naming,events,dds,concurrency,transaction,trading,tracing,transport,security,notification">
+   <target name="subdirs" depends="template,config,util,orb,poa,imr,ir,naming,events,dds,concurrency,transaction,tracing,transport,security,notification">
    </target>
 
    <target name="config" depends="init">
@@ -75,10 +75,6 @@
 
    <target name="dds" depends="init">
           <ant antfile="${src}/org/jacorb/dds/build.xml" dir="${basedir}"/>
-   </target>
-
-   <target name="trading" depends="init">
-      <ant antfile="${src}/org/jacorb/trading/build.xml" dir="${basedir}"/>
    </target>
 
    <target name="tracing" depends="init">
