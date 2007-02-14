@@ -57,7 +57,7 @@ import org.omg.ETF.*;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.171 2007-02-02 15:24:32 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.172 2007-02-14 09:55:24 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -1898,9 +1898,9 @@ public final class ORB
         }
         catch (Exception e)
         {
-            if (logger.isDebugEnabled())
+            if (logger.isErrorEnabled())
             {
-                logger.debug(e.getMessage());
+                logger.error("Exception while converting string to object", e);
             }
             throw new BAD_PARAM(10, CompletionStatus.COMPLETED_NO);
         }
