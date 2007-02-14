@@ -34,7 +34,7 @@ import org.omg.IOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.5 2006-06-28 12:40:36 alphonse.bendt Exp $
+ * @version $Id: ProfileBase.java,v 1.6 2007-02-14 09:07:23 andre.spiegel Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase
@@ -183,7 +183,7 @@ public abstract class ProfileBase
 
     /**
     * Indicates the encapsulation that will be used by this profile
-    * when encoding it's AddressProfile bytes, and which should subsequently
+    * when encoding its AddressProfile bytes, and which should subsequently
     * be used when marshalling all the rest of the TaggedProfile.profile_data.
     * Using the default CDROutputStream for a transport profile encapsulation
     * this should always be 0.
