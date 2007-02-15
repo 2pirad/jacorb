@@ -51,7 +51,7 @@ import org.omg.IOP.ServiceContext;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.37 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: RequestProcessor.java,v 1.38 2007-02-15 12:56:06 andre.spiegel Exp $
  */
 
 public class RequestProcessor
@@ -92,6 +92,8 @@ public class RequestProcessor
 
         specialOperations.add("_get_policy");
         specialOperations.add("_set_policy_overrides");
+        
+        specialOperations.add("_get_component");
     }
 
     RequestProcessor (RPPoolManager _poolManager)

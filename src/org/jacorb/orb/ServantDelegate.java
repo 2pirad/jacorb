@@ -34,7 +34,7 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
 /**
  * JacORB-specific implementation of PortableServer.Servant
  *
- * $Id: ServantDelegate.java,v 1.27 2006-07-13 09:33:12 nick.cross Exp $
+ * $Id: ServantDelegate.java,v 1.28 2007-02-15 12:56:06 andre.spiegel Exp $
  */
 public class ServantDelegate
     implements org.omg.PortableServer.portable.Delegate
@@ -179,6 +179,12 @@ public class ServantDelegate
         check();
         return false;
     }
+    
+    public org.omg.CORBA.Object get_component(org.omg.PortableServer.Servant self)
+    {
+        check();
+        return null;
+    }
 
     public org.omg.CORBA.Object get_interface_def( org.omg.PortableServer.Servant self)
     {
@@ -270,6 +276,11 @@ public class ServantDelegate
         {
             _out = handler.createReply();
             _out.write_boolean(self._non_existent() );
+        }
+        else if ("_get_component".equals (method))
+        {
+            _out = handler.createReply();
+            _out.write_Object(self._get_component() );
         }
         else
         {

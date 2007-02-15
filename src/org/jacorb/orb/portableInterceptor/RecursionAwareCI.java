@@ -29,7 +29,7 @@ import org.omg.PortableInterceptor.ForwardRequest;
 
 /**
  * @author Gerald Brose
- * @version $Id: RecursionAwareCI.java,v 1.8 2006-07-27 10:11:41 alphonse.bendt Exp $
+ * @version $Id: RecursionAwareCI.java,v 1.9 2007-02-15 12:56:06 andre.spiegel Exp $
  */
 public abstract class RecursionAwareCI
     extends org.omg.CORBA.LocalObject
@@ -58,6 +58,7 @@ public abstract class RecursionAwareCI
             ignore_operations.add( "_get_policy" );
             ignore_operations.add( "_get_domain_managers" );
             ignore_operations.add( "_set_policy_overrides" );
+            ignore_operations.add( "_get_component" );
         }
     }
 
