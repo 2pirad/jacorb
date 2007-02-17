@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.75 2007-01-17 12:18:34 alphonse.bendt Exp $ -->
+   <!-- $Id: build.xml,v 1.76 2007-02-17 18:52:18 brose Exp $ -->
    <!-- ==================================================== -->
 
     <property file="${basedir}/build.properties" />
@@ -194,12 +194,12 @@ using VERSION_INFO: ${jacorb_version_info}
 
    <!-- This target creates a jar file that contains the -->
    <!-- following OMG services: -->
-   <!-- Concurrency, Events, Trading, Transaction, but not Naming -->
+   <!-- Concurrency, Events, Transaction, but not Naming -->
    <target name="omg_services_jar" depends="init">
       <delete file="${lib}/omg_services.jar"/>
       <jar jarfile="${lib}/omg_services.jar"
            basedir="${classdir}"
-           includes="org/jacorb/concurrency/**,org/jacorb/events/**,org/jacorb/trading/**,org/jacorb/transaction/**,org/omg/Cos*/**"
+           includes="org/jacorb/concurrency/**,org/jacorb/events/**,org/jacorb/transaction/**,org/omg/Cos*/**"
            excludes="org/omg/CosNaming/**"
            />
    </target>
