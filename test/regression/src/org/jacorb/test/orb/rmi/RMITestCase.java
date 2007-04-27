@@ -24,6 +24,7 @@ import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Properties;
 
 import javax.rmi.PortableRemoteObject;
 
@@ -40,7 +41,7 @@ import org.jacorb.test.orb.rmi.Outer.StaticInner;
  * @see JacORBJacORBRMITest
  * @see JacORBSunRMITest
  *
- * @version $Id: RMITestCase.java,v 1.1 2006-11-30 13:40:35 alphonse.bendt Exp $
+ * @version $Id: RMITestCase.java,v 1.2 2007-04-27 00:16:32 francisco Exp $
  */
 public abstract class RMITestCase extends ClientServerTestCase
 {
@@ -383,5 +384,16 @@ public abstract class RMITestCase extends ClientServerTestCase
 
         ArrayList result = (ArrayList) server.transmitSerializable(list);
         assertEquals(param.payload, ((StringParam)result.get(0)).payload);
+    }
+
+    public void testPassProperties() throws Exception
+    {
+    	Properties param = new Properties();
+    	param.put("key1", "value1");
+    	param.put("key2", "value2");
+    	param.put("key3", "value3");
+    	
+    	Properties result = server.transmitProperties(param);
+    	assertEquals(param, result);
     }
 }
