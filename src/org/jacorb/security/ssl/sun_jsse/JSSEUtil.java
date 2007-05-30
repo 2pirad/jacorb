@@ -33,7 +33,7 @@ import javax.net.ssl.SSLSocket;
  * use the JSSE included with JDK1.4 or standalone version 1.0.x
  *
  * @author Alphonse Bendt
- * @version $Id: JSSEUtil.java,v 1.1 2006-06-14 12:49:22 alphonse.bendt Exp $
+ * @version $Id: JSSEUtil.java,v 1.2 2007-05-30 22:55:28 francisco Exp $
  */
 public class JSSEUtil
 {
@@ -44,8 +44,7 @@ public class JSSEUtil
         boolean result;
         try
         {
-            Class clazz = Class.forName("javax.net.ssl.SSLSocket");
-            clazz.getMethod("setEnabledProtocols", new Class[] {String[].class});
+            SSLSocket.class.getMethod("setEnabledProtocols", new Class[] {String[].class});
             result = true;
         }
         catch(Exception e)
@@ -57,15 +56,29 @@ public class JSSEUtil
 
     public static void setEnabledProtocols(SSLSocket socket, String[] enabledProtocols)
     {
-        _setEnabledProtocols(socket, enabledProtocols);
+        if (!isJDK14)
+        {
+            // method does not exist in pre JDK 1.4 JSSE
+            return;
+        }
+
+        try
+        {
+            Method method = SSLSocket.class.getMethod("setEnabledProtocols", new Class[] {String[].class});
+            method.invoke(socket, new Object[] {enabledProtocols});
+        }
+        catch (InvocationTargetException e)
+        {
+            throw new RuntimeException(e.getTargetException().toString());
+        }
+        catch (Exception e)
+        {
+            // shouldn't happen on JDK1.4
+            throw new RuntimeException(e.toString());
+        }
     }
 
     public static void setEnabledProtocols(SSLServerSocket socket, String[] enabledProtocols)
-    {
-        _setEnabledProtocols(socket, enabledProtocols);
-    }
-
-    private static void _setEnabledProtocols(Object socket, String[] enabledProtocols)
     {
         if (!isJDK14)
         {
@@ -75,7 +88,7 @@ public class JSSEUtil
 
         try
         {
-            Method method = socket.getClass().getMethod("setEnabledProtocols", new Class[] {enabledProtocols.getClass()});
+            Method method = SSLServerSocket.class.getMethod("setEnabledProtocols", new Class[] {String[].class});
             method.invoke(socket, new Object[] {enabledProtocols});
         }
         catch (InvocationTargetException e)
@@ -131,7 +144,7 @@ public class JSSEUtil
 
         try
         {
-            Method method = s.getClass().getMethod("setWantClientAuth", new Class[] {Boolean.TYPE});
+            Method method = SSLServerSocket.class.getMethod("setWantClientAuth", new Class[] {Boolean.TYPE});
             method.invoke(s, new Object[] {Boolean.valueOf(request_mutual_auth)});
         }
         catch(Exception e)
