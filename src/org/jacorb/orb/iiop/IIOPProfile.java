@@ -37,7 +37,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.26 2006-07-11 13:16:45 alphonse.bendt Exp $
+ * @version $Id: IIOPProfile.java,v 1.27 2007-06-01 02:27:13 francisco Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -429,7 +429,9 @@ public class IIOPProfile
             (CompoundSecMechList)components.getComponent(
                                             TAG_CSI_SEC_MECH_LIST.value,
                                             CompoundSecMechListHelper.class);
-        if (csmList != null && csmList.mechanism_list.length > 0)
+        if (csmList != null && csmList.mechanism_list.length > 0 &&
+                csmList.mechanism_list[0].transport_mech.tag == 
+                                                    TAG_TLS_SEC_TRANS.value)
         {
             byte[] tlsSecTransData =
                 csmList.mechanism_list[0].transport_mech.component_data;
