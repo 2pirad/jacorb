@@ -46,7 +46,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.37 2006-07-19 15:25:46 alphonse.bendt Exp $
+ * @version $Id: IIOPListener.java,v 1.38 2007-06-06 20:38:13 francisco Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -805,6 +805,14 @@ public class IIOPListener
         {
             final IIOPLoopbackConnection connection =
                 new IIOPLoopbackConnection(lis, los) ;
+            try
+            {
+                connection.configure(configuration);
+            }
+            catch( ConfigurationException ce )
+            {
+                throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.toString());
+            }
             deliverConnection(connection);
         }
 
