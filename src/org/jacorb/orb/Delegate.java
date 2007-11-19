@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.144 2007-08-17 14:07:35 phil.mesnier Exp $
+ * @version $Id: Delegate.java,v 1.145 2007-11-19 17:38:39 ciju.john Exp $
  *
  */
 
@@ -1875,6 +1875,7 @@ public final class Delegate
                         {
                             so.servant =
                                 sl.preinvoke( oid, poa, operation, cookie );
+			    ok = true;
                         }
                         finally
                         {

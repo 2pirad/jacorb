@@ -38,7 +38,7 @@ import java.util.*;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann
- * @version $Id: RequestController.java,v 1.34 2006-06-27 10:51:19 alphonse.bendt Exp $
+ * @version $Id: RequestController.java,v 1.35 2007-11-19 17:38:39 ciju.john Exp $
  */
 
 public final class RequestController
@@ -601,7 +601,7 @@ public final class RequestController
         waitForShutdownCalled = true;
 
         while ((waitForShutdownCalled && ! activeRequestTable.isEmpty())
-               || (localRequests != 0)
+               || (localRequests > 0)
         )
         {
             try
