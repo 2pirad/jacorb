@@ -35,7 +35,7 @@ import org.omg.PortableInterceptor.IORInterceptor;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.25 2006-07-26 11:05:21 nick.cross Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.26 2008-03-24 16:41:45 andre.spiegel Exp $
  */
 
 public class CodeSetInfoInterceptor
@@ -58,27 +58,12 @@ public class CodeSetInfoInterceptor
             // will have to do with defaults
         }
 
-        // create the info
-        org.omg.CONV_FRAME.CodeSetComponentInfo cs_info =
-            new org.omg.CONV_FRAME.CodeSetComponentInfo();
-
-        // fill the info
-        cs_info.ForCharData =
-            new org.omg.CONV_FRAME.
-                CodeSetComponent( CodeSet.getTCSDefault(),
-                                  new int[] { CodeSet.getConversionDefault() } );
-
-        cs_info.ForWcharData =
-            new org.omg.CONV_FRAME.
-                CodeSetComponent( CodeSet.getTCSWDefault(),
-                                  new int[] { CodeSet.UTF8 } );
-
         // encapsulate it into TaggedComponent
         final CDROutputStream out = new CDROutputStream( orb );
         try
         {
             out.beginEncapsulatedArray();
-            org.omg.CONV_FRAME.CodeSetComponentInfoHelper.write( out, cs_info );
+            org.omg.CONV_FRAME.CodeSetComponentInfoHelper.write( out, CodeSet.getLocalCodeSetComponentInfo() );
 
             tagc = new org.omg.IOP.TaggedComponent( org.omg.IOP.TAG_CODE_SETS.value,
                     out.getBufferCopy());

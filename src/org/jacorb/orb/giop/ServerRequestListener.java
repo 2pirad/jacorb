@@ -40,7 +40,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.25 2006-07-10 08:56:00 alphonse.bendt Exp $
+ * @version $Id: ServerRequestListener.java,v 1.26 2008-03-24 16:41:44 andre.spiegel Exp $
  */
 public class ServerRequestListener
     implements RequestListener, Configurable
@@ -126,8 +126,7 @@ public class ServerRequestListener
             }
             else
             {
-                CodeSetContext ctx =
-                CodeSet.getCodeSetContext( inputStream.req_hdr.service_context );
+                CodeSetContext ctx = CodeSet.getCodeSetContext( inputStream.req_hdr.service_context );
 
                 if( ctx != null )
                 {
