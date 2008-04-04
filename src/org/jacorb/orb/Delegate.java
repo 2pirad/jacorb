@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantActivator;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.145 2007-11-19 17:38:39 ciju.john Exp $
+ * @version $Id: Delegate.java,v 1.146 2008-04-04 15:32:15 andre.spiegel Exp $
  *
  */
 
@@ -1736,7 +1736,7 @@ public final class Delegate
             //header being writtend using the default codesets. On the
             //other hand, the server side must have already read the
             //header to discover the codeset service context.
-            out.setCodeSet( connection.getTCS(), connection.getTCSW() );
+            out.setCodeSets( connection.getTCS(), connection.getTCSW() );
 
             out.updateMutatorConnection (connection.getGIOPConnection());
 
