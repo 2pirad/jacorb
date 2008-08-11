@@ -36,7 +36,7 @@ import org.omg.CSIIOP.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.28 2008-03-24 15:39:15 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.29 2008-08-11 13:47:27 andre.spiegel Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -434,7 +434,14 @@ public class IIOPProfile
         else
         {
             SSL ssl = getSSL();
-            return adjustedPortNum( ssl.port );
+            if (ssl != null)
+            {
+                return adjustedPortNum( ssl.port );
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 
