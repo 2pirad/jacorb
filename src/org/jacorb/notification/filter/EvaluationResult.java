@@ -29,7 +29,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EvaluationResult.java,v 1.10 2006-03-08 20:38:30 alphonse.bendt Exp $
+ * @version $Id: EvaluationResult.java,v 1.11 2008-09-22 14:29:05 alphonse.bendt Exp $
  */
 
 public class EvaluationResult
@@ -184,7 +184,7 @@ public class EvaluationResult
         {
             return any_.extract_longlong();
         }
-        
+
         try
         {
             return ((Double) getValue()).longValue();
@@ -356,7 +356,7 @@ public class EvaluationResult
     {
         any_ = any;
     }
-    
+
     public void setAny(Any any)
     {
         addAny(any);
@@ -438,8 +438,8 @@ public class EvaluationResult
         else if (isLongLong() || other.isLongLong())
         {
             long _l = getLongLong();
-            long _r = getLongLong();
-            
+            long _r = other.getLongLong();
+
             _result = (_l<_r ? -1 : (_l==_r ? 0 : 1));
         }
         else
