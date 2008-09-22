@@ -29,7 +29,7 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EvaluationResult.java,v 1.11 2008-09-22 14:29:05 alphonse.bendt Exp $
+ * @version $Id: EvaluationResult.java,v 1.12 2008-09-22 16:12:41 alphonse.bendt Exp $
  */
 
 public class EvaluationResult
@@ -298,7 +298,8 @@ public class EvaluationResult
         try
         {
             return ((Double) getValue()).floatValue();
-        } catch (ClassCastException e)
+        }
+        catch (ClassCastException e)
         {
             // ignored. will retry.
         }
@@ -306,7 +307,8 @@ public class EvaluationResult
         try
         {
             return ((Boolean) getValue()).booleanValue() ? 1f : 0;
-        } catch (ClassCastException e)
+        }
+        catch (ClassCastException e)
         {
             // ignored. will retry.
         }
@@ -319,7 +321,8 @@ public class EvaluationResult
             {
                 return _str.charAt(0);
             }
-        } catch (ClassCastException e)
+        }
+        catch (ClassCastException e)
         {
             // ignored. will throw error
         }
@@ -332,7 +335,8 @@ public class EvaluationResult
         try
         {
             return ((Boolean) getValue()).booleanValue();
-        } catch (ClassCastException c)
+        }
+        catch (ClassCastException c)
         {
             // ignored. will throw error
         }
@@ -370,7 +374,8 @@ public class EvaluationResult
             Field[] _fields = TCKind.class.getDeclaredFields();
 
             return _fields[x].getName();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             return "unknown: " + x;
         }
@@ -630,6 +635,12 @@ public class EvaluationResult
             break;
         case TCKind._tk_ulonglong:
             result.setLongLong(any.extract_ulonglong());
+            break;
+        case TCKind._tk_float:
+            result.setFloat(any.extract_float());
+            break;
+        case TCKind._tk_double:
+            result.setDouble(any.extract_double());
             break;
         default:
             result.setAny(any);
