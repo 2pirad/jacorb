@@ -34,7 +34,7 @@ import org.jacorb.imr.AdminPackage.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerTable.java,v 1.10 2004-05-06 12:39:59 nicolas Exp $
+ * $Id: ServerTable.java,v 1.11 2008-10-09 19:03:00 phil.mesnier Exp $
  */
 
 public class ServerTable 
@@ -163,6 +163,21 @@ public class ServerTable
 
         if (_obj == null)
             throw new UnknownServerName(name);
+    }
+
+    public boolean poa_enp_reused (String name, String host, int port)
+    {   
+        POAInfo[] poas = getPOAs();
+        for (int i = 0; i < poas.length; i++)
+        {
+          if (poas[i].name.equals (name))
+            continue;
+            
+          if (poas[i].host.equals (host) && poas[i].port == port && poas[i].active == true)
+            return true;
+        }
+       
+        return false;
     }
 
     /**
