@@ -36,7 +36,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
  * shared BuffferManager across all ORBs in a process.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.26 2006-07-20 13:18:20 alphonse.bendt Exp $
+ * @version $Id: BufferManager.java,v 1.27 2008-11-11 14:06:52 andre.spiegel Exp $
 */
 
 public final class BufferManager
@@ -96,10 +96,13 @@ public final class BufferManager
     }
 
     /**
-     * configures the singleton
+     * Configures the singleton.  It is important that this method is
+     * synchronized over the singleton instance, to avoid race conditions
+     * with getBuffer().  The static synchronization of the calling
+     * method is not enough.
      */
 
-    private void singletonConfigure(Configuration configuration)
+    private synchronized void singletonConfigure(Configuration configuration)
     {
         time =
             configuration.getAttributeAsInteger("jacorb.bufferManagerMaxFlush", 0);
