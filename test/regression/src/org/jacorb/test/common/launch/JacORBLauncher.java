@@ -47,7 +47,7 @@ import org.jacorb.test.common.TestUtils;
  * invoke the launch() method on the resulting object.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: JacORBLauncher.java,v 1.8 2008-11-13 02:34:40 andre.spiegel Exp $
+ * @version $Id: JacORBLauncher.java,v 1.9 2008-11-13 15:13:58 nick.cross Exp $
  */
 public abstract class JacORBLauncher
 {
@@ -101,6 +101,9 @@ public abstract class JacORBLauncher
                     {
                         throw new IllegalArgumentException("cannot locate test.properties!");
                     }
+
+		    in = url.openStream();
+
                     TestUtils.log("using test.properties from " + url);
                 }
 
