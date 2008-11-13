@@ -32,7 +32,7 @@ import org.jacorb.test.*;
  * via corbaloc URLs.  Other functions related to corbaloc are also
  * tested here.
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: CorbalocTest.java,v 1.2 2006-09-11 08:04:27 andre.spiegel Exp $
+ * @version $Id: CorbalocTest.java,v 1.3 2008-11-13 15:51:08 nick.cross Exp $
  */
 public class CorbalocTest extends ClientServerTestCase
 {
@@ -54,6 +54,7 @@ public class CorbalocTest extends ClientServerTestCase
                                                CorbalocTest.class);
 
         Properties serverProps = new Properties();
+        serverProps.put (CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
         serverProps.put ("jacorb.test.corbaloc.enable",   "true");
         serverProps.put ("jacorb.test.corbaloc.port",     "54321");
         serverProps.put ("jacorb.test.corbaloc.implname", "MyImpl");
@@ -61,11 +62,14 @@ public class CorbalocTest extends ClientServerTestCase
         serverProps.put ("jacorb.test.corbaloc.objectid", "MyObject");
         serverProps.put ("jacorb.test.corbaloc.shortcut", "Shortcut1");
         serverProps.put ("jacorb.orb.objectKeyMap.Shortcut2", "MyImpl/MyPOA/MyObject");
+
+	Properties clientProps = new Properties();
+        clientProps.put (CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
         
         ClientServerSetup setup =
             new ClientServerSetup (suite,
                                    "org.jacorb.test.orb.BasicServerImpl",
-                                   null, serverProps);
+                                   clientProps, serverProps);
 
         suite.addTest (new CorbalocTest ("test_ping", setup));
         // disabled because it currently fails
