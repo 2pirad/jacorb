@@ -20,17 +20,20 @@
  */
 package org.jacorb.imr.util;
 
-import javax.swing.tree.*;
-import javax.swing.*;
 import java.awt.Component;
-import org.jacorb.imr.*;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import org.jacorb.imr.ImRInfo;
+import org.jacorb.imr.POAInfo;
+import org.jacorb.imr.ServerInfo;
 /**
  * This class sets the tooltip text for the tree cells,
  * and, if possible, enhances the test with HTML.
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImRTreeCellRenderer.java,v 1.8 2004-05-06 12:39:59 nicolas Exp $
+ * $Id: ImRTreeCellRenderer.java,v 1.9 2008-11-14 08:55:27 nick.cross Exp $
  */
 
 public class ImRTreeCellRenderer extends DefaultTreeCellRenderer {

@@ -20,16 +20,22 @@
 
 package org.jacorb.orb.giop;
 
-import org.jacorb.orb.*;
-import org.jacorb.orb.portableInterceptor.*;
-
-import org.omg.PortableInterceptor.*;
-import org.omg.IOP.*;
-import org.omg.IIOP.*;
+import org.jacorb.orb.BasicAdapter;
+import org.jacorb.orb.CDROutputStream;
+import org.jacorb.orb.ORB;
+import org.jacorb.orb.portableInterceptor.ClientRequestInfoImpl;
+import org.jacorb.orb.portableInterceptor.DefaultClientInterceptor;
+import org.omg.IIOP.BiDirIIOPServiceContext;
+import org.omg.IIOP.BiDirIIOPServiceContextHelper;
+import org.omg.IIOP.ListenPoint;
+import org.omg.IOP.BI_DIR_IIOP;
+import org.omg.IOP.ServiceContext;
+import org.omg.PortableInterceptor.ClientRequestInfo;
+import org.omg.PortableInterceptor.ForwardRequest;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionClientInterceptor.java,v 1.12 2006-07-11 11:48:22 alphonse.bendt Exp $
+ * @version $Id: BiDirConnectionClientInterceptor.java,v 1.13 2008-11-14 08:55:32 nick.cross Exp $
  */
 public class BiDirConnectionClientInterceptor
     extends DefaultClientInterceptor

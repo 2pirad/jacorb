@@ -20,17 +20,14 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CORBA.TCKind;
-
-import org.jacorb.orb.TypeCode;
-
-import java.util.*;
-
+import java.util.Hashtable;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.orb.TypeCode;
+import org.omg.CORBA.TCKind;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.15 2004-10-18 13:12:41 simon.mcqueen Exp $    
+ * @version $Id: TypeCodeUtil.java,v 1.16 2008-11-14 08:55:28 nick.cross Exp $    
  */
  
 public class TypeCodeUtil

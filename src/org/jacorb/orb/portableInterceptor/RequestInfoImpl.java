@@ -21,12 +21,17 @@
 
 package org.jacorb.orb.portableInterceptor;
 
+import java.util.Hashtable;
 import org.jacorb.util.ObjectUtil;
-import org.omg.IOP.*;
-import org.omg.CORBA.*;
-import org.omg.PortableInterceptor.*;
+import org.omg.CORBA.Any;
+import org.omg.CORBA.BAD_PARAM;
+import org.omg.CORBA.CompletionStatus;
+import org.omg.CORBA.NO_RESOURCES;
+import org.omg.CORBA.TypeCode;
 import org.omg.Dynamic.Parameter;
-import java.util.*;
+import org.omg.IOP.ServiceContext;
+import org.omg.PortableInterceptor.InvalidSlot;
+import org.omg.PortableInterceptor.RequestInfo;
 
 /**
  * This is the abstract base class of the two
@@ -35,7 +40,7 @@ import java.util.*;
  * See PI Spec p. 5-41ff
  *
  * @author Nicolas Noffke
- * @version $Id: RequestInfoImpl.java,v 1.11 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version $Id: RequestInfoImpl.java,v 1.12 2008-11-14 08:55:34 nick.cross Exp $
  */
 
 public abstract class RequestInfoImpl

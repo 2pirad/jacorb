@@ -23,11 +23,12 @@ package org.jacorb.idl;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.62 2006-10-13 20:14:19 andre.spiegel Exp $
+ * @version $Id: UnionType.java,v 1.63 2008-11-14 08:55:26 nick.cross Exp $
  */
 public class UnionType
     extends TypeDeclaration

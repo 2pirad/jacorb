@@ -22,11 +22,12 @@ package org.jacorb.idl;
 
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: Spec.java,v 1.13 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: Spec.java,v 1.14 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 

@@ -20,15 +20,13 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CORBA.*;
+import java.lang.reflect.Field;
+import org.apache.avalon.framework.logger.Logger;
+import org.omg.CORBA.INTF_REPOS;
 import org.omg.PortableServer.POA;
 
-import java.lang.reflect.*;
-
-import org.apache.avalon.framework.logger.Logger;
-
 /**
- * @version $Id: Contained.java,v 1.14 2006-10-11 20:33:00 iliyan.jeliazkov Exp $
+ * @version $Id: Contained.java,v 1.15 2008-11-14 08:55:27 nick.cross Exp $
  */
 
 public abstract class Contained

@@ -20,11 +20,12 @@ package org.jacorb.ir.gui.typesystem.remote;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CORBA.*;
+import org.omg.CORBA.WstringDef;
+import org.omg.CORBA.WstringDefHelper;
 
 /**
  * @author Jerome Julius
- * @version $Id: IRWstring.java,v 1.4 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: IRWstring.java,v 1.5 2008-11-14 08:55:29 nick.cross Exp $
  */
 
 public class IRWstring 

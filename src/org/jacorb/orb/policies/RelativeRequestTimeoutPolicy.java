@@ -20,8 +20,9 @@
  */
 package org.jacorb.orb.policies;
 
-import org.omg.CORBA.*;
-import org.omg.Messaging.*;
+import org.omg.CORBA.Policy;
+import org.omg.Messaging.RELATIVE_REQ_TIMEOUT_POLICY_TYPE;
+import org.omg.Messaging._RelativeRequestTimeoutPolicyLocalBase;
 
 /**
  * Specifies a relative timeout for a CORBA request.  It is an upper bound
@@ -30,7 +31,7 @@ import org.omg.Messaging.*;
  * back to the client.
  * 
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: RelativeRequestTimeoutPolicy.java,v 1.7 2007-02-14 09:49:53 andre.spiegel Exp $
+ * @version $Id: RelativeRequestTimeoutPolicy.java,v 1.8 2008-11-14 08:55:33 nick.cross Exp $
  */
 public class RelativeRequestTimeoutPolicy
     extends _RelativeRequestTimeoutPolicyLocalBase

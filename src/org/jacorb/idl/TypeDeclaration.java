@@ -22,11 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.27 2006-06-14 12:32:32 alphonse.bendt Exp $
+ * @version $Id: TypeDeclaration.java,v 1.28 2008-11-14 08:55:26 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Set;
 
 public class TypeDeclaration
     extends Declaration

@@ -21,14 +21,14 @@
 package org.jacorb.orb.iiop;
 
 import java.io.IOException;
-import java.net.*;
-
+import java.net.Socket;
+import java.net.SocketException;
 import org.jacorb.orb.listener.SSLListenerUtil;
 
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.15 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: IIOPConnection.java,v 1.16 2008-11-14 08:55:33 nick.cross Exp $
  */
 public abstract class IIOPConnection
     extends org.jacorb.orb.etf.StreamConnectionBase

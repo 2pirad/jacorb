@@ -20,20 +20,34 @@ package org.jacorb.ir.gui.typesystem.remote;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CORBA.*;
+import java.util.Hashtable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
+import org.jacorb.ir.gui.typesystem.AbstractContainer;
+import org.jacorb.ir.gui.typesystem.ModelBuilder;
+import org.jacorb.ir.gui.typesystem.NodeMapper;
+import org.jacorb.ir.gui.typesystem.TypeAssociator;
+import org.jacorb.ir.gui.typesystem.TypeSystem;
+import org.jacorb.ir.gui.typesystem.TypeSystemNode;
+import org.omg.CORBA.Contained;
+import org.omg.CORBA.ContainedHelper;
+import org.omg.CORBA.DefinitionKind;
+import org.omg.CORBA.IRObject;
+import org.omg.CORBA.IRObjectHelper;
+import org.omg.CORBA.ORB;
+import org.omg.CORBA.ParameterDescription;
+import org.omg.CORBA.Repository;
+import org.omg.CORBA.RepositoryHelper;
+import org.omg.CORBA.StructMember;
+import org.omg.CORBA.UnionMember;
 import org.omg.CORBA.ORBPackage.InvalidName;
-
-import javax.swing.tree.*;
-import javax.swing.table.*;
-
-import java.util.*;
-
-import org.jacorb.ir.gui.typesystem.*;
 
 /**
  * @author Joerg v. Frantzius
  * @author Gerald Brose.
- * $Id: RemoteTypeSystem.java,v 1.14 2006-06-14 11:56:15 alphonse.bendt Exp $
+ * $Id: RemoteTypeSystem.java,v 1.15 2008-11-14 08:55:29 nick.cross Exp $
  */
 
 public class RemoteTypeSystem

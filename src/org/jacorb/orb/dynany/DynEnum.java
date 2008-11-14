@@ -20,16 +20,19 @@ package org.jacorb.orb.dynany;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.DynamicAny.DynAnyPackage.*;
-import org.omg.DynamicAny.*;
 import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.orb.*;
+import org.jacorb.orb.CDRInputStream;
+import org.jacorb.orb.CDROutputStream;
+import org.jacorb.orb.TypeCode;
+import org.omg.DynamicAny.DynEnumHelper;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * CORBA DynEnum
  *
  * @author Gerald Brose
- * @version $Id: DynEnum.java,v 1.21 2006-07-05 09:18:11 alphonse.bendt Exp $
+ * @version $Id: DynEnum.java,v 1.22 2008-11-14 08:55:31 nick.cross Exp $
  */
 
 public final class DynEnum

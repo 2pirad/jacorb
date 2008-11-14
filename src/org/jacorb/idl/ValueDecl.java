@@ -24,11 +24,16 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.50 2006-07-18 13:22:20 alphonse.bendt Exp $
+ * @version $Id: ValueDecl.java,v 1.51 2008-11-14 08:55:26 nick.cross Exp $
  */
 
 public class ValueDecl

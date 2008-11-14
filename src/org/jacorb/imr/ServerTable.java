@@ -20,10 +20,10 @@ package org.jacorb.imr;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.util.*;
-import java.io.*;
-import org.jacorb.imr.RegistrationPackage.*;
-import org.jacorb.imr.AdminPackage.*;
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import org.jacorb.imr.AdminPackage.DuplicateServerName;
 
 /**
  * This class represents the server table of the implementation repository.
@@ -34,7 +34,7 @@ import org.jacorb.imr.AdminPackage.*;
  *
  * @author Nicolas Noffke
  * 
- * $Id: ServerTable.java,v 1.11 2008-10-09 19:03:00 phil.mesnier Exp $
+ * $Id: ServerTable.java,v 1.12 2008-11-14 08:55:26 nick.cross Exp $
  */
 
 public class ServerTable 

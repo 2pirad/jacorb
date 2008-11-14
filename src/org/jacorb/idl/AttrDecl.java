@@ -21,11 +21,13 @@
 package org.jacorb.idl;
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: AttrDecl.java,v 1.18 2006-10-13 19:59:25 andre.spiegel Exp $
+ * @version $Id: AttrDecl.java,v 1.19 2008-11-14 08:55:24 nick.cross Exp $
  */
 
 public class AttrDecl

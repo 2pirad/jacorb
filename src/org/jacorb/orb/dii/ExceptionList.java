@@ -20,11 +20,11 @@
 
 package org.jacorb.orb.dii;
 
-import java.util.*;
+import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: ExceptionList.java,v 1.11 2006-06-28 12:40:16 alphonse.bendt Exp $
+ * @version $Id: ExceptionList.java,v 1.12 2008-11-14 08:55:31 nick.cross Exp $
  */
 public class ExceptionList
     extends org.omg.CORBA.ExceptionList

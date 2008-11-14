@@ -20,8 +20,8 @@ package org.jacorb.orb.dns;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.net.*;
-
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import org.apache.avalon.framework.logger.Logger;
 
 
@@ -30,7 +30,7 @@ import org.apache.avalon.framework.logger.Logger;
  * This only works reliably since JDK 1.4.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: JdkDelegateImpl.java,v 1.3 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: JdkDelegateImpl.java,v 1.4 2008-11-14 08:55:31 nick.cross Exp $
  */
 
 public class JdkDelegateImpl 

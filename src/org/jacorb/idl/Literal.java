@@ -21,13 +21,13 @@ package org.jacorb.idl;
  */
 
 import java.io.PrintWriter;
-import org.jacorb.idl.runtime.long_token;
-import org.jacorb.idl.runtime.int_token;
 import java.math.BigInteger;
+import org.jacorb.idl.runtime.int_token;
+import org.jacorb.idl.runtime.long_token;
 
 /**
  * @author Gerald Brose
- * @version $Id: Literal.java,v 1.25 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: Literal.java,v 1.26 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 public class Literal

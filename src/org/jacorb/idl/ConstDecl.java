@@ -22,12 +22,12 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.31 2006-06-20 10:52:57 alphonse.bendt Exp $
+ * @version $Id: ConstDecl.java,v 1.32 2008-11-14 08:55:24 nick.cross Exp $
  */
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Hashtable;
 
 public class ConstDecl extends Declaration
 {

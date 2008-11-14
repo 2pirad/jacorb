@@ -20,15 +20,18 @@
  */
 package org.jacorb.orb.portableInterceptor;
 
-import org.omg.IOP.CodecPackage.*;
-import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
-import org.omg.IOP.Codec;
-import org.omg.IOP.Encoding;
-import org.omg.IOP.ENCODING_CDR_ENCAPS;
-import org.omg.CORBA.*;
-
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
+import org.omg.CORBA.Any;
+import org.omg.CORBA.ORB;
+import org.omg.CORBA.TypeCode;
+import org.omg.IOP.Codec;
+import org.omg.IOP.ENCODING_CDR_ENCAPS;
+import org.omg.IOP.Encoding;
+import org.omg.IOP.CodecFactoryPackage.UnknownEncoding;
+import org.omg.IOP.CodecPackage.FormatMismatch;
+import org.omg.IOP.CodecPackage.InvalidTypeForEncoding;
+import org.omg.IOP.CodecPackage.TypeMismatch;
 
 /**
  * This class represents a codec for encoding CDR encapsulations for the supported
@@ -37,7 +40,7 @@ import org.jacorb.orb.CDROutputStream;
  * See PI SPec p.10-77ff
  *
  * @author Nicolas Noffke
- * @version $Id: CodecImpl.java,v 1.4 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version $Id: CodecImpl.java,v 1.5 2008-11-14 08:55:34 nick.cross Exp $
  */
 
 public class CodecImpl

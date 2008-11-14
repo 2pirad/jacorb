@@ -20,15 +20,17 @@
  */
 package org.jacorb.imr.util;
 
-import javax.swing.*;
 import java.awt.Component;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
 /**
  * This class sets the combo box in the server table
  * and preselects the correct host name for a server.
  *
  * @author Nicolas Noffke
  * 
- * $Id: ImRTableCellEditor.java,v 1.7 2004-05-06 12:39:59 nicolas Exp $
+ * $Id: ImRTableCellEditor.java,v 1.8 2008-11-14 08:55:27 nick.cross Exp $
  */
 
 public class ImRTableCellEditor extends DefaultCellEditor {

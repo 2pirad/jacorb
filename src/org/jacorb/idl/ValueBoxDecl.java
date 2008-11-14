@@ -23,12 +23,12 @@ package org.jacorb.idl;
 
 import java.io.File;
 import java.io.PrintWriter;
-
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.31 2006-07-03 14:12:13 alphonse.bendt Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.32 2008-11-14 08:55:26 nick.cross Exp $
  */
 
 public class ValueBoxDecl

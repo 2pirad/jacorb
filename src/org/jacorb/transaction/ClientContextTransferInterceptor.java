@@ -21,11 +21,13 @@
 package org.jacorb.transaction;
 
 
-import org.omg.PortableInterceptor.*;
+import org.apache.avalon.framework.logger.Logger;
 import org.omg.IOP.Codec;
 import org.omg.IOP.ServiceContext;
 import org.omg.IOP.TransactionService;
-import org.apache.avalon.framework.logger.Logger;
+import org.omg.PortableInterceptor.ClientRequestInfo;
+import org.omg.PortableInterceptor.ClientRequestInterceptor;
+import org.omg.PortableInterceptor.ForwardRequest;
 
 /**
  * This interceptor adds a service context with
@@ -33,7 +35,7 @@ import org.apache.avalon.framework.logger.Logger;
  * outgoing message.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientContextTransferInterceptor.java,v 1.11 2005-11-20 16:48:25 andre.spiegel Exp $
+ * @version $Id: ClientContextTransferInterceptor.java,v 1.12 2008-11-14 08:55:36 nick.cross Exp $
  */
 
 public class ClientContextTransferInterceptor

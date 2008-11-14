@@ -24,12 +24,13 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.37 2006-06-20 12:14:35 alphonse.bendt Exp $
+ * @version $Id: ScopedName.java,v 1.38 2008-11-14 08:55:25 nick.cross Exp $
  *
  */
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Hashtable;
+import java.util.Stack;
 
 public class ScopedName
     extends SimpleTypeSpec

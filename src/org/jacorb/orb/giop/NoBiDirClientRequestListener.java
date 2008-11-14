@@ -20,19 +20,16 @@
 
 package org.jacorb.orb.giop;
 
-import org.apache.avalon.framework.logger.Logger;
-
-import org.omg.GIOP.ReplyStatusType_1_2;
-import org.omg.CORBA.INV_POLICY;
-import org.omg.CORBA.CompletionStatus;
-
-import org.jacorb.orb.SystemExceptionHelper;
-
 import java.io.IOException;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.orb.SystemExceptionHelper;
+import org.omg.CORBA.CompletionStatus;
+import org.omg.CORBA.INV_POLICY;
+import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: NoBiDirClientRequestListener.java,v 1.12 2006-07-26 08:02:25 alphonse.bendt Exp $
+ * @version $Id: NoBiDirClientRequestListener.java,v 1.13 2008-11-14 08:55:33 nick.cross Exp $
  */
 
 public class NoBiDirClientRequestListener

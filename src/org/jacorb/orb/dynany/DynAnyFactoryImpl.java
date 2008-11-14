@@ -20,14 +20,13 @@ package org.jacorb.orb.dynany;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.TypeCode;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: DynAnyFactoryImpl.java,v 1.16 2006-05-19 22:23:31 alphonse.bendt Exp $
+ * @version $Id: DynAnyFactoryImpl.java,v 1.17 2008-11-14 08:55:31 nick.cross Exp $
  */
 
 public class DynAnyFactoryImpl

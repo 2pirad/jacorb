@@ -20,18 +20,16 @@ package org.jacorb.orb;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.util.*;
-
-import org.omg.ETF.Profile;
-
+import java.util.List;
 import org.jacorb.orb.giop.ClientConnectionManager;
+import org.omg.ETF.Profile;
 
 /**
  * A ProfileSelector decides, on the client side, which Profile from
  * an object's IOR should be used to communicate with the object.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: ProfileSelector.java,v 1.4 2006-06-28 12:39:20 alphonse.bendt Exp $
+ * @version $Id: ProfileSelector.java,v 1.5 2008-11-14 08:55:31 nick.cross Exp $
  */
 public interface ProfileSelector
 {

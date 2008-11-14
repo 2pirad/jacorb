@@ -22,14 +22,18 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.76 2006-10-14 12:25:25 andre.spiegel Exp $
+ * @version $Id: Interface.java,v 1.77 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
-
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Set;
 import org.jacorb.idl.util.PrettyPrinter;
 
 public class Interface

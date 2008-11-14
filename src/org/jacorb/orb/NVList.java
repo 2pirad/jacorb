@@ -22,10 +22,13 @@ package org.jacorb.orb;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: NVList.java,v 1.11 2006-07-10 13:34:12 alphonse.bendt Exp $
+ * @version $Id: NVList.java,v 1.12 2008-11-14 08:55:31 nick.cross Exp $
  */
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class NVList
     extends org.omg.CORBA.NVList

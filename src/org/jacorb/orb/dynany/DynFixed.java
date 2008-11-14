@@ -20,17 +20,18 @@ package org.jacorb.orb.dynany;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.DynamicAny.DynAnyPackage.*;
-import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.orb.*;
-
 import java.math.BigDecimal;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.orb.ORB;
+import org.jacorb.orb.TypeCode;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * CORBA DynFixed
  *
  * @author Jason Courage
- * @version $Id: DynFixed.java,v 1.9 2006-05-17 13:15:27 alphonse.bendt Exp $
+ * @version $Id: DynFixed.java,v 1.10 2008-11-14 08:55:32 nick.cross Exp $
  */
 
 public final class DynFixed

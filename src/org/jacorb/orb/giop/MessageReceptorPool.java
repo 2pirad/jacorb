@@ -20,14 +20,15 @@
 
 package org.jacorb.orb.giop;
 
-import org.apache.avalon.framework.logger.Logger;
 import org.apache.avalon.framework.configuration.Configuration;
-
-import org.jacorb.util.threadpool.*;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.util.threadpool.Consumer;
+import org.jacorb.util.threadpool.ConsumerFactory;
+import org.jacorb.util.threadpool.ThreadPool;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.18 2006-07-27 13:50:35 nick.cross Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.19 2008-11-14 08:55:33 nick.cross Exp $
  */
 public class MessageReceptorPool
 {

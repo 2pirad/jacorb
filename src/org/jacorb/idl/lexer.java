@@ -20,9 +20,13 @@
 
 package org.jacorb.idl;
 
-import org.jacorb.idl.runtime.*;
-
-import java.util.*;
+import java.util.Hashtable;
+import java.util.Stack;
+import org.jacorb.idl.runtime.char_token;
+import org.jacorb.idl.runtime.float_token;
+import org.jacorb.idl.runtime.int_token;
+import org.jacorb.idl.runtime.long_token;
+import org.jacorb.idl.runtime.token;
 
 /**
  *  This  class implements  a  scanner  (aka lexical  analyzer or
@@ -44,7 +48,7 @@ import java.util.*;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.53 2006-10-13 19:56:48 andre.spiegel Exp $
+ * @version $Id: lexer.java,v 1.54 2008-11-14 08:55:26 nick.cross Exp $
  * @author Gerald Brose
  *
  */

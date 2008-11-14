@@ -37,12 +37,12 @@ package org.jacorb.orb.factory;
  * a particular implementation and take care of initialising and pass specific parameters.
  */
 
-import java.net.*;
 import java.io.IOException;
+import java.net.Socket;
 
 /**
  * @author Gerald Brose
- * @version $Id: SocketFactory.java,v 1.8 2006-07-26 09:16:58 alphonse.bendt Exp $
+ * @version $Id: SocketFactory.java,v 1.9 2008-11-14 08:55:32 nick.cross Exp $
  */
 
 public interface SocketFactory

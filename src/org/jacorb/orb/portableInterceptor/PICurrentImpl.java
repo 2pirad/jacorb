@@ -20,8 +20,9 @@
  */
 package org.jacorb.orb.portableInterceptor;
 
-import org.omg.PortableInterceptor.*;
-import org.omg.CORBA.*;
+import org.omg.CORBA.Any;
+import org.omg.CORBA.ORB;
+import org.omg.PortableInterceptor.InvalidSlot;
 
 /**
  * This is the current object for the portable
@@ -31,7 +32,7 @@ import org.omg.CORBA.*;
  * See PI Spec p. 6-55ff
  *
  * @author Nicolas Noffke
- * @version $Id: PICurrentImpl.java,v 1.11 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version $Id: PICurrentImpl.java,v 1.12 2008-11-14 08:55:34 nick.cross Exp $
  */
 
 public class PICurrentImpl extends org.omg.CORBA.LocalObject

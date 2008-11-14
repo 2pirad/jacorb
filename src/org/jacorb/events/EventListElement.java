@@ -20,15 +20,11 @@ package org.jacorb.events;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CosEventChannelAdmin.*;
-import org.omg.CosEventComm.*;
-import java.util.*;
-import org.jacorb.orb.*;
-import java.net.*;
+import java.util.Vector;
 
 /**
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: EventListElement.java,v 1.7 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: EventListElement.java,v 1.8 2008-11-14 08:55:24 nick.cross Exp $
  */
 
 class EventListElement

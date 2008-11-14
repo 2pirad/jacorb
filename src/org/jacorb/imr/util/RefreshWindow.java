@@ -20,9 +20,16 @@
  */
 package org.jacorb.imr.util;
 
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.*;
+import java.awt.Checkbox;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 /**
  * This class shows a window which lets the user control
  * the behaviour of the refresh thread. It allows to change
@@ -31,6 +38,9 @@ import java.awt.*;
  * @author Nicolas Noffke
  *
  * $Log: RefreshWindow.java,v $
+ * Revision 1.8  2008-11-14 08:55:27  nick.cross
+ * Eclipse clean imports.
+ *
  * Revision 1.7  2004-05-06 12:39:59  nicolas
  * Updated Copyright notice to 2004
  *

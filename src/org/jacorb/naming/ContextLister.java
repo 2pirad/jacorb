@@ -20,17 +20,25 @@
 
 package org.jacorb.naming;
 
-import org.omg.CosNaming.*;
-import org.omg.CosNaming.NamingContextPackage.*;
-import java.io.*;
-import java.util.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Hashtable;
+import org.omg.CosNaming.Binding;
+import org.omg.CosNaming.BindingHolder;
+import org.omg.CosNaming.BindingIteratorHolder;
+import org.omg.CosNaming.BindingListHolder;
+import org.omg.CosNaming.BindingType;
+import org.omg.CosNaming.NameComponent;
+import org.omg.CosNaming.NamingContextExt;
+import org.omg.CosNaming.NamingContextExtHelper;
 
 /**
  * This class allows listing all bindings in a naming context
  * to a PrintStream
  * 
  * @author Gerald Brose
- * @version $Id: ContextLister.java,v 1.9 2004-08-04 08:41:17 andre.spiegel Exp $
+ * @version $Id: ContextLister.java,v 1.10 2008-11-14 08:55:30 nick.cross Exp $
  */
 
 public class ContextLister

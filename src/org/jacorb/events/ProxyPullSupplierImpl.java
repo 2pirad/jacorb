@@ -20,9 +20,8 @@ package org.jacorb.events;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CosEventComm.*;
-import org.jacorb.orb.*;
-import java.util.*;
+import java.util.LinkedList;
+import org.omg.CosEventComm.PullConsumer;
 
 
 /**
@@ -43,7 +42,7 @@ import java.util.*;
  * @author Joerg v. Frantzius
  * @author Rainer Lischetzki
  * @author Gerald Brose
- * @version $Id: ProxyPullSupplierImpl.java,v 1.11 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.12 2008-11-14 08:55:24 nick.cross Exp $
  */
 public class ProxyPullSupplierImpl
     extends org.omg.CosEventChannelAdmin.ProxyPullSupplierPOA

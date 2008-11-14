@@ -20,18 +20,20 @@
  */
 package org.jacorb.orb.portableInterceptor;
 
-import org.omg.PortableInterceptor.*;
-import org.omg.CORBA.UserException;
-
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.SystemExceptionHelper;
+import org.omg.CORBA.UserException;
+import org.omg.PortableInterceptor.ClientRequestInterceptor;
+import org.omg.PortableInterceptor.ForwardRequest;
+import org.omg.PortableInterceptor.Interceptor;
+import org.omg.PortableInterceptor.LOCATION_FORWARD;
 
 /**
  * This class is an iterator over an array
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.14 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.15 2008-11-14 08:55:34 nick.cross Exp $
  */
 
 public class ClientInterceptorIterator

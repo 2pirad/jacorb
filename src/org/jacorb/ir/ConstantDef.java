@@ -20,17 +20,15 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.lang.reflect.*;
-
+import java.lang.reflect.Field;
+import org.apache.avalon.framework.logger.Logger;
 import org.omg.CORBA.INTF_REPOS;
 import org.omg.PortableServer.POA;
-
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * JacORB implementation of IR ConstantDef objects
  * @author  Gerald Brose
- * @version $Id: ConstantDef.java,v 1.17 2006-10-11 20:33:00 iliyan.jeliazkov Exp $
+ * @version $Id: ConstantDef.java,v 1.18 2008-11-14 08:55:27 nick.cross Exp $
  */
 
 public class ConstantDef

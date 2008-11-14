@@ -21,18 +21,23 @@
 
 package org.jacorb.orb.portableInterceptor;
 
-import org.jacorb.orb.ORB;
-import org.omg.PortableInterceptor.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import org.apache.avalon.framework.logger.Logger;
-
-import java.util.*;
+import org.jacorb.orb.ORB;
+import org.omg.PortableInterceptor.ClientRequestInterceptor;
+import org.omg.PortableInterceptor.Current;
+import org.omg.PortableInterceptor.IORInterceptor;
+import org.omg.PortableInterceptor.Interceptor;
+import org.omg.PortableInterceptor.ServerRequestInterceptor;
 
 /**
  * This class "manages" the portable interceptors registered
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.22 2007-02-06 19:47:16 andre.spiegel Exp $
+ * @version $Id: InterceptorManager.java,v 1.23 2008-11-14 08:55:34 nick.cross Exp $
  */
 
 public class InterceptorManager

@@ -19,8 +19,10 @@
  */
 package org.jacorb.orb.etf;
 
-import java.io.*;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InterruptedIOException;
+import java.io.OutputStream;
 import org.jacorb.util.ObjectUtil;
 
 /**
@@ -28,7 +30,7 @@ import org.jacorb.util.ObjectUtil;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: StreamConnectionBase.java,v 1.6 2007-02-06 09:15:22 andre.spiegel Exp $
+ * @version $Id: StreamConnectionBase.java,v 1.7 2008-11-14 08:55:32 nick.cross Exp $
  */
 
 public abstract class StreamConnectionBase

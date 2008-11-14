@@ -20,13 +20,16 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambrigde, MA 02139, USA.
  */
 
-import org.omg.PortableServer.*;
-
-import java.util.*;
-import java.io.*;
-
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.Vector;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
-import org.apache.avalon.framework.configuration.*;
+import org.omg.PortableServer.POA;
+import org.omg.PortableServer.POAHelper;
 
 /**
  * The Interface Repository.
@@ -39,7 +42,7 @@ import org.apache.avalon.framework.configuration.*;
  * <p>
  *
  * @author Gerald Brose
- * @version $Id: RepositoryImpl.java,v 1.12 2006-06-15 16:43:14 alphonse.bendt Exp $
+ * @version $Id: RepositoryImpl.java,v 1.13 2008-11-14 08:55:28 nick.cross Exp $
  */
 
 public class RepositoryImpl

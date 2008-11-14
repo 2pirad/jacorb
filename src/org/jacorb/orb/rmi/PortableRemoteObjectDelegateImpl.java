@@ -22,15 +22,13 @@ package org.jacorb.orb.rmi;
 
 /**
  * @author Gerald Brose
- * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.6 2006-12-06 00:13:57 alphonse.bendt Exp $
+ * @version $Id: PortableRemoteObjectDelegateImpl.java,v 1.7 2008-11-14 08:55:35 nick.cross Exp $
  */
 
 import java.rmi.Remote;
-
-import javax.rmi.CORBA.Tie;
 import javax.rmi.CORBA.Stub;
+import javax.rmi.CORBA.Tie;
 import javax.rmi.CORBA.Util;
-
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.portable.ObjectImpl;
 

@@ -23,17 +23,15 @@ package org.jacorb.orb.giop;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.ParsedIOR;
 import org.jacorb.util.ObjectUtil;
-import org.omg.CONV_FRAME.CodeSetComponent;
 import org.omg.CONV_FRAME.CodeSetComponentInfo;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.64 2008-03-24 16:41:42 andre.spiegel Exp $
+ * @version $Id: ClientConnection.java,v 1.65 2008-11-14 08:55:32 nick.cross Exp $
  */
 public class ClientConnection
     implements ReplyListener, ConnectionListener

@@ -21,14 +21,13 @@ package org.jacorb.orb;
  */
 
 import org.jacorb.orb.giop.LocateReplyInputStream;
-
 import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * A special ReplyPlaceholder that receives LocateReplies.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: LocateReplyReceiver.java,v 1.9 2006-07-10 13:32:31 alphonse.bendt Exp $
+ * @version $Id: LocateReplyReceiver.java,v 1.10 2008-11-14 08:55:31 nick.cross Exp $
  */
 public class LocateReplyReceiver
     extends org.jacorb.orb.giop.ReplyPlaceholder

@@ -22,7 +22,6 @@ package org.jacorb.orb.giop;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
@@ -40,7 +39,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.26 2008-03-24 16:41:44 andre.spiegel Exp $
+ * @version $Id: ServerRequestListener.java,v 1.27 2008-11-14 08:55:33 nick.cross Exp $
  */
 public class ServerRequestListener
     implements RequestListener, Configurable

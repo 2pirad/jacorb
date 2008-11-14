@@ -22,11 +22,12 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDef.java,v 1.17 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: TypeDef.java,v 1.18 2008-11-14 08:55:26 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 public class TypeDef
     extends TypeDeclaration

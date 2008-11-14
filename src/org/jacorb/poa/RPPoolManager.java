@@ -20,11 +20,11 @@ package org.jacorb.poa;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.configuration.*;
+import java.util.Vector;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
-
 import org.jacorb.poa.except.POAInternalError;
-import java.util.*;
 
 /**
  * This class provides and manages a pool of ready started threads for
@@ -32,7 +32,7 @@ import java.util.*;
  *
  * @author Gerald Brose
  * @author Reimo Tiedemann
- * @version $Id: RPPoolManager.java,v 1.22 2006-07-07 12:09:50 alphonse.bendt Exp $
+ * @version $Id: RPPoolManager.java,v 1.23 2008-11-14 08:55:35 nick.cross Exp $
  * @see org.jacorb.poa.RequestProcessor
  */
 

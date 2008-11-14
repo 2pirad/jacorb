@@ -20,7 +20,9 @@
  */
 package org.jacorb.orb.portableInterceptor;
 
-import org.omg.PortableInterceptor.*;
+import org.omg.PortableInterceptor.ForwardRequest;
+import org.omg.PortableInterceptor.ServerRequestInfo;
+import org.omg.PortableInterceptor.ServerRequestInterceptor;
 
 /**
  * DefaultServerInterceptor.java
@@ -28,7 +30,7 @@ import org.omg.PortableInterceptor.*;
  * A simple base class for user-defined server interceptors
  *
  * @author Gerald Brose.
- * @version $Id: DefaultServerInterceptor.java,v 1.8 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version $Id: DefaultServerInterceptor.java,v 1.9 2008-11-14 08:55:34 nick.cross Exp $
  */
 public abstract class DefaultServerInterceptor
     extends org.omg.CORBA.LocalObject

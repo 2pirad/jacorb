@@ -20,11 +20,13 @@
 
 package org.jacorb.orb.giop;
 
-import org.apache.avalon.framework.configuration.*;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.17 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.18 2008-11-14 08:55:32 nick.cross Exp $
  */
 public class ClientGIOPConnection
     extends GIOPConnection

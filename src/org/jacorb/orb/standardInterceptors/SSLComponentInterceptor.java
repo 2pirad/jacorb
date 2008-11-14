@@ -20,21 +20,25 @@
  */
 package org.jacorb.orb.standardInterceptors;
 
-import org.apache.avalon.framework.configuration.*;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
-
-import org.omg.PortableInterceptor.*;
+import org.jacorb.orb.CDROutputStream;
+import org.jacorb.orb.ORB;
 import org.omg.CORBA.INTERNAL;
-import org.omg.IOP.*;
-import org.omg.SSLIOP.*;
-
-import org.jacorb.orb.*;
+import org.omg.IOP.TAG_INTERNET_IOP;
+import org.omg.IOP.TaggedComponent;
+import org.omg.PortableInterceptor.IORInfo;
+import org.omg.PortableInterceptor.IORInterceptor;
+import org.omg.SSLIOP.SSL;
+import org.omg.SSLIOP.SSLHelper;
 
 /**
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.22 2006-05-17 13:18:01 alphonse.bendt Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.23 2008-11-14 08:55:35 nick.cross Exp $
  */
 
 public class SSLComponentInterceptor

@@ -20,18 +20,17 @@ package org.jacorb.naming;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import  java.util.*;
-
+import java.util.Vector;
 import org.omg.CORBA.INTERNAL;
-import  org.omg.CosNaming.*;
-import  org.omg.CosNaming.NamingContextPackage.*;
+import org.omg.CosNaming.NameComponent;
+import org.omg.CosNaming.NamingContextPackage.InvalidName;
 
 /**
  * A convenience class for names and converting
  * between Names and their string representation
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Name.java,v 1.14 2006-06-14 11:56:28 alphonse.bendt Exp $
+ * @version $Id: Name.java,v 1.15 2008-11-14 08:55:30 nick.cross Exp $
  */
 
 public class Name

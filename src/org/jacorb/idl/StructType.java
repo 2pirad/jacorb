@@ -23,11 +23,13 @@ package org.jacorb.idl;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.55 2007-02-06 22:50:35 andre.spiegel Exp $
+ * @version $Id: StructType.java,v 1.56 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 public class StructType

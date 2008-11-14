@@ -1,17 +1,19 @@
 
 package org.jacorb.orb;
 
-import java.lang.reflect.*;
-import java.util.*;
-
-import org.omg.IOP.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import org.omg.IOP.TaggedComponent;
+import org.omg.IOP.TaggedComponentSeqHelper;
 
 /**
  * Represents a list of tagged components from an IOR, along with some
  * generic methods to find and access individual components.
  * <p>
  * @author Andre Spiegel
- * @version $Id: TaggedComponentList.java,v 1.8 2006-06-27 10:50:53 alphonse.bendt Exp $
+ * @version $Id: TaggedComponentList.java,v 1.9 2008-11-14 08:55:31 nick.cross Exp $
  */
 public class TaggedComponentList implements Cloneable
 {

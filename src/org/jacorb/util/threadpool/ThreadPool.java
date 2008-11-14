@@ -21,14 +21,14 @@ package org.jacorb.util.threadpool;
  *
  */
 
-import java.util.*;
+import java.util.LinkedList;
+import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.Configuration;
 import org.omg.CORBA.NO_RESOURCES;
-import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ThreadPool.java,v 1.21 2006-07-12 11:34:43 alphonse.bendt Exp $
+ * @version $Id: ThreadPool.java,v 1.22 2008-11-14 08:55:37 nick.cross Exp $
  */
 public class ThreadPool
 {

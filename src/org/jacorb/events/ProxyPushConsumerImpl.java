@@ -20,11 +20,7 @@ package org.jacorb.events;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CosEventComm.*;
-import org.omg.CosEventChannelAdmin.*;
-import org.omg.PortableServer.*;
-import org.omg.CORBA.*;
-import org.jacorb.orb.*;
+import org.omg.CosEventComm.PushSupplier;
 
 /**
  * Implementation of COSEventChannelAdmin interface; ProxyPushConsumer.
@@ -41,7 +37,7 @@ import org.jacorb.orb.*;
  *    section 2.1.5 "Disconnection Behavior" on page 2-4.
  *
  * @author Jeff Carlson, Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose
- * @version $Id: ProxyPushConsumerImpl.java,v 1.8 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.9 2008-11-14 08:55:24 nick.cross Exp $
  */
 public class ProxyPushConsumerImpl
     extends org.omg.CosEventChannelAdmin.ProxyPushConsumerPOA

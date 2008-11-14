@@ -20,15 +20,12 @@
 
 package org.jacorb.orb.listener;
 
-import javax.net.ssl.HandshakeCompletedEvent;
-import javax.net.ssl.HandshakeCompletedListener;
-
-import javax.security.cert.X509Certificate;
-import javax.net.ssl.SSLPeerUnverifiedException;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
+import javax.net.ssl.HandshakeCompletedEvent;
+import javax.net.ssl.HandshakeCompletedListener;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.security.cert.X509Certificate;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
@@ -37,7 +34,7 @@ import org.apache.avalon.framework.logger.Logger;
  * on to the external SSLListener.
  *
  * @author Nick Cross
- * @version $Id: SSLHandshakeListener.java,v 1.2 2006-06-29 15:17:55 alphonse.bendt Exp $
+ * @version $Id: SSLHandshakeListener.java,v 1.3 2008-11-14 08:55:33 nick.cross Exp $
  */
 public class SSLHandshakeListener implements HandshakeCompletedListener
 {

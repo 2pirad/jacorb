@@ -21,9 +21,9 @@
 
 package org.jacorb.imr;
 
-import java.util.*;
-
-import org.jacorb.imr.AdminPackage.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.jacorb.imr.AdminPackage.IllegalServerName;
 
 /**
  * This class contains the information about a logical server.
@@ -32,7 +32,7 @@ import org.jacorb.imr.AdminPackage.*;
  * that blocks until the server is released.
  *
  * @author Nicolas Noffke
- * @version $Id: ImRServerInfo.java,v 1.14 2006-07-14 11:41:38 alphonse.bendt Exp $
+ * @version $Id: ImRServerInfo.java,v 1.15 2008-11-14 08:55:26 nick.cross Exp $
  */
 public class ImRServerInfo
     implements java.io.Serializable

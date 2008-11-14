@@ -20,9 +20,9 @@
  */
 package org.jacorb.imr.util;
 
-import javax.swing.table.*;
-import org.jacorb.imr.*;
-import javax.swing.event.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.table.AbstractTableModel;
+import org.jacorb.imr.ServerInfo;
 /**
  * This class is the model for the server table.
  * On user changes, it writes back its edited cells
@@ -30,7 +30,7 @@ import javax.swing.event.*;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImRServerTableModel.java,v 1.9 2006-06-16 12:36:28 alphonse.bendt Exp $
+ * $Id: ImRServerTableModel.java,v 1.10 2008-11-14 08:55:27 nick.cross Exp $
  */
 
 public class ImRServerTableModel extends AbstractTableModel {

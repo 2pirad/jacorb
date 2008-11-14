@@ -21,7 +21,7 @@
 
 package org.jacorb.imr;
 
-import org.jacorb.imr.RegistrationPackage.*;
+import org.jacorb.imr.RegistrationPackage.IllegalPOAName;
 
 /**
  * This class stores information about a POA. It also provides methods
@@ -29,7 +29,7 @@ import org.jacorb.imr.RegistrationPackage.*;
  *
  * @author Nicolas Noffke
  *
- * @version $Id: ImRPOAInfo.java,v 1.11 2006-06-27 12:54:33 alphonse.bendt Exp $
+ * @version $Id: ImRPOAInfo.java,v 1.12 2008-11-14 08:55:26 nick.cross Exp $
  */
 
 public class ImRPOAInfo

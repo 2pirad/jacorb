@@ -20,6 +20,10 @@
 
 package org.jacorb.idl;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.taskdefs.MatchingTask;
@@ -27,17 +31,12 @@ import org.apache.tools.ant.types.Path;
 import org.apache.tools.ant.util.GlobPatternMapper;
 import org.apache.tools.ant.util.SourceFileScanner;
 
-import java.util.*;
-
-import java.io.File;
-import java.io.IOException;
-
 /**
  * This is the idl compile task for using the idl compiler
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.28 2006-06-26 14:37:45 alphonse.bendt Exp $
+ * @version $Id: JacIDL.java,v 1.29 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 public class JacIDL

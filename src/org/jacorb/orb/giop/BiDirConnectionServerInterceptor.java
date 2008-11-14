@@ -20,19 +20,24 @@
 
 package org.jacorb.orb.giop;
 
-import org.omg.PortableInterceptor.*;
-import org.omg.IIOP.*;
-import org.omg.IOP.*;
-
-import org.jacorb.orb.*;
-import org.jacorb.orb.iiop.*;
-import org.jacorb.orb.portableInterceptor.*;
-
-import org.apache.avalon.framework.logger.*;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.orb.CDRInputStream;
+import org.jacorb.orb.ORB;
+import org.jacorb.orb.iiop.IIOPAddress;
+import org.jacorb.orb.iiop.IIOPProfile;
+import org.jacorb.orb.portableInterceptor.DefaultServerInterceptor;
+import org.jacorb.orb.portableInterceptor.ServerRequestInfoImpl;
+import org.omg.IIOP.BiDirIIOPServiceContext;
+import org.omg.IIOP.BiDirIIOPServiceContextHelper;
+import org.omg.IIOP.ListenPoint;
+import org.omg.IOP.BI_DIR_IIOP;
+import org.omg.IOP.ServiceContext;
+import org.omg.PortableInterceptor.ForwardRequest;
+import org.omg.PortableInterceptor.ServerRequestInfo;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.15 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.16 2008-11-14 08:55:32 nick.cross Exp $
  */
 public class BiDirConnectionServerInterceptor
     extends DefaultServerInterceptor

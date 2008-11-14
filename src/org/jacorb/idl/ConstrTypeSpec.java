@@ -23,11 +23,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstrTypeSpec.java,v 1.23 2006-05-15 14:35:52 alphonse.bendt Exp $
+ * @version $Id: ConstrTypeSpec.java,v 1.24 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Set;
 
 public class ConstrTypeSpec
     extends TypeSpec

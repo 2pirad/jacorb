@@ -21,15 +21,17 @@
 package org.jacorb.orb.giop;
 
 import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.orb.*;
-
-import org.omg.PortableInterceptor.*;
-import org.omg.IOP.*;
+import org.jacorb.orb.ORB;
 import org.omg.BiDirPolicy.BIDIRECTIONAL_POLICY_TYPE;
+import org.omg.IOP.Codec;
+import org.omg.IOP.ENCODING_CDR_ENCAPS;
+import org.omg.IOP.Encoding;
+import org.omg.PortableInterceptor.ORBInitInfo;
+import org.omg.PortableInterceptor.ORBInitializer;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionInitializer.java,v 1.12 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: BiDirConnectionInitializer.java,v 1.13 2008-11-14 08:55:32 nick.cross Exp $
  */
 
 public class BiDirConnectionInitializer

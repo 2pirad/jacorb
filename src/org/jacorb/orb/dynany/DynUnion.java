@@ -20,19 +20,21 @@ package org.jacorb.orb.dynany;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.DynamicAny.DynAnyPackage.*;
-import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
-import org.omg.DynamicAny.*;
-
 import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.orb.*;
+import org.jacorb.orb.CDRInputStream;
+import org.jacorb.orb.CDROutputStream;
+import org.jacorb.orb.TypeCode;
 import org.omg.CORBA.TCKind;
+import org.omg.DynamicAny.DynUnionHelper;
+import org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * CORBA DynUnion
  *
  * @author Gerald Brose
- * @version $Id: DynUnion.java,v 1.29 2006-07-05 09:18:11 alphonse.bendt Exp $
+ * @version $Id: DynUnion.java,v 1.30 2008-11-14 08:55:32 nick.cross Exp $
  */
 
 public final class DynUnion

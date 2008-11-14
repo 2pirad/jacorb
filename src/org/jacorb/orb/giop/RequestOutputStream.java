@@ -23,11 +23,8 @@ package org.jacorb.orb.giop;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.util.Time;
-import org.omg.CONV_FRAME.CodeSetContext;
-import org.omg.CONV_FRAME.CodeSetContextHelper;
 import org.omg.CORBA.MARSHAL;
 import org.omg.CORBA.PrincipalHelper;
 import org.omg.GIOP.MsgType_1_1;
@@ -49,7 +46,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.32 2006-07-26 11:05:21 nick.cross Exp $
+ * @version $Id: RequestOutputStream.java,v 1.33 2008-11-14 08:55:33 nick.cross Exp $
  */
 public class RequestOutputStream
     extends ServiceContextTransportingOutputStream

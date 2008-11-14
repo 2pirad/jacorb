@@ -22,12 +22,14 @@ package org.jacorb.idl;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Andre Spiegel
  * @author Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.26 2006-07-13 08:48:28 nick.cross Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.27 2008-11-14 08:55:26 nick.cross Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and

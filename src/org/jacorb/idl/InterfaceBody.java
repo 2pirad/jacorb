@@ -21,11 +21,14 @@ package org.jacorb.idl;
  */
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.29 2006-07-19 13:57:14 alphonse.bendt Exp $
+ * @version $Id: InterfaceBody.java,v 1.30 2008-11-14 08:55:25 nick.cross Exp $
  *
  * directly known subclasses: ValueBody
  */

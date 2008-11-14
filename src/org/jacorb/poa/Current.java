@@ -20,16 +20,17 @@ package org.jacorb.poa;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 import org.omg.PortableServer.CurrentPackage.NoContext;
-
-import java.util.*;
 
 /**
  * This class provides access to the identity of the object on which a method
  * was invoked and the responsible POA for this object.
  *
  * @author Reimo Tiedemann
- * @version $Id: Current.java,v 1.22 2006-05-23 18:25:45 alphonse.bendt Exp $
+ * @version $Id: Current.java,v 1.23 2008-11-14 08:55:35 nick.cross Exp $
  */
 
 public class Current

@@ -20,15 +20,19 @@
  */
 package org.jacorb.orb.etf;
 
-import org.apache.avalon.framework.configuration.*;
-
-import org.omg.ETF.*;
-import org.omg.IOP.*;
+import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.omg.ETF.Connection;
+import org.omg.ETF.Listener;
+import org.omg.ETF.Profile;
+import org.omg.IOP.TaggedComponentSeqHolder;
+import org.omg.IOP.TaggedProfileHolder;
 import org.omg.RTCORBA.ProtocolProperties;
 
 /**
  * @author Andre Spiegel
- * @version $Id: FactoriesBase.java,v 1.4 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: FactoriesBase.java,v 1.5 2008-11-14 08:55:32 nick.cross Exp $
  */
 public abstract class FactoriesBase
     extends org.omg.ETF._FactoriesLocalBase

@@ -20,14 +20,15 @@ package org.jacorb.orb.dynany;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.DynamicAny.DynAnyPackage.*;
-import org.omg.DynamicAny.*;
+import org.omg.DynamicAny.NameValuePair;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
+import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
 
 /**
  * CORBA DynValue
  *
  * @author Nick Cross
- * @version $Id: DynValue.java,v 1.5 2006-06-20 07:14:36 alphonse.bendt Exp $
+ * @version $Id: DynValue.java,v 1.6 2008-11-14 08:55:32 nick.cross Exp $
  */
 
 public final class DynValue

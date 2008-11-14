@@ -20,6 +20,13 @@
 
 package org.jacorb.orb.giop;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Properties;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.NullLogger;
 import org.jacorb.config.Configuration;
@@ -29,17 +36,13 @@ import org.omg.CONV_FRAME.CodeSetComponent;
 import org.omg.CONV_FRAME.CodeSetComponentInfo;
 import org.omg.CONV_FRAME.CodeSetContext;
 import org.omg.CONV_FRAME.CodeSetContextHelper;
-import org.omg.CORBA.MARSHAL;
 import org.omg.CORBA.CODESET_INCOMPATIBLE;
+import org.omg.CORBA.MARSHAL;
 import org.omg.IOP.ServiceContext;
 import org.omg.IOP.TAG_CODE_SETS;
-
-import java.io.*;
-import java.util.Properties;
-import java.util.ArrayList;
 /**
  * @author Gerald Brose
- * @version $Id: CodeSet.java,v 1.23 2008-03-24 16:41:44 andre.spiegel Exp $
+ * @version $Id: CodeSet.java,v 1.24 2008-11-14 08:55:32 nick.cross Exp $
  */
 public class CodeSet
 {

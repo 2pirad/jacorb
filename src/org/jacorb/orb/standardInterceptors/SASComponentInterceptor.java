@@ -22,10 +22,9 @@ package org.jacorb.orb.standardInterceptors;
  */
 
 
-import org.apache.avalon.framework.logger.Logger;
 import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.apache.avalon.framework.logger.Logger;
 import org.ietf.jgss.Oid;
-
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.portableInterceptor.IORInfoImpl;
@@ -36,7 +35,6 @@ import org.jacorb.sasPolicy.SASPolicy;
 import org.jacorb.sasPolicy.SASPolicyValues;
 import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
 import org.jacorb.security.sas.ISASContext;
-
 import org.omg.ATLAS.ATLASLocator;
 import org.omg.ATLAS.ATLASProfile;
 import org.omg.ATLAS.ATLASProfileHelper;
@@ -64,7 +62,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.22 2006-07-14 12:02:41 nick.cross Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.23 2008-11-14 08:55:35 nick.cross Exp $
  */
 
 public class SASComponentInterceptor

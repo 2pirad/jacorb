@@ -21,11 +21,12 @@
 package org.jacorb.idl;
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.32 2006-06-26 14:37:44 alphonse.bendt Exp $
+ * @version $Id: Member.java,v 1.33 2008-11-14 08:55:25 nick.cross Exp $
  */
 public class Member
     extends Declaration

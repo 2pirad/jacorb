@@ -23,10 +23,10 @@ package org.jacorb.naming;
 /**   
  * Implementation of the  "BindingIterator" interface
  * @author Gerald Brose
- * @version $Id: BindingIteratorImpl.java,v 1.7 2004-05-06 12:39:59 nicolas Exp $
+ * @version $Id: BindingIteratorImpl.java,v 1.8 2008-11-14 08:55:30 nick.cross Exp $
  */
 
-import  org.omg.CosNaming.*;
+import org.omg.CosNaming.Binding;
 
 public class BindingIteratorImpl
     extends org.omg.CosNaming.BindingIteratorPOA

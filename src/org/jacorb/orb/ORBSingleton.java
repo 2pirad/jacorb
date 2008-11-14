@@ -21,21 +21,20 @@ package org.jacorb.orb;
  */
 
 import java.util.HashSet;
-
+import org.apache.avalon.framework.configuration.Configuration;
+import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.JacORBConfiguration;
-import org.omg.CORBA.INTERNAL;
-import org.omg.CORBA.TypeCode;
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.CORBA.BAD_TYPECODE;
-import org.omg.CORBA.TCKind;
 import org.omg.CORBA.CompletionStatus;
-
-import org.apache.avalon.framework.configuration.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.omg.CORBA.INTERNAL;
+import org.omg.CORBA.TCKind;
+import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.50 2006-09-10 09:53:19 andre.spiegel Exp $
+ * @version $Id: ORBSingleton.java,v 1.51 2008-11-14 08:55:31 nick.cross Exp $
  */
 
 public class ORBSingleton

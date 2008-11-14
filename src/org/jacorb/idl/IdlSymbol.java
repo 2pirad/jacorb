@@ -22,15 +22,15 @@ package org.jacorb.idl;
 
 
 import java.io.PrintWriter;
-import java.util.*;
-
-import org.apache.log.*;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import org.apache.log.Logger;
 
 /**
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.45 2006-08-03 12:31:17 alphonse.bendt Exp $
+ * @version $Id: IdlSymbol.java,v 1.46 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 public class IdlSymbol

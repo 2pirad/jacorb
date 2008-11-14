@@ -20,15 +20,15 @@ package org.jacorb.config;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.logger.*;
 import org.apache.avalon.framework.configuration.Configurable;
+import org.apache.avalon.framework.logger.Logger;
 
 /**
  * Shields JacORB from details of creating Avalon loggers for a
  * specific logging backend.
  *
  * @author Gerald Brose 
- * @version $Id: LoggerFactory.java,v 1.4 2004-05-09 20:18:34 francisco Exp $
+ * @version $Id: LoggerFactory.java,v 1.5 2008-11-14 08:55:24 nick.cross Exp $
  * @since JacORB 2.0 beta 3
  */
 

@@ -20,8 +20,7 @@
 
 package org.jacorb.orb.giop;
 
-import org.jacorb.orb.*;
-
+import org.jacorb.orb.ORB;
 import org.omg.CORBA.portable.RemarshalException;
 
 /**
@@ -30,7 +29,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * implemented in subclasses.
  *
  * @author Nicolas Noffke
- * @version $Id: ReplyPlaceholder.java,v 1.23 2006-08-29 15:03:00 alphonse.bendt Exp $
+ * @version $Id: ReplyPlaceholder.java,v 1.24 2008-11-14 08:55:33 nick.cross Exp $
  */
 public abstract class ReplyPlaceholder
 {

@@ -20,7 +20,6 @@ package org.jacorb.events;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.jacorb.orb.*;
 
 /**
  * Implementation of COSEventChannelAdmin interface; ProxyPullConsumer.
@@ -38,7 +37,7 @@ import org.jacorb.orb.*;
  * @author Joerg v. Frantzius
  * @author Rainer Lischetzki
  * @author Gerald Brose
- * $Id: ProxyPullConsumerImpl.java,v 1.10 2004-05-06 12:39:58 nicolas Exp $
+ * $Id: ProxyPullConsumerImpl.java,v 1.11 2008-11-14 08:55:24 nick.cross Exp $
  */
 public class ProxyPullConsumerImpl
     extends org.omg.CosEventChannelAdmin.ProxyPullConsumerPOA

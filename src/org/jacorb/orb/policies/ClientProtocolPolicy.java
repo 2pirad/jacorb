@@ -21,13 +21,13 @@
 
 package org.jacorb.orb.policies;
 
-import org.omg.RTCORBA._ClientProtocolPolicyLocalBase;
 import org.omg.RTCORBA.Protocol;
 import org.omg.RTCORBA.ProtocolListHelper;
+import org.omg.RTCORBA._ClientProtocolPolicyLocalBase;
 
 /**
  * @author Steve Osselton
- * @version $Id: ClientProtocolPolicy.java,v 1.2 2006-07-07 10:55:41 alphonse.bendt Exp $
+ * @version $Id: ClientProtocolPolicy.java,v 1.3 2008-11-14 08:55:33 nick.cross Exp $
  */
 public class ClientProtocolPolicy extends _ClientProtocolPolicyLocalBase
 {

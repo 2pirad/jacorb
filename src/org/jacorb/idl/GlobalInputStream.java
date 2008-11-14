@@ -20,14 +20,18 @@
 
 package org.jacorb.idl;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Stack;
 
 /**
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.22 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: GlobalInputStream.java,v 1.23 2008-11-14 08:55:25 nick.cross Exp $
  */
 
 public class GlobalInputStream

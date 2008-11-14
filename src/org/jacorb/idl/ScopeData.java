@@ -23,10 +23,10 @@ package org.jacorb.idl;
 /**
  * @author Gerald Brose
  *
- * @version $Id: ScopeData.java,v 1.12 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: ScopeData.java,v 1.13 2008-11-14 08:55:25 nick.cross Exp $
  */
 
-import java.util.*;
+import java.util.Hashtable;
 
 public class ScopeData
 {

@@ -21,12 +21,12 @@
 
 package org.jacorb.orb.portableInterceptor;
 
-import org.omg.PortableInterceptor.*;
 import org.omg.CORBA.UserException;
+import org.omg.PortableInterceptor.Interceptor;
 
 /**
  * @author Gerald Brose
- * @version $Id: AbstractInterceptorIterator.java,v 1.8 2006-07-07 10:55:57 alphonse.bendt Exp $
+ * @version $Id: AbstractInterceptorIterator.java,v 1.9 2008-11-14 08:55:34 nick.cross Exp $
  */
 
 public abstract class AbstractInterceptorIterator

@@ -21,20 +21,23 @@
 
 package org.jacorb.orb.etf;
 
-import org.apache.avalon.framework.configuration.*;
-
-import org.jacorb.orb.CDROutputStream;
+import org.apache.avalon.framework.configuration.Configurable;
 import org.jacorb.orb.CDRInputStream;
+import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.TaggedComponentList;
-
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.CORBA.MARSHAL;
-import org.omg.ETF.*;
-import org.omg.IOP.*;
+import org.omg.ETF.Profile;
+import org.omg.ETF._ProfileLocalBase;
+import org.omg.IOP.TaggedComponent;
+import org.omg.IOP.TaggedComponentHelper;
+import org.omg.IOP.TaggedComponentSeqHolder;
+import org.omg.IOP.TaggedProfile;
+import org.omg.IOP.TaggedProfileHolder;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.6 2007-02-14 09:07:23 andre.spiegel Exp $
+ * @version $Id: ProfileBase.java,v 1.7 2008-11-14 08:55:32 nick.cross Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase

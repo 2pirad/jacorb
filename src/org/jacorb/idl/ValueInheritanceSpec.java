@@ -21,11 +21,12 @@ package org.jacorb.idl;
  */
 
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueInheritanceSpec.java,v 1.15 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: ValueInheritanceSpec.java,v 1.16 2008-11-14 08:55:26 nick.cross Exp $
  */
 
 public class ValueInheritanceSpec

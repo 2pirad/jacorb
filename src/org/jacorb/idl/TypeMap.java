@@ -22,10 +22,10 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeMap.java,v 1.22 2006-06-19 10:34:58 alphonse.bendt Exp $
+ * @version $Id: TypeMap.java,v 1.23 2008-11-14 08:55:26 nick.cross Exp $
  */
 
-import java.util.*;
+import java.util.Hashtable;
 
 public class TypeMap
 {

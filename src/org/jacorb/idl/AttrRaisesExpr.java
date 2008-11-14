@@ -20,8 +20,7 @@ package org.jacorb.idl;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.io.PrintWriter;
-import java.util.*;
+import java.util.Vector;
 
 /**
  * This is only a holder object for the result of the attr_raises_expr
@@ -29,7 +28,7 @@ import java.util.*;
  * AttrDecl object during parsing.
  * 
  * @author Andre Spiegel
- * @version $Id: AttrRaisesExpr.java,v 1.1 2006-10-13 19:58:01 andre.spiegel Exp $
+ * @version $Id: AttrRaisesExpr.java,v 1.2 2008-11-14 08:55:24 nick.cross Exp $
  */
 
 public class AttrRaisesExpr

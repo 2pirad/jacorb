@@ -22,7 +22,6 @@ package org.jacorb.idl;
 
 
 import java.util.HashMap;
-import java.lang.Double;
 
 /**
  * Based on the MathEvaluator class by The-Son LAI,
@@ -36,7 +35,7 @@ import java.lang.Double;
  * When the getValue() is called, a Double object is returned.
  * If it returns null, an error occured.<p>
 
- * @version $Id: ConstExprEvaluator.java,v 1.6 2006-06-02 13:02:56 alphonse.bendt Exp $
+ * @version $Id: ConstExprEvaluator.java,v 1.7 2008-11-14 08:55:24 nick.cross Exp $
  * @author  Gerald Brose,
  *          The-Son LAI <a href="mailto:Lts@writeme.com">Lts@writeme.com</a>
  */

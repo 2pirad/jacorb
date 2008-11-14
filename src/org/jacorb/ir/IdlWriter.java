@@ -20,19 +20,20 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.io.*;
-
+import java.io.PrintStream;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.TypeCode;
 import org.omg.CORBA.INTERNAL;
-import org.omg.DynamicAny.*;
+import org.omg.DynamicAny.DynAnyFactory;
+import org.omg.DynamicAny.DynEnum;
+import org.omg.DynamicAny.DynEnumHelper;
 
 /**
  * This class prints IDL from IR-Descriptions to PrintStreams
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IdlWriter.java,v 1.13 2006-05-17 12:57:44 alphonse.bendt Exp $
+ * @version $Id: IdlWriter.java,v 1.14 2008-11-14 08:55:27 nick.cross Exp $
  */
 
 public class IdlWriter

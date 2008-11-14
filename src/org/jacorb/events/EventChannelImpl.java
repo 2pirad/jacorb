@@ -20,14 +20,19 @@ package org.jacorb.events;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CosEventChannelAdmin.*;
-import org.omg.CosEventComm.*;
-import org.omg.CORBA.*;
-import org.omg.CosNaming.*;
-import org.omg.PortableServer.*;
-import java.util.*;
-import org.jacorb.orb.*;
-import java.net.*;
+import java.util.Enumeration;
+import java.util.Vector;
+import org.omg.CORBA.TCKind;
+import org.omg.CosEventChannelAdmin.ConsumerAdmin;
+import org.omg.CosEventChannelAdmin.ConsumerAdminHelper;
+import org.omg.CosEventChannelAdmin.ProxyPullConsumer;
+import org.omg.CosEventChannelAdmin.ProxyPullSupplier;
+import org.omg.CosEventChannelAdmin.ProxyPushConsumer;
+import org.omg.CosEventChannelAdmin.ProxyPushSupplier;
+import org.omg.CosEventChannelAdmin.SupplierAdmin;
+import org.omg.CosEventChannelAdmin.SupplierAdminHelper;
+import org.omg.CosNaming.NamingContextExt;
+import org.omg.CosNaming.NamingContextExtHelper;
 
 /**
  * Simple implementation of the event channel spec.
@@ -36,7 +41,7 @@ import java.net.*;
  * references only.
  *
  * @author Joerg v. Frantzius, Rainer Lischetzki, Gerald Brose, Jeff Carlson
- * @version $Id: EventChannelImpl.java,v 1.10 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: EventChannelImpl.java,v 1.11 2008-11-14 08:55:24 nick.cross Exp $
  */
 
 public class EventChannelImpl extends JacORBEventChannelPOA

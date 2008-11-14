@@ -20,25 +20,27 @@ package org.jacorb.orb.dii;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.util.Iterator;
+import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.orb.ORB;
+import org.jacorb.orb.giop.ClientConnection;
+import org.jacorb.orb.giop.RequestOutputStream;
+import org.jacorb.orb.portableInterceptor.ClientInterceptorIterator;
+import org.jacorb.orb.portableInterceptor.ClientRequestInfoImpl;
+import org.jacorb.orb.portableInterceptor.InterceptorManager;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.NVList;
 import org.omg.CORBA.NamedValue;
 import org.omg.CORBA.TCKind;
-import org.omg.CORBA.portable.*;
-
-import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.orb.ORB;
-import org.jacorb.orb.portableInterceptor.*;
-import org.jacorb.orb.giop.*;
-
-import java.util.Iterator;
+import org.omg.CORBA.portable.ApplicationException;
+import org.omg.CORBA.portable.RemarshalException;
 
 /**
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.27 2006-07-26 08:02:25 alphonse.bendt Exp $
+ * @version $Id: Request.java,v 1.28 2008-11-14 08:55:31 nick.cross Exp $
  */
 public class Request
     extends org.omg.CORBA.Request
