@@ -43,7 +43,7 @@ import org.omg.CORBA.Any;
  * been overwritten.
  *
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.15 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.16 2008-11-18 13:33:49 nick.cross Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {
@@ -161,8 +161,13 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 
     public void verify_bugJac44_idl(ClassLoader cl) throws Exception
     {
-    	Class clazz = cl.loadClass("apmInterface.SA_Connection");
-    	assertNotNull(clazz);
+        Class clazz = cl.loadClass("apmInterface.SA_Connection");
+        assertNotNull(clazz);
+    }
+
+    public void verify_scoping10_idl(ClassLoader cl) throws Exception
+    {
+        assertNotNull(cl.loadClass("myTestPackage.sMyStruct"));
     }
 
     public static Test suite()

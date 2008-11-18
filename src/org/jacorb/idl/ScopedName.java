@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.38 2008-11-14 08:55:25 nick.cross Exp $
+ * @version $Id: ScopedName.java,v 1.39 2008-11-18 13:33:50 nick.cross Exp $
  *
  */
 
@@ -531,21 +531,6 @@ public class ScopedName
             pack_name = s + "." + pack_name;
         else
             pack_name = s;
-    }
-
-    private String qualify( String str )
-    {
-        if( str.charAt( 0 ) == '.' )
-        {
-            return ( str.substring( 1 ) );
-        }
-        else
-        {
-            if( !pack_name.equals( "" ) )
-                return ( pack_name + "." + str );
-            else
-                return str;
-        }
     }
 
     /**

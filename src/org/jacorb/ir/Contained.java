@@ -26,7 +26,7 @@ import org.omg.CORBA.INTF_REPOS;
 import org.omg.PortableServer.POA;
 
 /**
- * @version $Id: Contained.java,v 1.15 2008-11-14 08:55:27 nick.cross Exp $
+ * @version $Id: Contained.java,v 1.16 2008-11-18 13:33:49 nick.cross Exp $
  */
 
 public abstract class Contained
@@ -147,32 +147,18 @@ public abstract class Contained
                 }
                 catch( NoSuchFieldException nsfe )
                 {
-                    //                    org.jacorb.util.Debug.output(2, nsfe );
                     return null;
                 }
             }
         }
         else if( exceptClass.isAssignableFrom( c ))
         {
-            /*
-            try
-            {
-            */
-                return new org.jacorb.ir.ExceptionDef(c,
-                                                      _defined_in,
-                                                      ir,
-                                                      loader,
-                                                      poa,
-                                                      logger);
-                /*
-            }
-            catch ( Exception e )
-            {
-                // debug:
-                e.printStackTrace();
-                return null;
-            }
-                */
+            return new org.jacorb.ir.ExceptionDef(c,
+                                                  _defined_in,
+                                                  ir,
+                                                  loader,
+                                                  poa,
+                                                  logger);
         }
         else if( idlClass.isAssignableFrom( c ) )
         {
