@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE project [
-  <!ENTITY common  SYSTEM "file:../../../../etc/common.xml" >
-  <!ENTITY xdoclet SYSTEM "file:../../../../etc/common-xdoclet.xml" >
-  <!ENTITY jmx     SYSTEM "file:../../../../etc/common-jmx.xml" >
+  <!ENTITY common  SYSTEM "../../../../etc/common.xml" >
+  <!ENTITY xdoclet SYSTEM "../../../../etc/common-xdoclet.xml" >
+  <!ENTITY jmx     SYSTEM "../../../../etc/common-jmx.xml" >
 ]>
 
 <project name="notification" default="all" basedir="../../../..">
 
 	<!-- ============================================================= -->
 	<!--              JacORB - NotificationService build file          -->
-	<!-- $Id: build.xml,v 1.41 2006-11-27 14:42:21 alphonse.bendt Exp $ -->
+	<!-- $Id: build.xml,v 1.42 2008-11-18 14:18:46 nick.cross Exp $ -->
 	<!-- ============================================================= -->
 
   	&common;

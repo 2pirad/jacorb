@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../etc/common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "../../../../etc/common.xml"> ]>
 
 <project name="imr" default="all" basedir="../../../..">
 
     <!-- ==================================================== -->
     <!--             ImR build file                           -->
-    <!-- $Id: build.xml,v 1.12 2003-10-30 14:14:57 brose Exp $ -->
+    <!-- $Id: build.xml,v 1.13 2008-11-18 14:18:46 nick.cross Exp $ -->
     <!-- ==================================================== -->
 
    &common;

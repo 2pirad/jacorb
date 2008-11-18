@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../etc/common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "../../../../etc/common.xml"> ]>
 
 <project name="events" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.10 2003-10-30 14:14:57 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.11 2008-11-18 14:18:46 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    &common;

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../etc/common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "../../../../etc/common.xml"> ]>
 
 <project name="concurrency" default="all" basedir="../../../..">
 
   <!-- ==================================================== -->
   <!--             Concurrency build file                   -->
-  <!-- $Id: build.xml,v 1.7 2003-10-30 14:14:56 brose Exp $ -->
+  <!-- $Id: build.xml,v 1.8 2008-11-18 14:18:47 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    &common;

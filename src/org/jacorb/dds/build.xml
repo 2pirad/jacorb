@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE project [ <!ENTITY common SYSTEM "file:../../../../etc/common.xml"> ]>
+<!DOCTYPE project [ <!ENTITY common SYSTEM "../../../../etc/common.xml"> ]>
 
 <project name="dds" default="compile" basedir="../../../..">
 
 	  <!-- ==================================================== -->
 	  <!--             ORB build file                         -->
-	  <!-- $Id: build.xml,v 1.1 2005-11-07 19:54:56 brose Exp $ -->
+	  <!-- $Id: build.xml,v 1.2 2008-11-18 14:18:46 nick.cross Exp $ -->
 	  <!-- ==================================================== -->
 
 	   &common;
