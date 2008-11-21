@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.53 2006-07-13 08:48:28 nick.cross Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.54 2008-11-21 10:04:57 nick.cross Exp $
  */
 
 public class AliasTypeSpec
@@ -237,7 +237,8 @@ public class AliasTypeSpec
 
             try
             {
-                if (!(originalType.typeSpec() instanceof StringType) &&
+                if (!(originalType instanceof FixedPointType) &&
+                    !(originalType.typeSpec() instanceof StringType) &&
                     !(originalType.typeSpec() instanceof SequenceType) &&
                     ! originalTypeWasScopedName &&
                     !(originalType instanceof ConstrTypeSpec &&

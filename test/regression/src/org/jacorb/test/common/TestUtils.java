@@ -55,7 +55,7 @@ import javax.rmi.CORBA.Stub;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.17 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: TestUtils.java,v 1.18 2008-11-21 10:04:56 nick.cross Exp $
  */
 
 public class TestUtils
@@ -549,9 +549,12 @@ public class TestUtils
         {
             javaHome = javaHome.substring(0, javaHome.length() - 4);
         }
-        String cmd = javaHome + "/bin/javac -d " + dirCompilation + " -classpath " + classpath + " @" + file.getAbsolutePath();
+        String cmd = javaHome + "/bin/javac -d " + dirCompilation + " -bootclasspath " + classpath + ":" + System.getProperty("sun.boot.class.path") + " @" + file.getAbsolutePath();
         try
         {
+            TestUtils.log("[COMPILE] " + cmd);
+            TestUtils.log("[COMPILE] " + files.length + " java files");
+
             Process proc = Runtime.getRuntime().exec(cmd);
 
             int exit = proc.waitFor();

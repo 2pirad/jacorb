@@ -29,7 +29,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.44 2008-11-14 08:55:25 nick.cross Exp $
+ * @version $Id: OpDecl.java,v 1.45 2008-11-21 10:04:57 nick.cross Exp $
  */
 
 public class OpDecl
@@ -821,6 +821,15 @@ try
                 ps.println( "\t\t\t{" );
                 ps.println( "\t\t\t\t_out = handler.createExceptionReply();" );
                 ps.println( "\t\t\t\t" + classNames[ i ] + "Helper.write(_out, _ex" + i + ");" );
+
+                if (parser.generatedHelperPortability == parser.HELPER_JACORB)
+                {
+                    ps.println("\t\t\t\tif (handler instanceof org.jacorb.orb.dsi.ServerRequest && !" + classNames[i]+ "Helper.id().equals(_ex" + i + ".getMessage()))");
+                    ps.println("\t\t\t\t{");
+                    ps.println("\t\t\t\t\t((org.jacorb.orb.giop.ReplyOutputStream)_out).addServiceContext (org.jacorb.orb.dsi.ServerRequest.createExceptionDetailMessage (_ex" + i + ".getMessage()));");
+                    ps.println("\t\t\t\t}");
+                }
+
                 ps.println( "\t\t\t}" );
             }
         }

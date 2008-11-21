@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.46 2006-07-20 11:16:01 alphonse.bendt Exp $
+ * @version $Id: ServerRequest.java,v 1.47 2008-11-21 10:04:56 nick.cross Exp $
  */
 
 public class ServerRequest
@@ -503,9 +503,9 @@ public class ServerRequest
      * Creates a ServiceContext for transmitting an exception detail message,
      * as per section 1.15.2 of the Java Mapping.
      */
-    private ServiceContext createExceptionDetailMessage (String message)
+    public static ServiceContext createExceptionDetailMessage (String message)
     {
-        final CDROutputStream out = new CDROutputStream(orb);
+        final CDROutputStream out = new CDROutputStream();
 
         try
         {
