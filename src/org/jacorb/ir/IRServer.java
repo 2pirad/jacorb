@@ -25,7 +25,7 @@ package org.jacorb.ir;
  * The main server that starts the Interface Repository
  *
  * @author Gerald Brose
- * @version $Id: IRServer.java,v 1.11 2006-06-15 16:43:14 alphonse.bendt Exp $
+ * @version $Id: IRServer.java,v 1.12 2008-11-25 17:20:50 nick.cross Exp $
  */
 
 public class IRServer
@@ -49,22 +49,15 @@ public class IRServer
             java.util.StringTokenizer strtok =
                 new java.util.StringTokenizer( args[0], java.io.File.pathSeparator );
 
-            //#ifjdk 1.2
-                java.net.URL [] urls = new java.net.URL[strtok.countTokens()];
-                for( int i = 0; strtok.hasMoreTokens(); i++ )
-                {
-                    urls[i] = new java.io.File( strtok.nextToken() ).toURL();
-                }
+            java.net.URL [] urls = new java.net.URL[strtok.countTokens()];
+            for( int i = 0; strtok.hasMoreTokens(); i++ )
+            {
+                urls[i] = new java.io.File( strtok.nextToken() ).toURL();
+            }
 
-                java.net.URLClassLoader classLoader =
-                    new java.net.URLClassLoader( urls );
+            java.net.URLClassLoader classLoader = new java.net.URLClassLoader( urls );
 
-                Class repositoryClass =
-                    classLoader.loadClass("org.jacorb.ir.RepositoryImpl");
-            //#else
-            //# ClassLoader classLoader = null;
-            //# Class repositoryClass = Class.forName ("org.jacorb.ir.RepositoryImpl");
-            //#endif
+            Class repositoryClass = classLoader.loadClass("org.jacorb.ir.RepositoryImpl");
 
             Object repository =
                 repositoryClass.getConstructors()[0].newInstance(
@@ -89,13 +82,3 @@ public class IRServer
     }
 
 }
-
-
-
-
-
-
-
-
-
-
