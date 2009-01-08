@@ -26,7 +26,7 @@ import org.jacorb.orb.iiop.IIOPConnection;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.24 2007-02-06 18:47:40 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.25 2009-01-08 20:30:56 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection
@@ -70,7 +70,7 @@ public class ServerGIOPConnection
     }
 
 
-    /*
+    /**
      * Try an orderly shutdown of this connection by sending a
      * CloseConnection message.  The CORBA spec only allows us to
      * do that if we have no more pending messages for which we
@@ -136,8 +136,7 @@ public class ServerGIOPConnection
 
 
     /**
-     * <code>sendCloseConnection</code> sends a close connection message
-     * flushing the transport.
+     * Sends a close connection message flushing the transport.
      */
     private void sendCloseConnection()
     {
