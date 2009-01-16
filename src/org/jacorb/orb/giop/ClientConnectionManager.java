@@ -21,6 +21,7 @@ package org.jacorb.orb.giop;
  */
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -36,7 +37,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.32 2006-07-26 07:38:56 alphonse.bendt Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.33 2009-01-16 12:52:10 alexander.bykov Exp $
  */
 
 public class ClientConnectionManager
@@ -202,7 +203,7 @@ public class ClientConnectionManager
     {
         /* release all open connections */
 
-        for( Iterator i = connections.values().iterator(); i.hasNext(); )
+        for( Iterator i = new HashSet(connections.values()).iterator(); i.hasNext(); )
         {
             ((ClientConnection) i.next()).close();
         }
