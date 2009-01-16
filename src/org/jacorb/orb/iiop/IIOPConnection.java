@@ -28,7 +28,7 @@ import org.jacorb.orb.listener.SSLListenerUtil;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: IIOPConnection.java,v 1.16 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: IIOPConnection.java,v 1.17 2009-01-16 13:35:01 alexander.bykov Exp $
  */
 public abstract class IIOPConnection
     extends org.jacorb.orb.etf.StreamConnectionBase
@@ -88,7 +88,27 @@ public abstract class IIOPConnection
         }
     }
 
-    public Socket getSocket() {
+    /**
+     * <code>hashCode</code> returns the hash code value for the object. It
+     * will return the hashCode of the underlying socket. If the socket is null
+     * or closed it will return hash of the IIOPConnection itself.
+     *
+     * Note - if this is changed this may break the context minikey system.
+     *
+     * @return an <code>int</code> value
+     */
+    public int hashCode()
+    {
+        // Can't use socket.isClosed as does not exist in 1.3
+        if (socket == null || (!connected))
+        {
+            return super.hashCode();
+        }
+        return socket.hashCode();
+    }
+
+    public Socket getSocket() 
+    {
         return socket;
     }
 }

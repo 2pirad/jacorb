@@ -38,7 +38,7 @@ import org.omg.CORBA.TIMEOUT;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.34 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.35 2009-01-16 13:35:01 alexander.bykov Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -79,7 +79,7 @@ public class ClientIIOPConnection
         retryInterval =
             configuration.getAttributeAsInteger("jacorb.retry_interval",500);
         doSupportSSL =
-            configuration.getAttribute("jacorb.security.support_ssl","off").equals("on");
+            configuration.getAttributeAsBoolean("jacorb.security.support_ssl", false);
         transportManager =
             this.configuration.getORB().getTransportManager();
 
@@ -139,6 +139,8 @@ public class ClientIIOPConnection
                 try
                 {
                     createSocket(time_out);
+
+                    socket.setTcpNoDelay(true);
 
                     if( timeout != 0 )
                     {
