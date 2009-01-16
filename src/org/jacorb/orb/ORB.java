@@ -97,7 +97,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.173 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.174 2009-01-16 12:50:01 alexander.bykov Exp $
  */
 
 public final class ORB
@@ -1207,21 +1207,6 @@ public final class ORB
     public boolean get_service_information( short service_type,
                                             org.omg.CORBA.ServiceInformationHolder service_information)
     {
-//         if (( service_type == org.omg.CORBA.Security.value ) && Environment.supportSSL ()) {
-//             byte options[] = new byte [5]; // ServiceOption[]
-//             options[0] = (byte)org.omg.Security.SecurityLevel1.value;
-//             options[1] = (byte)org.omg.Security.SecurityLevel2.value;
-//             options[2] = (byte)org.omg.Security.ReplaceORBServices.value;
-//             options[3] = (byte)org.omg.Security.ReplaceSecurityServices.value;
-//             options[4] = (byte)org.omg.Security.CommonInteroperabilityLevel0.value;
-//             org.omg.CORBA.ServiceDetail details[] = new org.omg.CORBA.ServiceDetail [2];
-//             details[0].service_detail_type = org.omg.Security.SecureTransportType.value;
-//             details[0].service_detail = org.jacorb.security.ssl.SSLSetup.getMechanismType().getBytes();
-//             details[1].service_detail_type = org.omg.Security.SecureTransportType.value;
-//             details[1].service_detail = "001010011".getBytes(); // AuditId, _PublicId, AccessId
-//             return true;
-//         }
-//         else return false;
         throw new org.omg.CORBA.NO_IMPLEMENT ();
     }
 
