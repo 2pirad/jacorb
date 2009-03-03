@@ -19,7 +19,7 @@
  */
 package org.jacorb.orb.iiop;
 
-import java.util.List;
+import java.util.*;
 import org.apache.avalon.framework.configuration.Configuration;
 import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
@@ -49,7 +49,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.30 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: IIOPProfile.java,v 1.31 2009-03-03 18:42:57 andre.spiegel Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -125,6 +125,8 @@ public class IIOPProfile
                 logger.debug("unable to decode_corbaloc", e);
             }
         }
+        
+        addAlternateAddresses ((org.jacorb.config.Configuration)config);
     }
 
     /**
@@ -281,7 +283,35 @@ public class IIOPProfile
         return value;
     }
 
-
+    /**
+     * Adds further addresses to this profile as TAG_ALTERNATE_IIOP_ADDRESS,
+     * if this has been configured in the Configuration.
+     */
+    private void addAlternateAddresses (org.jacorb.config.Configuration config)
+    {
+        List addresses = config.getAttributeList ("jacorb.iiop.alternate_addresses");
+        if (!addresses.isEmpty() && components == null)
+        {
+            components = new TaggedComponentList();
+        }
+        for (Iterator i = addresses.iterator(); i.hasNext();)
+        {
+            String addr = (String)i.next();
+            IIOPAddress iaddr = new IIOPAddress();
+            if (!iaddr.fromString (addr))
+            {
+                logger.warn ("could not decode " + addr + 
+                             " from jacorb.iiop.alternate_addresses");
+                continue;
+            }
+            else
+            {
+                components.addComponent (TAG_ALTERNATE_IIOP_ADDRESS.value,
+                                         iaddr.toCDR());
+            }
+        }
+    }
+    
     /**
     * Writes the bytes that would make up the ETF::AddressProfile bytes (new spec)
     * to a stream.
