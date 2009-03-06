@@ -25,14 +25,17 @@ import java.util.*;
 import junit.framework.*;
 
 import org.jacorb.test.common.*;
-import org.omg.CORBA.*;
 import org.jacorb.test.*;
 
 /**
  * Tests the "auto" value in the configuration option
- * jacorb.iiop.alternate_addresses.
+ * jacorb.iiop.alternate_addresses.  In the default form, this test only
+ * makes sure that the option does not cause any havoc, but the primary
+ * address will still be used to connect to the server.  See comments below
+ * in the suite() method how to change that (if your test machine supports it).
+ * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: AlternateIIOPAddressAutoTest.java,v 1.1 2009-03-04 14:27:50 andre.spiegel Exp $
+ * @version $Id: AlternateIIOPAddressAutoTest.java,v 1.2 2009-03-06 09:48:15 andre.spiegel Exp $
  */
 public class AlternateIIOPAddressAutoTest extends ClientServerTestCase
 {
@@ -70,7 +73,11 @@ public class AlternateIIOPAddressAutoTest extends ClientServerTestCase
         clientProps.setProperty ("jacorb.connection.client.connect_timeout","5000");
 
         Properties serverProps = new Properties();
-        serverProps.put ("jacorb.ior_proxy_host", WRONG_HOST);
+        // Uncomment the following line to replace the primary address with
+        // a bogus one.  If there is a valid alternate address, that will
+        // be used to make the connection.  Commented out because not every
+        // test machine has such a setup.
+        // serverProps.put ("jacorb.ior_proxy_host", WRONG_HOST);
         serverProps.put ("jacorb.iiop.alternate_addresses", "auto");
         ClientServerSetup setup =
             new ClientServerSetup( suite,
