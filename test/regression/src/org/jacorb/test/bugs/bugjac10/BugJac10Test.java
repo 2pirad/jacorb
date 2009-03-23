@@ -30,7 +30,7 @@ import org.jacorb.test.common.ClientServerTestCase;
 
 /**
  * @author Carol Jordon
- * @version $Id: BugJac10Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: BugJac10Test.java,v 1.2 2009-03-23 10:04:11 alexander.bykov Exp $
  */
 public class BugJac10Test extends ClientServerTestCase
 {
@@ -71,11 +71,11 @@ public class BugJac10Test extends ClientServerTestCase
 
         if (config == 1)
         {
-            props.setProperty ("jacorb.compactTypecodes", "2");
+            props.setProperty ("jacorb.compactTypecodes", "on");
         }
         else if (config == 2)
         {
-            props.setProperty ("jacorb.compactTypecodes", "0");
+            props.setProperty ("jacorb.compactTypecodes", "off");
         }
         else
         {

@@ -29,7 +29,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Nick Cross
- * @version $Id: BugJac220Test.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: BugJac220Test.java,v 1.3 2009-03-23 10:04:11 alexander.bykov Exp $
  */
 public class BugJac220Test extends ClientServerTestCase
 {
@@ -74,8 +74,8 @@ public class BugJac220Test extends ClientServerTestCase
         Properties server_props = new Properties();
 
         /* Compact typecodes needs to be set to perform the test*/
-        client_props.setProperty ("jacorb.compactTypecodes", "2");
-        server_props.setProperty ("jacorb.compactTypecodes", "2");
+        client_props.setProperty ("jacorb.compactTypecodes", "on");
+        server_props.setProperty ("jacorb.compactTypecodes", "on");
 
         ClientServerSetup setup =
             new ClientServerSetup

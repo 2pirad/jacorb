@@ -1,5 +1,5 @@
 %
-% $Id: configuration.tex,v 1.36 2006-07-27 10:55:25 nick.cross Exp $
+% $Id: configuration.tex,v 1.37 2009-03-23 10:04:10 alexander.bykov Exp $
 %
 
 This chapter explains the general mechanism for configuring JacORB
@@ -625,8 +625,7 @@ objects & class & Hashtable \\
 IP addresses & boolean & off \\
 \hline
 \verb"jacorb.compactTypecode"
-\verb"s" & Whether to send compact typecodes. Options are 0 (off), 1
-(Partial compaction), 2 (full compaction of all optional parameters) & integer & 2 \\
+\verb"s" & Whether to send compact typecodes. Options are 0 (off), on (full compaction of all optional parameters) & boolean & on \\
 \hline
 \verb"jacorb.cacheTypecodes" & Whether to cache read
 typecodes  & boolean & off \\
