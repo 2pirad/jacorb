@@ -51,7 +51,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  * 
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.69 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: GIOPConnection.java,v 1.70 2009-03-26 15:47:44 alexander.bykov Exp $
  */
 
 public abstract class GIOPConnection
@@ -917,6 +917,8 @@ public abstract class GIOPConnection
         throws IOException
     {
         try
+    	{
+        try
         {
             incPendingWrite ();
             getWriteLock();
@@ -962,7 +964,13 @@ public abstract class GIOPConnection
             {
                 getStatisticsProviderAdapter().flushed();
             }
-        }
+            }
+            finally
+            {
+                decPendingWrite();
+                releaseWriteLock();
+            }
+     	}
         catch (org.omg.CORBA.COMM_FAILURE e)
         {
             if (logger.isErrorEnabled())
@@ -997,11 +1005,6 @@ public abstract class GIOPConnection
                 this.streamClosed();
             }
             throw e;
-        }
-        finally
-        {
-            decPendingWrite();
-            releaseWriteLock();
         }
     }
 
