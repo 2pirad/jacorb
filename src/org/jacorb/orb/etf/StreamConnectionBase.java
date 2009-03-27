@@ -30,7 +30,7 @@ import org.jacorb.util.ObjectUtil;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: StreamConnectionBase.java,v 1.7 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: StreamConnectionBase.java,v 1.8 2009-03-27 12:13:57 alexander.bykov Exp $
  */
 
 public abstract class StreamConnectionBase
@@ -136,7 +136,7 @@ public abstract class StreamConnectionBase
                     logger.debug("Transport to " + connection_info +
                                  ": stream closed " + se.getMessage() );
                 }
-                throw to_COMM_FAILURE (se);
+                throw handleCommFailure(se);
             }
 
             if( n < 0 )
@@ -188,7 +188,7 @@ public abstract class StreamConnectionBase
         }
         catch (IOException ex)
         {
-            throw to_COMM_FAILURE(ex);
+            throw handleCommFailure(ex);
         }
 
     }
@@ -213,7 +213,7 @@ public abstract class StreamConnectionBase
         }
         catch (IOException ex)
         {
-            throw to_COMM_FAILURE(ex);
+            throw handleCommFailure(ex);
         }
     }
 
@@ -230,7 +230,7 @@ public abstract class StreamConnectionBase
         }
         catch (IOException ex)
         {
-            throw to_COMM_FAILURE(ex);
+            throw handleCommFailure(ex);
         }
     }
 }

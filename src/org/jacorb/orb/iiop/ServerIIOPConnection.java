@@ -34,7 +34,7 @@ import org.jacorb.orb.listener.TCPConnectionListener;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.8 2006-08-11 16:37:03 iliyan.jeliazkov Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.9 2009-03-27 12:13:57 alexander.bykov Exp $
  */
 
 public class ServerIIOPConnection
@@ -106,7 +106,7 @@ public class ServerIIOPConnection
             }
             catch (IOException ex)
             {
-                throw to_COMM_FAILURE(ex, socket);
+                throw handleCommFailure(ex);
             }
             finally
             {

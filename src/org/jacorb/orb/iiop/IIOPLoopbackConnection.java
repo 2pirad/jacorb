@@ -22,12 +22,13 @@ package org.jacorb.orb.iiop;
 
 import java.io.IOException;
 
+import org.omg.CORBA.COMM_FAILURE;
 import org.omg.CORBA.INITIALIZE;
 import org.omg.ETF.Profile;
 
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopbackConnection.java,v 1.2 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: IIOPLoopbackConnection.java,v 1.3 2009-03-27 12:13:57 alexander.bykov Exp $
  */
 public class IIOPLoopbackConnection
     extends org.jacorb.orb.etf.StreamConnectionBase
@@ -63,8 +64,13 @@ public class IIOPLoopbackConnection
         }
         catch (final IOException ioe)
         {
-            throw to_COMM_FAILURE(ioe);
+            throw handleCommFailure(ioe);
         }
+    }
+
+    protected COMM_FAILURE handleCommFailure(IOException e)
+    {
+        return to_COMM_FAILURE(e);
     }
 
     protected void setTimeout(final int timeout)

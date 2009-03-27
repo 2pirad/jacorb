@@ -38,7 +38,7 @@ import org.omg.CORBA.TIMEOUT;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.35 2009-01-16 13:35:01 alexander.bykov Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.36 2009-03-27 12:13:57 alexander.bykov Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -386,7 +386,7 @@ public class ClientIIOPConnection
                 logger.debug ("Exception when closing the socket", ex);
             }
 
-            throw to_COMM_FAILURE (ex, socket);
+            throw handleCommFailure(ex);
         }
         finally
         {

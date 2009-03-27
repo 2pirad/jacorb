@@ -35,7 +35,7 @@ import org.jacorb.orb.ORB;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ConnectionBase.java,v 1.3 2006-06-26 08:09:30 alphonse.bendt Exp $
+ * @version $Id: ConnectionBase.java,v 1.4 2009-03-27 12:13:57 alexander.bykov Exp $
  */
 
 public abstract class ConnectionBase
@@ -132,16 +132,27 @@ public abstract class ConnectionBase
         setTimeout( finalTimeout );
     }
 
+    /**
+     * this is invoked whenever a communication error occurs.
+     * subclasses must provide a appropiate implementation.
+     * the simplest possible implementation would just pass in
+     * the specified exception to to_COMM_FAILURE and return the
+     * result.
+     */
+    protected abstract org.omg.CORBA.COMM_FAILURE handleCommFailure(IOException exception);
 
-    protected org.omg.CORBA.COMM_FAILURE to_COMM_FAILURE(IOException ex)
+    /**
+     * convert the specified exception into a CORBA COMM_FAILURE
+     */
+    protected org.omg.CORBA.COMM_FAILURE to_COMM_FAILURE(IOException exception)
     {
         if (logger.isDebugEnabled())
         {
-            logger.debug("Caught exception", ex);
+            logger.debug("Caught exception", exception);
         }
 
         return new org.omg.CORBA.COMM_FAILURE("IOException: "
-                                               + ex.toString());
+                                                + exception.toString());
     }
 
 
