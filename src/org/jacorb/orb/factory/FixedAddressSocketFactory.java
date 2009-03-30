@@ -36,7 +36,7 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
  * and use the specified value to configure the sockets it creates.
  *
  * @author Nicolas Noffke
- * @version $Id: FixedAddressSocketFactory.java,v 1.6 2006-11-24 14:15:37 alphonse.bendt Exp $
+ * @version $Id: FixedAddressSocketFactory.java,v 1.7 2009-03-30 15:01:46 alexander.bykov Exp $
  */
 public class FixedAddressSocketFactory extends AbstractSocketFactory
 {
@@ -63,7 +63,7 @@ public class FixedAddressSocketFactory extends AbstractSocketFactory
         return new Socket(host, port);
     }
 
-    public Socket doCreateSocket(String host, int port, int timeout) throws IOException
+    protected Socket doCreateSocket(String host, int port, int timeout) throws IOException
     {
         Socket socket = new Socket();
 

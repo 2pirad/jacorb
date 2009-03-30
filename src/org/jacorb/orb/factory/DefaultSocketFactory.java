@@ -29,7 +29,7 @@ import java.net.UnknownHostException;
  * the default SocketFactory implementation.
  *
  * @author Steve Osselton
- * @version $Id: DefaultSocketFactory.java,v 1.10 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: DefaultSocketFactory.java,v 1.11 2009-03-30 15:01:46 alexander.bykov Exp $
  */
 public class DefaultSocketFactory extends AbstractSocketFactory
 {
@@ -39,7 +39,7 @@ public class DefaultSocketFactory extends AbstractSocketFactory
         return new Socket (host, port);
     }
 
-    public Socket doCreateSocket(String host, int port, int timeout) throws IOException, UnknownHostException
+    protected Socket doCreateSocket(String host, int port, int timeout) throws IOException, UnknownHostException
     {
         final Socket socket = new Socket();
 

@@ -24,6 +24,7 @@ package org.jacorb.orb.factory;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 
 import org.apache.avalon.framework.configuration.Configurable;
 import org.apache.avalon.framework.configuration.Configuration;
@@ -33,7 +34,7 @@ import org.omg.CORBA.TIMEOUT;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractSocketFactory.java,v 1.4 2006-11-24 14:15:37 alphonse.bendt Exp $
+ * @version $Id: AbstractSocketFactory.java,v 1.5 2009-03-30 15:01:46 alexander.bykov Exp $
  */
 
 public abstract class AbstractSocketFactory implements SocketFactory, Configurable
@@ -47,7 +48,7 @@ public abstract class AbstractSocketFactory implements SocketFactory, Configurab
         logger = config.getNamedLogger("jacorb.orb.socketfactory");
     }
 
-    public final Socket createSocket(String host, int port, int timeout) throws IOException
+    public final Socket createSocket(String host, int port, int timeout) throws UnknownHostException, IOException
     {
     	try
     	{
@@ -59,5 +60,5 @@ public abstract class AbstractSocketFactory implements SocketFactory, Configurab
     	}
     }
 
-	protected abstract Socket doCreateSocket(String host, int port, int timeout) throws IOException;
+    protected abstract Socket doCreateSocket(String host, int port, int timeout) throws IOException, UnknownHostException;
 }
