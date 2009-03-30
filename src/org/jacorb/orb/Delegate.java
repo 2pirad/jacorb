@@ -80,7 +80,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.147 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: Delegate.java,v 1.148 2009-03-30 08:32:16 alexander.bykov Exp $
  *
  */
 
@@ -902,13 +902,7 @@ public final class Delegate
 
     public org.omg.CORBA.portable.ObjectImpl getReference( org.jacorb.poa.POA _poa )
     {
-        if ( logger.isDebugEnabled() )
-        {
-            logger.debug("Delegate.getReference with POA <" +
-                          ( _poa != null ? _poa._getQualifiedName() : " empty" ) + ">" );
-        }
-
-        if ( _poa != null )   // && _poa._localStubsSupported())
+        if ( _poa != null )
         {
             poa = _poa;
         }
