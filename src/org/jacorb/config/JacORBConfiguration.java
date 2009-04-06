@@ -43,7 +43,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.20 2008-11-14 08:55:24 nick.cross Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.21 2009-04-06 12:51:31 alexander.bykov Exp $
  */
 
 public class JacORBConfiguration
@@ -709,7 +709,7 @@ public class JacORBConfiguration
             try
             {
                 loggerFactory.setDefaultLogFile(logFileName, maxLogSize);
-                logger = loggerFactory.getNamedLogger("jacorb",logFileName, maxLogSize);
+                logger = loggerFactory.getNamedLogger("jacorb" );
             }
             catch (IOException e)
             {
@@ -721,7 +721,9 @@ public class JacORBConfiguration
                 }
             }
         }
-        else
+        
+        // JAC#384: if here is still no logger created just use console log
+        if (logger == null) 
         {
             logger = loggerFactory.getNamedRootLogger("jacorb" );
         }

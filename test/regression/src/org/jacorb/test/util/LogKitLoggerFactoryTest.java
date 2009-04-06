@@ -38,7 +38,7 @@ import org.jacorb.test.common.*;
  *  Unit Test for class LogKitLoggerFactory
  * @jacorb-since 2.2
  * @author Alphonse Bendt
- * @version $Id: LogKitLoggerFactoryTest.java,v 1.9 2008-11-11 13:41:27 andre.spiegel Exp $
+ * @version $Id: LogKitLoggerFactoryTest.java,v 1.10 2009-04-06 12:51:31 alexander.bykov Exp $
  */
 
 public class LogKitLoggerFactoryTest 
@@ -119,7 +119,7 @@ public class LogKitLoggerFactoryTest
         assertFileContains (getLogFilename("jacorb.log"),
                             ".*?this is a test message");
         
-        purgeLogDirectory();
+         purgeLogDirectory();
     }
 
     /**
@@ -145,7 +145,7 @@ public class LogKitLoggerFactoryTest
         assertFileContains (getLogFilename("jacorb-myimpl.log"),
                             ".*?this is a test message");
         
-        purgeLogDirectory();
+         purgeLogDirectory();
     }
 
     /**
@@ -313,14 +313,17 @@ public class LogKitLoggerFactoryTest
         ORB orb = ORB.init (new String[]{}, props);
         Logger orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
                                                     .getNamedLogger("jacorb");
-        for (int i=0; i<52; i++)
+        for (int i=0; i<82; i++)
             orbLogger.error("this is a test message");
 
-        assertFileExists (getLogFilename("jacorb.log"));
+        // JAC#384: jacorb.log file shouldn't be created 
+        //          when log rotating is used
+        // assertFileExists (getLogFilename("jacorb.log"));
+        
+        assertFileExists (getLogFilename("jacorb.log.000000"));
         assertFileExists (getLogFilename("jacorb.log.000001"));
         assertFileExists (getLogFilename("jacorb.log.000002"));
         assertFileExists (getLogFilename("jacorb.log.000003"));
-        assertFileExists (getLogFilename("jacorb.log.000004"));
         
         purgeLogDirectory();
     }
@@ -442,6 +445,4 @@ public class LogKitLoggerFactoryTest
             f.delete();
         }
     }
-    
-    
 }

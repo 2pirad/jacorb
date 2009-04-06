@@ -59,7 +59,7 @@ import org.apache.log.output.io.rotate.RotatingFileTarget;
  * property, if it's set. If not, the default is 0.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.7 2008-11-14 08:55:24 nick.cross Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.8 2009-04-06 12:51:31 alexander.bykov Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -152,46 +152,6 @@ public class LogKitLoggerFactory
     public Logger getNamedRootLogger(String name)
     {
         return getNamedLogger(name, consoleTarget);
-    }
-
-
-    /**
-     * @param name - the name of the logger, which also functions
-     *        as a log category
-     * @param logFileName - the name of the file to log to
-     * @param maxLogSize - maximum size of the log file. When this size is reached
-     *        the log file will be rotated and a new log file created. A value of 0
-     *        means the log file size is unlimited.
-     *
-     * @return the new logger.
-     */
-
-    public Logger getNamedLogger(String name, String logFileName, long maxLogSize)
-        throws IOException
-    {
-        if (name == null)
-            throw new IllegalArgumentException("Log file name must not be null!");
-
-        FileOutputStream logStream =
-            new FileOutputStream(logFileName, append);
-
-        LogTarget target = null;
-        if (maxLogSize == 0)
-        {
-            // no log file rotation
-            Writer logWriter = new OutputStreamWriter(logStream);
-            target = new WriterTarget(logWriter, logFormatter);
-        }
-        else
-        {
-            // use log file rotation
-            target =
-                new RotatingFileTarget(append,
-                                       logFormatter,
-                                       new RotateStrategyBySize(maxLogSize * 1000),
-                                       new RevolvingFileStrategy(new File(logFileName), 10000));
-        }
-        return getNamedLogger(name, target);
     }
 
 
@@ -318,11 +278,11 @@ public class LogKitLoggerFactory
 
     public void setDefaultLogFile(String fileName, long maxLogSize) throws java.io.IOException
     {
-        FileOutputStream logStream =
-            new FileOutputStream(fileName, append);
-
         if (maxLogSize == 0)
         {
+            FileOutputStream logStream =
+                new FileOutputStream(fileName, append);
+
             // no log file rotation
             Writer logWriter = new OutputStreamWriter(logStream);
             defaultTarget = new WriterTarget(logWriter, logFormatter);
