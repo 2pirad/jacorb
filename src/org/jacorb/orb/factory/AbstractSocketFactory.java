@@ -33,8 +33,10 @@ import org.apache.avalon.framework.logger.Logger;
 import org.omg.CORBA.TIMEOUT;
 
 /**
+ * abstract base class for JacORB's default SocketFactory implementations.
+ *
  * @author Alphonse Bendt
- * @version $Id: AbstractSocketFactory.java,v 1.5 2009-03-30 15:01:46 alexander.bykov Exp $
+ * @version $Id: AbstractSocketFactory.java,v 1.6 2009-04-07 16:07:29 alexander.bykov Exp $
  */
 
 public abstract class AbstractSocketFactory implements SocketFactory, Configurable
@@ -48,6 +50,11 @@ public abstract class AbstractSocketFactory implements SocketFactory, Configurab
         logger = config.getNamedLogger("jacorb.orb.socketfactory");
     }
 
+    /**
+     * to ensure we throw the correct exception in case a timeout occurs we provide
+     * a final implementation of this method here, delegate to subclass-specific implementations
+     * and handle the correct conversion of the exception in one place.
+     */
     public final Socket createSocket(String host, int port, int timeout) throws UnknownHostException, IOException
     {
     	try
