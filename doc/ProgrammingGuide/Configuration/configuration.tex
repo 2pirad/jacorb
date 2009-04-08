@@ -1,5 +1,5 @@
 %
-% $Id: configuration.tex,v 1.38 2009-04-07 16:07:29 alexander.bykov Exp $
+% $Id: configuration.tex,v 1.39 2009-04-08 13:40:02 alexander.bykov Exp $
 %
 
 This chapter explains the general mechanism for configuring JacORB
@@ -687,6 +687,8 @@ jacorb.ior\_proxy\_address (see above), which is a
 protocol-independent way of specifying endpoint addresses.  The
 host/port properties are still recognized, but if
 jacorb.ior\_proxy\_address is specified, it overrides these properties.
+Note that the value that ends up in the IOR also
+is affected by the setting of the property jacorb.dns.enable.
 & node & unset \\
 \hline
 \verb"jacorb.ior_proxy_port" & See jacorb.ior\_proxy\_host and

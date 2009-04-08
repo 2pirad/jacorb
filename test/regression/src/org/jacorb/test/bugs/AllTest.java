@@ -22,6 +22,7 @@ package org.jacorb.test.bugs;
 
 import junit.framework.*;
 
+import org.jacorb.test.bugs.bug380.BugJac380Test;
 import org.jacorb.test.bugs.bug400.Bug400Test;
 import org.jacorb.test.bugs.bug735.Bug735Test;
 import org.jacorb.test.bugs.bugjac10.BugJac10Test;
@@ -59,7 +60,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.43 2009-04-06 12:51:31 alexander.bykov Exp $
+ * @version $Id: AllTest.java,v 1.44 2009-04-08 13:40:02 alexander.bykov Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -116,6 +117,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTest(BugJac352Test.suite());
       suite.addTest(BugJac359Test.suite());
       suite.addTestSuite(BugJac_384Test.class);
+      suite.addTestSuite(BugJac380Test.class);
 
       return suite;
    }

@@ -57,7 +57,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.47 2006-10-25 16:16:01 alphonse.bendt Exp $
+ * @version $Id: PrintIOR.java,v 1.48 2009-04-08 13:40:02 alexander.bykov Exp $
  */
 
 public class PrintIOR
@@ -133,7 +133,7 @@ public class PrintIOR
         if( iorString.startsWith( "IOR:" ))
         {
             ParsedIOR pior = new ParsedIOR(jorb, iorString );
-            printIOR(pior, orb, out);
+            printIOR(pior, out);
         }
         else
         {
@@ -147,7 +147,7 @@ public class PrintIOR
      * top-level
      */
 
-    public static void printIOR( ParsedIOR pior, org.omg.CORBA.ORB orb, PrintWriter out)
+    public static void printIOR( ParsedIOR pior, PrintWriter out)
     {
         org.omg.IOP.IOR ior = pior.getIOR();
 
