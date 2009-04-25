@@ -21,12 +21,12 @@ package org.jacorb.orb.iiop;
  *
  */
 
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.omg.ETF.Profile;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.13 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: IIOPFactories.java,v 1.14 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class IIOPFactories
     extends org.jacorb.orb.etf.FactoriesBase

@@ -24,9 +24,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CosNaming.Binding;
@@ -51,7 +49,7 @@ import org.omg.CosNaming.NamingContextPackage.NotFoundReason;
  *      The implementation for the CORBAService Naming
  *
  *      @author Gerald Brose
- *      @version $Id: NamingContextImpl.java,v 1.31 2008-11-14 08:55:30 nick.cross Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.32 2009-04-25 10:11:49 andre.spiegel Exp $
  */
 
 public class NamingContextImpl

@@ -26,9 +26,7 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.omg.CORBA.TIMEOUT;
 
@@ -36,7 +34,7 @@ import org.omg.CORBA.TIMEOUT;
  * abstract base class for JacORB's default SocketFactory implementations.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractSocketFactory.java,v 1.6 2009-04-07 16:07:29 alexander.bykov Exp $
+ * @version $Id: AbstractSocketFactory.java,v 1.7 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 
 public abstract class AbstractSocketFactory implements SocketFactory, Configurable

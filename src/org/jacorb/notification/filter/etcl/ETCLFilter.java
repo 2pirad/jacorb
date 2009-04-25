@@ -20,8 +20,7 @@ package org.jacorb.notification.filter.etcl;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.filter.AbstractFilter;
 import org.jacorb.notification.filter.FilterConstraint;
@@ -38,7 +37,7 @@ import org.omg.PortableServer.POA;
  * @jboss.xmbean             
  *              
  * @author Alphonse Bendt
- * @version $Id: ETCLFilter.java,v 1.4 2006-01-12 22:35:15 alphonse.bendt Exp $
+ * @version $Id: ETCLFilter.java,v 1.5 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 public class ETCLFilter extends AbstractFilter implements ETCLFilterMBean
 {

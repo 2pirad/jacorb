@@ -26,8 +26,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 
 /**
  * a SocketFactory implementation that allows
@@ -36,7 +35,7 @@ import org.apache.avalon.framework.configuration.ConfigurationException;
  * and use the specified value to configure the sockets it creates.
  *
  * @author Nicolas Noffke
- * @version $Id: FixedAddressSocketFactory.java,v 1.7 2009-03-30 15:01:46 alexander.bykov Exp $
+ * @version $Id: FixedAddressSocketFactory.java,v 1.8 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 public class FixedAddressSocketFactory extends AbstractSocketFactory
 {

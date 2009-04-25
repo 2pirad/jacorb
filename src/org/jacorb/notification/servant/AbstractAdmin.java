@@ -28,7 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.FilterManager;
 import org.jacorb.notification.IContainer;
@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.23 2006-05-23 10:40:35 alphonse.bendt Exp $
+ * @version $Id: AbstractAdmin.java,v 1.24 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,

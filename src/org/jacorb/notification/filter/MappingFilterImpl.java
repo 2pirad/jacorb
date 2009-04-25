@@ -24,7 +24,7 @@ package org.jacorb.notification.filter;
 import java.util.Hashtable;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
@@ -51,7 +51,7 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MappingFilterImpl.java,v 1.4 2005-08-21 13:25:53 alphonse.bendt Exp $
+ * @version $Id: MappingFilterImpl.java,v 1.5 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class MappingFilterImpl implements GCDisposable, MappingFilterOperations

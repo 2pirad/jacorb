@@ -31,9 +31,8 @@ import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.config.*;
 import org.jacorb.imr.AdminPackage.DuplicateServerName;
 import org.jacorb.imr.AdminPackage.FileOpFailed;
 import org.jacorb.imr.AdminPackage.IllegalServerName;
@@ -80,7 +79,7 @@ import org.omg.PortableServer.POAHelper;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.69 2008-11-18 17:05:38 nick.cross Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.70 2009-04-25 10:06:35 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl

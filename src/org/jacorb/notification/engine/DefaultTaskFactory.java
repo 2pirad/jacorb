@@ -21,7 +21,7 @@ package org.jacorb.notification.engine;
  *
  */
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.interfaces.Disposable;
@@ -32,7 +32,7 @@ import org.jacorb.notification.util.AbstractPoolablePool;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskFactory.java,v 1.5 2005-11-11 19:37:44 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskFactory.java,v 1.6 2009-04-25 10:08:50 andre.spiegel Exp $
  */
 
 public class DefaultTaskFactory implements Disposable, TaskFactory

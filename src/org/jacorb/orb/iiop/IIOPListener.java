@@ -26,8 +26,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.orb.BasicAdapter;
 import org.jacorb.orb.etf.ProtocolAddressBase;
 import org.jacorb.orb.factory.SocketFactoryManager;
@@ -50,7 +49,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.39 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: IIOPListener.java,v 1.40 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase

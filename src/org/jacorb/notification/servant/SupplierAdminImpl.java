@@ -23,7 +23,7 @@ package org.jacorb.notification.servant;
 
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
@@ -59,7 +59,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminImpl.java,v 1.10 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: SupplierAdminImpl.java,v 1.11 2009-04-25 10:08:52 andre.spiegel Exp $
  */
 
 public class SupplierAdminImpl extends AbstractSupplierAdmin implements SupplierAdminOperations,

@@ -21,8 +21,7 @@ package org.jacorb.notification.servant;
  *
  */
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.engine.TaskProcessor;
@@ -42,7 +41,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.16 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPullSupplierImpl.java,v 1.17 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class SequenceProxyPullSupplierImpl extends AbstractProxySupplier implements

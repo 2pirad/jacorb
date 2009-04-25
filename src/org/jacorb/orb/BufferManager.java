@@ -21,7 +21,7 @@ package org.jacorb.orb;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.omg.CORBA.BAD_INV_ORDER;
 import org.omg.CORBA.NO_MEMORY;
 
@@ -35,7 +35,7 @@ import org.omg.CORBA.NO_MEMORY;
  * shared BuffferManager across all ORBs in a process.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.28 2008-11-14 08:55:30 nick.cross Exp $
+ * @version $Id: BufferManager.java,v 1.29 2009-04-25 10:10:35 andre.spiegel Exp $
 */
 
 public final class BufferManager

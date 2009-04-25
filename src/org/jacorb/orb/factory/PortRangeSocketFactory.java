@@ -28,8 +28,7 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.omg.CORBA.TIMEOUT;
 
 /**
@@ -40,7 +39,7 @@ import org.omg.CORBA.TIMEOUT;
  * values to configure the created sockets.
  *
  * @author Steve Osselton
- * @version $Id: PortRangeSocketFactory.java,v 1.15 2009-03-30 15:01:46 alexander.bykov Exp $
+ * @version $Id: PortRangeSocketFactory.java,v 1.16 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class PortRangeSocketFactory
     extends AbstractSocketFactory

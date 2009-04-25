@@ -20,7 +20,7 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
@@ -43,7 +43,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: ProxyPushConsumerImpl.java,v 1.15 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: ProxyPushConsumerImpl.java,v 1.16 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class ProxyPushConsumerImpl extends AbstractProxyConsumer implements

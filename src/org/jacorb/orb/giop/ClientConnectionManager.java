@@ -25,9 +25,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.ORB;
 import org.omg.CORBA.BAD_PARAM;
@@ -37,7 +35,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.33 2009-01-16 12:52:10 alexander.bykov Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.34 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 
 public class ClientConnectionManager

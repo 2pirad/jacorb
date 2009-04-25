@@ -29,10 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
-import org.apache.avalon.framework.configuration.DefaultConfiguration;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.imr.ImRAccessImpl;
 import org.jacorb.orb.dii.Request;
@@ -97,7 +94,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.174 2009-01-16 12:50:01 alexander.bykov Exp $
+ * @version $Id: ORB.java,v 1.175 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 
 public final class ORB
@@ -1525,8 +1522,8 @@ public final class ORB
                     }
 
                     //add the property to environment
-                    ((DefaultConfiguration)configuration).setAttribute( prop.substring( 0, equals_pos ),
-                                                                        prop.substring( equals_pos + 1) );
+                    ((JacORBConfiguration)configuration).setAttribute( prop.substring( 0, equals_pos ),
+                                                                       prop.substring( equals_pos + 1) );
                 }
                 else if ("-ORBInitRef".equals(arg))
                 {
@@ -1551,7 +1548,7 @@ public final class ORB
                     }
 
                     //add the property to environment
-                     ((DefaultConfiguration)configuration).setAttribute( "ORBInitRef." +
+                     ((JacORBConfiguration)configuration).setAttribute( "ORBInitRef." +
                                                                          prop.substring( 0, equals_pos ),
                                                                          prop.substring( equals_pos + 1) );
                 }

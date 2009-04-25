@@ -24,8 +24,7 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.orb.listener.TCPConnectionEvent;
 import org.jacorb.orb.listener.TCPConnectionListener;
 
@@ -34,7 +33,7 @@ import org.jacorb.orb.listener.TCPConnectionListener;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.9 2009-03-27 12:13:57 alexander.bykov Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.10 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 
 public class ServerIIOPConnection

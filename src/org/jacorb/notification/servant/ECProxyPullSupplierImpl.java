@@ -20,8 +20,7 @@ package org.jacorb.notification.servant;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.engine.TaskProcessor;
@@ -36,7 +35,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ECProxyPullSupplierImpl.java,v 1.10 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: ECProxyPullSupplierImpl.java,v 1.11 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class ECProxyPullSupplierImpl extends ProxyPullSupplierImpl implements

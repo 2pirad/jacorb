@@ -23,9 +23,7 @@ package org.jacorb.poa;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.poa.except.ResourceLimitReachedException;
@@ -36,7 +34,7 @@ import org.omg.CORBA.BAD_INV_ORDER;
  * This class manages a queue of ServerRequest objects.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestQueue.java,v 1.21 2008-11-14 08:55:35 nick.cross Exp $
+ * @version $Id: RequestQueue.java,v 1.22 2009-04-25 10:11:28 andre.spiegel Exp $
  */
 public class RequestQueue
     implements Configurable

@@ -24,14 +24,12 @@ import java.io.IOException;
 import java.net.BindException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Steve Osselton
- * @version $Id: PortRangeServerSocketFactory.java,v 1.9 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: PortRangeServerSocketFactory.java,v 1.10 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 public class PortRangeServerSocketFactory
     implements ServerSocketFactory, Configurable
@@ -57,7 +55,7 @@ public class PortRangeServerSocketFactory
         this(new DefaultServerSocketFactory());
     }
 
-    public void configure(org.apache.avalon.framework.configuration.Configuration config)
+    public void configure(Configuration config)
         throws ConfigurationException
     {
         logger = ((org.jacorb.config.Configuration)config).getNamedLogger("jacorb.orb.port_rang_fctry");

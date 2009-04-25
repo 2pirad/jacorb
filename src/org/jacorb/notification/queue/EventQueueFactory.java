@@ -25,9 +25,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.util.QoSPropertySet;
@@ -42,7 +40,7 @@ import org.omg.CosNotification.PriorityOrder;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: EventQueueFactory.java,v 1.12 2006-02-25 15:28:40 alphonse.bendt Exp $
+ * @version $Id: EventQueueFactory.java,v 1.13 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class EventQueueFactory implements Configurable

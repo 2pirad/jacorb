@@ -20,7 +20,7 @@ package org.jacorb.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.container.PicoContainerFactory;
 import org.jacorb.notification.servant.AbstractAdmin;
 import org.jacorb.notification.servant.AbstractSupplierAdmin;
@@ -52,7 +52,7 @@ import org.picocontainer.MutablePicoContainer;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelImpl.java,v 1.35 2006-05-23 10:40:35 alphonse.bendt Exp $
+ * @version $Id: EventChannelImpl.java,v 1.36 2009-04-25 10:08:50 andre.spiegel Exp $
  */
 
 public class EventChannelImpl extends AbstractEventChannel implements EventChannelOperations, EventChannelImplMBean

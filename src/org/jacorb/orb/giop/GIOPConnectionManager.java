@@ -24,15 +24,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.14 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.15 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 
 public class GIOPConnectionManager

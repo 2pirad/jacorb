@@ -22,7 +22,7 @@ package org.jacorb.orb;
 
 import java.util.Iterator;
 import java.util.Set;
-import org.apache.avalon.framework.configuration.Configurable;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.giop.MessageInputStream;
 import org.jacorb.orb.giop.ReplyInputStream;
@@ -49,7 +49,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.34 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: ReplyReceiver.java,v 1.35 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 
 public class ReplyReceiver
@@ -96,7 +96,7 @@ public class ReplyReceiver
 
     }
 
-    public void configure(org.apache.avalon.framework.configuration.Configuration configuration)
+    public void configure(Configuration configuration)
     {
         logger =
             ((org.jacorb.config.Configuration)configuration).getNamedLogger("jacorb.orb.rep_recv");

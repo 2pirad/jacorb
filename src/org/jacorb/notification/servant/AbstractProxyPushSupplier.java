@@ -24,8 +24,7 @@ package org.jacorb.notification.servant;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.conf.Attributes;
@@ -60,7 +59,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicReference;
  *                     ProxyPushConsumer failed" notificationType = "java.lang.String"
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyPushSupplier.java,v 1.9 2006-06-16 14:33:39 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyPushSupplier.java,v 1.10 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier implements
         IProxyPushSupplier

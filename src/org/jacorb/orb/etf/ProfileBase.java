@@ -21,7 +21,7 @@
 
 package org.jacorb.orb.etf;
 
-import org.apache.avalon.framework.configuration.Configurable;
+import org.jacorb.config.*;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.TaggedComponentList;
@@ -37,7 +37,7 @@ import org.omg.IOP.TaggedProfileHolder;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.7 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: ProfileBase.java,v 1.8 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase

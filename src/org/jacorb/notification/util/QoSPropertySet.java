@@ -26,7 +26,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.omg.CORBA.Any;
@@ -61,7 +61,7 @@ import org.omg.TimeBase.TimeTHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: QoSPropertySet.java,v 1.10 2005-10-27 21:36:17 alphonse.bendt Exp $
+ * @version $Id: QoSPropertySet.java,v 1.11 2009-04-25 10:08:52 andre.spiegel Exp $
  */
 
 public class QoSPropertySet extends PropertySet

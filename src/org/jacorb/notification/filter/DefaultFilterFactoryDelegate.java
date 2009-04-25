@@ -25,8 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.IContainer;
 import org.jacorb.notification.conf.Attributes;
@@ -44,7 +43,7 @@ import org.picocontainer.defaults.ConstructorInjectionComponentAdapterFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultFilterFactoryDelegate.java,v 1.5 2006-07-14 08:54:37 alphonse.bendt Exp $
+ * @version $Id: DefaultFilterFactoryDelegate.java,v 1.6 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Disposable
 {

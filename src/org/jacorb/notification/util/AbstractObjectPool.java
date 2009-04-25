@@ -29,9 +29,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.interfaces.Disposable;
 
@@ -45,7 +43,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
  * This class needs a two phase initialization: configure MUST be invoked before an instance can be used.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractObjectPool.java,v 1.22 2006-06-14 11:57:54 alphonse.bendt Exp $
+ * @version $Id: AbstractObjectPool.java,v 1.23 2009-04-25 10:08:52 andre.spiegel Exp $
  */
 
 public abstract class AbstractObjectPool implements Runnable, Configurable

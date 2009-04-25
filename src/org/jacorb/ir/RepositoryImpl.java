@@ -24,10 +24,8 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 import java.util.Vector;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.config.*;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
@@ -42,7 +40,7 @@ import org.omg.PortableServer.POAHelper;
  * <p>
  *
  * @author Gerald Brose
- * @version $Id: RepositoryImpl.java,v 1.15 2008-11-25 17:20:50 nick.cross Exp $
+ * @version $Id: RepositoryImpl.java,v 1.16 2009-04-25 10:07:08 andre.spiegel Exp $
  */
 
 public class RepositoryImpl

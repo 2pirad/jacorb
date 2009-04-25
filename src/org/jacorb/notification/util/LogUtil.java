@@ -25,9 +25,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
 
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.Configuration;
+import org.jacorb.config.ConfigurationException;
 import org.jacorb.config.JacORBConfiguration;
 import org.jacorb.config.LogKitLoggerFactory;
 import org.jacorb.config.LoggerFactory;
@@ -35,7 +35,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: LogUtil.java,v 1.4 2005-11-11 19:38:10 alphonse.bendt Exp $
+ * @version $Id: LogUtil.java,v 1.5 2009-04-25 10:08:52 andre.spiegel Exp $
  */
 public class LogUtil
 {
@@ -129,8 +129,7 @@ public class LogUtil
         }
     }
 
-    public static Logger getLogger(org.apache.avalon.framework.configuration.Configuration config,
-            String name)
+    public static Logger getLogger(Configuration config, String name)
     {
         try
         {

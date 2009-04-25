@@ -22,14 +22,12 @@ package org.jacorb.security.ssl.sun_jsse;
 
 import java.security.SecureRandom;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 
 /**
  * @author Nick Cross
- * @version $Id: SSLRandom.java,v 1.2 2006-06-15 15:57:44 alphonse.bendt Exp $
+ * @version $Id: SSLRandom.java,v 1.3 2009-04-25 10:12:41 andre.spiegel Exp $
  */
 public class SSLRandom implements Configurable
 {

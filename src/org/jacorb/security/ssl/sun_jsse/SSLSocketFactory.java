@@ -34,8 +34,7 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.factory.AbstractSocketFactory;
 import org.jacorb.orb.listener.SSLHandshakeListener;
@@ -46,7 +45,7 @@ import org.jacorb.orb.listener.SSLSessionListener;
  * to create sockets that support SSL.
  *
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.26 2009-03-30 15:01:46 alexander.bykov Exp $
+ * $Id: SSLSocketFactory.java,v 1.27 2009-04-25 10:12:41 andre.spiegel Exp $
  */
 public class SSLSocketFactory
     extends AbstractSocketFactory

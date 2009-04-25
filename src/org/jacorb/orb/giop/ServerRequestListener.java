@@ -22,9 +22,7 @@ package org.jacorb.orb.giop;
 
 import java.io.IOException;
 import java.util.List;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.SystemExceptionHelper;
@@ -39,7 +37,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.27 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: ServerRequestListener.java,v 1.28 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class ServerRequestListener
     implements RequestListener, Configurable

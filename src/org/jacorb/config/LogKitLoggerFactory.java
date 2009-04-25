@@ -27,7 +27,6 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.LogKitLogger;
 import org.apache.avalon.framework.logger.Logger;
 import org.apache.log.Hierarchy;
@@ -59,7 +58,7 @@ import org.apache.log.output.io.rotate.RotatingFileTarget;
  * property, if it's set. If not, the default is 0.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.8 2009-04-06 12:51:31 alexander.bykov Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.9 2009-04-25 10:04:52 andre.spiegel Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -92,8 +91,8 @@ public class LogKitLoggerFactory
 
     private Configuration configuration = null;
 
-    public void configure(org.apache.avalon.framework.configuration.Configuration configuration)
-        throws org.apache.avalon.framework.configuration.ConfigurationException
+    public void configure (Configuration configuration)
+        throws ConfigurationException
     {
         this.configuration = (Configuration)configuration;
 

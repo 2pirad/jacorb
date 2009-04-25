@@ -28,9 +28,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.config.*;
 import org.jacorb.imr.util.ImRManager;
 import org.jacorb.util.ObjectUtil;
 import org.omg.PortableServer.ForwardRequest;
@@ -45,7 +44,7 @@ import org.omg.PortableServer._ServantActivatorLocalBase;
  *  The name server application
  *
  *  @author Gerald Brose, FU Berlin
- *  @version $Id: NameServer.java,v 1.36 2006-05-19 08:40:06 alphonse.bendt Exp $
+ *  @version $Id: NameServer.java,v 1.37 2009-04-25 10:11:49 andre.spiegel Exp $
  */
 
 

@@ -22,8 +22,7 @@ package org.jacorb.orb.iiop;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
@@ -31,7 +30,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.13 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: IIOPAddress.java,v 1.14 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase

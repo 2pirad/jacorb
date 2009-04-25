@@ -21,14 +21,14 @@
 
 package org.jacorb.notification.filter;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.interfaces.Disposable;
 import org.omg.CORBA.Any;
 import org.omg.CosNotifyFilter.InvalidGrammar;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: IFilterFactoryDelegate.java,v 1.1 2005-03-25 08:40:41 alphonse.bendt Exp $
+ * @version $Id: IFilterFactoryDelegate.java,v 1.2 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 public interface IFilterFactoryDelegate extends Disposable
 {

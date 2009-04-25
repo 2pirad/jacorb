@@ -22,7 +22,7 @@ package org.jacorb.notification.servant;
  */
 
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
@@ -45,7 +45,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.14 2006-01-12 22:34:54 alphonse.bendt Exp $
+ * @version $Id: SequenceProxyPushConsumerImpl.java,v 1.15 2009-04-25 10:08:52 andre.spiegel Exp $
  */
 
 public class SequenceProxyPushConsumerImpl extends AbstractProxyConsumer implements

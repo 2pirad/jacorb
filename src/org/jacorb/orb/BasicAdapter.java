@@ -24,9 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.giop.GIOPConnection;
 import org.jacorb.orb.giop.GIOPConnectionManager;
@@ -48,7 +46,7 @@ import org.omg.ETF.Listener;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose
- * @version $Id: BasicAdapter.java,v 1.59 2006-07-13 08:57:36 nick.cross Exp $
+ * @version $Id: BasicAdapter.java,v 1.60 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 public class BasicAdapter
     extends org.omg.ETF._HandleLocalBase

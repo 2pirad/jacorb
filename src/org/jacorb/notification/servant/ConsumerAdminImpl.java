@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
@@ -67,7 +67,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminImpl.java,v 1.11 2006-05-17 13:09:39 alphonse.bendt Exp $
+ * @version $Id: ConsumerAdminImpl.java,v 1.12 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOperations,

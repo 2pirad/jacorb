@@ -22,9 +22,7 @@ package org.jacorb.poa;
 
 import java.util.Hashtable;
 import java.util.Vector;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.poa.except.CompletionRequestedException;
@@ -40,7 +38,7 @@ import org.omg.PortableServer.ServantManager;
  * requests out from the queue and will see that the necessary steps are taken.
  *
  * @author Reimo Tiedemann
- * @version $Id: RequestController.java,v 1.36 2008-11-14 08:55:35 nick.cross Exp $
+ * @version $Id: RequestController.java,v 1.37 2009-04-25 10:11:28 andre.spiegel Exp $
  */
 
 public final class RequestController

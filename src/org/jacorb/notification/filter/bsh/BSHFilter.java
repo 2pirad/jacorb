@@ -22,8 +22,7 @@ package org.jacorb.notification.filter.bsh;
 
 import java.util.Date;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.filter.AbstractFilter;
 import org.jacorb.notification.filter.EvaluationContext;
@@ -50,7 +49,7 @@ import bsh.Interpreter;
  * <code>jacorb.notification.filter.plugin.BSH=org.jacorb.notification.filter.bsh.BSHFilter</code>
  * 
  * @author Alphonse Bendt
- * @version $Id: BSHFilter.java,v 1.6 2006-03-05 13:48:19 alphonse.bendt Exp $
+ * @version $Id: BSHFilter.java,v 1.7 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 public class BSHFilter extends AbstractFilter
 {

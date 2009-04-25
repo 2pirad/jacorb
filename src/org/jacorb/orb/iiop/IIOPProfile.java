@@ -21,8 +21,7 @@ package org.jacorb.orb.iiop;
 
 import java.util.*;
 import java.net.*;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
@@ -50,7 +49,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.32 2009-03-04 14:24:44 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.33 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable

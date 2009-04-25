@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
@@ -50,7 +50,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.7 2006-01-21 00:45:41 alphonse.bendt Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.8 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable, IServantLifecyle

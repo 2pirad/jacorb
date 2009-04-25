@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.FilterStage;
@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractEventChannel.java,v 1.14 2006-05-23 10:22:20 alphonse.bendt Exp $
+ * @version $Id: AbstractEventChannel.java,v 1.15 2009-04-25 10:08:50 andre.spiegel Exp $
  */
 
 public abstract class AbstractEventChannel implements IServantLifecyle, JMXManageable

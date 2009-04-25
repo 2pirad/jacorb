@@ -1,6 +1,6 @@
 package org.jacorb.poa;
 
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.ORB;
@@ -12,7 +12,7 @@ import org.jacorb.orb.ORB;
  * or return a shared instance.
  *
  * @author Alphonse Bendt
- * @version $Id: RPPoolManagerFactory.java,v 1.5 2006-07-07 12:09:50 alphonse.bendt Exp $
+ * @version $Id: RPPoolManagerFactory.java,v 1.6 2009-04-25 10:11:28 andre.spiegel Exp $
  */
 public class RPPoolManagerFactory
 {

@@ -27,10 +27,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.config.*;
 import org.jacorb.orb.DefaultProfileSelector;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.ProfileSelector;
@@ -50,7 +48,7 @@ import org.omg.ETF.Factories;
  * sending (or handling) a request.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.28 2006-08-16 17:46:36 iliyan.jeliazkov Exp $
+ * @version $Id: TransportManager.java,v 1.29 2009-04-25 10:10:36 andre.spiegel Exp $
  * */
 
 public class TransportManager

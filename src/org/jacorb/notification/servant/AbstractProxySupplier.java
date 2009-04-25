@@ -22,8 +22,7 @@ package org.jacorb.notification.servant;
 
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
 import org.jacorb.notification.conf.Attributes;
@@ -71,7 +70,7 @@ import org.omg.PortableServer.POA;
  *                      notificationType = "java.lang.String"
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxySupplier.java,v 1.31 2006-05-23 10:50:35 alphonse.bendt Exp $
+ * @version $Id: AbstractProxySupplier.java,v 1.32 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public abstract class AbstractProxySupplier extends AbstractProxy implements MessageConsumer,

@@ -20,7 +20,7 @@
  */
 package org.jacorb.security.ssl.sun_jsse;
 
-import org.apache.avalon.framework.configuration.*;
+import org.jacorb.config.*;
 
 import java.net.*;
 import java.io.*;
@@ -38,7 +38,7 @@ import javax.net.*;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.21 2009-03-26 15:47:43 alexander.bykov Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.22 2009-04-25 10:12:41 andre.spiegel Exp $
  */
 
 public class SSLServerSocketFactory

@@ -25,8 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.NoTranslationException;
 import org.jacorb.notification.OfferManager;
 import org.jacorb.notification.SubscriptionManager;
@@ -73,7 +72,7 @@ import org.omg.PortableServer.Servant;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImpl.java,v 1.16 2006-05-17 13:09:39 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImpl.java,v 1.17 2009-04-25 10:08:52 andre.spiegel Exp $
  */
 
 public class TypedProxyPullSupplierImpl extends AbstractProxySupplier implements

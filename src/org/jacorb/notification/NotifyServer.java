@@ -22,14 +22,13 @@ package org.jacorb.notification;
 
 import java.util.Properties;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotifyServer.java,v 1.3 2005-11-11 19:35:45 alphonse.bendt Exp $
+ * @version $Id: NotifyServer.java,v 1.4 2009-04-25 10:08:50 andre.spiegel Exp $
  */
 
 public class NotifyServer

@@ -27,7 +27,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Properties;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.NullLogger;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.CDRInputStream;
@@ -42,7 +42,7 @@ import org.omg.IOP.ServiceContext;
 import org.omg.IOP.TAG_CODE_SETS;
 /**
  * @author Gerald Brose
- * @version $Id: CodeSet.java,v 1.24 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: CodeSet.java,v 1.25 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class CodeSet
 {

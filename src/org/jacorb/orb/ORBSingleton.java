@@ -21,8 +21,7 @@ package org.jacorb.orb;
  */
 
 import java.util.HashSet;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.JacORBConfiguration;
 import org.omg.CORBA.BAD_PARAM;
@@ -34,7 +33,7 @@ import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.51 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: ORBSingleton.java,v 1.52 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 
 public class ORBSingleton

@@ -22,9 +22,7 @@ package org.jacorb.orb.standardInterceptors;
  */
 
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.giop.CodeSet;
@@ -35,7 +33,7 @@ import org.omg.PortableInterceptor.IORInterceptor;
  * This interceptor creates a codeset TaggedComponent.
  *
  * @author Nicolas Noffke
- * @version $Id: CodeSetInfoInterceptor.java,v 1.26 2008-03-24 16:41:45 andre.spiegel Exp $
+ * @version $Id: CodeSetInfoInterceptor.java,v 1.27 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 
 public class CodeSetInfoInterceptor

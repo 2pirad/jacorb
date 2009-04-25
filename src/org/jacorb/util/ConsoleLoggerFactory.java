@@ -1,7 +1,6 @@
 package org.jacorb.util;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.ConsoleLogger;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.config.LoggerFactory;
@@ -11,7 +10,7 @@ import org.jacorb.config.LoggerFactory;
  * overriding the default logger factory.
  *
  * @author Nick Cross
- * @version $Id: ConsoleLoggerFactory.java,v 1.1 2006-06-21 14:47:59 alphonse.bendt Exp $
+ * @version $Id: ConsoleLoggerFactory.java,v 1.2 2009-04-25 10:13:16 andre.spiegel Exp $
  */
 public class ConsoleLoggerFactory implements LoggerFactory
 {

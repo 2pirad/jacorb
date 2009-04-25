@@ -26,9 +26,7 @@ import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.orb.factory.SocketFactory;
 import org.jacorb.orb.giop.TransportManager;
 import org.jacorb.orb.listener.TCPConnectionEvent;
@@ -38,7 +36,7 @@ import org.omg.CORBA.TIMEOUT;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.36 2009-03-27 12:13:57 alexander.bykov Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.37 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection

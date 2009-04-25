@@ -21,7 +21,7 @@
 
 package org.jacorb.notification.lifecycle;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.omg.PortableServer.POA;
@@ -32,7 +32,7 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ServantLifecyleControl.java,v 1.3 2006-02-20 19:25:43 alphonse.bendt Exp $
+ * @version $Id: ServantLifecyleControl.java,v 1.4 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public class ServantLifecyleControl implements ManageableServant

@@ -23,7 +23,7 @@ package org.jacorb.notification.servant;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.EventTypeWrapper;
 import org.jacorb.notification.MessageFactory;
 import org.jacorb.notification.OfferManager;
@@ -60,7 +60,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.21 2006-07-07 12:38:44 alphonse.bendt Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.22 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 
 public abstract class AbstractProxyConsumer extends AbstractProxy implements IProxyConsumer,

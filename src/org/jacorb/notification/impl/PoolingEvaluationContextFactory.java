@@ -21,7 +21,7 @@
 
 package org.jacorb.notification.impl;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.interfaces.EvaluationContextFactory;
 import org.jacorb.notification.util.AbstractObjectPool;
@@ -29,7 +29,7 @@ import org.jacorb.notification.util.AbstractPoolable;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PoolingEvaluationContextFactory.java,v 1.4 2005-11-11 19:39:15 alphonse.bendt Exp $
+ * @version $Id: PoolingEvaluationContextFactory.java,v 1.5 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 public class PoolingEvaluationContextFactory implements EvaluationContextFactory
 {

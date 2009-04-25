@@ -21,14 +21,14 @@
 
 package org.jacorb.notification.engine;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategyFactory.java,v 1.3 2005-04-27 10:48:40 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategyFactory.java,v 1.4 2009-04-25 10:08:51 andre.spiegel Exp $
  */
 public class TaskProcessorRetryStrategyFactory implements RetryStrategyFactory
 {

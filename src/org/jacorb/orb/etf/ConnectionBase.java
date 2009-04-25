@@ -24,9 +24,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.ORB;
 
@@ -35,7 +33,7 @@ import org.jacorb.orb.ORB;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ConnectionBase.java,v 1.4 2009-03-27 12:13:57 alexander.bykov Exp $
+ * @version $Id: ConnectionBase.java,v 1.5 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 
 public abstract class ConnectionBase

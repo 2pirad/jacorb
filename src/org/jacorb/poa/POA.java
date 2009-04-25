@@ -22,9 +22,7 @@ package org.jacorb.poa;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.poa.except.ApplicationError;
@@ -84,7 +82,7 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
  * <code>org.omg.PortableServer.POA</code>
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POA.java,v 1.67 2009-04-24 09:45:54 alexander.bykov Exp $
+ * @version $Id: POA.java,v 1.68 2009-04-25 10:11:28 andre.spiegel Exp $
  */
 
 public class POA

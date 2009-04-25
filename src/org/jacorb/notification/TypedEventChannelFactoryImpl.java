@@ -20,7 +20,7 @@ package org.jacorb.notification;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.notification.container.CORBAObjectComponentAdapter;
 import org.omg.CORBA.IntHolder;
 import org.omg.CORBA.ORB;
@@ -40,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelFactoryImpl.java,v 1.10 2005-12-04 22:17:49 alphonse.bendt Exp $
+ * @version $Id: TypedEventChannelFactoryImpl.java,v 1.11 2009-04-25 10:08:50 andre.spiegel Exp $
  */
 
 public class TypedEventChannelFactoryImpl extends AbstractChannelFactory implements

@@ -26,7 +26,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.omg.CORBA.Any;
@@ -40,7 +40,7 @@ import org.omg.CosNotification.UnsupportedAdmin;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminPropertySet.java,v 1.7 2005-04-10 14:30:31 alphonse.bendt Exp $
+ * @version $Id: AdminPropertySet.java,v 1.8 2009-04-25 10:08:52 andre.spiegel Exp $
  */
 
 public class AdminPropertySet

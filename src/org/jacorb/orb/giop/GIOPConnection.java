@@ -26,8 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.BufferManager;
 import org.jacorb.orb.SystemExceptionHelper;
@@ -51,7 +50,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.72 2009-03-30 09:13:39 nick.cross Exp $
+ * @version $Id: GIOPConnection.java,v 1.73 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection

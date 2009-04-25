@@ -22,9 +22,7 @@ package org.jacorb.orb.etf;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.ORB;
 import org.omg.ETF.Connection;
@@ -34,7 +32,7 @@ import org.omg.ETF._ListenerLocalBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ListenerBase.java,v 1.5 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: ListenerBase.java,v 1.6 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 public abstract class ListenerBase
     extends _ListenerLocalBase

@@ -26,10 +26,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.config.Configuration;
 import org.jacorb.imr.ImRAccessImpl;
 import org.jacorb.ir.RepositoryID;
 import org.jacorb.orb.giop.ClientConnection;
@@ -80,7 +78,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.148 2009-03-30 08:32:16 alexander.bykov Exp $
+ * @version $Id: Delegate.java,v 1.149 2009-04-25 10:10:35 andre.spiegel Exp $
  *
  */
 
@@ -140,7 +138,7 @@ public final class Delegate
     private static final ThreadLocal localInterceptors = new ThreadLocal();
 
     /** the configuration object for this delegate */
-    private org.apache.avalon.framework.configuration.Configuration configuration = null;
+    private Configuration configuration = null;
 
     /** configuration properties */
     private boolean useIMR;
@@ -230,8 +228,7 @@ public final class Delegate
     }
 
 
-    public void configure(org.apache.avalon.framework.configuration.Configuration config)
-        throws org.apache.avalon.framework.configuration.ConfigurationException
+    public void configure(Configuration config) throws ConfigurationException
     {
         this.configuration = config;
         logger =

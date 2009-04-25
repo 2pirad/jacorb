@@ -26,9 +26,7 @@ import java.util.HashMap;
 
 import javax.net.ssl.SSLSocket;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.orb.giop.GIOPConnection;
@@ -43,7 +41,7 @@ import org.omg.Security.ExtensibleFamily;
 
 /**
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.13 2009-01-16 12:50:02 alexander.bykov Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.14 2009-04-25 10:12:41 andre.spiegel Exp $
  */
 
 public class ServerInvocationInterceptor

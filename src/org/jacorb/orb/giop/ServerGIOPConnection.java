@@ -20,13 +20,12 @@
 
 package org.jacorb.orb.giop;
 
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.orb.iiop.IIOPConnection;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerGIOPConnection.java,v 1.25 2009-01-08 20:30:56 andre.spiegel Exp $
+ * @version $Id: ServerGIOPConnection.java,v 1.26 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 
 public class ServerGIOPConnection

@@ -31,8 +31,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.ir.RepositoryID;
 import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.orb.giop.GIOPConnection;
@@ -55,7 +54,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.129 2009-03-23 10:04:11 alexander.bykov Exp $
+ * @version $Id: CDROutputStream.java,v 1.130 2009-04-25 10:10:35 andre.spiegel Exp $
  *
  * A stream for CDR marshalling.
  *

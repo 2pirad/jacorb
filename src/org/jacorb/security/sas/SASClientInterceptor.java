@@ -23,9 +23,7 @@ package org.jacorb.security.sas;
 import java.net.URLDecoder;
 import java.util.Hashtable;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.MinorCodes;
@@ -67,7 +65,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.26 2005-06-10 10:13:13 andre.spiegel Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.27 2009-04-25 10:12:41 andre.spiegel Exp $
  */
 
 public class SASClientInterceptor

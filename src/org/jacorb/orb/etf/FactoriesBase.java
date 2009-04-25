@@ -20,9 +20,7 @@
  */
 package org.jacorb.orb.etf;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.omg.ETF.Connection;
 import org.omg.ETF.Listener;
 import org.omg.ETF.Profile;
@@ -32,7 +30,7 @@ import org.omg.RTCORBA.ProtocolProperties;
 
 /**
  * @author Andre Spiegel
- * @version $Id: FactoriesBase.java,v 1.5 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: FactoriesBase.java,v 1.6 2009-04-25 10:10:35 andre.spiegel Exp $
  */
 public abstract class FactoriesBase
     extends org.omg.ETF._FactoriesLocalBase

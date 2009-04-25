@@ -23,7 +23,7 @@ package org.jacorb.notification.engine;
 
 import java.util.Date;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
@@ -46,7 +46,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskProcessor.java,v 1.14 2006-07-07 12:38:44 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskProcessor.java,v 1.15 2009-04-25 10:08:50 andre.spiegel Exp $
  */
 
 public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManageable, DefaultTaskProcessorMBean

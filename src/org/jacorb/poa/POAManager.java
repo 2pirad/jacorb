@@ -31,7 +31,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
  * The poa manager class, an implementation of org.omg.PortableServer.POAManager
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAManager.java,v 1.16 2006-05-22 15:03:49 alphonse.bendt Exp $
+ * @version $Id: POAManager.java,v 1.17 2009-04-25 10:11:28 andre.spiegel Exp $
  */
 
 public class POAManager
@@ -48,14 +48,7 @@ public class POAManager
     {
         orb = _orb;
         monitor = new POAManagerMonitorLightImpl();
-        try
-        {
-            monitor.configure(orb.getConfiguration());
-        }
-        catch (org.apache.avalon.framework.configuration.ConfigurationException ce)
-        {
-            // Never thrown
-        }
+        monitor.configure(orb.getConfiguration());
         monitor.init(this);
         monitor.openMonitor();
         monitor.printMessage("ready");

@@ -20,9 +20,7 @@
  */
 package org.jacorb.orb.standardInterceptors;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORB;
@@ -38,7 +36,7 @@ import org.omg.SSLIOP.SSLHelper;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.23 2008-11-14 08:55:35 nick.cross Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.24 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 
 public class SSLComponentInterceptor

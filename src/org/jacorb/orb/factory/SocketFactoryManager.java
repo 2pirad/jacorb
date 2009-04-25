@@ -23,10 +23,8 @@ package org.jacorb.orb.factory;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
 import org.apache.avalon.framework.logger.Logger;
+import org.jacorb.config.*;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.listener.NullSSLSessionListener;
 import org.jacorb.orb.listener.NullTCPConnectionListener;
@@ -36,7 +34,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Steve Osselton
- * @version $Id: SocketFactoryManager.java,v 1.20 2006-07-27 08:48:00 nick.cross Exp $
+ * @version $Id: SocketFactoryManager.java,v 1.21 2009-04-25 10:10:36 andre.spiegel Exp $
  */
 public class SocketFactoryManager
     implements Configurable
