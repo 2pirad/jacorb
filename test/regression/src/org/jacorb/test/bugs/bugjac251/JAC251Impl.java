@@ -1,8 +1,6 @@
 package org.jacorb.test.bugs.bugjac251;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.ORB;
@@ -19,7 +17,7 @@ import org.omg.DynamicAny.DynUnionHelper;
  * <code>PT251Impl</code> is the server class to test dynamic any.
  *
  * @author Nick Cross
- * @version $Id: JAC251Impl.java,v 1.1 2006-06-30 13:25:44 alphonse.bendt Exp $
+ * @version $Id: JAC251Impl.java,v 1.2 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class JAC251Impl extends JAC251POA implements Configurable
 {

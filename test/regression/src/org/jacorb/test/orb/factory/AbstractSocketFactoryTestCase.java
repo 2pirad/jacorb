@@ -10,14 +10,14 @@ import java.util.Arrays;
 
 import junit.framework.TestCase;
 
-import org.apache.avalon.framework.configuration.Configurable;
+import org.jacorb.config.*;
 import org.jacorb.orb.factory.SocketFactory;
 
 import org.omg.CORBA.TIMEOUT;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractSocketFactoryTestCase.java,v 1.1 2006-11-30 13:40:35 alphonse.bendt Exp $
+ * @version $Id: AbstractSocketFactoryTestCase.java,v 1.2 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public abstract class AbstractSocketFactoryTestCase extends TestCase
 {

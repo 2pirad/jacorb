@@ -24,7 +24,7 @@ package org.jacorb.test.notification.container;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.jacorb.notification.container.PicoContainerFactory;
 import org.jacorb.test.common.ORBTestCase;
 import org.omg.CORBA.ORB;
@@ -34,7 +34,7 @@ import org.picocontainer.PicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CoreContainerFactoryTest.java,v 1.4 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: CoreContainerFactoryTest.java,v 1.5 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class CoreContainerFactoryTest extends ORBTestCase
 {

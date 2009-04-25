@@ -7,20 +7,20 @@ import org.jacorb.config.Configuration;
 
 import org.jacorb.test.*;
 
-import org.apache.avalon.framework.configuration.Configurable;
+import org.jacorb.config.*;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddressServerImpl.java,v 1.5 2006-07-07 13:09:01 alphonse.bendt Exp $
+ * @version $Id: IIOPAddressServerImpl.java,v 1.6 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class IIOPAddressServerImpl extends IIOPAddressServerPOA
     implements Configurable
 {
     private Configuration config = null;
 
-    public void configure (org.apache.avalon.framework.configuration.Configuration c)
+    public void configure (Configuration c)
     {
-        config = (org.jacorb.config.Configuration)c;
+        config = c;
     }
 
     public void setSocketAddress(String host, int port)
@@ -35,7 +35,7 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         {
             config.getORB().configure(config);
         }
-        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        catch( ConfigurationException ce )
         {
             throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
         }
@@ -48,7 +48,7 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         {
             config.getORB().configure(config);
         }
-        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        catch( ConfigurationException ce )
         {
             throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
         }
@@ -64,7 +64,7 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         {
             config.getORB().configure(config);
         }
-        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        catch( ConfigurationException ce )
         {
             throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
         }
@@ -83,7 +83,7 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         {
             config.getORB().configure(config);
         }
-        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        catch( ConfigurationException ce )
         {
             throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
         }
@@ -97,7 +97,7 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         {
             config.getORB().configure(config);
         }
-        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        catch( ConfigurationException ce )
         {
             throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
         }
@@ -112,7 +112,7 @@ public class IIOPAddressServerImpl extends IIOPAddressServerPOA
         {
             config.getORB().configure(config);
         }
-        catch( org.apache.avalon.framework.configuration.ConfigurationException ce )
+        catch( ConfigurationException ce )
         {
             throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + ce.getMessage());
         }

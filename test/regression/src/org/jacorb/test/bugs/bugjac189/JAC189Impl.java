@@ -1,8 +1,6 @@
 package org.jacorb.test.bugs.bugjac189;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
@@ -16,7 +14,7 @@ import org.omg.PortableServer.ThreadPolicyValue;
  * POAs with SINGLE_THREAD and shutting them down.
  *
  * @author Nick Cross
- * @version $Id: JAC189Impl.java,v 1.1 2006-06-29 07:05:08 alphonse.bendt Exp $
+ * @version $Id: JAC189Impl.java,v 1.2 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class JAC189Impl extends JAC189POA implements Configurable
 {

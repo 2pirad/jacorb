@@ -1,8 +1,6 @@
 package org.jacorb.test.bugs.bugjac192;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.ORB;
@@ -16,7 +14,7 @@ import org.omg.PortableInterceptor.InvalidSlot;
  * the correct value to the client.
  *
  * @author Nick Cross
- * @version $Id: JAC192Impl.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: JAC192Impl.java,v 1.3 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class JAC192Impl extends JAC192POA implements Configurable
 {

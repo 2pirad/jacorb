@@ -22,8 +22,7 @@ package org.jacorb.test.common;
 
 import java.util.*;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
+import org.jacorb.config.*;
 import org.apache.avalon.framework.logger.Logger;
 import org.omg.CORBA.*;
 import org.omg.PortableServer.*;
@@ -47,7 +46,7 @@ import org.omg.PortableServer.*;
  * example).
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer.java,v 1.10 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: TestServer.java,v 1.11 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class TestServer
 {

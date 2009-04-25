@@ -3,9 +3,7 @@ package org.jacorb.test.bugs.bugjac178;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Policy;
@@ -19,7 +17,7 @@ import org.omg.PortableServer.POAHelper;
  * ORB_CTRL threading models within the POA.
  *
  * @author Nick Cross
- * @version $Id: JAC178Impl.java,v 1.2 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: JAC178Impl.java,v 1.3 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class JAC178Impl extends JAC178POA implements Configurable
 {

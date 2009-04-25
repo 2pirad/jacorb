@@ -24,7 +24,7 @@ package org.jacorb.test.orb.etf.wiop;
 import java.io.*;
 import java.net.*;
 
-import org.apache.avalon.framework.configuration.*;
+import org.jacorb.config.*;
 
 import org.omg.ETF.*;
 import org.omg.IOP.*;
@@ -38,7 +38,7 @@ import org.jacorb.orb.iiop.*;
  * delegates everything to the standard IIOP classes.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: WIOPFactories.java,v 1.9 2007-02-01 09:05:27 andre.spiegel Exp $
+ * @version $Id: WIOPFactories.java,v 1.10 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class WIOPFactories
     extends _FactoriesLocalBase

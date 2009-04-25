@@ -20,9 +20,7 @@ package org.jacorb.test.bugs.bugjac166;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.configuration.Configurable;
-import org.apache.avalon.framework.configuration.Configuration;
-import org.apache.avalon.framework.configuration.ConfigurationException;
+import org.jacorb.config.*;
 import org.jacorb.test.bugs.bugjac74.Jac074ServerPOA;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.INTERNAL;
@@ -37,7 +35,7 @@ import org.omg.PortableInterceptor.InvalidSlot;
  * Interceptor and return it to the client.
  *
  * @author Nick Cross
- * @version $Id: ServerImpl.java,v 1.1 2006-06-20 13:12:26 alphonse.bendt Exp $
+ * @version $Id: ServerImpl.java,v 1.2 2009-04-25 10:21:38 andre.spiegel Exp $
  */
 public class ServerImpl extends Jac074ServerPOA implements Configurable
 {
