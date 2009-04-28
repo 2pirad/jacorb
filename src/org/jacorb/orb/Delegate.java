@@ -78,7 +78,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.149 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.150 2009-04-28 09:29:33 alexander.bykov Exp $
  *
  */
 
@@ -1104,7 +1104,8 @@ public final class Delegate
         switch (ros.syncScope())
         {
             case SYNC_NONE.value:
-                passToTransport (ros);
+                RequestOutputStream copy = new RequestOutputStream(ros);
+                passToTransport (copy);
                 interceptors.handle_receive_other (SUCCESSFUL.value);
                 break;
 
