@@ -41,16 +41,16 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.22 2009-04-25 10:04:04 andre.spiegel Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.23 2009-04-29 13:17:01 alexander.bykov Exp $
  */
 
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: JacORBConfiguration.java,v 1.22 2009-04-25 10:04:04 andre.spiegel Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.23 2009-04-29 13:17:01 alexander.bykov Exp $
  */
 /**
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: JacORBConfiguration.java,v 1.22 2009-04-25 10:04:04 andre.spiegel Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.23 2009-04-29 13:17:01 alexander.bykov Exp $
  */
 public class JacORBConfiguration implements Configuration
 {
@@ -823,6 +823,12 @@ public class JacORBConfiguration implements Configuration
         }
         else if (value instanceof String) 
         {
+            if (((String)value).trim().length() < 1)
+            {
+                // empty string is treated as 'null' value
+                return defaultValue;
+            }
+            
             try
             {
                 int i = Integer.parseInt (((String)value).trim());
