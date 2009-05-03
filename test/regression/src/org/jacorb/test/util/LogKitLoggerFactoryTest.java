@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
 
 import org.omg.CORBA.*;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.config.JacORBConfiguration;
 
@@ -38,7 +38,7 @@ import org.jacorb.test.common.*;
  *  Unit Test for class LogKitLoggerFactory
  * @jacorb-since 2.2
  * @author Alphonse Bendt
- * @version $Id: LogKitLoggerFactoryTest.java,v 1.10 2009-04-06 12:51:31 alexander.bykov Exp $
+ * @version $Id: LogKitLoggerFactoryTest.java,v 1.11 2009-05-03 21:47:09 andre.spiegel Exp $
  */
 
 public class LogKitLoggerFactoryTest 
@@ -112,7 +112,7 @@ public class LogKitLoggerFactoryTest
         
         ORB orb = ORB.init (new String[]{}, props);
         Logger orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
-                                                    .getNamedLogger("jacorb");
+                                                    .getLogger("jacorb");
         orbLogger.error("this is a test message");
 
         assertFileExists (getLogFilename("jacorb.log"));
@@ -138,7 +138,7 @@ public class LogKitLoggerFactoryTest
         
         ORB orb = ORB.init (new String[]{}, props);
         Logger orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
-                                                    .getNamedLogger("jacorb");
+                                                    .getLogger("jacorb");
         orbLogger.error("this is a test message");
 
         assertFileExists (getLogFilename("jacorb-myimpl.log"));
@@ -235,12 +235,12 @@ public class LogKitLoggerFactoryTest
         );
         
         Logger orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
-                                                    .getNamedLogger("jacorb");
+                                                    .getLogger("jacorb");
         orbLogger.error("this is the first test message");
 
         orb = ORB.init (new String[]{}, props);
         orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
-                                             .getNamedLogger("jacorb");
+                                             .getLogger("jacorb");
         orbLogger.error("this is the second test message");
         
         assertFileExists (getLogFilename("jacorb.log"));
@@ -278,12 +278,12 @@ public class LogKitLoggerFactoryTest
         );
         
         Logger orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
-                                                    .getNamedLogger("jacorb");
+                                                    .getLogger("jacorb");
         orbLogger.error("this is the first test message");
 
         orb = ORB.init (new String[]{}, props);
         orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
-                                             .getNamedLogger("jacorb");
+                                             .getLogger("jacorb");
         orbLogger.error("this is the second test message");
         
         assertFileExists (getLogFilename("jacorb.log"));
@@ -312,7 +312,7 @@ public class LogKitLoggerFactoryTest
         
         ORB orb = ORB.init (new String[]{}, props);
         Logger orbLogger = ((org.jacorb.orb.ORB)orb).getConfiguration()
-                                                    .getNamedLogger("jacorb");
+                                                    .getLogger("jacorb");
         for (int i=0; i<82; i++)
             orbLogger.error("this is a test message");
 
@@ -332,7 +332,7 @@ public class LogKitLoggerFactoryTest
     
     private int priorityFor (String loggerName, Configuration config)
     {
-        Logger logger = config.getNamedLogger(loggerName);
+        Logger logger = config.getLogger(loggerName);
         if (logger.isDebugEnabled())
             return 4;
         else if (logger.isInfoEnabled())

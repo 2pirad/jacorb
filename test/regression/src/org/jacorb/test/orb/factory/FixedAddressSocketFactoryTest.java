@@ -12,7 +12,7 @@ import org.jacorb.orb.factory.SocketFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FixedAddressSocketFactoryTest.java,v 1.4 2009-04-25 10:21:38 andre.spiegel Exp $
+ * @version $Id: FixedAddressSocketFactoryTest.java,v 1.5 2009-05-03 21:46:33 andre.spiegel Exp $
  */
 public class FixedAddressSocketFactoryTest extends AbstractSocketFactoryTestCase
 {
@@ -50,7 +50,7 @@ public class FixedAddressSocketFactoryTest extends AbstractSocketFactoryTestCase
         MockControl configControl = MockControl
             .createControl(Configuration.class);
         Configuration configMock = (Configuration) configControl.getMock();
-        configControl.expectAndReturn(configMock.getNamedLogger("jacorb.orb.socketfactory"), new NullLogger());
+        configControl.expectAndReturn(configMock.getLogger("jacorb.orb.socketfactory"), new NullLogger());
 
         if (name.startsWith("testSetLocalhost"))
         {

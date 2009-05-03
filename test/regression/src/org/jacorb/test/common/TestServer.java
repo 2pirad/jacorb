@@ -23,7 +23,7 @@ package org.jacorb.test.common;
 import java.util.*;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.*;
 import org.omg.PortableServer.*;
 
@@ -46,7 +46,7 @@ import org.omg.PortableServer.*;
  * example).
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer.java,v 1.11 2009-04-25 10:21:38 andre.spiegel Exp $
+ * @version $Id: TestServer.java,v 1.12 2009-05-03 21:46:05 andre.spiegel Exp $
  */
 public class TestServer
 {
@@ -140,7 +140,7 @@ public class TestServer
             try
             {
                 Configuration config = ((org.jacorb.orb.ORB)orb).getConfiguration();
-                logger = ((org.jacorb.config.Configuration)config).getNamedLogger("TestServer");
+                logger = ((org.jacorb.config.Configuration)config).getLogger("TestServer");
             }
             catch (ClassCastException e)
             {
@@ -199,7 +199,7 @@ public class TestServer
         {
             if (logger != null)
             {
-                logger.fatalError ("TestServer error ", e);
+                logger.error ("TestServer error ", e);
             }
             else
             {

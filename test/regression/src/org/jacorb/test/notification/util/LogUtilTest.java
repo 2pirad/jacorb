@@ -21,7 +21,7 @@
 
 package org.jacorb.test.notification.util;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.util.LogUtil;
 
 import junit.framework.Test;
@@ -30,7 +30,7 @@ import junit.framework.TestSuite;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: LogUtilTest.java,v 1.2 2005-05-01 21:12:13 alphonse.bendt Exp $
+ * @version $Id: LogUtilTest.java,v 1.3 2009-05-03 21:45:33 andre.spiegel Exp $
  */
 public class LogUtilTest extends TestCase
 {

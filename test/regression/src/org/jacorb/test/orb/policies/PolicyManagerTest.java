@@ -31,7 +31,7 @@ import org.omg.CORBA.SetOverrideType;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PolicyManagerTest.java,v 1.1 2006-07-04 10:33:17 alphonse.bendt Exp $
+ * @version $Id: PolicyManagerTest.java,v 1.2 2009-05-03 21:46:33 andre.spiegel Exp $
  */
 public class PolicyManagerTest extends TestCase
 {
@@ -44,7 +44,7 @@ public class PolicyManagerTest extends TestCase
         final MockControl configControl = MockControl.createControl(Configuration.class);
         final Configuration configMock = (Configuration) configControl.getMock();
 
-        configControl.expectAndReturn(configMock.getNamedLogger("jacorb.orb.policies"), new NullLogger());
+        configControl.expectAndReturn(configMock.getLogger("jacorb.orb.policies"), new NullLogger());
 
         configControl.replay();
 
