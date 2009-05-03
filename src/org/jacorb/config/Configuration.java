@@ -22,7 +22,6 @@ package org.jacorb.config;
 
 import java.util.List;
 
-import org.apache.avalon.framework.logger.Logger;
 import org.jacorb.orb.ORB;
 
 /**
@@ -55,7 +54,7 @@ import org.jacorb.orb.ORB;
  * retreive their Logger objects.
  *
  * @author Gerald Brose, XTRADYNE Technologies
- * @version $Id: Configuration.java,v 1.19 2009-04-25 10:03:14 andre.spiegel Exp $
+ * @version $Id: Configuration.java,v 1.20 2009-05-03 21:27:51 andre.spiegel Exp $
  */
 
 public interface Configuration
@@ -70,7 +69,7 @@ public interface Configuration
      *        as a log category
      * @return a Logger for a given name
      */
-    Logger getNamedLogger(String name);
+    org.slf4j.Logger getLogger(String name);
 
     /**
      * Returns the value of the configuration attribute with the given key.
