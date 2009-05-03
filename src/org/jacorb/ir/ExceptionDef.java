@@ -22,12 +22,12 @@ package org.jacorb.ir;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.INTF_REPOS;
 import org.omg.PortableServer.POA;
 
 /**
- * @version $Id: ExceptionDef.java,v 1.12 2008-11-14 08:55:27 nick.cross Exp $
+ * @version $Id: ExceptionDef.java,v 1.13 2009-05-03 21:34:06 andre.spiegel Exp $
  */
 
 public class ExceptionDef

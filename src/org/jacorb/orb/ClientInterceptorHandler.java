@@ -22,7 +22,7 @@
 package org.jacorb.orb;
 
 import java.util.Enumeration;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.giop.ReplyInputStream;
 import org.jacorb.orb.portableInterceptor.ClientInterceptorIterator;
 import org.jacorb.orb.portableInterceptor.ClientRequestInfoImpl;
@@ -42,7 +42,7 @@ import org.omg.PortableInterceptor.USER_EXCEPTION;
  * client request and any interceptors registered for it.
  *
  * @author Andre Spiegel
- * @version $Id: ClientInterceptorHandler.java,v 1.13 2008-11-14 08:55:30 nick.cross Exp $
+ * @version $Id: ClientInterceptorHandler.java,v 1.14 2009-05-03 21:35:54 andre.spiegel Exp $
  */
 public class ClientInterceptorHandler
 {
@@ -89,7 +89,7 @@ public class ClientInterceptorHandler
             info = null;
         }
         logger =
-            orb.getConfiguration().getNamedLogger("jacorb.orb.client_interceptors");
+            orb.getConfiguration().getLogger("jacorb.orb.client_interceptors");
     }
 
     public void handle_send_request() throws RemarshalException

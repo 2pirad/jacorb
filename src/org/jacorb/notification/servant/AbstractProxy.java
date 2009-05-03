@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.FilterManager;
 import org.jacorb.notification.IContainer;
 import org.jacorb.notification.OfferManager;
@@ -71,7 +71,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.32 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: AbstractProxy.java,v 1.33 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,
@@ -158,7 +158,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
 
         nullMappingFilterRef_ = MappingFilterHelper.narrow(orb.string_to_object(orb.object_to_string(null)));
 
-        logger_ = ((org.jacorb.config.Configuration) conf).getNamedLogger(getClass().getName());
+        logger_ = ((org.jacorb.config.Configuration) conf).getLogger(getClass().getName());
 
         disposedProxyDisconnectsClient_ = conf.getAttribute(
                 Attributes.DISPOSE_PROXY_CALLS_DISCONNECT,
@@ -518,7 +518,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
     {
         if (!connected_.get())
         {
-            logger_.fatalError("access on a not connected proxy");
+            logger_.error("access on a not connected proxy");
 
             destroy();
 
@@ -541,7 +541,7 @@ public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOp
     
     protected void handleDisconnected(Disconnected e)
     {
-        logger_.fatalError("Illegal state: Client think it's disconnected. "
+        logger_.error("Illegal state: Client think it's disconnected. "
                 + "Proxy thinks Client is still connected. The Proxy will be destroyed.", e);
 
         destroy();

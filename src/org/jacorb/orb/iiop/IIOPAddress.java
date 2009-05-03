@@ -23,14 +23,14 @@ package org.jacorb.orb.iiop;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.14 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: IIOPAddress.java,v 1.15 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -90,7 +90,7 @@ public class IIOPAddress
         throws ConfigurationException
     {
         super.configure(configuration);
-        logger = this.configuration.getNamedLogger("jacorb.iiop.address");
+        logger = this.configuration.getLogger("jacorb.iiop.address");
         dnsEnabled =
             configuration.getAttribute("jacorb.dns.enable","off").equals("on");
         hideZoneID =

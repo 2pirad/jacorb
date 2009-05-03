@@ -27,7 +27,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.AttributeDescription;
 import org.omg.CORBA.IDLType;
 import org.omg.CORBA.INTF_REPOS;
@@ -40,7 +40,7 @@ import org.omg.PortableServer.POA;
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.22 2006-06-15 16:43:14 alphonse.bendt Exp $
+ * @version $Id: InterfaceDef.java,v 1.23 2009-05-03 21:34:07 andre.spiegel Exp $
  */
 
 public class InterfaceDef

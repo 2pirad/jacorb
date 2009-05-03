@@ -49,7 +49,7 @@ import javax.management.remote.JMXServiceURL;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.ConsoleMain;
 import org.jacorb.notification.jmx.JMXManageableMBeanProvider;
 import org.jacorb.orb.rmi.PortableRemoteObjectDelegateImpl;
@@ -66,7 +66,7 @@ import org.tanukisoftware.wrapper.jmx.WrapperManagerMBean;
  * MX4J specific startup class for JMX-enabled Notification Service
  * 
  * @author Alphonse Bendt
- * @version $Id: JMXMain.java,v 1.8 2006-03-06 19:53:46 alphonse.bendt Exp $
+ * @version $Id: JMXMain.java,v 1.9 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public class JMXMain implements WrapperListener
 {

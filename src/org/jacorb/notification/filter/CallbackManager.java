@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.EventTypeSet;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.util.LogUtil;
@@ -37,7 +37,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CallbackManager.java,v 1.5 2006-01-29 21:20:46 alphonse.bendt Exp $
+ * @version $Id: CallbackManager.java,v 1.6 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public class CallbackManager extends EventTypeSet implements Disposable
 {

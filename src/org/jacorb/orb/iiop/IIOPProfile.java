@@ -22,7 +22,7 @@ package org.jacorb.orb.iiop;
 import java.util.*;
 import java.net.*;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.TaggedComponentList;
@@ -49,7 +49,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.33 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.34 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -108,7 +108,7 @@ public class IIOPProfile
         throws ConfigurationException
     {
         configuration = (org.jacorb.config.Configuration)config;
-        logger = configuration.getNamedLogger("jacorb.iiop.profile");
+        logger = configuration.getLogger("jacorb.iiop.profile");
         if (primaryAddress != null)
         {
             primaryAddress.configure(config);

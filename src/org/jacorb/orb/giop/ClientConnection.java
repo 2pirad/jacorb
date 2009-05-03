@@ -23,7 +23,7 @@ package org.jacorb.orb.giop;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.ParsedIOR;
 import org.jacorb.util.ObjectUtil;
@@ -31,7 +31,7 @@ import org.omg.CONV_FRAME.CodeSetComponentInfo;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientConnection.java,v 1.65 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: ClientConnection.java,v 1.66 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 public class ClientConnection
     implements ReplyListener, ConnectionListener
@@ -104,7 +104,7 @@ public class ClientConnection
 
         final Configuration configuration = ((org.jacorb.orb.ORB)orb).getConfiguration();
         logger =
-            configuration.getNamedLogger("jacorb.giop.conn");
+            configuration.getLogger("jacorb.giop.conn");
 
         ignoreComponentInfo = ! (configuration.getAttributeAsBoolean("jacorb.codeset", true));
 

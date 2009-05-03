@@ -22,7 +22,7 @@ package org.jacorb.notification.filter.impl;
  */
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.filter.ETCLEvaluator;
 import org.jacorb.notification.filter.EvaluationContext;
 import org.jacorb.notification.filter.EvaluationException;
@@ -50,7 +50,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * Provide the Basic operations needed to evaluate filter expressions on Anys.
  *
  * @author Alphonse Bendt
- * @version $Id: DefaultETCLEvaluator.java,v 1.6 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: DefaultETCLEvaluator.java,v 1.7 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class DefaultETCLEvaluator implements ETCLEvaluator
@@ -77,7 +77,7 @@ public class DefaultETCLEvaluator implements ETCLEvaluator
     {
         orb_ = orb;
 
-        logger_ = ((org.jacorb.config.Configuration) config).getNamedLogger(getClass().getName());
+        logger_ = ((org.jacorb.config.Configuration) config).getLogger(getClass().getName());
 
         dynAnyFactory_ = dynAnyFactory;
 

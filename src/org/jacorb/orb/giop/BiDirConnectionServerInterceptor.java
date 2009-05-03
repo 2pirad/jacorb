@@ -20,7 +20,7 @@
 
 package org.jacorb.orb.giop;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.iiop.IIOPAddress;
@@ -37,7 +37,7 @@ import org.omg.PortableInterceptor.ServerRequestInfo;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.16 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.17 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 public class BiDirConnectionServerInterceptor
     extends DefaultServerInterceptor
@@ -53,7 +53,7 @@ public class BiDirConnectionServerInterceptor
         super();
 
         this.orb = orb;
-        this.logger = orb.getConfiguration().getNamedLogger("jacorb.giop.bidir.interceptor");
+        this.logger = orb.getConfiguration().getLogger("jacorb.giop.bidir.interceptor");
         conn_mg = orb.getClientConnectionManager();
     }
 

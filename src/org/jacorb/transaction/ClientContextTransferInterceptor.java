@@ -21,7 +21,7 @@
 package org.jacorb.transaction;
 
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.IOP.Codec;
 import org.omg.IOP.ServiceContext;
 import org.omg.IOP.TransactionService;
@@ -35,7 +35,7 @@ import org.omg.PortableInterceptor.ForwardRequest;
  * outgoing message.
  *
  * @author Nicolas Noffke
- * @version $Id: ClientContextTransferInterceptor.java,v 1.12 2008-11-14 08:55:36 nick.cross Exp $
+ * @version $Id: ClientContextTransferInterceptor.java,v 1.13 2009-05-03 21:36:59 andre.spiegel Exp $
  */
 
 public class ClientContextTransferInterceptor

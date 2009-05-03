@@ -21,14 +21,14 @@ package org.jacorb.ir;
  */
 
 import java.lang.reflect.Field;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.INTF_REPOS;
 import org.omg.PortableServer.POA;
 
 /**
  * JacORB implementation of IR ConstantDef objects
  * @author  Gerald Brose
- * @version $Id: ConstantDef.java,v 1.18 2008-11-14 08:55:27 nick.cross Exp $
+ * @version $Id: ConstantDef.java,v 1.19 2009-05-03 21:34:06 andre.spiegel Exp $
  */
 
 public class ConstantDef

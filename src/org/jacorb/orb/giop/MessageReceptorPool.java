@@ -21,14 +21,14 @@
 package org.jacorb.orb.giop;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.util.threadpool.Consumer;
 import org.jacorb.util.threadpool.ConsumerFactory;
 import org.jacorb.util.threadpool.ThreadPool;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: MessageReceptorPool.java,v 1.20 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: MessageReceptorPool.java,v 1.21 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 public class MessageReceptorPool
 {
@@ -58,7 +58,7 @@ public class MessageReceptorPool
 
         final int maxIdleThreads = configuration.getAttributeAsInteger("jacorb.connection." + config + ".max_idle_receptor_threads", MAX_IDLE_DEFAULT);
 
-        Logger logger = configuration.getNamedLogger("jacorb.orb.giop");
+        Logger logger = configuration.getLogger("jacorb.orb.giop");
 
         if (logger.isDebugEnabled())
         {

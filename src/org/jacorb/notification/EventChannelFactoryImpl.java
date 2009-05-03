@@ -50,7 +50,7 @@ import org.picocontainer.MutablePicoContainer;
  * reference of that event channel. <br>
  *
  * @author Alphonse Bendt
- * @version $Id: EventChannelFactoryImpl.java,v 1.45 2006-05-23 10:40:35 alphonse.bendt Exp $
+ * @version $Id: EventChannelFactoryImpl.java,v 1.46 2009-05-03 21:34:46 andre.spiegel Exp $
  */
 
 public class EventChannelFactoryImpl extends AbstractChannelFactory implements
@@ -132,7 +132,7 @@ public class EventChannelFactoryImpl extends AbstractChannelFactory implements
             throw e;
         } catch (Exception e)
         {
-            logger_.fatalError("create_channel", e);
+            logger_.error("create_channel", e);
 
             throw new RuntimeException();
         }

@@ -21,7 +21,7 @@ package org.jacorb.orb.dynany;
  */
 
 import java.io.IOException;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.TypeCode;
 import org.omg.CORBA.BAD_INV_ORDER;
 import org.omg.CORBA.INTERNAL;
@@ -36,7 +36,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynAny
  *
  * @author Gerald Brose
- * @version $Id: DynAny.java,v 1.27 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: DynAny.java,v 1.28 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 public class DynAny
    extends org.omg.CORBA.LocalObject

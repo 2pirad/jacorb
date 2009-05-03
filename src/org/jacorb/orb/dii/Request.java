@@ -21,7 +21,7 @@ package org.jacorb.orb.dii;
  */
 
 import java.util.Iterator;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.giop.ClientConnection;
 import org.jacorb.orb.giop.RequestOutputStream;
@@ -40,7 +40,7 @@ import org.omg.CORBA.portable.RemarshalException;
  * DII requests
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: Request.java,v 1.28 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: Request.java,v 1.29 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 public class Request
     extends org.omg.CORBA.Request
@@ -119,7 +119,7 @@ public class Request
         this.context = context;
         result_value = (org.jacorb.orb.NamedValue)result;
 
-        logger = orb.getConfiguration().getNamedLogger("jacorb.dii.request");
+        logger = orb.getConfiguration().getLogger("jacorb.dii.request");
     }
 
     public org.omg.CORBA.Object target()

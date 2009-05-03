@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.util.LogUtil;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
@@ -35,7 +35,7 @@ import org.omg.CosNotifyComm.NotifyPublishOperations;
  * Utility class that manages subscriptions of NotifyPublishers and broadcasting of offer_change requests.
  * 
  * @author Alphonse Bendt
- * @version $Id: OfferManager.java,v 1.9 2006-01-29 21:19:23 alphonse.bendt Exp $
+ * @version $Id: OfferManager.java,v 1.10 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class OfferManager extends EventTypeSet implements NotifyPublishOperations

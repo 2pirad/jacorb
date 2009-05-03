@@ -21,7 +21,7 @@ package org.jacorb.security.sas;
  */
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.standardInterceptors.SASComponentInterceptor;
 import org.jacorb.sasPolicy.ATLAS_POLICY_TYPE;
 import org.jacorb.sasPolicy.SAS_POLICY_TYPE;
@@ -34,7 +34,7 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
  * This initializes the SAS Target Security Service (TSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASInitializer.java,v 1.7 2009-04-25 10:12:41 andre.spiegel Exp $
+ * @version $Id: SASInitializer.java,v 1.8 2009-05-03 21:36:48 andre.spiegel Exp $
  */
 
 public class SASInitializer
@@ -53,7 +53,7 @@ public class SASInitializer
         org.jacorb.orb.ORB orb = 
             ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl)info).getORB ();
         logger = 
-            orb.getConfiguration().getNamedLogger("jacorb.security.SAS");
+            orb.getConfiguration().getLogger("jacorb.security.SAS");
 
         // install the TSS interceptor
         try

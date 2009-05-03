@@ -22,7 +22,7 @@ package org.jacorb.poa;
 
 import java.util.Vector;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.poa.except.POAInternalError;
 
 /**
@@ -31,7 +31,7 @@ import org.jacorb.poa.except.POAInternalError;
  *
  * @author Gerald Brose
  * @author Reimo Tiedemann
- * @version $Id: RPPoolManager.java,v 1.24 2009-04-25 10:11:28 andre.spiegel Exp $
+ * @version $Id: RPPoolManager.java,v 1.25 2009-05-03 21:36:17 andre.spiegel Exp $
  * @see org.jacorb.poa.RequestProcessor
  */
 

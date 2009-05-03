@@ -24,7 +24,7 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.SystemExceptionHelper;
 import org.jacorb.orb.dsi.ServerRequest;
 import org.jacorb.orb.giop.ReplyOutputStream;
@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantLocatorPackage.CookieHolder;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.40 2009-04-25 10:11:28 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.41 2009-05-03 21:36:17 andre.spiegel Exp $
  */
 
 public class RequestProcessor

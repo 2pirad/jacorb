@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.ORB;
 import org.omg.CosNotification.Property;
@@ -40,7 +40,7 @@ import org.omg.CosNotification.QoSError_code;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PropertySet.java,v 1.8 2005-12-02 21:09:01 alphonse.bendt Exp $
+ * @version $Id: PropertySet.java,v 1.9 2009-05-03 21:34:48 andre.spiegel Exp $
  */
 
 public abstract class PropertySet

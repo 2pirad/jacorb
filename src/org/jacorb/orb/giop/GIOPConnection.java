@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.BufferManager;
 import org.jacorb.orb.SystemExceptionHelper;
 import org.jacorb.orb.iiop.IIOPConnection;
@@ -50,7 +50,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.73 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: GIOPConnection.java,v 1.74 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public abstract class GIOPConnection
@@ -152,7 +152,7 @@ public abstract class GIOPConnection
         throws ConfigurationException
     {
         org.jacorb.config.Configuration jacorbConfiguration = (org.jacorb.config.Configuration) configuration;
-        logger = jacorbConfiguration.getNamedLogger("jacorb.giop.conn");
+        logger = jacorbConfiguration.getLogger("jacorb.giop.conn");
         dump_incoming =
             configuration.getAttribute("jacorb.debug.dump_incoming_messages","off").equals("on");
         timeout =

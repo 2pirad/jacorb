@@ -25,12 +25,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.15 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.16 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public class GIOPConnectionManager
@@ -63,7 +63,7 @@ public class GIOPConnectionManager
     {
         this.configuration = (org.jacorb.config.Configuration)myConfiguration;
         logger =
-            configuration.getNamedLogger("jacorb.orb.giop.conn");
+            configuration.getLogger("jacorb.orb.giop.conn");
 
         max_server_giop_connections =
             configuration.getAttributeAsInteger("jacorb.connection.max_server_connections",

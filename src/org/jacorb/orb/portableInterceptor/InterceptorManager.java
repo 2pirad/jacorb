@@ -24,7 +24,7 @@ package org.jacorb.orb.portableInterceptor;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.omg.PortableInterceptor.ClientRequestInterceptor;
 import org.omg.PortableInterceptor.Current;
@@ -37,7 +37,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  * with the ORB, and controls the PICurrent.
  *
  * @author Nicolas Noffke
- * @version $Id: InterceptorManager.java,v 1.23 2008-11-14 08:55:34 nick.cross Exp $
+ * @version $Id: InterceptorManager.java,v 1.24 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class InterceptorManager
@@ -76,7 +76,7 @@ public class InterceptorManager
                               ORB orb)
     {
         logger =
-            orb.getConfiguration().getNamedLogger("jacorb.orb.interceptors");
+            orb.getConfiguration().getLogger("jacorb.orb.interceptors");
 
         if (logger.isInfoEnabled())
         {

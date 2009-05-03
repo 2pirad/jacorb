@@ -23,7 +23,7 @@ package org.jacorb.orb.standardInterceptors;
 
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.ietf.jgss.Oid;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORB;
@@ -62,7 +62,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.24 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.25 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class SASComponentInterceptor
@@ -86,7 +86,7 @@ public class SASComponentInterceptor
 
         orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl)info).getORB();
         config = orb.getConfiguration();
-        logger = config.getNamedLogger("jacorb.SAS.IOR");
+        logger = config.getLogger("jacorb.SAS.IOR");
 
         try
         {

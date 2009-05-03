@@ -22,13 +22,13 @@ package org.jacorb.notification;
 
 import java.util.Properties;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.*;
 import org.jacorb.notification.conf.Attributes;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: NotifyServer.java,v 1.4 2009-04-25 10:08:50 andre.spiegel Exp $
+ * @version $Id: NotifyServer.java,v 1.5 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class NotifyServer
@@ -47,7 +47,7 @@ public class NotifyServer
     {
         configuration = (org.jacorb.config.Configuration)myConfiguration;
         logger = 
-            configuration.getNamedLogger("jacorb.notify");
+            configuration.getLogger("jacorb.notify");
 
         fileName = 
             configuration.getAttribute("jacorb.notify.ior_filename", "./notify.ior");

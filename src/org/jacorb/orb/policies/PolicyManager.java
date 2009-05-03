@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.util.ObjectUtil;
 import org.omg.CORBA._PolicyManagerLocalBase;
@@ -41,7 +41,7 @@ import org.omg.CORBA._PolicyManagerLocalBase;
  * "ORBPolicyManager."
  *
  * @author Gerald Brose
- * @version $Id: PolicyManager.java,v 1.9 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: PolicyManager.java,v 1.10 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class PolicyManager
@@ -59,7 +59,7 @@ public class PolicyManager
         super();
 
         policy_overrides = new HashMap();
-        this.logger = config.getNamedLogger("jacorb.orb.policies");
+        this.logger = config.getLogger("jacorb.orb.policies");
     }
 
     /**

@@ -23,7 +23,7 @@ package org.jacorb.notification.container;
 
 import java.lang.reflect.Constructor;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.engine.ConfigurablePushTaskExecutorFactory;
 import org.jacorb.notification.engine.DefaultTaskFactory;
 import org.jacorb.notification.engine.DefaultTaskProcessor;
@@ -48,7 +48,7 @@ import org.picocontainer.defaults.DefaultPicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PicoContainerFactory.java,v 1.9 2006-07-07 12:38:22 alphonse.bendt Exp $
+ * @version $Id: PicoContainerFactory.java,v 1.10 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public class PicoContainerFactory
 {
@@ -60,7 +60,7 @@ public class PicoContainerFactory
     public static MutablePicoContainer createRootContainer(MutablePicoContainer optionalParent, ORB orb)
     {
         final org.jacorb.config.Configuration _config = orb.getConfiguration();
-        final Logger _logger = _config.getNamedLogger(PicoContainerFactory.class.getName());
+        final Logger _logger = _config.getLogger(PicoContainerFactory.class.getName());
 
         final MutablePicoContainer _container;
 

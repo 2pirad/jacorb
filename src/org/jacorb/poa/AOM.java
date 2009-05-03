@@ -23,7 +23,7 @@ package org.jacorb.poa;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.poa.except.POAInternalError;
 import org.jacorb.poa.util.ByteArrayKey;
 import org.jacorb.poa.util.POAUtil;
@@ -41,7 +41,7 @@ import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
  * The data can be retrieved using getServant() or getObjectId().
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: AOM.java,v 1.34 2008-11-14 08:55:35 nick.cross Exp $
+ * @version $Id: AOM.java,v 1.35 2009-05-03 21:36:17 andre.spiegel Exp $
  */
 
 public class AOM

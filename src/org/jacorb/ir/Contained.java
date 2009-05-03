@@ -21,12 +21,12 @@ package org.jacorb.ir;
  */
 
 import java.lang.reflect.Field;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.INTF_REPOS;
 import org.omg.PortableServer.POA;
 
 /**
- * @version $Id: Contained.java,v 1.16 2008-11-18 13:33:49 nick.cross Exp $
+ * @version $Id: Contained.java,v 1.17 2009-05-03 21:34:06 andre.spiegel Exp $
  */
 
 public abstract class Contained

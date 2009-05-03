@@ -26,7 +26,7 @@ import java.util.Properties;
 
 import javax.management.MBeanServer;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.AbstractChannelFactory;
 import org.jacorb.notification.ConsoleMain;
 import org.jacorb.notification.EventChannelFactoryImpl;
@@ -48,7 +48,7 @@ import org.picocontainer.defaults.DefaultPicoContainer;
  *              description="Control the JacORB Notification Service"
  * 
  * @author Alphonse Bendt
- * @version $Id: COSNotificationService.java,v 1.4 2005-10-28 10:53:58 alphonse.bendt Exp $
+ * @version $Id: COSNotificationService.java,v 1.5 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public class COSNotificationService implements COSNotificationServiceMBean
 {

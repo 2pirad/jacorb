@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.util.LogUtil;
 import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
@@ -36,7 +36,7 @@ import org.omg.CosNotifyComm.NotifySubscribeOperations;
  * requests.
  * 
  * @author Alphonse Bendt
- * @version $Id: SubscriptionManager.java,v 1.10 2006-01-29 21:19:23 alphonse.bendt Exp $
+ * @version $Id: SubscriptionManager.java,v 1.11 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class SubscriptionManager extends EventTypeSet implements NotifySubscribeOperations

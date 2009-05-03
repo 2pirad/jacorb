@@ -25,7 +25,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.ir.RepositoryID;
 import org.jacorb.orb.giop.ReplyInputStream;
 import org.jacorb.util.ObjectUtil;
@@ -40,7 +40,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.18 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.19 2009-05-03 21:35:54 andre.spiegel Exp $
  */
 public class ExceptionHolderImpl
     extends org.omg.Messaging.ExceptionHolder
@@ -108,7 +108,7 @@ public class ExceptionHolderImpl
         throws ConfigurationException
     {
         logger =
-            ((org.jacorb.config.Configuration)configuration).getNamedLogger("jacorb.orb.exc_holder");
+            ((org.jacorb.config.Configuration)configuration).getLogger("jacorb.orb.exc_holder");
     }
 
 

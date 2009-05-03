@@ -67,7 +67,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: ConsumerAdminImpl.java,v 1.12 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: ConsumerAdminImpl.java,v 1.13 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOperations,
@@ -202,7 +202,7 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
             return ProxySupplierHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_notification_pull_supplier: unexpected error", e);
+            logger_.error("obtain_notification_pull_supplier: unexpected error", e);
 
             throw new UNKNOWN(e.toString());
         }
@@ -262,7 +262,7 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
             return ProxySupplierHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_notification_push_supplier: unexpected error", e);
+            logger_.error("obtain_notification_push_supplier: unexpected error", e);
 
             throw new UNKNOWN();
         }
@@ -302,7 +302,7 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
             return org.omg.CosEventChannelAdmin.ProxyPullSupplierHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_pull_supplier: exception", e);
+            logger_.error("obtain_pull_supplier: exception", e);
 
             throw new UNKNOWN();
         }
@@ -329,7 +329,7 @@ public class ConsumerAdminImpl extends AbstractAdmin implements ConsumerAdminOpe
             return org.omg.CosEventChannelAdmin.ProxyPushSupplierHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_push_supplier: exception", e);
+            logger_.error("obtain_push_supplier: exception", e);
 
             throw new UNKNOWN(e.toString());
         }

@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.container.BiDirGiopPOAComponentAdapter;
 import org.jacorb.notification.container.PicoContainerFactory;
@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.23 2009-04-25 10:08:50 andre.spiegel Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.24 2009-05-03 21:34:46 andre.spiegel Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable
@@ -162,7 +162,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
 
         config_ = (Configuration) container_.getComponentInstanceOfType(Configuration.class);
 
-        logger_ = ((org.jacorb.config.Configuration) config_).getNamedLogger(getClass().getName());
+        logger_ = ((org.jacorb.config.Configuration) config_).getLogger(getClass().getName());
 
         POA _rootPOA = (POA) container_.getComponentInstanceOfType(POA.class);
 
@@ -266,7 +266,7 @@ public abstract class AbstractChannelFactory implements ManageableServant, Dispo
             eventChannelFactoryPOA_.deactivate_object(oid_);
         } catch (Exception e)
         {
-            logger_.fatalError("unable to deactivate object", e);
+            logger_.error("unable to deactivate object", e);
 
             throw new RuntimeException();
         }

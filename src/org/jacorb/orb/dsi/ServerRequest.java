@@ -23,7 +23,7 @@ package org.jacorb.orb.dsi;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.47 2008-11-21 10:04:56 nick.cross Exp $
+ * @version $Id: ServerRequest.java,v 1.48 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public class ServerRequest
@@ -108,7 +108,7 @@ public class ServerRequest
 
         this.orb = orb;
         Configuration config = orb.getConfiguration();
-        this.logger = config.getNamedLogger("jacorb.org.giop");
+        this.logger = config.getLogger("jacorb.org.giop");
         this.cachePoaNames = config.getAttribute("jacorb.cachePoaNames","off").equals("on");
 
         this.inputStream = inStream;

@@ -31,7 +31,7 @@ import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.*;
 import org.jacorb.imr.AdminPackage.DuplicateServerName;
 import org.jacorb.imr.AdminPackage.FileOpFailed;
@@ -79,7 +79,7 @@ import org.omg.PortableServer.POAHelper;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.70 2009-04-25 10:06:35 andre.spiegel Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.71 2009-05-03 21:33:38 andre.spiegel Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -139,7 +139,7 @@ public class ImplementationRepositoryImpl
     {
         configuration = (org.jacorb.config.Configuration)myConfiguration;
 
-        logger = configuration.getNamedLogger("jacorb.imr");
+        logger = configuration.getLogger("jacorb.imr");
 
         String defaultTableFile = "table.dat";
         String tableFileStr = configuration.getAttribute("jacorb.imr.table_file",

@@ -21,7 +21,7 @@ package org.jacorb.orb.portableInterceptor;
  *
  */
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.standardInterceptors.CodeSetInfoInterceptor;
 import org.omg.CORBA.UserException;
 import org.omg.PortableInterceptor.IORInterceptor;
@@ -33,7 +33,7 @@ import org.omg.PortableInterceptor.Interceptor;
  * Created: Mon Apr 17 09:53:33 2000
  *
  * @author Nicolas Noffke
- * $Id: IORInterceptorIterator.java,v 1.13 2008-11-14 08:55:34 nick.cross Exp $
+ * $Id: IORInterceptorIterator.java,v 1.14 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class IORInterceptorIterator

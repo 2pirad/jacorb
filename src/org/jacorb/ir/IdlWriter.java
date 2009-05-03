@@ -21,7 +21,7 @@ package org.jacorb.ir;
  */
 
 import java.io.PrintStream;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.TypeCode;
 import org.omg.CORBA.INTERNAL;
@@ -33,7 +33,7 @@ import org.omg.DynamicAny.DynEnumHelper;
  * This class prints IDL from IR-Descriptions to PrintStreams
  *
  * @author (c) Gerald Brose, FU Berlin 2000
- * @version $Id: IdlWriter.java,v 1.14 2008-11-14 08:55:27 nick.cross Exp $
+ * @version $Id: IdlWriter.java,v 1.15 2009-05-03 21:34:07 andre.spiegel Exp $
  */
 
 public class IdlWriter
@@ -72,7 +72,7 @@ public class IdlWriter
 
         if( ir == null )
         {
-            logger.fatalError("No IR configured! Exiting..");
+            logger.error("No IR configured! Exiting..");
             System.exit(1);
         }
     }

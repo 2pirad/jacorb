@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.*;
 import org.jacorb.orb.DefaultProfileSelector;
 import org.jacorb.orb.ORB;
@@ -48,7 +48,7 @@ import org.omg.ETF.Factories;
  * sending (or handling) a request.
  *
  * @author Nicolas Noffke
- * @version $Id: TransportManager.java,v 1.29 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: TransportManager.java,v 1.30 2009-05-03 21:35:56 andre.spiegel Exp $
  * */
 
 public class TransportManager
@@ -91,7 +91,7 @@ public class TransportManager
     {
         this.configuration = (org.jacorb.config.Configuration)myConfiguration;
         logger =
-            configuration.getNamedLogger("jacorb.orb.giop");
+            configuration.getLogger("jacorb.orb.giop");
         socketFactoryManager.configure(configuration);
 
         // get factory class names

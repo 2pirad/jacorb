@@ -22,7 +22,7 @@ package org.jacorb.orb.dynany;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.Any;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
@@ -36,7 +36,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.26 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: DynSequence.java,v 1.27 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public final class DynSequence

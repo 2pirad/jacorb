@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.ETF.Factories;
@@ -35,7 +35,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.34 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.35 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public class ClientConnectionManager
@@ -76,7 +76,7 @@ public class ClientConnectionManager
         receptor_pool = new MessageReceptorPool("client", "ClientMessageReceptor", myConfiguration);
 
         org.jacorb.config.Configuration configuration = (org.jacorb.config.Configuration)myConfiguration;
-        logger = configuration.getNamedLogger("jacorb.orb.giop");
+        logger = configuration.getLogger("jacorb.orb.giop");
 
         request_listener = new NoBiDirClientRequestListener(logger);
     }

@@ -20,7 +20,7 @@
  */
 package org.jacorb.transaction;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CosTransactions.Control;
 import org.omg.CosTransactions.ControlHelper;
 import org.omg.CosTransactions.PropagationContext;
@@ -39,7 +39,7 @@ import org.omg.PortableInterceptor.ServerRequestInterceptor;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: ServerContextTransferInterceptor.java,v 1.12 2008-11-14 08:55:36 nick.cross Exp $
+ * @version $Id: ServerContextTransferInterceptor.java,v 1.13 2009-05-03 21:36:59 andre.spiegel Exp $
  */
 public class ServerContextTransferInterceptor 
     extends org.omg.CORBA.LocalObject 
@@ -61,7 +61,7 @@ public class ServerContextTransferInterceptor
         this.ts_current = ts_current;
         this.orb = orb;
         this.logger =
-            ((org.jacorb.orb.ORB)orb).getConfiguration().getNamedLogger("jacorb.tx_service.interceptor");
+            ((org.jacorb.orb.ORB)orb).getConfiguration().getLogger("jacorb.tx_service.interceptor");
     }
 
     // implementation of org.omg.PortableInterceptor.InterceptorOperations interface

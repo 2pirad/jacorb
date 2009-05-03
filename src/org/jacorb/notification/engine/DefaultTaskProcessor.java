@@ -24,7 +24,7 @@ package org.jacorb.notification.engine;
 import java.util.Date;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.interfaces.Disposable;
@@ -46,7 +46,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskProcessor.java,v 1.15 2009-04-25 10:08:50 andre.spiegel Exp $
+ * @version $Id: DefaultTaskProcessor.java,v 1.16 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManageable, DefaultTaskProcessorMBean
@@ -176,7 +176,7 @@ public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManag
                     }
                 });
 
-        logger_ = ((org.jacorb.config.Configuration) config).getNamedLogger(getClass().getName());
+        logger_ = ((org.jacorb.config.Configuration) config).getLogger(getClass().getName());
 
         logger_.info("create TaskProcessor");
 

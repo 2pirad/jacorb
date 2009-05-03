@@ -21,14 +21,14 @@ package org.jacorb.notification.util;
  *
  */
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.interfaces.Disposable;
 
 /**
  * Interface to indicate that a Object can be pooled. Objects can be pooled to spare ressources.
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractPoolable.java,v 1.3 2005-08-21 13:38:40 alphonse.bendt Exp $
+ * @version $Id: AbstractPoolable.java,v 1.4 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public abstract class AbstractPoolable implements Disposable

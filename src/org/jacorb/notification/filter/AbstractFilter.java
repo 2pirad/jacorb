@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.AbstractMessage;
 import org.jacorb.notification.EventTypeWrapper;
 import org.jacorb.notification.MessageFactory;
@@ -123,7 +123,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.locks.ReentrantReadWriteLo
  * 
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: AbstractFilter.java,v 1.11 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: AbstractFilter.java,v 1.12 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public abstract class AbstractFilter implements GCDisposable, IServantLifecyle, 

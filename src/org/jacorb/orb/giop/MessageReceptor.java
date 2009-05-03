@@ -22,14 +22,14 @@ package org.jacorb.orb.giop;
 
 import java.net.Socket;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.iiop.ServerIIOPConnection;
 import org.jacorb.util.threadpool.Consumer;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: MessageReceptor.java,v 1.13 2006-07-03 12:59:03 alphonse.bendt Exp $
+ * @version $Id: MessageReceptor.java,v 1.14 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public class MessageReceptor
@@ -40,7 +40,7 @@ public class MessageReceptor
 
     public MessageReceptor(Configuration configuration)
     {
-        logger = configuration.getNamedLogger("jacorb.orb.giop");
+        logger = configuration.getLogger("jacorb.orb.giop");
         enhanceThreadName = configuration.getAttributeAsBoolean("jacorb.enhanced_thread_name", false);
     }
 

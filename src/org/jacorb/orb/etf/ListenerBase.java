@@ -23,7 +23,7 @@ package org.jacorb.orb.etf;
 import java.util.ArrayList;
 import java.util.List;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.omg.ETF.Connection;
 import org.omg.ETF.Handle;
@@ -32,7 +32,7 @@ import org.omg.ETF._ListenerLocalBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ListenerBase.java,v 1.6 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: ListenerBase.java,v 1.7 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 public abstract class ListenerBase
     extends _ListenerLocalBase
@@ -86,7 +86,7 @@ public abstract class ListenerBase
 
         orb = configuration.getORB();
 
-        logger = configuration.getNamedLogger(configuration.getLoggerName(this.getClass()));
+        logger = configuration.getLogger(configuration.getLoggerName(this.getClass()));
     }
 
     /**

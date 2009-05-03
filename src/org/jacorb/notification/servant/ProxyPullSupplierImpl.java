@@ -41,7 +41,7 @@ import org.omg.PortableServer.Servant;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPullSupplierImpl.java,v 1.18 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: ProxyPullSupplierImpl.java,v 1.19 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class ProxyPullSupplierImpl
@@ -103,7 +103,7 @@ public class ProxyPullSupplierImpl
         }
         catch (InterruptedException e)
         {
-            logger_.fatalError("interrupted", e);
+            logger_.error("interrupted", e);
 
             throw new UNKNOWN();
         }

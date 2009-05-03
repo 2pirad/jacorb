@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.orb.giop.GIOPConnection;
 import org.jacorb.util.ObjectUtil;
@@ -52,7 +52,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.122 2009-04-25 10:10:35 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.123 2009-05-03 21:35:54 andre.spiegel Exp $
  */
 
 public class CDRInputStream
@@ -245,7 +245,7 @@ public class CDRInputStream
     {
         final org.jacorb.config.Configuration jacorbConfig = (org.jacorb.config.Configuration)configuration;
         logger =
-            jacorbConfig.getNamedLogger("jacorb.orb.cdr");
+            jacorbConfig.getLogger("jacorb.orb.cdr");
 
         codesetEnabled  =
             configuration.getAttribute("jacorb.codeset","on").equals("on");

@@ -20,13 +20,13 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.INTF_REPOS;
 import org.omg.PortableServer.POA;
 
 /**
  * @author Gerald Brose
- * @version $Id: ModuleDef.java,v 1.10 2006-06-15 16:43:14 alphonse.bendt Exp $
+ * @version $Id: ModuleDef.java,v 1.11 2009-05-03 21:34:07 andre.spiegel Exp $
  */
 public class ModuleDef
     extends Contained

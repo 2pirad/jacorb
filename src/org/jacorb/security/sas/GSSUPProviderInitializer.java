@@ -20,7 +20,7 @@ package org.jacorb.security.sas;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
 
@@ -28,7 +28,7 @@ import org.omg.PortableInterceptor.ORBInitializer;
  * This initializes the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: GSSUPProviderInitializer.java,v 1.9 2004-05-07 13:08:29 david.robison Exp $
+ * @version $Id: GSSUPProviderInitializer.java,v 1.10 2009-05-03 21:36:48 andre.spiegel Exp $
  */
 
 public class GSSUPProviderInitializer

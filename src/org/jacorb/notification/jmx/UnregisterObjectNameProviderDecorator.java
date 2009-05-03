@@ -25,7 +25,7 @@ import javax.management.InstanceNotFoundException;
 import javax.management.MBeanRegistrationException;
 import javax.management.MBeanServer;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.JMXManageable;
 import org.jacorb.notification.util.LogUtil;
@@ -40,7 +40,7 @@ import org.picocontainer.PicoContainer;
  * the disposehook will deregister the mbean from the mbeanserver.
  *  
  * @author Alphonse Bendt
- * @version $Id: UnregisterObjectNameProviderDecorator.java,v 1.3 2006-01-06 10:12:28 alphonse.bendt Exp $
+ * @version $Id: UnregisterObjectNameProviderDecorator.java,v 1.4 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class UnregisterObjectNameProviderDecorator implements DynamicMBeanProvider

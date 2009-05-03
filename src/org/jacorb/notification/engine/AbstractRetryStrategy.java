@@ -20,7 +20,7 @@ package org.jacorb.notification.engine;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.interfaces.IProxyPushSupplier;
 import org.jacorb.notification.util.LogUtil;
 import org.omg.CORBA.OBJECT_NOT_EXIST;
@@ -28,7 +28,7 @@ import org.omg.CosEventComm.Disconnected;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractRetryStrategy.java,v 1.5 2005-08-21 13:30:16 alphonse.bendt Exp $
+ * @version $Id: AbstractRetryStrategy.java,v 1.6 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public abstract class AbstractRetryStrategy implements RetryStrategy
 {

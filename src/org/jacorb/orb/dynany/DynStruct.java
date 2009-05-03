@@ -20,7 +20,7 @@ package org.jacorb.orb.dynany;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.Any;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
@@ -35,7 +35,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynStruct
  *
  * @author Gerald Brose
- * @version $Id: DynStruct.java,v 1.24 2006-07-05 09:18:11 alphonse.bendt Exp $
+ * @version $Id: DynStruct.java,v 1.25 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public final class DynStruct

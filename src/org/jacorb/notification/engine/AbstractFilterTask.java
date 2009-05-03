@@ -29,7 +29,7 @@ import org.jacorb.notification.interfaces.FilterStage;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractFilterTask.java,v 1.17 2005-11-11 19:37:44 alphonse.bendt Exp $
+ * @version $Id: AbstractFilterTask.java,v 1.18 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public abstract class AbstractFilterTask extends AbstractMessageTask
 {
@@ -146,7 +146,7 @@ public abstract class AbstractFilterTask extends AbstractMessageTask
 
     public void handleTaskError(AbstractTask task, Exception error)
     {
-        logger_.fatalError("Error while Filtering in Task:" + task, error);
+        logger_.error("Error while Filtering in Task:" + task, error);
     }
 
     /**

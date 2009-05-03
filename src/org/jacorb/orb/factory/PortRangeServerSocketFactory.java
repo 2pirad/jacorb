@@ -25,11 +25,11 @@ import java.net.BindException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 
 /**
  * @author Steve Osselton
- * @version $Id: PortRangeServerSocketFactory.java,v 1.10 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: PortRangeServerSocketFactory.java,v 1.11 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 public class PortRangeServerSocketFactory
     implements ServerSocketFactory, Configurable
@@ -58,7 +58,7 @@ public class PortRangeServerSocketFactory
     public void configure(Configuration config)
         throws ConfigurationException
     {
-        logger = ((org.jacorb.config.Configuration)config).getNamedLogger("jacorb.orb.port_rang_fctry");
+        logger = ((org.jacorb.config.Configuration)config).getLogger("jacorb.orb.port_rang_fctry");
 
         // Get configured max and min port numbers
         portMin = getPortProperty(config, MIN_PROP);

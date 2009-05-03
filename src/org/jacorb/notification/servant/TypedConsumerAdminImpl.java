@@ -40,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedConsumerAdminImpl.java,v 1.9 2009-04-25 10:08:52 andre.spiegel Exp $
+ * @version $Id: TypedConsumerAdminImpl.java,v 1.10 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
         TypedConsumerAdminOperations
@@ -73,7 +73,7 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
             return TypedProxyPullSupplierHelper.narrow(_proxy.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_typed_notification_pull_supplier", e);
+            logger_.error("obtain_typed_notification_pull_supplier", e);
 
             throw new UNKNOWN(e.toString());
         }
@@ -112,7 +112,7 @@ public class TypedConsumerAdminImpl extends ConsumerAdminImpl implements
             return TypedProxyPushSupplierHelper.narrow(_proxy.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_typed_notification_pull_supplier", e);
+            logger_.error("obtain_typed_notification_pull_supplier", e);
 
             throw new UNKNOWN(e.toString());
         }

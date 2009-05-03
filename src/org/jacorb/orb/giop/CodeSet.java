@@ -27,9 +27,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Properties;
+import org.slf4j.*;
+import org.slf4j.LoggerFactory;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.NullLogger;
-import org.jacorb.config.Configuration;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
 import org.omg.CONV_FRAME.CodeSetComponent;
@@ -42,7 +42,7 @@ import org.omg.IOP.ServiceContext;
 import org.omg.IOP.TAG_CODE_SETS;
 /**
  * @author Gerald Brose
- * @version $Id: CodeSet.java,v 1.25 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: CodeSet.java,v 1.26 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 public class CodeSet
 {
@@ -84,7 +84,7 @@ public class CodeSet
     /**
      * <code>logger</code> is the static logger for Codeset.
      */
-    private static org.apache.avalon.framework.logger.Logger logger = new NullLogger();
+    private static Logger logger = LoggerFactory.getLogger("jacorb.codeset");
 
     /** static flag that keeps track of the configuration status. */
     private static boolean isConfigured = false;
@@ -160,7 +160,7 @@ public class CodeSet
                 }
             }
 
-            logger = config.getNamedLogger("org.jacorb.orb.codeset");
+            logger = config.getLogger("jacorb.codeset");
             isConfigured = true;
         }
         else

@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.giop.GIOPConnection;
 import org.jacorb.orb.giop.GIOPConnectionManager;
 import org.jacorb.orb.giop.MessageReceptorPool;
@@ -46,7 +46,7 @@ import org.omg.ETF.Listener;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose
- * @version $Id: BasicAdapter.java,v 1.60 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.61 2009-05-03 21:35:54 andre.spiegel Exp $
  */
 public class BasicAdapter
     extends org.omg.ETF._HandleLocalBase
@@ -88,7 +88,7 @@ public class BasicAdapter
         configuration =
             (org.jacorb.config.Configuration)myConfiguration;
         logger =
-            configuration.getNamedLogger("jacorb.orb.basic");
+            configuration.getLogger("jacorb.orb.basic");
 
         receptor_pool = new MessageReceptorPool("server", "ServerMessageReceptor", myConfiguration);
 

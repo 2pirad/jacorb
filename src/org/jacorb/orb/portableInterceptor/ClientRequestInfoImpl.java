@@ -23,7 +23,7 @@ package org.jacorb.orb.portableInterceptor;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.etf.ProfileBase;
 import org.jacorb.util.ObjectUtil;
 import org.omg.CORBA.ARG_IN;
@@ -53,7 +53,7 @@ import org.omg.PortableInterceptor.LOCATION_FORWARD;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.33 2008-11-14 08:55:34 nick.cross Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.34 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -89,7 +89,7 @@ public class ClientRequestInfoImpl
         super();
 
         this.orb = orb;
-        logger = orb.getConfiguration().getNamedLogger("jacorb.orb.interceptors");
+        logger = orb.getConfiguration().getLogger("jacorb.orb.interceptors");
 
         this.operation = ros.operation();
         this.response_expected = ros.response_expected();

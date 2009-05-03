@@ -27,7 +27,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.imr.ImRAccessImpl;
 import org.jacorb.ir.RepositoryID;
 import org.jacorb.orb.giop.ClientConnection;
@@ -78,7 +78,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.150 2009-04-28 09:29:33 alexander.bykov Exp $
+ * @version $Id: Delegate.java,v 1.151 2009-05-03 21:35:54 andre.spiegel Exp $
  *
  */
 
@@ -232,7 +232,7 @@ public final class Delegate
     {
         this.configuration = config;
         logger =
-            ((Configuration)config).getNamedLogger("jacorb.orb.delegate");
+            ((Configuration)config).getLogger("jacorb.orb.delegate");
         useIMR =
             config.getAttribute("jacorb.use_imr","off").equals("on");
         locateOnBind =

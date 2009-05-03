@@ -21,7 +21,7 @@
 package org.jacorb.orb.standardInterceptors;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORB;
 import org.omg.CORBA.INTERNAL;
@@ -36,7 +36,7 @@ import org.omg.SSLIOP.SSLHelper;
  * This interceptor creates an ssl TaggedComponent
  *
  * @author Nicolas Noffke
- * @version $Id: SSLComponentInterceptor.java,v 1.24 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: SSLComponentInterceptor.java,v 1.25 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class SSLComponentInterceptor
@@ -54,7 +54,7 @@ public class SSLComponentInterceptor
    {
         this.orb = orb;
         configure( orb.getConfiguration());
-        logger = orb.getConfiguration().getNamedLogger(getClass().getName());
+        logger = orb.getConfiguration().getLogger(getClass().getName());
     }
 
     public void configure(Configuration configuration)

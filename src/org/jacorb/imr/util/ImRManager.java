@@ -20,7 +20,7 @@
  */
 package org.jacorb.imr.util;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.config.Configuration;
 import org.jacorb.imr.Admin;
 import org.jacorb.imr.AdminHelper;
@@ -36,7 +36,7 @@ import org.jacorb.imr.UnknownServerName;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImRManager.java,v 1.13 2008-11-14 08:55:26 nick.cross Exp $
+ * $Id: ImRManager.java,v 1.14 2009-05-03 21:33:38 andre.spiegel Exp $
  */
 
 public class ImRManager
@@ -64,7 +64,7 @@ public class ImRManager
                 AdminHelper.narrow( orb.resolve_initial_references("ImplementationRepository"));
 
             Configuration config = ((org.jacorb.orb.ORB)orb).getConfiguration();
-            Logger logger = config.getNamedLogger("jacorb.imr.manager");
+            Logger logger = config.getLogger("jacorb.imr.manager");
 
             ServerInfo info = null;
 
@@ -645,7 +645,7 @@ public class ImRManager
         }
 
         m_orb = (org.jacorb.orb.ORB) org.omg.CORBA.ORB.init(args, null);
-        logger = m_orb.getConfiguration().getNamedLogger("jacorb.imr.manager");
+        logger = m_orb.getConfiguration().getLogger("jacorb.imr.manager");
 
         try
         {

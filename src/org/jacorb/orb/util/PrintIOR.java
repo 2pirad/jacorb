@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.ORBConstants;
 import org.jacorb.orb.ParsedIOR;
@@ -57,7 +57,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.48 2009-04-08 13:40:02 alexander.bykov Exp $
+ * @version $Id: PrintIOR.java,v 1.49 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class PrintIOR
@@ -71,7 +71,7 @@ public class PrintIOR
         org.omg.CORBA.ORB orb = org.omg.CORBA.ORB.init(args,null);
         final org.jacorb.orb.ORB jorb = (org.jacorb.orb.ORB)orb;
         Logger logger =
-            jorb.getConfiguration().getNamedLogger("jacorb.print_ior");
+            jorb.getConfiguration().getLogger("jacorb.print_ior");
         String line, iorString = null;
 
         if( args.length != 2)

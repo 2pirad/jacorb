@@ -59,7 +59,7 @@ import org.picocontainer.defaults.CachingComponentAdapter;
  * @jboss.xmbean
  * 
  * @author Alphonse Bendt
- * @version $Id: SupplierAdminImpl.java,v 1.11 2009-04-25 10:08:52 andre.spiegel Exp $
+ * @version $Id: SupplierAdminImpl.java,v 1.12 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class SupplierAdminImpl extends AbstractSupplierAdmin implements SupplierAdminOperations,
@@ -131,7 +131,7 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
             return ProxyConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_notification_pull_consumer: unexpected error", e);
+            logger_.error("obtain_notification_pull_consumer: unexpected error", e);
 
             throw new UNKNOWN();
         }
@@ -171,7 +171,7 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
             return ProxyConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_notification_push_consumer: unexpected error", e);
+            logger_.error("obtain_notification_push_consumer: unexpected error", e);
 
             throw new UNKNOWN();
         }
@@ -215,7 +215,7 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
             return org.omg.CosEventChannelAdmin.ProxyPushConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_push_consumer: unexpected error", e);
+            logger_.error("obtain_push_consumer: unexpected error", e);
 
             throw new UNKNOWN();
         }
@@ -245,7 +245,7 @@ public class SupplierAdminImpl extends AbstractSupplierAdmin implements Supplier
             return org.omg.CosEventChannelAdmin.ProxyPullConsumerHelper.narrow(_servant.activate());
         } catch (Exception e)
         {
-            logger_.fatalError("obtain_pull_consumer: unexpected error", e);
+            logger_.error("obtain_pull_consumer: unexpected error", e);
 
             throw new UNKNOWN();
         }

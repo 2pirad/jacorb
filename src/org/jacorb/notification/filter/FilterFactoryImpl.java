@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.conf.Default;
 import org.jacorb.notification.interfaces.Disposable;
@@ -50,7 +50,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.8 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.9 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable, IServantLifecyle

@@ -21,7 +21,7 @@ package org.jacorb.orb.dynany;
  */
 
 import java.math.BigDecimal;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.TypeCode;
 import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
@@ -31,7 +31,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynFixed
  *
  * @author Jason Courage
- * @version $Id: DynFixed.java,v 1.11 2008-11-21 10:04:56 nick.cross Exp $
+ * @version $Id: DynFixed.java,v 1.12 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public final class DynFixed

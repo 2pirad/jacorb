@@ -21,13 +21,13 @@ package org.jacorb.ir;
  */
 
 import java.util.Hashtable;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.TypeCode;
 import org.omg.CORBA.TCKind;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.17 2008-11-25 17:20:50 nick.cross Exp $
+ * @version $Id: TypeCodeUtil.java,v 1.18 2009-05-03 21:34:07 andre.spiegel Exp $
  */
 
 public class TypeCodeUtil
@@ -159,7 +159,7 @@ public class TypeCodeUtil
         }
         catch ( ClassNotFoundException ce )
         {
-            logger.fatalError("Can't load org.jacorb base classes!", ce);
+            logger.error("Can't load org.jacorb base classes!", ce);
             throw ce;
         }
         int field_size = 0;

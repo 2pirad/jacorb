@@ -40,7 +40,7 @@ import org.picocontainer.MutablePicoContainer;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedEventChannelFactoryImpl.java,v 1.11 2009-04-25 10:08:50 andre.spiegel Exp $
+ * @version $Id: TypedEventChannelFactoryImpl.java,v 1.12 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 
 public class TypedEventChannelFactoryImpl extends AbstractChannelFactory implements
@@ -66,7 +66,7 @@ public class TypedEventChannelFactoryImpl extends AbstractChannelFactory impleme
             return TypedEventChannelHelper.narrow(_channel.activate());
         } catch (ConfigurationException e)
         {
-            logger_.fatalError("error creating typed channel", e);
+            logger_.error("error creating typed channel", e);
 
             throw new org.omg.CORBA.INTERNAL();
         }

@@ -20,7 +20,7 @@
 
 package org.jacorb.orb.giop;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.omg.BiDirPolicy.BIDIRECTIONAL_POLICY_TYPE;
 import org.omg.IOP.Codec;
@@ -31,7 +31,7 @@ import org.omg.PortableInterceptor.ORBInitializer;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionInitializer.java,v 1.13 2008-11-14 08:55:32 nick.cross Exp $
+ * @version $Id: BiDirConnectionInitializer.java,v 1.14 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public class BiDirConnectionInitializer
@@ -41,7 +41,7 @@ public class BiDirConnectionInitializer
     public void post_init(ORBInitInfo info)
     {
         final ORB orb = ((org.jacorb.orb.portableInterceptor.ORBInitInfoImpl) info).getORB();
-        final Logger logger = orb.getConfiguration().getNamedLogger("org.jacorb.interceptors.ior_init");
+        final Logger logger = orb.getConfiguration().getLogger("org.jacorb.interceptors.ior_init");
 
         try
         {

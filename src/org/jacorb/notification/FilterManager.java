@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.util.LogUtil;
 import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.FilterAdminOperations;
@@ -37,7 +37,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.17 2006-01-31 21:04:12 alphonse.bendt Exp $
+ * @version $Id: FilterManager.java,v 1.18 2009-05-03 21:34:46 andre.spiegel Exp $
  */
 
 public class FilterManager implements FilterAdminOperations

@@ -25,7 +25,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CosNaming.Binding;
 import org.omg.CosNaming.BindingIteratorHelper;
@@ -49,7 +49,7 @@ import org.omg.CosNaming.NamingContextPackage.NotFoundReason;
  *      The implementation for the CORBAService Naming
  *
  *      @author Gerald Brose
- *      @version $Id: NamingContextImpl.java,v 1.32 2009-04-25 10:11:49 andre.spiegel Exp $
+ *      @version $Id: NamingContextImpl.java,v 1.33 2009-05-03 21:34:27 andre.spiegel Exp $
  */
 
 public class NamingContextImpl
@@ -87,7 +87,7 @@ public class NamingContextImpl
         throws ConfigurationException
     {
         this.configuration = (org.jacorb.config.Configuration)myConfiguration;
-        logger = configuration.getNamedLogger("jacorb.naming");
+        logger = configuration.getLogger("jacorb.naming");
         doPurge = configuration.getAttribute("jacorb.naming.purge","off").equals("on");
         noPing = configuration.getAttribute("jacorb.naming.noping","off").equals("on");
     }

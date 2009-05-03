@@ -23,7 +23,7 @@ package org.jacorb.orb;
 import java.util.Iterator;
 import java.util.Set;
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.giop.MessageInputStream;
 import org.jacorb.orb.giop.ReplyInputStream;
 import org.jacorb.orb.giop.ReplyPlaceholder;
@@ -49,7 +49,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.35 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: ReplyReceiver.java,v 1.36 2009-05-03 21:35:55 andre.spiegel Exp $
  */
 
 public class ReplyReceiver
@@ -99,7 +99,7 @@ public class ReplyReceiver
     public void configure(Configuration configuration)
     {
         logger =
-            ((org.jacorb.config.Configuration)configuration).getNamedLogger("jacorb.orb.rep_recv");
+            ((org.jacorb.config.Configuration)configuration).getLogger("jacorb.orb.rep_recv");
         retry_on_failure =
             configuration.getAttributeAsBoolean("jacorb.connection.client.retry_on_failure", false);
     }

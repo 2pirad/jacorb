@@ -26,7 +26,7 @@ import javax.net.ssl.HandshakeCompletedEvent;
 import javax.net.ssl.HandshakeCompletedListener;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.security.cert.X509Certificate;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 
 /**
  * <code>SSLHandshakeListener</code> implements the SSL Handshake Listener
@@ -34,7 +34,7 @@ import org.apache.avalon.framework.logger.Logger;
  * on to the external SSLListener.
  *
  * @author Nick Cross
- * @version $Id: SSLHandshakeListener.java,v 1.3 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: SSLHandshakeListener.java,v 1.4 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 public class SSLHandshakeListener implements HandshakeCompletedListener
 {

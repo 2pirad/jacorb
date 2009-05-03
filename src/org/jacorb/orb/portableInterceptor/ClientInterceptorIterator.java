@@ -20,7 +20,7 @@
  */
 package org.jacorb.orb.portableInterceptor;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.SystemExceptionHelper;
 import org.omg.CORBA.UserException;
 import org.omg.PortableInterceptor.ClientRequestInterceptor;
@@ -33,7 +33,7 @@ import org.omg.PortableInterceptor.LOCATION_FORWARD;
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.15 2008-11-14 08:55:34 nick.cross Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.16 2009-05-03 21:35:56 andre.spiegel Exp $
  */
 
 public class ClientInterceptorIterator

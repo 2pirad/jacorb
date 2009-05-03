@@ -21,7 +21,7 @@
 package org.jacorb.transaction;
 
 import java.util.Hashtable;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.omg.CORBA.Any;
 import org.omg.CosNaming.NameComponent;
@@ -50,7 +50,7 @@ import org.omg.CosTransactions.otid_t;
  *
  * @author Nicolas Noffke
  * @author Vladimir Mencl
- * @version $Id: TransactionCurrentImpl.java,v 1.18 2008-11-14 08:55:36 nick.cross Exp $
+ * @version $Id: TransactionCurrentImpl.java,v 1.19 2009-05-03 21:36:59 andre.spiegel Exp $
  */
 
 public class TransactionCurrentImpl 
@@ -74,7 +74,7 @@ public class TransactionCurrentImpl
         this.orb = orb;
         this.slot_id = slot_id;
         logger =    
-            orb.getConfiguration().getNamedLogger("jacorb.tx_service.current");
+            orb.getConfiguration().getLogger("jacorb.tx_service.current");
 
         contexts = new Hashtable();
         timeouts = new Hashtable();

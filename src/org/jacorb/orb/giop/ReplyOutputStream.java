@@ -22,7 +22,7 @@ package org.jacorb.orb.giop;
 
 import java.io.IOException;
 
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.SystemExceptionHelper;
 import org.omg.CORBA.MARSHAL;
@@ -33,7 +33,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Gerald Brose
- * @version $Id: ReplyOutputStream.java,v 1.23 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.24 2009-05-03 21:35:56 andre.spiegel Exp $
  *
  */
 public class ReplyOutputStream

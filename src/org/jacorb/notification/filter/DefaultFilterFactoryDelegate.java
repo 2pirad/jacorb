@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.jacorb.notification.IContainer;
 import org.jacorb.notification.conf.Attributes;
 import org.jacorb.notification.filter.etcl.ETCLFilter;
@@ -43,7 +43,7 @@ import org.picocontainer.defaults.ConstructorInjectionComponentAdapterFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultFilterFactoryDelegate.java,v 1.6 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: DefaultFilterFactoryDelegate.java,v 1.7 2009-05-03 21:34:47 andre.spiegel Exp $
  */
 public class DefaultFilterFactoryDelegate implements IFilterFactoryDelegate, Disposable
 {
