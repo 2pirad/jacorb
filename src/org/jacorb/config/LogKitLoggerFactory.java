@@ -27,8 +27,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.avalon.framework.logger.LogKitLogger;
-import org.apache.avalon.framework.logger.Logger;
+import org.slf4j.Logger;
 import org.apache.log.Hierarchy;
 import org.apache.log.LogTarget;
 import org.apache.log.format.PatternFormatter;
@@ -58,7 +57,7 @@ import org.apache.log.output.io.rotate.RotatingFileTarget;
  * property, if it's set. If not, the default is 0.
  *
  * @author Gerald Brose
- * @version $Id: LogKitLoggerFactory.java,v 1.9 2009-04-25 10:04:52 andre.spiegel Exp $
+ * @version $Id: LogKitLoggerFactory.java,v 1.10 2009-05-06 17:32:40 alexander.bykov Exp $
  * @since JacORB 2.0 beta 3
  */
 
@@ -69,6 +68,7 @@ public class LogKitLoggerFactory
         "[%.20{category}] %.7{priority} : %{message}\\n%{throwable}";
 
     private final static String name = "logkit";
+    
     private PatternFormatter logFormatter = null;
 
     /** default priority for loggers created with this factory */

@@ -21,25 +21,19 @@ package org.jacorb.test.orb;
  *   MA 02110-1301, USA.
  */
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintWriter;
 import java.util.Properties;
 
 import junit.framework.*;
 
-import org.apache.avalon.framework.logger.NullLogger;
-import org.jacorb.orb.ParsedIOR;
-import org.jacorb.orb.util.PrintIOR;
 import org.jacorb.test.*;
 import org.jacorb.test.common.*;
-import org.omg.CORBA.OBJECT_NOT_EXIST;
 
 /**
  * Tests components of type TAG_ALTERNATE_IIOP_ADDRESS within IORs.
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddressTest.java,v 1.13 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: AlternateIIOPAddressTest.java,v 1.14 2009-05-06 17:32:41 alexander.bykov Exp $
  */
 public class AlternateIIOPAddressTest extends ClientServerTestCase
 {

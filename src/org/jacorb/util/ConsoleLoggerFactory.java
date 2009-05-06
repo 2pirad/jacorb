@@ -1,16 +1,14 @@
 package org.jacorb.util;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.ConsoleLogger;
-import org.apache.avalon.framework.logger.Logger;
-import org.jacorb.config.LoggerFactory;
+import org.slf4j.Logger;
 
 /**
  * <code>ConsoleLoggerFactory</code> is a very simple example to demonstrate
  * overriding the default logger factory.
  *
  * @author Nick Cross
- * @version $Id: ConsoleLoggerFactory.java,v 1.2 2009-04-25 10:13:16 andre.spiegel Exp $
+ * @version $Id: ConsoleLoggerFactory.java,v 1.3 2009-05-06 17:32:41 alexander.bykov Exp $
  */
 public class ConsoleLoggerFactory implements LoggerFactory
 {

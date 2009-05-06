@@ -4,7 +4,6 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 import org.jacorb.config.*;
-import org.apache.avalon.framework.logger.NullLogger;
 import org.easymock.MockControl;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.factory.FixedAddressSocketFactory;
@@ -12,7 +11,7 @@ import org.jacorb.orb.factory.SocketFactory;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FixedAddressSocketFactoryTest.java,v 1.5 2009-05-03 21:46:33 andre.spiegel Exp $
+ * @version $Id: FixedAddressSocketFactoryTest.java,v 1.6 2009-05-06 17:32:41 alexander.bykov Exp $
  */
 public class FixedAddressSocketFactoryTest extends AbstractSocketFactoryTestCase
 {

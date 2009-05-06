@@ -2,9 +2,10 @@ package org.jacorb.test.orb.policies;
 
 import junit.framework.TestCase;
 
-import org.apache.avalon.framework.logger.NullLogger;
+import org.slf4j.Logger;
 import org.easymock.MockControl;
 import org.jacorb.config.Configuration;
+import org.jacorb.config.NullLogger;
 import org.jacorb.orb.policies.PolicyManager;
 import org.omg.CORBA.Policy;
 import org.omg.CORBA.SetOverrideType;
@@ -31,7 +32,7 @@ import org.omg.CORBA.SetOverrideType;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: PolicyManagerTest.java,v 1.2 2009-05-03 21:46:33 andre.spiegel Exp $
+ * @version $Id: PolicyManagerTest.java,v 1.3 2009-05-06 17:32:40 alexander.bykov Exp $
  */
 public class PolicyManagerTest extends TestCase
 {
