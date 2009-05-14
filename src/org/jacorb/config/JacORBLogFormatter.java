@@ -32,7 +32,7 @@ import java.util.logging.Level;
  * than the standard JDK setting.
  * 
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: JacORBLogFormatter.java,v 1.1 2009-05-13 21:08:29 andre.spiegel Exp $
+ * @version $Id: JacORBLogFormatter.java,v 1.2 2009-05-14 16:10:05 andre.spiegel Exp $
  */
 public class JacORBLogFormatter extends Formatter
 {
@@ -57,10 +57,11 @@ public class JacORBLogFormatter extends Formatter
     private String getStackTrace (Throwable t)
     {
         StringBuffer result = new StringBuffer();
-        for (StackTraceElement ste : t.getStackTrace())
+        StackTraceElement[] elements = t.getStackTrace();
+        for (int i=0; i < elements.length; i++)
         {
             result.append ("    ");
-            result.append (ste.toString());
+            result.append (elements[i].toString());
             result.append ("\n");
         }
         return result.toString();
