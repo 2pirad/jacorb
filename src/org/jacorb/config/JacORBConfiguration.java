@@ -41,7 +41,7 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.25 2009-05-13 21:09:32 andre.spiegel Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.26 2009-05-14 07:09:52 andre.spiegel Exp $
  */
 public class JacORBConfiguration implements Configuration
 {
@@ -63,16 +63,6 @@ public class JacORBConfiguration implements Configuration
     
     private String name;
     private final ORB orb;
-
-    /** root logger instance for this configuration */
-    private Logger logger = null;
-
-    /**  logger factory used to create loggers */
-    private LoggerFactory loggerFactory = null;
-
-    /**  default class name for logger factory */
-    private static final String loggerFactoryClzName =
-       "org.jacorb.config.LogKitLoggerFactory";
 
     /**
      * Factory method
