@@ -41,7 +41,7 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.29 2009-05-20 21:41:27 andre.spiegel Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.30 2009-05-22 20:42:53 andre.spiegel Exp $
  */
 public class JacORBConfiguration implements Configuration
 {
@@ -544,7 +544,7 @@ public class JacORBConfiguration implements Configuration
             ATTR_LOGGING_INITIALIZER,
             "org.jacorb.config.JdkLoggingInitializer"
         );
-        li.init (orb, this);
+        li.init (this);
     }
     
     /**
