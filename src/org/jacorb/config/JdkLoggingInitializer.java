@@ -5,13 +5,12 @@ import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 
-import org.jacorb.orb.ORB;
 import org.jacorb.util.ObjectUtil;
 
 /**
  * A LoggingInitializer for the JDK logging system.
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: JdkLoggingInitializer.java,v 1.1 2009-05-20 21:40:36 andre.spiegel Exp $
+ * @version $Id: JdkLoggingInitializer.java,v 1.2 2009-05-22 20:42:16 andre.spiegel Exp $
  */
 public class JdkLoggingInitializer extends LoggingInitializer
 {
@@ -66,7 +65,7 @@ public class JdkLoggingInitializer extends LoggingInitializer
         }
     }
     
-    public void init (ORB orb, Configuration config)
+    public void init (Configuration config)
     {
         if (!usingJdkLogging()) return;
         String level = config.getAttribute (ATTR_LOG_VERBOSITY, null);
@@ -85,7 +84,7 @@ public class JdkLoggingInitializer extends LoggingInitializer
                 {
                     handler = new FileHandler
                     (
-                        file,
+                        substituteImplname (file, config),
                         config.getAttributeAsBoolean (ATTR_LOG_APPEND, false)
                     );
                 }
