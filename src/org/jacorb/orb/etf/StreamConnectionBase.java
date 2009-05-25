@@ -30,7 +30,7 @@ import org.jacorb.util.ObjectUtil;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: StreamConnectionBase.java,v 1.8 2009-03-27 12:13:57 alexander.bykov Exp $
+ * @version $Id: StreamConnectionBase.java,v 1.9 2009-05-25 02:08:03 andre.spiegel Exp $
  */
 
 public abstract class StreamConnectionBase
@@ -151,6 +151,14 @@ public abstract class StreamConnectionBase
 
             read += n;
         }
+        
+        if (logger.isDebugEnabled())
+        {
+            // guard this with isDebugEnabled() because auto-boxing of
+            // parameter "read" would cost too much time
+            logger.debug ("read {} bytes from {}", read, connection_info);
+        }
+        
         return read;
     }
 
@@ -184,6 +192,10 @@ public abstract class StreamConnectionBase
             if( b_out != null )
             {
                 b_out.write( data, offset, length );
+            }
+            if (logger.isDebugEnabled())
+            {
+                logger.debug ("wrote {} bytes to {}", length, connection_info);
             }
         }
         catch (IOException ex)
