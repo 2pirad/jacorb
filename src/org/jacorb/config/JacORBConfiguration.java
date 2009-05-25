@@ -37,7 +37,7 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.31 2009-05-22 21:49:46 andre.spiegel Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.32 2009-05-25 22:03:07 andre.spiegel Exp $
  */
 public class JacORBConfiguration implements Configuration
 {
@@ -138,7 +138,8 @@ public class JacORBConfiguration implements Configuration
             init(name, orbProperties);
         }
 
-        initLogging();
+        // don't call this for the singleton orb
+        if (orb != null) initLogging();
     }
 
     private static void println(String mesg)
