@@ -10,7 +10,7 @@ import org.jacorb.util.ObjectUtil;
 /**
  * A LoggingInitializer for the JDK logging system.
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: JdkLoggingInitializer.java,v 1.2 2009-05-22 20:42:16 andre.spiegel Exp $
+ * @version $Id: JdkLoggingInitializer.java,v 1.3 2009-05-25 02:07:04 andre.spiegel Exp $
  */
 public class JdkLoggingInitializer extends LoggingInitializer
 {
@@ -93,6 +93,7 @@ public class JdkLoggingInitializer extends LoggingInitializer
                     System.err.println ("could not write log file");
                 }
             }
+            handler.setLevel(toJdkLogLevel(level));
             handler.setFormatter (new JacORBLogFormatter());
             rootLogger.addHandler (handler);
         }
