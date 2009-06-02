@@ -49,6 +49,7 @@ import org.jacorb.test.bugs.bugjac384.BugJac_384Test;
 import org.jacorb.test.bugs.bugjac352.BugJac352Test;
 import org.jacorb.test.bugs.bugjac415.BugJac415Test;
 import org.jacorb.test.bugs.bugjac443.BugJac443Test;
+import org.jacorb.test.bugs.bugjac417.BugJac417Test;
 import org.jacorb.test.bugs.bugjac45.BugJac45Test;
 import org.jacorb.test.bugs.bugjac69.InvalidIORTest;
 import org.jacorb.test.bugs.bugjac722.BugJac722Test;
@@ -61,7 +62,7 @@ import org.jacorb.test.common.*;
  * Test suite for all bug tests.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: AllTest.java,v 1.45 2009-04-24 09:45:54 alexander.bykov Exp $
+ * @version $Id: AllTest.java,v 1.46 2009-06-02 13:40:35 alexander.bykov Exp $
  */
 
 public class AllTest extends JacORBTestSuite
@@ -120,6 +121,7 @@ public class AllTest extends JacORBTestSuite
       suite.addTestSuite(BugJac_384Test.class);
       suite.addTestSuite(BugJac380Test.class);
       suite.addTestSuite(BugJac415Test.class);
+      suite.addTestSuite(BugJac417Test.class);
 
       return suite;
    }

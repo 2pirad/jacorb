@@ -34,11 +34,12 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Steve Osselton
- * @version $Id: SocketFactoryManager.java,v 1.22 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: SocketFactoryManager.java,v 1.23 2009-06-02 13:40:35 alexander.bykov Exp $
  */
 public class SocketFactoryManager
     implements Configurable
 {
+    public static final String SUPPORT_SSL = "jacorb.security.support_ssl";
     // Properties used to define custom socket and server socket factories
     public static final String SOCKET_FACTORY            = "jacorb.net.socket_factory";
     public static final String SERVER_SOCKET_FACTORY     = "jacorb.net.server_socket_factory";
@@ -94,10 +95,10 @@ public class SocketFactoryManager
         serverSocketFactoryClassName = configuration.getAttribute(SERVER_SOCKET_FACTORY, DefaultServerSocketFactory.class.getName());
 
         socketFactoryClassName = configuration.getAttribute(SOCKET_FACTORY, "");
-        String portMin = configuration.getAttribute(PortRangeSocketFactory.MIN_PROP, "");
 
         if ( socketFactoryClassName.length() == 0)
         {
+            String portMin = configuration.getAttribute(PortRangeSocketFactory.MIN_PROP, "");
             if ( portMin.length() > 0)
             {
                 if (logger.isDebugEnabled())
@@ -116,9 +117,8 @@ public class SocketFactoryManager
         }
 
         tcpListener = (TCPConnectionListener) configuration.getAttributeAsObject(TCP_LISTENER, NullTCPConnectionListener.class.getName());
-        sslListener = (SSLSessionListener) configuration.getAttributeAsObject(SSL_LISTENER, NullSSLSessionListener.class.getName());
 
-        if( configuration.getAttributeAsBoolean("jacorb.security.support_ssl", false))
+        if( configuration.getAttributeAsBoolean(SUPPORT_SSL, false))
         {
             sslServerSocketFactoryClazz = configuration.getAttribute(SSL_SERVER_SOCKET_FACTORY, "");
 
@@ -133,6 +133,7 @@ public class SocketFactoryManager
             {
                 throw new ConfigurationException("SSL support is on, but the property \"" + SSL_SOCKET_FACTORY + "\" is not set");
             }
+            sslListener = (SSLSessionListener) configuration.getAttributeAsObject(SSL_LISTENER, NullSSLSessionListener.class.getName());
         }
     }
 
@@ -249,7 +250,7 @@ public class SocketFactoryManager
             try
             {
                 // First try getting constructor with ORB parameter
-                ctor = factoryClazz.getConstructor(new Class[] { ORB.class });
+                ctor = factoryClazz.getConstructor(new Class[] { org.jacorb.orb.ORB.class });
             }
             catch (NoSuchMethodException e) // NOPMD
             {
@@ -260,6 +261,23 @@ public class SocketFactoryManager
                 // Ignore
             }
 
+            if (ctor == null)
+            {
+                try
+                {
+                    // First try getting constructor with ORB parameter
+                    ctor = factoryClazz.getConstructor(new Class[] { org.omg.CORBA.ORB.class });
+                }
+                catch (NoSuchMethodException e) // NOPMD
+                {
+                    // ignore
+                }
+                catch (SecurityException e) // NOPMD
+                {   
+                    // Ignore
+                }
+            }
+            
             final Object result;
 
             if (ctor == null)
