@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.77 2008-11-14 08:55:25 nick.cross Exp $
+ * @version $Id: Interface.java,v 1.78 2009-06-09 09:18:44 alexander.bykov Exp $
  */
 
 import java.io.File;
@@ -469,18 +469,25 @@ public class Interface
      */
     protected void printSuperclassImports(PrintWriter ps)
     {
-        if (inheritanceSpec.v.size() > 0)
+        if (inheritanceSpec.v.isEmpty())
         {
-            Enumeration e = inheritanceSpec.v.elements();
+            return;
+        }
 
-            for (; e.hasMoreElements();)
+        if ("".equals(pack_name))
+        {
+            return;
+        }
+
+        for (final Iterator i = inheritanceSpec.v.iterator(); i.hasNext();)
+        {
+            final ScopedName sn = (ScopedName) i.next();
+
+            if (sn.resolvedName().indexOf('.') < 0)
             {
-                ScopedName sn = (ScopedName) e.nextElement();
-
-                if (sn.resolvedName().indexOf('.') < 0)
-                {
-                    ps.println("import " + sn + ";");
-                }
+                ps.print("import ");
+                ps.print(sn.toString());
+                ps.println(';');
             }
         }
     }
