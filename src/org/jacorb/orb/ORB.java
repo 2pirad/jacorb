@@ -94,7 +94,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.176 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: ORB.java,v 1.177 2009-08-04 14:28:09 alexander.bykov Exp $
  */
 
 public final class ORB
@@ -224,6 +224,8 @@ public final class ORB
 
     private RPPoolManagerFactory poolManagerFactory;
     private boolean failOnORBInitializerError;
+
+    private boolean inORBInitializer;
 
     public ORB()
     {
@@ -1584,18 +1586,27 @@ public final class ORB
 
     private void internalInit()
     {
-        final List orb_initializers = getORBInitializers();
-        final ORBInitInfoImpl initInfo = new ORBInitInfoImpl(this);
+        inORBInitializer = true;
 
-        interceptorPreInit(orb_initializers, initInfo);
+        try
+        {
+            final List orb_initializers = getORBInitializers();
+            final ORBInitInfoImpl initInfo = new ORBInitInfoImpl(this);
 
-        initClientConnectionManager();
+            interceptorPreInit(orb_initializers, initInfo);
 
-        initKnownReferencesMap();
+            initClientConnectionManager();
 
-        interceptorPostInit(orb_initializers, initInfo);
+            initKnownReferencesMap();
 
-        internalInit(initInfo);
+            interceptorPostInit(orb_initializers, initInfo);
+
+            internalInit(initInfo);
+        }
+        finally
+        {
+            inORBInitializer = false;
+        }
     }
 
     private void initClientConnectionManager()
@@ -2441,6 +2452,10 @@ public final class ORB
         {
             if (interceptor_manager == null)
             {
+                if (inORBInitializer)
+                {
+                    throw new BAD_INV_ORDER("set_slot/get_slot may not be invoked from within an ORB initializer", 10, CompletionStatus.COMPLETED_NO);
+                }
                 return InterceptorManager.EMPTY_CURRENT;
             }
 
