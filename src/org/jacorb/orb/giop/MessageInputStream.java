@@ -30,14 +30,13 @@ import org.omg.CORBA.MARSHAL;
  * Created: Sat Aug 18 21:07:07 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageInputStream.java,v 1.8 2004-05-06 12:40:00 nicolas Exp $
+ * @version $Id: MessageInputStream.java,v 1.9 2009-08-04 14:13:56 alexander.bykov Exp $
  */
 
 public class MessageInputStream
     extends CDRInputStream
 {
-
-    public int msg_size = -1;
+    protected final int msg_size;
 
     public MessageInputStream( org.omg.CORBA.ORB orb, byte[] buffer)
     {

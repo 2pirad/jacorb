@@ -54,7 +54,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.131 2009-05-15 13:23:10 andre.spiegel Exp $
+ * @version $Id: CDROutputStream.java,v 1.132 2009-08-04 14:13:56 alexander.bykov Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -184,13 +184,9 @@ public class CDROutputStream
     /**
      * This stream is self-configuring, i.e. configure() is private
      * and only called from the constructor
-     *
-     * TODO this led to situations were streams weren't configured properly
-     * (see callers of configure) so i changed the method to be public.
-     * should be fixed. alphonse 11.05.2006
      */
 
-    public void configure(Configuration configuration)
+    private void configure(Configuration configuration)
     {
        codesetEnabled  =
             configuration.getAttribute("jacorb.codeset","on").equals("on");

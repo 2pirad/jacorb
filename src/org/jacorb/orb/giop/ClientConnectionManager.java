@@ -35,7 +35,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.35 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.36 2009-08-04 14:13:56 alexander.bykov Exp $
  */
 
 public class ClientConnectionManager
@@ -78,7 +78,7 @@ public class ClientConnectionManager
         org.jacorb.config.Configuration configuration = (org.jacorb.config.Configuration)myConfiguration;
         logger = configuration.getLogger("jacorb.orb.giop");
 
-        request_listener = new NoBiDirClientRequestListener(logger);
+        request_listener = new NoBiDirClientRequestListener(orb, logger);
     }
 
 

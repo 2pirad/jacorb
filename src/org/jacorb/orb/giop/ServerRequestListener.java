@@ -37,7 +37,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.29 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: ServerRequestListener.java,v 1.30 2009-08-04 14:13:55 alexander.bykov Exp $
  */
 public class ServerRequestListener
     implements RequestListener, Configurable
@@ -84,12 +84,13 @@ public class ServerRequestListener
 
         if( require_ssl && ! connection.isSSL() )
         {
-            ReplyOutputStream out =
-                new ReplyOutputStream( inputStream.req_hdr.request_id,
-                                       ReplyStatusType_1_2.SYSTEM_EXCEPTION,
-                                       inputStream.getGIOPMinor(),
-                                       false,
-                                       logger); //no locate reply
+            final ReplyOutputStream out =
+                new ReplyOutputStream(  orb,
+                                        inputStream.req_hdr.request_id,
+                                        ReplyStatusType_1_2.SYSTEM_EXCEPTION,
+                                        inputStream.getGIOPMinor(),
+                                        false,
+                                        logger); //no locate reply
 
             logger.debug("About to reject request because connection is not SSL.");
 
@@ -175,22 +176,23 @@ public class ServerRequestListener
             else
             {
                 ReplyOutputStream out =
-                    new ReplyOutputStream( inputStream.req_hdr.request_id,
+                    new ReplyOutputStream( orb,
+                                           inputStream.req_hdr.request_id,
                                            ReplyStatusType_1_2.SYSTEM_EXCEPTION,
                                            inputStream.getGIOPMinor(),
                                            false,
                                            logger );//no locate reply
 
-                SystemExceptionHelper.write( out,
-                                             new OBJECT_NOT_EXIST( 0, CompletionStatus.COMPLETED_NO ));
-
                 try
                 {
+                    SystemExceptionHelper.write( out,
+                            new OBJECT_NOT_EXIST( 0, CompletionStatus.COMPLETED_NO ));
+
                     connection.sendReply( out );
                 }
                 catch( IOException e )
                 {
-                    logger.warn("IOException",e);
+                    logger.warn("unexpected exception during requestReceived", e);
                 }
             }
 

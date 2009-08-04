@@ -33,7 +33,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Gerald Brose
- * @version $Id: ReplyOutputStream.java,v 1.24 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: ReplyOutputStream.java,v 1.25 2009-08-04 14:13:56 alexander.bykov Exp $
  *
  */
 public class ReplyOutputStream
@@ -41,16 +41,6 @@ public class ReplyOutputStream
 {
     private final boolean is_locate_reply;
     private final Logger logger;
-
-    public ReplyOutputStream (
-            int request_id,
-            ReplyStatusType_1_2 reply_status,
-            int giop_minor,
-            boolean is_locate_reply,
-            Logger logger)
-    {
-        this(null, request_id, reply_status, giop_minor, is_locate_reply, logger);
-    }
 
     public ReplyOutputStream ( ORB orb,
                                int request_id,

@@ -79,7 +79,7 @@ import org.omg.PortableServer.POAHelper;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.71 2009-05-03 21:33:38 andre.spiegel Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.72 2009-08-04 14:13:56 alexander.bykov Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1523,7 +1523,8 @@ public class ImplementationRepositoryImpl
             }
 
             ReplyOutputStream out =
-                new ReplyOutputStream( request_id,
+                new ReplyOutputStream( (org.jacorb.orb.ORB) orb,
+                                       request_id,
                                        org.omg.GIOP.ReplyStatusType_1_2.LOCATION_FORWARD,
                                        giop_minor,
                                        isLocateRequest,
@@ -1613,7 +1614,8 @@ public class ImplementationRepositoryImpl
                                        int giop_minor )
         {
             ReplyOutputStream out =
-                new ReplyOutputStream( request_id,
+                new ReplyOutputStream( (org.jacorb.orb.ORB) orb,
+                                       request_id,
                                        org.omg.GIOP.ReplyStatusType_1_2.SYSTEM_EXCEPTION,
                                        giop_minor,
                                        false,

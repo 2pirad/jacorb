@@ -46,7 +46,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.34 2009-04-28 09:29:33 alexander.bykov Exp $
+ * @version $Id: RequestOutputStream.java,v 1.35 2009-08-04 14:13:55 alexander.bykov Exp $
  */
 public class RequestOutputStream
     extends ServiceContextTransportingOutputStream
@@ -185,17 +185,26 @@ public class RequestOutputStream
                     switch (syncScope)
                     {
                         case SYNC_NONE.value:
+                            // fallthrough
                         case SYNC_WITH_TRANSPORT.value:
-                        write_octet ((byte)0x00);
-                        break;
+                        {
+                            write_octet ((byte)0x00);
+                            break;
+                        }
                         case SYNC_WITH_SERVER.value:
-                        write_octet ((byte)0x01);
-                        break;
+                        {
+                            write_octet ((byte)0x01);
+                            break;
+                        }
                         case SYNC_WITH_TARGET.value:
-                        write_octet ((byte)0x03);
-                        break;
+                        {
+                            write_octet ((byte)0x03);
+                            break;
+                        }
                         default:
-                        throw new MARSHAL ("Invalid SYNC_SCOPE: " + syncScope);
+                        {
+                            throw new MARSHAL ("Invalid SYNC_SCOPE: " + syncScope);
+                        }
                     }
                 }
 

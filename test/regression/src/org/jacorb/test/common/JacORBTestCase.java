@@ -28,9 +28,9 @@ import junit.framework.*;
  * to a certain client and server version.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: JacORBTestCase.java,v 1.3 2006-07-13 10:43:51 alphonse.bendt Exp $
+ * @version $Id: JacORBTestCase.java,v 1.4 2009-08-04 14:13:55 alexander.bykov Exp $
  */
-public class JacORBTestCase extends TestCase implements JacORBTest
+public abstract class JacORBTestCase extends TestCase implements JacORBTest
 {
     private TestAnnotations annotations = null;
 

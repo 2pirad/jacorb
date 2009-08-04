@@ -78,7 +78,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.151 2009-05-03 21:35:54 andre.spiegel Exp $
+ * @version $Id: Delegate.java,v 1.152 2009-08-04 14:13:56 alexander.bykov Exp $
  *
  */
 
@@ -1740,8 +1740,6 @@ public final class Delegate
                                          requestEndTime,
                                          replyEndTime,
                                          ior.get_object_key(), ior.getEffectiveProfile().version().minor );
-
-            out.configure(configuration);
 
             // CodeSets are only negotiated once per connection,
             // not for each individual request

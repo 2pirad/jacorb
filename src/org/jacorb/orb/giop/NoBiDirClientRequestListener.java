@@ -22,6 +22,7 @@ package org.jacorb.orb.giop;
 
 import java.io.IOException;
 import org.slf4j.Logger;
+import org.jacorb.orb.ORB;
 import org.jacorb.orb.SystemExceptionHelper;
 import org.omg.CORBA.CompletionStatus;
 import org.omg.CORBA.INV_POLICY;
@@ -29,16 +30,18 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: NoBiDirClientRequestListener.java,v 1.14 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: NoBiDirClientRequestListener.java,v 1.15 2009-08-04 14:13:56 alexander.bykov Exp $
  */
 
 public class NoBiDirClientRequestListener
     implements RequestListener
 {
     private final Logger logger;
+    private final ORB orb;
 
-    public NoBiDirClientRequestListener(Logger logger)
+    public NoBiDirClientRequestListener(org.jacorb.orb.ORB orb, Logger logger)
     {
+        this.orb = orb;
         this.logger = logger;
     }
 
@@ -73,26 +76,30 @@ public class NoBiDirClientRequestListener
     private void replyException( byte[] request,
                                  GIOPConnection connection )
     {
+        final int giop_minor = Messages.getGIOPMinor( request );
 
-        int giop_minor = Messages.getGIOPMinor( request );
-
-        ReplyOutputStream out =
-            new ReplyOutputStream( Messages.getRequestId( request ),
+        final ReplyOutputStream out =
+            new ReplyOutputStream( orb,
+                                   Messages.getRequestId( request ),
                                    ReplyStatusType_1_2.SYSTEM_EXCEPTION,
                                    giop_minor,
                                    false,
                                    logger);//no locate reply
 
-        SystemExceptionHelper.write( out,
-                                     new INV_POLICY( 0, CompletionStatus.COMPLETED_NO ));
-
         try
         {
+            SystemExceptionHelper.write( out,
+                    new INV_POLICY( 0, CompletionStatus.COMPLETED_NO ));
+
             connection.sendReply( out );
         }
         catch( IOException e )
         {
-            logger.error("Exception", e );
+            logger.error("unexpected exception during replyException", e );
+        }
+        finally
+        {
+            out.close();
         }
     }
 }
