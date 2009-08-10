@@ -36,7 +36,7 @@ import org.apache.tools.ant.util.SourceFileScanner;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.31 2008-11-21 10:04:57 nick.cross Exp $
+ * @version $Id: JacIDL.java,v 1.32 2009-08-10 08:58:37 alexander.bykov Exp $
  */
 
 public class JacIDL
@@ -299,7 +299,7 @@ public class JacIDL
     {
         parser myparser = null;
 
-        parser.init ();
+        parser.initLogging();
 
         if (helperCompatLevel != null)
         {
@@ -442,6 +442,10 @@ public class JacIDL
                 ex.printStackTrace();
             }
             throw new BuildException(ex);
+        }
+        finally
+        {
+            parser.cleanup();
         }
     }
 

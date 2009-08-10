@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.63 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: UnionType.java,v 1.64 2009-08-10 08:58:37 alexander.bykov Exp $
  */
 public class UnionType
     extends TypeDeclaration
@@ -1378,6 +1378,11 @@ public class UnionType
                                    String resulttype)
     {
         ps.println("\t\t" + resultname + " = " + className() + "Helper.extract(" + anyname + ");");
+    }
+
+    public String toString()
+    {
+        return typeName();
     }
 
     public void accept(IDLTreeVisitor visitor)
