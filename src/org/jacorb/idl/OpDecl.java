@@ -29,7 +29,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.46 2009-04-30 07:17:11 alexander.bykov Exp $
+ * @version $Id: OpDecl.java,v 1.47 2009-08-10 14:45:44 alexander.bykov Exp $
  */
 
 public class OpDecl
@@ -719,7 +719,11 @@ try
         /* read args */
 
         int argc = 0;
-        boolean holders = false;
+        
+        if (parser.hasObjectCachePlugin())
+        {
+            parser.getObjectCachePlugin().printPreParamRead(ps, paramDecls);
+        } 
 
         for( Enumeration e = paramDecls.elements(); e.hasMoreElements(); )
         {
@@ -739,7 +743,6 @@ try
             }
             else
             {
-                holders = true;
                 ps.println( "\t\t\t\t" + ts.holderName() + " _arg" + ( argc++ ) +
                             "= new " + ts.holderName() + "();" );
                 if( p.paramAttribute == ParamDecl.MODE_INOUT )
@@ -765,6 +768,10 @@ try
             }
         }
 
+        if (parser.hasObjectCachePlugin())
+        {
+            parser.getObjectCachePlugin().printPostParamRead(ps, paramDecls);
+        }
 
         boolean complex =
             ( opTypeSpec.typeSpec() instanceof ArrayTypeSpec ) ||
@@ -846,6 +853,11 @@ try
                 ps.println( "\t\t\t\t" + p.printWriteStatement( ( "_arg" + ( argc ) ), "_out" ) );
             }
             argc++;
+        }
+
+        if (parser.hasObjectCachePlugin())
+        {
+            parser.getObjectCachePlugin().printSkeletonCheckin(ps, paramDecls, "_arg");
         }
 
         if( !raisesExpr.empty() )

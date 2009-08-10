@@ -48,7 +48,7 @@ import org.jacorb.idl.runtime.token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.54 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: lexer.java,v 1.55 2009-08-10 14:45:44 alexander.bykov Exp $
  * @author Gerald Brose
  *
  */
@@ -435,11 +435,19 @@ public class lexer
     {
         if (parser.getLogger().isErrorEnabled())
         {
-            logger.error(  GlobalInputStream.currentFile().getAbsolutePath() +
-                           ", line: " + current_line +
-                           "(" + current_position + "): " +
-                           message + "\n\t" +
-                           line.toString() );
+            if (GlobalInputStream.currentFile() != null)
+            {
+                parser.getLogger().error(  GlobalInputStream.currentFile().getAbsolutePath() +
+                               ", line: " + current_line +
+                               "(" + current_position + "): " +
+                               message + "\n\t" +
+                               line.toString() );
+            }
+            else
+            {
+                //error probably ocurred before parsing
+                parser.getLogger().error(message);
+            }
         }
         error_count++;
     }
