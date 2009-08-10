@@ -55,7 +55,7 @@ import javax.rmi.CORBA.Stub;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.18 2008-11-21 10:04:56 nick.cross Exp $
+ * @version $Id: TestUtils.java,v 1.19 2009-08-10 16:03:09 alexander.bykov Exp $
  */
 
 public class TestUtils
@@ -615,5 +615,10 @@ public class TestUtils
             return defaultValue;
         }
         return getStringAsBoolean(value);
+    }
+    
+    public static boolean isJ2ME()
+    {
+        return "true".equalsIgnoreCase(System.getProperty("jacorb.test.j2me"));
     }
 }
