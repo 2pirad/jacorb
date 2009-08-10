@@ -27,7 +27,7 @@ import java.io.PrintWriter;
  *
  *
  * @author Gerald Brose
- * @version $Id: VectorType.java,v 1.16 2007-02-06 22:50:35 andre.spiegel Exp $
+ * @version $Id: VectorType.java,v 1.17 2009-08-10 09:07:43 alexander.bykov Exp $
  */
 
 
@@ -116,7 +116,8 @@ public abstract class VectorType
                 ts instanceof TypeCodeTypeSpec ||
                 ts instanceof ConstrTypeSpec || // for value types
                 ts instanceof TemplateTypeSpec ||
-                ts instanceof ObjectTypeSpec)
+                ts instanceof ObjectTypeSpec ||
+                ts instanceof ScopedName)
         {
             return ts.getTypeCodeExpression();
         }
