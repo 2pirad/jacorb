@@ -94,7 +94,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.177 2009-08-04 14:28:09 alexander.bykov Exp $
+ * @version $Id: ORB.java,v 1.178 2009-08-11 16:43:34 alexander.bykov Exp $
  */
 
 public final class ORB
@@ -147,9 +147,6 @@ public final class ORB
     private TransportManager transport_manager = null;
 
     private GIOPConnectionManager giop_connection_manager = null;
-
-    /** buffer mgmt. */
-    private BufferManager bufferManager;
 
     /**
      * Maps repository ids (strings) to objects that implement
@@ -284,18 +281,6 @@ public final class ORB
 
         printVersion(configuration);
 
-        BufferManager.configure( configuration);
-
-        try
-        {
-            bufferManager = BufferManager.getInstance();
-        }
-        catch( BAD_INV_ORDER b)
-        {
-            logger.error("unexpected exception", b);
-            throw new INTERNAL(b.toString());
-        }
-
         configureObjectKeyMap(configuration);
 
         if (poolManagerFactory != null)
@@ -312,6 +297,7 @@ public final class ORB
         }
 
         poolManagerFactory = new RPPoolManagerFactory(this);
+        
     }
 
     /**
@@ -2634,5 +2620,4 @@ public final class ORB
     {
         return implName;
     }
-
 }

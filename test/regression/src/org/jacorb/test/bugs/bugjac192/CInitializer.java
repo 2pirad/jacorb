@@ -1,5 +1,7 @@
 package org.jacorb.test.bugs.bugjac192;
 
+import org.jacorb.orb.portableInterceptor.ORBInitInfoImpl;
+import org.omg.CORBA.ORB;
 import org.omg.PortableInterceptor.ORBInitInfo;
 import org.omg.PortableInterceptor.ORBInitializer;
 import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
@@ -8,7 +10,7 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
  * <code>CInitializer</code> is basic initializer to register the interceptor.
  *
  * @author Nick Cross
- * @version $Id: CInitializer.java,v 1.1 2006-06-20 09:30:48 alphonse.bendt Exp $
+ * @version $Id: CInitializer.java,v 1.2 2009-08-11 16:43:35 alexander.bykov Exp $
  */
 public class CInitializer
     extends org.omg.CORBA.LocalObject
@@ -29,10 +31,12 @@ public class CInitializer
      */
     public void pre_init(ORBInitInfo info)
     {
+        ORB orb = ((ORBInitInfoImpl)info).getORB();
+
         try
         {
             info.add_client_request_interceptor(new AInterceptor());
-            info.add_client_request_interceptor(new BInterceptor());
+            info.add_client_request_interceptor(new BInterceptor(orb));
         }
         catch (DuplicateName e)
         {

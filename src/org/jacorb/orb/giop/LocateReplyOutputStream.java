@@ -20,6 +20,7 @@ package org.jacorb.orb.giop;
  */
 
 import org.omg.CORBA.MARSHAL;
+import org.omg.CORBA.ORB;
 import org.omg.GIOP.LocateReplyHeader_1_0;
 import org.omg.GIOP.LocateReplyHeader_1_0Helper;
 import org.omg.GIOP.LocateReplyHeader_1_2;
@@ -30,18 +31,20 @@ import org.omg.GIOP.MsgType_1_1;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: LocateReplyOutputStream.java,v 1.17 2008-11-14 08:55:33 nick.cross Exp $
+ * @version $Id: LocateReplyOutputStream.java,v 1.18 2009-08-11 16:43:33 alexander.bykov Exp $
  *
  */
 
 public class LocateReplyOutputStream
     extends MessageOutputStream
 {
-    public LocateReplyOutputStream ( int request_id,
+    public LocateReplyOutputStream ( ORB orb,
+                                     int request_id,
                                      int status,
                                      int giop_minor )
     {
-        super();
+        super(orb);
+
         setGIOPMinor( giop_minor );
 
         writeGIOPMsgHeader( MsgType_1_1._LocateReply, giop_minor );

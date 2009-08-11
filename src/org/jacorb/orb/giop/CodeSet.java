@@ -42,7 +42,7 @@ import org.omg.IOP.ServiceContext;
 import org.omg.IOP.TAG_CODE_SETS;
 /**
  * @author Gerald Brose
- * @version $Id: CodeSet.java,v 1.26 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: CodeSet.java,v 1.27 2009-08-11 16:43:33 alexander.bykov Exp $
  */
 public class CodeSet
 {
@@ -111,7 +111,7 @@ public class CodeSet
         {
             if (cs == KNOWN_ENCODINGS[i].getId()) return KNOWN_ENCODINGS[i].getName();
         }
-        return "Unknown TCS: " + toCodeSetString( cs );
+        return "Unknown TCS: 0x" + Integer.toHexString(cs);
     }
 
 
@@ -280,23 +280,6 @@ public class CodeSet
         return nativeCodeSetWchar;
     }
 
-    public static ServiceContext createCodesetContext( CodeSet tcs, CodeSet tcsw )
-    {
-        // encapsulate context
-        final CDROutputStream os = new CDROutputStream();
-        try
-        {
-            os.beginEncapsulatedArray();
-            CodeSetContextHelper.write( os, new CodeSetContext( tcs.getId(), tcsw.getId() ));
-
-            return new ServiceContext( TAG_CODE_SETS.value, os.getBufferCopy() );
-        }
-        finally
-        {
-            os.close();
-        }
-    }
-
     public static CodeSetContext getCodeSetContext( ServiceContext[] contexts )
     {
         for( int i = 0; i < contexts.length; i++ )
@@ -304,7 +287,7 @@ public class CodeSet
             if( contexts[i].context_id == TAG_CODE_SETS.value )
             {
                 // TAG_CODE_SETS found, demarshall
-                CDRInputStream is = new CDRInputStream( null, contexts[i].context_data );
+                CDRInputStream is = new CDRInputStream( contexts[i].context_data );
                 is.openEncapsulatedArray();
 
                 return CodeSetContextHelper.read( is );

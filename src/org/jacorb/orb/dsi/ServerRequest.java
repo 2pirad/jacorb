@@ -50,7 +50,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ServerRequest.java,v 1.49 2009-08-04 14:13:55 alexander.bykov Exp $
+ * @version $Id: ServerRequest.java,v 1.50 2009-08-11 16:43:35 alexander.bykov Exp $
  */
 
 public class ServerRequest
@@ -708,7 +708,7 @@ public class ServerRequest
         ServiceContext ctx = inputStream.getServiceContext(INVOCATION_POLICIES.value);
         if (ctx != null)
         {
-            final CDRInputStream input = new CDRInputStream (null, ctx.context_data);
+            final CDRInputStream input = new CDRInputStream (ctx.context_data);
 
             try
             {

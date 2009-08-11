@@ -13,7 +13,7 @@ import org.omg.IOP.TaggedComponentSeqHelper;
  * generic methods to find and access individual components.
  * <p>
  * @author Andre Spiegel
- * @version $Id: TaggedComponentList.java,v 1.9 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: TaggedComponentList.java,v 1.10 2009-08-11 16:43:34 alexander.bykov Exp $
  */
 public class TaggedComponentList implements Cloneable
 {
@@ -34,7 +34,7 @@ public class TaggedComponentList implements Cloneable
      */
     public TaggedComponentList (byte[] data)
     {
-        CDRInputStream in = new CDRInputStream (null, data);
+        CDRInputStream in = new CDRInputStream (data);
         in.openEncapsulatedArray();
         components = TaggedComponentSeqHelper.read (in);
     }
@@ -201,8 +201,7 @@ public class TaggedComponentList implements Cloneable
             if (components[i].tag == tag)
             {
                 final CDRInputStream in =
-                    new CDRInputStream (null,
-                                        components[i].component_data);
+                    new CDRInputStream (components[i].component_data);
 
                 try
                 {
@@ -249,7 +248,7 @@ public class TaggedComponentList implements Cloneable
             Method readMethod =
                 helper.getMethod ("read",
                                   new Class[] { org.omg.CORBA.portable.InputStream.class });
-            final CDRInputStream in = new CDRInputStream (null, data);
+            final CDRInputStream in = new CDRInputStream (data);
 
             try
             {

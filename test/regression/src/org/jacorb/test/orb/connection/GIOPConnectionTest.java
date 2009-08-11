@@ -25,7 +25,7 @@ import org.jacorb.config.JacORBConfiguration;
  *
  * @jacorb-client-since 2.2
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.30 2009-01-19 16:42:45 alexander.bykov Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.31 2009-08-11 16:43:33 alexander.bykov Exp $
  */
 
 public class GIOPConnectionTest
@@ -282,7 +282,7 @@ public class GIOPConnectionTest
         messages.add( b );
 
         MessageOutputStream m_out =
-            new MessageOutputStream();
+            new MessageOutputStream(orb);
         m_out.writeGIOPMsgHeader( MsgType_1_1._Fragment,
                                      2 // giop minor
                                      );
@@ -341,7 +341,7 @@ public class GIOPConnectionTest
         assertTrue( request_listener.getRequest() != null );
 
         RequestInputStream r_in =
-            new RequestInputStream( null, request_listener.getRequest() );
+            new RequestInputStream( orb, request_listener.getRequest() );
 
         //is the body correct?
         assertEquals( "barbaz", r_in.read_string() );
@@ -426,7 +426,7 @@ public class GIOPConnectionTest
 
         assertTrue( Messages.getMsgType( result ) == MsgType_1_1._MessageError );
         MessageOutputStream m_out =
-            new MessageOutputStream();
+            new MessageOutputStream(orb);
         m_out.writeGIOPMsgHeader( MsgType_1_1._Fragment,
                                      0 // giop minor
                                      );
@@ -476,6 +476,7 @@ public class GIOPConnectionTest
 
         LocateRequestOutputStream r_out =
             new LocateRequestOutputStream(
+                orb,
                 new byte[1], //object key
                 0,           //request id
                 1            // giop minor
@@ -623,7 +624,7 @@ public class GIOPConnectionTest
 
         byte[] result = transport.getWrittenMessage();
 
-        ReplyInputStream r_in = new ReplyInputStream( null, result );
+        ReplyInputStream r_in = new ReplyInputStream( orb, result );
 
         Exception ex = r_in.getException();
         if ( ex != null && ex.getClass() == org.omg.CORBA.NO_IMPLEMENT.class )
@@ -636,7 +637,7 @@ public class GIOPConnectionTest
         }
 
         MessageOutputStream m_out =
-            new MessageOutputStream();
+            new MessageOutputStream(orb);
         m_out.writeGIOPMsgHeader( MsgType_1_1._Fragment,
                                   1 // giop minor
                                   );

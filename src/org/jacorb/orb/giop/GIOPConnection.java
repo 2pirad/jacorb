@@ -51,7 +51,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.76 2009-08-04 14:13:56 alexander.bykov Exp $
+ * @version $Id: GIOPConnection.java,v 1.77 2009-08-11 16:43:34 alexander.bykov Exp $
  */
 
 public abstract class GIOPConnection
@@ -621,7 +621,7 @@ public abstract class GIOPConnection
                         }
 
                         MessageOutputStream out =
-                            new MessageOutputStream();
+                            new MessageOutputStream( orb );
                         out.writeGIOPMsgHeader( MsgType_1_1._MessageError,
                                                 0 );
                         out.insertMsgSize();
@@ -649,7 +649,7 @@ public abstract class GIOPConnection
                             }
 
                             MessageOutputStream out =
-                                new MessageOutputStream();
+                                new MessageOutputStream( orb );
                             out.writeGIOPMsgHeader( MsgType_1_1._MessageError,
                                                     1 );
                             out.insertMsgSize();
@@ -710,7 +710,7 @@ public abstract class GIOPConnection
                         }
 
                         MessageOutputStream out =
-                            new MessageOutputStream();
+                            new MessageOutputStream( orb );
                         out.writeGIOPMsgHeader( MsgType_1_1._MessageError,
                                                 1 );
                         out.insertMsgSize();

@@ -37,7 +37,7 @@ import org.omg.IOP.TaggedProfileHolder;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.8 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: ProfileBase.java,v 1.9 2009-08-11 16:43:35 alexander.bykov Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase
@@ -260,7 +260,7 @@ public abstract class ProfileBase
     */
     protected void initFromProfileData(byte[] data)
     {
-        final CDRInputStream in = new CDRInputStream(null, data);
+        final CDRInputStream in = new CDRInputStream(data);
 
         try
         {

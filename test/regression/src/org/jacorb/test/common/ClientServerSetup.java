@@ -72,7 +72,7 @@ import org.omg.PortableServer.POA;
  * For details, see {@link ClientServerTestCase}.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ClientServerSetup.java,v 1.41 2007-02-01 11:35:23 alphonse.bendt Exp $
+ * @version $Id: ClientServerSetup.java,v 1.42 2009-08-11 16:43:33 alexander.bykov Exp $
  */
 public class ClientServerSetup extends TestSetup {
 
@@ -85,6 +85,8 @@ public class ClientServerSetup extends TestSetup {
     protected org.omg.CORBA.Object       serverObject;
 
     private ClientServerSetup imrSetup;
+
+    private String ior;
 
     /**
      * Constructs a new ClientServerSetup that is wrapped
@@ -190,6 +192,8 @@ public class ClientServerSetup extends TestSetup {
 
     protected void resolveServerObject(String ior)
     {
+        this.ior = ior;
+
         serverObject = clientORBSetup.getORB().string_to_object(ior);
     }
 
@@ -219,6 +223,11 @@ public class ClientServerSetup extends TestSetup {
 
     protected final void shutdownClientORB()
     {
+    }
+
+    public String getServerIOR()
+    {
+        return ior;
     }
 
     /**

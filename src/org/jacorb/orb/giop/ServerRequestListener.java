@@ -37,7 +37,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerRequestListener.java,v 1.30 2009-08-04 14:13:55 alexander.bykov Exp $
+ * @version $Id: ServerRequestListener.java,v 1.31 2009-08-11 16:43:33 alexander.bykov Exp $
  */
 public class ServerRequestListener
     implements RequestListener, Configurable
@@ -160,9 +160,10 @@ public class ServerRequestListener
             if( inputStream.isLocateRequest() )
             {
                 LocateReplyOutputStream lr_out =
-                new LocateReplyOutputStream(inputStream.req_hdr.request_id,
-                                            LocateStatusType_1_2._UNKNOWN_OBJECT,
-                                            inputStream.getGIOPMinor() );
+                new LocateReplyOutputStream( orb,
+                                             inputStream.req_hdr.request_id,
+                                             LocateStatusType_1_2._UNKNOWN_OBJECT,
+                                             inputStream.getGIOPMinor() );
 
                 try
                 {

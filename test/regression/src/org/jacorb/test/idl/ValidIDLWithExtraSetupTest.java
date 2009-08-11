@@ -47,7 +47,7 @@ import org.omg.CORBA.Any;
  * been overwritten.
  *
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.17 2008-11-21 10:04:56 nick.cross Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.18 2009-08-11 16:43:34 alexander.bykov Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {
@@ -199,7 +199,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 
        if (arguments.contains("deprecated"))
        {
-           in = new CDRInputStream(null, new byte[0])
+           in = new CDRInputStream(new byte[0])
            {
                public BigDecimal read_fixed()
                {
@@ -209,7 +209,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
        }
        else
        {
-           in = new CDRInputStream(null, new byte[0])
+           in = new CDRInputStream(new byte[0])
            {
                public BigDecimal read_fixed(short digits, short scale)
                {
@@ -243,7 +243,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 
        if (arguments.contains("deprecated"))
        {
-           out = new CDROutputStream(org.omg.CORBA.ORB.init((String[])null, null))
+           out = new CDROutputStream()
            {
                public void write_fixed(BigDecimal value, short digits, short scale)
                {
@@ -258,7 +258,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
        }
        else
        {
-           out = new CDROutputStream(org.omg.CORBA.ORB.init((String[])null, null))
+           out = new CDROutputStream()
            {
                public void write_fixed(BigDecimal value, short digits, short scale)
                {

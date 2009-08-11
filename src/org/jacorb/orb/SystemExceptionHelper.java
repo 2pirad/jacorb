@@ -29,7 +29,7 @@ import org.omg.IOP.ServiceContext;
 
 /**
  * @author Gerald Brose
- * @version $Id: SystemExceptionHelper.java,v 1.16 2008-11-14 08:55:31 nick.cross Exp $
+ * @version $Id: SystemExceptionHelper.java,v 1.17 2009-08-11 16:43:34 alexander.bykov Exp $
  */
 
 public class SystemExceptionHelper
@@ -192,7 +192,7 @@ public class SystemExceptionHelper
                 final ServiceContext context = input.getServiceContext(ExceptionDetailMessage.value);
                 if (context != null)
                 {
-                    final CDRInputStream data = new CDRInputStream(null, context.context_data);
+                    final CDRInputStream data = new CDRInputStream(context.context_data);
 
                     try
                     {

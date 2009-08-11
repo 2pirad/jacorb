@@ -49,7 +49,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.34 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: IIOPProfile.java,v 1.35 2009-08-11 16:43:34 alexander.bykov Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -639,7 +639,7 @@ public class IIOPProfile
             try
             {
                 byte[] tagData = sas.mechanism_list[0].transport_mech.component_data;
-                final CDRInputStream in = new CDRInputStream( null, tagData );
+                final CDRInputStream in = new CDRInputStream( tagData );
                 try
                 {
                     in.openEncapsulatedArray();

@@ -30,17 +30,12 @@ import org.jacorb.orb.CDROutputStream;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.15 2006-05-12 14:39:53 alphonse.bendt Exp $
+ * @version $Id: MessageOutputStream.java,v 1.16 2009-08-11 16:43:33 alexander.bykov Exp $
  */
 
 public class MessageOutputStream
     extends CDROutputStream
 {
-    public MessageOutputStream()
-    {
-        this( (org.omg.CORBA.ORB) null );
-    }
-
     public MessageOutputStream(org.omg.CORBA.ORB orb)
     {
         super(orb);

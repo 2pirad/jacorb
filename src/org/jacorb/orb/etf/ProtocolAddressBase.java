@@ -26,7 +26,7 @@ import org.jacorb.orb.CDROutputStream;
 
 /**
  * @author Phil Mesnier
- * @version $Id: ProtocolAddressBase.java,v 1.5 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: ProtocolAddressBase.java,v 1.6 2009-08-11 16:43:35 alexander.bykov Exp $
  *
  * provides an abstraction of a protocol specific address.
  * This is necessary to allow the ORB and other components deal with
@@ -57,7 +57,8 @@ public abstract class ProtocolAddressBase
 
     public byte [] toCDR ()
     {
-        CDROutputStream out = new CDROutputStream();
+        final CDROutputStream out = new CDROutputStream();
+
         try
         {
             out.beginEncapsulatedArray();

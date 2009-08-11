@@ -78,7 +78,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.152 2009-08-04 14:13:56 alexander.bykov Exp $
+ * @version $Id: Delegate.java,v 1.153 2009-08-11 16:43:34 alexander.bykov Exp $
  *
  */
 
@@ -350,10 +350,10 @@ public final class Delegate
                 try
                 {
                     LocateRequestOutputStream lros =
-                        new LocateRequestOutputStream
-                            ( _pior.get_object_key(),
-                              connection.getId(),
-                              _pior.getEffectiveProfile().version().minor );
+                        new LocateRequestOutputStream( orb,
+                                                       _pior.get_object_key(),
+                                                       connection.getId(),
+                                                       _pior.getEffectiveProfile().version().minor );
 
                     LocateReplyReceiver receiver =
                         new LocateReplyReceiver(orb);

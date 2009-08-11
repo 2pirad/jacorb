@@ -65,7 +65,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This is the SAS Client Security Service (CSS) Interceptor
  *
  * @author David Robison
- * @version $Id: SASClientInterceptor.java,v 1.28 2009-05-03 21:36:48 andre.spiegel Exp $
+ * @version $Id: SASClientInterceptor.java,v 1.29 2009-08-11 16:43:35 alexander.bykov Exp $
  */
 
 public class SASClientInterceptor
@@ -162,7 +162,7 @@ public class SASClientInterceptor
         try
         {
             TaggedComponent tc = ri.get_effective_component(TAG_CSI_SEC_MECH_LIST.value);
-            CDRInputStream is = new CDRInputStream( (org.omg.CORBA.ORB)null, tc.component_data);
+            CDRInputStream is = new CDRInputStream(tc.component_data);
             is.openEncapsulatedArray();
             csmList = CompoundSecMechListHelper.read( is );
         }

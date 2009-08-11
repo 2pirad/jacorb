@@ -52,7 +52,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.123 2009-05-03 21:35:54 andre.spiegel Exp $
+ * $Id: CDRInputStream.java,v 1.124 2009-08-11 16:43:34 alexander.bykov Exp $
  */
 
 public class CDRInputStream
@@ -188,32 +188,61 @@ public class CDRInputStream
 
     private Map tcMap;
 
-    public CDRInputStream(final org.omg.CORBA.ORB orb, final byte[] buf)
+    private CDRInputStream(org.omg.CORBA.ORB orb)
     {
         super();
 
-        buffer = buf;
-        // orb may be null!
-        if (orb != null)
+        if (orb == null)
         {
-            this.orb = orb;
-            // orb may be the singleton!
-            if (orb instanceof org.jacorb.orb.ORB)
-            {
-                try
-                {
-
-                    configure(((org.jacorb.orb.ORB)orb).getConfiguration());
-                }
-                catch( ConfigurationException ce )
-                {
-                    throw new INTERNAL("ConfigurationException: " + ce);
-                }
-            }
+            this.orb = ORB.init();
         }
         else
         {
-            this.orb = org.omg.CORBA.ORB.init();
+            this.orb = orb;
+        }
+
+        if (! (this.orb instanceof org.jacorb.orb.ORBSingleton))
+        {
+            throw new BAD_PARAM("don't pass in a non JacORB ORB");
+        }
+
+        if (this.orb instanceof org.jacorb.orb.ORB)
+        {
+            try
+            {
+                configure(((org.jacorb.orb.ORB)this.orb).getConfiguration());
+            }
+            catch( ConfigurationException e )
+            {
+                throw new INTERNAL("ConfigurationException: " + e);
+            }
+        }
+    }
+
+    private CDRInputStream(org.omg.CORBA.ORB orb, byte[] buffer, Object ignored)
+    {
+        this(orb);
+
+        if (buffer == null)
+        {
+            throw new IllegalArgumentException();
+        }
+
+        this.buffer = buffer;
+    }
+
+    public CDRInputStream(byte[] buffer)
+    {
+        this(null, buffer, null);
+    }
+
+    public CDRInputStream(final org.omg.CORBA.ORB orb, final byte[] buf)
+    {
+        this(orb, buf, null);
+
+        if (orb == null)
+        {
+            throw new BAD_PARAM("don't pass in a null ORB");
         }
     }
 
@@ -223,16 +252,6 @@ public class CDRInputStream
     {
         this( orb, buf );
         this.littleEndian = littleEndian;
-    }
-
-    public CDRInputStream(byte[] buffer)
-    {
-        this(null, buffer);
-    }
-
-    public CDRInputStream(byte[] buffer, boolean littleEndian)
-    {
-        this(null, buffer, littleEndian);
     }
 
     /**

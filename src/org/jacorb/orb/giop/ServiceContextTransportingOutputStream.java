@@ -23,7 +23,6 @@ package org.jacorb.orb.giop;
 import java.io.IOException;
 import java.util.Vector;
 import org.jacorb.orb.CDROutputStream;
-import org.jacorb.orb.ORB;
 import org.jacorb.orb.ORBConstants;
 import org.omg.CORBA.MARSHAL;
 import org.omg.IOP.ServiceContext;
@@ -36,7 +35,7 @@ import org.omg.IOP.ServiceContextHelper;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.21 2006-05-12 14:39:53 alphonse.bendt Exp $
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.22 2009-08-11 16:43:33 alexander.bykov Exp $
  */
 
 public class ServiceContextTransportingOutputStream
@@ -64,12 +63,7 @@ public class ServiceContextTransportingOutputStream
 
     private Vector contexts;
 
-    public ServiceContextTransportingOutputStream()
-    {
-        super();
-    }
-
-    public ServiceContextTransportingOutputStream(ORB orb)
+    public ServiceContextTransportingOutputStream(org.omg.CORBA.ORB orb)
     {
         super(orb);
     }
@@ -333,7 +327,7 @@ public class ServiceContextTransportingOutputStream
 
     private CDROutputStream createContextStream()
     {
-        CDROutputStream out = new CDROutputStream( (org.omg.CORBA.ORB) null );
+        final CDROutputStream out = new CDROutputStream( orb );
 
         //write the length of the service context array.
         out.write_ulong( contexts.size() );

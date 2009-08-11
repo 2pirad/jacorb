@@ -30,18 +30,19 @@ import org.omg.GIOP.TargetAddress;
 
 /**
  * @author Gerald Brose
- * @version $Id: LocateRequestOutputStream.java,v 1.13 2006-06-28 12:41:43 alphonse.bendt Exp $
+ * @version $Id: LocateRequestOutputStream.java,v 1.14 2009-08-11 16:43:33 alexander.bykov Exp $
  */
 public class LocateRequestOutputStream
     extends MessageOutputStream
 {
     private final int request_id;
 
-    public LocateRequestOutputStream( byte[] object_key,
+    public LocateRequestOutputStream( org.omg.CORBA.ORB orb,
+                                      byte[] object_key,
                                       int request_id,
                                       int giop_minor )
     {
-        super();
+        super(orb);
 
         this.request_id = request_id;
 
