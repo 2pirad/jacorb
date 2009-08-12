@@ -20,6 +20,8 @@
 
 package org.jacorb.test.bugs.bugjac417;
 
+import java.util.Properties;
+
 import org.easymock.MockControl;
 import org.jacorb.config.Configuration;
 import org.jacorb.orb.ORB;
@@ -33,13 +35,18 @@ import org.omg.CORBA.INITIALIZE;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac417Test.java,v 1.1 2009-06-02 13:40:35 alexander.bykov Exp $
+ * @version $Id: BugJac417Test.java,v 1.2 2009-08-12 13:58:22 alexander.bykov Exp $
  */
 public class BugJac417Test extends ORBTestCase
 {
     private SocketFactoryManager objectUnderTest;
     private MockControl configControl;
     private Configuration configMock;
+
+    protected void patchOrbProperties(Properties properties)
+    {
+        properties.setProperty(SocketFactoryManager.SUPPORT_SSL, "false");
+    }
 
     protected void doSetUp() throws Exception
     {
@@ -50,8 +57,6 @@ public class BugJac417Test extends ORBTestCase
         configControl.expectAndReturn(configMock.getLogger("jacorb.orb.factory"), new MyNullLogger() );
         configControl.expectAndReturn(configMock.getAttributeAsObject(SocketFactoryManager.TCP_LISTENER, NullTCPConnectionListener.class.getName()), new NullTCPConnectionListener());
         configControl.expectAndReturn(configMock.getAttributeAsBoolean(SocketFactoryManager.SUPPORT_SSL, false), false);
-
-        configControl.expectAndReturn(configMock.getAttributeAsObject(SocketFactoryManager.SSL_LISTENER, NullSSLSessionListener.class.getName()), new NullSSLSessionListener());
     }
 
     public void testNoArg() throws Exception
