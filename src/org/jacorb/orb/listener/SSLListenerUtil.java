@@ -44,7 +44,7 @@ import org.jacorb.orb.iiop.IIOPConnection;
  * with the listeners.
  *
  * @author Nick Cross
- * @version $Id: SSLListenerUtil.java.ssl,v 1.2 2009-05-05 16:38:53 alexander.bykov Exp $
+ * @version $Id: SSLListenerUtil.java,v 1.1 2009-08-12 16:09:35 alexander.bykov Exp $
  */
 public class SSLListenerUtil
 {

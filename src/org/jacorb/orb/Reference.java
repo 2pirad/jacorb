@@ -20,11 +20,11 @@ package org.jacorb.orb;
  */
 
 /**
- * @version $Id: Reference.template,v 1.1 2001-11-19 12:35:54 gerald Exp $
+ * @version $Id: Reference.java,v 1.13 2009-08-12 16:09:35 alexander.bykov Exp $
  */
 
 public class Reference
-    extends @EXTENDS
+    extends javax.rmi.CORBA.Stub implements java.rmi.Remote
 {
     private String[] ids = {"","IDL:omg.org/CORBA/Object:1.0"};
     public String[] _ids()

@@ -6,41 +6,15 @@
 
   <!-- ==================================================== -->
   <!--             util build file                          -->
-  <!-- $Id: build.xml,v 1.7 2008-11-18 14:18:45 nick.cross Exp $  -->
+  <!-- $Id: build.xml,v 1.8 2009-08-12 16:09:36 alexander.bykov Exp $  -->
   <!-- ==================================================== -->
 
    &common;
 
-   <target name="value-handler-test" unless="no-rmi">
-       <available classname="javax.rmi.CORBA.ValueHandler" property="valuehandler.present" />
-   </target>
-
-  <target name="template" depends="value-handler-test,valuehandler-real,valuehandler-dummy" />
-
-   <target name="valuehandler-dummy" unless="valuehandler.present">
-      <echo message="ValueHandler not present, creating dummy wrapper."/>
-      <copy file="src/org/jacorb/util/ValueHandler.dummy"
-            tofile="src/org/jacorb/util/ValueHandler.java"
-            overwrite="yes"/>
-   </target>
-
-   <target name="valuehandler-real" if="valuehandler.present">
-      <echo message="ValueHandler is present, wrapping it."/>
-      <copy file="src/org/jacorb/util/ValueHandler.real"
-            tofile="src/org/jacorb/util/ValueHandler.java"
-            overwrite="yes"/>
-   </target>
-
-
-   <target name="all" depends="init,template">
+   <target name="all" depends="init">
       <ant antfile="${src}/org/jacorb/util/tracing/build.xml" dir="${basedir}"/>
       <antcall target="jacorb-javac">
          <param name="javac-includes" value="org/jacorb/util/*.java,org/jacorb/util/**/*.java"/>
       </antcall>
-   </target>
-
-
-   <target name="clean">
-      <delete file="src/org/jacorb/util/ValueHandler.java"/>
    </target>
 </project>

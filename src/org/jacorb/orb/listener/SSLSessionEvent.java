@@ -11,7 +11,7 @@ import java.io.IOException;
  * SSL Session.
  *
  * @author Nick Cross
- * @version $Id: SSLSessionEvent.java.ssl,v 1.1 2006-06-26 08:08:24 alphonse.bendt Exp $
+ * @version $Id: SSLSessionEvent.java,v 1.1 2009-08-12 16:09:35 alexander.bykov Exp $
  */
 public class SSLSessionEvent extends EventObject
 {
