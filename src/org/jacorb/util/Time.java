@@ -30,7 +30,7 @@ import org.omg.TimeBase.UtcTHelper;
  * Contains static methods to handle CORBA time values.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: Time.java,v 1.12 2009-08-11 16:43:35 alexander.bykov Exp $
+ * @version $Id: Time.java,v 1.13 2009-08-12 14:22:31 alexander.bykov Exp $
  */
 public class Time
 {
@@ -162,10 +162,17 @@ public class Time
      */
     public static byte[] toCDR(UtcT time)
     {
-        CDROutputStream out = new CDROutputStream(25);
-        out.beginEncapsulatedArray();
-        UtcTHelper.write(out, time);
-        return out.getBufferCopy();
+        final CDROutputStream out = new CDROutputStream();
+        try
+        {
+            out.beginEncapsulatedArray();
+            UtcTHelper.write(out, time);
+            return out.getBufferCopy();
+        }
+        finally
+        {
+            out.close();
+        }
     }
 
     /**
@@ -173,9 +180,16 @@ public class Time
      */
     public static UtcT fromCDR(byte[] buffer)
     {
-        CDRInputStream in = new CDRInputStream(buffer);
-        in.openEncapsulatedArray();
-        return UtcTHelper.read(in);
+        final CDRInputStream in = new CDRInputStream(buffer);
+        try
+        {
+            in.openEncapsulatedArray();
+            return UtcTHelper.read(in);
+        }
+        finally
+        {
+            in.close();
+        }
     }
 
     /**
