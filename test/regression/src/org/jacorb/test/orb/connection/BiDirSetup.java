@@ -18,7 +18,7 @@ import org.omg.PortableServer.POA;
 
 /**
  * @author Andre Spiegel
- * @version $Id: BiDirSetup.java,v 1.3 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: BiDirSetup.java,v 1.4 2009-08-12 13:56:44 alexander.bykov Exp $
  */
 public class BiDirSetup extends ClientServerSetup
 {
@@ -32,11 +32,6 @@ public class BiDirSetup extends ClientServerSetup
               "org.jacorb.test.orb.connection.BiDirServerImpl",
               "org.jacorb.test.orb.connection.BiDirServerImpl",
               clientProperties, serverProperties);
-    }
-
-    public String getTestServerMain()
-    {
-        return "org.jacorb.test.orb.connection.BiDirServerImpl";
     }
 
     protected void doSetUp() throws Exception

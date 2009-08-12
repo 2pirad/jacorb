@@ -23,15 +23,13 @@ package org.jacorb.test.bugs.bug367;
 import java.util.Properties;
 
 import junit.framework.Test;
-import junit.framework.TestSuite;
 
-import org.jacorb.test.common.TestUtils;
 import org.jacorb.test.ir.AbstractIRServerTestCase;
 import org.jacorb.test.ir.IFRServerSetup;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac367IRTest.java,v 1.1 2008-11-18 13:33:49 nick.cross Exp $
+ * @version $Id: BugJac367IRTest.java,v 1.2 2009-08-12 13:56:44 alexander.bykov Exp $
  */
 public class BugJac367IRTest extends AbstractIRServerTestCase
 {
