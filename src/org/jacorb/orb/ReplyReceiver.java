@@ -49,7 +49,7 @@ import org.omg.TimeBase.UtcT;
  * ReplyHandler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ReplyReceiver.java,v 1.37 2009-08-11 16:43:34 alexander.bykov Exp $
+ * @version $Id: ReplyReceiver.java,v 1.38 2009-08-19 15:02:18 alexander.bykov Exp $
  */
 
 public class ReplyReceiver
@@ -294,11 +294,9 @@ public class ReplyReceiver
             throw new RemarshalException();
         }
 
-        ReplyInputStream reply = ( ReplyInputStream ) in;
+        final ReplyInputStream reply = ( ReplyInputStream ) in;
 
-        ReplyStatusType_1_2 status = delegate.doNotCheckExceptions()
-                                     ? ReplyStatusType_1_2.NO_EXCEPTION
-                                     : reply.getStatus();
+        final ReplyStatusType_1_2 status = reply.getStatus();
 
         switch ( status.value() )
         {
