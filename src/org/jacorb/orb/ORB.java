@@ -94,7 +94,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.180 2009-08-20 08:42:06 alexander.bykov Exp $
+ * @version $Id: ORB.java,v 1.181 2009-08-20 10:10:28 alexander.bykov Exp $
  */
 
 public final class ORB
@@ -167,7 +167,7 @@ public final class ORB
     private Logger logger;
 
     /** command like args */
-    public String[] _args;
+    private String[] _args;
 
     /* for run() and shutdown()  */
     private final Object runSync = new Object();
@@ -2011,18 +2011,18 @@ public final class ORB
         return false;
     }
 
-    public ValueFactory register_value_factory(String id,
+    public synchronized ValueFactory register_value_factory(String id,
                                                 ValueFactory factory)
     {
         return (ValueFactory)valueFactories.put (id, factory);
     }
 
-    public void unregister_value_factory(String id)
+    public synchronized void unregister_value_factory(String id)
     {
         valueFactories.remove (id);
     }
 
-    public ValueFactory lookup_value_factory(String id)
+    public synchronized ValueFactory lookup_value_factory(String id)
     {
         ValueFactory result = (ValueFactory)valueFactories.get (id);
 
@@ -2625,5 +2625,13 @@ public final class ORB
     public String getImplName()
     {
         return implName;
+    }
+
+    /**
+     * @return the _args. Public accessor used by ORBInitInfo.
+     */
+    public String[] getArgs()
+    {
+       return _args;
     }
 }

@@ -44,7 +44,7 @@ import org.omg.PortableInterceptor.ORBInitInfoPackage.InvalidName;
  * See PI Spec p. 9-70ff
  *
  * @author Nicolas Noffke
- * @version $Id: ORBInitInfoImpl.java,v 1.18 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: ORBInitInfoImpl.java,v 1.19 2009-08-20 10:10:28 alexander.bykov Exp $
  */
 
 public class ORBInitInfoImpl
@@ -233,7 +233,7 @@ public class ORBInitInfoImpl
     {
         checkIsValid();
 
-        return orb._args ;
+        return orb.getArgs() ;
     }
 
     public CodecFactory codec_factory()
