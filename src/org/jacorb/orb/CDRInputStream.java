@@ -52,7 +52,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.124 2009-08-11 16:43:34 alexander.bykov Exp $
+ * $Id: CDRInputStream.java,v 1.125 2009-08-20 08:42:06 alexander.bykov Exp $
  */
 
 public class CDRInputStream
@@ -1103,7 +1103,7 @@ public class CDRInputStream
             return null;
         }
 
-        return ((org.jacorb.orb.ORB)orb)._getObject( pior );
+        return ((org.jacorb.orb.ORB)orb)._getDelegate(pior);
     }
 
     public org.omg.CORBA.Object read_Object(final java.lang.Class clazz)

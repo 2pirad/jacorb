@@ -53,7 +53,7 @@ import org.omg.PortableInterceptor.LOCATION_FORWARD;
  * See PI Spec p.5-46ff
  *
  * @author Nicolas Noffke
- * @version $Id: ClientRequestInfoImpl.java,v 1.34 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: ClientRequestInfoImpl.java,v 1.35 2009-08-20 08:42:06 alexander.bykov Exp $
  */
 
 public class ClientRequestInfoImpl
@@ -110,7 +110,7 @@ public class ClientRequestInfoImpl
         }
         else
         {
-            this.target = orb._getObject( pior );
+            this.target = orb._getDelegate(pior);
         }
 
         Profile profile = pior.getEffectiveProfile();
