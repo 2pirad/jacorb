@@ -6,14 +6,12 @@
 
   <!-- ==================================================== -->
   <!--          PortableInterceptor build file              -->
-  <!-- $Id: build.xml,v 1.8 2008-11-18 14:18:46 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.9 2009-09-03 12:49:18 alexander.bykov Exp $ -->
   <!-- ==================================================== -->
 
    &common;
 
    <target name="all" depends="init">
-      <antcall target="jacorb-javac">
-         <param name="javac-includes" value="org/jacorb/orb/portableInterceptor/*.java"/>
-      </antcall>
+      <jacorb-javac javac-includes="org/jacorb/orb/portableInterceptor/*.java"/>
    </target>
 </project>

@@ -20,6 +20,8 @@
 
 package org.jacorb.test.bugs.bug503;
 
+import java.util.Properties;
+
 import org.jacorb.test.BasicServer;
 import org.jacorb.test.BasicServerHelper;
 import org.jacorb.test.BasicServerPOATie;
@@ -28,12 +30,21 @@ import org.jacorb.test.orb.BasicServerImpl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Bug503Test.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: Bug503Test.java,v 1.3 2009-09-03 12:49:17 alexander.bykov Exp $
  */
 public class Bug503Test extends ORBTestCase
 {
     private BasicServer innerServer;
     private BasicServer outerServer;
+
+    protected void patchORBProperties(String testName, Properties props)
+    {
+        // this is to prevent that this test picks up
+        // jacorb.properties. the properties might configure some
+        // orb initializers. we don't want this here
+        // as otherwise this test will fail!
+        props.setProperty("ORBid", "bogus");
+    }
 
     protected void doSetUp() throws Exception
     {

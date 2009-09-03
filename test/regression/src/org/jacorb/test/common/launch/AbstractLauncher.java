@@ -29,7 +29,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractLauncher.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: AbstractLauncher.java,v 1.2 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public abstract class AbstractLauncher implements Launcher
 {
@@ -79,6 +79,7 @@ public abstract class AbstractLauncher implements Launcher
 
     public void setJacorbHome(File jacorbHome)
     {
+        TestUtils.log("using JacORB home: " + jacorbHome);
         this.jacorbHome = jacorbHome;
     }
 
@@ -121,5 +122,10 @@ public abstract class AbstractLauncher implements Launcher
     protected List propsToArgList(Properties props)
     {
         return TestUtils.propsToArgList(props);
+    }
+
+    public String getLauncherDetails(String prefix)
+    {
+        return "";
     }
 }

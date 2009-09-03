@@ -22,6 +22,7 @@ package org.jacorb.test.bugs.bug532;
 
 import org.jacorb.test.common.ORBTestCase;
 import org.omg.CORBA.Any;
+import org.omg.CORBA.ORB;
 
 /**
  * Test for bug 532, CDROutputStream.create_input_stream completely fails
@@ -30,14 +31,18 @@ import org.omg.CORBA.Any;
  * could not insert into an Any a byte[] of size larger than 4000 bytes.
  *
  * @author <a href="mailto:dimitris@jboss.org">Dimitris Andreadis</a>
- * @version $Id: Bug532Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: Bug532Test.java,v 1.2 2009-09-03 12:49:17 alexander.bykov Exp $
  */
 public class Bug532Test extends ORBTestCase
 {
     public void testLargeByteArrayToAnyInsertion()
     {
+        ORB orb = org.omg.CORBA.ORB.init(new String[]{}, null);
+
         byte[] bytes = new byte[4001];
         Any any = orb.create_any();
         ByteSequenceHelper.insert(any, bytes);
+
+        orb.shutdown(true);
     }
 }

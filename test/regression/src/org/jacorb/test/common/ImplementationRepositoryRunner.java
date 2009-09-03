@@ -7,12 +7,14 @@ import org.jacorb.imr.ImplementationRepositoryImpl;
  * in a format understandable to ClientServerSetup.
  *
  * @author Alphonse Bendt
- * @version $Id: ImplementationRepositoryRunner.java,v 1.1 2006-07-17 10:37:53 alphonse.bendt Exp $
+ * @version $Id: ImplementationRepositoryRunner.java,v 1.2 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public class ImplementationRepositoryRunner
 {
     public static void main(String[] args)
     {
+        TestServer.startReaperThread();
+
         ImplementationRepositoryImpl.main(new String[] {"-printIOR"});
     }
 }

@@ -30,11 +30,12 @@ import java.util.Properties;
  * methods shared between JacORB's test setup classes.
  *
  * @author Alphonse Bendt
- * @version $Id: CommonSetup.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: CommonSetup.java,v 1.2 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public class CommonSetup
 {
     public static final String JACORB_REGRESSION_DISABLE_SECURITY = "jacorb.regression.disable_security";
+    public static final String JACORB_REGRESSION_DISABLE_IMR = "jacorb.regression.disable_imr";
 
     /**
      * its assumed that the property file and the keystore file

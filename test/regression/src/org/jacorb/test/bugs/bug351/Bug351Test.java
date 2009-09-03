@@ -28,7 +28,7 @@ import org.jacorb.test.common.*;
  * Test for bug 351, marshaling of a complex valuetype.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: Bug351Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: Bug351Test.java,v 1.2 2009-09-03 12:49:17 alexander.bykov Exp $
  */
 public class Bug351Test extends ClientServerTestCase
 {
@@ -56,7 +56,7 @@ public class Bug351Test extends ClientServerTestCase
             new ClientServerSetup( suite,
                                    "org.jacorb.test.bugs.bug351.ValueServerImpl" );
 
-        suite.addTest( new Bug351Test( "testBug", setup ));
+        TestUtils.addToSuite(suite, setup, Bug351Test.class);
 
         return setup;
     }

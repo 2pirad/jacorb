@@ -34,7 +34,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ServerConnectionTimeoutTest.java,v 1.9 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: ServerConnectionTimeoutTest.java,v 1.10 2009-09-03 12:49:17 alexander.bykov Exp $
  */
 public class ServerConnectionTimeoutTest extends ClientServerTestCase
 {
@@ -61,11 +61,6 @@ public class ServerConnectionTimeoutTest extends ClientServerTestCase
 
         Properties server_props = new Properties();
         server_props.setProperty( "jacorb.connection.server.timeout", "1000" );
-
-        if (TestUtils.isJDK13())
-        {
-            server_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
-        }
 
         ClientServerSetup setup =
             new ClientServerSetup( suite,

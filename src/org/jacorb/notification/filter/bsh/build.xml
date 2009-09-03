@@ -8,7 +8,7 @@
 
 	<!-- ============================================================== -->
 	<!--               JacORB - NotificationService BSH Filter          -->
-	<!-- $Id: build.xml,v 1.4 2008-11-18 14:18:46 nick.cross Exp $ -->
+	<!-- $Id: build.xml,v 1.5 2009-09-03 12:49:17 alexander.bykov Exp $ -->
 	<!-- ============================================================== -->
 
   &common;
@@ -29,9 +29,7 @@
 	</target>
 
 	<target name="all" depends="local.init, fail" if="available.bsh">
-		<antcall target="jacorb-javac">
-			<param name="javac-includes" value="${current.package}/*.java" />
-		</antcall>
+		<jacorb-javac javac-includes="${current.package}/*.java" />
 	</target>
 
 </project>

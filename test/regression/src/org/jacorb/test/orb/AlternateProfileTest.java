@@ -25,7 +25,6 @@ import java.util.Properties;
 
 import junit.framework.*;
 
-import org.jacorb.orb.ParsedIOR;
 import org.jacorb.orb.iiop.IIOPProfile;
 import org.jacorb.orb.iiop.IIOPAddress;
 
@@ -42,7 +41,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Marc Heide
- * @version $Id: AlternateProfileTest.java,v 1.11 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: AlternateProfileTest.java,v 1.12 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public class AlternateProfileTest extends ClientServerTestCase
 {
@@ -101,9 +100,11 @@ public class AlternateProfileTest extends ClientServerTestCase
 
         // If security is not disabled it will not use the above host/port
         // combinations.
-        client_props.setProperty("jacorb.regression.disable_security",
-                                 "true");
+        client_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
+        server_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
 
+        client_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_IMR, "true");
+        server_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_IMR, "true");
 
         ClientServerSetup setup =
          new ClientServerSetup (suite,
@@ -244,7 +245,6 @@ public class AlternateProfileTest extends ClientServerTestCase
        Delegate localObj = ((org.omg.CORBA.portable.ObjectImpl)obj)._get_delegate();
        jacOrbDelegate = (org.jacorb.orb.Delegate)localObj;
 
-       ParsedIOR pior = jacOrbDelegate.getParsedIOR();
        org.omg.IOP.IOR ior = jacOrbDelegate.getIOR();
 
        TaggedProfile[] profiles = ior.profiles;

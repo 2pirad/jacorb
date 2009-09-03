@@ -23,7 +23,7 @@ import org.omg.Messaging.ExceptionHolder;
  * This must lead to TRANSIENT exceptions.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: QueueNoWaitTest.java,v 1.6 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: QueueNoWaitTest.java,v 1.7 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public class QueueNoWaitTest extends CallbackTestCase
 {
@@ -173,17 +173,14 @@ public class QueueNoWaitTest extends CallbackTestCase
         return tie._this( setup.getClientOrb() );
     }
 
-    public void test_warm_up()
-    {
-        server.ping();
-    }
-
     /**
      * Overrun the request queue, expect TRANSIENT exception.
      */
     public void test_overrun() throws Exception
     {
-        class Holder
+       server.ping();
+
+       class Holder
         {
             public boolean exceptionReceived = false;
         }
@@ -207,10 +204,11 @@ public class QueueNoWaitTest extends CallbackTestCase
             }
         };
 
+        final AMI_CallbackServerHandler handlerRef = ref( handler );
         for (int i=0; i < 1000; i++)
         {
             ( ( _CallbackServerStub ) server )
-                    .sendc_delayed_ping( ref( handler ), 1000);
+                .sendc_delayed_ping( handlerRef, 1000);
         }
 
         Thread.sleep (2000);

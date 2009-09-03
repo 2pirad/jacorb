@@ -21,7 +21,7 @@ import org.omg.CORBA.ORB;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: MultipleServerTest.java,v 1.8 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: MultipleServerTest.java,v 1.9 2009-09-03 12:49:18 alexander.bykov Exp $
  */
 public class MultipleServerTest extends TestCase
 {
@@ -34,7 +34,7 @@ public class MultipleServerTest extends TestCase
     protected void setUp() throws Exception
     {
         Properties props = new Properties();
-        props.put(ClientServerSetup.JACORB_REGRESSION_DISABLE_IMR, "true");
+        props.put(CommonSetup.JACORB_REGRESSION_DISABLE_IMR, "true");
         props.put(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
 
         setup1 = new ServerSetup(this, BasicServerImpl.class.getName());

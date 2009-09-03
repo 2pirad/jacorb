@@ -34,7 +34,7 @@ import junit.framework.Test;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: IDLTestSetup.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: IDLTestSetup.java,v 1.2 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public class IDLTestSetup extends TestSetup
 {
@@ -53,6 +53,9 @@ public class IDLTestSetup extends TestSetup
     public final void setUp() throws Exception
     {
         dirGeneration = TestUtils.createTempDir("IDL_CLASSES");
+
+        TestUtils.log("[IDLTestSetup] using temporary directory " + dirGeneration + " for IDL generation");
+
         String[] args = createJacIDLArgs(dirGeneration, getIDLFile(idlFile), getIDLArgs(idlArgs));
 
         runJacIDLInProcess(idlFile.toString(), args, false);
@@ -100,6 +103,8 @@ public class IDLTestSetup extends TestSetup
         final String details = writer.toString();
         try
         {
+            TestUtils.log("[IDLTestSetup] run JacIDL on file " + file + " with args " + Arrays.asList(args));
+
             org.jacorb.idl.parser.compile(args, writer);
 
             if (failureExpected)

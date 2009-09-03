@@ -55,7 +55,7 @@ import javax.rmi.CORBA.Stub;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.19 2009-08-10 16:03:09 alexander.bykov Exp $
+ * @version $Id: TestUtils.java,v 1.20 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 
 public class TestUtils
@@ -72,11 +72,6 @@ public class TestUtils
             "CVM".equals(System.getProperty ("java.vm.name"))
         );
 
-
-    static
-    {
-        log("jacorb.test.verbose is set to true");
-    }
 
     /**
      * this method returns a List of all public Methods which Names start with the Prefix "test" and
@@ -146,6 +141,12 @@ public class TestUtils
                 testHome = osDependentPath(result);
             }
         }
+
+        if (testHome == null)
+        {
+            throw new RuntimeException("unable to determine testhome (set it with -Djacorb.test.home)");
+        }
+
         return testHome;
     }
 
@@ -192,6 +193,7 @@ public class TestUtils
             }
         } catch (Exception e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e.toString());
         }
     }
@@ -402,11 +404,6 @@ public class TestUtils
          return (Stub) PortableRemoteObject.toStub(remote);
     }
 
-    public static boolean isJDK13()
-    {
-        return JDK_13;
-    }
-
     public static boolean getStringAsBoolean(String value)
     {
         return "true".equalsIgnoreCase(value) || "on".equalsIgnoreCase(value) || "yes".equalsIgnoreCase(value);
@@ -550,11 +547,11 @@ public class TestUtils
             javaHome = javaHome.substring(0, javaHome.length() - 4);
         }
         String cmd = javaHome + "/bin/javac -d " + dirCompilation + " -bootclasspath " + classpath + ":" + System.getProperty("sun.boot.class.path") + " @" + file.getAbsolutePath();
+
+        TestUtils.log("[COMPILE] " + cmd);
+        TestUtils.log("[COMPILE] " + files.length + " java files");
         try
         {
-            TestUtils.log("[COMPILE] " + cmd);
-            TestUtils.log("[COMPILE] " + files.length + " java files");
-
             Process proc = Runtime.getRuntime().exec(cmd);
 
             int exit = proc.waitFor();
@@ -620,5 +617,15 @@ public class TestUtils
     public static boolean isJ2ME()
     {
         return "true".equalsIgnoreCase(System.getProperty("jacorb.test.j2me"));
+    }
+
+    public static long getShortTimeout()
+    {
+        return Long.getLong("jacorb.test.timeout.short", 2000).longValue();
+    }
+
+    public static long getMediumTimeout()
+    {
+        return Long.getLong("jacorb.test.timeout.medium", 20000).longValue();
     }
 }

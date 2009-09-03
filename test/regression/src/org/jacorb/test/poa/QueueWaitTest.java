@@ -7,6 +7,7 @@ import junit.framework.*;
 import org.jacorb.test.*;
 
 import org.jacorb.test.common.*;
+import org.jacorb.test.orb.CallbackServerImpl;
 import org.omg.Messaging.*;
 
 
@@ -15,7 +16,7 @@ import org.omg.Messaging.*;
  * Despite a heavy request storm all requests should come through.
  *
  * @author Andre Spiegel
- * @version $Id: QueueWaitTest.java,v 1.6 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: QueueWaitTest.java,v 1.7 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public class QueueWaitTest extends CallbackTestCase
 {
@@ -44,15 +45,10 @@ public class QueueWaitTest extends CallbackTestCase
         props.setProperty ("jacorb.poa.queue_max", "10");
         props.setProperty ("jacorb.poa.queue_min", "5");
         props.setProperty ("jacorb.poa.queue_wait", "on");
-        props.setProperty ("jacorb.implname",
-                           "org.jacorb.test.orb.CallbackServerImplQueueWaitTest");
 
-        ClientServerSetup setup = new ClientServerSetup
-            ( suite, "org.jacorb.test.orb.CallbackServerImpl",
-              null, props );
+        ClientServerSetup setup = new ClientServerSetup(suite, CallbackServerImpl.class.getName(), null, props);
 
-        suite.addTest( new QueueWaitTest( "test_warm_up", setup ) );
-        suite.addTest( new QueueWaitTest( "test_overrun", setup ) );
+        TestUtils.addToSuite(suite, setup, QueueWaitTest.class);
 
         return setup;
     }
@@ -167,17 +163,15 @@ public class QueueWaitTest extends CallbackTestCase
         return tie._this( setup.getClientOrb() );
     }
 
-    public void test_warm_up()
-    {
-        server.ping();
-    }
-
     /**
      * Try to overrun the request queue, expect that all
      * requests come through without exceptions.
      */
     public void test_overrun() throws Exception
     {
+        // for warm up
+        server.ping();
+
         class Holder
         {
             public boolean exceptionReceived = false;
@@ -198,10 +192,11 @@ public class QueueWaitTest extends CallbackTestCase
             }
         };
 
+        final AMI_CallbackServerHandler handlerRef = ref( handler );
         for (int i=0; i < 1000; i++)
         {
             ( ( _CallbackServerStub ) server )
-                    .sendc_delayed_ping( ref( handler ), 10 );
+                    .sendc_delayed_ping( handlerRef, 10 );
             assertFalse("should not have raised an exception", holder.exceptionReceived);
         }
 

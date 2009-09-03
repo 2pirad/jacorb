@@ -22,10 +22,11 @@ package org.jacorb.test.common.launch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Launcher.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: Launcher.java,v 1.2 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public interface Launcher
 {
     Process launch();
     String getCommand();
+    String getLauncherDetails(String prefix);
 }

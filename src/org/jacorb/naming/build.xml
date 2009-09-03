@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--            Naming build file                         -->
-  <!-- $Id: build.xml,v 1.7 2008-11-18 14:18:46 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.8 2009-09-03 12:49:17 alexander.bykov Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -14,9 +14,7 @@
    <target name="all" depends="init,base"/>
 
    <target name="base">
-      <antcall target="jacorb-javac">
-         <param name="javac-includes" value="org/jacorb/naming/*.java, org/jacorb/naming/**/*.java"/>
-      </antcall>
+      <jacorb-javac javac-includes="org/jacorb/naming/*.java, org/jacorb/naming/**/*.java"/>
    </target>
 
 

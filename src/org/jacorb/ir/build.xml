@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--             Interface Repository build               -->
-  <!-- $Id: build.xml,v 1.8 2008-11-18 14:18:46 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.9 2009-09-03 12:49:16 alexander.bykov Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -14,9 +14,7 @@
    <target name="all" depends="init,compile"/>
 
    <target name="compile">
-      <antcall target="jacorb-javac">
-         <param name="javac-includes" value="org/jacorb/ir/*.java,org/jacorb/ir/**/*.java"/>
-      </antcall>
+      <jacorb-javac javac-includes="org/jacorb/ir/*.java,org/jacorb/ir/**/*.java"/>
    </target>
 
 

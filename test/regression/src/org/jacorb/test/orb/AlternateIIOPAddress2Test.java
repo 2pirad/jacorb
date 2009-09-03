@@ -33,7 +33,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddress2Test.java,v 1.5 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: AlternateIIOPAddress2Test.java,v 1.6 2009-09-03 12:49:16 alexander.bykov Exp $
  */
 public class AlternateIIOPAddress2Test extends ClientServerTestCase
 {
@@ -77,16 +77,21 @@ public class AlternateIIOPAddress2Test extends ClientServerTestCase
         client_props.setProperty ("jacorb.retries", "0");
         client_props.setProperty ("jacorb.retry_interval", "50");
         client_props.setProperty ("jacorb.connection.client.connect_timeout","5000");
-        // If security is not disabled it will not use the above host/port
-        // combinations.
-        client_props.setProperty("jacorb.regression.disable_security",
-                                 "true");
 
         Properties server_props = new Properties();
         server_props.setProperty
             ("org.omg.PortableInterceptor.ORBInitializerClass."
            + "org.jacorb.test.orb.IIOPAddressORBInitializer", "");
         server_props.setProperty ("OAAddress", LISTEN_EP);
+
+
+        // If security is not disabled it will not use the above host/port
+        // combinations.
+        client_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
+        server_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");
+
+        client_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_IMR, "true");
+        server_props.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_IMR, "true");
 
         ClientServerSetup setup =
             new ClientServerSetup (suite,
