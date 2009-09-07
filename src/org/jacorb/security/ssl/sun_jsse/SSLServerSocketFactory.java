@@ -38,7 +38,7 @@ import javax.net.*;
 
 /**
  * @author Nicolas Noffke
- * $Id: SSLServerSocketFactory.java,v 1.22 2009-04-25 10:12:41 andre.spiegel Exp $
+ * $Id: SSLServerSocketFactory.java,v 1.23 2009-09-07 14:16:41 alexander.bykov Exp $
  */
 
 public class SSLServerSocketFactory
@@ -99,10 +99,10 @@ public class SSLServerSocketFactory
         }
 
         keystore_location =
-            configuration.getAttribute("jacorb.security.keystore","UNSET");
+            configuration.getAttribute("jacorb.security.keystore");
 
         keystore_passphrase =
-            configuration.getAttribute("jacorb.security.keystore_password","UNSET" );
+            configuration.getAttribute("jacorb.security.keystore_password");
 
         try
         {

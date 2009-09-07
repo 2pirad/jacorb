@@ -45,7 +45,7 @@ import org.jacorb.orb.listener.SSLSessionListener;
  * to create sockets that support SSL.
  *
  * @author Nicolas Noffke
- * $Id: SSLSocketFactory.java,v 1.27 2009-04-25 10:12:41 andre.spiegel Exp $
+ * $Id: SSLSocketFactory.java,v 1.28 2009-09-07 14:16:41 alexander.bykov Exp $
  */
 public class SSLSocketFactory
     extends AbstractSocketFactory
@@ -81,10 +81,10 @@ public class SSLSocketFactory
             configuration.getAttributeAsBoolean("jacorb.security.jsse.trustees_from_ks", false);
 
         keystore_location =
-            configuration.getAttribute("jacorb.security.keystore", "UNSET");
+            configuration.getAttribute("jacorb.security.keystore");
 
         keystore_passphrase =
-            configuration.getAttribute("jacorb.security.keystore_password", "UNSET");
+            configuration.getAttribute("jacorb.security.keystore_password");
 
         clientSupportedOptions =
             Short.parseShort(
