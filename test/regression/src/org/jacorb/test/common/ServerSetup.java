@@ -37,7 +37,7 @@ import org.jacorb.test.common.launch.Launcher;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ServerSetup.java,v 1.3 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: ServerSetup.java,v 1.4 2009-09-08 12:35:08 alexander.bykov Exp $
  */
 public class ServerSetup extends TestSetup
 {
@@ -85,6 +85,8 @@ public class ServerSetup extends TestSetup
     protected String errName = "ERR";
 
     protected final List serverArgs = new ArrayList();
+
+    private String serverIORFailedMesg;
 
     public ServerSetup(Test test, String testServer, String servantName, Properties optionalProperties)
     {
@@ -223,7 +225,6 @@ public class ServerSetup extends TestSetup
         {
             outListener.setDestroyed();
             errListener.setDestroyed();
-
             outListener = null;
             errListener = null;
 
@@ -239,18 +240,18 @@ public class ServerSetup extends TestSetup
 
     public String getServerIOR()
     {
-//      if (serverIOR == null)
-//      {
-//      if (serverIORFailedMesg == null)
-//      {
-//      String exc = errListener.getException(1000);
+        if (serverIOR == null)
+        {
+            if (serverIORFailedMesg == null)
+            {
+                String exc = errListener.getException(1000);
 
-//      String details = dumpStreamListener();
+                String details = dumpStreamListener();
 
-//      serverIORFailedMesg = "could not access IOR for Server.\nServant: " + servantName + "\nTimeout: " + testTimeout + " millis.\nThis maybe caused by: " + exc + '\n' + details;
-//      }
-//      fail(serverIORFailedMesg);
-//      }
+                serverIORFailedMesg = "could not access IOR for Server.\nServant: " + servantName + "\nTimeout: " + testTimeout + " millis.\nThis maybe caused by: " + exc + '\n' + details;
+            }
+            fail(serverIORFailedMesg);
+        }
 
         return serverIOR;
     }

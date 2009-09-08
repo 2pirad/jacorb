@@ -33,7 +33,7 @@ import org.omg.CORBA.Any;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac722Test.java,v 1.2 2006-09-04 13:25:44 alphonse.bendt Exp $
+ * @version $Id: BugJac722Test.java,v 1.3 2009-09-08 12:35:08 alexander.bykov Exp $
  */
 public class BugJac722Test extends ClientServerTestCase
 {
@@ -46,6 +46,11 @@ public class BugJac722Test extends ClientServerTestCase
 
     public static Test suite()
     {
+        if (TestUtils.isJ2ME())
+        {
+            return new TestSuite();
+        }
+
         TestSuite suite = new TestSuite(BugJac722Test.class.getName());
 
         ClientServerSetup setup = new ClientServerSetup(suite, AnyServerImpl.class.getName());

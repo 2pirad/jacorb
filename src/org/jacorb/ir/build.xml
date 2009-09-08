@@ -6,7 +6,7 @@
 
   <!-- ==================================================== -->
   <!--             Interface Repository build               -->
-  <!-- $Id: build.xml,v 1.9 2009-09-03 12:49:16 alexander.bykov Exp $ -->
+  <!-- $Id: build.xml,v 1.10 2009-09-08 12:35:07 alexander.bykov Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -14,11 +14,7 @@
    <target name="all" depends="init,compile"/>
 
    <target name="compile">
-      <jacorb-javac javac-includes="org/jacorb/ir/*.java,org/jacorb/ir/**/*.java"/>
-   </target>
-
-
-   <target name="clean" depends="init">
-         <delete dir="${classdir}/org/jacorb/ir"/>
+      <jacorb-javac javac-includes="org/jacorb/ir/*.java, 
+      	                            org/jacorb/ir/**/*.java"/>
    </target>
 </project>

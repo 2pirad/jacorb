@@ -15,7 +15,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac352Test.java,v 1.1 2009-01-27 12:00:56 alexander.bykov Exp $
+ * @version $Id: BugJac352Test.java,v 1.2 2009-09-08 12:35:08 alexander.bykov Exp $
  */
 public class BugJac352Test extends ClientServerTestCase
 {
@@ -28,6 +28,12 @@ public class BugJac352Test extends ClientServerTestCase
 
     public static Test suite()
     {
+        if (TestUtils.isJ2ME())
+        {
+            // J2ME doesn't provide an ORB
+            return new TestSuite();
+        }
+
         TestSuite suite = new TestSuite(BugJac352Test.class.getName());
         Properties clientProps = new Properties();
         clientProps.setProperty(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY, "true");

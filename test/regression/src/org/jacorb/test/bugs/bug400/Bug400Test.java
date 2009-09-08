@@ -20,7 +20,7 @@ import org.omg.PortableServer.ServantLocatorPackage.CookieHolder;
 /**
  * @author Alphonse Bendt
  * @author Alex Shebunyaev
- * @version $Id: Bug400Test.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: Bug400Test.java,v 1.3 2009-09-08 12:35:08 alexander.bykov Exp $
  */
 public class Bug400Test extends ORBTestCase
 {
@@ -85,7 +85,7 @@ public class Bug400Test extends ORBTestCase
 
         org.omg.CORBA.Object ref = poa.create_reference_with_id(
                 "some_oid".getBytes(),
-                ObjectHelper.id());
+                BasicServerHelper.id());
 
         try
         {

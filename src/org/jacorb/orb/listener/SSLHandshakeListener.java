@@ -25,16 +25,15 @@ import java.net.UnknownHostException;
 import javax.net.ssl.HandshakeCompletedEvent;
 import javax.net.ssl.HandshakeCompletedListener;
 import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.security.cert.X509Certificate;
 import org.slf4j.Logger;
-
+import java.security.cert.Certificate;
 /**
  * <code>SSLHandshakeListener</code> implements the SSL Handshake Listener
  * in order to detect a successful SSL connection. It then passes this information
  * on to the external SSLListener.
  *
  * @author Nick Cross
- * @version $Id: SSLHandshakeListener.java,v 1.4 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: SSLHandshakeListener.java,v 1.5 2009-09-08 12:35:08 alexander.bykov Exp $
  */
 public class SSLHandshakeListener implements HandshakeCompletedListener
 {
@@ -50,28 +49,27 @@ public class SSLHandshakeListener implements HandshakeCompletedListener
     /**
      * <code>handshakeCompleted</code> is the implementation that is invoked
      * when a SSL handshake is completed.
-     * The getPeerCertificateChain method is used to ensure backward
-     * compatibility with JDK 1.3
+     *
      * @param event a <code>HandshakeCompletedEvent</code> value
      */
     public void handshakeCompleted(HandshakeCompletedEvent event)
     {
-        X509Certificate [] certs = null;
+        Certificate[] certs = null;
         String localhost = null;
 
         try
         {
-            certs = event.getPeerCertificateChain();
+            certs = event.getPeerCertificates();
         }
         catch (SSLPeerUnverifiedException ex)
         {
             if (logger.isDebugEnabled())
             {
                 logger.debug
-                    ("handshakeCompleted - SSLPeerUnverifiedException");
+                    ("handshakeCompleted - SSLPeerUnverifiedException", ex);
             }
 
-            certs = new X509Certificate [0];
+            certs = new Certificate[0];
         }
 
         try

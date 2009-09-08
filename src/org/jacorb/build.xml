@@ -6,17 +6,33 @@
 
   <!-- ==================================================== -->
   <!--            JacORB ORB build file                         -->
-  <!-- $Id: build.xml,v 1.38 2009-08-12 16:09:35 alexander.bykov Exp $ -->
+  <!-- $Id: build.xml,v 1.39 2009-09-08 12:35:07 alexander.bykov Exp $ -->
   <!-- ==================================================== -->
 
   &common;
 
    <!-- all -->
 
-   <target name="all" depends="init,load-taskdef,subdirs" />
+   <target name="all" depends="init, subdirs" />
 
    <!-- Do all the template copying first to avoid cross-dependacy problems -->
-   <target name="subdirs" depends="config,util,orb,poa,imr,ir,naming,events,dds,concurrency,transaction,tracing,transport,security,notification">
+   <target name="subdirs" 
+      depends="config, 
+   	           util, 
+   	           transport, 
+   	           orb, 
+   	           poa, 
+   	           ir,
+   	           imr,
+   	           naming, 
+   	           tracing, 
+   	           security, 
+   	           transaction, 
+   	           collection, 
+   	           concurrency,
+   	           events,
+   	           dds,
+   	           notification">
    </target>
 
    <target name="config" depends="init">

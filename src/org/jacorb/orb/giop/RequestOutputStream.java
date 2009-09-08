@@ -49,7 +49,7 @@ import org.omg.TimeBase.UtcT;
 
 /**
  * @author Gerald Brose, FU Berlin 1999
- * @version $Id: RequestOutputStream.java,v 1.36 2009-08-11 16:43:33 alexander.bykov Exp $
+ * @version $Id: RequestOutputStream.java,v 1.37 2009-09-08 12:35:08 alexander.bykov Exp $
  */
 public class RequestOutputStream
     extends ServiceContextTransportingOutputStream
@@ -100,7 +100,7 @@ public class RequestOutputStream
             other.response_expected,
             other.syncScope,
             other.requestStartTime,
-            other.replyEndTime,
+            other.requestEndTime,
             other.replyEndTime,
             other.object_key,
             other.giop_minor);
