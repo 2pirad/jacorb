@@ -51,7 +51,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.41 2009-09-08 12:35:08 alexander.bykov Exp $
+ * @version $Id: IIOPListener.java,v 1.42 2009-09-23 15:13:05 alexander.bykov Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -266,7 +266,7 @@ public class IIOPListener
                 ("no acceptors found, cannot create address profile");
         }
 
-        IIOPProfile result = new IIOPProfile(address,null);
+        IIOPProfile result = new IIOPProfile(address, null, orb.getGIOPMinorVersion());
         if (sslAcceptor != null && generateSSLComponents)
         {
              result.addComponent (TAG_SSL_SEC_TRANS.value,

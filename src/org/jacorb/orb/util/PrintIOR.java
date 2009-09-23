@@ -47,6 +47,7 @@ import org.omg.CSIIOP.TLS_SEC_TRANSHelper;
 import org.omg.IOP.TAG_ALTERNATE_IIOP_ADDRESS;
 import org.omg.IOP.TAG_CODE_SETS;
 import org.omg.IOP.TAG_JAVA_CODEBASE;
+import org.omg.IOP.TAG_MULTIPLE_COMPONENTS;
 import org.omg.IOP.TAG_ORB_TYPE;
 import org.omg.IOP.TAG_POLICIES;
 import org.omg.IOP.TaggedComponent;
@@ -57,7 +58,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.51 2009-08-11 16:43:35 alexander.bykov Exp $
+ * @version $Id: PrintIOR.java,v 1.52 2009-09-23 15:13:04 alexander.bykov Exp $
  */
 
 public class PrintIOR
@@ -247,6 +248,34 @@ public class PrintIOR
             printTaggedComponents( multiple_components.asArray(), out);
         }
 
+        // Print any unknown tags. This block is a simplified version of the private
+        // ParsedIOR::decode function.
+        for (int i=0; i<ior.profiles.length; i++)
+        {
+            int tag = ior.profiles[i].tag;
+            boolean found = false;
+
+            // See if JacORB managed to parse this tag before into the ParsedIOR
+            for (int j=0; j < profiles.size(); j++)
+            {
+                final IIOPProfile profile = (IIOPProfile)profiles.get(j);
+
+                if (profile.tag () == tag)
+                {
+                    found = true;
+                }
+
+                if (tag == TAG_MULTIPLE_COMPONENTS.value)
+                {
+                    found = true;
+                }
+            }
+            // This is an unknown tag that wasn't dealt with before.
+            if ( ! found)
+            {
+                out.println ("Unknown profile found with tag " + tag);
+            }
+        }
     }
 
     /**

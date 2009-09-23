@@ -96,7 +96,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.183 2009-09-23 11:09:16 alexander.bykov Exp $
+ * @version $Id: ORB.java,v 1.184 2009-09-23 15:13:04 alexander.bykov Exp $
  */
 
 public final class ORB
@@ -845,12 +845,13 @@ public final class ORB
                 createMultipleComponentsProfile(multipleComponents);
         }
 
-        TaggedProfileHolder      tp = new TaggedProfileHolder();
-        TaggedComponentSeqHolder tc = new TaggedComponentSeqHolder();
+        TaggedComponentSeqHolder  tc = new TaggedComponentSeqHolder();
+        final TaggedProfileHolder tp = new TaggedProfileHolder();
+
         for (int i=0; i<profiles.size(); i++)
         {
-            Profile p = (Profile)profiles.get(i);
-            TaggedComponentList c =
+            final Profile p = (Profile)profiles.get(i);
+            final TaggedComponentList c =
                 (TaggedComponentList)componentMap.get(ObjectUtil.newInteger (p.tag()));
             tc.value = c.asArray();
             p.marshal (tp, tc);
@@ -2589,5 +2590,10 @@ public final class ORB
     public String[] getArgs()
     {
        return _args;
+    }
+
+    public int getGIOPMinorVersion()
+    {
+        return giopMinorVersion;
     }
 }
