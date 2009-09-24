@@ -30,14 +30,14 @@ import org.jacorb.test.orb.BasicServerImpl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Bug503Test.java,v 1.3 2009-09-03 12:49:17 alexander.bykov Exp $
+ * @version $Id: Bug503Test.java,v 1.4 2009-09-24 09:43:08 alexander.bykov Exp $
  */
 public class Bug503Test extends ORBTestCase
 {
     private BasicServer innerServer;
     private BasicServer outerServer;
 
-    protected void patchORBProperties(String testName, Properties props)
+    protected void patchOrbProperties(Properties props)
     {
         // this is to prevent that this test picks up
         // jacorb.properties. the properties might configure some
