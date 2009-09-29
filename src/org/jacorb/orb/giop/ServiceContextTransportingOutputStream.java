@@ -25,6 +25,7 @@ import java.util.Vector;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.ORBConstants;
 import org.omg.CORBA.MARSHAL;
+import org.omg.CORBA.ORB;
 import org.omg.IOP.ServiceContext;
 import org.omg.IOP.ServiceContextHelper;
 
@@ -35,7 +36,7 @@ import org.omg.IOP.ServiceContextHelper;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.22 2009-08-11 16:43:33 alexander.bykov Exp $
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.23 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 
 public class ServiceContextTransportingOutputStream
@@ -63,7 +64,7 @@ public class ServiceContextTransportingOutputStream
 
     private Vector contexts;
 
-    public ServiceContextTransportingOutputStream(org.omg.CORBA.ORB orb)
+    public ServiceContextTransportingOutputStream(ORB orb)
     {
         super(orb);
     }
@@ -317,7 +318,7 @@ public class ServiceContextTransportingOutputStream
     public byte[] getBody()
     {
         byte [] result =
-            org.jacorb.orb.BufferManager.getInstance().getBuffer( size() - getBodyBegin());
+            orb.getBufferManager().getBuffer( size() - getBodyBegin());
 
         System.arraycopy( getBufferCopy(), getBodyBegin(), result, 0, result.length );
 

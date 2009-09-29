@@ -36,7 +36,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynSequence
  *
  * @author (c) Gerald Brose, FU Berlin 1999
- * @version $Id: DynSequence.java,v 1.27 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: DynSequence.java,v 1.28 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 
 public final class DynSequence
@@ -49,7 +49,7 @@ public final class DynSequence
 
    DynSequence( org.omg.DynamicAny.DynAnyFactory dynFactory,
                 org.omg.CORBA.TypeCode type,
-                org.omg.CORBA.ORB orb,
+                org.jacorb.orb.ORB orb,
                 Logger logger )
            throws TypeMismatch
    {

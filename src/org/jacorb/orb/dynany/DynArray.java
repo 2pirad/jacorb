@@ -33,7 +33,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynArray
  *
  * @author Gerald Brose
- * @version $Id: DynArray.java,v 1.24 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: DynArray.java,v 1.25 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 
 public final class DynArray
@@ -45,7 +45,7 @@ public final class DynArray
 
     DynArray( org.omg.DynamicAny.DynAnyFactory dynFactory,
               org.omg.CORBA.TypeCode type,
-              org.omg.CORBA.ORB orb,
+              org.jacorb.orb.ORB orb,
               Logger logger)
               throws TypeMismatch
    {

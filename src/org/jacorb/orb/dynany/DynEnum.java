@@ -32,7 +32,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynEnum
  *
  * @author Gerald Brose
- * @version $Id: DynEnum.java,v 1.23 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: DynEnum.java,v 1.24 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 
 public final class DynEnum
@@ -45,7 +45,7 @@ public final class DynEnum
 
    DynEnum( org.omg.DynamicAny.DynAnyFactory dynFactory,
             org.omg.CORBA.TypeCode type,
-            org.omg.CORBA.ORB orb,
+            org.jacorb.orb.ORB orb,
             Logger logger)
      throws TypeMismatch
   {

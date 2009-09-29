@@ -53,7 +53,7 @@ import org.omg.PortableServer.ServantLocatorPackage.CookieHolder;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.41 2009-05-03 21:36:17 andre.spiegel Exp $
+ * @version $Id: RequestProcessor.java,v 1.42 2009-09-29 10:27:52 alexander.bykov Exp $
  */
 
 public class RequestProcessor
@@ -131,6 +131,7 @@ public class RequestProcessor
     {
         terminate = true;
         notify();
+        interrupt();
     }
 
     /**

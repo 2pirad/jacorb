@@ -20,19 +20,21 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.jacorb.orb.TypeCode;
 import org.omg.CORBA.TCKind;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: TypeCodeUtil.java,v 1.18 2009-05-03 21:34:07 andre.spiegel Exp $
+ * @version $Id: TypeCodeUtil.java,v 1.19 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 
 public class TypeCodeUtil
 {
-    private static Hashtable cache = new Hashtable();
+    private static final Map cache = new HashMap();
 
     static
     {

@@ -34,7 +34,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynUnion
  *
  * @author Gerald Brose
- * @version $Id: DynUnion.java,v 1.31 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: DynUnion.java,v 1.32 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 
 public final class DynUnion
@@ -48,7 +48,7 @@ public final class DynUnion
 
    DynUnion( org.omg.DynamicAny.DynAnyFactory dynFactory,
              org.omg.CORBA.TypeCode tc,
-             org.omg.CORBA.ORB orb,
+             org.jacorb.orb.ORB orb,
              Logger logger  )
     throws TypeMismatch
    {

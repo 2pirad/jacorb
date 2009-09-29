@@ -22,6 +22,7 @@ package org.jacorb.orb.giop;
 
 import java.io.IOException;
 import org.jacorb.orb.CDROutputStream;
+import org.omg.CORBA.ORB;
 
 /**
  * MessageOutputStream.java
@@ -30,13 +31,13 @@ import org.jacorb.orb.CDROutputStream;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: MessageOutputStream.java,v 1.16 2009-08-11 16:43:33 alexander.bykov Exp $
+ * @version $Id: MessageOutputStream.java,v 1.17 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 
 public class MessageOutputStream
     extends CDROutputStream
 {
-    public MessageOutputStream(org.omg.CORBA.ORB orb)
+    public MessageOutputStream(ORB orb)
     {
         super(orb);
     }

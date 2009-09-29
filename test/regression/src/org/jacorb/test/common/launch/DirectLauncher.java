@@ -40,7 +40,7 @@ import org.jacorb.test.common.TestUtils;
  * with appropriate arguments.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: DirectLauncher.java,v 1.13 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: DirectLauncher.java,v 1.14 2009-09-29 10:27:53 alexander.bykov Exp $
  */
 public class DirectLauncher extends AbstractLauncher
 {
@@ -161,6 +161,7 @@ public class DirectLauncher extends AbstractLauncher
     {
         return getPropertyWithDefault(props, "jacorb.test.maxheapsize", "64m");
     }
+    
     public String getLauncherDetails(String prefix)
     {
         try
