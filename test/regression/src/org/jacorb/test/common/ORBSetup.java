@@ -33,7 +33,7 @@ import org.omg.PortableServer.POAHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ORBSetup.java,v 1.3 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: ORBSetup.java,v 1.4 2009-09-30 15:23:18 alexander.bykov Exp $
  */
 public class ORBSetup extends TestSetup
 {
@@ -114,7 +114,9 @@ public class ORBSetup extends TestSetup
      */
     public boolean isSSLEnabled()
     {
-        final boolean useSSL = CommonSetup.getSystemPropertyAsBoolean("jacorb.test.ssl");
+        final String sslProperty = orbProps.getProperty("jacorb.test.ssl", System.getProperty("jacorb.test.ssl"));
+
+        final boolean useSSL = TestUtils.getStringAsBoolean(sslProperty);
 
         return useSSL && !isPropertySet(CommonSetup.JACORB_REGRESSION_DISABLE_SECURITY);
     }

@@ -46,7 +46,7 @@ import org.omg.PortableServer.*;
  * example).
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer.java,v 1.13 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: TestServer.java,v 1.14 2009-09-30 15:23:18 alexander.bykov Exp $
  */
 public class TestServer
 {
@@ -129,7 +129,9 @@ public class TestServer
             if (useCorbaloc())
             {
                 props.put ("OAPort",
-                           System.getProperty("jacorb.test.corbaloc.port"));
+                           System.getProperty("jacorb.test.corbaloc.port", "0"));
+                props.put ("OASSLPort",
+                        System.getProperty("jacorb.test.corbaloc.sslport", "0"));
                 props.put ("jacorb.implname",
                            System.getProperty("jacorb.test.corbaloc.implname"));
             }
@@ -211,6 +213,7 @@ public class TestServer
             else
             {
                 System.err.println ("TestServer error " + e);
+                e.printStackTrace();
             }
         }
 

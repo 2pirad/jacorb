@@ -37,7 +37,7 @@ import org.omg.IOP.TaggedProfileHolder;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.9 2009-08-11 16:43:35 alexander.bykov Exp $
+ * @version $Id: ProfileBase.java,v 1.10 2009-09-30 15:23:18 alexander.bykov Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase
@@ -145,9 +145,10 @@ public abstract class ProfileBase
                 profileDataStream.write_long(this.components.size() + compSeq.value.length);
 
                 // Write the TaggedProfiles (ours first, then the ORB's)
-                for (int i = 0; i < this.components.asArray().length; i++)
+                final TaggedComponent[] ourTaggedProfiles = components.asArray();
+                for (int i = 0; i < ourTaggedProfiles.length; i++)
                 {
-                    TaggedComponentHelper.write(profileDataStream, this.components.asArray()[i]);
+                    TaggedComponentHelper.write(profileDataStream, ourTaggedProfiles[i]);
                 }
                 for (int i = 0; i < compSeq.value.length; i++)
                 {
