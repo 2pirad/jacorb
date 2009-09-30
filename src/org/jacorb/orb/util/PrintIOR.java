@@ -58,7 +58,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.52 2009-09-23 15:13:04 alexander.bykov Exp $
+ * @version $Id: PrintIOR.java,v 1.53 2009-09-30 16:06:41 alexander.bykov Exp $
  */
 
 public class PrintIOR
@@ -250,7 +250,7 @@ public class PrintIOR
 
         // Print any unknown tags. This block is a simplified version of the private
         // ParsedIOR::decode function.
-        for (int i=0; i<ior.profiles.length; i++)
+        for (int i=0; i < ior.profiles.length; i++)
         {
             int tag = ior.profiles[i].tag;
             boolean found = false;

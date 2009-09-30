@@ -47,7 +47,7 @@ import org.omg.ETF.*;
  * Class to convert IOR strings into IOR structures
  *
  * @author Gerald Brose
- * @version $Id: ParsedIOR.java,v 1.85 2009-08-11 16:43:34 alexander.bykov Exp $
+ * @version $Id: ParsedIOR.java,v 1.86 2009-09-30 16:06:41 alexander.bykov Exp $
  */
 
 public class ParsedIOR
@@ -431,7 +431,7 @@ public class ParsedIOR
      * @exception IllegalArgumentException if object_reference is null or the
      * designated resource cannot be found.
      */
-    protected void parse(String object_reference)
+    private void parse(String object_reference)
         throws IllegalArgumentException
     {
         if (object_reference == null)
