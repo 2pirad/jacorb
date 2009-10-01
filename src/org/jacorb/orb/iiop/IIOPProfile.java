@@ -49,7 +49,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.36 2009-08-19 15:02:18 alexander.bykov Exp $
+ * @version $Id: IIOPProfile.java,v 1.37 2009-10-01 14:45:28 alexander.bykov Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable
@@ -67,7 +67,7 @@ public class IIOPProfile
     /**
      * flag to specify if we should check
      * components for alternate addresses.
-     * @see getAlternateAddress()
+     * @see #getAlternateAddresses()
      */
     private final boolean checkAlternateAddresses;
 

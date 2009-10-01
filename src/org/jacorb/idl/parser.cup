@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.110 2009-08-10 14:45:44 alexander.bykov Exp $
+ * $Id: parser.cup,v 1.111 2009-10-01 14:45:28 alexander.bykov Exp $
  */
 
 action code
@@ -38,6 +38,8 @@ parser code
     public static final String compiler_version = org.jacorb.util.Version.longVersion;
 
     private static final String yearString = "1997-2006";
+
+    private static final String versionInfo = org.jacorb.util.BuildVersion.versionInfo;
 
     private static org.jacorb.idl.IDLTreeVisitor generator = null;
 
@@ -631,7 +633,7 @@ parser code
     {
         System.out.println("JacORB IDL compiler V" +  compiler_version +
                            ",\n   (C) The JacORB Project contributors, " +
-                           yearString + ".");
+                           yearString + "." + versionInfo);
     }
 
     /* override error routines */

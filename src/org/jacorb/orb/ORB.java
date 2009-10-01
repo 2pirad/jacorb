@@ -52,6 +52,7 @@ import org.jacorb.poa.RPPoolManager;
 import org.jacorb.poa.RPPoolManagerFactory;
 import org.jacorb.poa.except.POAInternalError;
 import org.jacorb.poa.util.POAUtil;
+import org.jacorb.util.BuildVersion;
 import org.jacorb.util.ObjectUtil;
 import org.omg.CORBA.BAD_INV_ORDER;
 import org.omg.CORBA.BAD_PARAM;
@@ -96,7 +97,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.185 2009-10-01 10:04:59 alexander.bykov Exp $
+ * @version $Id: ORB.java,v 1.186 2009-10-01 14:45:28 alexander.bykov Exp $
  */
 
 public final class ORB
@@ -371,7 +372,7 @@ public final class ORB
         logger.info("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                     "\tJacORB V " + versionString + ", www.jacorb.org\n" +
                     "\t(C) The JacORB project " +
-                    dateString + "\n" +
+                    dateString + BuildVersion.versionInfo + "\n" +
                     "\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 

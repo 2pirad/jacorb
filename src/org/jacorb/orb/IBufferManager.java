@@ -27,7 +27,7 @@ package org.jacorb.orb;
  * Buffers are generally created on demand.
  *
  * @author Gerald Brose
- * @version $Id: IBufferManager.java,v 1.1 2009-09-29 10:27:52 alexander.bykov Exp $
+ * @version $Id: IBufferManager.java,v 1.2 2009-10-01 14:45:28 alexander.bykov Exp $
  */
 public interface IBufferManager
 {
@@ -44,11 +44,11 @@ public interface IBufferManager
     void returnBuffer(byte[] buf);
 
     /**
-     * @param current a <code>byte[]</code> value
+     * @param buffer a <code>byte[]</code> value
      * @param cdrStr a <code>boolean</code> value value to denote if CDROuputStream is
      *               caller (may use cache in this situation)
      */
-    void returnBuffer(byte[] buffer, boolean b);
+    void returnBuffer(byte[] buffer, boolean cdrStr);
 
     /**
      * <code>getBuffer</code> returns a new buffer.

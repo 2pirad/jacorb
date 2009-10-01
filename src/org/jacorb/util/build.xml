@@ -6,13 +6,23 @@
 
   <!-- ==================================================== -->
   <!--             util build file                          -->
-  <!-- $Id: build.xml,v 1.9 2009-09-03 12:49:17 alexander.bykov Exp $  -->
+  <!-- $Id: build.xml,v 1.10 2009-10-01 14:45:28 alexander.bykov Exp $  -->
   <!-- ==================================================== -->
 
    &common;
 
-   <target name="all" depends="init">
+   <target name="all" depends="init, compile">
       <ant antfile="${src}/org/jacorb/util/tracing/build.xml" dir="${basedir}"/>
-      <jacorb-javac javac-includes="org/jacorb/util/*.java,org/jacorb/util/**/*.java"/>
    </target>
+
+    <target name="compile">
+        <jacorb-javac javac-includes="org/jacorb/util/*.java,
+                                      org/jacorb/util/**/*.java"
+                      javac-excludes="**/tracing/**" />
+
+        <jacorb-javac javac-includes="org/jacorb/util/*.java"
+                      javac-src="${src.generated}"/>
+
+    </target>
+
 </project>
