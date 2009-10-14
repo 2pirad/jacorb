@@ -23,6 +23,9 @@ package org.jacorb.test.config;
 
 import java.util.Properties;
 import java.io.*;
+import java.net.URL;
+import java.net.URLClassLoader;
+
 import org.omg.CORBA.*;
 import junit.framework.*;
 import org.jacorb.test.common.*;
@@ -33,7 +36,7 @@ import org.jacorb.config.*;
  * property precedence in JacORB.
  * @author Alphonse Bendt
  * @author Andre Spiegel
- * @version $Id: ConfigurationTest.java,v 1.7 2007-04-24 10:23:23 alphonse.bendt Exp $
+ * @version $Id: ConfigurationTest.java,v 1.8 2009-10-14 15:40:00 alexander.bykov Exp $
  */
 public class ConfigurationTest extends JacORBTestCase
 {
@@ -53,6 +56,13 @@ public class ConfigurationTest extends JacORBTestCase
 
     protected void setUp() throws Exception
     {
+        Thread.currentThread().setContextClassLoader(
+                new URLClassLoader(
+                        new URL[] 
+                        {
+                            new File(TestUtils.jacorbHome(), "/classes").toURL(), 
+                            new File(TestUtils.testHome(), "/classes").toURL()
+                        }, null));
         oldProps.putAll(System.getProperties());
     }
 
@@ -78,7 +88,7 @@ public class ConfigurationTest extends JacORBTestCase
     {
         try
         {
-            createPropertiesFile("classes/orb.properties",
+            createPropertiesFile("classes/jacorb.properties",
                                  "jacorb.connection.client.connect_timeout=33099");
 
             Properties props = new Properties();
