@@ -45,7 +45,7 @@ import org.omg.CosNotifyChannelAdmin.EventChannelFactoryHelper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: LoadTest.java,v 1.3 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: LoadTest.java,v 1.4 2009-10-19 14:34:16 alexander.bykov Exp $
  */
 public class LoadTest extends NotificationTestCase
 {
@@ -69,7 +69,7 @@ public class LoadTest extends NotificationTestCase
         ORB orb = getORB();
 
         factory = EventChannelFactoryHelper.narrow(orb
-                .resolve_initial_references("NotificationService"));
+                .resolve_initial_references("JACORB-NotificationService"));
 
         intHolder = new IntHolder();
 
