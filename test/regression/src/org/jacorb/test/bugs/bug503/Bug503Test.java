@@ -30,7 +30,7 @@ import org.jacorb.test.orb.BasicServerImpl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Bug503Test.java,v 1.5 2009-10-20 16:55:49 alexander.bykov Exp $
+ * @version $Id: Bug503Test.java,v 1.6 2009-10-21 10:05:00 alexander.bykov Exp $
  */
 public class Bug503Test extends ORBTestCase
 {
@@ -80,14 +80,7 @@ public class Bug503Test extends ORBTestCase
         innerServer = null;
     }
     
-    public void testDummy ()
-    {
-    	// Dummy test. Remove this method when test suite 
-    	// will be in action
-    }
-
-	// temporary disabled
-    public void _testIsLocalWorks() throws Exception
+    public void testIsLocalWorks() throws Exception
     {
         assertTrue(outerServer.bounce_boolean(true));
     }

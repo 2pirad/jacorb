@@ -38,7 +38,7 @@ import org.omg.RTCORBA.Protocol;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac503Test.java,v 1.1 2009-09-30 10:09:11 alexander.bykov Exp $
+ * @version $Id: BugJac503Test.java,v 1.2 2009-10-21 10:05:00 alexander.bykov Exp $
  */
 public class BugJac503Test extends AbstractWIOPTestCase
 {
@@ -51,6 +51,12 @@ public class BugJac503Test extends AbstractWIOPTestCase
     }
 
     public static Test suite()
+    {
+        return new TestSuite();
+    }
+    
+    // temporary disabled
+    public static Test _suite()
     {
         TestSuite suite = new TestSuite ("Profile Selector");
 
