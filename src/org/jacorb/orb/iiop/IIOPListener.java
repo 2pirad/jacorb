@@ -51,7 +51,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.42 2009-09-23 15:13:05 alexander.bykov Exp $
+ * @version $Id: IIOPListener.java,v 1.43 2009-10-22 09:58:50 nick.cross Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -416,7 +416,7 @@ public class IIOPListener
                 logger.error("couldn't create a AcceptorExceptionListener", e);
                 throw new IllegalArgumentException("wrong configuration: " + e);
             }
-            
+
             addressToUse = target;
         }
 
@@ -508,7 +508,7 @@ public class IIOPListener
                         }
 
                         setup(socket);
-                        
+
                         try
                         {
                             deliverConnection(socket);
@@ -551,15 +551,24 @@ public class IIOPListener
                 logger.warn("unexpected exception in " + info + "Acceptor runloop", exception);
             }
 
-            acceptorExceptionListener.exceptionCaught
-            (
-                new AcceptorExceptionEvent
+            doHandleExceptionInRunLoop(exception, isTerminated);
+
+            try
+            {
+                acceptorExceptionListener.exceptionCaught
                 (
-                    this,
-                    ((BasicAdapter) up).getORB(),
-                    exception
-                )
-            );
+                    new AcceptorExceptionEvent
+                    (
+                        this,
+                        ((BasicAdapter) up).getORB(),
+                        exception
+                    )
+                );
+            }
+            catch(Exception e)
+            {
+                logger.error("error in Acceptor Exception Listener: " + acceptorExceptionListener + " while handling exception: " + exception, e);
+            }
         }
 
         protected void doHandleExceptionInRunLoop(Exception exception, boolean isTerminated)
