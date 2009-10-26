@@ -52,7 +52,7 @@ import org.omg.CORBA.portable.IDLEntity;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.125 2009-08-20 08:42:06 alexander.bykov Exp $
+ * $Id: CDRInputStream.java,v 1.126 2009-10-26 11:16:45 nick.cross Exp $
  */
 
 public class CDRInputStream
@@ -776,8 +776,17 @@ public class CDRInputStream
             }
             else
             {
-                throw new MARSHAL ("Unexpected boolean value: " + bb
-                                   + " pos: " + pos + " index: " + index);
+                if (laxBooleanEncoding)
+                {
+                    // Technically only valid values are 0 (false) and 1 (true)
+                    // however some ORBs send values other than 1 for true.
+                    value[j] = true;
+                }
+                else
+                {
+                    throw new MARSHAL ("Unexpected boolean value: " + bb
+                                       + " pos: " + pos + " index: " + index);
+                }
             }
         }
     }
