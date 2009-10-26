@@ -28,7 +28,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.30 2008-11-14 08:55:25 nick.cross Exp $
+ * @version $Id: InterfaceBody.java,v 1.31 2009-10-26 13:16:57 nick.cross Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -443,7 +443,7 @@ public class InterfaceBody
             else
                 name = ops[ i ].opName();
 
-            ps.println( "\t\tm_opsHash.put ( \"" + name + "\", new java.lang.Integer(" + i + "));" );
+            ps.println( "\t\tm_opsHash.put ( \"" + name + "\", Integer.valueOf(" + i + "));" );
         }
 
         ps.println( "\t}" );
