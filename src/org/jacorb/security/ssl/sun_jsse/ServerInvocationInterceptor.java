@@ -41,7 +41,7 @@ import org.omg.Security.ExtensibleFamily;
 
 /**
  * @author Nicolas Noffke
- * $Id: ServerInvocationInterceptor.java,v 1.15 2009-05-03 21:36:48 andre.spiegel Exp $
+ * $Id: ServerInvocationInterceptor.java,v 1.16 2009-10-27 10:13:41 nick.cross Exp $
  */
 
 public class ServerInvocationInterceptor
@@ -120,6 +120,11 @@ public class ServerInvocationInterceptor
         }
 
         if( !connection.isSSL() )
+        {
+            return;
+        }
+
+        if (! (connection.getTransport() instanceof ServerIIOPConnection))
         {
             return;
         }
