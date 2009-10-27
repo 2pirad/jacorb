@@ -36,7 +36,7 @@ import org.omg.CORBA.TIMEOUT;
 /**
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ClientIIOPConnection.java,v 1.37 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: ClientIIOPConnection.java,v 1.38 2009-10-27 13:17:58 nick.cross Exp $
  */
 public class ClientIIOPConnection
     extends IIOPConnection
@@ -326,7 +326,7 @@ public class ClientIIOPConnection
         {
             if (exception instanceof SocketTimeoutException)
             {
-                throw new TIMEOUT("connection timeout of " + timeout + " milliseconds expired: " + exception );
+                throw new TIMEOUT("connection timeout of " + time_out + " milliseconds expired: " + exception );
             }
             else if( exception instanceof IOException )
             {
