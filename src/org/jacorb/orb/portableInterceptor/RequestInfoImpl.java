@@ -40,7 +40,7 @@ import org.omg.PortableInterceptor.RequestInfo;
  * See PI Spec p. 5-41ff
  *
  * @author Nicolas Noffke
- * @version $Id: RequestInfoImpl.java,v 1.12 2008-11-14 08:55:34 nick.cross Exp $
+ * @version $Id: RequestInfoImpl.java,v 1.13 2009-10-27 09:07:32 nick.cross Exp $
  */
 
 public abstract class RequestInfoImpl
@@ -154,7 +154,7 @@ public abstract class RequestInfoImpl
         Integer _id = ObjectUtil.newInteger(id);
         if (! reply_ctx.containsKey(_id))
         {
-            throw new BAD_PARAM("No ServiceContext with id " + id, 23,
+            throw new BAD_PARAM("No ServiceContext with id " + id, 26,
                                 CompletionStatus.COMPLETED_MAYBE);
         }
 
@@ -166,7 +166,7 @@ public abstract class RequestInfoImpl
         Integer _id = ObjectUtil.newInteger(id);
         if (! request_ctx.containsKey(_id))
         {
-            throw new BAD_PARAM("No ServiceContext with id " + id, 23,
+            throw new BAD_PARAM("No ServiceContext with id " + id, 26,
                                 CompletionStatus.COMPLETED_MAYBE);
         }
 
