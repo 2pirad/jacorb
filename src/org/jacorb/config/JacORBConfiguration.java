@@ -37,7 +37,7 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.33 2009-10-21 11:40:36 nick.cross Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.34 2009-10-27 09:33:28 nick.cross Exp $
  */
 public class JacORBConfiguration implements Configuration
 {
@@ -225,16 +225,16 @@ public class JacORBConfiguration implements Configuration
        if (configDir.length() == 0)
        {
            configDir = getAttribute ("jacorb.home", "");
-       }
 
-       if (configDir.length() != 0 )
-       {
-           configDir += separator + "etc";
-       }
-       else
-       {
-           logger.warn ("jacorb.home unset! Will use '.'");
-           configDir = ".";
+           if (configDir.length() != 0 )
+           {
+               configDir += separator + "etc";
+           }
+           else
+           {
+               logger.warn ("jacorb.home unset! Will use '.'");
+               configDir = ".";
+           }
        }
 
        propFile = configDir + separator + name + fileSuffix;
