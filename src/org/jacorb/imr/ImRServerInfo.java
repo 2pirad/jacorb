@@ -32,7 +32,7 @@ import org.jacorb.imr.AdminPackage.IllegalServerName;
  * that blocks until the server is released.
  *
  * @author Nicolas Noffke
- * @version $Id: ImRServerInfo.java,v 1.15 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: ImRServerInfo.java,v 1.16 2009-10-27 13:33:10 nick.cross Exp $
  */
 public class ImRServerInfo
     implements java.io.Serializable
@@ -95,7 +95,7 @@ public class ImRServerInfo
         final POAInfo[] _info;
         synchronized(poas)
         {
-            ImRPOAInfo[] _poas = (ImRPOAInfo[]) poas.toArray(new ImRPOAInfo[poas.size()]);
+            ImRPOAInfo[] _poas = (ImRPOAInfo[]) poas.toArray(new ImRPOAInfo[0]);
 
              _info = new POAInfo[_poas.length];
             for (int i = 0; i < _info.length; i++)
@@ -143,9 +143,9 @@ public class ImRServerInfo
         final String[] names;
         synchronized(poas)
         {
-            ImRPOAInfo[] _poas = (ImRPOAInfo[]) poas.toArray(new POAInfo[poas.size()]);
+            ImRPOAInfo[] _poas = (ImRPOAInfo[]) poas.toArray(new ImRPOAInfo[0]);
 
-             names = new String[_poas.length];
+            names = new String[_poas.length];
             for (int i = 0; i < names.length; i++)
             {
                 names[i] = _poas[i].name;
