@@ -33,7 +33,7 @@ import java.util.Set;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.51 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: ValueDecl.java,v 1.52 2009-10-29 11:32:30 nick.cross Exp $
  */
 
 public class ValueDecl
@@ -485,8 +485,11 @@ public class ValueDecl
 
     public String printWriteStatement(String var_name, String streamname)
     {
+        // pass in null repository id to prevent CDROutputStream
+        // to resolve the RMI repository ID
+
         return "((org.omg.CORBA_2_3.portable.OutputStream)" + streamname + ")"
-            + ".write_value (" + var_name + ");";
+            + ".write_value (" + var_name + ", (String)null);";
     }
 
     public String printReadExpression(String streamname)
