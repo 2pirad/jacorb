@@ -24,18 +24,16 @@ import java.util.HashSet;
 import org.jacorb.config.*;
 import org.slf4j.Logger;
 import org.jacorb.config.JacORBConfiguration;
-import org.omg.CORBA.BAD_INV_ORDER;
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.CORBA.BAD_TYPECODE;
 import org.omg.CORBA.CompletionStatus;
-import org.omg.CORBA.INITIALIZE;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.TCKind;
 import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.55 2009-09-29 10:27:52 alexander.bykov Exp $
+ * @version $Id: ORBSingleton.java,v 1.56 2009-10-29 16:11:52 alexander.bykov Exp $
  */
 
 public class ORBSingleton
@@ -44,7 +42,7 @@ public class ORBSingleton
     private static final String FACTORY_METHODS_MESG = "The Singleton ORB only permits factory methods";
 
     private boolean doStrictCheckOnTypecodeCreation;
-    private Logger logger;
+    protected Logger logger;
     
     protected IBufferManager bufferManager;
 

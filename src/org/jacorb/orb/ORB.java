@@ -97,7 +97,7 @@ import org.omg.PortableServer.POAManagerPackage.State;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.186 2009-10-01 14:45:28 alexander.bykov Exp $
+ * @version $Id: ORB.java,v 1.187 2009-10-29 16:11:52 alexander.bykov Exp $
  */
 
 public final class ORB
@@ -165,9 +165,6 @@ public final class ORB
     private final Map boxedValueHelpers = new HashMap();
 
     private final ObjectKeyMap objectKeyMap = new ObjectKeyMap(this);
-
-    /** the ORB object's logger */
-    private Logger logger;
 
     /** command like args */
     private String[] arguments;
@@ -250,8 +247,6 @@ public final class ORB
 
         this.configuration =
             (org.jacorb.config.Configuration)config;
-        logger =
-            configuration.getLogger("jacorb.orb");
 
         cacheReferences =
             configuration.getAttributeAsBoolean("jacorb.reference_caching", false);
