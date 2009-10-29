@@ -41,7 +41,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * type is used to pass an exception to a reply handler.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: ExceptionHolderImpl.java,v 1.20 2009-08-11 16:43:34 alexander.bykov Exp $
+ * @version $Id: ExceptionHolderImpl.java,v 1.21 2009-10-29 14:55:05 nick.cross Exp $
  */
 public class ExceptionHolderImpl
     extends org.omg.Messaging.ExceptionHolder
@@ -58,6 +58,15 @@ public class ExceptionHolderImpl
         super();
 
         this.orb = orb;
+
+        try
+        {
+           configure (orb.getConfiguration ());
+        }
+        catch (ConfigurationException ex)
+        {
+           throw new INTERNAL ("Caught configuration exception." + ex);
+        }
     }
 
     /**
@@ -191,32 +200,69 @@ public class ExceptionHolderImpl
      * the given InputStream.
      */
     public org.omg.CORBA.UserException exceptionFromHelper
-                                ( String id,
+                                ( String repositoryID,
                                   org.omg.CORBA.portable.InputStream input )
         throws ClassNotFoundException,
                NoSuchMethodException,
                IllegalAccessException,
                InvocationTargetException
     {
-        String name = RepositoryID.className(id, "Helper", null);
+        final String helperClassName = RepositoryID.className(repositoryID, "Helper", null);
 
-        // if class doesn't exist, let exception propagate
-        Class  helperClazz = ObjectUtil.classForName (name);
+        try
+        {
+            final Class helperClazz = ObjectUtil.classForName (helperClassName);
 
+            return exceptionFromHelper(input, helperClazz);
+        }
+        catch (ClassNotFoundException e)
+        {
+            final String repositoryIDWithoutPragmaPrefix = stripPragmaPrefix(repositoryID);
+
+            if (repositoryIDWithoutPragmaPrefix != repositoryID)
+            {
+                if (logger.isDebugEnabled())
+                {
+                    logger.debug("unable to locate class " + helperClassName + " for repository ID " + repositoryID + ". Retrying without pragma prefix: " + repositoryIDWithoutPragmaPrefix);
+                }
+                return exceptionFromHelper(repositoryIDWithoutPragmaPrefix, input);
+            }
+            else
+            {
+                // if class doesn't exist, let exception propagate
+                throw e;
+            }
+        }
+    }
+
+
+    /**
+     * try to strip off pragma prefix information.
+     * returns the unmodified string if not possible
+     */
+    private String stripPragmaPrefix(String original)
+    {
+        final int index = original.indexOf('.', 4);
+        final int versionIndex = original.lastIndexOf(':');
+
+        if (index > 0 && index < versionIndex)
+        {
+            return "IDL:" + original.substring(original.indexOf('/') + 1);
+        }
+        return original;
+    }
+
+
+    private org.omg.CORBA.UserException exceptionFromHelper(org.omg.CORBA.portable.InputStream input, Class helperClazz) throws NoSuchMethodException, ClassNotFoundException, IllegalAccessException, InvocationTargetException
+    {
         // helper must not be null from here on
 
         // get read method from helper and invoke it,
         // i.e. read the object from the stream
-        Method readMethod =
-            helperClazz.getMethod( "read",
-                               new Class[]{
-                                   ObjectUtil.classForName("org.omg.CORBA.portable.InputStream")
-                               } );
-        java.lang.Object result =
-            readMethod.invoke( null,
-                               new java.lang.Object[]{ input }
-                             );
-        return ( org.omg.CORBA.UserException ) result;
+        final Method readMethod =
+        helperClazz.getMethod( "read", new Class[]{ org.omg.CORBA.portable.InputStream.class });
+
+        return ( org.omg.CORBA.UserException ) readMethod.invoke( null, new java.lang.Object[]{ input } );
     }
 
     /**
