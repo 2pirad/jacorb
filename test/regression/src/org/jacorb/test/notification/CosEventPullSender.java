@@ -12,11 +12,11 @@ import org.omg.CosEventChannelAdmin.TypeError;
 import org.omg.CosEventComm.Disconnected;
 import org.omg.CosEventComm.PullSupplierPOA;
 
-import edu.emory.mathcs.backport.java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CosEventPullSender.java,v 1.6 2005-10-02 15:20:41 alphonse.bendt Exp $
+ * @version $Id: CosEventPullSender.java,v 1.7 2009-10-29 11:31:02 nick.cross Exp $
  */
 
 public class CosEventPullSender extends PullSupplierPOA implements TestClientOperations, Runnable

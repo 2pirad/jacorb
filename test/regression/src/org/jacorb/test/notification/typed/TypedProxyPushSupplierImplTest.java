@@ -51,12 +51,12 @@ import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPushSupplierHelper;
 import org.omg.CosTypedNotifyComm.TypedPushConsumer;
 import org.omg.CosTypedNotifyComm.TypedPushConsumerPOA;
 
-import edu.emory.mathcs.backport.java.util.concurrent.CountDownLatch;
-import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.12 2006-07-03 12:52:14 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPushSupplierImplTest.java,v 1.13 2009-10-29 11:31:02 nick.cross Exp $
  */
 public class TypedProxyPushSupplierImplTest extends NotificationTestCase
 {

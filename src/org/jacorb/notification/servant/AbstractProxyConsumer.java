@@ -53,14 +53,14 @@ import org.omg.CosNotifyComm.NotifySubscribeHelper;
 import org.omg.CosNotifyComm.NotifySubscribeOperations;
 import org.omg.PortableServer.POA;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @jmx.mbean extends = "AbstractProxyMBean"
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyConsumer.java,v 1.22 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: AbstractProxyConsumer.java,v 1.23 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public abstract class AbstractProxyConsumer extends AbstractProxy implements IProxyConsumer,

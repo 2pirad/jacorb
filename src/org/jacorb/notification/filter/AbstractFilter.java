@@ -65,10 +65,10 @@ import org.omg.CosNotifyFilter.UnsupportedFilterableData;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
-import edu.emory.mathcs.backport.java.util.concurrent.locks.Lock;
-import edu.emory.mathcs.backport.java.util.concurrent.locks.ReadWriteLock;
-import edu.emory.mathcs.backport.java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * The Filter interface defines the behaviors supported by objects which encapsulate constraints
@@ -123,7 +123,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.locks.ReentrantReadWriteLo
  * 
  * @author Alphonse Bendt
  * @author John Farrell
- * @version $Id: AbstractFilter.java,v 1.12 2009-05-03 21:34:47 andre.spiegel Exp $
+ * @version $Id: AbstractFilter.java,v 1.13 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public abstract class AbstractFilter implements GCDisposable, IServantLifecyle, 

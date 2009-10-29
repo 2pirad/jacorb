@@ -33,7 +33,7 @@ import org.jacorb.config.*;
 import org.slf4j.Logger;
 import org.jacorb.notification.interfaces.Disposable;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Abstract Base Class for Simple Pooling Mechanism. Subclasses must at least implement the method
@@ -43,7 +43,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
  * This class needs a two phase initialization: configure MUST be invoked before an instance can be used.
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractObjectPool.java,v 1.24 2009-05-03 21:34:47 andre.spiegel Exp $
+ * @version $Id: AbstractObjectPool.java,v 1.25 2009-10-29 11:31:02 nick.cross Exp $
  */
 
 public abstract class AbstractObjectPool implements Runnable, Configurable

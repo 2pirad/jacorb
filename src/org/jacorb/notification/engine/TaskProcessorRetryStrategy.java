@@ -22,11 +22,11 @@ package org.jacorb.notification.engine;
 
 import org.jacorb.notification.interfaces.IProxyPushSupplier;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategy.java,v 1.15 2006-03-07 19:23:47 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategy.java,v 1.16 2009-10-29 11:31:01 nick.cross Exp $
  */
 public class TaskProcessorRetryStrategy extends AbstractRetryStrategy implements
         PushTaskExecutor.PushTask

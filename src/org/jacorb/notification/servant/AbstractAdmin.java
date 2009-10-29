@@ -62,8 +62,8 @@ import org.omg.CosNotifyFilter.MappingFilter;
 import org.omg.PortableServer.POA;
 import org.picocontainer.MutablePicoContainer;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Abstract Baseclass for Adminobjects.
@@ -72,7 +72,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractAdmin.java,v 1.25 2009-05-03 21:34:47 andre.spiegel Exp $
+ * @version $Id: AbstractAdmin.java,v 1.26 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public abstract class AbstractAdmin implements QoSAdminOperations,

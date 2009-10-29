@@ -33,11 +33,11 @@ import org.omg.CosNotifyFilter.Filter;
 import org.omg.CosNotifyFilter.FilterAdminOperations;
 import org.omg.CosNotifyFilter.FilterNotFound;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterManager.java,v 1.18 2009-05-03 21:34:46 andre.spiegel Exp $
+ * @version $Id: FilterManager.java,v 1.19 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public class FilterManager implements FilterAdminOperations

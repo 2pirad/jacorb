@@ -45,11 +45,11 @@ import org.omg.CosNotifyChannelAdmin.InterFilterGroupOperator;
 import org.omg.CosNotifyChannelAdmin.ProxySupplier;
 import org.picocontainer.MutablePicoContainer;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AdminLimitTest.java,v 1.23 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: AdminLimitTest.java,v 1.24 2009-10-29 11:31:02 nick.cross Exp $
  */
 
 public class AdminLimitTest extends NotificationTestCase

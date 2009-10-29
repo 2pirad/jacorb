@@ -24,11 +24,11 @@ package org.jacorb.notification.engine;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.interfaces.MessageSupplier;
 
-import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessor.java,v 1.29 2006-07-07 12:38:44 alphonse.bendt Exp $
+ * @version $Id: TaskProcessor.java,v 1.30 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public interface TaskProcessor

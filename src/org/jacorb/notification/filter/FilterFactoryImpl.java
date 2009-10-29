@@ -46,11 +46,11 @@ import org.omg.CosNotifyFilter.MappingFilterHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.Servant;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: FilterFactoryImpl.java,v 1.9 2009-05-03 21:34:47 andre.spiegel Exp $
+ * @version $Id: FilterFactoryImpl.java,v 1.10 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public class FilterFactoryImpl extends FilterFactoryPOA implements Disposable, IServantLifecyle

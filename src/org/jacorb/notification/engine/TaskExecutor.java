@@ -24,11 +24,11 @@ package org.jacorb.notification.engine;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.interfaces.NotifyingDisposable;
 
-import edu.emory.mathcs.backport.java.util.concurrent.Executor;
+import java.util.concurrent.Executor;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskExecutor.java,v 1.10 2005-11-11 19:37:44 alphonse.bendt Exp $
+ * @version $Id: TaskExecutor.java,v 1.11 2009-10-29 11:31:01 nick.cross Exp $
  */
 public interface TaskExecutor extends Executor, Disposable, NotifyingDisposable
 {

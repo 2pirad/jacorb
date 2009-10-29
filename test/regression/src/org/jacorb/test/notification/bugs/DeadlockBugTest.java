@@ -32,16 +32,16 @@ import org.jacorb.notification.queue.EventQueueOverflowStrategy;
 import org.jacorb.notification.queue.MessageQueue;
 import org.jacorb.notification.queue.RWLockEventQueueDecorator;
 
-import edu.emory.mathcs.backport.java.util.concurrent.BrokenBarrierException;
-import edu.emory.mathcs.backport.java.util.concurrent.CountDownLatch;
-import edu.emory.mathcs.backport.java.util.concurrent.CyclicBarrier;
-import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DeadlockBugTest.java,v 1.7 2006-06-26 07:58:48 alphonse.bendt Exp $
+ * @version $Id: DeadlockBugTest.java,v 1.8 2009-10-29 11:31:02 nick.cross Exp $
  */
 public class DeadlockBugTest extends TestCase
 {

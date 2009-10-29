@@ -45,11 +45,11 @@ import org.omg.PortableServer.POA;
 import org.picocontainer.MutablePicoContainer;
 import org.picocontainer.defaults.DefaultPicoContainer;
 
-import edu.emory.mathcs.backport.java.util.concurrent.Semaphore;
-import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @jmx.mbean extends = "AbstractProxySupplierMBean"
@@ -59,7 +59,7 @@ import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicReference;
  *                     ProxyPushConsumer failed" notificationType = "java.lang.String"
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractProxyPushSupplier.java,v 1.10 2009-04-25 10:08:51 andre.spiegel Exp $
+ * @version $Id: AbstractProxyPushSupplier.java,v 1.11 2009-10-29 11:31:01 nick.cross Exp $
  */
 public abstract class AbstractProxyPushSupplier extends AbstractProxySupplier implements
         IProxyPushSupplier

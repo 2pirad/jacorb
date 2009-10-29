@@ -63,15 +63,15 @@ import org.omg.CosNotifyFilter.MappingFilterHelper;
 import org.omg.PortableServer.POA;
 import org.picocontainer.PicoContainer;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @jmx.mbean
  * @jboss.xmbean 
  * 
  * @author Alphonse Bendt
- * @version $Id: AbstractProxy.java,v 1.33 2009-05-03 21:34:47 andre.spiegel Exp $
+ * @version $Id: AbstractProxy.java,v 1.34 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public abstract class AbstractProxy implements FilterAdminOperations, QoSAdminOperations,

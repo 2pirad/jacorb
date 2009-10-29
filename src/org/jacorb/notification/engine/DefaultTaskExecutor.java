@@ -24,15 +24,15 @@ package org.jacorb.notification.engine;
 import org.jacorb.notification.interfaces.Disposable;
 import org.jacorb.notification.util.DisposableManager;
 
-import edu.emory.mathcs.backport.java.util.concurrent.Executor;
-import edu.emory.mathcs.backport.java.util.concurrent.ExecutorService;
-import edu.emory.mathcs.backport.java.util.concurrent.Executors;
-import edu.emory.mathcs.backport.java.util.concurrent.ThreadFactory;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskExecutor.java,v 1.4 2005-11-11 19:37:44 alphonse.bendt Exp $
+ * @version $Id: DefaultTaskExecutor.java,v 1.5 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public class DefaultTaskExecutor implements TaskExecutor

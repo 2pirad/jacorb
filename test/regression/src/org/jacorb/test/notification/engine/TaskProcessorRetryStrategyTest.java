@@ -30,11 +30,11 @@ import org.jacorb.notification.engine.TaskProcessor;
 import org.jacorb.notification.engine.TaskProcessorRetryStrategy;
 import org.omg.CORBA.TRANSIENT;
 
-import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TaskProcessorRetryStrategyTest.java,v 1.8 2006-11-30 13:40:35 alphonse.bendt Exp $
+ * @version $Id: TaskProcessorRetryStrategyTest.java,v 1.9 2009-10-29 11:31:02 nick.cross Exp $
  */
 public class TaskProcessorRetryStrategyTest extends AbstractRetryStrategyTestCase
 {

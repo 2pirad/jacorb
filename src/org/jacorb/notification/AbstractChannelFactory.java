@@ -68,11 +68,11 @@ import org.omg.PortableServer.POAHelper;
 import org.omg.PortableServer.Servant;
 import org.picocontainer.MutablePicoContainer;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractChannelFactory.java,v 1.24 2009-05-03 21:34:46 andre.spiegel Exp $
+ * @version $Id: AbstractChannelFactory.java,v 1.25 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public abstract class AbstractChannelFactory implements ManageableServant, Disposable

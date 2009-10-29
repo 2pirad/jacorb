@@ -41,12 +41,12 @@ import org.omg.CosNotifyComm.PullConsumerPOA;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullSupplier;
 import org.omg.CosTypedNotifyChannelAdmin.TypedProxyPullSupplierHelper;
 
-import edu.emory.mathcs.backport.java.util.concurrent.CountDownLatch;
-import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.8 2005-12-04 22:19:27 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullSupplierImplTest.java,v 1.9 2009-10-29 11:31:02 nick.cross Exp $
  */
 public class TypedProxyPullSupplierImplTest extends NotificationTestCase
 {

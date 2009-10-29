@@ -28,12 +28,12 @@ import java.util.List;
 import org.jacorb.notification.interfaces.Message;
 import org.jacorb.notification.queue.MessageQueue.DiscardListener;
 
-import edu.emory.mathcs.backport.java.util.concurrent.locks.ReadWriteLock;
-import edu.emory.mathcs.backport.java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: RWLockEventQueueDecorator.java,v 1.8 2006-03-03 19:54:48 alphonse.bendt Exp $
+ * @version $Id: RWLockEventQueueDecorator.java,v 1.9 2009-10-29 11:31:01 nick.cross Exp $
  */
 public class RWLockEventQueueDecorator implements MessageQueueAdapter
 {

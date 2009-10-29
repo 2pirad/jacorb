@@ -35,18 +35,18 @@ import org.jacorb.notification.util.DisposableManager;
 import org.omg.CORBA.Any;
 import org.omg.CosNotification.StructuredEvent;
 
-import edu.emory.mathcs.backport.java.util.concurrent.Executors;
-import edu.emory.mathcs.backport.java.util.concurrent.ScheduledExecutorService;
-import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
-import edu.emory.mathcs.backport.java.util.concurrent.ThreadFactory;
-import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @jmx.mbean
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: DefaultTaskProcessor.java,v 1.16 2009-05-03 21:34:47 andre.spiegel Exp $
+ * @version $Id: DefaultTaskProcessor.java,v 1.17 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public class DefaultTaskProcessor implements TaskProcessor, Disposable, JMXManageable, DefaultTaskProcessorMBean

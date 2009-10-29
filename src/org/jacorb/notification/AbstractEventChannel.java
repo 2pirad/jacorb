@@ -63,15 +63,15 @@ import org.omg.CosNotifyFilter.FilterFactory;
 import org.omg.PortableServer.POA;
 import org.picocontainer.MutablePicoContainer;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicBoolean;
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @jmx.mbean
  * @jboss.xmbean
  *
  * @author Alphonse Bendt
- * @version $Id: AbstractEventChannel.java,v 1.16 2009-05-03 21:34:46 andre.spiegel Exp $
+ * @version $Id: AbstractEventChannel.java,v 1.17 2009-10-29 11:31:01 nick.cross Exp $
  */
 
 public abstract class AbstractEventChannel implements IServantLifecyle, JMXManageable

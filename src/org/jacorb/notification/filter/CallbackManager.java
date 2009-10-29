@@ -33,11 +33,11 @@ import org.omg.CosNotification.EventType;
 import org.omg.CosNotifyComm.InvalidEventType;
 import org.omg.CosNotifyComm.NotifySubscribe;
 
-import edu.emory.mathcs.backport.java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: CallbackManager.java,v 1.6 2009-05-03 21:34:47 andre.spiegel Exp $
+ * @version $Id: CallbackManager.java,v 1.7 2009-10-29 11:31:01 nick.cross Exp $
  */
 public class CallbackManager extends EventTypeSet implements Disposable
 {

@@ -37,11 +37,11 @@ import org.omg.CORBA.Any;
 import org.omg.CosNotifyChannelAdmin.ConsumerAdmin;
 import org.omg.CosNotifyComm.PushConsumer;
 
-import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ProxyPushSupplierImplTest.java,v 1.8 2006-07-07 11:59:46 alphonse.bendt Exp $
+ * @version $Id: ProxyPushSupplierImplTest.java,v 1.9 2009-10-29 11:31:02 nick.cross Exp $
  */
 public class ProxyPushSupplierImplTest extends NotificationTestCase
 {

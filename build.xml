@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.81 2009-10-26 11:09:20 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.82 2009-10-29 11:31:01 nick.cross Exp $ -->
    <!-- ==================================================== -->
 
     <property file="${basedir}/build.properties" />
@@ -320,19 +320,6 @@ using VERSION_INFO: ${jacorb_version_info}
              </sourcepath>
         </javadoc>
    </target>
-
-   <target name="convert.jdk5" description="convert sources to use java.util.concurrent (JDK 1.5+)">
-      <replace dir="${basedir}" token="edu.emory.mathcs.backport." value="">
-         <include name="**/notification/**/*.java" />
-      </replace>
-   </target>
-
-   <target name="convert.jdk4" description="convert sources to use backport-util-concurrent (pre JDK 1.5)">
-      <replace dir="${basedir}" token=" java.util.concurrent." value=" edu.emory.mathcs.backport.java.util.concurrent.">
-         <include name="**/notification/**/*.java" />
-      </replace>
-   </target>
-
 
    <!-- ==================================================== -->
    <!--                  PMD                                 -->

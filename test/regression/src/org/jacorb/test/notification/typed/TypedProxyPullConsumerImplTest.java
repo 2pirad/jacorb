@@ -51,11 +51,11 @@ import org.omg.CosTypedNotifyComm.TypedPullSupplier;
 import org.omg.CosTypedNotifyComm.TypedPullSupplierHelper;
 import org.omg.CosTypedNotifyComm.TypedPullSupplierPOATie;
 
-import edu.emory.mathcs.backport.java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.12 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: TypedProxyPullConsumerImplTest.java,v 1.13 2009-10-29 11:31:02 nick.cross Exp $
  */
 public class TypedProxyPullConsumerImplTest extends NotificationTestCase
 {
