@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose
- * @version $Id: AliasTypeSpec.java,v 1.54 2008-11-21 10:04:57 nick.cross Exp $
+ * @version $Id: AliasTypeSpec.java,v 1.55 2009-11-10 12:27:09 alexander.bykov Exp $
  */
 
 public class AliasTypeSpec
@@ -477,6 +477,10 @@ public class AliasTypeSpec
         }
         else
         {
+            ps.println ("\t\tif ( any.type().kind() == org.omg.CORBA.TCKind.tk_null)");
+            ps.println ("\t\t{");
+            ps.println ("\t\t\tthrow new org.omg.CORBA.BAD_OPERATION (\"Can't extract from Any with null type.\");");
+            ps.println ("\t\t}");
             ps.println("\t\treturn read (any.create_input_stream ());");
         }
 
