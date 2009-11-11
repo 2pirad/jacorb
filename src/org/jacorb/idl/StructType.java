@@ -31,7 +31,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.58 2009-08-10 14:45:44 alexander.bykov Exp $
+ * @version $Id: StructType.java,v 1.59 2009-11-11 08:51:48 alexander.bykov Exp $
  */
 
 public class StructType
@@ -875,7 +875,7 @@ public class StructType
                 {
                     // print the mapped holder class unless it is for
                     // a system exception
-                    if(  ( ! exc ) && ( ! isSystemException( className ) ) )
+                    if( ! isSystemException( className ) )
                     {
                         PrintWriter printWriter = new PrintWriter
                             (new java.io.FileWriter(f));
