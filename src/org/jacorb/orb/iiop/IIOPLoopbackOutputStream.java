@@ -25,20 +25,23 @@ import java.io.OutputStream;
 
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopbackOutputStream.java,v 1.1 2005-08-04 05:04:50 francisco Exp $
+ * @version $Id: IIOPLoopbackOutputStream.java,v 1.2 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 class IIOPLoopbackOutputStream extends OutputStream
 {
     private IIOPLoopbackInputStream lis ;
     
-    IIOPLoopbackOutputStream()
+    public IIOPLoopbackOutputStream()
     {
+        super();
     }
     
-    IIOPLoopbackOutputStream(final IIOPLoopbackInputStream lis)
+    public IIOPLoopbackOutputStream(final IIOPLoopbackInputStream lis)
         throws IOException
     {
-        lis.connect(this) ;
+        this();
+
+        lis.connect(this);
     }
     
     public synchronized void write(final byte[] b, final int off, final int len)

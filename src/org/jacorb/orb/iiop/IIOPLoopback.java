@@ -22,10 +22,11 @@ package org.jacorb.orb.iiop;
 
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopback.java,v 1.1 2005-08-04 05:04:50 francisco Exp $
+ * @version $Id: IIOPLoopback.java,v 1.2 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 public interface IIOPLoopback
 {
-    public void initLoopback(final IIOPLoopbackInputStream pis, 
-                             final IIOPLoopbackOutputStream pos) ;
+    void initLoopback(final String connectionInfo,
+                      final IIOPLoopbackInputStream pis,
+                      final IIOPLoopbackOutputStream pos) ;
 }

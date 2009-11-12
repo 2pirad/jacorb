@@ -36,9 +36,9 @@ import org.jacorb.test.common.TestUtils;
  * it is turned off.
  *
  * @author Nick Cross
- * @version $Id: BugJac319AbstractTest.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: BugJac319AbstractTestCase.java,v 1.1 2009-11-12 17:29:35 alexander.bykov Exp $
  */
-public abstract class BugJac319AbstractTest extends ClientServerTestCase
+public abstract class BugJac319AbstractTestCase extends ClientServerTestCase
 {
     /**
      * <code>DEMOIOR</code> is passed to the server.
@@ -52,7 +52,7 @@ public abstract class BugJac319AbstractTest extends ClientServerTestCase
 
     protected JAC319 server;
 
-    public BugJac319AbstractTest(String name, ClientServerSetup setup)
+    public BugJac319AbstractTestCase(String name, ClientServerSetup setup)
     {
         super(name, setup);
     }
@@ -91,15 +91,5 @@ public abstract class BugJac319AbstractTest extends ClientServerTestCase
         TestUtils.addToSuite(suite, setup, clazz);
 
         return setup;
-    }
-
-    public static Test suite()
-    {
-        TestSuite suite = new TestSuite();
-
-        suite.addTest(BugJac319MutatorTest.suite());
-        suite.addTest(BugJac319NoMutatorTest.suite());
-
-        return suite;
     }
 }

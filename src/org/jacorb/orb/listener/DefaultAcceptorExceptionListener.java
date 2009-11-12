@@ -31,7 +31,7 @@ import org.jacorb.util.ObjectUtil;
  * Errors and for SSLExceptions that are thrown on the first loop.
  *
  * @author Nick Cross
- * @version $Id: DefaultAcceptorExceptionListener.java,v 1.4 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: DefaultAcceptorExceptionListener.java,v 1.5 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 public class DefaultAcceptorExceptionListener
     implements AcceptorExceptionListener, Configurable
@@ -80,7 +80,7 @@ public class DefaultAcceptorExceptionListener
     {
         if (logger.isDebugEnabled())
         {
-            logger.debug("Caught acceptor event: " + e);
+            logger.debug("Caught acceptor event", e.getException());
         }
 
         if ((e.getException() instanceof Error) ||

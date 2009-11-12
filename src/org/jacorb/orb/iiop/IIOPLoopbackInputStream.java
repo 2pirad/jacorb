@@ -25,7 +25,7 @@ import java.io.InputStream;
 
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopbackInputStream.java,v 1.1 2005-08-04 05:04:50 francisco Exp $
+ * @version $Id: IIOPLoopbackInputStream.java,v 1.2 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 class IIOPLoopbackInputStream extends InputStream
 {
@@ -38,13 +38,15 @@ class IIOPLoopbackInputStream extends InputStream
     private int writerIndex ;
     private int readerIndex ;
     
-    IIOPLoopbackInputStream()
+    public IIOPLoopbackInputStream()
     {
+        super();
     }
     
-    IIOPLoopbackInputStream(final IIOPLoopbackOutputStream los)
+    public IIOPLoopbackInputStream(final IIOPLoopbackOutputStream los)
         throws IOException
     {
+        this();
         connect(los) ;
     }
     

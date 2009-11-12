@@ -30,7 +30,7 @@ import org.jacorb.util.ObjectUtil;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: StreamConnectionBase.java,v 1.9 2009-05-25 02:08:03 andre.spiegel Exp $
+ * @version $Id: StreamConnectionBase.java,v 1.10 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 
 public abstract class StreamConnectionBase
@@ -245,4 +245,6 @@ public abstract class StreamConnectionBase
             throw handleCommFailure(ex);
         }
     }
+
+    public abstract boolean isSSL();
 }

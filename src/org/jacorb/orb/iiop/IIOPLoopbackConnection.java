@@ -22,16 +22,17 @@ package org.jacorb.orb.iiop;
 
 import java.io.IOException;
 
+import org.jacorb.orb.etf.StreamConnectionBase;
 import org.omg.CORBA.COMM_FAILURE;
 import org.omg.CORBA.INITIALIZE;
 import org.omg.ETF.Profile;
 
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopbackConnection.java,v 1.3 2009-03-27 12:13:57 alexander.bykov Exp $
+ * @version $Id: IIOPLoopbackConnection.java,v 1.4 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 public class IIOPLoopbackConnection
-    extends org.jacorb.orb.etf.StreamConnectionBase
+    extends StreamConnectionBase
 {
     IIOPLoopbackConnection(final IIOPLoopbackInputStream lis,
                            final IIOPLoopbackOutputStream los)
@@ -87,5 +88,10 @@ public class IIOPLoopbackConnection
     public void connect(final Profile server_profile, final long time_out)
     {
         // Can't handle reconnect
+    }
+
+    public boolean isSSL()
+    {
+        return false;
     }
 }

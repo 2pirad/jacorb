@@ -46,7 +46,7 @@ import org.omg.ETF.Listener;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose
- * @version $Id: BasicAdapter.java,v 1.61 2009-05-03 21:35:54 andre.spiegel Exp $
+ * @version $Id: BasicAdapter.java,v 1.62 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 public class BasicAdapter
     extends org.omg.ETF._HandleLocalBase
@@ -128,6 +128,11 @@ public class BasicAdapter
         }
         else
         {
+            if (tags.contains("off"))
+            {
+                tags.remove("off");
+            }
+
             for (Iterator i = tags.iterator(); i.hasNext();)
             {
                 String s = ((String)i.next());

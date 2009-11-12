@@ -30,7 +30,7 @@ import org.omg.IOP.IOR;
  * <code>MutatorImpl</code> is a sample Mutator implementation for testing.
  *
  * @author Nick Cross
- * @version $Id: MutatorImpl.java,v 1.3 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: MutatorImpl.java,v 1.4 2009-11-12 17:29:35 alexander.bykov Exp $
  */
 public class MutatorImpl extends IORMutator
 {
@@ -64,7 +64,7 @@ public class MutatorImpl extends IORMutator
     public IOR mutateIncoming (IOR object)
     {
         ORB orb = ORB.init(new String[0], null);
-        ParsedIOR ior = new ParsedIOR ((org.jacorb.orb.ORB) orb, BugJac319AbstractTest.IMRIOR);
+        ParsedIOR ior = new ParsedIOR ((org.jacorb.orb.ORB) orb, BugJac319AbstractTestCase.IMRIOR);
 
         totalIncomingObjects++;
 
