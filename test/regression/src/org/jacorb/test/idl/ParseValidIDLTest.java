@@ -40,7 +40,7 @@ import org.jacorb.test.common.TestUtils;
  * load and inspect the compiled classes.
  *
  * @author Alphonse Bendt
- * @version $Id: ParseValidIDLTest.java,v 1.12 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: ParseValidIDLTest.java,v 1.13 2009-11-12 10:52:25 alexander.bykov Exp $
  */
 public class ParseValidIDLTest extends AbstractIDLTestcase
 {
@@ -98,6 +98,21 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
         nodeClazz.getDeclaredField("name");
         nodeClazz.getDeclaredField("description");
         nodeClazz.getDeclaredField("children");
+    }
+
+    public void verify_bugpt480_idl(ClassLoader cl) throws Exception
+    {
+        cl.loadClass("org.jacorb.test.bugs.bugpt480.ExceptionOne");
+
+        cl.loadClass("org.jacorb.test.bugs.bugpt480.ExceptionOneHelper");
+
+        cl.loadClass("org.jacorb.test.bugs.bugpt480.ExceptionOneHolder");
+
+        cl.loadClass("org.jacorb.test.bugs.bugpt480.FooPackage.ExceptionTwo");
+
+        cl.loadClass("org.jacorb.test.bugs.bugpt480.FooPackage.ExceptionTwoHelper");
+
+        cl.loadClass("org.jacorb.test.bugs.bugpt480.FooPackage.ExceptionTwoHolder");
     }
 
     public static Test suite()

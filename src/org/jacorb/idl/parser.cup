@@ -15,7 +15,7 @@ import org.apache.log.output.io.*;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.111 2009-10-01 14:45:28 alexander.bykov Exp $
+ * $Id: parser.cup,v 1.112 2009-11-12 10:52:25 alexander.bykov Exp $
  */
 
 action code
@@ -729,12 +729,18 @@ parser code
     public static void setObjectCachePlugin(String pluginClass)
         throws InstantiationException, IllegalAccessException
     {
-        // custom cache plugin
-        Class cachePluginClass = null;
+        final Class cachePluginClass;
         
         try
         {
-            cachePluginClass = Class.forName( pluginClass );
+            if (Thread.currentThread().getContextClassLoader() == null)
+            {
+                cachePluginClass = Class.forName( pluginClass );
+            }
+            else
+            {
+                cachePluginClass = Thread.currentThread().getContextClassLoader().loadClass(pluginClass);
+            }
         }
         catch( ClassNotFoundException cnfe )
         {

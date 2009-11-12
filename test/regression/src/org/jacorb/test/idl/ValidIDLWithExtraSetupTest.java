@@ -35,6 +35,7 @@ import junit.framework.TestSuite;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.test.common.TestUtils;
+import org.jacorb.test.idl.bugjac144.BugJac144ObjectCachePlugin;
 import org.omg.CORBA.Any;
 
 /**
@@ -47,7 +48,7 @@ import org.omg.CORBA.Any;
  * been overwritten.
  *
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.18 2009-08-11 16:43:34 alexander.bykov Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.19 2009-11-12 10:52:25 alexander.bykov Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {
@@ -95,12 +96,23 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
      */
     public void testMiscParseGood() throws Exception
     {
-        runJacIDL(false, false);
-        ClassLoader cl = compileGeneratedSources(false);
+        ClassLoader clOld = Thread.currentThread().getContextClassLoader();
 
-        invokeVerifyMethod(cl);
-        TestUtils.deleteRecursively(dirGeneration);
-        TestUtils.deleteRecursively(dirCompilation);
+        Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
+
+        try
+        {
+            runJacIDL(false, false);
+            ClassLoader cl = compileGeneratedSources(false);
+
+            invokeVerifyMethod(cl);
+            TestUtils.deleteRecursively(dirGeneration);
+            TestUtils.deleteRecursively(dirCompilation);
+        }
+        finally
+        {
+            Thread.currentThread().setContextClassLoader(clOld);
+        }
     }
 
     /**
@@ -308,6 +320,9 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
             System.out.println("1 test ignored because wrong org.omg.CORBA (not the ones provided by JacORB) classes are on the bootclasspath");
         }
         suite.addTest(new ValidIDLWithExtraSetupTest(new String[] {"-generate_helper", "jacorb"}, "bugJac516.idl"));
+
+        suite.addTest(new ValidIDLWithExtraSetupTest(new String[] {"-cacheplugin", BugJac144ObjectCachePlugin.class.getName()}, "bugJac144.idl"));
+        suite.addTest(new ValidIDLWithExtraSetupTest(new String[] {}, "bugJac144.idl"));
 
         return suite;
     }
