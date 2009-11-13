@@ -48,7 +48,7 @@ import org.jacorb.idl.runtime.token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.55 2009-08-10 14:45:44 alexander.bykov Exp $
+ * @version $Id: lexer.java,v 1.56 2009-11-13 12:38:04 alexander.bykov Exp $
  * @author Gerald Brose
  *
  */
@@ -812,7 +812,7 @@ public class lexer
                 String name = get_string();
                 if( name.equals( "prefix" ) )
                 {
-                    advance();
+                    swallow_whitespace();
                     currentPragmaPrefix = get_string();
                 }
                 else if( name.equals( "version" ) )

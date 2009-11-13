@@ -22,6 +22,7 @@
 package org.jacorb.test.idl;
 
 import java.io.File;
+import java.lang.reflect.Method;
 
 import junit.framework.Test;
 
@@ -40,7 +41,7 @@ import org.jacorb.test.common.TestUtils;
  * load and inspect the compiled classes.
  *
  * @author Alphonse Bendt
- * @version $Id: ParseValidIDLTest.java,v 1.13 2009-11-12 10:52:25 alexander.bykov Exp $
+ * @version $Id: ParseValidIDLTest.java,v 1.14 2009-11-13 12:38:04 alexander.bykov Exp $
  */
 public class ParseValidIDLTest extends AbstractIDLTestcase
 {
@@ -113,6 +114,13 @@ public class ParseValidIDLTest extends AbstractIDLTestcase
         cl.loadClass("org.jacorb.test.bugs.bugpt480.FooPackage.ExceptionTwoHelper");
 
         cl.loadClass("org.jacorb.test.bugs.bugpt480.FooPackage.ExceptionTwoHolder");
+    }
+
+    public void verify_bugjac569_idl(ClassLoader cl) throws Exception
+    {
+        Class clazz = cl.loadClass("PragmaBug.TestHelper");
+        Method method = clazz.getMethod("id", null);
+        assertEquals("IDL:acme.com/PragmaBug/Test:1.0", method.invoke(null, null));
     }
 
     public static Test suite()
