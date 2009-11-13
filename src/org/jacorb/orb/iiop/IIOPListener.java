@@ -51,7 +51,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.44 2009-11-12 17:29:35 alexander.bykov Exp $
+ * @version $Id: IIOPListener.java,v 1.45 2009-11-13 14:24:03 alexander.bykov Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -192,7 +192,10 @@ public class IIOPListener
             sslAcceptor.start();
         }
 
-        loopbackAcceptor.start() ;
+        if (loopbackAcceptor != null)
+        {
+            loopbackAcceptor.start();
+        }
     }
 
     /**
