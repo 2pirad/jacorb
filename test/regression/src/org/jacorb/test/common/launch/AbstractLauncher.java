@@ -29,7 +29,7 @@ import org.jacorb.test.common.TestUtils;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractLauncher.java,v 1.2 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: AbstractLauncher.java,v 1.3 2009-11-13 15:31:11 alexander.bykov Exp $
  */
 public abstract class AbstractLauncher implements Launcher
 {
@@ -93,11 +93,6 @@ public abstract class AbstractLauncher implements Launcher
     protected String[] toStringArray (List list)
     {
         return ((String[])list.toArray (new String[list.size()]));
-    }
-
-    protected String getProperty(Properties props, String name)
-    {
-        return props.getProperty(name, System.getProperty(name));
     }
 
     protected String getPropertyWithDefault(Properties props, String name, String defaultValue)

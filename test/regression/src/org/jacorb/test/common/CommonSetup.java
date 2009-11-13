@@ -30,7 +30,7 @@ import java.util.Properties;
  * methods shared between JacORB's test setup classes.
  *
  * @author Alphonse Bendt
- * @version $Id: CommonSetup.java,v 1.2 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: CommonSetup.java,v 1.3 2009-11-13 15:31:11 alexander.bykov Exp $
  */
 public class CommonSetup
 {
@@ -56,6 +56,8 @@ public class CommonSetup
             + "demo"
             + File.separatorChar
             + "ssl"
+            + File.separatorChar
+            + "resources"
             + File.separatorChar
             + propertyFilename
         );
