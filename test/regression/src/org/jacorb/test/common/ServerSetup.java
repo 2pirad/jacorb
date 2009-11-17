@@ -37,7 +37,7 @@ import org.jacorb.test.common.launch.Launcher;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ServerSetup.java,v 1.4 2009-09-08 12:35:08 alexander.bykov Exp $
+ * @version $Id: ServerSetup.java,v 1.5 2009-11-17 10:16:50 alexander.bykov Exp $
  */
 public class ServerSetup extends TestSetup
 {
@@ -98,6 +98,10 @@ public class ServerSetup extends TestSetup
         if (optionalProperties != null)
         {
             serverOrbProperties.putAll(optionalProperties);
+        }
+        else
+        {
+            serverOrbProperties.setProperty("jacorb.log.initializer", MyNullLoggerInitializer.class.getName());
         }
 
         testTimeout = getTestServerTimeout2();
