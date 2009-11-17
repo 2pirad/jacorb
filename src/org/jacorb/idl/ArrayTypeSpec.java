@@ -25,7 +25,7 @@ import java.io.PrintWriter;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.33 2007-02-06 22:50:35 andre.spiegel Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.34 2009-11-17 15:00:12 alexander.bykov Exp $
  *
  */
 
@@ -182,10 +182,14 @@ public class ArrayTypeSpec
         try
         {
             if (!typedefd)
+            {
                 NameTable.define(full_name(), "type");
 
-            if (!NameTable.isDefined(typeName(), "type"))
-                NameTable.define(typeName(), "type");
+                // change for Prismtech JAC#572 here
+                // 
+                if (!NameTable.isDefined(typeName(), "type"))
+                    NameTable.define(typeName(), "type");
+            }
         }
         catch (NameAlreadyDefined n)
         {
