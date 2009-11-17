@@ -30,7 +30,7 @@ import org.jacorb.orb.etf.ProtocolAddressBase;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.18 2009-11-17 15:50:38 alexander.bykov Exp $
+ * @version $Id: IIOPAddress.java,v 1.19 2009-11-17 16:27:37 alexander.bykov Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -93,9 +93,9 @@ public class IIOPAddress
         super.configure(configuration);
         logger = this.configuration.getLogger("jacorb.iiop.address");
         dnsEnabled =
-            configuration.getAttribute("jacorb.dns.enable","off").equals("on");
+            configuration.getAttributeAsBoolean("jacorb.dns.enable", false);
         hideZoneID =
-            configuration.getAttribute("jacorb.ipv6.hide_zoneid","on").equals("on");
+            configuration.getAttributeAsBoolean("jacorb.ipv6.hide_zoneid", true);
         doEagerResolve = configuration.getAttributeAsBoolean("jacorb.dns.eager_resolve", true);
 
         if (doEagerResolve)
