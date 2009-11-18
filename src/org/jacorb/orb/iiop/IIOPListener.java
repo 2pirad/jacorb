@@ -51,7 +51,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.46 2009-11-13 16:56:38 alexander.bykov Exp $
+ * @version $Id: IIOPListener.java,v 1.47 2009-11-18 16:34:23 alexander.bykov Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -138,7 +138,7 @@ public class IIOPListener
             configuration.getAttributeAsInteger("jacorb.connection.server.timeout",0);
 
         supportSSL =
-            configuration.getAttribute("jacorb.security.support_ssl","off").equals("on");
+            configuration.getAttributeAsBoolean("jacorb.security.support_ssl", false);
 
         target_supports =
             Integer.parseInt(
@@ -155,7 +155,7 @@ public class IIOPListener
 
 
         generateSSLComponents =
-            configuration.getAttribute("jacorb.security.ssl_components_added_by_ior_interceptor","off").equals("off");
+            configuration.getAttributeAsBoolean("jacorb.security.ssl_components_added_by_ior_interceptor", true);
 
 
         if (!isSSLRequired() ||

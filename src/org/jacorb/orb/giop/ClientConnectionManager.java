@@ -28,6 +28,7 @@ import java.util.Map;
 import org.jacorb.config.*;
 import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
+import org.jacorb.orb.iiop.IIOPProfile;
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.ETF.Factories;
 
@@ -35,7 +36,7 @@ import org.omg.ETF.Factories;
  * This class manages connections.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: ClientConnectionManager.java,v 1.36 2009-08-04 14:13:56 alexander.bykov Exp $
+ * @version $Id: ClientConnectionManager.java,v 1.37 2009-11-18 16:34:23 alexander.bykov Exp $
  */
 
 public class ClientConnectionManager
@@ -93,6 +94,18 @@ public class ClientConnectionManager
 
         ClientConnection clientConnection =
             (ClientConnection)connections.get( profile );
+
+        if (clientConnection == null && profile instanceof IIOPProfile)
+        {
+            IIOPProfile iiopProfile = (IIOPProfile) profile;
+
+            if (iiopProfile.getSSL() != null)
+            {
+                final IIOPProfile sslProfile = iiopProfile.toNonSSL();
+
+                clientConnection = (ClientConnection) connections.get(sslProfile);
+            }
+        }
 
         if (clientConnection == null)
         {

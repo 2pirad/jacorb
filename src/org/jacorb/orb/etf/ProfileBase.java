@@ -21,6 +21,9 @@
 
 package org.jacorb.orb.etf;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import org.jacorb.config.*;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
@@ -37,7 +40,7 @@ import org.omg.IOP.TaggedProfileHolder;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ProfileBase.java,v 1.10 2009-09-30 15:23:18 alexander.bykov Exp $
+ * @version $Id: ProfileBase.java,v 1.11 2009-11-18 16:34:23 alexander.bykov Exp $
  */
 public abstract class ProfileBase
     extends _ProfileLocalBase
@@ -286,5 +289,13 @@ public abstract class ProfileBase
         {
             in.close();
         }
+    }
+
+    /**
+     * @return a Collection of ListenPoints that represent the endpoints contained in this IIOPProfile.
+     */
+    public Collection asListenPoints()
+    {
+        return Collections.EMPTY_LIST;
     }
 }
