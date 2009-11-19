@@ -35,7 +35,7 @@ import org.omg.CORBA.INITIALIZE;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac417Test.java,v 1.2 2009-08-12 13:58:22 alexander.bykov Exp $
+ * @version $Id: BugJac417Test.java,v 1.3 2009-11-19 17:03:00 alexander.bykov Exp $
  */
 public class BugJac417Test extends ORBTestCase
 {
@@ -43,7 +43,7 @@ public class BugJac417Test extends ORBTestCase
     private MockControl configControl;
     private Configuration configMock;
 
-    protected void patchOrbProperties(Properties properties)
+    protected void patchORBProperties(Properties properties)
     {
         properties.setProperty(SocketFactoryManager.SUPPORT_SSL, "false");
     }

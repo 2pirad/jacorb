@@ -35,11 +35,11 @@ import org.omg.CORBA.portable.ObjectImpl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractGIOPMinorVersionTestCase.java,v 1.1 2009-09-23 15:13:04 alexander.bykov Exp $
+ * @version $Id: AbstractGIOPMinorVersionTestCase.java,v 1.2 2009-11-19 17:02:59 alexander.bykov Exp $
  */
 public abstract class AbstractGIOPMinorVersionTestCase extends ORBTestCase
 {
-    protected final void patchOrbProperties(Properties props)
+    protected final void patchORBProperties(Properties props)
     {
         String giopVersionString = getGIOPMinorVersionString();
         props.setProperty("jacorb.giop_minor_version", giopVersionString);

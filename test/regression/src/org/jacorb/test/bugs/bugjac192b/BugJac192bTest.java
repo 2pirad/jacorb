@@ -27,7 +27,7 @@ import org.omg.CORBA.INTERNAL;
 
 /**
  * @author Nick Cross
- * @version $Id: BugJac192bTest.java,v 1.3 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: BugJac192bTest.java,v 1.4 2009-11-19 17:03:00 alexander.bykov Exp $
  */
 public class BugJac192bTest extends ORBTestCase
 {
@@ -52,7 +52,7 @@ public class BugJac192bTest extends ORBTestCase
         server = JAC192bHelper.narrow( serverObject );
     }
 
-	protected void patchOrbProperties(Properties client_props) {
+	protected void patchORBProperties(Properties client_props) {
 		client_props.put("org.omg.PortableInterceptor.ORBInitializerClass.CInitializer",
         "org.jacorb.test.bugs.bugjac192b.CInitializer");
 	}
