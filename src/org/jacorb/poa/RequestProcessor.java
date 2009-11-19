@@ -34,6 +34,7 @@ import org.jacorb.orb.portableInterceptor.ServerRequestInfoImpl;
 import org.jacorb.poa.except.POAInternalError;
 import org.jacorb.util.Time;
 import org.omg.CORBA.CompletionStatus;
+import org.omg.CORBA.UNKNOWN;
 import org.omg.CORBA.portable.InvokeHandler;
 import org.omg.GIOP.ReplyStatusType_1_2;
 import org.omg.IOP.ServiceContext;
@@ -53,7 +54,7 @@ import org.omg.PortableServer.ServantLocatorPackage.CookieHolder;
  * it returns the ServerRequest object to the ORB.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: RequestProcessor.java,v 1.42 2009-09-29 10:27:52 alexander.bykov Exp $
+ * @version $Id: RequestProcessor.java,v 1.43 2009-11-19 16:59:28 alexander.bykov Exp $
  */
 
 public class RequestProcessor
@@ -699,6 +700,15 @@ public class RequestProcessor
             request.setSystemException(_sys_ex);
             return false;
         }
+        catch(Exception e)
+        {
+            logger.error("unexpected exception during interceptor invocation", e);
+
+            UNKNOWN exception = new UNKNOWN( e.getMessage() );
+            request.setSystemException( exception );
+            return false;
+        }
+
         return true;
     }
 

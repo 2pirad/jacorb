@@ -33,7 +33,7 @@ import org.omg.PortableInterceptor.LOCATION_FORWARD;
  * of ClientRequestInterceptors.
  *
  * @author Nicolas Noffke
- * @version  $Id: ClientInterceptorIterator.java,v 1.16 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version  $Id: ClientInterceptorIterator.java,v 1.17 2009-11-19 16:59:28 alexander.bykov Exp $
  */
 
 public class ClientInterceptorIterator
@@ -133,10 +133,6 @@ public class ClientInterceptorIterator
             {
                 logger.error("unexpected exception", _bk);
             }
-        }
-        catch (Exception e)
-        {
-            logger.error("unexpected exception during invoke", e);
         }
 
         info.caller_op = op;
