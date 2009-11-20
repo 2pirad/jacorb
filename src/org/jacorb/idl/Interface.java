@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.78 2009-06-09 09:18:44 alexander.bykov Exp $
+ * @version $Id: Interface.java,v 1.79 2009-11-20 08:56:54 alexander.bykov Exp $
  */
 
 import java.io.File;
@@ -869,7 +869,13 @@ public class Interface
         {
             ps.println("\t\ttry");
             ps.println("\t\t{");
-            ps.println("\t\t\treturn narrow(any.extract_Object());");
+            ps.println("\t\torg.omg.CORBA.Object __o = any.extract_Object();\n");
+            ps.println("\t\t" + name + " __r = narrow(__o);\n");
+            ps.println("\t\tif (__o != null && __o != __r)");
+            ps.println("\t\t{");
+            ps.println("\t\t\t((org.omg.CORBA.portable.ObjectImpl)__o)._set_delegate(null);\n");
+            ps.println("\t\t}");
+            ps.println("\t\treturn __r;");
             ps.println("\t\t}");
             ps.println("\t\tcatch (org.omg.CORBA.BAD_OPERATION ex)");
             ps.println("\t\t{");
