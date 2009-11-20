@@ -34,7 +34,7 @@ import org.omg.DynamicAny.DynAnyPackage.TypeMismatch;
  * CORBA DynUnion
  *
  * @author Gerald Brose
- * @version $Id: DynUnion.java,v 1.32 2009-09-29 10:27:53 alexander.bykov Exp $
+ * @version $Id: DynUnion.java,v 1.33 2009-11-20 10:10:52 alexander.bykov Exp $
  */
 
 public final class DynUnion
@@ -192,8 +192,10 @@ public final class DynUnion
            out.write_value( discriminator.type(),
                    discriminator.create_input_stream() );
 
-           out.write_value( member.type(),
-                   member.to_any().create_input_stream());
+           if (member != null)
+           {
+              out.write_value( member.type(), member.to_any().create_input_stream());
+           }
 
            org.omg.CORBA.Any out_any = orb.create_any();
 
