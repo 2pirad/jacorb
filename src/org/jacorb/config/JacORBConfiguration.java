@@ -37,7 +37,7 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose
- * @version $Id: JacORBConfiguration.java,v 1.34 2009-10-27 09:33:28 nick.cross Exp $
+ * @version $Id: JacORBConfiguration.java,v 1.35 2009-11-23 17:42:28 alexander.bykov Exp $
  */
 public class JacORBConfiguration implements Configuration
 {
@@ -297,6 +297,29 @@ public class JacORBConfiguration implements Configuration
        {
            loaded = true;
            setAttributes(orbProperties);
+
+           // This is in case ORBClass/ORBSingleton are not in system properties
+           // and have been specified via ORB.init props. If this is not done
+           // and JacORB jars are not in bootclasspath/endorsed then it is possible
+           // that a Sun Singleton is created by mistake in the config init.
+           if (orbProperties.containsKey ("org.omg.CORBA.ORBClass") &&
+               System.getProperty ("org.omg.CORBA.ORBClass") == null)
+           {
+               System.setProperty
+               (
+                   "org.omg.CORBA.ORBClass",
+                   orbProperties.getProperty ("org.omg.CORBA.ORBClass")
+               );
+           }
+           if (orbProperties.containsKey ("org.omg.CORBA.ORBSingletonClass") &&
+               System.getProperty ("org.omg.CORBA.ORBSingletonClass") == null)
+           {
+               System.setProperty
+               (
+                   "org.omg.CORBA.ORBSingletonClass",
+                   orbProperties.getProperty ("org.omg.CORBA.ORBSingletonClass")
+               );
+           }
        }
 
        if (!loaded)
