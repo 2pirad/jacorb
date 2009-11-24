@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.82 2009-10-29 11:31:01 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.83 2009-11-24 15:16:23 nick.cross Exp $ -->
    <!-- ==================================================== -->
 
     <property file="${basedir}/build.properties" />
@@ -47,7 +47,7 @@ using VERSION_INFO: ${jacorb_version_info}
         </copy>
 
         <!-- need to delete the classes that depend on the version number -->
-        <delete>
+        <delete failonerror="false">
             <fileset dir="${classdir}">
                 <include name="org/jacorb/orb/ORB.class" />
                 <include name="org/jacorb/idl/parser.class" />
