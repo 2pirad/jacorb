@@ -34,7 +34,7 @@ import org.omg.CORBA.TypeCode;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORBSingleton.java,v 1.57 2009-11-20 16:23:09 alexander.bykov Exp $
+ * @version $Id: ORBSingleton.java,v 1.58 2009-11-25 14:39:15 alexander.bykov Exp $
  */
 
 public class ORBSingleton
@@ -81,6 +81,14 @@ public class ORBSingleton
                 }
 
                 logger.info("created ORBSingleton");
+
+                ClassLoader omgcl  = org.omg.CORBA.ORB.class.getClassLoader ();
+                ClassLoader thiscl = this.getClass().getClassLoader();
+
+                if (omgcl != thiscl)
+                {
+                   logger.warn ("OMG.ORB classloader does not match JacORB ORBSingleton classloader. This may cause problems; see the ProgrammingGuide for further details");
+                }
             }
         }
         catch (ConfigurationException e)
