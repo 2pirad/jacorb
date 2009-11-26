@@ -36,7 +36,7 @@ import org.jacorb.test.orb.BasicServerImpl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac461Test.java,v 1.1 2009-08-12 10:00:33 alexander.bykov Exp $
+ * @version $Id: BugJac461Test.java,v 1.2 2009-11-26 16:31:25 nick.cross Exp $
  */
 public class BugJac461Test extends ClientServerTestCase
 {
@@ -75,7 +75,7 @@ public class BugJac461Test extends ClientServerTestCase
 
         //read japanese from file
         BufferedReader in = new BufferedReader(
-                new InputStreamReader(getClass().getResourceAsStream("japanese_case4537.txt"), "Shift-JIS"));
+                new InputStreamReader(getClass().getResourceAsStream("japanese_case4537.txt"), "SJIS"));
 
         line = in.readLine();
         assertNotNull(line);
