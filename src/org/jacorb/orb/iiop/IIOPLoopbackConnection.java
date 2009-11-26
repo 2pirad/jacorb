@@ -21,7 +21,6 @@
 package org.jacorb.orb.iiop;
 
 import java.io.IOException;
-
 import org.jacorb.orb.etf.StreamConnectionBase;
 import org.omg.CORBA.COMM_FAILURE;
 import org.omg.CORBA.INITIALIZE;
@@ -29,7 +28,7 @@ import org.omg.ETF.Profile;
 
 /**
  * @author Kevin Conner (Kevin.Conner@arjuna.com)
- * @version $Id: IIOPLoopbackConnection.java,v 1.4 2009-11-12 17:29:35 alexander.bykov Exp $
+ * @version $Id: IIOPLoopbackConnection.java,v 1.5 2009-11-26 14:25:20 nick.cross Exp $
  */
 public class IIOPLoopbackConnection
     extends StreamConnectionBase
@@ -93,5 +92,15 @@ public class IIOPLoopbackConnection
     public boolean isSSL()
     {
         return false;
+    }
+
+    /**
+     * Returns a string describing this connection information. Only used by TransportListener.Event.toString. Could
+     * be possibly be removed if JAC528 was done.
+     * @return
+     */
+    public String getConnectionInfo()
+    {
+       return connection_info;
     }
 }
