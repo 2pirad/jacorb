@@ -20,6 +20,7 @@ package org.jacorb.config;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+import java.text.SimpleDateFormat;
 import org.jacorb.orb.ORB;
 
 /**
@@ -27,7 +28,7 @@ import org.jacorb.orb.ORB;
  * based on parameters from the JacORB configuration.
  *
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: LoggingInitializer.java,v 1.3 2009-10-21 11:40:36 nick.cross Exp $
+ * @version $Id: LoggingInitializer.java,v 1.4 2009-11-26 16:36:14 nick.cross Exp $
  */
 public abstract class LoggingInitializer
 {
@@ -56,7 +57,15 @@ public abstract class LoggingInitializer
         {
             String serverId = "jacorb"; // reasonable default
             ORB orb = config.getORB();
-            if (orb != null) serverId = orb.getServerIdString();
+            if (orb != null)
+            {
+               serverId = orb.getServerIdString();
+            }
+            else
+            {
+               // If the ORB is null it must be a singleton ORB. So create a unique file name for it.
+               serverId = "orbsingleton" + (new SimpleDateFormat ("yyyyMdHms")).format (System.currentTimeMillis ());
+            }
             String implName = config.getAttribute ("jacorb.implname", serverId);
             if (filename.endsWith ("$implname"))
             {
