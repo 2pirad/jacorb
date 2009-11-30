@@ -29,7 +29,7 @@ import java.util.Set;
 /**
  * @author Andre Spiegel
  * @author Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.27 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.28 2009-11-30 13:29:50 alexander.bykov Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -325,7 +325,7 @@ public class ValueAbsDecl
                         lexer.emit_warn
                             ("No package defined for " + name + " - illegal in JDK1.4", token);
                     if (!pack_name.equals(""))
-                        ps.println("package " + pack_name + ";\n");
+                        ps.println("package " + pack_name + ";" + Environment.NL);
 
                     printClassComment("abstract value type", name, ps);
 
@@ -357,7 +357,7 @@ public class ValueAbsDecl
                         }
                     }
 
-                    ps.println("\n{");
+                    ps.println(Environment.NL + "{");
                     if (body != null)
                     {
                         // forward declaration

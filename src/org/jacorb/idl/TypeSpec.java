@@ -25,7 +25,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.27 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: TypeSpec.java,v 1.28 2009-11-30 13:29:51 alexander.bykov Exp $
  */
 
 
@@ -233,12 +233,12 @@ public class TypeSpec
         ps.println( "\t{" );
         ps.println( "\t\tany.type(type());" );
         ps.println( "\t\twrite( any.create_output_stream(),s);" );
-        ps.println( "\t}\n" );
+        ps.println( "\t}" + Environment.NL );
 
         ps.println( "\tpublic static " + type + " extract (final org.omg.CORBA.Any any)" );
         ps.println( "\t{" );
         ps.println( "\t\treturn read(any.create_input_stream());" );
-        ps.println( "\t}\n" );
+        ps.println( "\t}" + Environment.NL );
     }
 
     /**
