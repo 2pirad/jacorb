@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.27 2006-07-11 14:16:07 nick.cross Exp $
+ * @version $Id: NameTable.java,v 1.28 2009-12-01 15:54:17 alexander.bykov Exp $
  */
 
 import java.util.Enumeration;
@@ -50,7 +50,7 @@ public class NameTable
 
     public static final Map parsed_interfaces = new Hashtable();
 
-    static org.apache.log.Logger logger;
+    static org.jacorb.idl.util.IDLLogger logger;
 
     public static void init()
     {

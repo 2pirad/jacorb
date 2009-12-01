@@ -22,6 +22,8 @@ package org.jacorb.idl;
 
 import java.util.Hashtable;
 import java.util.Stack;
+
+import org.jacorb.idl.parser;
 import org.jacorb.idl.runtime.char_token;
 import org.jacorb.idl.runtime.float_token;
 import org.jacorb.idl.runtime.int_token;
@@ -48,14 +50,14 @@ import org.jacorb.idl.runtime.token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.56 2009-11-13 12:38:04 alexander.bykov Exp $
+ * @version $Id: lexer.java,v 1.57 2009-12-01 15:54:17 alexander.bykov Exp $
  * @author Gerald Brose
  *
  */
 
 public class lexer
 {
-    private static org.apache.log.Logger logger = parser.getLogger();
+    private static org.jacorb.idl.util.IDLLogger logger = parser.getLogger();
 
     /** First and second character of lookahead. */
     protected static int next_char;

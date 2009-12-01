@@ -36,7 +36,7 @@ import org.apache.tools.ant.util.SourceFileScanner;
  * from the ANT build tool.
  *
  * @author Wei-ju Wu
- * @version $Id: JacIDL.java,v 1.33 2009-08-10 14:45:45 alexander.bykov Exp $
+ * @version $Id: JacIDL.java,v 1.34 2009-12-01 15:54:17 alexander.bykov Exp $
  */
 
 public class JacIDL
@@ -403,7 +403,7 @@ public class JacIDL
         }
 
         // Set the logging priority
-        parser.getLogger().setPriority(Environment.intToPriority(_debuglevel));
+        parser.getLogger().setLevel(Environment.intToLevel(_debuglevel));
 
         // setup input file lists
         resetFileLists();

@@ -24,13 +24,13 @@ package org.jacorb.idl;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.apache.log.Logger;
+import org.jacorb.idl.util.IDLLogger;
 
 /**
  * Base class for all classes of the abstract IDL syntax tree
  *
  * @author Gerald Brose
- * @version $Id: IdlSymbol.java,v 1.47 2009-11-30 13:29:50 alexander.bykov Exp $
+ * @version $Id: IdlSymbol.java,v 1.48 2009-12-01 15:54:17 alexander.bykov Exp $
  */
 
 public class IdlSymbol
@@ -59,7 +59,7 @@ public class IdlSymbol
     protected static final char fileSeparator =
         System.getProperty( "file.separator" ).charAt( 0 );
 
-    Logger logger;
+    IDLLogger logger;
 
     /** the posizion in the IDL file where this symbol was found by the lexer,
         needed for better error messages */
