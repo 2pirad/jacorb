@@ -22,13 +22,17 @@ package org.jacorb.idl;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.Set;
+
+import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 
 /**
  * IDL sequences.
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.44 2009-11-30 13:29:51 alexander.bykov Exp $
+ * @version $Id: SequenceType.java,v 1.45 2009-12-03 17:38:22 alexander.bykov Exp $
  */
 
 public class SequenceType
@@ -135,11 +139,25 @@ public class SequenceType
 
     public String getTypeCodeExpression()
     {
+        return getTypeCodeExpression(new HashSet());
+    }
+    
+    public String getTypeCodeExpression(Set knownTypes)
+    {
         if (logger.isDebugEnabled())
         {
             logger.debug("Sequence getTypeCodeExpression " + name);
         }
 
+        //If type is already known, create recursive typeCode
+        //TODO: Check
+        if (knownTypes.contains(this))
+        {
+        	return "org.omg.CORBA.ORB.init().create_recursive_tc(\"" +
+        	    elementTypeSpec().id() + "\")";
+        }
+        knownTypes.add(this);
+        
         String originalType = null;
 
         if (recursive)
@@ -151,7 +169,7 @@ public class SequenceType
         else
         {
             originalType = "org.omg.CORBA.ORB.init().create_sequence_tc(" +
-                length + ", " + elementTypeExpression() + ")";
+                length + ", " + elementTypeExpression(knownTypes) + ")";
         }
         return originalType;
     }

@@ -24,10 +24,11 @@ package org.jacorb.idl;
  * Represents IDL base types
  *
  * @author Gerald Brose
- * @version $Id: BaseType.java,v 1.20 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: BaseType.java,v 1.21 2009-12-03 17:38:22 alexander.bykov Exp $
  */
 
 import java.io.PrintWriter;
+import java.util.Set;
 
 public class BaseType
     extends SimpleTypeSpec
@@ -114,6 +115,11 @@ public class BaseType
     }
 
     public String getTypeCodeExpression()
+    {
+        return typeCodeExpressionSkeleton( getTCKind() );
+    }
+
+    public String getTypeCodeExpression(Set knownTypes)
     {
         return typeCodeExpressionSkeleton( getTCKind() );
     }

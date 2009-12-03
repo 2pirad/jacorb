@@ -25,7 +25,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeSpec.java,v 1.28 2009-11-30 13:29:51 alexander.bykov Exp $
+ * @version $Id: TypeSpec.java,v 1.29 2009-12-03 17:38:23 alexander.bykov Exp $
  */
 
 
@@ -144,10 +144,8 @@ public class TypeSpec
 
     public String getTypeCodeExpression( Set knownTypes )
     {
-        if( type_spec instanceof ConstrTypeSpec )
-            return type_spec.getTypeCodeExpression( knownTypes );
-        else
-            return getTypeCodeExpression();
+        System.out.println("Add TypeSpec.GetTypeCodeExpression for " + this.getClass());
+        return type_spec.getTypeCodeExpression( knownTypes );
     }
 
     /**

@@ -23,11 +23,12 @@ package org.jacorb.idl;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.40 2009-11-30 13:29:51 alexander.bykov Exp $
+ * @version $Id: EnumType.java,v 1.41 2009-12-03 17:38:22 alexander.bykov Exp $
  */
 
 public class EnumType
@@ -193,7 +194,7 @@ public class EnumType
 
     public String getTypeCodeExpression()
     {
-        return full_name() + "Helper.type()";
+        return getTypeCodeExpression(new HashSet());
     }
 
     public String getTypeCodeExpression(Set knownTypes)
@@ -202,7 +203,22 @@ public class EnumType
         {
             return this.getRecursiveTypeCodeExpression();
         }
-        return this.getTypeCodeExpression();
+        
+        StringBuffer sb = new StringBuffer();
+        sb.append("org.omg.CORBA.ORB.init().create_enum_tc(" +
+        		typeName() + "Helper.id(),\"" + className() + "\",");
+        
+        sb.append("new String[]{");
+        
+        for (Enumeration e = enumlist.v.elements(); e.hasMoreElements();)
+        {
+        	sb.append("\"" + (String) e.nextElement() + "\"");
+        	if (e.hasMoreElements())
+        		sb.append(",");
+        }
+        sb.append("})");
+        
+        return sb.toString();
     }
 
 

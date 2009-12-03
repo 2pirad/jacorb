@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.67 2009-11-30 13:29:51 alexander.bykov Exp $
+ * @version $Id: UnionType.java,v 1.68 2009-12-03 17:38:23 alexander.bykov Exp $
  */
 public class UnionType
     extends TypeDeclaration
@@ -306,6 +306,7 @@ public class UnionType
      * @return a string for an expression of type TypeCode that
      * describes this type
      */
+    //TODO: fix TypeCodeExpression for recursive types!
     public String getTypeCodeExpression()
     {
         return typeName() + "Helper.type()";

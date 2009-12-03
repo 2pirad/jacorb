@@ -22,10 +22,12 @@ package org.jacorb.idl;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.35 2009-11-30 13:29:51 alexander.bykov Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.36 2009-12-03 17:38:23 alexander.bykov Exp $
  *
  */
 
@@ -209,9 +211,15 @@ public class ArrayTypeSpec
 
     public String getTypeCodeExpression()
     {
+        return getTypeCodeExpression(new HashSet());
+    }
+    
+    public String getTypeCodeExpression(Set knownTypes)
+    {
+        //TODO: what happens, when actual type is in knownTypes?
         String originalType =
             "org.omg.CORBA.ORB.init().create_array_tc(" + dims[ my_dim ] + ","
-            + elementTypeSpec().getTypeCodeExpression() + ")";
+            + elementTypeSpec().getTypeCodeExpression(knownTypes) + ")";
 
         return originalType;
     }

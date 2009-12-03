@@ -24,12 +24,13 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.39 2008-11-18 13:33:50 nick.cross Exp $
+ * @version $Id: ScopedName.java,v 1.40 2009-12-03 17:38:23 alexander.bykov Exp $
  *
  */
 
 import java.io.PrintWriter;
 import java.util.Hashtable;
+import java.util.Set;
 import java.util.Stack;
 
 public class ScopedName
@@ -652,6 +653,11 @@ public class ScopedName
     public String getTypeCodeExpression()
     {
         return resolvedTypeSpec().getTypeCodeExpression();
+    }
+
+    public String getTypeCodeExpression(Set knownTypes)
+    {
+        return resolvedTypeSpec().getTypeCodeExpression(knownTypes);
     }
 
     public String id()

@@ -21,10 +21,11 @@
 package org.jacorb.idl;
 
 import java.io.PrintWriter;
+import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: StringType.java,v 1.19 2009-12-01 13:26:46 alexander.bykov Exp $
+ * @version $Id: StringType.java,v 1.20 2009-12-03 17:38:23 alexander.bykov Exp $
  */
 
 public class StringType
@@ -130,6 +131,10 @@ public class StringType
         );
     }
 
+    public String getTypeCodeExpression(Set knownTypes)
+    {
+    	return getTypeCodeExpression();
+    }
 
     public String printReadExpression( String strname )
     {

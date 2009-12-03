@@ -22,10 +22,11 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeCodeTypeSpec.java,v 1.13 2005-10-03 21:13:22 andre.spiegel Exp $
+ * @version $Id: TypeCodeTypeSpec.java,v 1.14 2009-12-03 17:38:22 alexander.bykov Exp $
  */
 
 import java.io.PrintWriter;
+import java.util.Set;
 
 public class TypeCodeTypeSpec
         extends TypeSpec
@@ -80,6 +81,11 @@ public class TypeCodeTypeSpec
     public String getTypeCodeExpression()
     {
         return "org.omg.CORBA.ORB.init().get_primitive_tc( org.omg.CORBA.TCKind.tk_TypeCode)";
+    }
+
+    public String getTypeCodeExpression(Set knownTypes)
+    {
+        return getTypeCodeExpression();
     }
 
     public void print( PrintWriter ps )

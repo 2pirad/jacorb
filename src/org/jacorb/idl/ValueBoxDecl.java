@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.34 2009-11-30 13:29:50 alexander.bykov Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.35 2009-12-03 17:38:22 alexander.bykov Exp $
  */
 
 public class ValueBoxDecl
@@ -195,7 +195,7 @@ public class ValueBoxDecl
                 className = className.substring(className.lastIndexOf('.') + 1);
             sb.append("org.omg.CORBA.ORB.init().create_value_box_tc(" +
                        helperName() + ".id(),\"" + className + "\"," +
-                       typeSpec.typeSpec().getTypeCodeExpression() + ")");
+                       typeSpec.typeSpec().getTypeCodeExpression(knownTypes) + ")");
 
             return sb.toString();
         }
