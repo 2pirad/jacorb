@@ -6,11 +6,12 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.83 2009-11-24 15:16:23 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.84 2009-12-07 14:18:58 alexander.bykov Exp $ -->
    <!-- ==================================================== -->
 
-    <property file="${basedir}/build.properties" />
-    <property environment="env" />
+   <property file="${basedir}/build.properties" />
+   <property environment="env" />
+   <property name="jvm-name" value="java"/>
 
    &common;
 
@@ -187,6 +188,7 @@ using VERSION_INFO: ${jacorb_version_info}
                         value="${token.resolve-java-cmd}" />
                 <filter token="RESOLVE_JACO_CMD"
                         value="${token.resolve-jaco-cmd}" />
+                <filter token="JAVA_CMD" value="${jvm-name}" />
                 <filter token="JACORB_HOME"
                         value="${basedir}" />
                 <filter token="DONT_EDIT"
