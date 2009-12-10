@@ -32,7 +32,8 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
-import org.jacorb.config.*;
+import org.jacorb.config.Configuration;
+import org.jacorb.config.ConfigurationException;
 import org.jacorb.orb.giop.CodeSet;
 import org.jacorb.orb.giop.GIOPConnection;
 import org.jacorb.util.ObjectUtil;
@@ -54,7 +55,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.135 2009-11-23 11:54:48 alexander.bykov Exp $
+ * @version $Id: CDROutputStream.java,v 1.136 2009-12-10 12:11:30 nick.cross Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -302,26 +303,6 @@ public class CDROutputStream
         this(ORB.init());
     }
 
-    /**
-     *  Class constructor setting the buffer size for the message and
-     *  the character encoding sets. A stream created with this c'tor
-     *  is not explicitly configured, i.e. it will use default
-     *  configuration only!
-     */
-    public CDROutputStream(int bufferSize)
-    {
-        this(ORB.init(), verifyBufferSize(bufferSize));
-    }
-
-    private static int verifyBufferSize(int bufferSize)
-    {
-        if (bufferSize < 1)
-        {
-            throw new IllegalArgumentException("buffer should have at least size 1");
-        }
-
-        return bufferSize;
-    }
 
     public org.omg.CORBA.ORB orb()
     {
