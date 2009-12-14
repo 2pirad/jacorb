@@ -26,7 +26,7 @@ import org.omg.ETF.Profile;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPFactories.java,v 1.14 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: IIOPFactories.java,v 1.15 2009-12-14 16:27:29 nick.cross Exp $
  */
 public class IIOPFactories
     extends org.jacorb.orb.etf.FactoriesBase
@@ -38,33 +38,6 @@ public class IIOPFactories
         profileClz = IIOPProfile.class;
         addressClz = IIOPAddress.class;
     }
-
-/*    public Profile demarshal_profile(TaggedProfileHolder tagged_profile,
-                                      TaggedComponentSeqHolder components)
-    {
-        if (tagged_profile.value.tag != TAG_INTERNET_IOP.value)
-        {
-            throw new org.omg.CORBA.BAD_PARAM
-                ("wrong profile for IIOP transport, tag: "
-                 + tagged_profile.value.tag);
-        }
-        else
-        {
-            IIOPProfile result =
-                new IIOPProfile(tagged_profile.value.profile_data);
-            try
-            {
-                result.configure(configuration);
-            }
-            catch(ConfigurationException e)
-            {
-                throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + e.getMessage());
-            }
-
-            components.value = result.getComponents().asArray();
-            return result;
-        }
-    }*/
 
     public int profile_tag()
     {

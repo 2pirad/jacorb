@@ -80,7 +80,7 @@ import org.omg.PortableServer.POAHelper;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.73 2009-08-11 16:43:35 alexander.bykov Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.74 2009-12-14 16:27:29 nick.cross Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1375,7 +1375,7 @@ public class ImplementationRepositoryImpl
             logger.debug("requestReceived");
             connection.incPendingMessages();
 
-            final RequestInputStream in = new RequestInputStream( orb, request );
+            final RequestInputStream in = new RequestInputStream( orb, connection, request );
 
             try
             {

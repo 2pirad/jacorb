@@ -6,8 +6,8 @@
 
   <!-- ==================================================== -->
   <!--             ORB build file                         -->
-  <!-- $Id: build.xml,v 1.30 2009-10-22 09:58:51 nick.cross Exp $ -->
-  <!-- $Id: build.xml,v 1.30 2009-10-22 09:58:51 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.31 2009-12-14 16:27:29 nick.cross Exp $ -->
+  <!-- $Id: build.xml,v 1.31 2009-12-14 16:27:29 nick.cross Exp $ -->
   <!-- ==================================================== -->
 
    &common;
@@ -25,6 +25,7 @@
              org/jacorb/orb/giop/*.java,
              org/jacorb/orb/iiop/*.java,
              org/jacorb/orb/listener/*.java,
+             org/jacorb/orb/miop/*.java,
              org/jacorb/orb/policies/*.java,
              org/jacorb/orb/portableInterceptor/*.java,
              org/jacorb/orb/rmi/*.java,

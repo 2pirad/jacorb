@@ -21,12 +21,12 @@
 package org.jacorb.test.bugs.bugjac513;
 
 import java.util.Properties;
+import org.jacorb.test.common.PatternWrapper;
 
-import org.apache.regexp.RE;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: Add_1_0_ProfilesTest.java,v 1.1 2009-09-23 15:13:04 alexander.bykov Exp $
+ * @version $Id: Add_1_0_ProfilesTest.java,v 1.2 2009-12-14 16:27:29 nick.cross Exp $
  */
 public class Add_1_0_ProfilesTest extends AbstractGIOPMinorVersionTestCase
 {
@@ -42,12 +42,12 @@ public class Add_1_0_ProfilesTest extends AbstractGIOPMinorVersionTestCase
 
     protected void verifyPrintIOROutput(String printIOROutput)
     {
-        RE re = new RE("IIOP Version:\\s+1\\.2");
+       PatternWrapper re = PatternWrapper.init("IIOP Version:\\s+1\\.2");
 
-        assertTrue(re.match(printIOROutput));
+       assertTrue(re.match(printIOROutput) != 0);
 
-        re = new RE("IIOP Version:\\s+1\\.0");
+        re = PatternWrapper.init("IIOP Version:\\s+1\\.0");
 
-        assertTrue(re.match(printIOROutput));
+        assertTrue(re.match(printIOROutput) != 0);
     }
 }

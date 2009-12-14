@@ -25,7 +25,7 @@ import org.jacorb.config.JacORBConfiguration;
  *
  * @jacorb-client-since 2.2
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.31 2009-08-11 16:43:33 alexander.bykov Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.32 2009-12-14 16:27:30 nick.cross Exp $
  */
 
 public class GIOPConnectionTest
@@ -340,8 +340,8 @@ public class GIOPConnectionTest
         //listener?
         assertTrue( request_listener.getRequest() != null );
 
-        RequestInputStream r_in =
-            new RequestInputStream( orb, request_listener.getRequest() );
+        RequestInputStream r_in = new RequestInputStream
+            ( orb, null, request_listener.getRequest() );
 
         //is the body correct?
         assertEquals( "barbaz", r_in.read_string() );

@@ -25,7 +25,7 @@ package org.jacorb.test.common;
  * This is a Wrapper around a PatternMatcher.
  *
  * @author Alphonse Bendt
- * @version $Id: PatternWrapper.java,v 1.1 2009-09-08 12:35:08 alexander.bykov Exp $
+ * @version $Id: PatternWrapper.java,v 1.2 2009-12-14 16:27:29 nick.cross Exp $
  */
 public abstract class PatternWrapper
 {
@@ -44,19 +44,6 @@ public abstract class PatternWrapper
         {
             // no problem
             // recoverable error
-        }
-
-        if (sDefaultInstance == null)
-        {
-            try
-            {
-                Class.forName("org.apache.regexp.RE");
-                sDefaultInstance = Class.forName("org.jacorb.test.common.JakartaRegexpPatternWrapper");
-            } catch (ClassNotFoundException e)
-            {
-                // no problem
-                // recoverable error
-            }
         }
 
         if (sDefaultInstance == null)

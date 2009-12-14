@@ -36,7 +36,7 @@ import org.omg.IOP.ServiceContextHelper;
  * Created: Sat Aug 18 12:12:22 2002
  *
  * @author Nicolas Noffke
- * @version $Id: ServiceContextTransportingOutputStream.java,v 1.23 2009-09-29 10:27:53 alexander.bykov Exp $
+ * @version $Id: ServiceContextTransportingOutputStream.java,v 1.24 2009-12-14 16:27:29 nick.cross Exp $
  */
 
 public class ServiceContextTransportingOutputStream
@@ -90,7 +90,7 @@ public class ServiceContextTransportingOutputStream
         return header_end;
     }
 
-    private int getBodyBegin()
+    public int getBodyBegin()
     {
         return header_end + header_padding;
     }
@@ -308,21 +308,6 @@ public class ServiceContextTransportingOutputStream
         }
 
         contexts.add( ctx );
-    }
-
-
-    /**
-     * private hack...
-     */
-
-    public byte[] getBody()
-    {
-        byte [] result =
-            orb.getBufferManager().getBuffer( size() - getBodyBegin());
-
-        System.arraycopy( getBufferCopy(), getBodyBegin(), result, 0, result.length );
-
-        return result;
     }
 
 

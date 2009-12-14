@@ -23,10 +23,9 @@ package org.jacorb.orb.iiop;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-
 import javax.net.ssl.SSLSocket;
-
-import org.jacorb.config.*;
+import org.jacorb.config.Configuration;
+import org.jacorb.config.ConfigurationException;
 import org.jacorb.orb.listener.TCPConnectionEvent;
 import org.jacorb.orb.listener.TCPConnectionListener;
 
@@ -35,7 +34,7 @@ import org.jacorb.orb.listener.TCPConnectionListener;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.11 2009-11-24 17:32:28 alexander.bykov Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.12 2009-12-14 16:27:29 nick.cross Exp $
  */
 
 public class ServerIIOPConnection
@@ -51,7 +50,6 @@ public class ServerIIOPConnection
         super();
 
         this.socket = socket;
-        //        socket.setTcpNoDelay( true );
         this.use_ssl = is_ssl;
 
         in_stream = socket.getInputStream();

@@ -38,7 +38,7 @@ import sun.security.jgss.spi.GSSNameSpi;
  * This is the GSS-API Sercurity Provider Interface (SPI) for the GSSUP Context
  *
  * @author David Robison
- * @version $Id: GSSUPContextSpi.java,v 1.11 2007-11-29 07:54:28 nick.cross Exp $
+ * @version $Id: GSSUPContextSpi.java,v 1.12 2009-12-14 16:27:29 nick.cross Exp $
  */
 
 public final class GSSUPContextSpi
@@ -302,9 +302,11 @@ public final class GSSUPContextSpi
         mechOid = null;
     }
 
-    /*
-     * NOTE : This method was added for a jdk1.6.x port because of a
-     * compilation error from this class.
+    /**
+     * NOTE : This method was added for a jdk1.6.x port
+     * because of a compilation error from this class.
+     *
+     * @see sun.security.jgss.spi.GSSContextSpi#isInitiator()
      */
     public boolean isInitiator ()
     {

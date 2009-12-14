@@ -20,11 +20,11 @@
 
 package org.jacorb.test.bugs.bugjac513;
 
-import org.apache.regexp.RE;
+import org.jacorb.test.common.PatternWrapper;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: GIOP_1_2_Test.java,v 1.1 2009-09-23 15:13:04 alexander.bykov Exp $
+ * @version $Id: GIOP_1_2_Test.java,v 1.2 2009-12-14 16:27:29 nick.cross Exp $
  */
 public class GIOP_1_2_Test extends AbstractGIOPMinorVersionTestCase
 {
@@ -35,8 +35,8 @@ public class GIOP_1_2_Test extends AbstractGIOPMinorVersionTestCase
 
     protected void verifyPrintIOROutput(String printIOROutput)
     {
-        RE re = new RE("IIOP Version:\\s+1\\.2");
+       PatternWrapper re = PatternWrapper.init ("IIOP Version:\\s+1\\.2");
 
-        assertTrue(re.match(printIOROutput));
+        assertTrue(re.match(printIOROutput) != 0);
     }
 }

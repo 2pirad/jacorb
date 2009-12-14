@@ -52,7 +52,7 @@ import org.omg.GIOP.ReplyStatusType_1_2;
  * jacorb.connection.statistics_providers={classnames}, default=(empty)<br>
  *
  * @author Nicolas Noffke
- * @version $Id: GIOPConnection.java,v 1.79 2009-11-12 17:29:35 alexander.bykov Exp $
+ * @version $Id: GIOPConnection.java,v 1.80 2009-12-14 16:27:29 nick.cross Exp $
  */
 
 public abstract class GIOPConnection
@@ -449,7 +449,7 @@ public abstract class GIOPConnection
                              msg_size + Messages.MSG_HEADER_SIZE,
                              this.toString());
            }
-           
+
             //this is the "good" exit point.
             return inbuf.value;
         }
@@ -684,7 +684,7 @@ public abstract class GIOPConnection
 
                             sendMessage( out );
                             buf_mg.returnBuffer( message );
-                            
+
 
                             continue;
                         }
@@ -951,7 +951,7 @@ public abstract class GIOPConnection
                     {
                         logger.debug
                         (
-                            this.toString() + ": sendMessage() -- opening transport"
+                            this.toString() + ": sendMessage() -- opening transport" + transport
                         );
                     }
 
@@ -985,7 +985,7 @@ public abstract class GIOPConnection
                     logger.debug ("wrote GIOP message of size {} to {}",
                                   out.size(), this.toString());
                 }
-                
+
                 if (getStatisticsProviderAdapter() != null)
                 {
                     getStatisticsProviderAdapter().flushed();

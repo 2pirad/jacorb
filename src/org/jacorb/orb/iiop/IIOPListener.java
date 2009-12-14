@@ -54,7 +54,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.48 2009-11-24 17:32:28 alexander.bykov Exp $
+ * @version $Id: IIOPListener.java,v 1.49 2009-12-14 16:27:29 nick.cross Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -518,7 +518,7 @@ public class IIOPListener
                                 socket.shutdownOutput();
                             }
                             socket.close();
-                            
+
                             if (logger.isInfoEnabled())
                             {
                                 logger.info("closed Socket " + socket + " as " + info + "ServerSocket was closed.");
@@ -609,7 +609,6 @@ public class IIOPListener
             {
                 terminated = true;
             }
-
             try
             {
                 serverSocket.close();
@@ -662,7 +661,7 @@ public class IIOPListener
         {
             try
             {
-                final ServerSocket result = 
+                final ServerSocket result =
                     getServerSocketFactory().createServerSocket(port, 20, host);
 
                 if (soTimeout > 0)
@@ -699,6 +698,7 @@ public class IIOPListener
         {
              socket.setSoTimeout(serverTimeout);
              socket.setKeepAlive(keepAlive);
+             socket.setTcpNoDelay(true);
 
              try
              {
@@ -910,7 +910,7 @@ public class IIOPListener
                 {
                     connection_info = connectionInfo;
                 }
-                
+
                 public boolean isSSL()
                 {
                     return isSSL;
