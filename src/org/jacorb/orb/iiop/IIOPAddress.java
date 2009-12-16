@@ -22,15 +22,16 @@ package org.jacorb.orb.iiop;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import org.jacorb.config.*;
-import org.slf4j.Logger;
+import org.jacorb.config.Configuration;
+import org.jacorb.config.ConfigurationException;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.CDROutputStream;
 import org.jacorb.orb.etf.ProtocolAddressBase;
+import org.slf4j.Logger;
 
 /**
  * @author Andre Spiegel, Phil Mesnier
- * @version $Id: IIOPAddress.java,v 1.19 2009-11-17 16:27:37 alexander.bykov Exp $
+ * @version $Id: IIOPAddress.java,v 1.20 2009-12-16 14:52:03 nick.cross Exp $
  */
 public class IIOPAddress
     extends ProtocolAddressBase
@@ -91,6 +92,7 @@ public class IIOPAddress
         throws ConfigurationException
     {
         super.configure(configuration);
+
         logger = this.configuration.getLogger("jacorb.iiop.address");
         dnsEnabled =
             configuration.getAttributeAsBoolean("jacorb.dns.enable", false);

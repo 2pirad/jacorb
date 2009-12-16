@@ -30,7 +30,7 @@ import org.omg.RTCORBA.ProtocolProperties;
 
 /**
  * @author Andre Spiegel
- * @version $Id: FactoriesBase.java,v 1.6 2009-04-25 10:10:35 andre.spiegel Exp $
+ * @version $Id: FactoriesBase.java,v 1.7 2009-12-16 14:52:03 nick.cross Exp $
  */
 public abstract class FactoriesBase
     extends org.omg.ETF._FactoriesLocalBase
@@ -126,6 +126,7 @@ public abstract class FactoriesBase
             }
             catch( ConfigurationException e )
             {
+                e.printStackTrace();
                 throw new org.omg.CORBA.INTERNAL("ConfigurationException: " + e.toString());
             }
         }

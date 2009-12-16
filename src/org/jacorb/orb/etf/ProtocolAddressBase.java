@@ -26,7 +26,7 @@ import org.jacorb.orb.CDROutputStream;
 
 /**
  * @author Phil Mesnier
- * @version $Id: ProtocolAddressBase.java,v 1.6 2009-08-11 16:43:35 alexander.bykov Exp $
+ * @version $Id: ProtocolAddressBase.java,v 1.7 2009-12-16 14:52:03 nick.cross Exp $
  *
  * provides an abstraction of a protocol specific address.
  * This is necessary to allow the ORB and other components deal with
@@ -45,6 +45,11 @@ public abstract class ProtocolAddressBase
     public void configure(Configuration configuration)
         throws ConfigurationException
     {
+        if( configuration == null )
+        {
+            throw new ConfigurationException("ProtocolAddressBase: given configuration was null");
+        }
+
         this.configuration = (org.jacorb.config.Configuration)configuration;
     }
 
