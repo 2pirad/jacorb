@@ -20,18 +20,22 @@ package org.jacorb.test.bugs.bug401;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import junit.framework.*;
+import java.io.Serializable;
 
-import java.io.*;
-import org.omg.CORBA.*;
-import org.omg.CORBA.portable.*;
-import org.jacorb.test.common.*;
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import org.jacorb.test.common.ClientServerSetup;
+import org.jacorb.test.common.ClientServerTestCase;
+import org.jacorb.test.common.TestUtils;
+import org.omg.CORBA.Any;
+import org.omg.CORBA.portable.ValueFactory;
 
 /**
  * Test for bug 401, TypeCode problem when putting values into Anys.
  *
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: Bug401Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: Bug401Test.java,v 1.2 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 public class Bug401Test extends ClientServerTestCase
 {

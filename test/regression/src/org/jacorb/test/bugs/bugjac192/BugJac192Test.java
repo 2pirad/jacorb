@@ -8,14 +8,13 @@ import junit.framework.TestSuite;
 import org.jacorb.test.common.ClientServerSetup;
 import org.jacorb.test.common.ClientServerTestCase;
 import org.jacorb.test.common.TestUtils;
-import org.omg.CORBA.ORB;
 
 /**
  * <code>TestCaseImpl</code> tests that the context key system works even if
  * the ORB times out client and/or server side.
  *
  * @author Nick Cross
- * @version $Id: BugJac192Test.java,v 1.4 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: BugJac192Test.java,v 1.5 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 public class BugJac192Test extends ClientServerTestCase
 {

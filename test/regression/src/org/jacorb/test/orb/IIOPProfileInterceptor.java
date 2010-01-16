@@ -1,22 +1,23 @@
 package org.jacorb.test.orb;
 
-import java.util.*;
-
-import org.omg.CORBA.*;
-import org.omg.IOP.*;
-import org.omg.PortableInterceptor.IORInfo;
-import org.omg.PortableInterceptor.IORInterceptor;
+import java.util.Iterator;
+import java.util.List;
 
 import org.jacorb.orb.iiop.IIOPAddress;
-import org.jacorb.orb.portableInterceptor.IORInfoExt;
 import org.jacorb.orb.iiop.IIOPProfile;
+import org.jacorb.orb.portableInterceptor.IORInfoExt;
+import org.omg.CORBA.LocalObject;
+import org.omg.IOP.TAG_ALTERNATE_IIOP_ADDRESS;
+import org.omg.IOP.TAG_INTERNET_IOP;
+import org.omg.PortableInterceptor.IORInfo;
+import org.omg.PortableInterceptor.IORInterceptor;
 
 /**
  * An IOR Interceptor that adds alternate addresses to IIOP Profiles,
  * using the special JacORB mechanism via IORInfoExt.
  *
  * @author Marc Heide
- * @version $Id: IIOPProfileInterceptor.java,v 1.3 2005-12-08 03:56:55 phil.mesnier Exp $
+ * @version $Id: IIOPProfileInterceptor.java,v 1.4 2010-01-16 16:24:10 alexander.bykov Exp $
  */
 public class IIOPProfileInterceptor
     extends LocalObject

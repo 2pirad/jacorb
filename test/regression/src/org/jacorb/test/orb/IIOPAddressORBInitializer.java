@@ -1,13 +1,14 @@
 
 package org.jacorb.test.orb;
 
-import org.omg.CORBA.*;
-import org.omg.PortableInterceptor.*;
+import org.omg.CORBA.LocalObject;
+import org.omg.PortableInterceptor.ORBInitInfo;
+import org.omg.PortableInterceptor.ORBInitializer;
 import org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddressORBInitializer.java,v 1.1 2003-04-09 09:13:31 andre.spiegel Exp $
+ * @version $Id: IIOPAddressORBInitializer.java,v 1.2 2010-01-16 16:24:10 alexander.bykov Exp $
  */
 public class IIOPAddressORBInitializer
     extends LocalObject

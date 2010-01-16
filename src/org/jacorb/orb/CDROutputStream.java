@@ -55,7 +55,7 @@ import org.omg.IOP.TaggedProfile;
 
 /**
  * @author Gerald Brose,  1999
- * @version $Id: CDROutputStream.java,v 1.137 2009-12-14 16:27:29 nick.cross Exp $
+ * @version $Id: CDROutputStream.java,v 1.138 2010-01-16 16:24:11 alexander.bykov Exp $
  *
  * A stream for CDR marshalling.
  *
@@ -216,6 +216,7 @@ public class CDROutputStream
             }
         }
     }
+
 
 
     private static class DeferredWriteFrame
@@ -509,6 +510,7 @@ public class CDROutputStream
      * check whether the current buffer is big enough to receive
      * i more bytes. If it isn't, get a bigger buffer.
      */
+
     private final void check(final int i)
     {
         final int requiredSize = pos + i + 2;
@@ -863,6 +865,11 @@ public class CDROutputStream
      */
     public final void write_string(final String s)
     {
+        if( s == null )
+        {
+            throw new MARSHAL("Cannot marshall null string.");
+        }
+
         // size leaves room for ulong, plus the string itself (one or more
         // bytes per char in the string, depending on the codeset), plus the
         // terminating NUL char
@@ -870,11 +877,6 @@ public class CDROutputStream
         // sizePosition is the position in the buffer for the size to be
         // written.
         int sizePosition;
-
-        if( s == null )
-        {
-            throw new MARSHAL("Cannot marshall null string.");
-        }
 
         if (codesetEnabled)
         {

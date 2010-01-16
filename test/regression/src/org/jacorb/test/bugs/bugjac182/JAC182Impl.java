@@ -4,9 +4,6 @@ import org.omg.CORBA.Any;
 import org.omg.CORBA.INTERNAL;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
-import org.omg.CORBA.portable.InputStream;
-import org.omg.CORBA.portable.OutputStream;
-import org.omg.CORBA.portable.ResponseHandler;
 import org.omg.PortableInterceptor.Current;
 import org.omg.PortableInterceptor.InvalidSlot;
 
@@ -16,7 +13,7 @@ import org.omg.PortableInterceptor.InvalidSlot;
  * the correct value to the client.
  *
  * @author Nick Cross
- * @version $Id: JAC182Impl.java,v 1.1 2006-06-15 15:58:34 alphonse.bendt Exp $
+ * @version $Id: JAC182Impl.java,v 1.2 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 public class JAC182Impl extends JAC182POA
 {

@@ -20,16 +20,17 @@ package org.jacorb.test.common;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.omg.CORBA.*;
-import org.omg.PortableServer.*;
-import java.io.*;
+import org.omg.CORBA.ORB;
+import org.omg.PortableServer.POA;
+import org.omg.PortableServer.POAHelper;
+import org.omg.PortableServer.Servant;
 
 /**
  * This is a version of the TestServer class that works for JacORB prior
  * to version 2.2.
  * <p>
  * @author Andre Spiegel <spiegel@gnu.org>
- * @version $Id: TestServer_before_2_2.java,v 1.1 2005-05-13 13:07:57 andre.spiegel Exp $
+ * @version $Id: TestServer_before_2_2.java,v 1.2 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 public class TestServer_before_2_2
 {

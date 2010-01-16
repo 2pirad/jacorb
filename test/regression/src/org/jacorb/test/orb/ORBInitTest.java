@@ -35,7 +35,7 @@ import org.omg.CORBA.ORB;
  * <code>ORBInitTest</code> tests ORBInit parsing
  *
  * @author Nick Cross
- * @version $Id: ORBInitTest.java,v 1.5 2006-11-27 14:45:18 alphonse.bendt Exp $
+ * @version $Id: ORBInitTest.java,v 1.6 2010-01-16 16:24:10 alexander.bykov Exp $
  */
 public class ORBInitTest extends TestCase
 {
@@ -135,7 +135,7 @@ public class ORBInitTest extends TestCase
         props.put("org.omg.PortableInterceptor.ORBInitializerClass.none.existen.class", "");
         props.put("jacorb.orb_initializer.fail_on_error", "off");
 
-        ORB orb = initORB((String[]) null, props);
+        initORB((String[]) null, props);
     }
 
     public void testORBInitializerFailConstructorException()

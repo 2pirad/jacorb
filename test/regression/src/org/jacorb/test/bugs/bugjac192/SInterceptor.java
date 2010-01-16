@@ -2,15 +2,14 @@ package org.jacorb.test.bugs.bugjac192;
 
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.ORB;
-import org.jacorb.orb.portableInterceptor.ServerRequestInfoImpl;
 import org.omg.CORBA.Any;
 import org.omg.CORBA.BAD_PARAM;
 import org.omg.CORBA.INTERNAL;
 import org.omg.IOP.ServiceContext;
 import org.omg.PortableInterceptor.ForwardRequest;
+import org.omg.PortableInterceptor.InvalidSlot;
 import org.omg.PortableInterceptor.ServerRequestInfo;
 import org.omg.PortableInterceptor.ServerRequestInterceptor;
-import org.omg.PortableInterceptor.InvalidSlot;
 
 /**
  * <code>SInterceptor</code> tries to examine the service context sent from
@@ -18,7 +17,7 @@ import org.omg.PortableInterceptor.InvalidSlot;
  * for the server to analyse and return the ServiceContext propagation result.
  *
  * @author Nick Cross
- * @version $Id: SInterceptor.java,v 1.2 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: SInterceptor.java,v 1.3 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 public class SInterceptor
     extends org.omg.CORBA.LocalObject

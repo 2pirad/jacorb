@@ -20,10 +20,13 @@ package org.jacorb.test.bugs.bug384;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import junit.framework.*;
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
-import org.jacorb.test.common.*;
-import org.omg.PortableServer.*;
+import org.jacorb.test.common.ClientServerSetup;
+import org.jacorb.test.common.ClientServerTestCase;
+import org.jacorb.test.common.TestUtils;
+import org.omg.PortableServer.POA;
 
 
 /**
@@ -31,7 +34,7 @@ import org.omg.PortableServer.*;
  * results for both local and non-local objects.
  *
  * @author Gerald Brose
- * @version $Id: Bug384Test.java,v 1.1 2006-11-27 14:45:19 alphonse.bendt Exp $
+ * @version $Id: Bug384Test.java,v 1.2 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 
 public class Bug384Test

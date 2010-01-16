@@ -37,7 +37,7 @@ import org.jacorb.test.common.launch.Launcher;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: ServerSetup.java,v 1.5 2009-11-17 10:16:50 alexander.bykov Exp $
+ * @version $Id: ServerSetup.java,v 1.6 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 public class ServerSetup extends TestSetup
 {
@@ -150,7 +150,11 @@ public class ServerSetup extends TestSetup
         boolean coverage = TestUtils.getSystemPropertyAsBoolean("jacorb.test.coverage", false);
 
         Properties serverProperties = new Properties();
-        serverProperties.setProperty("jacorb.log.default.verbosity", "0");
+        serverProperties.setProperty
+        (
+            "jacorb.log.default.verbosity",
+            (TestUtils.verbose ? "4" : "0")
+        );
         serverProperties.setProperty("org.omg.CORBA.ORBClass", "org.jacorb.orb.ORB");
         serverProperties.setProperty("org.omg.CORBA.ORBSingletonClass", "org.jacorb.orb.ORBSingleton");
         serverProperties.put ("jacorb.implname", servantName);

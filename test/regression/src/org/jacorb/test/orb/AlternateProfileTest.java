@@ -23,17 +23,22 @@ package org.jacorb.test.orb;
 
 import java.util.Properties;
 
-import junit.framework.*;
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
-import org.jacorb.orb.iiop.IIOPProfile;
 import org.jacorb.orb.iiop.IIOPAddress;
-
+import org.jacorb.orb.iiop.IIOPProfile;
+import org.jacorb.test.IIOPAddressServer;
+import org.jacorb.test.IIOPAddressServerHelper;
+import org.jacorb.test.Sample;
+import org.jacorb.test.common.ClientServerSetup;
+import org.jacorb.test.common.ClientServerTestCase;
+import org.jacorb.test.common.CommonSetup;
+import org.jacorb.test.common.JacORBTestSuite;
+import org.jacorb.test.common.TestUtils;
 import org.omg.CORBA.portable.Delegate;
 import org.omg.IOP.TAG_INTERNET_IOP;
 import org.omg.IOP.TaggedProfile;
-
-import org.jacorb.test.*;
-import org.jacorb.test.common.*;
 
 /**
  * This test is similar to AlternateIIOPAddressTest, but it uses the
@@ -41,7 +46,7 @@ import org.jacorb.test.common.*;
  *
  * @jacorb-since 2.2
  * @author Marc Heide
- * @version $Id: AlternateProfileTest.java,v 1.12 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: AlternateProfileTest.java,v 1.13 2010-01-16 16:24:10 alexander.bykov Exp $
  */
 public class AlternateProfileTest extends ClientServerTestCase
 {

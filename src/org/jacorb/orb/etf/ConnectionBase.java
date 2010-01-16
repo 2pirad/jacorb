@@ -24,16 +24,18 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import org.jacorb.config.*;
-import org.slf4j.Logger;
+import org.jacorb.config.Configurable;
+import org.jacorb.config.Configuration;
+import org.jacorb.config.ConfigurationException;
 import org.jacorb.orb.ORB;
+import org.slf4j.Logger;
 
 /**
  * This an abstract base implementation of the ETF::Connection interface.
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ConnectionBase.java,v 1.6 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: ConnectionBase.java,v 1.7 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 
 public abstract class ConnectionBase

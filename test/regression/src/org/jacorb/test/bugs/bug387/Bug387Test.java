@@ -20,15 +20,18 @@ package org.jacorb.test.bugs.bug387;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import junit.framework.*;
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
-import org.jacorb.test.common.*;
+import org.jacorb.test.common.ClientServerSetup;
+import org.jacorb.test.common.ClientServerTestCase;
+import org.jacorb.test.common.TestUtils;
 
 /**
  * Tests marshaling of value box instances within structs within anys.
  * 
  * @author <a href="mailto:spiegel@gnu.org">Andre Spiegel</a>
- * @version $Id: Bug387Test.java,v 1.2 2009-09-03 12:49:17 alexander.bykov Exp $
+ * @version $Id: Bug387Test.java,v 1.3 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 public class Bug387Test extends ClientServerTestCase
 {

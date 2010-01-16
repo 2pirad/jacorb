@@ -1,17 +1,17 @@
 package org.jacorb.test.orb;
 
-import org.omg.PortableServer.*;
-
-import org.jacorb.orb.iiop.IIOPAddress;
+import org.jacorb.config.Configurable;
 import org.jacorb.config.Configuration;
-
-import org.jacorb.test.*;
-
-import org.jacorb.config.*;
+import org.jacorb.config.ConfigurationException;
+import org.jacorb.orb.iiop.IIOPAddress;
+import org.jacorb.test.IIOPAddressServerPOA;
+import org.jacorb.test.Sample;
+import org.jacorb.test.SampleHelper;
+import org.omg.PortableServer.POA;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPAddressServerImpl.java,v 1.6 2009-04-25 10:21:38 andre.spiegel Exp $
+ * @version $Id: IIOPAddressServerImpl.java,v 1.7 2010-01-16 16:24:10 alexander.bykov Exp $
  */
 public class IIOPAddressServerImpl extends IIOPAddressServerPOA
     implements Configurable

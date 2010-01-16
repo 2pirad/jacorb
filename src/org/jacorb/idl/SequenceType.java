@@ -25,14 +25,12 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
-
 /**
  * IDL sequences.
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.45 2009-12-03 17:38:22 alexander.bykov Exp $
+ * @version $Id: SequenceType.java,v 1.46 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 
 public class SequenceType

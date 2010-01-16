@@ -51,7 +51,7 @@ import org.omg.CORBA_2_3.portable.OutputStream;
  * CORBA any
  *
  * @author Gerald Brose
- * $Id: Any.java,v 1.59 2009-09-29 10:27:52 alexander.bykov Exp $
+ * $Id: Any.java,v 1.60 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 
 public final class Any
@@ -209,7 +209,7 @@ public final class Any
                 }
                 else //if (otherValue != null)
                 {
-                    // For this case otherValue must be null. Can there
+                    // For this case otherValue must be non-null. Can there
                     // be a case where an actual object instance represents
                     // a null object reference? Ignore the FindBugs complaint
                     // here.

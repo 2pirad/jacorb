@@ -23,17 +23,24 @@ package org.jacorb.test.orb;
 
 import java.util.Properties;
 
-import junit.framework.*;
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
-import org.jacorb.test.*;
-import org.jacorb.test.common.*;
+import org.jacorb.test.IIOPAddressServer;
+import org.jacorb.test.IIOPAddressServerHelper;
+import org.jacorb.test.Sample;
+import org.jacorb.test.common.ClientServerSetup;
+import org.jacorb.test.common.ClientServerTestCase;
+import org.jacorb.test.common.CommonSetup;
+import org.jacorb.test.common.JacORBTestSuite;
+import org.jacorb.test.common.TestUtils;
 
 /**
  * Tests components of type TAG_ALTERNATE_IIOP_ADDRESS within IORs.
  *
  * @jacorb-since 2.2
  * @author Andre Spiegel
- * @version $Id: AlternateIIOPAddress2Test.java,v 1.6 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: AlternateIIOPAddress2Test.java,v 1.7 2010-01-16 16:24:10 alexander.bykov Exp $
  */
 public class AlternateIIOPAddress2Test extends ClientServerTestCase
 {

@@ -25,13 +25,11 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.61 2009-12-03 17:38:23 alexander.bykov Exp $
+ * @version $Id: StructType.java,v 1.62 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 
 public class StructType

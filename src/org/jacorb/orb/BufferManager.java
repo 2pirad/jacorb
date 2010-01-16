@@ -35,7 +35,7 @@ import org.omg.CORBA.NO_MEMORY;
  * shared BuffferManager across all ORBs in a process.
  *
  * @author Gerald Brose, FU Berlin
- * @version $Id: BufferManager.java,v 1.30 2009-09-29 10:27:52 alexander.bykov Exp $
+ * @version $Id: BufferManager.java,v 1.31 2010-01-16 16:24:11 alexander.bykov Exp $
 */
 
 public final class BufferManager extends AbstractBufferManager
@@ -338,7 +338,10 @@ public final class BufferManager extends AbstractBufferManager
                     }
                 }
 
-                bufferMax = null;
+                synchronized(BufferManager.this)
+                {
+                    bufferMax = null;
+                }
             }
         }
 

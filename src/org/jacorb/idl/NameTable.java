@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * A table of defined names
  *
  * @author Gerald Brose
- * @version $Id: NameTable.java,v 1.28 2009-12-01 15:54:17 alexander.bykov Exp $
+ * @version $Id: NameTable.java,v 1.29 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 
 import java.util.Enumeration;
@@ -80,7 +80,7 @@ public class NameTable
 
     /**
      * check IDL scoping rules
-     * @throws NameAlreadyDefined, or the derived IllegalRedefinition
+     * @throws NameAlreadyDefined or the derived IllegalRedefinition
      */
 
     private static void checkScopingRules( String name, String kind )

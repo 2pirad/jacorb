@@ -27,7 +27,9 @@ import java.net.URLClassLoader;
 import java.util.StringTokenizer;
 import java.util.Vector;
 import org.slf4j.Logger;
-import org.jacorb.config.*;
+import org.jacorb.config.Configurable;
+import org.jacorb.config.Configuration;
+import org.jacorb.config.ConfigurationException;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Policy;
 import org.omg.CORBA.Repository;
@@ -50,7 +52,7 @@ import org.omg.PortableServer.Servant;
  * <p>
  *
  * @author Gerald Brose
- * @version $Id: RepositoryImpl.java,v 1.18 2009-10-01 13:40:17 alexander.bykov Exp $
+ * @version $Id: RepositoryImpl.java,v 1.19 2010-01-16 16:24:11 alexander.bykov Exp $
  */
 
 public class RepositoryImpl
