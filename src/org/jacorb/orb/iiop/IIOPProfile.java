@@ -44,7 +44,7 @@ import org.omg.CSIIOP.DetectReplay;
 import org.omg.CSIIOP.EstablishTrustInClient;
 import org.omg.CSIIOP.EstablishTrustInTarget;
 import org.omg.CSIIOP.Integrity;
-import org.omg.CSIIOP.TAG_CSI_SEC_MECH_LIST;
+import org.omg.IOP.TAG_CSI_SEC_MECH_LIST;
 import org.omg.CSIIOP.TAG_TLS_SEC_TRANS;
 import org.omg.CSIIOP.TLS_SEC_TRANS;
 import org.omg.CSIIOP.TLS_SEC_TRANSHelper;
@@ -59,7 +59,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPProfile.java,v 1.40 2009-12-16 14:52:03 nick.cross Exp $
+ * @version $Id: IIOPProfile.java,v 1.41 2010-04-20 15:46:16 nick.cross Exp $
  */
 public class IIOPProfile
     extends org.jacorb.orb.etf.ProfileBase implements Cloneable

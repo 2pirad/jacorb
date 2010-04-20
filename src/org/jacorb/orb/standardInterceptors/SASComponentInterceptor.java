@@ -46,8 +46,8 @@ import org.omg.CSIIOP.CompoundSecMechList;
 import org.omg.CSIIOP.CompoundSecMechListHelper;
 import org.omg.CSIIOP.SAS_ContextSec;
 import org.omg.CSIIOP.ServiceConfiguration;
-import org.omg.CSIIOP.TAG_CSI_SEC_MECH_LIST;
-import org.omg.CSIIOP.TAG_NULL_TAG;
+import org.omg.IOP.TAG_CSI_SEC_MECH_LIST;
+import org.omg.IOP.TAG_NULL_TAG;
 import org.omg.IOP.Codec;
 import org.omg.IOP.CodecFactory;
 import org.omg.IOP.ENCODING_CDR_ENCAPS;
@@ -62,7 +62,7 @@ import org.omg.PortableInterceptor.ORBInitInfo;
  * This interceptor creates an sas TaggedComponent
  *
  * @author David Robison
- * @version $Id: SASComponentInterceptor.java,v 1.25 2009-05-03 21:35:56 andre.spiegel Exp $
+ * @version $Id: SASComponentInterceptor.java,v 1.26 2010-04-20 15:46:16 nick.cross Exp $
  */
 
 public class SASComponentInterceptor

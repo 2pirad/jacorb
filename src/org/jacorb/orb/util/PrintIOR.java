@@ -40,8 +40,8 @@ import org.jacorb.orb.miop.MIOPProfile;
 import org.omg.CONV_FRAME.CodeSetComponentInfoHelper;
 import org.omg.CSIIOP.CompoundSecMechList;
 import org.omg.CSIIOP.CompoundSecMechListHelper;
-import org.omg.CSIIOP.TAG_CSI_SEC_MECH_LIST;
-import org.omg.CSIIOP.TAG_NULL_TAG;
+import org.omg.IOP.TAG_CSI_SEC_MECH_LIST;
+import org.omg.IOP.TAG_NULL_TAG;
 import org.omg.CSIIOP.TAG_SECIOP_SEC_TRANS;
 import org.omg.CSIIOP.TAG_TLS_SEC_TRANS;
 import org.omg.CSIIOP.TLS_SEC_TRANS;
@@ -63,7 +63,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.54 2009-12-14 16:27:29 nick.cross Exp $
+ * @version $Id: PrintIOR.java,v 1.55 2010-04-20 15:46:16 nick.cross Exp $
  */
 
 public class PrintIOR

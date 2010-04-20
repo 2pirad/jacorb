@@ -20,13 +20,20 @@ package org.jacorb.ir;
  *   Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-import org.slf4j.Logger;
+import org.omg.CORBA.AbstractInterfaceDef;
+import org.omg.CORBA.ExtInitializer;
+import org.omg.CORBA.ExtValueDef;
 import org.omg.CORBA.INTF_REPOS;
+import org.omg.CORBA.InterfaceDef;
+import org.omg.CORBA.LocalInterfaceDef;
+import org.omg.CORBA.NO_IMPLEMENT;
+import org.omg.CORBA.ValueDef;
 import org.omg.PortableServer.POA;
+import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose
- * @version $Id: ModuleDef.java,v 1.11 2009-05-03 21:34:07 andre.spiegel Exp $
+ * @version $Id: ModuleDef.java,v 1.12 2010-04-20 15:46:16 nick.cross Exp $
  */
 public class ModuleDef
     extends Contained
@@ -328,4 +335,27 @@ public class ModuleDef
     {
         delegate.destroy();
     }
+
+
+   public AbstractInterfaceDef create_abstract_interface (String id, String name, String version,
+            AbstractInterfaceDef[] baseInterfaces)
+   {
+      throw new NO_IMPLEMENT ("NYI");
+   }
+
+
+   public ExtValueDef create_ext_value (String id, String name, String version, boolean isCustom,
+            boolean isAbstract, ValueDef baseValue, boolean isTruncatable,
+            ValueDef[] abstractBaseValues, InterfaceDef[] supportedInterfaces,
+            ExtInitializer[] initializers)
+   {
+      throw new NO_IMPLEMENT ("NYI");
+   }
+
+
+   public LocalInterfaceDef create_local_interface (String id, String name, String version,
+            InterfaceDef[] baseInterfaces)
+   {
+      throw new NO_IMPLEMENT ("NYI");
+   }
 }

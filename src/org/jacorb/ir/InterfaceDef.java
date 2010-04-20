@@ -26,21 +26,26 @@ import java.lang.reflect.Method;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-
-import org.slf4j.Logger;
+import org.omg.CORBA.AbstractInterfaceDef;
 import org.omg.CORBA.AttributeDescription;
+import org.omg.CORBA.ExtInitializer;
+import org.omg.CORBA.ExtValueDef;
 import org.omg.CORBA.IDLType;
 import org.omg.CORBA.INTF_REPOS;
+import org.omg.CORBA.LocalInterfaceDef;
+import org.omg.CORBA.NO_IMPLEMENT;
 import org.omg.CORBA.OperationDescription;
+import org.omg.CORBA.ValueDef;
 import org.omg.CORBA.ContainerPackage.Description;
 import org.omg.CORBA.InterfaceDefPackage.FullInterfaceDescription;
 import org.omg.PortableServer.POA;
+import org.slf4j.Logger;
 
 /**
  * JacORB implementation of org.omg.CORBA.InterfaceDef
  *
  * @author Gerald Brose
- * @version $Id: InterfaceDef.java,v 1.23 2009-05-03 21:34:07 andre.spiegel Exp $
+ * @version $Id: InterfaceDef.java,v 1.24 2010-04-20 15:46:16 nick.cross Exp $
  */
 
 public class InterfaceDef
@@ -1087,4 +1092,30 @@ public class InterfaceDef
     {
         return typeCode;
     }
+
+
+
+   public AbstractInterfaceDef create_abstract_interface (String id, String name, String version,
+            AbstractInterfaceDef[] baseInterfaces)
+   {
+      throw new NO_IMPLEMENT ("NYI");
+   }
+
+
+
+   public ExtValueDef create_ext_value (String id, String name, String version, boolean isCustom,
+            boolean isAbstract, ValueDef baseValue, boolean isTruncatable,
+            ValueDef[] abstractBaseValues, org.omg.CORBA.InterfaceDef[] supportedInterfaces,
+            ExtInitializer[] initializers)
+   {
+      throw new NO_IMPLEMENT ("NYI");
+   }
+
+
+
+   public LocalInterfaceDef create_local_interface (String id, String name, String version,
+            org.omg.CORBA.InterfaceDef[] baseInterfaces)
+   {
+      throw new NO_IMPLEMENT ("NYI");
+   }
 }
