@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.41 2009-12-03 17:38:22 alexander.bykov Exp $
+ * @version $Id: EnumType.java,v 1.42 2010-04-22 13:56:38 alexander.bykov Exp $
  */
 
 public class EnumType
@@ -380,6 +380,12 @@ public class EnumType
         pw.println("\t\tvalue = i;");
         pw.println("\t}");
 
+        pw.println("\t/**");
+        pw.println("\t * Designate replacement object when deserialized from stream. See");
+        pw.println("\t * http://www.omg.org/docs/ptc/02-01-03.htm#Issue4271");
+        pw.println("\t *");
+        pw.println("\t * @throws java.io.ObjectStreamException");
+        pw.println("\t */");
         pw.println("\tjava.lang.Object readResolve()");
         if (!parser.cldc10 )
             pw.println("\tthrows java.io.ObjectStreamException");
