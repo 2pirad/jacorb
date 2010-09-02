@@ -6,7 +6,7 @@
 
    <!-- ==================================================== -->
    <!--            JacORB build file                         -->
-   <!-- $Id: build.xml,v 1.86 2009-12-14 16:27:28 nick.cross Exp $ -->
+   <!-- $Id: build.xml,v 1.87 2010-09-02 11:07:29 alexander.bykov Exp $ -->
    <!-- ==================================================== -->
 
    <property file="${basedir}/build.properties" />
@@ -33,7 +33,7 @@
         <tstamp />
 
         <property name="BuildNo" value="${TODAY} ${TSTAMP}" />
-        <property name="jacorb_version_info" value="\n       (${BuildNo})" />
+        <property name="jacorb_version_info" value=" CVS Build (${BuildNo})" />
 
         <echo>
 using BUILD_NUMBER: ${BuildNo}

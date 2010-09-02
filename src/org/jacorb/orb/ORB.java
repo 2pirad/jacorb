@@ -100,13 +100,14 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.189 2009-12-14 16:27:29 nick.cross Exp $
+ * @version $Id: ORB.java,v 1.190 2010-09-02 11:07:29 alexander.bykov Exp $
  */
 
 public final class ORB
     extends ORBSingleton
     implements org.jacorb.poa.POAListener, Configurable
 {
+    private static final String NL = System.getProperty("line.separator");
     private static final String versionString = org.jacorb.util.Version.version;
     private static final String dateString = org.jacorb.util.Version.date;
     private static final String nullIORString =
@@ -367,10 +368,10 @@ public final class ORB
 
         final Logger logger = configuration.getLogger("jacorb.orb.print_version");
 
-        logger.info("\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                    "\tJacORB V " + versionString + ", www.jacorb.org\n" +
+        logger.info(NL + "\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+ NL +
+                    "\tJacORB V " + versionString + ", www.jacorb.org" + NL +
                     "\t(C) The JacORB project " +
-                    dateString + BuildVersion.versionInfo + "\n" +
+                    dateString + BuildVersion.versionInfo + NL +
                     "\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
@@ -1284,7 +1285,7 @@ public final class ORB
             if (logger.isErrorEnabled())
             {
                 logger.error( "Could not create initial reference for \"" +
-                        identifier + "\"\n" +
+                        identifier + "\"" + NL +
                         "Please check property \"ORBInitRef." +
                         identifier + '\"', e);
             }

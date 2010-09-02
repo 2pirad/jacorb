@@ -43,7 +43,7 @@ import org.omg.TimeBase.UtcT;
 /**
  * TODO: remove the static dependeny to package filter.etcl.
  * @author Alphonse Bendt
- * @version $Id: EvaluationContext.java,v 1.12 2006-06-14 11:57:26 alphonse.bendt Exp $
+ * @version $Id: EvaluationContext.java,v 1.13 2010-09-02 11:07:29 alexander.bykov Exp $
  */
 public class EvaluationContext extends AbstractPoolable
 {
@@ -167,7 +167,7 @@ public class EvaluationContext extends AbstractPoolable
     {
         if (logger_.isDebugEnabled())
         {
-            logger_.debug("extractFromAny" + "\n\trootname=" + rootName + "\n\tvalue=" + any);
+            logger_.debug("extractFromAny" + "\trootname=" + rootName + "\tvalue=" + any);
         }
 
         EvaluationResult _result = null;

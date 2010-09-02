@@ -56,7 +56,7 @@ import org.slf4j.Logger;
  * Read CDR encoded data
  *
  * @author Gerald Brose, FU Berlin
- * $Id: CDRInputStream.java,v 1.128 2009-12-14 16:27:29 nick.cross Exp $
+ * $Id: CDRInputStream.java,v 1.129 2010-09-02 11:07:29 alexander.bykov Exp $
  */
 
 public class CDRInputStream
@@ -588,7 +588,7 @@ public class CDRInputStream
 
             if (logger.isDebugEnabled())
             {
-                logger.debug("Size of CDR encapsulation larger than buffer, swapping byte order\n" +
+                logger.debug("Size of CDR encapsulation larger than buffer, swapping byte order. " +
                              "Size of CDR encapsulation was " + size + ", is now " + temp);
             }
 

@@ -50,7 +50,7 @@ import org.omg.PortableServer.ThreadPolicyValue;
  * This class collects some useful routines for the POA.
  *
  * @author Reimo Tiedemann, FU Berlin
- * @version $Id: POAUtil.java,v 1.21 2008-11-14 08:55:36 nick.cross Exp $
+ * @version $Id: POAUtil.java,v 1.22 2010-09-02 11:07:29 alexander.bykov Exp $
  */
 
 public final class POAUtil
@@ -73,7 +73,6 @@ public final class POAUtil
     public static String convert( byte[] data )
     {
         StringBuffer result = new StringBuffer ();
-        result.append ('\n');
         int k = 0;
 
         for (int j = 0; j < data.length; j++)
@@ -98,8 +97,6 @@ public final class POAUtil
                 {
                     result.append ((data[k] < 32) ? '.' : (char) data[k]);
                 }
-
-                result.append ('\n');
             }
         }
         return result.toString ();

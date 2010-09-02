@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.42 2010-04-22 13:56:38 alexander.bykov Exp $
+ * @version $Id: EnumType.java,v 1.43 2010-09-02 11:07:29 alexander.bykov Exp $
  */
 
 public class EnumType
@@ -149,8 +149,7 @@ public class EnumType
                 catch (NameAlreadyDefined p)
                 {
                     parser.error("Identifier " + enum_ident +
-                                  " already defined in immediate scope" + Environment.NL,
-                                  token);
+                                  " already defined in immediate scope", token);
                 }
             }
         }
