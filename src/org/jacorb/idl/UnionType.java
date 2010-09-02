@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.68 2009-12-03 17:38:23 alexander.bykov Exp $
+ * @version $Id: UnionType.java,v 1.69 2010-09-02 14:27:19 alexander.bykov Exp $
  */
 public class UnionType
     extends TypeDeclaration
@@ -341,6 +341,8 @@ public class UnionType
         pw.println("public" + parser.getFinalString() + " class " + className);
         pw.println("\timplements org.omg.CORBA.portable.IDLEntity");
         pw.println("{");
+
+        printSerialVersionUID(pw);
 
         TypeSpec ts = switch_type_spec.typeSpec();
 

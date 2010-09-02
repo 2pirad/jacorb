@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.35 2009-12-03 17:38:22 alexander.bykov Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.36 2010-09-02 14:27:19 alexander.bykov Exp $
  */
 
 public class ValueBoxDecl
@@ -352,6 +352,9 @@ public class ValueBoxDecl
         ps.println("public class " + className);
         ps.println("\timplements org.omg.CORBA.portable.ValueBase");
         ps.println("{");
+
+        printSerialVersionUID(ps);
+
         ps.println("\tpublic " + typeSpec.typeName() + " value;");
         ps.println("\tprivate static String[] _ids = { " + className + "Helper.id() };");
 

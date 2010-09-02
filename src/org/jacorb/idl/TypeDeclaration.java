@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDeclaration.java,v 1.28 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: TypeDeclaration.java,v 1.29 2010-09-02 14:27:19 alexander.bykov Exp $
  */
 
 import java.io.PrintWriter;
@@ -212,5 +212,11 @@ public class TypeDeclaration
                                    String resulttype)
     {
         type_decl.printExtractResult(ps, resultname, anyname, resulttype);
+    }
+
+    public void printSerialVersionUID(PrintWriter ps)
+    {
+        ps.println("\t/** Serial version UID. */");
+        ps.println("\tprivate static final long serialVersionUID = 1L;");
     }
 }

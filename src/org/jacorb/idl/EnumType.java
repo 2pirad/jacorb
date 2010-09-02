@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.43 2010-09-02 11:07:29 alexander.bykov Exp $
+ * @version $Id: EnumType.java,v 1.44 2010-09-02 14:27:19 alexander.bykov Exp $
  */
 
 public class EnumType
@@ -335,6 +335,8 @@ public class EnumType
 
         pw.println("public" + parser.getFinalString() + " class " + className);
         pw.println("\timplements org.omg.CORBA.portable.IDLEntity" + Environment.NL + "{");
+
+        printSerialVersionUID(pw);
 
         pw.println("\tprivate int value = -1;");
 

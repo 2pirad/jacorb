@@ -33,7 +33,7 @@ import java.util.Set;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.54 2009-12-03 17:38:23 alexander.bykov Exp $
+ * @version $Id: ValueDecl.java,v 1.55 2010-09-02 14:27:19 alexander.bykov Exp $
  */
 
 public class ValueDecl
@@ -646,6 +646,8 @@ public class ValueDecl
             out.println("\t" + implementsBuffer.toString());
 
             out.println("{");
+
+            printSerialVersionUID(out);
 
             // collect and print repository ids that this value type can
             // truncated to.

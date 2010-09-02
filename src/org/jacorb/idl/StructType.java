@@ -29,7 +29,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.62 2010-01-16 16:24:11 alexander.bykov Exp $
+ * @version $Id: StructType.java,v 1.63 2010-09-02 14:27:19 alexander.bykov Exp $
  */
 
 public class StructType
@@ -132,7 +132,7 @@ public class StructType
     public TypeDeclaration declaration()
     {
         return this;
-    };
+    }
 
     public String typeName()
     {
@@ -639,6 +639,8 @@ public class StructType
         }
 
         ps.println("{");
+
+        printSerialVersionUID(ps);
 
         if (exc)
         {
