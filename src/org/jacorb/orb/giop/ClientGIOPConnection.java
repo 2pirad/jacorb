@@ -24,7 +24,7 @@ import org.jacorb.config.*;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: ClientGIOPConnection.java,v 1.19 2009-04-25 10:10:36 andre.spiegel Exp $
+ * @version $Id: ClientGIOPConnection.java,v 1.20 2010-09-06 18:23:50 andre.spiegel Exp $
  */
 public class ClientGIOPConnection
     extends GIOPConnection
@@ -125,9 +125,12 @@ public class ClientGIOPConnection
 
         try
         {
+            //Solve potential deadlock caused by COMM_FAILURE.
+            //The strategy is getting write_lock before sync
+            //connect_sync when you need both of them.
+            getWriteLock();
             synchronized (connect_sync)
             {
-                getWriteLock();
                 transport.close();
                 // We expect that the same transport can be reconnected
                 // after a close, something that the ETF draft isn't
