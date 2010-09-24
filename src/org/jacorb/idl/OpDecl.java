@@ -29,7 +29,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.48 2009-11-30 13:29:50 alexander.bykov Exp $
+ * @version $Id: OpDecl.java,v 1.49 2010-09-24 04:42:39 andre.spiegel Exp $
  */
 
 public class OpDecl
@@ -154,15 +154,16 @@ public class OpDecl
 
 
             String typeN = (param.paramTypeSpec.typeName().indexOf( "." ) < 0 ? param.paramTypeSpec.typeName() : param.paramTypeSpec.typeName().substring( param.paramTypeSpec.typeName().lastIndexOf( "." ) + 1 ));
-
-            if (typeN.toUpperCase().equals (param.simple_declarator.toString().toUpperCase()))
+            
+            if (   (parser.strict_names && typeN.toUpperCase().equals (param.simple_declarator.toString().toUpperCase()))
+                || typeN.equals (param.simple_declarator.toString()))
             {
                 parser.error("In operation " + full_name() + " argument " + param.simple_declarator + " clashes with type " + param.paramTypeSpec.typeName());
             }
 
             param.parse();
 
-try
+            try
             {
                 NameTable.define( full_name() + "." +
                                   param.simple_declarator.name(),
