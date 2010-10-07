@@ -34,7 +34,7 @@ import org.jacorb.orb.listener.TCPConnectionListener;
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.12 2009-12-14 16:27:29 nick.cross Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.13 2010-10-07 10:03:33 alexander.bykov Exp $
  */
 
 public class ServerIIOPConnection
@@ -69,7 +69,7 @@ public class ServerIIOPConnection
             socket.getPort()
         );
 
-        profile = new IIOPProfile(address, null);
+        profile = new IIOPProfile(address, null, orb.getGIOPMinorVersion());
         profile.configure(configuration);
 
         connection_info = address.toString();

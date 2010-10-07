@@ -37,7 +37,7 @@ import org.omg.PortableInterceptor.ServerRequestInfo;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.17 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.18 2010-10-07 10:03:33 alexander.bykov Exp $
  */
 public class BiDirConnectionServerInterceptor
     extends DefaultServerInterceptor
@@ -102,7 +102,7 @@ public class BiDirConnectionServerInterceptor
                 logger.debug("Client conn. added to target " + addr );
             }
 
-            conn_mg.addConnection( connection, new IIOPProfile (addr, null) );
+            conn_mg.addConnection( connection, new IIOPProfile (addr, null, connection.profile.version().minor));
         }
     }
 

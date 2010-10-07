@@ -25,7 +25,7 @@ import org.jacorb.config.JacORBConfiguration;
  *
  * @jacorb-client-since 2.2
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionTest.java,v 1.32 2009-12-14 16:27:30 nick.cross Exp $
+ * @version $Id: GIOPConnectionTest.java,v 1.33 2010-10-07 10:03:33 alexander.bykov Exp $
  */
 
 public class GIOPConnectionTest
@@ -72,7 +72,8 @@ public class GIOPConnectionTest
         private org.omg.ETF.Profile profile = new IIOPProfile
         (
             new IIOPAddress ("127.0.0.1", 4711),
-            null
+            null,
+            orb.getGIOPMinorVersion()
         );
 
         public DummyTransport( List messages )

@@ -82,7 +82,7 @@ import org.slf4j.Logger;
  *
  * @author Nicolas Noffke
  *
- * $Id: ImplementationRepositoryImpl.java,v 1.75 2010-01-16 16:24:11 alexander.bykov Exp $
+ * $Id: ImplementationRepositoryImpl.java,v 1.76 2010-10-07 10:03:33 alexander.bykov Exp $
  */
 
 public class ImplementationRepositoryImpl
@@ -1282,7 +1282,7 @@ public class ImplementationRepositoryImpl
             address = new IIOPAddress (host, port);
             address.configure(configuration);
 
-            IIOPProfile iiopProfile = new IIOPProfile(address, object_key);
+            IIOPProfile iiopProfile = new IIOPProfile(address, object_key, ((org.jacorb.orb.ORB)orb).getGIOPMinorVersion());
             iiopProfile.configure(configuration);
 
             connection = cm.getConnection(iiopProfile);
