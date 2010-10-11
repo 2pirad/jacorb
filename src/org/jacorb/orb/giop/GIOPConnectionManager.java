@@ -30,7 +30,7 @@ import org.jacorb.util.ObjectUtil;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: GIOPConnectionManager.java,v 1.16 2009-05-03 21:35:55 andre.spiegel Exp $
+ * @version $Id: GIOPConnectionManager.java,v 1.17 2010-10-11 15:41:21 nick.cross Exp $
  */
 
 public class GIOPConnectionManager
@@ -108,10 +108,12 @@ public class GIOPConnectionManager
         {
             if (selection_strategy == null)
             {
-                if (logger.isErrorEnabled())
+                //reject new connections
+                if (logger.isWarnEnabled())
                 {
-                    logger.error( "No. of max server giop connections set, but no SelectionStrategy present" );
+                    logger.warn( "Number of max server giop connections reached and no SelectionStrategy present - Rejecting new connection" );
                 }
+                return null;
             }
             else
             {

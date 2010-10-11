@@ -46,7 +46,7 @@ import org.omg.ETF.Listener;
  * Class BasicAdapter, used by the POA.
  *
  * @author Gerald Brose
- * @version $Id: BasicAdapter.java,v 1.62 2009-11-12 17:29:35 alexander.bykov Exp $
+ * @version $Id: BasicAdapter.java,v 1.63 2010-10-11 15:41:21 nick.cross Exp $
  */
 public class BasicAdapter
     extends org.omg.ETF._HandleLocalBase
@@ -404,8 +404,16 @@ public class BasicAdapter
                 request_listener,
                 reply_listener
             );
-        receptor_pool.connectionCreated( giopConnection );
-        return true;
+
+        if ( giopConnection == null )
+        {
+            return false;
+        }
+        else
+        {
+            receptor_pool.connectionCreated( giopConnection );
+            return true;
+        }
     }
 
     /**

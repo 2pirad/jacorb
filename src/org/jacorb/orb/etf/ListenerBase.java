@@ -26,6 +26,7 @@ import java.util.List;
 import org.jacorb.config.*;
 import org.slf4j.Logger;
 import org.jacorb.orb.ORB;
+import org.omg.CORBA.NO_RESOURCES;
 import org.omg.ETF.Connection;
 import org.omg.ETF.Handle;
 import org.omg.ETF.Profile;
@@ -34,7 +35,7 @@ import org.omg.ETF._ListenerLocalBase;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ListenerBase.java,v 1.8 2009-12-14 16:27:29 nick.cross Exp $
+ * @version $Id: ListenerBase.java,v 1.9 2010-10-11 15:41:21 nick.cross Exp $
  */
 public abstract class ListenerBase
     extends _ListenerLocalBase
@@ -128,7 +129,11 @@ public abstract class ListenerBase
     {
         if (up != null)
         {
-            up.add_input(connection);
+            if(!up.add_input(connection))
+            {
+                connection.close();
+                throw new NO_RESOURCES("Maximum number of server connections reached");
+            }
         }
         else
         {
