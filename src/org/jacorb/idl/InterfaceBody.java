@@ -28,7 +28,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: InterfaceBody.java,v 1.31 2009-10-26 13:16:57 nick.cross Exp $
+ * @version $Id: InterfaceBody.java,v 1.32 2010-10-11 18:18:02 nick.cross Exp $
  *
  * directly known subclasses: ValueBody
  */
@@ -415,15 +415,14 @@ public class InterfaceBody
     public void printOperationsHash( PrintWriter ps )
     {
         Operation[] ops = getMethods();
-        if( ops.length <= 0 )
+        if( ops.length == 0 )
+        {
             return;
+        }
 
-        String HASHTABLE = System.getProperty("java.version").startsWith ("1.1")
-                           ? "com.sun.java.util.collections.Hashtable"
-                           : "java.util.Hashtable";
+        ps.print  ( "\tstatic private final java.util.HashMap");
+        ps.println( " m_opsHash = new java.util.HashMap();" );
 
-        ps.println( "\tstatic private final " + HASHTABLE
-                      + " m_opsHash = new " + HASHTABLE + "();" );
         ps.println( "\tstatic" );
         ps.println( "\t{" );
 
@@ -439,9 +438,13 @@ public class InterfaceBody
 
             String name;
             if( ops[ i ] instanceof OpDecl && ops[ i ].opName().startsWith( "_" ) )
-                name = ops[ i ].opName().substring( 1 );
+            {
+               name = ops[ i ].opName().substring( 1 );
+            }
             else
-                name = ops[ i ].opName();
+            {
+               name = ops[ i ].opName();
+            }
 
             ps.println( "\t\tm_opsHash.put ( \"" + name + "\", Integer.valueOf(" + i + "));" );
         }
