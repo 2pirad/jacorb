@@ -35,7 +35,7 @@ import org.omg.CORBA.portable.ObjectImpl;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: AbstractGIOPMinorVersionTestCase.java,v 1.2 2009-11-19 17:02:59 alexander.bykov Exp $
+ * @version $Id: AbstractGIOPMinorVersionTestCase.java,v 1.3 2010-10-19 16:12:23 nick.cross Exp $
  */
 public abstract class AbstractGIOPMinorVersionTestCase extends ORBTestCase
 {
@@ -69,7 +69,7 @@ public abstract class AbstractGIOPMinorVersionTestCase extends ORBTestCase
         ParsedIOR ior = ((Delegate)((ObjectImpl)server)._get_delegate()).getParsedIOR();
 
         StringWriter out = new StringWriter();
-        PrintIOR.printIOR(ior, new PrintWriter(out));
+        PrintIOR.printIOR(orb, ior, new PrintWriter(out));
 
         String result = out.toString();
         verifyPrintIOROutput(result);

@@ -28,13 +28,12 @@ import org.jacorb.config.Configuration;
 import org.jacorb.config.ConfigurationException;
 import org.jacorb.orb.listener.TCPConnectionEvent;
 import org.jacorb.orb.listener.TCPConnectionListener;
-
 /**
  * ServerIIOPConnection.java
  *
  * @author Nicolas Noffke
  * @author Andre Spiegel
- * @version $Id: ServerIIOPConnection.java,v 1.13 2010-10-07 10:03:33 alexander.bykov Exp $
+ * @version $Id: ServerIIOPConnection.java,v 1.14 2010-10-19 16:12:23 nick.cross Exp $
  */
 
 public class ServerIIOPConnection
@@ -68,6 +67,7 @@ public class ServerIIOPConnection
             socket.getInetAddress().getHostAddress(),
             socket.getPort()
         );
+        address.configure (configuration);
 
         profile = new IIOPProfile(address, null, orb.getGIOPMinorVersion());
         profile.configure(configuration);

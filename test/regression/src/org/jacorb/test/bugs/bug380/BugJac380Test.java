@@ -41,7 +41,7 @@ import org.omg.PortableServer.POAPackage.WrongPolicy;
 
 /**
  * @author Alphonse Bendt
- * @version $Id: BugJac380Test.java,v 1.1 2009-04-08 13:40:02 alexander.bykov Exp $
+ * @version $Id: BugJac380Test.java,v 1.2 2010-10-19 16:12:23 nick.cross Exp $
  */
 public class BugJac380Test extends ORBTestCase
 {
@@ -97,7 +97,7 @@ public class BugJac380Test extends ORBTestCase
 
             StringWriter out = new StringWriter();
             final PrintWriter printWriter = new PrintWriter(out);
-            PrintIOR.printIOR(parsedIOR, printWriter);
+            PrintIOR.printIOR(orb, parsedIOR, printWriter);
             printWriter.close();
 
             return out.toString();

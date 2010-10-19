@@ -20,7 +20,7 @@
 
 package org.jacorb.orb.giop;
 
-import org.slf4j.Logger;
+import org.jacorb.config.ConfigurationException;
 import org.jacorb.orb.CDRInputStream;
 import org.jacorb.orb.ORB;
 import org.jacorb.orb.iiop.IIOPAddress;
@@ -34,10 +34,11 @@ import org.omg.IOP.BI_DIR_IIOP;
 import org.omg.IOP.ServiceContext;
 import org.omg.PortableInterceptor.ForwardRequest;
 import org.omg.PortableInterceptor.ServerRequestInfo;
+import org.slf4j.Logger;
 
 /**
  * @author Nicolas Noffke
- * @version $Id: BiDirConnectionServerInterceptor.java,v 1.18 2010-10-07 10:03:33 alexander.bykov Exp $
+ * @version $Id: BiDirConnectionServerInterceptor.java,v 1.19 2010-10-19 16:12:23 nick.cross Exp $
  */
 public class BiDirConnectionServerInterceptor
     extends DefaultServerInterceptor
@@ -96,6 +97,14 @@ public class BiDirConnectionServerInterceptor
             ListenPoint listenPoint = bidir_ctx.listen_points[i];
 
             IIOPAddress addr = new IIOPAddress (listenPoint.host, listenPoint.port);
+            try
+            {
+               addr.configure (orb.getConfiguration ());
+            }
+            catch( ConfigurationException ce)
+            {
+                logger.warn("ConfigurationException", ce );
+            }
 
             if (logger.isDebugEnabled())
             {
