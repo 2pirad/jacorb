@@ -64,7 +64,7 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose
- * @version $Id: PrintIOR.java,v 1.57 2010-10-22 10:10:44 nick.cross Exp $
+ * @version $Id: PrintIOR.java,v 1.58 2010-10-22 10:22:47 nick.cross Exp $
  */
 
 public class PrintIOR
@@ -222,10 +222,11 @@ public class PrintIOR
     private static void usage()
     {
         System.err.println("Usage: java PrintIOR "
-                + "[ -i ior_str ] [ -f filename] [-u]"
+                + "[ -i ior_str ] [ -f filename] [-u | -c]"
                 + "\n\tior_str\t IOR as String"
                 + "\n\t-f\t reads one or more IOR's from the file <filename>"
                 + "\n\t-u\t extract object key in URL-Form instead of HEX "
+                + "\n\t-c\t output corbaloc form of IOR string"
                 ); // NOPMD
         System.exit( 1 );
     }
