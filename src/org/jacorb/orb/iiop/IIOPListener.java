@@ -53,7 +53,7 @@ import org.omg.SSLIOP.TAG_SSL_SEC_TRANS;
 
 /**
  * @author Andre Spiegel
- * @version $Id: IIOPListener.java,v 1.50 2009-12-16 14:52:03 nick.cross Exp $
+ * @version $Id: IIOPListener.java,v 1.51 2010-11-01 16:49:09 alexander.bykov Exp $
  */
 public class IIOPListener
     extends org.jacorb.orb.etf.ListenerBase
@@ -476,7 +476,14 @@ public class IIOPListener
             }
             finally
             {
-                logger.info(info + "Listener exiting");
+                if (!terminated)
+                {
+                    logger.error(info + "Listener is unexpectedly exiting. the ORB is in an non-functional state!");
+                }
+                else
+                {
+                    logger.info(info + "Listener exiting");
+                }
             }
         }
 
@@ -559,6 +566,10 @@ public class IIOPListener
                     {
                         handleExceptionInRunLoop(e, terminated);
                     }
+                }
+                catch(OutOfMemoryError e)
+                {
+                    logger.error("OutOfMemory", e);
                 }
             }
         }

@@ -43,7 +43,7 @@ import org.jacorb.test.common.TestUtils;
  * with appropriate arguments.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: DirectLauncher.java,v 1.15 2009-11-13 15:31:11 alexander.bykov Exp $
+ * @version $Id: DirectLauncher.java,v 1.16 2010-11-01 16:49:09 alexander.bykov Exp $
  */
 public class DirectLauncher extends AbstractLauncher
 {
@@ -139,9 +139,10 @@ public class DirectLauncher extends AbstractLauncher
             cmdList.add("-ea");
         }
 
-        Assert.assertNotNull("need to specify jacorbHome", jacorbHome);
-
-        cmdList.add(new BootClasspathBuilder(jacorbHome, coverage).getBootClasspath());
+        if (jacorbHome != null)
+        {
+            cmdList.add(new BootClasspathBuilder(jacorbHome, coverage).getBootClasspath());
+        }
 
         if (classpath != null && classpath.length() > 0)
         {
@@ -155,7 +156,10 @@ public class DirectLauncher extends AbstractLauncher
             cmdList.addAll (propsToArgList(props));
         }
 
-        cmdList.add ("-Djacorb.home=" + jacorbHome);
+        if (jacorbHome != null)
+        {
+            cmdList.add ("-Djacorb.home=" + jacorbHome);
+        }
 
         if (TestUtils.isWindows())
         {

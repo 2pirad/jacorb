@@ -58,7 +58,7 @@ import junit.framework.TestSuite;
  * Utility class used to setup JUnit-TestSuite
  *
  * @author Alphonse Bendt
- * @version $Id: TestUtils.java,v 1.22 2010-01-16 16:24:11 alexander.bykov Exp $
+ * @version $Id: TestUtils.java,v 1.23 2010-11-01 16:49:09 alexander.bykov Exp $
  */
 
 public class TestUtils
@@ -659,5 +659,34 @@ public class TestUtils
         }
 
         System.out.println("SERVER IOR: " + ior);
+    }
+
+    /**
+     * copied here from ObjectUtil to make the package org.jacorb.test.common independent from the orb core
+     */
+    public static Class classForName(String name)
+        throws ClassNotFoundException, IllegalArgumentException
+    {
+        if (name == null)
+        {
+            throw new IllegalArgumentException("Class name must not be null!");
+        }
+
+        try
+        {
+            // Here we prefer classLoader.loadClass() over the three-argument
+            // form of Class.forName(), as the latter is reported to cause
+            // caching of stale Class instances (due to a buggy cache of
+            // loaded classes).
+            return Thread.currentThread().getContextClassLoader().loadClass(name);
+        }
+        catch (Exception e)
+        {
+            // As a fallback, we prefer Class.forName(name) because it loads
+            // array classes (i.e., it handles arguments like
+            // "[Lsome.class.Name;" or "[[I;", which classLoader.loadClass()
+            // does not handle).
+            return Class.forName(name);
+        }
     }
 }

@@ -39,7 +39,6 @@ import org.jacorb.orb.giop.LocateRequestOutputStream;
 import org.jacorb.orb.giop.ReplyInputStream;
 import org.jacorb.orb.giop.ReplyPlaceholder;
 import org.jacorb.orb.giop.RequestOutputStream;
-import org.jacorb.orb.iiop.IIOPProfile;
 import org.jacorb.orb.policies.PolicyManager;
 import org.jacorb.orb.portableInterceptor.ClientInterceptorIterator;
 import org.jacorb.orb.portableInterceptor.ClientRequestInfoImpl;
@@ -87,7 +86,7 @@ import org.omg.TimeBase.UtcT;
  * JacORB implementation of CORBA object reference
  *
  * @author Gerald Brose
- * @version $Id: Delegate.java,v 1.162 2010-04-20 15:46:16 nick.cross Exp $
+ * @version $Id: Delegate.java,v 1.163 2010-11-01 16:49:09 alexander.bykov Exp $
  *
  */
 

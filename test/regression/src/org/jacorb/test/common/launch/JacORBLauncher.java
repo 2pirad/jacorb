@@ -45,7 +45,7 @@ import org.jacorb.util.ObjectUtil;
  * invoke the launch() method on the resulting object.
  *
  * @author Andre Spiegel spiegel@gnu.org
- * @version $Id: JacORBLauncher.java,v 1.10 2009-09-03 12:49:16 alexander.bykov Exp $
+ * @version $Id: JacORBLauncher.java,v 1.11 2010-11-01 16:49:09 alexander.bykov Exp $
  */
 public class JacORBLauncher
 {
@@ -160,7 +160,16 @@ public class JacORBLauncher
                     "Launcher version " + version + " not available. available: " + getVersions());
         }
 
-        final String home = locateHome(properties, version, index);
+        String home = null;
+
+        try
+        {
+            home = locateHome(properties, version, index);
+        }
+        catch(Exception e)
+        {
+            TestUtils.log("unable to locate JacORB home. classpath will be only be set using the System property java.class.path: " + e.getMessage());
+        }
 
         String launcherClassName = lookupLauncher(version, index);
 
@@ -197,7 +206,7 @@ public class JacORBLauncher
 
             if (classLoader == null)
             {
-                launcherClass = ObjectUtil.classForName(launcherClassName);
+                launcherClass = TestUtils.classForName(launcherClassName);
             }
             else
             {
