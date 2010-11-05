@@ -1,5 +1,5 @@
 %
-% $Id: configuration.tex,v 1.51 2010-10-22 10:10:09 nick.cross Exp $
+% $Id: configuration.tex,v 1.52 2010-11-05 12:16:19 nick.cross Exp $
 %
 
 This chapter explains the general mechanism for configuring JacORB
@@ -442,6 +442,10 @@ immediately rather than keeping them for later reuse & integer & 18 \\
 cache for CDROutputStreams. If -1 then off, if zero then this is
 feature is enabled, if greater than zero then it is enabled and
 flushed every x seconds & integer & -1 \\
+\hline
+\verb"jacorb.deferredArrayQu"
+\verb"eue" & JacORB will delay internally transferring bytes to the stream;
+this is the size of this internal queue. Size in k. & integer & 8. \\
 \hline
 \verb"jacorb.connection.del"
 \verb"ay_close" & Normally, a jacorb server will close the TCP/IP connection
