@@ -50,7 +50,7 @@ import org.jacorb.idl.runtime.token;
  *
  *  This class is "static" (i.e., it has only static members and methods).
  *
- * @version $Id: lexer.java,v 1.57 2009-12-01 15:54:17 alexander.bykov Exp $
+ * @version $Id: lexer.java,v 1.58 2010-11-05 09:38:21 alexander.bykov Exp $
  * @author Gerald Brose
  *
  */
@@ -211,6 +211,7 @@ public class lexer
         keywords.put( "TRUE", new Integer( sym.TRUE ) );
         keywords.put( "truncatable", new Integer( sym.TRUNCATABLE ) );
         keywords.put( "typedef", new Integer( sym.TYPEDEF ) );
+        keywords.put( "typeprefix", new Integer( sym.TYPEPREFIX ) );
         keywords.put( "unsigned", new Integer( sym.UNSIGNED ) );
         keywords.put( "union", new Integer( sym.UNION ) );
         keywords.put( "ValueBase", new Integer( sym.VALUEBASE ) );
