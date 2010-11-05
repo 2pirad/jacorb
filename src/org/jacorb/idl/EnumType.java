@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: EnumType.java,v 1.44 2010-09-02 14:27:19 alexander.bykov Exp $
+ * @version $Id: EnumType.java,v 1.45 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class EnumType
@@ -122,7 +122,7 @@ public class EnumType
         {
             ConstrTypeSpec ctspec = new ConstrTypeSpec(new_num());
             ctspec.c_type_spec = this;
-            NameTable.define(full_name(), "type");
+            NameTable.define(full_name(), IDLTypes.TYPE);
             TypeMap.typedef(full_name(), ctspec);
             String enum_ident = null;
 
@@ -142,7 +142,7 @@ public class EnumType
                 enum_ident = (String) e.nextElement();
                 try
                 {
-                    NameTable.define(prefix + enum_ident, "enum label");
+                    NameTable.define(prefix + enum_ident, IDLTypes.ENUM_LABEL);
                     ScopedName.enumMap(prefix + enum_ident, full_name() +
                                         "." + enum_ident);
                 }
@@ -502,5 +502,4 @@ public class EnumType
     {
         visitor.visitEnum(this);
     }
-
 }

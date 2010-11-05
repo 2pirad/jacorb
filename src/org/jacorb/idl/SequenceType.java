@@ -30,7 +30,7 @@ import java.util.Set;
  *
  *
  * @author Gerald Brose
- * @version $Id: SequenceType.java,v 1.46 2010-01-16 16:24:11 alexander.bykov Exp $
+ * @version $Id: SequenceType.java,v 1.47 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class SequenceType
@@ -410,7 +410,7 @@ public class SequenceType
         }
         try
         {
-            NameTable.define(full_name(), "type");
+            NameTable.define(full_name(), IDLTypes.TYPE);
         }
         catch (NameAlreadyDefined n)
         {

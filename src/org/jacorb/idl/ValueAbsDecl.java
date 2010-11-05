@@ -29,7 +29,7 @@ import java.util.Set;
 /**
  * @author Andre Spiegel
  * @author Gerald Brose
- * @version $Id: ValueAbsDecl.java,v 1.28 2009-11-30 13:29:50 alexander.bykov Exp $
+ * @version $Id: ValueAbsDecl.java,v 1.29 2010-11-05 09:39:01 alexander.bykov Exp $
  *
  * This class is basically the same as Interface.java, but we can't extend
  * that one because we have to extend Value, and delegating some parts and
@@ -83,7 +83,7 @@ public class ValueAbsDecl
     public TypeDeclaration declaration()
     {
         return this;
-    };
+    }
 
     public String typeName()
     {
@@ -142,7 +142,7 @@ public class ValueAbsDecl
             ScopedName.definePseudoScope(full_name());
             ctspec.c_type_spec = this;
 
-            NameTable.define(full_name(), "type");
+            NameTable.define(full_name(), IDLTypes.TYPE);
             TypeMap.typedef(full_name(), ctspec);
         }
         catch (IllegalRedefinition ill)

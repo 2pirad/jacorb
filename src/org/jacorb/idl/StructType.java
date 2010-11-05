@@ -29,7 +29,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: StructType.java,v 1.63 2010-09-02 14:27:19 alexander.bykov Exp $
+ * @version $Id: StructType.java,v 1.64 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class StructType
@@ -247,7 +247,7 @@ public class StructType
 
             ctspec.c_type_spec = this;
 
-            NameTable.define(full_name(), "type-struct");
+            NameTable.define(full_name(), IDLTypes.TYPE_STRUCT);
             TypeMap.typedef(full_name(), ctspec);
         }
         catch (NameAlreadyDefined nad)

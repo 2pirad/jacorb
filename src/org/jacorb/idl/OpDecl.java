@@ -29,7 +29,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.49 2010-09-24 04:42:39 andre.spiegel Exp $
+ * @version $Id: OpDecl.java,v 1.50 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class OpDecl
@@ -141,7 +141,7 @@ public class OpDecl
 
         try
         {
-            NameTable.define( full_name(), "operation" );
+            NameTable.define( full_name(), IDLTypes.OPERATION );
         }
         catch( NameAlreadyDefined nad )
         {
@@ -167,7 +167,7 @@ public class OpDecl
             {
                 NameTable.define( full_name() + "." +
                                   param.simple_declarator.name(),
-                                  "argument" );
+                                  IDLTypes.ARGUMENT );
             }
             catch( NameAlreadyDefined nad )
             {
@@ -1007,7 +1007,4 @@ public class OpDecl
     {
         visitor.visitOpDecl( this );
     }
-
-
-
 }

@@ -26,7 +26,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: InitDecl.java,v 1.12 2008-11-14 08:55:25 nick.cross Exp $
+ * @version $Id: InitDecl.java,v 1.13 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class InitDecl
@@ -76,7 +76,7 @@ public class InitDecl
 
         try
         {
-            NameTable.define( full_name(), "factory" );
+            NameTable.define( full_name(), IDLTypes.FACTORY );
         }
         catch( NameAlreadyDefined nad )
         {
@@ -91,7 +91,7 @@ public class InitDecl
             {
                 NameTable.define( full_name() + "." +
                         param.simple_declarator.name(),
-                        "argument" );
+                        IDLTypes.ARGUMENT );
             }
             catch( NameAlreadyDefined nad )
             {

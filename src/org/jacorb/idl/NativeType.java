@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: NativeType.java,v 1.12 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: NativeType.java,v 1.13 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 import java.io.PrintWriter;
@@ -104,7 +104,7 @@ public class NativeType
         try
         {
             ctspec.c_type_spec = this;
-            NameTable.define( full_name(), "native" );
+            NameTable.define( full_name(), IDLTypes.NATIVE );
             TypeMap.typedef( full_name(), ctspec );
         }
         catch( NameAlreadyDefined n )
@@ -140,27 +140,4 @@ public class NativeType
     {
         visitor.visitNative( this );
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

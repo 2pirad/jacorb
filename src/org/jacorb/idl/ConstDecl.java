@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ConstDecl.java,v 1.33 2009-12-01 11:28:24 alexander.bykov Exp $
+ * @version $Id: ConstDecl.java,v 1.34 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 import java.io.File;
@@ -77,7 +77,7 @@ public class ConstDecl extends Declaration
         const_expr.setDeclaration(this);
         try
         {
-            NameTable.define(full_name(), "constant");
+            NameTable.define(full_name(), IDLTypes.CONSTANT);
         }
         catch (NameAlreadyDefined p)
         {

@@ -31,7 +31,7 @@ import java.util.List;
  * ReplyHandler).
  *
  * @author Andre Spiegel
- * $Id: ReplyHandler.java,v 1.10 2008-11-14 08:55:25 nick.cross Exp $
+ * $Id: ReplyHandler.java,v 1.11 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 public class ReplyHandler extends Interface
 {
@@ -185,7 +185,7 @@ public class ReplyHandler extends Interface
         {
             try
             {
-                NameTable.define ("org.omg.Messaging.ReplyHandler", "type");
+                NameTable.define ("org.omg.Messaging.ReplyHandler", IDLTypes.TYPE);
                 TypeMap.typedef ("org.omg.Messaging.ReplyHandler",
                                  new ReplyHandlerTypeSpec (IdlSymbol.new_num()));
             }
@@ -198,7 +198,7 @@ public class ReplyHandler extends Interface
         ConstrTypeSpec ctspec = new ConstrTypeSpec (this);
         try
         {
-            NameTable.define (full_name(), "interface");
+            NameTable.define (full_name(), IDLTypes.INTERFACE);
             TypeMap.typedef(full_name(), ctspec);
         }
         catch (NameAlreadyDefined e)
@@ -218,9 +218,4 @@ public class ReplyHandler extends Interface
         printImplSkeleton();
         printTieSkeleton();
     }
-
-
 }
-
-
-

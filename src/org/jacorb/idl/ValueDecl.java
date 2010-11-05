@@ -33,7 +33,7 @@ import java.util.Set;
 
 /**
  * @author Andre Spiegel
- * @version $Id: ValueDecl.java,v 1.55 2010-09-02 14:27:19 alexander.bykov Exp $
+ * @version $Id: ValueDecl.java,v 1.56 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class ValueDecl
@@ -166,7 +166,7 @@ public class ValueDecl
 
             ctspec.c_type_spec = this;
 
-            NameTable.define(full_name(), "type");
+            NameTable.define(full_name(), IDLTypes.TYPE);
             TypeMap.typedef(full_name(), ctspec);
         }
         catch (NameAlreadyDefined nad)

@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * IDL scoped names
  *
  * @author Gerald Brose
- * @version $Id: ScopedName.java,v 1.40 2009-12-03 17:38:23 alexander.bykov Exp $
+ * @version $Id: ScopedName.java,v 1.41 2010-11-05 09:39:01 alexander.bykov Exp $
  *
  */
 
@@ -168,7 +168,6 @@ public class ScopedName
     private TypeSpec resolvedSpec = null;
     private String resolvedName = null;
     private boolean resolved = false;
-    private Interface resolvedInterface = null;
     boolean set = false;
     public String typeName = null;
 
@@ -258,7 +257,7 @@ public class ScopedName
 
     public boolean is_pseudo()
     {
-        return NameTable.isDefined( resolvedName(), "pseudo interface" );
+        return NameTable.isDefined( resolvedName(), IDLTypes.PSEUDO_INTERFACE );
     }
 
     public TypeSpec resolvedTypeSpec()

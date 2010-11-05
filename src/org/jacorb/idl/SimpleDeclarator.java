@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: SimpleDeclarator.java,v 1.16 2004-05-06 12:39:58 nicolas Exp $
+ * @version $Id: SimpleDeclarator.java,v 1.17 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 
@@ -56,7 +56,7 @@ public class SimpleDeclarator
         // add sloppy_declarator behavior here....
         try
         {
-            NameTable.define( full_name(), "declarator" );
+            NameTable.define( full_name(), IDLTypes.DECLARATOR );
         }
         catch( NameAlreadyDefined p )
         {
@@ -101,28 +101,3 @@ public class SimpleDeclarator
         return name;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

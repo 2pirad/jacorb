@@ -27,7 +27,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: ArrayTypeSpec.java,v 1.36 2009-12-03 17:38:23 alexander.bykov Exp $
+ * @version $Id: ArrayTypeSpec.java,v 1.37 2010-11-05 09:39:01 alexander.bykov Exp $
  *
  */
 
@@ -185,12 +185,12 @@ public class ArrayTypeSpec
         {
             if (!typedefd)
             {
-                NameTable.define(full_name(), "type");
+                NameTable.define(full_name(), IDLTypes.TYPE);
 
                 // change for Prismtech JAC#572 here
                 // 
-                if (!NameTable.isDefined(typeName(), "type"))
-                    NameTable.define(typeName(), "type");
+                if (!NameTable.isDefined(typeName(), IDLTypes.TYPE))
+                    NameTable.define(typeName(), IDLTypes.TYPE);
             }
         }
         catch (NameAlreadyDefined n)
@@ -540,6 +540,4 @@ public class ArrayTypeSpec
     {
         throw new RuntimeException("DII-stubs not completely implemented for array types!");
     }
- 
-
 }

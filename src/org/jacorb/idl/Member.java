@@ -26,7 +26,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: Member.java,v 1.33 2008-11-14 08:55:25 nick.cross Exp $
+ * @version $Id: Member.java,v 1.34 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 public class Member
     extends Declaration
@@ -251,7 +251,7 @@ public class Member
                 try
                 {
                     NameTable.define( containingType + "." + declarator.name(),
-                            "declarator" );
+                                      IDLTypes.DECLARATOR );
                 }
                 catch( NameAlreadyDefined nad )
                 {

@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: ElementSpec.java,v 1.20 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: ElementSpec.java,v 1.21 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class ElementSpec
@@ -126,7 +126,7 @@ public class ElementSpec
 
         try
         {
-            NameTable.define( containingUnion.full_name() + "." + declarator.name(), "declarator" );
+            NameTable.define( containingUnion.full_name() + "." + declarator.name(), IDLTypes.DECLARATOR );
         }
         catch( NameAlreadyDefined nad )
         {

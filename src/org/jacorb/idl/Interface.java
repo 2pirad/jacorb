@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: Interface.java,v 1.81 2010-09-02 14:27:19 alexander.bykov Exp $
+ * @version $Id: Interface.java,v 1.82 2010-11-05 09:39:00 alexander.bykov Exp $
  */
 
 import java.io.File;
@@ -282,9 +282,9 @@ public class Interface
             ctspec.c_type_spec = this;
 
             if (is_pseudo)
-                NameTable.define(full_name(), "pseudo interface");
+                NameTable.define(full_name(), IDLTypes.PSEUDO_INTERFACE);
             else
-                NameTable.define(full_name(), "interface");
+                NameTable.define(full_name(), IDLTypes.INTERFACE);
 
             TypeMap.typedef(full_name(), ctspec);
         }

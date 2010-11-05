@@ -24,7 +24,7 @@ package org.jacorb.idl;
  * JacORB  IDL compiler classes
  *
  * @author Gerald Brose
- * @version $Id: Module.java,v 1.20 2009-11-30 13:29:51 alexander.bykov Exp $
+ * @version $Id: Module.java,v 1.21 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 import java.io.File;
@@ -106,7 +106,7 @@ public class Module
     {
         try
         {
-            NameTable.define(full_name(), "module");
+            NameTable.define(full_name(), IDLTypes.MODULE);
         }
         catch (NameAlreadyDefined nad)
         {

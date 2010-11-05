@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: ValueBoxDecl.java,v 1.36 2010-09-02 14:27:19 alexander.bykov Exp $
+ * @version $Id: ValueBoxDecl.java,v 1.37 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 public class ValueBoxDecl
@@ -130,7 +130,7 @@ public class ValueBoxDecl
             ConstrTypeSpec ctspec = new ConstrTypeSpec(new_num());
             ctspec.c_type_spec = this;
 
-            NameTable.define(full_name(), "type");
+            NameTable.define(full_name(), IDLTypes.TYPE);
             TypeMap.typedef(full_name(), ctspec);
         }
         catch (NameAlreadyDefined nad)

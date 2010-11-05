@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.69 2010-09-02 14:27:19 alexander.bykov Exp $
+ * @version $Id: UnionType.java,v 1.70 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 public class UnionType
     extends TypeDeclaration
@@ -208,7 +208,7 @@ public class UnionType
         {
             ScopedName.definePseudoScope(full_name());
             ctspec.c_type_spec = this;
-            NameTable.define(full_name(), "type-union");
+            NameTable.define(full_name(), IDLTypes.TYPE_UNION);
             TypeMap.typedef(full_name(), ctspec);
         }
         catch (NameAlreadyDefined nad)

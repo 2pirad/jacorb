@@ -22,7 +22,7 @@ package org.jacorb.idl;
 
 /**
  * @author Gerald Brose
- * @version $Id: TypeDef.java,v 1.18 2008-11-14 08:55:26 nick.cross Exp $
+ * @version $Id: TypeDef.java,v 1.19 2010-11-05 09:39:01 alexander.bykov Exp $
  */
 
 import java.io.PrintWriter;
@@ -125,7 +125,7 @@ public class TypeDef
                 alias.set_included( included );
 
                 typeSpecs.addElement( alias );
-                NameTable.define( d.full_name(), "type" );
+                NameTable.define( d.full_name(), IDLTypes.TYPE );
                 TypeMap.typedef( d.full_name(), alias );
             }
             catch( NameAlreadyDefined n )
