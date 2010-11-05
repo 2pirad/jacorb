@@ -100,7 +100,7 @@ import org.slf4j.Logger;
 
 /**
  * @author Gerald Brose, FU Berlin
- * @version $Id: ORB.java,v 1.190 2010-09-02 11:07:29 alexander.bykov Exp $
+ * @version $Id: ORB.java,v 1.191 2010-11-05 13:34:56 nick.cross Exp $
  */
 
 public final class ORB
@@ -1990,6 +1990,12 @@ public final class ORB
         catch( org.omg.CORBA.BAD_INV_ORDER bio )
         {
             // only set the delegate if it has not been set already
+            org.jacorb.orb.ServantDelegate delegate =
+                new org.jacorb.orb.ServantDelegate( this );
+            ((org.omg.PortableServer.Servant)wrapper)._set_delegate(delegate);
+        }
+        if (((org.omg.PortableServer.Servant)wrapper)._get_delegate().orb((org.omg.PortableServer.Servant)wrapper) != this)
+        {
             org.jacorb.orb.ServantDelegate delegate =
                 new org.jacorb.orb.ServantDelegate( this );
             ((org.omg.PortableServer.Servant)wrapper)._set_delegate(delegate);
