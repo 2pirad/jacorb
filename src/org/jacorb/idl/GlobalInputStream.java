@@ -31,7 +31,7 @@ import java.util.Stack;
  * This class deals with IDL input files and their inclusion relationships.
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
- * @version $Id: GlobalInputStream.java,v 1.24 2009-12-01 15:54:17 alexander.bykov Exp $
+ * @version $Id: GlobalInputStream.java,v 1.25 2010-11-08 16:07:59 alexander.bykov Exp $
  */
 
 public class GlobalInputStream
@@ -59,6 +59,19 @@ public class GlobalInputStream
         currentFile = null;
         positions = new java.util.Stack();
         logger = parser.getLogger();
+    }
+
+    public static void cleanUp()
+    {
+        stream = null;
+        lookahead_stack = null;
+        included = false;
+        expandedText = null;
+        pos = 0;
+        eof = false;
+        currentFile = null;
+        path_names = null;
+        logger = null;
     }
 
     public static void setInput(String fname)

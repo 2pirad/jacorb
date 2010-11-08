@@ -21,7 +21,7 @@ import org.jacorb.idl.util.IDLLogger;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.114 2010-11-05 09:38:21 alexander.bykov Exp $
+ * $Id: parser.cup,v 1.115 2010-11-08 16:07:59 alexander.bykov Exp $
  */
 
 action code
@@ -114,6 +114,7 @@ parser code
 
     protected static void cleanup()
     {
+        GlobalInputStream.cleanUp();
         generatedHelperPortability = HELPER_PORTABLE;
         pending_interfaces.clear();
         pack_replace.clear();
@@ -731,12 +732,12 @@ parser code
         throws InstantiationException, IllegalAccessException
     {
         final Class cachePluginClass;
-        
+
         try
         {
             if (Thread.currentThread().getContextClassLoader() == null)
             {
-                cachePluginClass = Class.forName( pluginClass );
+                cachePluginClass = Class.forName(pluginClass);
             }
             else
             {
