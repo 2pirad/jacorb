@@ -24,7 +24,7 @@ import java.util.Enumeration;
 
 /**
  * @author Gerald Brose
- * @version $Id: Case.java,v 1.17 2006-06-19 10:34:57 alphonse.bendt Exp $
+ * @version $Id: Case.java,v 1.18 2010-11-09 16:59:21 alexander.bykov Exp $
  */
 
 public class Case
@@ -88,12 +88,16 @@ public class Case
         element_spec.setEnclosingSymbol( s );
     }
 
-
     public void setTypeSpec( TypeSpec s )
     {
-        // and enum type name if necessary
         type_spec = s;
-        type_spec.setPackage( pack_name );
+        // JAC570: don't set package name when the enum 
+        // declaration is used inline in the switch clause 
+        // to prevent package name duplication
+        if( type_spec != null && !(type_spec.type_spec instanceof ConstrTypeSpec) )
+        {
+            type_spec.setPackage( pack_name );
+        }
     }
 
     private String enumTypeName()

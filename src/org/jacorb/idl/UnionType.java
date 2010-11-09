@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * @author Gerald Brose
- * @version $Id: UnionType.java,v 1.72 2010-11-09 16:42:41 alexander.bykov Exp $
+ * @version $Id: UnionType.java,v 1.73 2010-11-09 16:59:21 alexander.bykov Exp $
  */
 public class UnionType
     extends TypeDeclaration
@@ -1353,6 +1353,13 @@ public class UnionType
             {
                 try
                 {
+                    // JAC570: when the enum declaration is used in union declaration
+                    // the following code will generate implementation classes for enum
+                    if (switch_type_spec.type_spec instanceof ConstrTypeSpec)
+                    {
+                        switch_type_spec.print(ps);
+                    }
+
                     switch_body.print(ps);
 
                     String className = className();
