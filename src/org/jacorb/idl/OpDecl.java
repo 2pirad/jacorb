@@ -29,7 +29,7 @@ import java.util.Vector;
 
 /**
  * @author Gerald Brose
- * @version $Id: OpDecl.java,v 1.50 2010-11-05 09:39:01 alexander.bykov Exp $
+ * @version $Id: OpDecl.java,v 1.51 2010-11-09 14:06:55 alexander.bykov Exp $
  */
 
 public class OpDecl
@@ -152,13 +152,18 @@ public class OpDecl
         {
             ParamDecl param = (ParamDecl)e.nextElement();
 
-
-            String typeN = (param.paramTypeSpec.typeName().indexOf( "." ) < 0 ? param.paramTypeSpec.typeName() : param.paramTypeSpec.typeName().substring( param.paramTypeSpec.typeName().lastIndexOf( "." ) + 1 ));
-            
-            if (   (parser.strict_names && typeN.toUpperCase().equals (param.simple_declarator.toString().toUpperCase()))
-                || typeN.equals (param.simple_declarator.toString()))
+            if (parser.strict_identifiers)
             {
-                parser.error("In operation " + full_name() + " argument " + param.simple_declarator + " clashes with type " + param.paramTypeSpec.typeName());
+                String typeN = (param.paramTypeSpec.typeName().indexOf(".") < 0
+                                                                               ? param.paramTypeSpec.typeName()
+                                                                               : param.paramTypeSpec.typeName().substring(param.paramTypeSpec.typeName().lastIndexOf(".") + 1));
+                if ((parser.strict_names && typeN.toUpperCase().equals(param.simple_declarator.toString().toUpperCase()))
+                        || typeN.equals(param.simple_declarator.toString()))
+                {
+                    parser.error("In operation " + full_name() + " argument "
+                            + param.simple_declarator + " clashes with type "
+                            + param.paramTypeSpec.typeName());
+                }
             }
 
             param.parse();

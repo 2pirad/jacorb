@@ -48,7 +48,7 @@ import org.omg.CORBA.Any;
  * been overwritten.
  *
  * @author Alphonse Bendt
- * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.19 2009-11-12 10:52:25 alexander.bykov Exp $
+ * @version $Id: ValidIDLWithExtraSetupTest.java,v 1.20 2010-11-09 14:06:55 alexander.bykov Exp $
  */
 public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 {
@@ -323,6 +323,7 @@ public class ValidIDLWithExtraSetupTest extends AbstractIDLTestcase
 
         suite.addTest(new ValidIDLWithExtraSetupTest(new String[] {"-cacheplugin", BugJac144ObjectCachePlugin.class.getName()}, "bugJac144.idl"));
         suite.addTest(new ValidIDLWithExtraSetupTest(new String[] {}, "bugJac144.idl"));
+        suite.addTest(new ValidIDLWithExtraSetupTest("-sloppy_identifiers", TEST_HOME + "/idl/compiler/fail/collision.idl"));
 
         return suite;
     }
