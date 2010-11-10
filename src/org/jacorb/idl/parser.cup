@@ -21,7 +21,7 @@ import org.jacorb.idl.util.IDLLogger;
  *
  * @author Gerald Brose <mailto:gerald.brose@acm.org>
  *
- * $Id: parser.cup,v 1.116 2010-11-09 14:06:55 alexander.bykov Exp $
+ * $Id: parser.cup,v 1.117 2010-11-10 10:35:34 alexander.bykov Exp $
  */
 
 action code
@@ -1756,18 +1756,25 @@ literal ::=
 string_literal ::=
         DBLQUOTE ID:i DBLQUOTE
                  {: RESULT.string = "\"" + i.str_val + "\""; :}
+        | DBLQUOTE ID:i DBLQUOTE DBLQUOTE ID:j DBLQUOTE
+                 {: RESULT.string = "\"" + i.str_val + j.str_val + "\""; :}
         | DBLQUOTE DBLQUOTE
                  {: RESULT.string = "\"\""; :}
         | LDBLQUOTE ID:i DBLQUOTE
                  {:
                         RESULT.string = "\"" + i.str_val + "\"";
                         RESULT.wide = true;
-                  :}
+                 :}
+        | LDBLQUOTE ID:i DBLQUOTE LDBLQUOTE ID:j DBLQUOTE
+                 {:
+                        RESULT.string = "\"" + i.str_val + j.str_val + "\"";
+                        RESULT.wide = true;
+                 :}
         | LDBLQUOTE DBLQUOTE
                  {:
                         RESULT.string = "\"\"";
                         RESULT.wide = true;
-                  :}
+                 :}
         ;
 
 // #26
